@@ -1,0 +1,25 @@
+{
+  "file": "photos-medio.tar.gz",
+  "bytes": 131773490,
+  "sha256": "8d6eb61e87d3466a4e8e44765d18d47ffee67b7d1bd2ceb88d07ecfba5a6fc74",
+  "imageBytes": 132052951,
+  "imageCount": 606,
+  "curatedCount": 609,
+  "failCount": 3,
+  "failures": [
+    {
+      "id": "map-image-map-visit-tokyo-odaiba-beach",
+      "error": "exhausted retries"
+    },
+    {
+      "id": "merchant-osaka-yodobashi-umeda",
+      "error": "exhausted retries"
+    },
+    {
+      "id": "place-tokyo-kiyosumi",
+      "error": "exhausted retries"
+    }
+  ],
+  "builtAt": "2026-08-07T20:13:00.635Z",
+  "width": 960
+}
