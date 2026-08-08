@@ -139,14 +139,51 @@
       renderFoods();
       updateFilterToggle("food");
     });
+    applyCurrentCityToFilters();
     ["place", "experience", "food", "shop", "history"].forEach(updateFilterToggle);
   }
 
+  // Se sappiamo in che tappa siete, le liste partono da lì. Senza, "Cibi tipici"
+  // si apre su 196 piatti di tutto il Giappone: la stessa lista, ma inutile.
+  // Resta un filtro come gli altri, quindi "Azzera filtri" lo toglie.
+  const CITY_FILTER_SELECTS = { place:"placeCity", experience:"experienceCity", food:"foodCity", shop:"shopCity", history:"historyCity" };
+
+  function applyCurrentCityToFilters() {
+    const cityId = localStorage.getItem("tabi-current-city") || "";
+    Object.keys(CITY_FILTER_SELECTS).forEach(function (group) {
+      state.filters[group].city = cityId && cityById[cityId] ? cityId : "all";
+      const select = document.getElementById(CITY_FILTER_SELECTS[group]);
+      if (select) select.value = state.filters[group].city;
+      updateFilterToggle(group);
+    });
+  }
+
+  function retargetListsToCurrentCity() {
+    applyCurrentCityToFilters();
+    Object.keys(CITY_FILTER_SELECTS).forEach(renderGroup);
+  }
+
+  // Scrivere in un campo di ricerca ridisegnava la griglia a ogni tasto: con 196
+  // schede si sentiva. Un filtro cambia idea più lentamente di quanto si scriva.
+  function debounce(fn, wait) {
+    let timer;
+    return function () {
+      const args = arguments;
+      clearTimeout(timer);
+      timer = setTimeout(function () { fn.apply(null, args); }, wait);
+    };
+  }
+
   function bindFilter(elementId, group, field, eventName) {
-    document.getElementById(elementId).addEventListener(eventName, function (event) {
-      state.filters[group][field] = event.target.value;
+    const apply = function () {
+      resetPaging(GROUP_GRIDS[group]);
       renderGroup(group);
       updateFilterToggle(group);
+    };
+    const run = eventName === "input" ? debounce(apply, 150) : apply;
+    document.getElementById(elementId).addEventListener(eventName, function (event) {
+      state.filters[group][field] = event.target.value;
+      run();
     });
   }
 
@@ -357,7 +394,12 @@
 
   function foodCard(item) {
     return '<article class="content-card" data-card-id="' + item.id + '">' + actionButtons(item) + cardImage(item)
-      + '<div class="card-body"><div class="card-kicker"><span>' + escapeHTML(data.labels.foodCategories[item.category]) + '</span><span class="rating">★ ' + item.rating.toFixed(1) + '</span></div>'
+      // Il voto dei cibi è nostro, non di una fonte: senza stellina e senza
+      // numero non si confonde con il punteggio Tabelog dei locali, che invece
+      // viene da fuori e ha tutt'altra scala.
+      + '<div class="card-body"><div class="card-kicker"><span>' + escapeHTML(data.labels.foodCategories[item.category]) + '</span>'
+      + (item.rating >= 4.6 ? '<span class="our-pick" title="Scelta nostra, non un voto di una fonte esterna">La nostra scelta</span>' : '')
+      + '</div>'
       + '<h3>' + escapeHTML(item.name) + '<span class="jp-name">' + escapeHTML(item.jp) + '</span></h3>'
       + '<p class="card-description">' + escapeHTML(item.description) + '</p>'
       + '<div class="tag-row"><span class="tag">' + escapeHTML(item.context) + '</span>' + (item.local ? '<span class="tag">Scoperta locale</span>' : '<span class="tag">Classico</span>') + '</div>'
@@ -426,10 +468,7 @@
 
   function renderHistory() {
     const items = data.history.filter(function (item) { return matches(item, state.filters.history); });
-    const grid = document.getElementById("historyGrid");
-    grid.innerHTML = items.map(historyCard).join("");
-    document.getElementById("historyMeta").textContent = items.length + " storie e contesti";
-    document.getElementById("historyEmpty").hidden = items.length !== 0;
+    renderCards("historyGrid", "historyMeta", "historyEmpty", items, historyCard, "storie e contesti");
   }
 
   function phrasebookPhrases() {
@@ -583,6 +622,35 @@
       + '<p>' + escapeHTML(item.note) + '</p></article>';
   }
 
+  // Numeri che non sono emergenze immediate: rappresentanza italiana e
+  // assistenza medica. Stanno in blocchi separati da 110 e 119 per non far mai
+  // esitare chi ha davvero bisogno dell'ambulanza.
+  function renderAssistance() {
+    const stack = document.getElementById("assistanceStack");
+    if (!stack || !data.assistance) return;
+    stack.innerHTML = data.assistance.map(function (group) {
+      const rows = group.entries.map(function (entry) {
+        const phone = entry.phone
+          ? '<a class="assistance-call" href="' + escapeHTML(entry.href) + '">' + escapeHTML(entry.phone) + '</a>'
+          : "";
+        const link = entry.link
+          ? '<a class="assistance-link" href="' + escapeHTML(entry.link) + '" target="_blank" rel="noopener">' + escapeHTML(entry.linkLabel || "Apri") + ' ↗</a>'
+          : "";
+        const source = entry.source
+          ? '<a class="assistance-source" href="' + escapeHTML(entry.source) + '" target="_blank" rel="noopener">Pagina ufficiale ↗</a>'
+          : "";
+        return '<article class="assistance-row"><div><b>' + escapeHTML(entry.name) + '</b>'
+          + '<small>' + escapeHTML(entry.detail) + '</small></div>'
+          + '<div class="assistance-actions">' + phone + link + source + '</div></article>';
+      }).join("");
+      return '<section class="assistance-panel" aria-labelledby="assistance-' + group.id + '">'
+        + '<div><p class="eyebrow">' + escapeHTML(group.eyebrow) + '</p>'
+        + '<h2 id="assistance-' + group.id + '">' + escapeHTML(group.title) + '</h2>'
+        + '<p>' + escapeHTML(group.note) + '</p></div>'
+        + '<div class="assistance-rows">' + rows + '</div></section>';
+    }).join("");
+  }
+
   function setupPhrasebook() {
     const entries = [["all", "Tutto"]].concat((data.phrasebookCategories || Object.keys(data.phraseCategories)).map(function (key) {
       return [key, data.phraseCategories[key]];
@@ -593,6 +661,7 @@
     document.getElementById("emergencyGrid").innerHTML = data.emergencyNumbers.map(function (item) {
       return '<a class="emergency-card" href="' + item.href + '"><strong>' + escapeHTML(item.number) + '</strong><span>' + escapeHTML(item.title) + '</span><small>' + escapeHTML(item.detail) + '</small></a>';
     }).join("") + '<a class="emergency-source" href="https://www.japan.travel/en/plan/emergencies/" target="_blank" rel="noopener">Fonte e assistenza ufficiale JNTO ↗</a>';
+    renderAssistance();
     document.getElementById("emergencyPhraseGrid").innerHTML = data.phrases.filter(function (item) {
       return item.category === "salute" || item.category === "emergenza";
     }).map(phraseCardHTML).join("");
@@ -602,12 +671,39 @@
     });
   }
 
+  // Si disegnano poche schede per volta. Prima si costruivano tutte le griglie
+  // di tutte le schermate all'avvio — circa 18.000 nodi per mostrarne 150 — e
+  // ogni lettera scritta in un filtro le rifaceva da capo.
+  const PAGE_SIZE = 24;
+  const shownCount = {};
+
   function renderCards(gridId, metaId, emptyId, items, renderer, noun) {
     const grid = document.getElementById(gridId);
-    grid.innerHTML = items.map(renderer).join("");
+    const shown = Math.min(items.length, shownCount[gridId] || PAGE_SIZE);
+    shownCount[gridId] = shown;
+    grid.innerHTML = items.slice(0, shown).map(renderer).join("");
     document.getElementById(metaId).textContent = items.length + " " + noun;
     document.getElementById(emptyId).hidden = items.length !== 0;
+    renderShowMore(grid, gridId, items.length, shown, noun);
     observeImages(grid);
+  }
+
+  function renderShowMore(grid, gridId, total, shown, noun) {
+    const existing = grid.parentNode.querySelector('[data-show-more="' + gridId + '"]');
+    if (existing) existing.remove();
+    if (shown >= total) return;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "show-more";
+    button.dataset.showMore = gridId;
+    button.textContent = "Mostra altri " + Math.min(PAGE_SIZE, total - shown) + " di " + total + " " + noun;
+    grid.insertAdjacentElement("afterend", button);
+  }
+
+  // Un filtro nuovo riparte dalla prima pagina: restare a pagina cinque dopo
+  // aver cambiato città non avrebbe senso.
+  function resetPaging(gridId) {
+    shownCount[gridId] = PAGE_SIZE;
   }
 
   // La barra vive sia in Mappa sia in Esperienze: i due elenchi alimentano lo
@@ -679,6 +775,8 @@
     refreshSelectionViews();
   }
 
+  const GROUP_GRIDS = { place:"placeGrid", experience:"experienceGrid", food:"foodGrid", shop:"shopGrid", history:"historyGrid" };
+
   function renderGroup(group) {
     if (group === "place") renderPlaces();
     if (group === "experience") renderExperiences();
@@ -712,6 +810,35 @@
       if (select.value) localStorage.setItem("tabi-current-city", select.value);
       else localStorage.removeItem("tabi-current-city");
       renderCurrentCity();
+      retargetListsToCurrentCity();
+    });
+
+    // La tappa si può ancora scegliere a mano, ma non è più l'unico modo: il
+    // telefono sa già in quale delle undici città siete. La posizione serve solo
+    // qui e non viene salvata da nessuna parte.
+    const locate = document.getElementById("nowLocateButton");
+    if (locate) locate.addEventListener("click", function () {
+      locate.disabled = true;
+      locate.textContent = "Cerco…";
+      requestPosition().then(function (position) {
+        const here = { lat: position.coords.latitude, lng: position.coords.longitude };
+        state.position = here;
+        const nearest = data.cities.slice().sort(function (a, b) {
+          return distanceInMeters(here, a) - distanceInMeters(here, b);
+        })[0];
+        if (nearest) {
+          localStorage.setItem("tabi-current-city", nearest.id);
+          select.value = nearest.id;
+          renderCurrentCity();
+          retargetListsToCurrentCity();
+          showToast("Siete a " + nearest.name);
+        }
+      }).catch(function (error) {
+        showToast(error.message);
+      }).finally(function () {
+        locate.disabled = false;
+        locate.textContent = "◎ Usa la mia posizione";
+      });
     });
     renderCurrentCity();
   }
@@ -829,6 +956,19 @@
     });
   }
 
+  // Qualche informazione cambia ogni giorno e non può stare nei dati: si dice
+  // come si legge e si manda alla fonte che la calcola, invece di copiare una
+  // tabella che invecchia il giorno dopo.
+  function lookupHTML(lookup) {
+    if (!lookup) return "";
+    return '<div class="day-lookup"><b>' + escapeHTML(lookup.title) + '</b>'
+      + '<p>' + escapeHTML(lookup.note) + '</p>'
+      + '<a class="day-lookup-link" href="' + escapeHTML(lookup.url) + '" target="_blank" rel="noopener">' + escapeHTML(lookup.label) + ' ↗</a>'
+      + '<small>Fonte: ' + escapeHTML(lookup.sourceLabel)
+      + (lookup.backupUrl ? ' · <a href="' + escapeHTML(lookup.backupUrl) + '" target="_blank" rel="noopener">' + escapeHTML(lookup.backupLabel) + ' ↗</a>' : "")
+      + '</small></div>';
+  }
+
   function dayTipsHTML(city) {
     const tips = (data.dayTips || []).find(function (item) { return item.city === city.id; });
     if (!tips) return "";
@@ -842,6 +982,7 @@
       + '<li><b>Da prenotare</b><span>' + escapeHTML(tips.book) + '</span></li>'
       + '<li><b>Prima che chiuda</b><span>' + escapeHTML(tips.evening) + '</span></li>'
       + '</ul>'
+      + lookupHTML(tips.lookup)
       + (sun
         ? '<div class="day-sun"><div><span class="eyebrow">Tramonto</span><strong>' + japanTime(sun.sunset) + '</strong>'
           + (countdown ? '<small>' + escapeHTML(countdown) + '</small>' : "") + '</div>'
@@ -1355,7 +1496,10 @@
   const MENU_TITLES = { discover: "Scopri", tools: "Utilità" };
   const NAV_GROUPS = {
     discover: ["experiences", "food", "shopping", "history"],
-    tools: ["emergency", "translate", "money", "packing", "notes", "saved"]
+    // "Fotografa e traduci" è salito nella barra: davanti a un menu si usa in
+    // piedi, non si va a cercarlo in un menu. Al suo posto scende Progressi,
+    // che è un riepilogo da fine giornata.
+    tools: ["emergency", "progress", "money", "packing", "notes", "saved"]
   };
 
   function viewTitle(view) {
@@ -1405,6 +1549,22 @@
     });
   }
 
+  // Ogni griglia si costruisce alla prima apertura della sua schermata, non
+  // all'avvio: aprire l'app non deve costare il disegno di schermate che nessuno
+  // ha ancora chiesto. Poi resta in memoria, come prima.
+  const VIEW_RENDERERS = {
+    places: renderPlaces, experiences: renderExperiences, food: renderFoods,
+    shopping: renderShopping, history: renderHistory, phrases: renderPhrases,
+    packing: renderPacking, notes: renderNotes
+  };
+  const renderedViews = new Set();
+
+  function renderViewOnDemand(view) {
+    if (renderedViews.has(view) || !VIEW_RENDERERS[view]) return;
+    renderedViews.add(view);
+    VIEW_RENDERERS[view]();
+  }
+
   function switchView(view, updateHash) {
     if (!document.querySelector('[data-view="' + view + '"]')) view = "overview";
     document.querySelectorAll(".view").forEach(function (section) {
@@ -1423,6 +1583,7 @@
     if (view === "saved") renderSaved();
     if (view === "progress") renderProgress();
     if (view === "money") renderMoney();
+    renderViewOnDemand(view);
     if (updateHash !== false) {
       const url = new URL(window.location.href);
       if (view !== "places") url.searchParams.delete("point");
@@ -1519,7 +1680,7 @@
     } else if (item.type === "experience") {
       details = detailCells([["Tipo", data.labels.experienceCategories[item.category]], ["Zona", item.area], ["Tempo", item.duration], ["Da organizzare", item.booking || item.tip]]);
     } else if (item.type === "food") {
-      details = detailCells([["Portata", data.labels.foodCategories[item.category]], ["Contesto", item.context], ["Gradimento", "★ " + item.rating.toFixed(1) + " / 5"], ["Selezione", item.local ? "Scoperta locale" : "Grande classico"]]);
+      details = detailCells([["Portata", data.labels.foodCategories[item.category]], ["Contesto", item.context], ["Quanto ci convince", item.rating >= 4.6 ? "La nostra scelta" : item.rating >= 4.3 ? "Da provare" : "Se capita"], ["Selezione", item.local ? "Scoperta locale" : "Grande classico"]]);
     } else if (item.type === "history") {
       details = detailCells([["Città", cityName(item.city)], ["Argomento", data.labels.historyCategories[item.category]]]);
     } else {
@@ -1900,6 +2061,28 @@
     return [].concat(data.places, data.mapPlaces || [], data.experiences || [], data.foods, data.shopping, data.history);
   }
 
+  // Un nome che è esattamente quello cercato vale più di una descrizione che lo
+  // nomina di passaggio. Senza pesi, "ramen" restituiva prima un corso di
+  // okonomiyaki e un laboratorio di momiji manju.
+  function searchScore(item, normalized) {
+    const name = normalize(item.name || item.title || "");
+    const jp = normalize([item.jp, (item.aliases || []).join(" ")].join(" "));
+    let score = 0;
+    if (name === normalized) score = 100;
+    else if (name.startsWith(normalized)) score = 80;
+    else if (new RegExp("(^|[^a-z0-9])" + normalized.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).test(name)) score = 60;
+    else if (name.includes(normalized)) score = 40;
+    else if (jp.includes(normalized)) score = 35;
+    else score = 10;
+    if (item.city && item.city === (localStorage.getItem("tabi-current-city") || "")) score += 15;
+    return score;
+  }
+
+  function bestScore(items, normalized) {
+    if (!items || !items.length) return -1;
+    return items.reduce(function (max, item) { return Math.max(max, searchScore(item, normalized)); }, 0);
+  }
+
   function renderSearchResults(query) {
     const container = document.getElementById("searchResults");
     const normalized = normalize(query.trim());
@@ -1911,11 +2094,21 @@
     const found = searchCatalog().filter(function (item) { return itemHaystack(item).includes(normalized); });
     const byType = {};
     found.forEach(function (item) { (byType[item.type] = byType[item.type] || []).push(item); });
+    Object.keys(byType).forEach(function (type) {
+      byType[type].sort(function (a, b) { return searchScore(b, normalized) - searchScore(a, normalized); });
+    });
     const phrases = phrasebookPhrases().filter(function (item) {
       return normalize([item.jp, item.romaji, item.italianReading, item.meaning, item.note].join(" ")).includes(normalized);
     });
 
-    const sections = searchGroups.map(function (group) {
+    // I gruppi si ordinano per quanto è buono il loro miglior risultato, non per
+    // ordine di catalogo: cercando "ramen", sette esperienze che nominano il
+    // ramen di sfuggita stavano davanti al piatto che si chiama proprio così.
+    const ordered = searchGroups.slice().sort(function (a, b) {
+      return bestScore(byType[b.key], normalized) - bestScore(byType[a.key], normalized);
+    });
+
+    const sections = ordered.map(function (group) {
       const items = byType[group.key] || [];
       if (!items.length) return "";
       const rows = items.slice(0, 6).map(function (item) {
@@ -1950,7 +2143,7 @@
     });
     dialog.querySelector(".search-close").addEventListener("click", function () { dialog.close(); });
     dialog.addEventListener("click", function (event) { if (event.target === dialog) dialog.close(); });
-    input.addEventListener("input", function () { renderSearchResults(input.value); });
+    input.addEventListener("input", debounce(function () { renderSearchResults(input.value); }, 150));
     document.getElementById("searchResults").addEventListener("click", function (event) {
       const row = event.target.closest("[data-search-item]");
       if (row) {
@@ -2568,6 +2761,14 @@
         }, 120);
         return;
       }
+      const showMore = event.target.closest("[data-show-more]");
+      if (showMore) {
+        const gridId = showMore.dataset.showMore;
+        shownCount[gridId] = (shownCount[gridId] || PAGE_SIZE) + PAGE_SIZE;
+        const group = Object.keys(GROUP_GRIDS).find(function (key) { return GROUP_GRIDS[key] === gridId; });
+        if (group) renderGroup(group);
+        return;
+      }
       const selectAll = event.target.closest("[data-select-all], [data-select-none]");
       if (selectAll) {
         setAllSelected(selectAll.hasAttribute("data-select-none"));
@@ -2720,12 +2921,8 @@
     setupPacking();
     setupNotes();
     setupReadyPanel();
-    renderPlaces();
-    renderExperiences();
-    renderFoods();
-    renderShopping();
-    renderHistory();
-    renderPhrases();
+    // Le griglie non si disegnano più qui: ci pensa switchView alla prima
+    // apertura di ogni schermata.
     updateProgress();
     setupLocalProfile();
     switchView(location.hash.slice(1) || "overview", false);

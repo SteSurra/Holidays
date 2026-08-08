@@ -99,6 +99,22 @@
       history: "Edo divenne sede dello shogunato nel 1603 e una delle maggiori città del mondo. Dal 1868 Tokyo trasformò fossati, quartieri e infrastrutture senza cancellare del tutto la geografia precedente.",
       signs: "Cerca dislivelli, fossati, nomi di porte, vecchie vie commerciali e santuari di quartiere. Nei panorami individua fiumi e linee ferroviarie: sono la struttura nascosta della metropoli.",
       route: "Esplora per quartieri e limita gli attraversamenti inutili. Dentro una stessa area passa da un luogo celebre a una strada ordinaria per cogliere la vita quotidiana."
+    },
+    kamakura: {
+      identity: "Kamakura è una capitale che non è diventata una metropoli. Per un secolo e mezzo governò il paese, poi il potere se ne andò e restarono i templi, incastrati fra colline boscose e mare: una città che si attraversa a piedi in un giorno.",
+      place: "Il paesaggio è chiuso su tre lati da rilievi e aperto sul quarto verso la baia: è la ragione militare per cui fu scelta, e ancora oggi decide dove si può camminare. I templi stanno nelle valli laterali, raggiunti da sentieri brevi che salgono subito nel verde.",
+      food: "Cucina di mare e di tempio: shirasu, i minuscoli bianchetti serviti crudi o lessati sul riso, e la tradizione vegetariana shōjin ryōri legata ai monasteri zen. Komachi-dōri è invece la via dello street food dolce.",
+      history: "Nel 1185 Minamoto no Yoritomo vi insediò il primo shogunato, spostando il potere reale lontano dalla corte di Kyoto. Con lui arrivò lo zen dalla Cina, e con lo zen l'architettura, i giardini e l'estetica sobria che segnano ancora i templi della città.",
+      signs: "Cerca i valichi scavati nella roccia che collegano le valli, le grotte yagura usate come tombe nei costoni, e i giardini pensati per essere guardati da seduti invece che percorsi.",
+      route: "Escursione in giornata da Tokyo: circa un'ora di treno. Conviene percorrerla da ovest a est, dal Grande Buddha verso il centro, così la fatica sta all'inizio e la stazione alla fine."
+    },
+    hakone: {
+      identity: "Hakone è una caldera abitata. Tutto quello che si visita — il lago, le fumarole, le terme, perfino il modo in cui si sale — sta dentro il cratere di un vulcano ancora attivo, e il viaggio consiste nell'attraversarlo cambiando mezzo cinque volte.",
+      place: "Il dislivello è il tema: si sale in treno a cremagliera, funicolare e funivia perché la pendenza cambia troppo per un mezzo solo. Ogni cambio apre un paesaggio diverso, dalla valle boscosa alle rocce gialle di zolfo al lago.",
+      food: "Cucina di montagna e di locanda: soba di grano saraceno, verdure di stagione e i pasti serviti nei ryokan. Le uova nere di Ōwakudani, annerite dallo zolfo delle sorgenti, sono il souvenir commestibile dell'area.",
+      history: "Sulla Tōkaidō, la strada che univa Edo a Kyoto, Hakone ospitava un posto di blocco dove lo shogunato controllava chi passava. Dalla fine dell'Ottocento le sorgenti termali l'hanno trasformata nel luogo di villeggiatura di Tokyo.",
+      signs: "Cerca il vapore che esce dal terreno lungo i pendii, i cedri secolari del viale che portava al posto di blocco, e la linea del Fuji sopra il lago quando l'aria è pulita.",
+      route: "Escursione in giornata da Tokyo, circa un'ora e mezza. Il giro classico è ad anello e va fatto in un verso solo: invertirlo significa aspettare coincidenze che non ci sono."
     }
   };
 
@@ -526,7 +542,9 @@
     item.guideSections = [
       { title: "Perché vale la visita", body: item.description + " " + guide.why + " " + city.identity },
       { title: "Cosa osservare", body: "A " + item.name + " parti dagli elementi citati nella descrizione e confrontali con scala, materiali, accessi e rapporto con il quartiere. " + guide.observe + " Nell'area di " + item.area + ", " + city.signs.charAt(0).toLowerCase() + city.signs.slice(1) },
-      { title: "Come viverlo", body: "Tempo indicativo: " + item.duration + ". Momento consigliato: " + item.tip + ". " + guide.visit },
+      // "Da sapere prima" e non "Momento consigliato": i consigli non parlano
+      // solo di orari, ma anche di prenotazioni, biglietti e regole d'accesso.
+      { title: "Come viverlo", body: "Tempo indicativo: " + item.duration + ". Da sapere prima: " + item.tip + ". " + guide.visit },
       { title: "La chiave della città", body: city.place + " " + city.history },
       { title: "Rispetto e buone maniere", body: guide.etiquette },
       { title: "Come collegarlo al viaggio", body: city.route },

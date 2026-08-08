@@ -63,6 +63,8 @@ main { min-height: 100vh; padding: calc(var(--header-height) + var(--safe-top) +
 @keyframes reveal { from { opacity: 0; transform: translateY(18px); } }
 
 .hero { min-height: 610px; display: grid; grid-template-columns: minmax(0, .95fr) minmax(390px, 1.05fr); background: var(--deep); color: var(--on-dark-bg); overflow: hidden; }
+/* La tappa di oggi apre la home, prima della copertina. */
+.now-first { padding-top: 1.1rem; }
 .hero-copy { align-self: center; padding: 7vw max(4vw, 24px); position: relative; z-index: 2; }
 .eyebrow { margin: 0 0 .7rem; color: var(--red); font-size: .72rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
 .hero .eyebrow { color: #e98c72; }
@@ -103,6 +105,9 @@ main { min-height: 100vh; padding: calc(var(--header-height) + var(--safe-top) +
 .now-picker { display: flex; gap: .55rem; align-items: center; }
 .now-picker > span { color: var(--muted); font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .now-picker select { min-width: 180px; }
+.now-picker-row { display: flex; flex-wrap: wrap; gap: .5rem .8rem; align-items: center; }
+.now-locate { min-height: var(--tap); padding: .5rem .9rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: var(--white); font: 800 .72rem "DM Sans", sans-serif; cursor: pointer; }
+.now-locate[disabled] { opacity: .55; cursor: default; }
 .now-empty { margin: 0; padding: 1.2rem; border: 1px dashed var(--line); border-radius: var(--radius); color: var(--muted); font-size: .9rem; }
 .now-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem; }
 .now-card { min-width: 0; display: flex; flex-direction: column; padding: 1.1rem; border: 1px solid var(--line); border-radius: 14px; background: var(--white); }
@@ -167,6 +172,7 @@ select { width: auto; min-width: 165px; padding: 0 2.4rem 0 .9rem; }
 .compact-row .select-toggle { flex: 0 0 auto; box-shadow: none; background: transparent; }
 .select-spacer { flex: 0 0 auto; width: var(--tap); }
 .own-map-link.is-off { display: none; }
+.show-more { min-height: var(--tap); width: 100%; margin: -3rem 0 4rem; padding: .8rem 1rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: var(--white); font: 800 .78rem "DM Sans", sans-serif; cursor: pointer; }
 .compact-main { flex: 1 1 auto; min-width: 0; min-height: var(--tap); display: flex; flex-direction: column; justify-content: center; gap: .1rem; padding: .3rem .2rem; border: 0; background: none; text-align: left; cursor: pointer; }
 .compact-main b { display: block; overflow: hidden; color: var(--ink); font: 600 .95rem "Noto Serif JP", serif; text-overflow: ellipsis; white-space: nowrap; }
 .compact-main small { display: block; overflow: hidden; color: var(--muted); font-size: .7rem; text-overflow: ellipsis; white-space: nowrap; }
@@ -207,6 +213,7 @@ select { width: auto; min-width: 165px; padding: 0 2.4rem 0 .9rem; }
 .card-body { padding: 1.05rem; }
 .card-kicker { display: flex; justify-content: space-between; gap: .5rem; margin-bottom: .45rem; color: var(--red); font-size: .66rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .card-kicker .rating { color: var(--gold); letter-spacing: .02em; }
+.card-kicker .our-pick { color: var(--moss); font-weight: 800; letter-spacing: .02em; }
 .content-card h3 { margin: 0; font: 600 1.32rem/1.2 "Noto Serif JP", serif; }
 .jp-name { color: var(--muted); font-size: .78rem; margin-left: .35rem; }
 .card-description { color: var(--muted); font-size: .86rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 3.9em; }
@@ -221,7 +228,12 @@ select { width: auto; min-width: 165px; padding: 0 2.4rem 0 .9rem; }
 .empty-state { min-height: 260px; place-items: center; text-align: center; color: var(--muted); }
 .empty-state:not([hidden]) { display: grid; }.empty-state strong, .empty-state span { display: block; }
 
-.map-panel { margin: 2rem 0 1rem; padding: 1rem; border: 1px solid var(--line); border-radius: 24px; background: var(--white); box-shadow: var(--shadow); }
+.map-panel { margin: 1rem 0; padding: 1rem; border: 1px solid var(--line); border-radius: 24px; background: var(--white); box-shadow: var(--shadow); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+/* La legenda si apre solo quando serve: sei caselle e sessanta parole non
+   possono stare fra chi apre la schermata e la mappa. */
+.map-panel .map-actions { margin-top: .7rem; }
+.map-legend[hidden] { display: none; }
 .map-toolbar { display: flex; justify-content: space-between; gap: 1rem; align-items: end; padding: .5rem .35rem 1rem; }
 .map-toolbar h2 { margin: 0; font: 600 clamp(1.5rem, 3vw, 2.4rem)/1.1 "Noto Serif JP", serif; }
 .map-toolbar .eyebrow { margin-bottom: .35rem; }
@@ -314,17 +326,36 @@ body:has(dialog[open]) { overflow: hidden; }
 .emergency-card strong { color: var(--red); font: 700 clamp(1.35rem, 3vw, 2rem) "Noto Serif JP", serif; overflow-wrap: anywhere; }
 .emergency-card span { margin-top: .35rem; font-weight: 800; }
 .emergency-card small { margin-top: .35rem; color: var(--muted); }
+.assistance-stack { display: grid; gap: 1rem; margin: 1.4rem 0; }
+.assistance-panel { display: grid; gap: 1rem; padding: 1.3rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+.assistance-panel h2 { margin: .2rem 0 .5rem; font: 600 clamp(1.35rem, 2.4vw, 1.9rem)/1.15 "Noto Serif JP", serif; }
+.assistance-panel > div > p:not(.eyebrow) { margin: 0; max-width: 68ch; color: var(--muted); font-size: .88rem; }
+.assistance-rows { display: grid; gap: .7rem; }
+.assistance-row { display: grid; gap: .6rem; padding: .9rem 1rem; border-radius: 14px; background: var(--paper-deep); }
+.assistance-row b { display: block; font-size: .95rem; }
+.assistance-row small { display: block; margin-top: .25rem; color: var(--muted); }
+.assistance-actions { display: flex; flex-wrap: wrap; gap: .45rem; }
+.assistance-call, .assistance-link, .assistance-source { min-height: var(--tap); display: inline-flex; align-items: center; padding: .45rem .9rem; border-radius: 999px; text-decoration: none; font: 800 .74rem "DM Sans", sans-serif; }
+.assistance-call { color: var(--paper); background: var(--red); }
+.assistance-link { color: var(--paper); background: var(--ink); }
+.assistance-source { color: var(--ink); background: var(--white); border: 1px solid var(--line); }
+.day-lookup { margin: .9rem 0 0; padding: .95rem 1.1rem; border-left: 3px solid var(--red); border-radius: 0 14px 14px 0; background: color-mix(in srgb, var(--red) 8%, transparent); }
+.day-lookup b { display: block; font-size: .95rem; }
+.day-lookup p { margin: .35rem 0 .7rem; color: var(--muted); font-size: .86rem; }
+.day-lookup-link { min-height: var(--tap); display: inline-flex; align-items: center; padding: .45rem .95rem; border-radius: 999px; color: var(--paper); background: var(--red); text-decoration: none; font: 800 .74rem "DM Sans", sans-serif; }
+.day-lookup small { display: block; margin-top: .6rem; color: var(--muted); font-size: .72rem; }
 .emergency-source { grid-column: 1 / -1; min-height: var(--tap); display: flex; align-items: center; justify-content: flex-end; color: #f0cf80; font-size: .75rem; font-weight: 800; }
 .emergency-location { display: grid; grid-template-columns: .8fr 1.2fr; gap: 2rem; align-items: center; margin: 1rem 0 3rem; padding: 1.5rem; border: 1px solid var(--line); border-radius: 20px; background: var(--white); }.emergency-location h2 { margin: .2rem 0 .55rem; font: 600 1.8rem "Noto Serif JP", serif; }.emergency-location p { margin-bottom: 0; color: var(--muted); }.emergency-location button { min-height: 44px; border: 0; border-radius: 999px; padding: .65rem 1rem; color: var(--paper); background: var(--red); cursor: pointer; font-weight: 800; }.location-output { display: flex; flex-wrap: wrap; gap: .3rem .8rem; margin-top: .7rem; color: var(--muted); font-size: .78rem; }.location-output strong { width: 100%; color: var(--ink); font-size: 1.05rem; }.location-output a { color: var(--red); font-weight: 800; }.emergency-phrases { margin-bottom: 2.5rem; }.safety-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem; padding-bottom: 5rem; }.safety-links a { display: flex; flex-direction: column; gap: .35rem; padding: 1rem; border: 1px solid var(--line); border-radius: 14px; color: var(--ink); background: var(--white); text-decoration: none; }.safety-links span { color: var(--muted); font-size: .75rem; }
 
 .bottom-nav { position: fixed; z-index: 40; left: 50%; bottom: max(16px, var(--safe-bottom)); transform: translateX(-50%); padding: .42rem; border: 1px solid rgba(255,255,255,.14); border-radius: 19px; color: white; background: var(--nav-bg); box-shadow: 0 18px 60px rgba(0,0,0,.23); backdrop-filter: blur(16px); }
 .bottom-nav button { min-height: 52px; border: 0; border-radius: 13px; background: none; color: var(--nav-fg); cursor: pointer; }
-.bottom-nav button span, .bottom-nav button small { display: block; }.bottom-nav button span { font-size: 1.15rem; line-height: 1; }.bottom-nav button small { margin-top: .28rem; font-size: .62rem; font-weight: 700; }
+.bottom-nav button span, .bottom-nav button small { display: block; }.bottom-nav button span { font-size: 1.15rem; line-height: 1; }
+/* Nessuna etichetta sotto .7rem (≈11px): a 9px, camminando, non si leggevano. */
+.bottom-nav button small { margin-top: .28rem; font-size: .7rem; font-weight: 700; }
 .bottom-nav button.is-active { color: var(--on-dark-fg); background: var(--on-dark-bg); }
 /* Stessa navigazione su telefono e su browser: sei voci ovunque. Prima il
    desktop mostrava nove tab diretti e nascondeva i due menu, e Traduttore,
    Valigia e Note — che vivono solo dentro Utilità — erano irraggiungibili. */
-.desktop-nav { display: none !important; }
 .nav-menu-dialog { width: min(620px, calc(100% - 20px)); padding: 1.3rem; border: 0; border-radius: 24px; color: var(--ink); background: var(--white); box-shadow: 0 30px 100px rgba(0,0,0,.32); }.nav-menu-dialog::backdrop { background: rgba(20,25,23,.66); backdrop-filter: blur(5px); }.nav-menu-dialog h2 { margin: .2rem 2.5rem 1.2rem 0; font: 600 clamp(1.8rem, 6vw, 2.7rem)/1.1 "Noto Serif JP", serif; }.nav-menu-close { position: absolute; top: 1rem; right: 1rem; width: var(--tap); height: var(--tap); border: 0; border-radius: 50%; color: var(--paper); background: var(--ink); cursor: pointer; font-size: 1.2rem; }.nav-menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .65rem; }.nav-menu-grid button { display: grid; grid-template-columns: 36px 1fr; gap: .65rem; align-items: start; min-width: 0; border: 1px solid var(--line); border-radius: 14px; padding: 1rem; color: var(--red); background: var(--paper); text-align: left; cursor: pointer; font: 700 1.2rem "Noto Serif JP", serif; }.nav-menu-grid button span, .nav-menu-grid button small { display: block; }.nav-menu-grid button span { color: var(--ink); }.nav-menu-grid button small { margin-top: .25rem; color: var(--muted); font: 500 .72rem/1.4 "DM Sans", sans-serif; }
 
 .detail-dialog { width: min(860px, calc(100% - 28px)); max-height: min(91dvh, 1080px); padding: 0; border: 0; border-radius: 24px; color: var(--ink); background: var(--white); box-shadow: 0 30px 100px rgba(0,0,0,.32); }
@@ -369,10 +400,13 @@ body:has(dialog[open]) { overflow: hidden; }
 @media (max-width: 760px) {
   :root { --header-height: 64px; }
   .site-header { padding-inline: calc(16px + var(--safe-left)) calc(16px + var(--safe-right)); }.brand-mark { width: 38px; height: 38px; }.brand small { display: none; }.install-button { min-height: var(--tap); font-size: .7rem; padding: .5rem .75rem; }
-  .hero { grid-template-columns: 1fr; min-height: auto; }.hero-copy { padding: 4.7rem 22px 3rem; }.hero h1 { font-size: clamp(2.8rem, 14vw, 5rem); overflow-wrap: anywhere; }.hero-art { min-height: 380px; }.sun { width: 55vw; }.vertical-type { right: 1rem; }
+  /* Sul telefono la copertina si riduce a una striscia: resta il carattere del
+     sito senza rubare la prima schermata a quello che serve davvero. */
+  .hero { grid-template-columns: 1fr; min-height: auto; }.hero-copy { padding: 1.9rem 22px 1.6rem; }.hero h1 { font-size: clamp(2rem, 9vw, 3rem); overflow-wrap: anywhere; }.hero-lede { margin-top: .7rem; font-size: .92rem; }.hero-art { min-height: 130px; }.sun { width: 34vw; }.vertical-type { right: 1rem; }
   .dashboard-shell, .view:not(#overview) { width: min(100% - 28px, 1480px); }.trip-strip { padding-top: 2.2rem; }
   .transfer-grid, .stay-grid { grid-template-columns: 1fr; }
-  .now-strip { padding: 2rem 0 1.8rem; }.now-head { align-items: stretch; }.now-picker { flex: 1 1 100%; }.now-picker select { flex: 1; min-width: 0; width: 100%; }
+  .now-strip { padding: 2rem 0 1.8rem; }.now-head { align-items: stretch; }.now-picker-row { flex: 1 1 100%; }.now-picker { flex: 1 1 100%; }.now-picker select { flex: 1; min-width: 0; width: 100%; }.now-locate { flex: 1 1 100%; }
+  .now-first { padding-top: .7rem; }.now-first .now-strip { padding-top: 1rem; }
   .now-grid { grid-template-columns: 1fr; }.now-card { padding: .9rem 1rem; }
   .now-actions button { flex: 1 1 100%; }
   .day-tips { padding: 1rem; }.day-tips-list li { grid-template-columns: 1fr; }
@@ -384,13 +418,13 @@ body:has(dialog[open]) { overflow: hidden; }
   /* In colonna il flex non separa più i due testi: senza questo si legge
      "Riti e simboli€€" tutto attaccato. */
   .card-kicker span + span:not(.rating)::before { content: "·"; margin: 0 .4rem; color: var(--muted); }
-  .map-panel { padding: .7rem; }.map-toolbar { align-items: stretch; flex-direction: column; gap: .6rem; padding-bottom: .7rem; }.map-actions { overflow-x: auto; padding-bottom: .2rem; }.map-actions button { flex: 0 0 auto; } #tripMap { min-height: 300px; height: min(52vh, 420px); }
+  .map-panel { margin-top: .6rem; padding: .7rem; }.map-toolbar { align-items: stretch; flex-direction: column; gap: .6rem; padding-bottom: .7rem; }.map-actions { overflow-x: auto; padding-bottom: .2rem; }.map-actions button { flex: 0 0 auto; } #tripMap { min-height: 360px; height: min(64vh, 560px); }
   .history-grid { grid-template-columns: 1fr; }.history-card { min-height: 280px; }
   .phrase-toolbar { margin-inline: -14px; padding: .7rem 14px; border-bottom: 1px solid var(--line); }.phrase-grid { grid-template-columns: 1fr; }.emergency-panel { grid-template-columns: 1fr; gap: 1rem; }.emergency-grid { grid-template-columns: 1fr; }
   .local-profile { grid-template-columns: 1fr; }.profile-fields { grid-template-columns: 1fr; }.sync-actions { grid-column: auto; flex-direction: column; }.local-profile > .helper-note { grid-column: auto; }
   .dialog-body { padding: 1.4rem 1.2rem calc(1.8rem + var(--safe-bottom)); }.guide-sections { grid-template-columns: 1fr; }.guide-section, .guide-section-lead, .guide-section-fun { grid-column: auto; min-height: auto; }.history-detail-hero { min-height: 190px; }
   .saved-summary { grid-template-columns: repeat(3, 1fr); gap: .5rem; }.saved-tile { padding: .8rem; }.saved-tile strong { font-size: 1.9rem; }.saved-list { grid-template-columns: 1fr; }
-  .bottom-nav { bottom: max(8px, var(--safe-bottom)); }.bottom-nav button { min-height: 48px; }.bottom-nav button span { font-size: 1rem; }.bottom-nav button small { font-size: .58rem; }
+  .bottom-nav { bottom: max(8px, var(--safe-bottom)); }.bottom-nav button { min-height: 48px; }.bottom-nav button span { font-size: 1.05rem; }.bottom-nav button small { font-size: .7rem; }
   .detail-list { grid-template-columns: 1fr; }
   .toast { bottom: calc(max(8px, var(--safe-bottom)) + 68px); }
 }
@@ -399,7 +433,7 @@ body:has(dialog[open]) { overflow: hidden; }
   .hero-actions { flex-direction: column; align-items: stretch; }.primary-action, .secondary-action { width: 100%; }
   .content-card { display: block; }.card-media { height: auto; aspect-ratio: 16 / 9; }.card-actions { right: .55rem; left: auto; }.card-body { padding: 1rem; }.card-description { min-height: 0; font-size: .86rem; -webkit-line-clamp: 3; }.jp-name { display: block; margin: .12rem 0 0; }.card-footer { flex-wrap: wrap; justify-content: flex-start; gap: 0 1rem; }
   .phrase-card { padding: 1rem; }.phrase-card dl { grid-template-columns: 1fr; }
-  .bottom-nav button small { font-size: .56rem; letter-spacing: -.03em; }
+  .bottom-nav button small { font-size: .7rem; letter-spacing: -.02em; }
   .leaflet-popup-content { margin: .8rem; min-width: 0; }
 }
 /* Sotto i 360px due select affiancate taglierebbero le etichette. */

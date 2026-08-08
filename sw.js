@@ -1,4 +1,4 @@
-const CACHE = "tabi-japan-v35";
+const CACHE = "tabi-japan-v42";
 const TILE_CACHE = "tabi-tiles-v1";
 const TILE_LIMIT = 320;
 const VERSION = "?v=20260804z";

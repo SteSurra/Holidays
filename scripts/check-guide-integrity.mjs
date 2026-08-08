@@ -82,6 +82,31 @@ if (!data.phrases.length || !data.emergencyNumbers.some((item) => item.number ==
   failures.push("phrasebook or emergency numbers are incomplete");
 }
 
+// Le tabelle scartano in silenzio ogni riga la cui città non è in elenco. È così
+// che 34 schede di Kamakura e Hakone sono rimaste scritte e invisibili per mesi,
+// senza che nulla lo segnalasse: qui le righe scartate diventano un errore.
+const cityKeyedFiles = [
+  "assets/data.js",
+  "assets/food-data.js",
+  "assets/food-extra-data.js",
+  "assets/history-data.js",
+  "assets/shopping-data.js",
+  "assets/experiences-data.js"
+];
+for (const file of cityKeyedFiles) {
+  const dropped = new Map();
+  for (const line of readFileSync(file, "utf8").split("\n")) {
+    const match = /^([a-z][a-z0-9-]*)\|/.exec(line.trim());
+    if (!match) continue;
+    const city = match[1];
+    if (city === "all" || cityIds.has(city)) continue;
+    dropped.set(city, (dropped.get(city) || 0) + 1);
+  }
+  for (const [city, count] of dropped) {
+    failures.push(`${file}: ${count} row(s) for unknown city "${city}" are silently dropped at runtime — add the city to data.js or delete the rows`);
+  }
+}
+
 if (failures.length) {
   console.error("Guide-integrity check failed:\n" + failures.map((item) => `- ${item}`).join("\n"));
   process.exit(1);

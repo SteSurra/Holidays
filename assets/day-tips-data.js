@@ -27,7 +27,19 @@
       book: "Non serve prenotare, ma il traghetto e il rientro sì: guardate l'ultima corsa prima di rilassarvi.",
       evening: "Le botteghe della Omotesando chiudono nel tardo pomeriggio e l'isola si svuota. Dopo l'ultimo traghetto restano solo gli ospiti degli alberghi.",
       sunsetSpot: "Riva davanti al torii, lato nord",
-      sunsetNote: "Con la marea alta il torii si riflette; con la bassa si cammina fin sotto, ma la foto è meno scenografica."
+      sunsetNote: "Con la marea alta il torii si riflette; con la bassa si cammina fin sotto, ma la foto è meno scenografica.",
+      // La tabella non si copia qui: cambia ogni giorno e invecchierebbe subito.
+      // L'associazione turistica dell'isola pubblica i livelli ora per ora e
+      // segna già da sola le due fasce che interessano.
+      lookup: {
+        label: "Controlla la marea di oggi",
+        title: "Su un solo giorno, la marea decide l'orario",
+        note: "Ci sono due alte e due basse al giorno e slittano di circa 50 minuti ogni giorno, quindi non esiste una regola da imparare: si guarda la data. Con la marea bassa si cammina fin sotto il torii; con l'alta sembra galleggiare. La pagina ufficiale dell'isola segna direttamente le fasce “walking to the Torii Gate” e “viewing the floating shrine”.",
+        url: "https://www.miyajima.or.jp/english/sio/sio.php",
+        sourceLabel: "Miyajima Tourist Association",
+        backupUrl: "https://www.data.jma.go.jp/kaiyou/db/tide/suisan/index.php",
+        backupLabel: "Tabelle di marea dell'Agenzia meteorologica giapponese"
+      }
     },
     {
       city: "hiroshima",
@@ -92,6 +104,22 @@
       evening: "Attenzione all'ultimo treno, tra mezzanotte e le 00.30 a seconda della linea: dopo restano solo i taxi, cari. I konbini non chiudono mai.",
       sunsetSpot: "Osservatorio del Palazzo del Governo Metropolitano a Shinjuku",
       sunsetNote: "È gratuito: nelle giornate limpide si vede il Fuji stagliarsi sull'orizzonte."
+    },
+    {
+      city: "kamakura",
+      early: "Il Grande Buddha e Hase-dera aprono presto e si riempiono verso le dieci, quando arrivano i treni da Tokyo. Hōkoku-ji è piccolo: nel bambù ci sta poca gente per volta, e con la calma vale il doppio.",
+      book: "Niente da prenotare, ma la Enoden è una sola linea a binario unico e nei fine settimana si viaggia in piedi. Il matcha nel giardino di Hōkoku-ji si paga a parte all'ingresso.",
+      evening: "I templi chiudono nel tardo pomeriggio, prima in inverno, e le botteghe di Komachi-dōri abbassano poco dopo. La sera Kamakura è residenziale: per cena si torna a Tokyo.",
+      sunsetSpot: "Spiaggia di Yuigahama, guardando verso ovest",
+      sunsetNote: "Il sole cala dietro il promontorio di Enoshima e nelle giornate limpide il Fuji si vede in controluce."
+    },
+    {
+      city: "hakone",
+      early: "Ōwakudani e il lago vogliono la mattina: è quando il Fuji si vede, prima che la foschia salga. Il pomeriggio la valle si copre quasi ogni giorno.",
+      book: "Le funivie e i battelli non si prenotano, ma Ōwakudani chiude senza preavviso quando il livello di gas sulfureo sale: controllate lo stato del giorno prima di salire. Per un ryokan con onsen invece si prenota con settimane di anticipo.",
+      evening: "Il giro ad anello — treno, funicolare, funivia, battello, bus — è tutto su ultime corse nel tardo pomeriggio: se perdete un anello, il resto salta a catena.",
+      sunsetSpot: "Riva di Moto-Hakone, vicino al torii sull'acqua",
+      sunsetNote: "La luce bassa accende il rosso del torii contro il lago scuro; il Fuji, se c'è, sta esattamente dietro."
     }
   ];
 

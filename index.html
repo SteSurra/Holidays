@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#14181a" media="(prefers-color-scheme: dark)">
   <meta name="description" content="Guida di viaggio in Giappone con itinerario, mappa, luoghi, esperienze, cibo, acquisti e storie.">
   <title>Giappone 2026 | Tabi</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260805a">
+  <link rel="manifest" href="manifest.webmanifest?v=20260805h">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://commons.wikimedia.org">
@@ -18,9 +18,9 @@
   <link rel="preconnect" href="https://tile.openstreetmap.org">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Noto+Serif+JP:wght@500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="assets/styles.css?v=20260805a">
-  <link rel="icon" href="assets/icons/icon.svg?v=20260805a" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260805a">
+  <link rel="stylesheet" href="assets/styles.css?v=20260805h">
+  <link rel="icon" href="assets/icons/icon.svg?v=20260805h" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260805h">
 </head>
 <body>
   <a class="skip-link" href="#main">Vai al contenuto</a>
@@ -39,6 +39,21 @@
 
   <main id="main">
     <section class="view is-active" id="overview" data-view="overview">
+      <!-- La tappa di oggi sta sopra l'hero: è la cosa che si guarda venti volte
+           al giorno, e prima stava sotto sette scorrimenti di copertina. -->
+      <div class="dashboard-shell now-first">
+        <section class="now-strip reveal" aria-labelledby="nowTitle">
+          <div class="now-head">
+            <div><p class="eyebrow">Dove siete adesso</p><h2 id="nowTitle">La tappa di oggi</h2></div>
+            <div class="now-picker-row">
+              <label class="now-picker"><span>Sono a</span><select id="currentCity" aria-label="Scegli la tappa in cui vi trovate"></select></label>
+              <button class="now-locate" id="nowLocateButton" type="button">◎ Usa la mia posizione</button>
+            </div>
+          </div>
+          <div class="now-body" id="nowBody"></div>
+        </section>
+      </div>
+
       <div class="hero">
         <div class="hero-copy reveal">
           <p class="eyebrow">Il viaggio, in tasca</p>
@@ -53,14 +68,6 @@
       </div>
 
       <div class="dashboard-shell">
-        <section class="now-strip reveal" aria-labelledby="nowTitle">
-          <div class="now-head">
-            <div><p class="eyebrow">Dove siete adesso</p><h2 id="nowTitle">La tappa di oggi</h2></div>
-            <label class="now-picker"><span>Sono a</span><select id="currentCity" aria-label="Scegli la tappa in cui vi trovate"></select></label>
-          </div>
-          <div class="now-body" id="nowBody"></div>
-        </section>
-
         <section class="trip-strip reveal" aria-labelledby="routeTitle">
           <div class="section-heading compact"><div><p class="eyebrow">11 tappe reali</p><h2 id="routeTitle">La rotta, in ordine</h2></div><span class="hint">Scorri</span></div>
           <div class="route-scroll" id="routeStrip"></div>
@@ -80,17 +87,14 @@
     </section>
 
     <section class="view" id="places" data-view="places">
-      <div class="page-intro">
-        <p class="eyebrow">Muoversi e scoprire</p><h1>Mappa</h1>
-        <p>Le tappe del viaggio, la tua posizione e i collegamenti per raggiungere ogni luogo con Google Maps.</p>
-      </div>
+      <!-- La mappa apre la schermata. Prima era il quinto elemento, sotto un
+           titolo, un paragrafo, due barre e sei caselle di legenda. -->
       <section class="map-panel" aria-labelledby="mapTitle">
-        <div class="map-toolbar">
-          <div><p class="eyebrow">La rotta completa</p><h2 id="mapTitle">Da Osaka a Tokyo</h2></div>
-          <div class="map-actions"><button id="locateButton" type="button">◎ La mia posizione</button><button id="lassoButton" type="button" aria-pressed="false">✎ Disegna un'area</button><button id="fitRouteButton" type="button">Inquadra il viaggio</button><button id="expandMapButton" type="button" aria-pressed="false">Espandi mappa</button></div>
-        </div>
+        <h2 id="mapTitle" class="visually-hidden">Mappa del viaggio</h2>
+        <div id="tripMap" role="application" aria-label="Mappa delle tappe del viaggio in Giappone"></div>
+        <div class="map-actions"><button id="locateButton" type="button">◎ La mia posizione</button><button id="lassoButton" type="button" aria-pressed="false">✎ Disegna un'area</button><button id="fitRouteButton" type="button">Inquadra il viaggio</button><button id="expandMapButton" type="button" aria-pressed="false">Espandi mappa</button><button id="layersButton" type="button" aria-expanded="false" aria-controls="mapLegend">◈ Livelli</button></div>
         <div class="lasso-bar"><p id="lassoStatus" role="status"></p><button id="lassoUseGpsButton" type="button" hidden>◎ Parti da dove sono</button><a id="lassoLink" class="lasso-link" target="_blank" rel="noopener" hidden>Apri il giro in Google Maps ↗</a></div>
-        <div class="map-legend" aria-label="Legenda e filtri della mappa">
+        <div class="map-legend" id="mapLegend" aria-label="Legenda e filtri della mappa" hidden>
           <label><input type="checkbox" data-map-layer="visit" checked><i class="legend-dot visit"></i> Luoghi da visitare</label>
           <label><input type="checkbox" data-map-layer="tabelog"><i class="legend-dot tabelog"></i> Locali Tabelog</label>
           <label><input type="checkbox" data-map-layer="hotel" checked><i class="legend-dot hotel"></i> Hotel</label>
@@ -99,8 +103,7 @@
           <label><input type="checkbox" data-map-layer="konbini"><i class="legend-dot konbini"></i> Konbini</label>
           <span>Locali Tabelog, WC, fontanelle e konbini partono spenti: accendili quando ti servono. Il punteggio Tabelog è quello del giorno della selezione e nel punto trovi il collegamento alla scheda con voto aggiornato, orari e prenotazione; WC, fontanelle e konbini arrivano da OpenStreetMap e si scaricano al primo tocco.</span>
         </div>
-        <div id="tripMap" role="application" aria-label="Mappa delle tappe del viaggio in Giappone"></div>
-        <p class="helper-note">Trascina, pizzica o usa il trackpad per muoverti. Nei punti puoi leggere i dettagli, segnare la visita o avviare Google Maps. <span id="mapSelectionCount"></span></p>
+        <p class="helper-note">Nei punti puoi leggere i dettagli, segnare la visita o avviare Google Maps. <span id="mapSelectionCount"></span></p>
       </section>
       <div class="toolbar sticky-toolbar" data-filter-group="place">
         <label class="search-box"><span aria-hidden="true">⌕</span><input id="placeSearch" type="search" placeholder="Cerca luogo o città…" autocomplete="off"></label>
@@ -277,6 +280,7 @@
         <div><p class="eyebrow">Chiamate utili</p><h2 id="emergencyTitle">Chi contattare</h2><p>Usa 110 e 119 solo per urgenze reali. La hotline JNTO assiste i visitatori anche in caso di incidenti, malattie o disastri.</p></div>
         <div class="emergency-grid" id="emergencyGrid"></div>
       </section>
+      <div class="assistance-stack" id="assistanceStack"></div>
       <section class="emergency-location" aria-labelledby="emergencyLocationTitle">
         <div><p class="eyebrow">Dove sono</p><h2 id="emergencyLocationTitle">Mostra la posizione</h2><p>Il punto viene letto soltanto quando premi il pulsante e non viene salvato.</p></div>
         <div><button id="emergencyLocationButton" type="button">Trova le mie coordinate</button><div id="emergencyLocationOutput" class="location-output" role="status">Posizione non ancora richiesta.</div></div>
@@ -341,15 +345,10 @@
     <button class="nav-grip" id="navGrip" type="button" aria-expanded="true" aria-controls="bottomNav" aria-label="Nascondi la barra di navigazione"></button>
     <button class="is-active" type="button" data-nav="overview"><span aria-hidden="true">⌂</span><small>Viaggio</small></button>
     <button type="button" data-nav="places"><span aria-hidden="true">⌖</span><small>Mappa</small></button>
-    <button class="desktop-nav" type="button" data-nav="experiences"><span aria-hidden="true">☆</span><small>Esperienze</small></button>
-    <button class="desktop-nav" type="button" data-nav="food"><span aria-hidden="true">○</span><small>Cibo</small></button>
-    <button class="desktop-nav" type="button" data-nav="shopping"><span aria-hidden="true">◇</span><small>Acquisti</small></button>
-    <button class="desktop-nav" type="button" data-nav="history"><span aria-hidden="true">文</span><small>Storie</small></button>
-    <button class="mobile-nav" type="button" data-nav-menu="discover"><span aria-hidden="true">✦</span><small>Scopri</small></button>
+    <button type="button" data-nav-menu="discover"><span aria-hidden="true">✦</span><small>Scopri</small></button>
     <button type="button" data-nav="phrases"><span aria-hidden="true">あ</span><small>Parole</small></button>
-    <button type="button" data-nav="progress"><span aria-hidden="true">✓</span><small>Progressi</small></button>
-    <button class="desktop-nav" type="button" data-nav="emergency"><span aria-hidden="true">!</span><small>Emergenze</small></button>
-    <button class="mobile-nav" type="button" data-nav-menu="tools"><span aria-hidden="true">＋</span><small>Utilità</small></button>
+    <button type="button" data-nav="translate"><span aria-hidden="true">写</span><small>Traduci</small></button>
+    <button type="button" data-nav-menu="tools"><span aria-hidden="true">＋</span><small>Utilità</small></button>
   </nav>
 
   <dialog class="search-dialog" id="searchDialog" aria-label="Cerca in tutta la guida">
@@ -370,7 +369,7 @@
         <p class="helper-note" id="quickYenNote"></p>
         <button class="quick-rate-guide" type="button" data-go="money">Monete e banconote →</button>
       </div>
-      <div class="nav-menu-grid"><button data-go="emergency">! <span>Emergenze<small>Numeri, frasi e posizione</small></span></button><button data-go="translate">写 <span>Fotografa e traduci<small>Menu, cartelli ed etichette</small></span></button><button data-go="packing">🧳 <span>Cosa portare<small>Lista valigia da spuntare</small></span></button><button data-go="notes">✎ <span>Note<small>Appunti salvati sul telefono</small></span></button><button data-go="saved">♡ <span>Salvati<small>Preferiti e checklist di gruppo</small></span></button></div></div>
+      <div class="nav-menu-grid"><button data-go="emergency">! <span>Emergenze<small>Numeri, frasi e posizione</small></span></button><button data-go="progress">✓ <span>Progressi<small>Cosa avete già visto e provato</small></span></button><button data-go="packing">🧳 <span>Cosa portare<small>Lista valigia da spuntare</small></span></button><button data-go="notes">✎ <span>Note<small>Appunti salvati sul telefono</small></span></button><button data-go="saved">♡ <span>Salvati<small>Preferiti e checklist di gruppo</small></span></button></div></div>
   </dialog>
   <dialog class="speech-dialog" id="speechDialog" aria-labelledby="speechDialogTitle">
     <button class="dialog-close" type="button" aria-label="Chiudi">×</button>
@@ -387,22 +386,22 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script src="assets/data.js?v=20260805a" defer></script>
-  <script src="assets/food-data.js?v=20260805a" defer></script>
-  <script src="assets/shopping-data.js?v=20260805a" defer></script>
-  <script src="assets/food-extra-data.js?v=20260805a" defer></script>
-  <script src="assets/travel-data.js?v=20260805a" defer></script>
-  <script src="assets/history-data.js?v=20260805a" defer></script>
-  <script src="assets/phrases-data.js?v=20260805a" defer></script>
-  <script src="assets/glossary-data.js?v=20260805a" defer></script>
-  <script src="assets/packing-data.js?v=20260805a" defer></script>
-  <script src="assets/money-data.js?v=20260805a" defer></script>
-  <script src="assets/day-tips-data.js?v=20260805a" defer></script>
-  <script src="assets/map-data.js?v=20260805a" defer></script>
-  <script src="assets/experiences-data.js?v=20260805a" defer></script>
-  <script src="assets/source-data.js?v=20260805a" defer></script>
-  <script src="assets/guide-data.js?v=20260805a" defer></script>
-  <script src="assets/map.js?v=20260805a" defer></script>
-  <script src="assets/app.js?v=20260805a" defer></script>
+  <script src="assets/data.js?v=20260805h" defer></script>
+  <script src="assets/food-data.js?v=20260805h" defer></script>
+  <script src="assets/shopping-data.js?v=20260805h" defer></script>
+  <script src="assets/food-extra-data.js?v=20260805h" defer></script>
+  <script src="assets/travel-data.js?v=20260805h" defer></script>
+  <script src="assets/history-data.js?v=20260805h" defer></script>
+  <script src="assets/phrases-data.js?v=20260805h" defer></script>
+  <script src="assets/glossary-data.js?v=20260805h" defer></script>
+  <script src="assets/packing-data.js?v=20260805h" defer></script>
+  <script src="assets/money-data.js?v=20260805h" defer></script>
+  <script src="assets/day-tips-data.js?v=20260805h" defer></script>
+  <script src="assets/map-data.js?v=20260805h" defer></script>
+  <script src="assets/experiences-data.js?v=20260805h" defer></script>
+  <script src="assets/source-data.js?v=20260805h" defer></script>
+  <script src="assets/guide-data.js?v=20260805h" defer></script>
+  <script src="assets/map.js?v=20260805h" defer></script>
+  <script src="assets/app.js?v=20260805h" defer></script>
 </body>
 </html>

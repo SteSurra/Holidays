@@ -318,6 +318,7 @@
     },
     {
       "id": "map-visit-nara-wakakusa-yama",
+      "guideId": "experience-nara-wakakusa-hike",
       "city": "nara",
       "group": "Nara",
       "name": "Wakakusa-yama",
@@ -386,6 +387,7 @@
     },
     {
       "id": "map-visit-hiroshima-cupola-della-bomba-atomica-genbaku-dome",
+      "guideId": "place-hiroshima-a-bomb-dome",
       "city": "hiroshima",
       "group": "Hiroshima",
       "name": "Cupola della Bomba Atomica (Genbaku Dome)",
@@ -540,6 +542,7 @@
     },
     {
       "id": "map-visit-miyajima-santuario-di-itsukushima-torii-galleggiante",
+      "guideId": "place-miyajima-itsukushima",
       "city": "miyajima",
       "group": "Miyajima",
       "name": "Santuario di Itsukushima (torii galleggiante)",
@@ -716,6 +719,7 @@
     },
     {
       "id": "map-visit-kyoto-gion",
+      "guideId": "place-kyoto-gion",
       "city": "kyoto",
       "group": "Kyoto",
       "name": "Gion",
@@ -740,6 +744,7 @@
     },
     {
       "id": "map-visit-kyoto-foresta-di-bambu-di-arashiyama",
+      "guideId": "place-kyoto-arashiyama",
       "city": "kyoto",
       "group": "Kyoto",
       "name": "Foresta di bambù di Arashiyama",
@@ -1260,6 +1265,7 @@
     },
     {
       "id": "map-visit-takayama-higashiyama-walking-course",
+      "guideId": "experience-takayama-higashiyama-course",
       "city": "takayama",
       "group": "Takayama",
       "name": "Higashiyama Walking Course",
@@ -1284,6 +1290,7 @@
     },
     {
       "id": "map-visit-takayama-miyagawa-morning-market",
+      "guideId": "place-takayama-miyagawa",
       "city": "takayama",
       "group": "Takayama",
       "name": "Miyagawa Morning Market",
@@ -1644,6 +1651,7 @@
     },
     {
       "id": "map-visit-nagano-santuario-di-togakushi",
+      "guideId": "place-nagano-togakushi",
       "city": "nagano",
       "group": "Nagano",
       "name": "Santuario di Togakushi",
@@ -1656,6 +1664,7 @@
     },
     {
       "id": "map-visit-nagano-togakushi-chusha",
+      "guideId": "place-nagano-togakushi",
       "city": "nagano",
       "group": "Nagano",
       "name": "Togakushi Chusha",
@@ -1736,6 +1745,7 @@
     },
     {
       "id": "map-visit-nagano-parco-delle-scimmie-jigokudani",
+      "guideId": "place-nagano-snow-monkey",
       "city": "nagano",
       "group": "Jigokudani",
       "name": "Parco delle scimmie Jigokudani",
@@ -2255,6 +2265,102 @@
       "lat": 35.71,
       "lng": 139.798,
       "description": "Base ad Asakusa, vicina a Sensō-ji e utile per esplorare a piedi la Tokyo shitamachi."
+    },
+    {
+      "id": "map-visit-kamakura-grande-buddha",
+      "city": "kamakura",
+      "group": "Kamakura",
+      "name": "Grande Buddha",
+      "type": "visit",
+      "category": "tempio",
+      "area": "Hase",
+      "lat": 35.3168,
+      "lng": 139.5357,
+      "description": "Il Daibutsu di bronzo del Kōtoku-in, all'aperto da quando lo tsunami del 1498 portò via la sala che lo copriva."
+    },
+    {
+      "id": "map-visit-kamakura-hase-dera",
+      "city": "kamakura",
+      "group": "Kamakura",
+      "name": "Hase-dera",
+      "type": "visit",
+      "category": "tempio",
+      "area": "Hase",
+      "lat": 35.3125,
+      "lng": 139.5331,
+      "description": "Giardini terrazzati che salgono verso una terrazza sulla baia, con file di piccole statue Jizō."
+    },
+    {
+      "id": "map-visit-kamakura-tsurugaoka",
+      "city": "kamakura",
+      "group": "Kamakura",
+      "name": "Tsurugaoka Hachimangū",
+      "type": "visit",
+      "category": "santuario",
+      "area": "Centro",
+      "lat": 35.3247,
+      "lng": 139.5558,
+      "description": "Il santuario dello shogunato, in cima al viale Wakamiya-ōji che scende dritto verso il mare."
+    },
+    {
+      "id": "map-visit-kamakura-hokoku-ji",
+      "city": "kamakura",
+      "group": "Kamakura",
+      "name": "Hōkoku-ji",
+      "type": "visit",
+      "category": "tempio",
+      "area": "Kamakura est",
+      "lat": 35.32,
+      "lng": 139.5693,
+      "description": "Un boschetto di bambù piccolo e raccolto, con sala da tè in fondo: l'opposto della folla di Arashiyama."
+    },
+    {
+      "id": "map-visit-hakone-open-air",
+      "city": "hakone",
+      "group": "Hakone",
+      "name": "Hakone Open-Air Museum",
+      "type": "visit",
+      "category": "museo",
+      "area": "Chōkoku-no-mori",
+      "lat": 35.2447,
+      "lng": 139.0514,
+      "description": "Sculture all'aperto fra le montagne, padiglione Picasso e un piediluvio caldo alimentato dalle terme."
+    },
+    {
+      "id": "map-visit-hakone-owakudani",
+      "city": "hakone",
+      "group": "Hakone",
+      "name": "Ōwakudani",
+      "type": "visit",
+      "category": "natura",
+      "area": "Hakone Ropeway",
+      "lat": 35.2419,
+      "lng": 139.0207,
+      "description": "Valle vulcanica ancora attiva, fumarole e uova nere cotte nelle sorgenti sulfuree. Chiude quando il gas sale."
+    },
+    {
+      "id": "map-visit-hakone-lago-ashi",
+      "city": "hakone",
+      "group": "Hakone",
+      "name": "Lago Ashi",
+      "type": "visit",
+      "category": "natura",
+      "area": "Moto-Hakone",
+      "lat": 35.2097,
+      "lng": 139.0044,
+      "description": "Il lago di caldera che regala il profilo del Fuji quando l'aria è limpida, di solito al mattino."
+    },
+    {
+      "id": "map-visit-hakone-jinja",
+      "city": "hakone",
+      "group": "Hakone",
+      "name": "Hakone Jinja",
+      "type": "visit",
+      "category": "santuario",
+      "area": "Moto-Hakone",
+      "lat": 35.2039,
+      "lng": 139.0256,
+      "description": "Santuario nel bosco di cedri; il torii rosso piantato nell'acqua del lago è la vista che tutti cercano."
     }
   ]
 };

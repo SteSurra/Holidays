@@ -78,4 +78,68 @@ emergenza|道に迷いました|michi ni mayoimashita|mìci ni maioimascità|Mi 
     { number: "119", title: "Ambulanza e vigili del fuoco", detail: "Emergenze mediche e incendi", href: "tel:119" },
     { number: "050-3816-2787", title: "Japan Visitor Hotline", detail: "JNTO, 24 ore su 24 in inglese, cinese e coreano", href: "tel:+815038162787" }
   ];
+
+  // Separati dai numeri nazionali: 110 e 119 servono per l'urgenza immediata,
+  // questi per tutto il resto. Nessun indirizzo di posta elettronica nei file
+  // (il controllo di pubblicazione li rifiuta): si rimanda alla pagina contatti.
+  window.JAPAN_DATA.assistance = [
+    {
+      id: "rappresentanza",
+      eyebrow: "Se il problema è documenti, arresto o ricovero",
+      title: "Ambasciata e consolato",
+      note: "Osaka copre le prime tappe del viaggio, Tokyo l'ultima. Per passaporto smarrito, ricovero o fermo di polizia si chiama qui, non i numeri di emergenza.",
+      entries: [
+        {
+          name: "Ambasciata d'Italia a Tokyo",
+          detail: "2-5-4 Mita, Minato-ku, Tokyo 108-8302",
+          phone: "+81 3 3453 5291",
+          href: "tel:+81334535291",
+          source: "https://ambtokyo.esteri.it/it/chi-siamo/contatti/"
+        },
+        {
+          name: "Emergenze fuori orario d'ufficio",
+          detail: "Cellulare di servizio dell'ambasciata. La pagina ufficiale chiede di usarlo solo in caso di reale necessità, per lasciare la linea libera a chi ne ha bisogno.",
+          phone: "+81 90 3908 1006",
+          href: "tel:+819039081006",
+          source: "https://ambtokyo.esteri.it/it/chi-siamo/numeri-di-emergenza/"
+        },
+        {
+          name: "Consolato Generale a Osaka",
+          detail: "Nakanoshima Festival Tower 17F, 2-3-18 Nakanoshima, Kita-ku, Osaka 530-0005",
+          phone: "+81 6 4706 5820",
+          href: "tel:+81647065820",
+          source: "https://consosaka.esteri.it/it/chi-siamo/contatti/"
+        },
+        {
+          name: "Unità di Crisi della Farnesina",
+          detail: "A Roma, 24 ore su 24, per emergenze che riguardano cittadini italiani all'estero.",
+          phone: "+39 06 36225",
+          href: "tel:+390636225",
+          source: "https://www.viaggiaresicuri.it/"
+        }
+      ]
+    },
+    {
+      id: "medica",
+      eyebrow: "Se serve un medico e non un'ambulanza",
+      title: "Curarsi in giapponese senza saperlo",
+      note: "Il frasario ha “Dov'è l'ospedale?”; questi sono i due modi per avere una risposta. Cercate la struttura prima di muovervi: molte cliniche chiudono a metà giornata e nel fine settimana.",
+      entries: [
+        {
+          name: "JNTO · ricerca strutture mediche",
+          detail: "Ospedali e cliniche filtrabili per zona, lingua parlata, specialità e pagamento con carta. È la stessa organizzazione della Japan Visitor Hotline qui sopra.",
+          link: "https://www.jnto.go.jp/emergency/eng/mi_guide.html",
+          linkLabel: "Apri la ricerca ufficiale"
+        },
+        {
+          name: "AMDA International Medical Information Center",
+          detail: "Indirizza verso strutture che parlano la vostra lingua e fa da interprete al telefono durante la visita, gratuitamente.",
+          phone: "03-6233-9266",
+          href: "tel:+81362339266",
+          link: "https://www.amdamedicalcenter.com/welcome/english",
+          linkLabel: "Lingue e orari"
+        }
+      ]
+    }
+  ];
 })();

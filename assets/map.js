@@ -3,6 +3,7 @@
   let map;
   let routeLayer;
   let userMarker;
+  let watchId = null;
   const pointLayers = {};
   const markerByGuideId = {};
   const pointByGuideId = {};
@@ -442,7 +443,16 @@
     });
     ["visit", "tabelog", "hotel"].forEach(syncLayer);
     facilityKinds().forEach(function (kind) { if (layerEnabled(kind)) syncFacilityLayer(kind); });
-    fitRoute();
+    openOnCurrentCity();
+  }
+
+  // Se sappiamo in che tappa siete, la mappa si apre lì invece che sull'intero
+  // Giappone: in viaggio interessa l'isolato, non l'arcipelago.
+  function openOnCurrentCity() {
+    const cityId = localStorage.getItem("tabi-current-city") || "";
+    const city = cityId && window.JAPAN_DATA.cities.find(function (candidate) { return candidate.id === cityId; });
+    if (city && Number.isFinite(city.lat) && Number.isFinite(city.lng)) map.setView([city.lat, city.lng], 13);
+    else fitRoute();
   }
 
   // Il popup vive dentro #tripMap, che ha overflow:hidden: oltre le misure del
@@ -484,6 +494,28 @@
     if (map && routeLayer) map.fitBounds(routeLayer.getBounds(), { padding:[30, 30] });
   }
 
+  function drawUser(latlng) {
+    if (userMarker) userMarker.setLatLng(latlng);
+    else userMarker = L.circleMarker(latlng, { radius:9, color:"#fff", weight:3, fillColor:"#1b76d1", fillOpacity:1 }).addTo(map).bindPopup("Sei qui");
+  }
+
+  // Il puntino segue chi cammina finché la mappa è aperta. Prima si leggeva la
+  // posizione una volta sola e bisognava ritoccare ◎ a ogni isolato: va bene per
+  // guardare una mappa, non per usarla mentre ci si muove.
+  function startFollowing() {
+    if (watchId !== null || !navigator.geolocation) return;
+    watchId = navigator.geolocation.watchPosition(function (position) {
+      if (!map) return;
+      drawUser([position.coords.latitude, position.coords.longitude]);
+    }, function () {}, { enableHighAccuracy:true, maximumAge:10000, timeout:20000 });
+  }
+
+  function stopFollowing() {
+    if (watchId === null) return;
+    navigator.geolocation.clearWatch(watchId);
+    watchId = null;
+  }
+
   function locateUser() {
     const button = document.getElementById("locateButton");
     if (!window.TABI_GEO) return;
@@ -491,12 +523,12 @@
     button.textContent = "Ricerca posizione…";
     window.TABI_GEO.requestPosition({ maximumAge:60000 }).then(function (position) {
       const latlng = [position.coords.latitude, position.coords.longitude];
-      if (userMarker) userMarker.remove();
-      userMarker = L.circleMarker(latlng, { radius:9, color:"#fff", weight:3, fillColor:"#1b76d1", fillOpacity:1 }).addTo(map).bindPopup("Sei qui");
-      map.setView(latlng, 13);
+      drawUser(latlng);
+      map.setView(latlng, 15);
       userMarker.openPopup();
+      startFollowing();
       button.disabled = false;
-      button.textContent = "◎ La mia posizione";
+      button.textContent = "◎ Ti sto seguendo";
     }).catch(function () {
       button.disabled = false;
       button.textContent = "Posizione non disponibile";
@@ -820,6 +852,12 @@
   document.getElementById("locateButton").addEventListener("click", locateUser);
   document.getElementById("fitRouteButton").addEventListener("click", fitRoute);
   document.getElementById("expandMapButton").addEventListener("click", toggleExpandedMap);
+  document.getElementById("layersButton").addEventListener("click", function () {
+    const legend = document.getElementById("mapLegend");
+    const button = document.getElementById("layersButton");
+    legend.hidden = !legend.hidden;
+    button.setAttribute("aria-expanded", String(!legend.hidden));
+  });
   document.querySelectorAll("[data-map-layer]").forEach(function (input) {
     input.addEventListener("change", function () {
       const type = input.dataset.mapLayer;
@@ -829,7 +867,12 @@
     });
   });
   window.addEventListener("tabi:viewchange", function (event) {
-    if (event.detail.view !== "places") return;
+    if (event.detail.view !== "places") {
+      // Fuori dalla mappa il GPS si spegne: tenerlo acceso in Cibi tipici
+      // consumerebbe batteria per niente.
+      stopFollowing();
+      return;
+    }
     initMap();
     setTimeout(function () { if (map) map.invalidateSize(); }, 80);
   });
