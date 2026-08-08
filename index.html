@@ -6,15 +6,16 @@
   <meta name="theme-color" content="#b6422e">
   <meta name="description" content="Compagno di viaggio per il Giappone: tappe, luoghi, cibo e acquisti tipici.">
   <title>Giappone 2026 | Tabi</title>
-  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="manifest" href="manifest.webmanifest?v=20260801b">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://commons.wikimedia.org">
   <link rel="preconnect" href="https://tile.openstreetmap.org">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Noto+Serif+JP:wght@500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="assets/styles.css">
-  <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css?v=20260801b">
+  <link rel="icon" href="assets/icons/icon.svg?v=20260801b" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260801b">
 </head>
 <body>
   <a class="skip-link" href="#main">Vai al contenuto</a>
@@ -50,17 +51,22 @@
 
       <div class="dashboard-shell">
         <section class="trip-strip reveal" aria-labelledby="routeTitle">
-          <div class="section-heading compact"><div><p class="eyebrow">13 tappe</p><h2 id="routeTitle">La rotta</h2></div><span class="hint">Scorri</span></div>
+          <div class="section-heading compact"><div><p class="eyebrow">11 tappe reali</p><h2 id="routeTitle">La rotta, in ordine</h2></div><span class="hint">Scorri</span></div>
           <div class="route-scroll" id="routeStrip"></div>
         </section>
 
+        <section class="transfer-strip reveal" aria-labelledby="transferTitle">
+          <div class="section-heading compact"><div><p class="eyebrow">Come ci muoviamo</p><h2 id="transferTitle">I trasferimenti</h2></div><span class="hint">Treno, bus e traghetto</span></div>
+          <div class="transfer-grid" id="transferGrid"></div>
+        </section>
+
         <section class="stay-strip reveal" aria-labelledby="stayTitle">
-          <div class="section-heading compact"><div><p class="eyebrow">Hotel e basi</p><h2 id="stayTitle">Dove conviene dormire</h2></div><span class="hint">Nessuna data o prenotazione</span></div>
+          <div class="section-heading compact"><div><p class="eyebrow">Hotel confermati</p><h2 id="stayTitle">Le nostre basi</h2></div><span class="hint">7 basi lungo la rotta</span></div>
           <div class="stay-grid" id="stayGrid"></div>
         </section>
 
         <section class="today-grid reveal">
-          <article class="stat-card ink"><span>Da scoprire</span><strong id="placeCount">0</strong><small>luoghi selezionati</small></article>
+          <article class="stat-card ink"><span>Da scoprire</span><strong id="placeCount">0</strong><small>luoghi sulla mappa</small></article>
           <article class="stat-card vermilion"><span>Da assaggiare</span><strong id="foodCount">0</strong><small>specialità locali</small></article>
           <article class="stat-card moss"><span>Da cercare</span><strong id="shopCount">0</strong><small>acquisti tipici</small></article>
           <article class="progress-card">
@@ -84,16 +90,24 @@
       </div>
       <section class="map-panel" aria-labelledby="mapTitle">
         <div class="map-toolbar">
-          <div><p class="eyebrow">Itinerario pubblico</p><h2 id="mapTitle">Da Tokyo a Miyajima</h2></div>
+          <div><p class="eyebrow">La rotta completa</p><h2 id="mapTitle">Da Osaka a Tokyo</h2></div>
           <div class="map-actions"><button id="locateButton" type="button">◎ La mia posizione</button><button id="fitRouteButton" type="button">Inquadra il viaggio</button></div>
         </div>
+        <div class="map-legend" aria-label="Legenda e filtri della mappa">
+          <label><input type="checkbox" data-map-layer="visit" checked><i class="legend-dot visit"></i> Luoghi da visitare</label>
+          <label><input type="checkbox" data-map-layer="tabelog" checked><i class="legend-dot tabelog"></i> Locali Tabelog</label>
+          <label><input type="checkbox" data-map-layer="hotel" checked><i class="legend-dot hotel"></i> Hotel</label>
+          <span>I punteggi Tabelog sono uno snapshot indicativo della selezione originale: verifica il dato attuale prima di scegliere.</span>
+        </div>
         <div id="tripMap" role="application" aria-label="Mappa delle tappe del viaggio in Giappone"></div>
-        <p class="privacy-note">La posizione viene letta dal browser solo quando premi il pulsante e non viene salvata né inviata al sito.</p>
+        <p class="helper-note">Tocca una tappa per avvicinare la mappa, poi apri il punto in Google Maps per raggiungerlo.</p>
       </section>
-      <div class="toolbar sticky-toolbar">
+      <div class="toolbar sticky-toolbar" data-filter-group="place">
         <label class="search-box"><span aria-hidden="true">⌕</span><input id="placeSearch" type="search" placeholder="Cerca luogo o città…" autocomplete="off"></label>
+        <button class="filter-toggle" type="button" data-filter-toggle="place" aria-expanded="false">Filtri <span>0</span></button>
         <select id="placeCity" aria-label="Filtra luoghi per città"></select>
         <select id="placeCategory" aria-label="Filtra luoghi per categoria"></select>
+        <button class="filter-reset" type="button" data-filter-reset="place">Azzera filtri</button>
       </div>
       <div class="results-meta" id="placeMeta"></div>
       <div class="card-grid place-grid" id="placeGrid"></div>
@@ -105,10 +119,12 @@
         <p class="eyebrow">Capire prima di guardare</p><h1>Storie</h1>
         <p>Contesto storico, architettura, spiritualità e aneddoti per leggere meglio ciò che incontri.</p>
       </div>
-      <div class="toolbar sticky-toolbar">
+      <div class="toolbar sticky-toolbar" data-filter-group="history">
         <label class="search-box"><span aria-hidden="true">⌕</span><input id="historySearch" type="search" placeholder="Cerca epoca, tempio o storia…" autocomplete="off"></label>
+        <button class="filter-toggle" type="button" data-filter-toggle="history" aria-expanded="false">Filtri <span>0</span></button>
         <select id="historyCity" aria-label="Filtra storie per città"></select>
         <select id="historyCategory" aria-label="Filtra storie per tipologia"></select>
+        <button class="filter-reset" type="button" data-filter-reset="history">Azzera filtri</button>
       </div>
       <div class="results-meta" id="historyMeta"></div>
       <div class="history-grid" id="historyGrid"></div>
@@ -117,18 +133,18 @@
 
     <section class="view" id="photos" data-view="photos">
       <div class="page-intro photos-intro">
-        <p class="eyebrow">Diario privato sul dispositivo</p><h1>Foto</h1>
-        <p>Organizza gli scatti per città senza caricarli su GitHub o su altri server.</p>
+        <p class="eyebrow">Il racconto del viaggio</p><h1>Foto</h1>
+        <p>Organizza gli scatti per città e costruisci il diario della vacanza.</p>
       </div>
       <section class="photo-import">
-        <div><h2>Aggiungi al diario</h2><p>Le immagini restano esclusivamente nel browser di questo dispositivo.</p></div>
+        <div><h2>Aggiungi al diario</h2><p>Scegli una città e aggiungi una breve nota per ricordare il momento.</p></div>
         <div class="photo-fields">
           <select id="photoCity" aria-label="Città delle fotografie"></select>
           <input id="photoCaption" type="text" maxlength="120" placeholder="Nota facoltativa">
           <label class="primary-action file-button">Scegli foto<input id="photoInput" type="file" accept="image/*" capture="environment" multiple></label>
         </div>
       </section>
-      <div class="photo-filter-row"><select id="photoCityFilter" aria-label="Filtra fotografie per città"></select><span id="photoStorageInfo"></span></div>
+      <div class="photo-filter-row"><select id="photoCityFilter" aria-label="Filtra fotografie per città"></select><span id="photoStorageInfo"></span><button id="deleteAllPhotos" type="button">Cancella tutte le foto</button></div>
       <div class="photo-grid" id="photoGrid"></div>
       <div class="empty-state" id="photoEmpty"><div><strong>Il diario è ancora vuoto.</strong><span>Gli scatti compariranno qui, ordinati per città.</span></div></div>
     </section>
@@ -138,11 +154,13 @@
         <p class="eyebrow">La guida per riconoscerli</p><h1>Cibi tipici</h1>
         <p>Piatti celebri e scoperte locali, con foto caricate a richiesta e fallback offline.</p>
       </div>
-      <div class="toolbar sticky-toolbar">
+      <div class="toolbar sticky-toolbar" data-filter-group="food">
         <label class="search-box"><span aria-hidden="true">⌕</span><input id="foodSearch" type="search" placeholder="Cerca piatto o ingrediente…" autocomplete="off"></label>
+        <button class="filter-toggle" type="button" data-filter-toggle="food" aria-expanded="false">Filtri <span>0</span></button>
         <select id="foodCity" aria-label="Filtra cibi per città"></select>
         <select id="foodCategory" aria-label="Filtra cibi per portata"></select>
         <label class="toggle"><input id="foodLocal" type="checkbox"><span>Solo scoperte locali</span></label>
+        <button class="filter-reset" type="button" data-filter-reset="food">Azzera filtri</button>
       </div>
       <div class="results-meta" id="foodMeta"></div>
       <div class="card-grid food-grid" id="foodGrid"></div>
@@ -154,10 +172,12 @@
         <p class="eyebrow">Cose belle, buone, utili</p><h1>Cosa comprare</h1>
         <p>Una lista ragionata per evitare souvenir anonimi e riconoscere ciò che vale spazio in valigia.</p>
       </div>
-      <div class="toolbar sticky-toolbar">
+      <div class="toolbar sticky-toolbar" data-filter-group="shop">
         <label class="search-box"><span aria-hidden="true">⌕</span><input id="shopSearch" type="search" placeholder="Cerca oggetto o categoria…" autocomplete="off"></label>
+        <button class="filter-toggle" type="button" data-filter-toggle="shop" aria-expanded="false">Filtri <span>0</span></button>
         <select id="shopCity" aria-label="Filtra acquisti per città"></select>
         <select id="shopCategory" aria-label="Filtra acquisti per categoria"></select>
+        <button class="filter-reset" type="button" data-filter-reset="shop">Azzera filtri</button>
       </div>
       <div class="category-rail" id="shopCategoryRail"></div>
       <div class="results-meta" id="shopMeta"></div>
@@ -166,12 +186,12 @@
     </section>
 
     <section class="view" id="saved" data-view="saved">
-      <div class="page-intro saved-intro"><p class="eyebrow">La tua selezione</p><h1>Salvati</h1><p>Preferiti e cose già fatte restano su questo dispositivo.</p></div>
+      <div class="page-intro saved-intro"><p class="eyebrow">La vostra selezione</p><h1>Salvati</h1><p>Preferiti, luoghi visitati, piatti provati e acquisti fatti.</p></div>
       <section class="local-profile">
-        <div><p class="eyebrow">Profilo locale</p><h2>Il vostro gruppo, senza account</h2><p>Il nome serve solo a etichettare un'esportazione. Nessun dato viene inviato online.</p></div>
-        <div class="profile-fields"><input id="localNickname" type="text" maxlength="40" placeholder="Il tuo nome o soprannome"><input id="localGroup" type="text" maxlength="60" placeholder="Nome del gruppo"><button id="saveProfileButton" type="button">Salva sul dispositivo</button></div>
+        <div><p class="eyebrow">Checklist di gruppo</p><h2>Il vostro viaggio</h2><p>Dai un nome alla checklist e condividi i progressi tra i telefoni del gruppo.</p></div>
+        <div class="profile-fields"><input id="localNickname" type="text" maxlength="40" placeholder="Il tuo nome o soprannome"><input id="localGroup" type="text" maxlength="60" placeholder="Nome del gruppo"><button id="saveProfileButton" type="button">Salva il profilo</button></div>
         <div class="sync-actions"><button id="exportProgressButton" type="button">Esporta checklist gruppo</button><label>Importa e unisci<input id="importProgressInput" type="file" accept="application/json"></label></div>
-        <p class="privacy-note">Per la sincronizzazione istantanea tra telefoni servirebbe un servizio esterno. Questa versione usa file esportabili per non creare account o raccogliere dati.</p>
+        <p class="helper-note">Esporta la checklist da un telefono e importala sugli altri per unire preferiti e attività completate.</p>
       </section>
       <div class="saved-summary" id="savedSummary"></div>
       <div class="saved-sections" id="savedSections"></div>
@@ -191,13 +211,15 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script src="assets/data.js" defer></script>
-  <script src="assets/food-data.js" defer></script>
-  <script src="assets/shopping-data.js" defer></script>
-  <script src="assets/travel-data.js" defer></script>
-  <script src="assets/history-data.js" defer></script>
-  <script src="assets/map.js" defer></script>
-  <script src="assets/app.js" defer></script>
-  <script src="assets/photos.js" defer></script>
+  <script src="assets/data.js?v=20260801b" defer></script>
+  <script src="assets/food-data.js?v=20260801b" defer></script>
+  <script src="assets/shopping-data.js?v=20260801b" defer></script>
+  <script src="assets/travel-data.js?v=20260801b" defer></script>
+  <script src="assets/history-data.js?v=20260801b" defer></script>
+  <script src="assets/map-data.js?v=20260801b" defer></script>
+  <script src="assets/guide-data.js?v=20260801b" defer></script>
+  <script src="assets/map.js?v=20260801b" defer></script>
+  <script src="assets/app.js?v=20260801b" defer></script>
+  <script src="assets/photos.js?v=20260801b" defer></script>
 </body>
 </html>

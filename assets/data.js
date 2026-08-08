@@ -1,22 +1,20 @@
 (function () {
   "use strict";
   const cityRows = [
-    ["tokyo","Tokyo","東京","Kanto",35.6762,139.6503,"Tradizione Edo, quartieri verticali e notti infinite."],
-    ["kamakura","Kamakura","鎌倉","Kanto",35.3192,139.5467,"Templi, mare e sentieri a un'ora da Tokyo."],
-    ["hakone","Hakone","箱根","Kanto",35.2324,139.1069,"Onsen, arte e Fuji oltre il lago Ashi."],
-    ["matsumoto","Matsumoto","松本","Chubu",36.238,137.972,"Castello nero e porta d'ingresso alle Alpi."],
-    ["nagano","Nagano","長野","Chubu",36.6486,138.1948,"Santuari di montagna e sapori dello Shinshu."],
-    ["kanazawa","Kanazawa","金沢","Hokuriku",36.5613,136.6562,"Giardini, case da tè e artigianato Kaga."],
-    ["shirakawago","Shirakawa-go","白川郷","Gifu",36.257,136.906,"Villaggi gassho-zukuri tra risaie e montagne."],
-    ["takayama","Takayama","高山","Gifu",36.146,137.252,"Mercati mattutini, legno e sake di montagna."],
-    ["kyoto","Kyoto","京都","Kansai",35.0116,135.7681,"Templi, botteghe e una cucina di precisione."],
-    ["nara","Nara","奈良","Kansai",34.6851,135.8048,"Il Giappone antico tra cervi e grandi Buddha."],
-    ["osaka","Osaka","大阪","Kansai",34.6937,135.5023,"La capitale informale del mangiare bene."],
-    ["hiroshima","Hiroshima","広島","Chugoku",34.3853,132.4553,"Memoria, rinascita e una cucina generosa."],
-    ["miyajima","Miyajima","宮島","Chugoku",34.2959,132.3199,"Torii sull'acqua, sentieri sacri e ostriche."]
+    ["osaka","Osaka","大阪","Kansai",34.6937,135.5023,"Prima base: quartieri popolari, castello e cucina di strada.","base","Arrivo"],
+    ["nara","Nara","奈良","Kansai",34.6851,135.8048,"Escursione da Osaka tra cervi, lanterne e il Grande Buddha.","escursione","Treno A/R da Osaka"],
+    ["miyajima","Miyajima","宮島","Chugoku",34.2959,132.3199,"Tappa sull'isola prima di proseguire verso Hiroshima.","escursione","Treno e traghetto"],
+    ["hiroshima","Hiroshima","広島","Chugoku",34.3853,132.4553,"Memoria, rinascita e okonomiyaki in stile locale.","base","Proseguimento da Miyajima"],
+    ["kyoto","Kyoto","京都","Kansai",35.0116,135.7681,"Tre giornate tra templi, botteghe, Gion e possibile Uji.","base","Treno da Hiroshima"],
+    ["kanazawa","Kanazawa","金沢","Hokuriku",36.5613,136.6562,"Giardini, case da tè, samurai e artigianato Kaga.","base","Treno da Kyoto"],
+    ["shirakawago","Shirakawa-go","白川郷","Gifu",36.257,136.906,"Sosta nel villaggio gassho-zukuri lungo la via delle Alpi.","sosta","Bus da Kanazawa"],
+    ["takayama","Takayama","高山","Gifu",36.146,137.252,"Città vecchia, mercati mattutini, legno e sake di montagna.","base","Bus da Shirakawa-go"],
+    ["matsumoto","Matsumoto","松本","Chubu",36.238,137.972,"Sosta per il castello nero e la cultura artistica alpina.","sosta","Bus da Takayama"],
+    ["nagano","Nagano","長野","Chubu",36.6486,138.1948,"Zenko-ji, sapori dello Shinshu e possibile Jigokudani.","base","Treno da Matsumoto"],
+    ["tokyo","Tokyo","東京","Kanto",35.6762,139.6503,"Ultima base tra Asakusa, quartieri verticali e mercati.","base","Bus da Nagano"]
   ];
   const cities = cityRows.map(function (r, i) {
-    return { id:r[0], name:r[1], jp:r[2], region:r[3], lat:r[4], lng:r[5], summary:r[6], order:i+1 };
+    return { id:r[0], name:r[1], jp:r[2], region:r[3], lat:r[4], lng:r[5], summary:r[6], visitType:r[7], arrival:r[8], order:i+1 };
   });
 
   function parseTable(text, fields) {
@@ -87,7 +85,9 @@ miyajima|misen|Monte Misen|弥山|natura|Centro isola|Sentieri, rocce sacre e pa
 miyajima|daishoin|Daisho-in|大聖院|tempio|Base del Misen|Scale, ruote di sutra e centinaia di piccole statue.|1-2 ore|Non fermarti al primo cortile|Daishoin Miyajima
 miyajima|omotesando|Omotesando|表参道|shopping|Miyajima|La via principale per momiji manju, ostriche, mestoli di riso e botteghe.|1-2 ore|Esplora anche Machiya-dori|Miyajima Omotesando
 miyajima|senjokaku|Senjokaku|千畳閣|tempio|Itsukushima|Grande padiglione incompiuto, con pavimento in legno e vista tra gli aceri.|45 min|Sali anche alla pagoda|Senjokaku Miyajima
-`, ["city","slug","name","jp","category","area","description","duration","tip","imageQuery"]);
+`, ["city","slug","name","jp","category","area","description","duration","tip","imageQuery"]).filter(function (row) {
+    return cities.some(function (city) { return city.id === row.city; });
+  });
 
   const placeCategories = {
     tempio:"Templi", santuario:"Santuari", quartiere:"Quartieri", natura:"Natura",

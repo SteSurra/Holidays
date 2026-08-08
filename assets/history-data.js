@@ -50,7 +50,8 @@ miyajima|shamoji|aneddoti|杓|Il mestolo portafortuna|Un monaco avrebbe promosso
     cultura:"Vita e cultura", aneddoti:"Aneddoti", mitologia:"Miti",
     artigianato:"Artigianato"
   };
-  window.JAPAN_DATA.history = rows.map(function (row) {
+  const allowedCities = new Set(window.JAPAN_DATA.cities.map(function (city) { return city.id; }));
+  window.JAPAN_DATA.history = rows.filter(function (row) { return allowedCities.has(row.city); }).map(function (row) {
     row.id = "history-" + row.city + "-" + row.slug;
     row.type = "history";
     return row;

@@ -75,7 +75,8 @@ miyajima|deer-goods|Artigianato del cervo|鹿雑貨|artigianato|Machiya-dori|€
     beauty:"Beauty", pop:"Cultura pop", artigianato:"Artigianato",
     arte:"Arte e stampe", moda:"Moda"
   };
-  const shopping = rows.map(function (row) {
+  const allowedCities = new Set(window.__JAPAN_PARTIAL__.cities.map(function (city) { return city.id; }));
+  const shopping = rows.filter(function (row) { return row.city === "all" || allowedCities.has(row.city); }).map(function (row) {
     row.id = "shop-" + row.city + "-" + row.slug;
     row.type = "shop";
     return row;

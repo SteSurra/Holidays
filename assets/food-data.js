@@ -141,7 +141,8 @@ miyajima|momiji-croissant|Momiji croissant|もみじクロワッサン|dolci|pan
     primi:"Primi e riso", secondi:"Secondi", street:"Street food",
     dolci:"Dolci", contorni:"Contorni", bevande:"Bevande"
   };
-  const foods = rows.map(function (row) {
+  const allowedCities = new Set(window.__JAPAN_PARTIAL__.cities.map(function (city) { return city.id; }));
+  const foods = rows.filter(function (row) { return allowedCities.has(row.city); }).map(function (row) {
     row.id = "food-" + row.city + "-" + row.slug;
     row.rating = Number(row.rating);
     row.local = row.local === "1";

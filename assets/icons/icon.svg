@@ -1,6 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Tabi, gatto portafortuna viaggiatore</title>
   <rect width="512" height="512" rx="112" fill="#1d2522"/>
-  <circle cx="256" cy="256" r="174" fill="#b6422e"/>
-  <circle cx="256" cy="256" r="124" fill="#f4f0e7"/>
-  <text x="256" y="320" text-anchor="middle" fill="#1d2522" font-family="serif" font-size="190" font-weight="700">旅</text>
+  <circle cx="256" cy="244" r="184" fill="#b6422e"/>
+  <path d="M116 150 172 92l30 72c33-18 75-18 108 0l30-72 56 58-19 84c12 24 18 52 18 82 0 96-61 146-139 146s-139-50-139-146c0-30 6-58 18-82z" fill="#fff9ec"/>
+  <path d="m145 145 30-30 13 42zm222 0-30-30-13 42z" fill="#e0a1a0"/>
+  <path d="M158 220c24-23 53-29 80-12" fill="none" stroke="#1d2522" stroke-width="17" stroke-linecap="round"/>
+  <path d="M168 229c15 17 37 17 52 0" fill="none" stroke="#1d2522" stroke-width="12" stroke-linecap="round"/>
+  <ellipse cx="312" cy="224" rx="12" ry="17" fill="#1d2522"/>
+  <path d="m244 263 12 10 12-10" fill="#b6422e" stroke="#b6422e" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M256 275v13m0 0c-15 0-23 8-27 17m27-17c15 0 23 8 27 17" fill="none" stroke="#1d2522" stroke-width="8" stroke-linecap="round"/>
+  <path d="M211 275 125 254m88 45-94 12m182-36 86-21m-88 45 94 12" fill="none" stroke="#1d2522" stroke-width="7" stroke-linecap="round" opacity=".76"/>
+  <path d="M158 341c57 31 139 31 196 0" fill="none" stroke="#1d2522" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="256" cy="366" r="27" fill="#e3b968" stroke="#1d2522" stroke-width="8"/>
+  <path d="M361 264c47-10 69 5 68 36-1 28-27 43-60 28" fill="#fff9ec" stroke="#1d2522" stroke-width="11" stroke-linecap="round"/>
+  <circle cx="407" cy="252" r="9" fill="#e3b968"/>
+  <path d="M399 253c-35-2-61-22-78-49" fill="none" stroke="#e3b968" stroke-width="7" stroke-dasharray="4 13" stroke-linecap="round"/>
 </svg>

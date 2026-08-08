@@ -3,7 +3,7 @@
 
   const data = window.JAPAN_DATA;
   const cityById = Object.fromEntries(data.cities.map(function (city) { return [city.id, city]; }));
-  const itemById = Object.fromEntries([].concat(data.places, data.foods, data.shopping).map(function (item) { return [item.id, item]; }));
+  const itemById = Object.fromEntries([].concat(data.places, data.mapPlaces || [], data.foods, data.shopping, data.history).map(function (item) { return [item.id, item]; }));
   const fallbackByType = {
     place: "assets/fallback-place.svg",
     food: "assets/fallback-food.svg",
@@ -88,18 +88,48 @@
     document.getElementById("foodLocal").addEventListener("change", function (event) {
       state.filters.food.local = event.target.checked;
       renderFoods();
+      updateFilterToggle("food");
     });
+    ["place", "food", "shop", "history"].forEach(updateFilterToggle);
   }
 
   function bindFilter(elementId, group, field, eventName) {
     document.getElementById(elementId).addEventListener(eventName, function (event) {
       state.filters[group][field] = event.target.value;
       renderGroup(group);
+      updateFilterToggle(group);
     });
   }
 
+  function updateFilterToggle(group) {
+    const filters = state.filters[group];
+    const count = (filters.city !== "all" ? 1 : 0) + (filters.category !== "all" ? 1 : 0) + (filters.local ? 1 : 0);
+    const button = document.querySelector('[data-filter-toggle="' + group + '"]');
+    if (!button) return;
+    button.querySelector("span").textContent = count;
+    button.classList.toggle("has-active", count > 0);
+  }
+
+  function resetFilters(group) {
+    const filters = state.filters[group];
+    filters.city = "all";
+    filters.category = "all";
+    if (Object.prototype.hasOwnProperty.call(filters, "local")) filters.local = false;
+    const ids = {
+      place: ["placeCity", "placeCategory"],
+      food: ["foodCity", "foodCategory"],
+      shop: ["shopCity", "shopCategory"],
+      history: ["historyCity", "historyCategory"]
+    };
+    ids[group].forEach(function (id) { document.getElementById(id).value = "all"; });
+    if (group === "food") document.getElementById("foodLocal").checked = false;
+    renderGroup(group);
+    updateFilterToggle(group);
+  }
+
   function matches(item, filters) {
-    const haystack = normalize([item.name, item.jp, item.description, item.context, item.area, item.where, item.title, item.explanation, item.anecdote, cityName(item.city)].join(" "));
+    const guideText = (item.guideSections || []).map(function (section) { return section.title + " " + section.body; }).join(" ");
+    const haystack = normalize([item.name, item.jp, item.description, item.longDescription, item.context, item.area, item.where, item.title, item.explanation, item.anecdote, guideText, cityName(item.city)].join(" "));
     const cityMatch = filters.city === "all"
       || (filters.city === "all-japan" && item.city === "all")
       || item.city === filters.city
@@ -166,10 +196,11 @@
   }
 
   function historyCard(item) {
-    return '<article class="history-card" data-kanji="' + escapeHTML(item.kanji) + '">'
+    return '<article class="history-card" data-card-id="' + item.id + '" data-kanji="' + escapeHTML(item.kanji) + '">'
       + '<div><div class="card-kicker"><span>' + escapeHTML(cityName(item.city)) + '</span><span>' + escapeHTML(data.labels.historyCategories[item.category]) + '</span></div>'
       + '<h2>' + escapeHTML(item.title) + '</h2><p>' + escapeHTML(item.explanation) + '</p></div>'
-      + '<p class="anecdote"><strong>Da ricordare:</strong> ' + escapeHTML(item.anecdote) + '</p></article>';
+      + '<div><p class="anecdote"><strong>Da ricordare:</strong> ' + escapeHTML(item.anecdote) + '</p>'
+      + '<div class="history-card-footer"><button type="button" data-action="details" data-id="' + item.id + '">Approfondisci ↗</button></div></div></article>';
   }
 
   function renderPlaces() {
@@ -215,10 +246,14 @@
 
   function setupRoute() {
     document.getElementById("routeStrip").innerHTML = data.cities.map(function (city) {
-      return '<button class="route-stop" type="button" data-city-route="' + city.id + '"><span class="stop-index">TAPPA ' + String(city.order).padStart(2, "0") + '</span><b>' + escapeHTML(city.name) + ' ' + escapeHTML(city.jp) + '</b><small>' + escapeHTML(city.summary) + '</small></button>';
+      return '<button class="route-stop" type="button" data-city-route="' + city.id + '"><span class="stop-index">TAPPA ' + String(city.order).padStart(2, "0") + ' · ' + escapeHTML(city.visitType) + '</span><b>' + escapeHTML(city.name) + ' ' + escapeHTML(city.jp) + '</b><small>' + escapeHTML(city.summary) + '</small><em>' + escapeHTML(city.arrival) + '</em></button>';
+    }).join("");
+    document.getElementById("transferGrid").innerHTML = data.legs.map(function (leg, index) {
+      return '<article class="transfer-card"><span>' + String(index + 1).padStart(2, "0") + '</span><div><b>' + escapeHTML(leg.from) + ' → ' + escapeHTML(leg.to) + '</b><small>' + escapeHTML(leg.mode) + ' · ' + escapeHTML(leg.note) + '</small></div></article>';
     }).join("");
     document.getElementById("stayGrid").innerHTML = data.lodging.map(function (stay) {
-      return '<article class="stay-card"><b>' + escapeHTML(cityName(stay.city)) + '</b><span>' + escapeHTML(stay.area) + '</span><small>' + escapeHTML(stay.note) + '</small></article>';
+      const hotelMaps = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(stay.name + " Japan");
+      return '<article class="stay-card"><span>' + escapeHTML(cityName(stay.city)) + '</span><b>' + escapeHTML(stay.name) + '</b><small class="stay-area">' + escapeHTML(stay.area) + '</small><small>' + escapeHTML(stay.note) + '</small><a href="' + hotelMaps + '" target="_blank" rel="noopener">Apri in Google Maps ↗</a></article>';
     }).join("");
   }
 
@@ -367,20 +402,33 @@
     const cardImageElement = document.querySelector('[data-card-id="' + id + '"] img');
     const imageUrl = cardImageElement && (cardImageElement.dataset.resolved || cardImageElement.src);
     let details = "";
+    let hero = "";
+    let actions = "";
     if (item.type === "place") {
       details = detailCells([["Categoria", data.labels.placeCategories[item.category]], ["Zona", item.area], ["Tempo", item.duration], ["Quando", item.tip]]);
+      actions = '<div class="hero-actions"><a class="primary-action" href="' + mapsUrl(item) + '" target="_blank" rel="noopener">Apri in Maps</a></div>';
     } else if (item.type === "food") {
       details = detailCells([["Portata", data.labels.foodCategories[item.category]], ["Contesto", item.context], ["Gradimento", "★ " + item.rating.toFixed(1) + " / 5"], ["Selezione", item.local ? "Scoperta locale" : "Grande classico"]]);
+    } else if (item.type === "history") {
+      details = detailCells([["Città", cityName(item.city)], ["Argomento", data.labels.historyCategories[item.category]]]);
     } else {
       details = detailCells([["Categoria", data.labels.shopCategories[item.category]], ["Dove cercarlo", item.where], ["Prezzo", item.price], ["Consiglio", item.tip]]);
     }
-    const mapLink = mapsUrl(item);
+    if (item.type === "history") {
+      hero = '<div class="history-detail-hero" aria-hidden="true"><span>' + escapeHTML(item.kanji) + '</span><small>' + escapeHTML(cityName(item.city)) + '</small></div>';
+    } else {
+      hero = '<img class="dialog-hero" src="' + escapeHTML(imageUrl || fallbackByType[item.type]) + '" alt="' + escapeHTML(item.name) + '">';
+    }
+    const sections = (item.guideSections || []).map(function (section, index) {
+      return '<section class="guide-section' + (index === 0 ? ' guide-section-lead' : '') + (section.fun ? ' guide-section-fun' : '') + '"><span>' + String(index + 1).padStart(2, "0") + '</span><div><h3>' + escapeHTML(section.title) + '</h3><p>' + escapeHTML(section.body) + '</p></div></section>';
+    }).join("");
     document.getElementById("dialogContent").innerHTML =
-      '<img class="dialog-hero" src="' + escapeHTML(imageUrl || fallbackByType[item.type]) + '" alt="' + escapeHTML(item.name) + '">'
+      hero
       + '<div class="dialog-body"><p class="eyebrow">' + escapeHTML(cityName(item.city)) + '</p>'
       + '<h2>' + escapeHTML(item.name) + ' <span class="jp-name">' + escapeHTML(item.jp) + '</span></h2>'
-      + '<p>' + escapeHTML(item.description) + '</p>' + details
-      + '<div class="hero-actions"><a class="primary-action" href="' + mapLink + '" target="_blank" rel="noopener">Apri in Maps</a></div></div>';
+      + '<p class="guide-intro">' + escapeHTML(item.longDescription || item.description) + '</p>' + details
+      + (sections ? '<div class="guide-sections">' + sections + '</div>' : '')
+      + actions + '</div>';
     document.getElementById("detailDialog").showModal();
   }
 
@@ -429,7 +477,7 @@
     group.value = profile.group || "";
     document.getElementById("saveProfileButton").addEventListener("click", function () {
       localStorage.setItem("tabi-local-profile", JSON.stringify({ nickname: nickname.value.trim(), group: group.value.trim() }));
-      showToast("Profilo salvato solo su questo dispositivo");
+      showToast("Profilo del gruppo salvato");
     });
     document.getElementById("exportProgressButton").addEventListener("click", function () {
       const payload = {
@@ -488,7 +536,20 @@
         state.filters.place.city = route.dataset.cityRoute;
         document.getElementById("placeCity").value = route.dataset.cityRoute;
         renderPlaces();
+        updateFilterToggle("place");
         switchView("places");
+        return;
+      }
+      const filterToggle = event.target.closest("[data-filter-toggle]");
+      if (filterToggle) {
+        const toolbar = document.querySelector('[data-filter-group="' + filterToggle.dataset.filterToggle + '"]');
+        const open = toolbar.classList.toggle("filters-open");
+        filterToggle.setAttribute("aria-expanded", String(open));
+        return;
+      }
+      const filterReset = event.target.closest("[data-filter-reset]");
+      if (filterReset) {
+        resetFilters(filterReset.dataset.filterReset);
         return;
       }
       const action = event.target.closest("[data-action]");
@@ -503,6 +564,7 @@
         state.filters.shop.category = chip.dataset.category;
         document.getElementById("shopCategory").value = chip.dataset.category;
         renderShopping();
+        updateFilterToggle("shop");
       }
     });
     window.addEventListener("hashchange", function () { switchView(location.hash.slice(1), false); });
@@ -525,12 +587,22 @@
       this.hidden = true;
     });
     if ("serviceWorker" in navigator) {
-      window.addEventListener("load", function () { navigator.serviceWorker.register("sw.js"); });
+      let refreshing = false;
+      navigator.serviceWorker.addEventListener("controllerchange", function () {
+        if (refreshing) return;
+        refreshing = true;
+        window.location.reload();
+      });
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("sw.js?v=20260801b", { updateViaCache: "none" }).then(function (registration) {
+          registration.update();
+        });
+      });
     }
   }
 
   function init() {
-    document.getElementById("placeCount").textContent = data.places.length;
+    document.getElementById("placeCount").textContent = window.JAPAN_MAP_DATA.points.filter(function (point) { return point.type === "visit"; }).length;
     document.getElementById("foodCount").textContent = data.foods.length;
     document.getElementById("shopCount").textContent = data.shopping.length;
     setupImages();

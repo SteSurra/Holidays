@@ -56,13 +56,19 @@
       });
     }
     document.getElementById("photoCaption").value = "";
-    status.textContent = "Foto salvate solo su questo dispositivo";
+    status.textContent = "Foto aggiunte al diario";
     await render();
   }
 
   async function removePhoto(id) {
     if (!window.confirm("Eliminare questa foto dal diario locale? L'operazione non è recuperabile.")) return;
     await transaction("readwrite", function (store) { return store.delete(id); });
+    await render();
+  }
+
+  async function removeAllPhotos() {
+    if (!window.confirm("Eliminare tutte le foto salvate su questo dispositivo? L'operazione non è recuperabile.")) return;
+    await transaction("readwrite", function (store) { return store.clear(); });
     await render();
   }
 
@@ -95,6 +101,7 @@
     document.getElementById("photoEmpty").hidden = photos.length !== 0;
     const bytes = all.reduce(function (total, photo) { return total + (photo.blob.size || 0); }, 0);
     document.getElementById("photoStorageInfo").textContent = all.length + " foto · " + (bytes / 1024 / 1024).toFixed(1) + " MB locali";
+    document.getElementById("deleteAllPhotos").disabled = all.length === 0;
   }
 
   function setup() {
@@ -107,6 +114,7 @@
       event.target.value = "";
     });
     document.getElementById("photoCityFilter").addEventListener("change", render);
+    document.getElementById("deleteAllPhotos").addEventListener("click", removeAllPhotos);
     document.getElementById("photoGrid").addEventListener("click", function (event) {
       const button = event.target.closest("[data-photo-delete]");
       if (button) removePhoto(Number(button.dataset.photoDelete));
