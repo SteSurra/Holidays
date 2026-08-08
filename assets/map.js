@@ -231,10 +231,31 @@
   }
 
   // WC e fontanelle vivono solo sulla mappa: niente elenco sotto ai luoghi, che
-  // è lo spazio delle cose da vedere. Per i messaggi si usa la riga di stato
-  // già presente sotto la barra della mappa.
+  // è lo spazio delle cose da vedere. Il messaggio va anche dentro il pannello
+  // dei livelli: è lì che si sta guardando quando si accende un interruttore, e
+  // la riga sotto la mappa resta fuori campo.
   function facilityStatus(text) {
     lassoStatus(text);
+    const box = document.getElementById("facilityStatus");
+    if (!box) return;
+    box.textContent = text;
+    box.hidden = !text;
+  }
+
+  // Un WC utile è quello a duecento metri, non quello a trecento chilometri.
+  // Sull'intero Giappone questi punti finiscono sotto i pin delle tappe e non se
+  // ne vede nemmeno uno: se la mappa è larga, si stringe sulla tappa corrente.
+  function zoomToFacilities() {
+    if (!map || map.getZoom() >= 13) return "";
+    const cities = window.JAPAN_DATA.cities;
+    const currentId = localStorage.getItem("tabi-current-city") || "";
+    const center = map.getCenter();
+    const target = cities.find(function (city) { return city.id === currentId; })
+      || (nearestCity(center.lat, center.lng) || {}).city
+      || cities[0];
+    if (!target) return "";
+    map.setView([target.lat, target.lng], 15);
+    return " Ti ho portato su " + target.name + ": da lontano finiscono sotto i pin delle tappe.";
   }
 
   function facilityName(point) {
@@ -369,11 +390,14 @@
       if (!enabledFacilityKinds().length) facilityStatus("");
       return;
     }
-    if (!facilityPoints) facilityStatus("Cerco " + FACILITY_KINDS[kind].plural + " su OpenStreetMap…");
+    // La prima richiesta a OpenStreetMap richiede una decina di secondi: senza
+    // dirlo, l'attesa si legge come "non ha trovato niente".
+    if (!facilityPoints) facilityStatus("Cerco " + FACILITY_KINDS[kind].plural + " su OpenStreetMap… ci vogliono una decina di secondi, solo la prima volta.");
     ensureFacilities().then(function () {
       buildFacilityMarkers();
-      if (map && layerEnabled(kind)) facilityLayers[kind].addTo(map);
-      facilityStatus(facilityCountLabel());
+      if (!map || !layerEnabled(kind)) return;
+      facilityLayers[kind].addTo(map);
+      facilityStatus(facilityCountLabel() + zoomToFacilities());
     }).catch(function (error) {
       const input = document.querySelector('[data-map-layer="' + kind + '"]');
       if (input) input.checked = false;
@@ -388,7 +412,7 @@
       const total = facilityPoints.filter(function (point) { return point.kind === kind; }).length;
       return total + " " + FACILITY_KINDS[kind].count;
     });
-    return counts.join(" e ") + " attorno alle tappe: ingrandisci sulla zona dove sei per vederli.";
+    return counts.join(" e ") + " attorno alle tappe.";
   }
 
   function initMap() {

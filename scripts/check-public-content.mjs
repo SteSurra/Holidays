@@ -7,6 +7,8 @@ const files = execFileSync("git", ["ls-files", "--cached", "--others", "--exclud
   .filter(Boolean);
 
 const forbiddenExtensions = /\.(?:pdf|docx?|heic|heif|jpe?g|png|webp)$/i;
+// Solo le icone dell'app. Ogni altra immagine resta vietata, perché è da lì che
+// passerebbero foto del viaggio, biglietti e documenti.
 const allowedBinaryAssets = /^assets\/icons\/(?:icon-192|icon-512|apple-touch-icon)\.png$/;
 const textRules = [
   ["email address", /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i],
@@ -19,8 +21,15 @@ const textRules = [
 
 const failures = [];
 for (const file of files) {
-  if (forbiddenExtensions.test(file) && !allowedBinaryAssets.test(file)) {
-    failures.push(`${file}: personal/binary document type is not allowed`);
+  if (forbiddenExtensions.test(file)) {
+    if (!allowedBinaryAssets.test(file)) {
+      failures.push(`${file}: personal/binary document type is not allowed`);
+      continue;
+    }
+    // Le regole qui sotto cercano testo. Passarci i byte compressi di un PNG
+    // produce solo falsi allarmi: in una schermata della guida sette byte a caso
+    // sono finiti sotto la regola degli indirizzi di posta. Il filtro su questi
+    // file è la lista dei percorsi ammessi, non le parole al loro interno.
     continue;
   }
   let content;

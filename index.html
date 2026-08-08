@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#14181a" media="(prefers-color-scheme: dark)">
   <meta name="description" content="Guida di viaggio in Giappone con itinerario, mappa, luoghi, esperienze, cibo, acquisti e storie.">
   <title>Giappone 2026 | Tabi</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260805h">
+  <link rel="manifest" href="manifest.webmanifest?v=20260805u">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://commons.wikimedia.org">
@@ -18,9 +18,9 @@
   <link rel="preconnect" href="https://tile.openstreetmap.org">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Noto+Serif+JP:wght@500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="assets/styles.css?v=20260805h">
-  <link rel="icon" href="assets/icons/icon.svg?v=20260805h" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260805h">
+  <link rel="stylesheet" href="assets/styles.css?v=20260805u">
+  <link rel="icon" href="assets/icons/icon.svg?v=20260805u" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260805u">
 </head>
 <body>
   <a class="skip-link" href="#main">Vai al contenuto</a>
@@ -39,21 +39,6 @@
 
   <main id="main">
     <section class="view is-active" id="overview" data-view="overview">
-      <!-- La tappa di oggi sta sopra l'hero: è la cosa che si guarda venti volte
-           al giorno, e prima stava sotto sette scorrimenti di copertina. -->
-      <div class="dashboard-shell now-first">
-        <section class="now-strip reveal" aria-labelledby="nowTitle">
-          <div class="now-head">
-            <div><p class="eyebrow">Dove siete adesso</p><h2 id="nowTitle">La tappa di oggi</h2></div>
-            <div class="now-picker-row">
-              <label class="now-picker"><span>Sono a</span><select id="currentCity" aria-label="Scegli la tappa in cui vi trovate"></select></label>
-              <button class="now-locate" id="nowLocateButton" type="button">◎ Usa la mia posizione</button>
-            </div>
-          </div>
-          <div class="now-body" id="nowBody"></div>
-        </section>
-      </div>
-
       <div class="hero">
         <div class="hero-copy reveal">
           <p class="eyebrow">Il viaggio, in tasca</p>
@@ -68,6 +53,14 @@
       </div>
 
       <div class="dashboard-shell">
+        <section class="now-strip reveal" aria-labelledby="nowTitle">
+          <div class="now-head">
+            <div><p class="eyebrow">Dove siete adesso</p><h2 id="nowTitle">La tappa di oggi</h2></div>
+            <label class="now-picker"><span>Sono a</span><select id="currentCity" aria-label="Scegli la tappa in cui vi trovate"></select></label>
+          </div>
+          <div class="now-body" id="nowBody"></div>
+        </section>
+
         <section class="trip-strip reveal" aria-labelledby="routeTitle">
           <div class="section-heading compact"><div><p class="eyebrow">11 tappe reali</p><h2 id="routeTitle">La rotta, in ordine</h2></div><span class="hint">Scorri</span></div>
           <div class="route-scroll" id="routeStrip"></div>
@@ -101,7 +94,8 @@
           <label><input type="checkbox" data-map-layer="toilet"><i class="legend-dot toilet"></i> WC pubblici</label>
           <label><input type="checkbox" data-map-layer="water"><i class="legend-dot water"></i> Fontanelle</label>
           <label><input type="checkbox" data-map-layer="konbini"><i class="legend-dot konbini"></i> Konbini</label>
-          <span>Locali Tabelog, WC, fontanelle e konbini partono spenti: accendili quando ti servono. Il punteggio Tabelog è quello del giorno della selezione e nel punto trovi il collegamento alla scheda con voto aggiornato, orari e prenotazione; WC, fontanelle e konbini arrivano da OpenStreetMap e si scaricano al primo tocco.</span>
+          <p class="facility-status" id="facilityStatus" role="status" hidden></p>
+          <span>Locali Tabelog, WC, fontanelle e konbini partono spenti: accendili quando ti servono. Il punteggio Tabelog è quello del giorno della selezione e nel punto trovi il collegamento alla scheda con voto aggiornato, orari e prenotazione; WC, fontanelle e konbini arrivano da OpenStreetMap, si scaricano al primo tocco e si vedono solo da vicino.</span>
         </div>
         <p class="helper-note">Nei punti puoi leggere i dettagli, segnare la visita o avviare Google Maps. <span id="mapSelectionCount"></span></p>
       </section>
@@ -111,9 +105,9 @@
         <select id="placeCity" aria-label="Filtra luoghi per città"></select>
         <select id="placeCategory" aria-label="Filtra luoghi per categoria"></select>
         <label class="toggle"><input type="checkbox" data-nearby="place"><span>Vicino a me</span></label>
+        <div class="select-scope" data-select-scope="place" aria-label="Metti o togli dalla mappa i luoghi mostrati"></div>
         <button class="filter-reset" type="button" data-filter-reset="place">Azzera filtri</button>
       </div>
-      <div class="selection-bar" data-selection-bar aria-label="Quali luoghi stanno sulla mappa"></div>
       <div class="results-meta" id="placeMeta"></div>
       <div class="card-grid place-grid" id="placeGrid"></div>
       <div class="empty-state" id="placeEmpty" hidden><strong>Nessun luogo trovato.</strong><span>Prova a cambiare i filtri.</span></div>
@@ -131,9 +125,9 @@
         <select id="experienceCategory" aria-label="Filtra esperienze per tipologia"></select>
         <select id="experienceSetting" aria-label="Filtra esperienze per ambiente"></select>
         <label class="toggle"><input type="checkbox" data-nearby="experience"><span>Vicino a me</span></label>
+        <div class="select-scope" data-select-scope="experience" aria-label="Metti o togli dalla mappa le esperienze mostrate"></div>
         <button class="filter-reset" type="button" data-filter-reset="experience">Azzera filtri</button>
       </div>
-      <div class="selection-bar" data-selection-bar aria-label="Quali luoghi stanno sulla mappa"></div>
       <div class="results-meta" id="experienceMeta"></div>
       <div class="card-grid experience-grid" id="experienceGrid"></div>
       <div class="empty-state" id="experienceEmpty" hidden><strong>Nessuna esperienza trovata.</strong><span>Prova a cambiare i filtri.</span></div>
@@ -386,22 +380,22 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script src="assets/data.js?v=20260805h" defer></script>
-  <script src="assets/food-data.js?v=20260805h" defer></script>
-  <script src="assets/shopping-data.js?v=20260805h" defer></script>
-  <script src="assets/food-extra-data.js?v=20260805h" defer></script>
-  <script src="assets/travel-data.js?v=20260805h" defer></script>
-  <script src="assets/history-data.js?v=20260805h" defer></script>
-  <script src="assets/phrases-data.js?v=20260805h" defer></script>
-  <script src="assets/glossary-data.js?v=20260805h" defer></script>
-  <script src="assets/packing-data.js?v=20260805h" defer></script>
-  <script src="assets/money-data.js?v=20260805h" defer></script>
-  <script src="assets/day-tips-data.js?v=20260805h" defer></script>
-  <script src="assets/map-data.js?v=20260805h" defer></script>
-  <script src="assets/experiences-data.js?v=20260805h" defer></script>
-  <script src="assets/source-data.js?v=20260805h" defer></script>
-  <script src="assets/guide-data.js?v=20260805h" defer></script>
-  <script src="assets/map.js?v=20260805h" defer></script>
-  <script src="assets/app.js?v=20260805h" defer></script>
+  <script src="assets/data.js?v=20260805u" defer></script>
+  <script src="assets/food-data.js?v=20260805u" defer></script>
+  <script src="assets/shopping-data.js?v=20260805u" defer></script>
+  <script src="assets/food-extra-data.js?v=20260805u" defer></script>
+  <script src="assets/travel-data.js?v=20260805u" defer></script>
+  <script src="assets/history-data.js?v=20260805u" defer></script>
+  <script src="assets/phrases-data.js?v=20260805u" defer></script>
+  <script src="assets/glossary-data.js?v=20260805u" defer></script>
+  <script src="assets/packing-data.js?v=20260805u" defer></script>
+  <script src="assets/money-data.js?v=20260805u" defer></script>
+  <script src="assets/day-tips-data.js?v=20260805u" defer></script>
+  <script src="assets/map-data.js?v=20260805u" defer></script>
+  <script src="assets/experiences-data.js?v=20260805u" defer></script>
+  <script src="assets/source-data.js?v=20260805u" defer></script>
+  <script src="assets/guide-data.js?v=20260805u" defer></script>
+  <script src="assets/map.js?v=20260805u" defer></script>
+  <script src="assets/app.js?v=20260805u" defer></script>
 </body>
 </html>

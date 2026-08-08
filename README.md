@@ -13,4 +13,4 @@ Il sito raccoglie:
 - frasi utili, traduzione assistita ed emergenze;
 - preferiti e progressi persistenti sul dispositivo.
 
-[Apri la guida](https://stesurra.github.io/Holidays/)
+[Apri la guida](https://stesurra.github.io/Holidays/) · [Come si usa](GUIDA.md)

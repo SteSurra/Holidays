@@ -19,12 +19,12 @@
     // sparire in silenzio. La guida mostra tutte le possibilità; è l'utente a
     // decidere cosa nascondere.
     hidden: new Set(readJSON("tabi-hidden-v1", [])),
-    listView: localStorage.getItem("tabi-list-view") === "list" ? "list" : "cards",
     imageCache: readJSON("tabi-image-cache-v4", {}),
     position: null,
     currentView: "",
     previousView: "",
     packed: new Set(readJSON("tabi-packing", [])),
+    packedQty: readJSON("tabi-packing-qty-v1", {}),
     notes: readJSON("tabi-notes-v1", []),
     // Da quale menu (Scopri o Utilità) è stata aperta una schermata: serve al
     // tasto indietro per riportare al menu invece che alla pagina sottostante.
@@ -247,11 +247,21 @@
       && (!filters.local || item.local);
   }
 
+  // Due stati diversi non possono somigliarsi: "tolto dalla mappa" sbiadisce e
+  // basta, "già fatto" sbiadisce e lo dichiara con un bollino. Senza la scritta,
+  // scorrendo l'elenco non si capirebbe perché una scheda è spenta.
+  function cardClasses(item, extra) {
+    return "content-card" + (extra ? " " + extra : "")
+      + (isSelectable(item) && !isSelected(item.id) ? " is-off-map" : "")
+      + (state.done.has(item.id) ? " is-done" : "");
+  }
+
   function cardImage(item) {
     return '<div class="card-media">'
       + '<div class="image-shimmer"></div>'
       + '<img class="lazy-remote-image" src="' + fallbackByType[item.type] + '" data-image-id="' + escapeHTML(item.id) + '" data-type="' + item.type + '" alt="' + escapeHTML(item.name) + '" loading="lazy" decoding="async" referrerpolicy="no-referrer">'
       + '<span class="media-badge">' + escapeHTML(cityName(item.city)) + '</span>'
+      + '<span class="done-badge">✓ ' + escapeHTML(completionLabels(item)[0]) + '</span>'
       + '</div>';
   }
 
@@ -271,20 +281,6 @@
       + ' data-action="select" data-id="' + item.id + '"'
       + ' aria-label="' + escapeHTML(item.name) + (on ? ": togli dalla mappa" : ": rimetti sulla mappa") + '">'
       + '<span aria-hidden="true">' + (on ? "✓" : "") + '</span></button>';
-  }
-
-  // Vista compatta: solo il nome e il quadratino. Serve a scegliere in fretta
-  // cosa portarsi sulla mappa, non a leggere.
-  function compactRow(item) {
-    const done = state.done.has(item.id);
-    // Chi non ha un punto sulla mappa non ha il quadratino, ma tiene il suo
-    // posto: una colonna che salta rende l'elenco illeggibile.
-    return '<article class="compact-row' + (done ? " is-done" : "") + '" data-card-id="' + item.id + '">'
-      + (isSelectable(item) ? selectionToggle(item) : '<span class="select-spacer" aria-hidden="true"></span>')
-      + '<button class="compact-main" type="button" data-action="details" data-id="' + item.id + '">'
-      + '<b>' + escapeHTML(item.name) + (done ? ' <span class="compact-done" aria-label="già visitato">✓</span>' : '') + '</b>'
-      + '<small>' + escapeHTML(cityName(item.city)) + ' · ' + escapeHTML(item.jp || "") + '</small>'
-      + '</button></article>';
   }
 
   function completionLabels(item) {
@@ -383,7 +379,7 @@
   }
 
   function placeCard(item) {
-    return '<article class="content-card' + (isSelectable(item) && !isSelected(item.id) ? " is-off-map" : "") + '" data-card-id="' + item.id + '">'
+    return '<article class="' + cardClasses(item) + '" data-card-id="' + item.id + '">'
       + actionButtons(item) + cardImage(item)
       + '<div class="card-body"><div class="card-kicker"><span>' + escapeHTML(data.labels.placeCategories[item.category]) + escapeHTML(distanceLabel(item)) + '</span><span>' + escapeHTML(item.duration) + '</span></div>'
       + '<h3>' + escapeHTML(item.name) + '<span class="jp-name">' + escapeHTML(item.jp) + '</span></h3>'
@@ -393,7 +389,7 @@
   }
 
   function foodCard(item) {
-    return '<article class="content-card" data-card-id="' + item.id + '">' + actionButtons(item) + cardImage(item)
+    return '<article class="' + cardClasses(item) + '" data-card-id="' + item.id + '">' + actionButtons(item) + cardImage(item)
       // Il voto dei cibi è nostro, non di una fonte: senza stellina e senza
       // numero non si confonde con il punteggio Tabelog dei locali, che invece
       // viene da fuori e ha tutt'altra scala.
@@ -407,7 +403,7 @@
   }
 
   function experienceCard(item) {
-    return '<article class="content-card experience-card' + (isSelectable(item) && !isSelected(item.id) ? " is-off-map" : "") + '" data-card-id="' + item.id + '">'
+    return '<article class="' + cardClasses(item, "experience-card") + '" data-card-id="' + item.id + '">'
       + actionButtons(item) + cardImage(item)
       + '<div class="card-body"><div class="card-kicker"><span>' + escapeHTML(data.labels.experienceCategories[item.category]) + escapeHTML(distanceLabel(item)) + '</span><span>' + escapeHTML(item.duration) + '</span></div>'
       + '<h3>' + escapeHTML(item.name) + '<span class="jp-name">' + escapeHTML(item.jp) + '</span></h3>'
@@ -417,7 +413,7 @@
   }
 
   function shopCard(item) {
-    return '<article class="content-card" data-card-id="' + item.id + '">' + actionButtons(item) + cardImage(item)
+    return '<article class="' + cardClasses(item) + '" data-card-id="' + item.id + '">' + actionButtons(item) + cardImage(item)
       + '<div class="card-body"><div class="card-kicker"><span>' + escapeHTML(data.labels.shopCategories[item.category]) + '</span><span>' + escapeHTML(item.price) + '</span></div>'
       + '<h3>' + escapeHTML(item.name) + '<span class="jp-name">' + escapeHTML(item.jp) + '</span></h3>'
       + '<p class="card-description">' + escapeHTML(item.description) + '</p>'
@@ -426,24 +422,18 @@
   }
 
   function historyCard(item) {
-    return '<article class="history-card" data-card-id="' + item.id + '" data-kanji="' + escapeHTML(item.kanji) + '">'
-      + actionButtons(item) + '<div><div class="card-kicker"><span>' + escapeHTML(cityName(item.city)) + '</span><span>' + escapeHTML(data.labels.historyCategories[item.category]) + '</span></div>'
+    return '<article class="history-card' + (state.done.has(item.id) ? " is-done" : "") + '" data-card-id="' + item.id + '" data-kanji="' + escapeHTML(item.kanji) + '">'
+      + actionButtons(item) + '<span class="done-badge">✓ ' + escapeHTML(completionLabels(item)[0]) + '</span>'
+      + '<div><div class="card-kicker"><span>' + escapeHTML(cityName(item.city)) + '</span><span>' + escapeHTML(data.labels.historyCategories[item.category]) + '</span></div>'
       + '<h2>' + escapeHTML(item.title) + '</h2><p>' + escapeHTML(item.explanation) + '</p></div>'
       + '<div><p class="anecdote"><strong>Da ricordare:</strong> ' + escapeHTML(item.anecdote) + '</p>'
       + footer(item) + '</div></article>';
   }
 
-  // Schede o elenco: stessi dati, due densità. L'elenco serve a decidere in
-  // fretta cosa portarsi sulla mappa; le schede a capire cosa si sta scegliendo.
-  function listRenderer(cardRenderer) {
-    return state.listView === "list" ? compactRow : cardRenderer;
-  }
-
   function renderPlaces() {
     const items = [].concat(data.places, data.mapPlaces || []).filter(function (item) { return matches(item, state.filters.place); });
-    document.getElementById("placeGrid").classList.toggle("is-compact", state.listView === "list");
-    renderCards("placeGrid", "placeMeta", "placeEmpty", state.filters.place.nearby ? sortByDistance(items) : items, listRenderer(placeCard), "luoghi");
-    renderSelectionBar();
+    renderCards("placeGrid", "placeMeta", "placeEmpty", state.filters.place.nearby ? sortByDistance(items) : items, placeCard, "luoghi");
+    renderSelectionSummary("place", items);
   }
 
   function renderFoods() {
@@ -453,9 +443,8 @@
 
   function renderExperiences() {
     const items = (data.experiences || []).filter(function (item) { return matches(item, state.filters.experience); });
-    document.getElementById("experienceGrid").classList.toggle("is-compact", state.listView === "list");
-    renderCards("experienceGrid", "experienceMeta", "experienceEmpty", state.filters.experience.nearby ? sortByDistance(items) : items, listRenderer(experienceCard), "esperienze");
-    renderSelectionBar();
+    renderCards("experienceGrid", "experienceMeta", "experienceEmpty", state.filters.experience.nearby ? sortByDistance(items) : items, experienceCard, "esperienze");
+    renderSelectionSummary("experience", items);
   }
 
   function renderShopping() {
@@ -682,7 +671,11 @@
     const shown = Math.min(items.length, shownCount[gridId] || PAGE_SIZE);
     shownCount[gridId] = shown;
     grid.innerHTML = items.slice(0, shown).map(renderer).join("");
-    document.getElementById(metaId).textContent = items.length + " " + noun;
+    // Il conteggio base resta memorizzato: la selezione ci aggiunge un pezzo in
+    // coda e va riscritto da capo, non accodato di nuovo a ogni tocco.
+    const meta = document.getElementById(metaId);
+    meta.dataset.base = items.length + " " + noun;
+    meta.textContent = meta.dataset.base;
     document.getElementById(emptyId).hidden = items.length !== 0;
     renderShowMore(grid, gridId, items.length, shown, noun);
     observeImages(grid);
@@ -708,28 +701,33 @@
 
   // La barra vive sia in Mappa sia in Esperienze: i due elenchi alimentano lo
   // stesso livello, quindi il conteggio è uno solo ed è sempre sul totale.
-  function renderSelectionBar() {
+  // Il conteggio sta nella riga dei risultati e i due pulsanti dentro i filtri:
+  // agiscono su quello che il filtro sta mostrando, non su tutto il Giappone,
+  // così "deseleziona tutto" su Kyoto non svuota anche Tokyo.
+  const lastFiltered = {};
+
+  function renderSelectionSummary(group, items) {
+    lastFiltered[group] = items.filter(isSelectable);
+    const shown = lastFiltered[group];
+    const on = shown.filter(function (item) { return isSelected(item.id); }).length;
+
     const total = mapGuideIds.size;
-    const on = total - Array.from(state.hidden).filter(function (id) { return mapGuideIds.has(id); }).length;
-    // Una mappa con dei buchi deve dire perché li ha.
+    const allOn = total - Array.from(state.hidden).filter(function (id) { return mapGuideIds.has(id); }).length;
     const counter = document.getElementById("mapSelectionCount");
-    if (counter) counter.textContent = on === total ? "" : "Sulla mappa ci sono " + on + " luoghi di " + total + ": gli altri li hai nascosti.";
-    document.querySelectorAll("[data-selection-bar]").forEach(function (bar) {
-      bar.innerHTML = '<p class="selection-count"><b>' + on + '</b> luoghi di ' + total + ' sulla mappa</p>'
-        + '<div class="selection-actions">'
-        + '<button type="button" data-select-all' + (on === total ? " disabled" : "") + '>Seleziona tutto (' + total + ')</button>'
-        + '<button type="button" data-select-none' + (on === 0 ? " disabled" : "") + '>Deseleziona tutto (' + total + ')</button>'
-        + '</div>'
-        + '<div class="view-switch" role="group" aria-label="Come mostrare l\'elenco">'
-        + '<button type="button" data-list-view="cards" aria-pressed="' + (state.listView !== "list") + '">Schede</button>'
-        + '<button type="button" data-list-view="list" aria-pressed="' + (state.listView === "list") + '">Elenco</button>'
-        + '</div>';
+    if (counter) counter.textContent = allOn === total ? "" : "Sulla mappa ci sono " + allOn + " luoghi di " + total + ": gli altri li hai nascosti.";
+
+    const meta = document.getElementById(group === "place" ? "placeMeta" : "experienceMeta");
+    if (meta && meta.dataset.base) {
+      meta.textContent = meta.dataset.base + (shown.length ? " · " + on + " sulla mappa" : "");
+    }
+
+    document.querySelectorAll('[data-select-scope="' + group + '"]').forEach(function (box) {
+      box.innerHTML = '<button type="button" data-select-all="' + group + '"' + (on === shown.length ? " disabled" : "") + '>Seleziona tutti (' + shown.length + ')</button>'
+        + '<button type="button" data-select-none="' + group + '"' + (on === 0 ? " disabled" : "") + '>Deseleziona tutti (' + shown.length + ')</button>';
+      box.hidden = !shown.length;
     });
   }
 
-  // Luoghi ed Esperienze alimentano lo stesso livello della mappa e mostrano la
-  // stessa barra: se si cambia da una, l'altra non può restare indietro. Si
-  // chiama solo dalle azioni in blocco, non a ogni singolo quadratino.
   function refreshSelectionViews() {
     renderPlaces();
     renderExperiences();
@@ -751,28 +749,28 @@
       const link = card.querySelector(".own-map-link");
       if (link) link.classList.toggle("is-off", !on);
     });
-    renderSelectionBar();
+    renderSelectionSummary("place", lastFiltered.place || []);
+    renderSelectionSummary("experience", lastFiltered.experience || []);
   }
 
-  // Cancellare 249 scelte per sbaglio è troppo facile: la si può annullare
-  // finché il toast è a schermo.
-  function setAllSelected(hide) {
+  // Agisce solo sugli elementi che il filtro sta mostrando, ed è annullabile
+  // finché il toast è a schermo: perdere decine di scelte per un tocco sbagliato
+  // sarebbe troppo facile.
+  function setAllSelected(group, hide) {
+    const items = lastFiltered[group] || [];
+    if (!items.length) return;
     const previous = new Set(state.hidden);
-    if (hide) mapGuideIds.forEach(function (id) { state.hidden.add(id); });
-    else mapGuideIds.forEach(function (id) { state.hidden.delete(id); });
+    items.forEach(function (item) {
+      if (hide) state.hidden.add(item.id);
+      else state.hidden.delete(item.id);
+    });
     saveHidden();
     refreshSelectionViews();
-    showToast(hide ? "Nessun luogo sulla mappa" : "Tutti i luoghi sulla mappa", "Annulla", function () {
+    showToast((hide ? "Tolti dalla mappa: " : "Rimessi sulla mappa: ") + items.length, "Annulla", function () {
       state.hidden = previous;
       saveHidden();
       refreshSelectionViews();
     });
-  }
-
-  function setListView(mode) {
-    state.listView = mode === "list" ? "list" : "cards";
-    localStorage.setItem("tabi-list-view", state.listView);
-    refreshSelectionViews();
   }
 
   const GROUP_GRIDS = { place:"placeGrid", experience:"experienceGrid", food:"foodGrid", shop:"shopGrid", history:"historyGrid" };
@@ -813,33 +811,6 @@
       retargetListsToCurrentCity();
     });
 
-    // La tappa si può ancora scegliere a mano, ma non è più l'unico modo: il
-    // telefono sa già in quale delle undici città siete. La posizione serve solo
-    // qui e non viene salvata da nessuna parte.
-    const locate = document.getElementById("nowLocateButton");
-    if (locate) locate.addEventListener("click", function () {
-      locate.disabled = true;
-      locate.textContent = "Cerco…";
-      requestPosition().then(function (position) {
-        const here = { lat: position.coords.latitude, lng: position.coords.longitude };
-        state.position = here;
-        const nearest = data.cities.slice().sort(function (a, b) {
-          return distanceInMeters(here, a) - distanceInMeters(here, b);
-        })[0];
-        if (nearest) {
-          localStorage.setItem("tabi-current-city", nearest.id);
-          select.value = nearest.id;
-          renderCurrentCity();
-          retargetListsToCurrentCity();
-          showToast("Siete a " + nearest.name);
-        }
-      }).catch(function (error) {
-        showToast(error.message);
-      }).finally(function () {
-        locate.disabled = false;
-        locate.textContent = "◎ Usa la mia posizione";
-      });
-    });
     renderCurrentCity();
   }
 
@@ -998,13 +969,9 @@
     const cityId = localStorage.getItem("tabi-current-city") || "";
     const city = cityById[cityId];
     if (!city) {
-      const groups = data.packing || [];
-      const total = groups.reduce(function (sum, group) { return sum + group.items.length; }, 0);
-      const done = groups.reduce(function (sum, group) {
-        return sum + group.items.filter(function (item) { return state.packed.has(item.id); }).length;
-      }, 0);
-      body.innerHTML = '<p class="now-empty">Scegli la tappa in cui vi trovate: qui compaiono il meteo di oggi e i promemoria della giornata.</p>'
-        + '<div class="now-actions"><button type="button" data-go="packing">Valigia: ' + done + ' di ' + total + ' spuntati →</button></div>';
+      // Prima di partire questo riquadro dice una cosa sola: scegli la tappa.
+      // La valigia ha già il suo posto in Utilità.
+      body.innerHTML = '<p class="now-empty">Scegli la tappa in cui vi trovate: qui compaiono il meteo di oggi e i promemoria della giornata.</p>';
       return;
     }
     // Meteo e promemoria del giorno bastano: hotel, trasferimenti e conteggi
@@ -1640,6 +1607,9 @@
   function refreshCardState(id) {
     const item = itemById[id];
     document.querySelectorAll('[data-card-id="' + id + '"]').forEach(function (card) {
+      // La scheda intera cambia aspetto, non solo il suo pulsante: scorrendo un
+      // elenco lungo si deve vedere cosa è già fatto senza leggere i pulsanti.
+      card.classList.toggle("is-done", state.done.has(id));
       const favorite = card.querySelector(".favorite-button");
       const done = card.querySelector(".done-button");
       if (favorite) {
@@ -2157,47 +2127,100 @@
 
   // ---- Valigia -------------------------------------------------------------
 
-  function renderPacking() {
-    const packed = state.packed;
+  // Il riepilogo si aggiorna da solo mentre si scrive una quantità: ridisegnare
+  // tutta la lista farebbe perdere il campo su cui si sta digitando.
+  function renderPackingSummary() {
     const groups = data.packing || [];
     const total = groups.reduce(function (sum, group) { return sum + group.items.length; }, 0);
     const done = groups.reduce(function (sum, group) {
-      return sum + group.items.filter(function (item) { return packed.has(item.id); }).length;
+      return sum + group.items.filter(function (item) { return state.packed.has(item.id); }).length;
     }, 0);
     const percent = total ? Math.round((done / total) * 100) : 0;
     document.getElementById("packingSummary").innerHTML =
       '<div class="packing-bar"><div><strong>' + done + '</strong><span>di ' + total + ' oggetti spuntati</span></div>'
       + '<div class="progress-city-bar"><i style="width:' + percent + '%"></i></div></div>';
+    groups.forEach(function (group) {
+      const counter = document.querySelector('[data-pack-group="' + group.id + '"]');
+      if (counter) counter.textContent = group.items.filter(function (item) { return state.packed.has(item.id); }).length + "/" + group.items.length;
+    });
+  }
+
+  function renderPacking() {
+    const packed = state.packed;
+    const groups = data.packing || [];
     document.getElementById("packingGroups").innerHTML = groups.map(function (group) {
       const groupDone = group.items.filter(function (item) { return packed.has(item.id); }).length;
       return '<section class="packing-group"><div class="packing-group-head"><h2>' + escapeHTML(group.title) + '</h2>'
-        + '<span>' + groupDone + '/' + group.items.length + '</span></div>'
+        + '<span data-pack-group="' + escapeHTML(group.id) + '">' + groupDone + '/' + group.items.length + '</span></div>'
         + '<p class="packing-group-note">' + escapeHTML(group.note) + '</p>'
         + group.items.map(function (item) {
           const checked = packed.has(item.id);
-          return '<label class="packing-item' + (checked ? " is-packed" : "") + '">'
-            + '<input type="checkbox" data-pack="' + item.id + '"' + (checked ? " checked" : "") + '>'
-            + '<span><b>' + escapeHTML(item.name) + (item.quantity ? ' <em>×' + escapeHTML(item.quantity) + '</em>' : "") + '</b>'
-            + (item.note ? '<small>' + escapeHTML(item.note) + '</small>' : "") + '</span></label>';
+          // Il numero suggerito dai dati resta come segnaposto, non come
+          // etichetta: nel campo si scrive quante se ne sono messe davvero, e
+          // scrivere un numero equivale a spuntare.
+          const amount = state.packedQty[item.id];
+          return '<div class="packing-item' + (checked ? " is-packed" : "") + '">'
+            + '<label><input type="checkbox" data-pack="' + item.id + '"' + (checked ? " checked" : "") + '>'
+            + '<span><b>' + escapeHTML(item.name) + '</b>'
+            + (item.note ? '<small>' + escapeHTML(item.note) + '</small>' : "") + '</span></label>'
+            + '<input class="packing-qty" type="number" inputmode="numeric" min="0" step="1"'
+            + ' data-pack-qty="' + item.id + '" value="' + (amount == null ? "" : escapeHTML(amount)) + '"'
+            // Niente trattino dove non c'è una quantità consigliata: si leggeva
+            // come uno zero, e la lista sembrava tutta vuota di partenza.
+            + ' placeholder="' + (item.quantity ? escapeHTML(item.quantity) : "") + '"'
+            + ' aria-label="Quantità di ' + escapeHTML(item.name) + '"></div>';
         }).join("") + '</section>';
     }).join("");
+    renderPackingSummary();
+  }
+
+  function savePacking() {
+    localStorage.setItem("tabi-packing", JSON.stringify(Array.from(state.packed)));
+    localStorage.setItem("tabi-packing-qty-v1", JSON.stringify(state.packedQty));
   }
 
   function setupPacking() {
-    document.getElementById("packingGroups").addEventListener("change", function (event) {
+    const groups = document.getElementById("packingGroups");
+    groups.addEventListener("change", function (event) {
       const box = event.target.closest("[data-pack]");
       if (!box) return;
       if (box.checked) state.packed.add(box.dataset.pack);
-      else state.packed.delete(box.dataset.pack);
-      localStorage.setItem("tabi-packing", JSON.stringify(Array.from(state.packed)));
+      else {
+        state.packed.delete(box.dataset.pack);
+        delete state.packedQty[box.dataset.pack];
+      }
+      savePacking();
       renderPacking();
       renderCurrentCity();
     });
+    // Scrivere una quantità spunta l'oggetto; svuotare il campo o mettere zero
+    // lo toglie. Così non serve fare due gesti per la stessa cosa.
+    groups.addEventListener("input", debounce(function (event) {
+      const field = event.target.closest("[data-pack-qty]");
+      if (!field) return;
+      const id = field.dataset.packQty;
+      const value = parseInt(field.value, 10);
+      if (Number.isFinite(value) && value > 0) {
+        state.packedQty[id] = value;
+        state.packed.add(id);
+      } else {
+        delete state.packedQty[id];
+        if (field.value.trim() === "" ? false : value === 0) state.packed.delete(id);
+      }
+      savePacking();
+      const item = field.closest(".packing-item");
+      if (item) item.classList.toggle("is-packed", state.packed.has(id));
+      const box = item && item.querySelector("[data-pack]");
+      if (box) box.checked = state.packed.has(id);
+      renderPackingSummary();
+      renderCurrentCity();
+    }, 250));
     document.getElementById("packingResetButton").addEventListener("click", function () {
       if (!state.packed.size) return;
-      if (!window.confirm("Togliere tutte le spunte dalla lista valigia su questo telefono?")) return;
+      if (!window.confirm("Togliere tutte le spunte e le quantità dalla lista valigia su questo telefono?")) return;
+      state.packedQty = {};
       state.packed.clear();
-      localStorage.setItem("tabi-packing", JSON.stringify([]));
+      savePacking();
       renderPacking();
       renderCurrentCity();
       showToast("Lista valigia azzerata");
@@ -2771,12 +2794,8 @@
       }
       const selectAll = event.target.closest("[data-select-all], [data-select-none]");
       if (selectAll) {
-        setAllSelected(selectAll.hasAttribute("data-select-none"));
-        return;
-      }
-      const viewSwitch = event.target.closest("[data-list-view]");
-      if (viewSwitch) {
-        setListView(viewSwitch.dataset.listView);
+        const hide = selectAll.hasAttribute("data-select-none");
+        setAllSelected(hide ? selectAll.dataset.selectNone : selectAll.dataset.selectAll, hide);
         return;
       }
       const action = event.target.closest("[data-action]");

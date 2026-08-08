@@ -7,6 +7,9 @@
   --red: #b6422e;
   --red-dark: #85301f;
   --moss: #536b4d;
+  /* Inchiostro del timbro "fatto": chiaro, perché va letto sopra una foto già
+     coperta di verde, e uguale nei due temi. */
+  --stamp-ink: #b8f0c6;
   --gold: #b48a3c;
   --white: #fffdf8;
   /* Superfici che restano scure anche in tema chiaro: non devono invertirsi. */
@@ -63,8 +66,6 @@ main { min-height: 100vh; padding: calc(var(--header-height) + var(--safe-top) +
 @keyframes reveal { from { opacity: 0; transform: translateY(18px); } }
 
 .hero { min-height: 610px; display: grid; grid-template-columns: minmax(0, .95fr) minmax(390px, 1.05fr); background: var(--deep); color: var(--on-dark-bg); overflow: hidden; }
-/* La tappa di oggi apre la home, prima della copertina. */
-.now-first { padding-top: 1.1rem; }
 .hero-copy { align-self: center; padding: 7vw max(4vw, 24px); position: relative; z-index: 2; }
 .eyebrow { margin: 0 0 .7rem; color: var(--red); font-size: .72rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
 .hero .eyebrow { color: #e98c72; }
@@ -105,9 +106,6 @@ main { min-height: 100vh; padding: calc(var(--header-height) + var(--safe-top) +
 .now-picker { display: flex; gap: .55rem; align-items: center; }
 .now-picker > span { color: var(--muted); font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .now-picker select { min-width: 180px; }
-.now-picker-row { display: flex; flex-wrap: wrap; gap: .5rem .8rem; align-items: center; }
-.now-locate { min-height: var(--tap); padding: .5rem .9rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: var(--white); font: 800 .72rem "DM Sans", sans-serif; cursor: pointer; }
-.now-locate[disabled] { opacity: .55; cursor: default; }
 .now-empty { margin: 0; padding: 1.2rem; border: 1px dashed var(--line); border-radius: var(--radius); color: var(--muted); font-size: .9rem; }
 .now-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem; }
 .now-card { min-width: 0; display: flex; flex-direction: column; padding: 1.1rem; border: 1px solid var(--line); border-radius: 14px; background: var(--white); }
@@ -126,8 +124,6 @@ main { min-height: 100vh; padding: calc(var(--header-height) + var(--safe-top) +
 .weather-card.is-empty strong { font: 600 1.1rem "Noto Serif JP", serif; }
 .weather-card.is-empty span { color: var(--muted); font-size: .8rem; }
 
-.now-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .65rem; }
-.now-actions button { min-height: var(--tap); border: 1px solid var(--line); border-radius: 999px; padding: .6rem 1rem; color: var(--ink); background: var(--white); cursor: pointer; font-size: .78rem; font-weight: 800; }
 
 .day-tips { margin-top: 1rem; padding: 1.3rem; border: 1px solid var(--line); border-radius: var(--radius); background: color-mix(in srgb, var(--white) 65%, transparent); }
 .day-tips-head h3 { margin: .15rem 0 .9rem; font: 600 1.4rem/1.2 "Noto Serif JP", serif; }
@@ -155,6 +151,9 @@ main { min-height: 100vh; padding: calc(var(--header-height) + var(--safe-top) +
 .food-intro h1 { color: var(--red); }.shop-intro h1 { color: var(--moss); }
 .toolbar { display: flex; gap: .7rem; align-items: center; padding: 1rem 0; background: color-mix(in srgb, var(--paper) 91%, transparent); backdrop-filter: blur(14px); z-index: 20; }
 .sticky-toolbar { position: sticky; top: calc(var(--header-height) + var(--safe-top) + var(--offline-height)); }
+/* Aperta, la barra copre due righe di lista: senza fondo pieno il testo sotto
+   traspare attraverso il velo semitrasparente. */
+.toolbar.filters-open { background: var(--paper); }
 .search-box { min-width: 260px; flex: 1; position: relative; }
 .search-box span { position: absolute; left: 1rem; top: 50%; transform: translateY(-52%); font-size: 1.3rem; }
 .search-box input, select { width: 100%; height: 46px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); color: var(--ink); }
@@ -166,30 +165,17 @@ select { width: auto; min-width: 165px; padding: 0 2.4rem 0 .9rem; }
 .filter-reset { min-height: var(--tap); padding: 0 .9rem; border: 0; border-radius: 12px; background: transparent; color: var(--red); cursor: pointer; font-size: .8rem; font-weight: 800; white-space: nowrap; }
 .results-meta { min-height: 44px; display: flex; align-items: center; color: var(--muted); font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .card-grid { display: grid; gap: 1rem; padding-bottom: 4rem; }
-/* Vista elenco: si sceglie in fretta cosa portarsi sulla mappa, non si legge. */
-.card-grid.is-compact { grid-template-columns: 1fr; gap: .3rem; }
-.compact-row { display: flex; align-items: center; gap: .5rem; padding: .3rem .5rem .3rem .3rem; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
-.compact-row .select-toggle { flex: 0 0 auto; box-shadow: none; background: transparent; }
-.select-spacer { flex: 0 0 auto; width: var(--tap); }
 .own-map-link.is-off { display: none; }
+/* I due pulsanti stanno dentro i filtri e agiscono su ciò che il filtro mostra:
+   niente barra in più fra i filtri e la lista. */
+.select-scope { display: flex; flex-wrap: wrap; gap: .4rem; }
+.select-scope[hidden] { display: none; }
+.select-scope button { min-height: var(--tap); padding: .45rem .8rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: var(--white); font: 800 .72rem "DM Sans", sans-serif; cursor: pointer; }
+.select-scope button[disabled] { opacity: .45; cursor: default; }
 .show-more { min-height: var(--tap); width: 100%; margin: -3rem 0 4rem; padding: .8rem 1rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: var(--white); font: 800 .78rem "DM Sans", sans-serif; cursor: pointer; }
-.compact-main { flex: 1 1 auto; min-width: 0; min-height: var(--tap); display: flex; flex-direction: column; justify-content: center; gap: .1rem; padding: .3rem .2rem; border: 0; background: none; text-align: left; cursor: pointer; }
-.compact-main b { display: block; overflow: hidden; color: var(--ink); font: 600 .95rem "Noto Serif JP", serif; text-overflow: ellipsis; white-space: nowrap; }
-.compact-main small { display: block; overflow: hidden; color: var(--muted); font-size: .7rem; text-overflow: ellipsis; white-space: nowrap; }
-.compact-row.is-done .compact-main b { color: var(--muted); }
-.compact-done { color: var(--moss); font-weight: 900; }
-
-/* La selezione dei luoghi: quanti sono sulla mappa, come cambiarlo in blocco,
-   e con quale densità mostrarli. */
-.selection-bar { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .7rem; margin: 0 0 .8rem; padding: .7rem .85rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper-deep); }
-.selection-count { flex: 1 1 100%; margin: 0; color: var(--muted); font-size: .78rem; }
-.selection-count b { color: var(--ink); font-size: .95rem; }
-.selection-actions { display: flex; flex-wrap: wrap; gap: .4rem; }
-.selection-actions button { min-height: var(--tap); padding: .45rem .8rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: var(--white); font: 800 .72rem "DM Sans", sans-serif; cursor: pointer; }
-.selection-actions button[disabled] { opacity: .45; cursor: default; }
-.view-switch { display: flex; margin-left: auto; padding: 3px; border-radius: 999px; background: var(--white); }
-.view-switch button { min-height: 38px; padding: .35rem .8rem; border: 0; border-radius: 999px; color: var(--muted); background: none; font: 800 .72rem "DM Sans", sans-serif; cursor: pointer; }
-.view-switch button[aria-pressed="true"] { color: var(--paper); background: var(--ink); }
+/* Spunta e quantità sulla stessa riga: si può fare l'uno o l'altro gesto. */
+.packing-qty { flex: 0 0 auto; width: 3.6rem; min-height: var(--tap); padding: .35rem .5rem; border: 1px solid var(--line); border-radius: 10px; color: var(--ink); background: var(--white); font: 700 .9rem "DM Sans", sans-serif; text-align: center; }
+.packing-qty::placeholder { color: var(--muted); font-weight: 500; opacity: .6; }
 .place-grid, .food-grid, .shop-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
 .content-card { position: relative; min-width: 0; overflow: hidden; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); transition: transform .22s ease, box-shadow .22s ease; }
@@ -206,10 +192,45 @@ select { width: auto; min-width: 165px; padding: 0 2.4rem 0 .9rem; }
 /* Il quadrato dice "sta sulla mappa", il cuore "mi piace", la spunta in fondo
    alla scheda "ci sono già stato": tre cose diverse, tre forme diverse. */
 .select-toggle { width: var(--tap); height: var(--tap); display: grid; place-items: center; padding: 0; border: 0; border-radius: 12px; background: color-mix(in srgb, var(--white) 90%, transparent); box-shadow: 0 4px 20px rgba(0,0,0,.12); cursor: pointer; }
-.select-toggle span { width: 20px; height: 20px; display: grid; place-items: center; border: 2px solid var(--muted); border-radius: 6px; color: transparent; font-size: .72rem; font-weight: 900; line-height: 1; }
+.select-toggle span { width: 20px; height: 20px; display: grid; place-items: center; border: 2px solid var(--ink); border-radius: 6px; color: transparent; background: var(--white); font-size: .72rem; font-weight: 900; line-height: 1; }
 .select-toggle.is-on span { border-color: var(--moss); color: var(--paper); background: var(--moss); }
-.content-card.is-off-map { opacity: .58; }
-.content-card.is-off-map .card-media { filter: grayscale(1); }
+/* La scheda deselezionata si sbiadisce, il suo quadratino no: è l'unico modo
+   per rimetterla sulla mappa, e deve restare leggibile e toccabile. */
+.content-card.is-off-map .card-media { filter: grayscale(1); opacity: .5; }
+.content-card.is-off-map .card-body { opacity: .55; }
+
+/* Già visitato: la foto passa sotto un velo verde e prende un timbro, come
+   quello dei visti sul passaporto. Il deselezionato invece si limita a spegnersi
+   in grigio: due schede spente per motivi diversi non possono somigliarsi. */
+.done-badge { display: none; }
+.content-card.is-done .card-media img { filter: grayscale(.55) contrast(.95); }
+.content-card.is-done .card-media::after {
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: color-mix(in srgb, var(--moss) 52%, transparent);
+}
+.content-card.is-done .card-body { opacity: .62; }
+.content-card.is-done .card-footer, .history-card.is-done .card-footer { opacity: 1; }
+
+.content-card.is-done .done-badge {
+  position: absolute; z-index: 3; left: 50%; top: 50%;
+  transform: translate(-50%, -50%) rotate(-9deg);
+  display: inline-flex; align-items: center; gap: .45rem;
+  padding: .5rem 1.05rem; max-width: 88%;
+  border: 3px solid var(--stamp-ink); border-radius: 10px;
+  color: var(--stamp-ink); background: color-mix(in srgb, #06301a 34%, transparent);
+  font: 900 .95rem "DM Sans", sans-serif; letter-spacing: .13em; text-transform: uppercase;
+  white-space: nowrap; text-shadow: 0 1px 3px rgba(0,0,0,.45);
+}
+
+/* Le storie non hanno foto: lì il timbro resterebbe sospeso sul nulla, quindi
+   torna a essere una targhetta in un angolo. */
+.history-card.is-done .done-badge {
+  position: absolute; z-index: 3; right: .8rem; top: .8rem;
+  display: inline-flex; align-items: center; padding: .32rem .65rem;
+  border-radius: 999px; color: var(--paper); background: var(--moss);
+  font: 800 .66rem "DM Sans", sans-serif; letter-spacing: .06em; text-transform: uppercase;
+}
+.history-card.is-done > div { opacity: .62; }
 .card-body { padding: 1.05rem; }
 .card-kicker { display: flex; justify-content: space-between; gap: .5rem; margin-bottom: .45rem; color: var(--red); font-size: .66rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .card-kicker .rating { color: var(--gold); letter-spacing: .02em; }
@@ -273,6 +294,9 @@ select { width: auto; min-width: 165px; padding: 0 2.4rem 0 .9rem; }
 .map-visit-marker.is-done { opacity: .45; background: var(--map-visit); }
 .map-visit-marker .visit-check { position: absolute; right: -5px; bottom: -5px; width: 13px; height: 13px; display: grid; place-items: center; border: 1.5px solid white; border-radius: 50%; color: white; background: var(--moss); font-size: .5rem; font-style: normal; font-weight: 900; line-height: 1; }
 .map-popup-select { min-height: var(--tap); display: grid; place-items: center; width: 100%; padding: .65rem .75rem; border: 1px solid var(--line); border-radius: 9px; color: var(--ink) !important; background: var(--white); font: 800 .72rem "DM Sans", sans-serif; cursor: pointer; }
+/* Il messaggio sta dentro il pannello dei livelli, dove si sta guardando. */
+.facility-status { grid-column: 1 / -1; margin: 0; padding: .6rem .8rem; border-left: 3px solid var(--moss); border-radius: 0 10px 10px 0; background: color-mix(in srgb, var(--moss) 12%, transparent); color: var(--ink); font-size: .78rem; font-weight: 700; }
+.facility-status[hidden] { display: none; }
 .map-panel.is-expanded { position: fixed; z-index: 80; inset: 0; margin: 0; overflow: auto; border: 0; border-radius: 0; padding: calc(1rem + var(--safe-top)) calc(1rem + var(--safe-right)) calc(1rem + var(--safe-bottom)) calc(1rem + var(--safe-left)); }.map-panel.is-expanded #tripMap { height: calc(100dvh - 190px - var(--safe-top) - var(--safe-bottom)); max-height: none; }.map-is-expanded { overflow: hidden; }
 body:has(dialog[open]) { overflow: hidden; }
 
@@ -402,18 +426,16 @@ body:has(dialog[open]) { overflow: hidden; }
   .site-header { padding-inline: calc(16px + var(--safe-left)) calc(16px + var(--safe-right)); }.brand-mark { width: 38px; height: 38px; }.brand small { display: none; }.install-button { min-height: var(--tap); font-size: .7rem; padding: .5rem .75rem; }
   /* Sul telefono la copertina si riduce a una striscia: resta il carattere del
      sito senza rubare la prima schermata a quello che serve davvero. */
-  .hero { grid-template-columns: 1fr; min-height: auto; }.hero-copy { padding: 1.9rem 22px 1.6rem; }.hero h1 { font-size: clamp(2rem, 9vw, 3rem); overflow-wrap: anywhere; }.hero-lede { margin-top: .7rem; font-size: .92rem; }.hero-art { min-height: 130px; }.sun { width: 34vw; }.vertical-type { right: 1rem; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }.hero-copy { padding: 4.7rem 22px 3rem; }.hero h1 { font-size: clamp(2.8rem, 14vw, 5rem); overflow-wrap: anywhere; }.hero-art { min-height: 380px; }.sun { width: 55vw; }.vertical-type { right: 1rem; }
   .dashboard-shell, .view:not(#overview) { width: min(100% - 28px, 1480px); }.trip-strip { padding-top: 2.2rem; }
   .transfer-grid, .stay-grid { grid-template-columns: 1fr; }
-  .now-strip { padding: 2rem 0 1.8rem; }.now-head { align-items: stretch; }.now-picker-row { flex: 1 1 100%; }.now-picker { flex: 1 1 100%; }.now-picker select { flex: 1; min-width: 0; width: 100%; }.now-locate { flex: 1 1 100%; }
-  .now-first { padding-top: .7rem; }.now-first .now-strip { padding-top: 1rem; }
+  .now-strip { padding: 2rem 0 1.8rem; }.now-head { align-items: stretch; }.now-picker { flex: 1 1 100%; }.now-picker select { flex: 1; min-width: 0; width: 100%; }
   .now-grid { grid-template-columns: 1fr; }.now-card { padding: .9rem 1rem; }
-  .now-actions button { flex: 1 1 100%; }
   .day-tips { padding: 1rem; }.day-tips-list li { grid-template-columns: 1fr; }
   .back-link { margin-top: 1.6rem; }.back-link + .page-intro { padding-top: .8rem; }
   .page-intro { padding: 2.4rem 0 1.5rem; }.page-intro h1 { max-width: 100%; font-size: clamp(2.6rem, 11vw, 4rem); overflow-wrap: anywhere; }.page-intro > p:last-child { font-size: .95rem; }
   .sticky-toolbar { margin-inline: -14px; padding: .7rem 14px; border-bottom: 1px solid var(--line); box-shadow: 0 10px 25px rgba(29,37,34,.06); }
-  .toolbar { flex-wrap: wrap; gap: .55rem; }.toolbar .search-box { flex: 1 1 calc(100% - 104px); min-width: 0; }.toolbar .search-box input { height: 44px; }.filter-toggle { flex: 0 0 94px; min-height: 44px; display: flex; align-items: center; justify-content: center; gap: .42rem; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); background: var(--white); font-weight: 800; }.filter-toggle span { min-width: 20px; height: 20px; display: grid; place-items: center; border-radius: 99px; color: white; background: var(--muted); font-size: .66rem; }.filter-toggle.has-active span { background: var(--red); }.toolbar select, .toolbar > .toggle, .toolbar > .filter-reset { display: none; }.toolbar.filters-open select, .toolbar.filters-open > .toggle, .toolbar.filters-open > .filter-reset { display: flex; }.toolbar.filters-open { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }.toolbar.filters-open .search-box { grid-column: 1; }.toolbar.filters-open .filter-toggle { grid-column: 2; justify-self: end; }.toolbar.filters-open select { width: 100%; min-width: 0; padding-right: 1.8rem; }.toolbar.filters-open > .toggle, .toolbar.filters-open > .filter-reset { grid-column: 1 / -1; width: 100%; }.toolbar.filters-open > .filter-reset { min-height: var(--tap); align-items: center; justify-content: center; border-radius: 10px; }
+  .toolbar { flex-wrap: wrap; gap: .55rem; }.toolbar .search-box { flex: 1 1 calc(100% - 104px); min-width: 0; }.toolbar .search-box input { height: 44px; }.filter-toggle { flex: 0 0 94px; min-height: 44px; display: flex; align-items: center; justify-content: center; gap: .42rem; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); background: var(--white); font-weight: 800; }.filter-toggle span { min-width: 20px; height: 20px; display: grid; place-items: center; border-radius: 99px; color: white; background: var(--muted); font-size: .66rem; }.filter-toggle.has-active span { background: var(--red); }.toolbar select, .toolbar > .toggle, .toolbar > .filter-reset, .toolbar > .select-scope { display: none; }.toolbar.filters-open select, .toolbar.filters-open > .toggle, .toolbar.filters-open > .filter-reset, .toolbar.filters-open > .select-scope { display: flex; }.toolbar.filters-open { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }.toolbar.filters-open .search-box { grid-column: 1; }.toolbar.filters-open .filter-toggle { grid-column: 2; justify-self: end; }.toolbar.filters-open select { width: 100%; min-width: 0; padding-right: 1.8rem; }.toolbar.filters-open > .toggle, .toolbar.filters-open > .filter-reset, .toolbar.filters-open > .select-scope { grid-column: 1 / -1; width: 100%; }.toolbar.filters-open > .select-scope button { flex: 1 1 0; justify-content: center; }.toolbar.filters-open > .filter-reset { min-height: var(--tap); align-items: center; justify-content: center; border-radius: 10px; }
   .place-grid, .food-grid, .shop-grid { grid-template-columns: 1fr; }.content-card { display: grid; grid-template-columns: 42% 58%; }.card-media { height: 100%; aspect-ratio: auto; }.card-actions { top: .55rem; right: auto; left: .55rem; }.card-body { padding: .85rem; }.card-description { -webkit-line-clamp: 2; min-height: 2.6em; }.tag-row { display: none; }.content-card h3 { font-size: 1.12rem; }.card-kicker { display: block; }.card-kicker .rating { display: block; margin-top: .18rem; }
   /* In colonna il flex non separa più i due testi: senza questo si legge
      "Riti e simboli€€" tutto attaccato. */
@@ -610,11 +632,11 @@ body:has(dialog[open]) { overflow: hidden; }
 .packing-group-head h2 { margin: 0; font: 600 1.4rem "Noto Serif JP", serif; }
 .packing-group-head span { color: var(--red); font-size: .8rem; font-weight: 800; }
 .packing-group-note { margin: .4rem 0 .9rem; color: var(--muted); font-size: .8rem; line-height: 1.5; }
-.packing-item { min-height: var(--tap); display: flex; gap: .7rem; align-items: flex-start; padding: .5rem .2rem; border-top: 1px solid var(--line); cursor: pointer; }
-.packing-item input { flex: 0 0 20px; width: 20px; height: 20px; margin-top: .35rem; accent-color: var(--moss); }
+.packing-item { min-height: var(--tap); display: flex; gap: .7rem; align-items: center; padding: .5rem .2rem; border-top: 1px solid var(--line); }
+.packing-item > label { flex: 1 1 auto; min-width: 0; display: flex; gap: .7rem; align-items: flex-start; cursor: pointer; }
+.packing-item input[type="checkbox"] { flex: 0 0 20px; width: 20px; height: 20px; margin-top: .35rem; accent-color: var(--moss); }
 .packing-item b, .packing-item small { display: block; }
 .packing-item b { font-size: .92rem; font-weight: 700; }
-.packing-item em { color: var(--red); font-style: normal; font-size: .8rem; }
 .packing-item small { margin-top: .15rem; color: var(--muted); font-size: .76rem; line-height: 1.45; }
 .packing-item.is-packed b { color: var(--muted); text-decoration: line-through; }
 .packing-footer { display: flex; justify-content: center; padding: 2rem 0 5rem; }
