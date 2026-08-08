@@ -6,7 +6,7 @@ Il sito raccoglie:
 
 - tappe e trasferimenti nell'ordine del viaggio;
 - mappa interattiva con luoghi, hotel, locali e collegamenti diretti;
-- esperienze, attività e musei nelle tappe del viaggio;
+- attività, laboratori e musei nelle tappe del viaggio;
 - cibi tipici divisi per città e categoria;
 - storia, cultura e curiosità dei luoghi visitati;
 - prodotti e souvenir da cercare;

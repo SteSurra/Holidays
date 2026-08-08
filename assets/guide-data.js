@@ -665,11 +665,26 @@
       const linked = candidates.find(function (item) { return item.id === point.guideId; });
       if (linked) return linked;
     }
-    return candidates.find(function (item) {
-      if (item.city !== point.city) return false;
+    // Si prende la corrispondenza più precisa, non la prima trovata. Con la
+    // ricerca lineare il punto "Animate Akihabara" si agganciava alla scheda del
+    // quartiere "Akihabara", solo perché veniva prima in elenco e il nome è
+    // contenuto: la scheda del negozio restava senza punto, e quindi senza
+    // quadratino per metterla sulla mappa.
+    let best = null;
+    let bestScore = 0;
+    candidates.forEach(function (item) {
+      if (item.city !== point.city) return;
       const itemName = normalizeName(item.name);
-      return pointName === itemName || (Math.min(pointName.length, itemName.length) >= 7 && (pointName.includes(itemName) || itemName.includes(pointName)));
+      let score = 0;
+      if (pointName === itemName) score = 1000;
+      else if (Math.min(pointName.length, itemName.length) >= 7
+        && (pointName.includes(itemName) || itemName.includes(pointName))) {
+        // Più lungo è il nome in comune, più specifica è la scheda.
+        score = Math.min(pointName.length, itemName.length);
+      }
+      if (score > bestScore) { bestScore = score; best = item; }
     });
+    return best;
   }
 
   function mapExperienceCategory(point) {

@@ -15,3 +15,6 @@ tickets/
 *.jpeg
 *.png
 *.webp
+
+# Local editor/preview config, not part of the guide.
+.claude/

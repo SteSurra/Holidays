@@ -2361,6 +2361,66 @@
       "lat": 35.2039,
       "lng": 139.0256,
       "description": "Santuario nel bosco di cedri; il torii rosso piantato nell'acqua del lago è la vista che tutti cercano."
+    },
+    {
+      "id": "map-visit-tokyo-yanaka-ginza",
+      "city": "tokyo",
+      "group": "Tokyo",
+      "name": "Yanaka Ginza",
+      "type": "visit",
+      "category": "quartiere",
+      "area": "Yanaka",
+      "lat": 35.7277,
+      "lng": 139.7653,
+      "description": "La via di botteghe della Tokyo bassa, con la scalinata del tramonto in cima e i gatti come insegna del quartiere."
+    },
+    {
+      "id": "map-visit-tokyo-kappabashi",
+      "city": "tokyo",
+      "group": "Tokyo",
+      "name": "Kappabashi",
+      "type": "visit",
+      "category": "shopping",
+      "area": "Kappabashi",
+      "lat": 35.7144,
+      "lng": 139.7889,
+      "description": "La via degli utensili da cucina: coltelli, ceramiche, stampi e il cibo finto delle vetrine."
+    },
+    {
+      "id": "map-visit-nagano-obuse",
+      "city": "nagano",
+      "group": "Nagano",
+      "name": "Obuse",
+      "type": "visit",
+      "category": "quartiere",
+      "area": "Obuse",
+      "lat": 36.6975,
+      "lng": 138.3121,
+      "description": "Cittadina di castagne, sake e Hokusai, a mezz'ora di treno da Nagano."
+    },
+    {
+      "id": "map-visit-nara-nara-park",
+      "city": "nara",
+      "group": "Nara",
+      "name": "Nara Park",
+      "type": "visit",
+      "category": "natura",
+      "area": "Centro est",
+      "lat": 34.685,
+      "lng": 135.85,
+      "description": "Prati, sentieri e cervi sacri fra i grandi complessi religiosi della prima capitale."
+    },
+    {
+      "id": "map-visit-matsumoto-city-museum",
+      "city": "matsumoto",
+      "group": "Matsumoto",
+      "name": "Matsumoto City Museum",
+      "type": "visit",
+      "category": "museo",
+      "area": "Centro",
+      "lat": 36.2375,
+      "lng": 137.9706,
+      "description": "Il museo civico accanto al castello: storia della città, feste e cultura popolare della valle."
     }
   ]
 };

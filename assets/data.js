@@ -198,6 +198,7 @@ tokyo|odaiba-beach|Odaiba Beach|お台場海浜公園|panorama|Odaiba|Spiaggia a
 tokyo|toyosu-market|Toyosu Market|豊洲市場|mercato|Toyosu|Il mercato ittico all'ingrosso che ha sostituito Tsukiji, con passerelle vetrate sopra le aree di lavoro.|1,5 ore|L'asta del tonno è all'alba e si guarda su prenotazione, dall'alto. Chiude la domenica e alcuni mercoledì: controlla il calendario prima di andarci|Toyosu Market Tokyo
 tokyo|golden-gai|Golden Gai|ゴールデン街|quartiere|Shinjuku|Sei vicoli di bar minuscoli, ognuno con un tema e quattro o cinque posti al bancone.|1 ora|Molti chiedono un coperto e alcuni non accettano clienti stranieri: il cartello sulla porta lo dice, e va letto prima di entrare|Golden Gai Shinjuku
 tokyo|yamamoto-tei|Yamamoto-tei|山本亭|casa-storica|Shibamata|Casa di primo Novecento che accosta sale in tatami e un salotto occidentale, con un giardino visibile da dentro.|45 min|Il modo giusto di visitarla è sedersi e ordinare il tè guardando il giardino: è per questo che le stanze sono orientate così|Yamamoto-tei Shibamata Tokyo
+tokyo|ginkgo-avenue|Meiji Jingu Gaien Ginkgo Avenue|神宮外苑いちょう並木|natura|Aoyama|Un viale di ginkgo potati a cono che incornicia in prospettiva la Meiji Memorial Picture Gallery, in fondo alla strada.|45 min|Non è al santuario Meiji ma due chilometri più a sud, ad Aoyama: sono due posti diversi con lo stesso nome. Il giallo pieno dura poche settimane fra fine novembre e inizio dicembre|Meiji Jingu Gaien ginkgo avenue Tokyo
 `, ["city","slug","name","jp","category","area","description","duration","tip","imageQuery"]).filter(function (row) {
     return cities.some(function (city) { return city.id === row.city; });
   });
@@ -207,7 +208,7 @@ tokyo|yamamoto-tei|Yamamoto-tei|山本亭|casa-storica|Shibamata|Casa di primo N
     panorama:"Panorami", museo:"Musei", castello:"Castelli", shopping:"Shopping",
     mercato:"Mercati", "casa-storica":"Case storiche", giardino:"Giardini",
     memoriale:"Memoria", cibo:"Cibo", curiosita:"Statue e curiosità",
-    esperienza:"Esperienze"
+    esperienza:"Attività"
   };
   const places = placeRows.map(function (row) {
     row.id = "place-" + row.city + "-" + row.slug;

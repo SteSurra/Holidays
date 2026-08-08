@@ -1,7 +1,7 @@
-const CACHE = "tabi-japan-v55";
+const CACHE = "tabi-japan-v91";
 const TILE_CACHE = "tabi-tiles-v1";
 const TILE_LIMIT = 320;
-const VERSION = "?v=20260804z";
+const VERSION = "?v=20260808a";
 
 // Guscio di prima parte: senza questo l'app non parte. L'installazione fallisce
 // se manca anche un solo file, ed è giusto così.
@@ -10,7 +10,7 @@ const SHELL = [
   "assets/styles.css" + VERSION, "assets/data.js" + VERSION, "assets/food-data.js" + VERSION,
   "assets/shopping-data.js" + VERSION, "assets/food-extra-data.js" + VERSION, "assets/travel-data.js" + VERSION, "assets/history-data.js" + VERSION,
   "assets/phrases-data.js" + VERSION, "assets/glossary-data.js" + VERSION, "assets/packing-data.js" + VERSION, "assets/money-data.js" + VERSION, "assets/day-tips-data.js" + VERSION,
-  "assets/map-data.js" + VERSION, "assets/experiences-data.js" + VERSION, "assets/source-data.js" + VERSION, "assets/guide-data.js" + VERSION, "assets/map.js" + VERSION,
+  "assets/map-data.js" + VERSION, "assets/merchants-data.js" + VERSION, "assets/transit-data.js" + VERSION, "assets/experiences-data.js" + VERSION, "assets/source-data.js" + VERSION, "assets/guide-data.js" + VERSION, "assets/map.js" + VERSION,
   "assets/app.js" + VERSION,
   "assets/fallback-food.svg", "assets/fallback-place.svg",
   "assets/fallback-shop.svg", "assets/icons/icon.svg" + VERSION,

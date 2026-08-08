@@ -53,18 +53,19 @@
     const item = point.guideId && findGuideItem(point.guideId);
     let imageType = "place";
     if ((item && item.type === "food") || point.type === "tabelog") imageType = "food";
-    else if (item && item.type === "shop") imageType = "shop";
+    else if (item && (item.type === "shop" || item.type === "merchant")) imageType = "shop";
     else if (item && item.type === "experience") imageType = "experience";
     const imageId = point.guideId || "map-image-" + point.id;
     const fallback = imageType === "food" ? "assets/fallback-food.svg" : imageType === "shop" ? "assets/fallback-shop.svg" : "assets/fallback-place.svg";
-    const typeLabel = point.type === "tabelog" ? "Locale Tabelog" : point.type === "hotel" ? "Hotel del viaggio" : "Da visitare";
+    const typeLabel = point.type === "tabelog" ? "Locale Tabelog" : point.type === "hotel" ? "Hotel del viaggio"
+      : point.type === "merchant" ? "Negoziante" : "Da visitare";
     const rating = point.type === "tabelog" ? '<span class="tabelog-rating">Tabelog ' + Number(point.score).toFixed(2) + ' alla selezione</span>' : "";
     const tabelog = point.tabelog ? '<a class="map-popup-action is-tabelog" href="' + tabelogUrl(point) + '" target="_blank" rel="noopener">Voto di oggi, orari e prenotazione ↗</a>' : "";
     const guide = point.guideId ? '<button class="map-popup-detail" type="button" data-action="details" data-id="' + escapeHTML(point.guideId) + '">Apri la guida completa ↗</button>' : "";
-    const done = point.guideId && item && (item.type === "place" || item.type === "experience") ? '<button class="map-popup-done' + (doneIds.has(point.guideId) ? ' is-done' : '') + '" type="button" data-action="done" data-id="' + escapeHTML(point.guideId) + '">' + (doneIds.has(point.guideId) ? (item.type === "experience" ? "✓ Fatta" : "✓ Visitato") : (item.type === "experience" ? "Segna fatta" : "Segna visitato")) + '</button>' : "";
+    const done = point.guideId && item && (item.type === "place" || item.type === "experience" || item.type === "merchant") ? '<button class="map-popup-done' + (doneIds.has(point.guideId) ? ' is-done' : '') + '" type="button" data-action="done" data-id="' + escapeHTML(point.guideId) + '">' + (doneIds.has(point.guideId) ? (item.type === "experience" ? "✓ Fatta" : "✓ Visitato") : (item.type === "experience" ? "Segna fatta" : "Segna visitato")) + '</button>' : "";
     // Togliere un punto dalla mappa mentre lo si sta guardando, senza tornare
     // all'elenco e senza confonderlo con "ci sono già stato".
-    const select = point.guideId && point.type === "visit"
+    const select = point.guideId && (point.type === "visit" || point.type === "merchant")
       ? '<button class="map-popup-select" type="button" data-action="select" data-id="' + escapeHTML(point.guideId) + '">'
         + (hiddenIds.has(point.guideId) ? "Rimetti sulla mappa" : "Togli dalla mappa") + '</button>'
       : "";
@@ -85,7 +86,7 @@
 
   function findGuideItem(id) {
     const data = window.JAPAN_DATA;
-    return [].concat(data.places || [], data.mapPlaces || [], data.experiences || [], data.foods || [], data.shopping || []).find(function (item) {
+    return [].concat(data.places || [], data.mapPlaces || [], data.experiences || [], data.foods || [], data.shopping || [], data.merchants || []).find(function (item) {
       return item.id === id;
     });
   }
@@ -182,6 +183,17 @@
       return L.divIcon({ className:"map-point-icon", html:'<span class="map-hotel-marker">H</span>', iconSize:[28, 28], iconAnchor:[14, 14] });
     }
     const isDone = Boolean(point.guideId && doneIds.has(point.guideId));
+    // Il negoziante ha il suo simbolo — la tenda di stoffa all'ingresso delle
+    // botteghe giapponesi — e il suo colore: sulla mappa non va confuso con un
+    // tempio, e il verde dei luoghi da visitare è già preso.
+    if (point.type === "merchant") {
+      return L.divIcon({
+        className:"map-point-icon",
+        html:'<span class="map-shop-marker' + (isDone ? " is-done" : "") + '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v3.2a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0Z"/><path d="M4.5 10.5h15V21h-15z"/></svg>'
+          + (isDone ? '<i class="visit-check">✓</i>' : '') + '</span>',
+        iconSize:[22, 22], iconAnchor:[11, 11]
+      });
+    }
     return L.divIcon({ className:"map-point-icon", html:visitMarkerHTML(point, isDone), iconSize:[22, 22], iconAnchor:[11, 11] });
   }
 
@@ -196,27 +208,57 @@
     else pointLayers[type].removeFrom(map);
   }
 
-  // ---- WC pubblici e fontanelle -------------------------------------------
+  // ---- WC pubblici, fontanelle e konbini -----------------------------------
   // Sono migliaia, cambiano di continuo e non hanno niente da raccontare:
   // tenerli nei dati della guida non avrebbe senso. Si chiedono a OpenStreetMap
-  // solo quando l'utente accende il flag, e poi restano sul telefono.
+  // solo quando serve, e poi restano sul telefono.
+  //
+  // Una regola sola: si mostra quello che c'è nella finestra che stai
+  // guardando, e spostandoti si scarica la parte nuova. Anche "attorno a me"
+  // viene da qui, senza codice dedicato: ◎ La mia posizione porta la mappa su di
+  // te, e quello che si cerca è di nuovo la finestra. Prima si cercava attorno
+  // alle coordinate delle città tenendo i 40 più vicini, e a Tokyo quel cerchio
+  // non arrivava nemmeno all'hotel di Asakusa, 14 km più in là. Ogni riquadro
+  // scaricato resta ricordato: tornarci non costa niente e vale anche offline.
 
+  // Ogni livello dice a Overpass che cosa chiedere (`clause`) e sa riconoscere
+  // i propri nodi nella risposta (`accepts`). Prima bastavano un tag e un
+  // valore; stazioni e metropolitane no, perché si distinguono fra loro per un
+  // tag in più e non per il proprio.
   const FACILITY_KINDS = {
-    toilet: { tag:"amenity", value:"toilets", label:"WC pubblico", plural:"i WC pubblici", count:"WC", glyph:"WC" },
-    water: { tag:"amenity", value:"drinking_water", label:"Fontanella", plural:"le fontanelle", count:"fontanelle", glyph:"水" },
-    konbini: { tag:"shop", value:"convenience", label:"Konbini", plural:"i konbini", count:"konbini", glyph:"24h" }
+    toilet: { clause:'node["amenity"="toilets"]', accepts:function (t) { return t.amenity === "toilets"; }, label:"WC pubblico", plural:"i WC pubblici", count:"WC", glyph:"WC" },
+    water: { clause:'node["amenity"="drinking_water"]', accepts:function (t) { return t.amenity === "drinking_water"; }, label:"Fontanella", plural:"le fontanelle", count:"fontanelle", glyph:"水" },
+    konbini: { clause:'node["shop"="convenience"]', accepts:function (t) { return t.shop === "convenience"; }, label:"Konbini", plural:"i konbini", count:"konbini", glyph:"24h" },
+    // Un ospedale si cerca una volta sola in tutto il viaggio, e in quel momento
+    // si ha fretta: meglio averlo fra i livelli che cercarlo con un telefono in
+    // mano mentre qualcuno sta male. Si prendono gli ospedali e non gli
+    // ambulatori: al pronto soccorso si va negli ospedali.
+    hospital: { clause:'node["amenity"="hospital"]', accepts:function (t) { return t.amenity === "hospital"; }, label:"Ospedale", plural:"gli ospedali", count:"ospedali", glyph:"＋" },
+    // La stessa richiesta serve tutti e due i livelli: si chiedono le stazioni
+    // e poi si separa chi sta sottoterra da chi sta in superficie.
+    station: { clause:'node["railway"="station"]', accepts:function (t) { return t.railway === "station" && !isSubwayTags(t); }, label:"Stazione ferroviaria", plural:"le stazioni ferroviarie", count:"stazioni", glyph:"鉄" },
+    subway: { clause:null, accepts:function (t) { return t.railway === "station" && isSubwayTags(t); }, label:"Metropolitana", plural:"le fermate della metro", count:"fermate metro", glyph:"M" }
   };
-  const FACILITY_CACHE = "tabi-facilities-v2";
-  const FACILITY_RADIUS = 2000;
-  const FACILITY_PER_CITY = 40;
+
+  function isSubwayTags(tags) {
+    return tags.station === "subway" || tags.subway === "yes";
+  }
+
+  const FACILITY_CACHE = "tabi-facilities-v4";
+  const FACILITY_MIN_ZOOM = 13;
+  const FACILITY_MAX_POINTS = 4000;
   const OVERPASS_ENDPOINTS = [
     "https://overpass-api.de/api/interpreter",
     "https://overpass.kumi.systems/api/interpreter"
   ];
+  const OVERPASS_TIMEOUT = 25000;
   const facilityLayers = {};
   const facilityMarkers = {};
   let facilityPoints = null;
-  let facilityRequest = null;
+  let facilityAreas = null;
+  // Le richieste in volo, una per tipo e finestra: chi chiede la stessa cosa si
+  // aggancia invece di ripeterla, e chi cambia finestra le può fermare.
+  const facilityRequests = {};
 
   function isFacility(type) {
     return Object.prototype.hasOwnProperty.call(FACILITY_KINDS, type);
@@ -242,35 +284,61 @@
     box.hidden = !text;
   }
 
-  // Un WC utile è quello a duecento metri, non quello a trecento chilometri.
-  // Sull'intero Giappone questi punti finiscono sotto i pin delle tappe e non se
-  // ne vede nemmeno uno: se la mappa è larga, si stringe sulla tappa corrente.
-  function zoomToFacilities() {
-    if (!map || map.getZoom() >= 13) return "";
-    const cities = window.JAPAN_DATA.cities;
-    const currentId = localStorage.getItem("tabi-current-city") || "";
-    const center = map.getCenter();
-    const target = cities.find(function (city) { return city.id === currentId; })
-      || (nearestCity(center.lat, center.lng) || {}).city
-      || cities[0];
-    if (!target) return "";
-    map.setView([target.lat, target.lng], 15);
-    return " Ti ho portato su " + target.name + ": da lontano finiscono sotto i pin delle tappe.";
-  }
-
   function facilityName(point) {
     return point.name || FACILITY_KINDS[point.kind].label;
   }
 
-  function overpassQuery() {
-    const clauses = [];
-    window.JAPAN_DATA.cities.forEach(function (city) {
-      facilityKinds().forEach(function (kind) {
-        const spec = FACILITY_KINDS[kind];
-        clauses.push('node["' + spec.tag + '"="' + spec.value + '"](around:' + FACILITY_RADIUS + ',' + city.lat + ',' + city.lng + ');');
-      });
+  // Una richiesta per tipo, non una sola che li chiede tutti. Chi accende i
+  // konbini non deve aspettare anche le stazioni ferroviarie che non ha chiesto,
+  // e quello che arriva per primo si può già disegnare invece di restare fermo
+  // ad aspettare il pezzo più lento.
+  //
+  // Le metropolitane non hanno una richiesta propria: si separano dalle stazioni
+  // dopo, quindi le due caselle condividono la stessa domanda a Overpass.
+  const REQUEST_KIND = { subway: "station" };
+  const MAX_PARALLEL_REQUESTS = 2;
+
+  function requestKindFor(kind) {
+    return REQUEST_KIND[kind] || kind;
+  }
+
+  function kindsServedBy(requestKind) {
+    return facilityKinds().filter(function (kind) { return requestKindFor(kind) === requestKind; });
+  }
+
+  function overpassQuery(area, requestKind) {
+    const box = [area.south, area.west, area.north, area.east].join(",");
+    return "[out:json][timeout:60];(" + FACILITY_KINDS[requestKind].clause + "(" + box + "););out body 1500;";
+  }
+
+  function areaKeyOf(area) {
+    return [area.south, area.west, area.north, area.east].join(",");
+  }
+
+  // La finestra che stai guardando, con un margine: un piccolo spostamento non
+  // deve far ripartire una richiesta per due isolati.
+  function viewArea() {
+    const bounds = map.getBounds();
+    const margin = 0.004;
+    return {
+      south: Number((bounds.getSouth() - margin).toFixed(4)),
+      west: Number((bounds.getWest() - margin).toFixed(4)),
+      north: Number((bounds.getNorth() + margin).toFixed(4)),
+      east: Number((bounds.getEast() + margin).toFixed(4))
+    };
+  }
+
+  // I riquadri sono ricordati per tipo: aver già scaricato i konbini di una zona
+  // non vuol dire avere anche i suoi WC. I riquadri salvati dalle versioni
+  // precedenti non portano il tipo perché venivano da una richiesta che li
+  // chiedeva tutti insieme: quelli valgono ancora per chiunque.
+  function areaCoveredFor(kind, area) {
+    const requestKind = requestKindFor(kind);
+    return (facilityAreas || []).some(function (done) {
+      return (!done.kind || done.kind === requestKind)
+        && done.south <= area.south && done.west <= area.west
+        && done.north >= area.north && done.east >= area.east;
     });
-    return "[out:json][timeout:60];(" + clauses.join("") + ");out body 2500;";
   }
 
   function nearestCity(lat, lng) {
@@ -281,78 +349,226 @@
   }
 
   function parseFacilities(payload) {
-    const grouped = {};
+    const out = [];
     (payload.elements || []).forEach(function (element) {
       const tags = element.tags || {};
-      const kind = facilityKinds().find(function (key) { return tags[FACILITY_KINDS[key].tag] === FACILITY_KINDS[key].value; });
+      const kind = facilityKinds().find(function (key) { return FACILITY_KINDS[key].accepts(tags); });
       const lat = Number(element.lat);
       const lng = Number(element.lon);
       if (!kind || !Number.isFinite(lat) || !Number.isFinite(lng)) return;
-      const near = nearestCity(lat, lng);
-      const key = kind + "|" + near.city.id;
-      (grouped[key] = grouped[key] || []).push({
+      // Serve alla riga "Kyoto" nel riquadro del punto, e alla metro per
+      // sapere di quale rete è la lettera quando l'operatore non è scritto.
+      const city = (nearestCity(lat, lng) || { city:{ id:"" } }).city.id;
+      const point = {
         id: kind + "-" + element.id,
         kind: kind,
-        city: near.city.id,
-        distance: near.distance,
+        city: city,
         lat: Math.round(lat * 1e5) / 1e5,
         lng: Math.round(lng * 1e5) / 1e5,
         name: String(tags["name:en"] || tags.name || "").slice(0, 60)
-      });
+      };
+      if (kind === "subway" && window.JAPAN_TRANSIT) point.line = window.JAPAN_TRANSIT.lineFor(tags, city);
+      if (kind === "station") point.operator = String(tags["operator:en"] || tags.operator || "").slice(0, 60);
+      out.push(point);
     });
-    // Solo i più vicini al centro di ogni tappa: gli altri occuperebbero spazio
-    // sul telefono senza che nessuno ci arrivi mai a piedi.
-    return Object.keys(grouped).reduce(function (all, key) {
-      const nearest = grouped[key].sort(function (a, b) { return a.distance - b.distance; }).slice(0, FACILITY_PER_CITY);
-      nearest.forEach(function (item) { delete item.distance; });
-      return all.concat(nearest);
-    }, []);
+    return out;
   }
 
-  function readFacilityCache() {
+  // Le versioni vecchie della cache restavano nel telefono a occupare spazio
+  // senza che nessuno le leggesse più, e la memoria di localStorage è poca.
+  const FACILITY_CACHE_OLD = ["tabi-facilities-v2", "tabi-facilities-v3"];
+
+  function loadFacilityCache() {
+    if (facilityPoints) return;
+    FACILITY_CACHE_OLD.forEach(function (key) { localStorage.removeItem(key); });
+    let stored = null;
+    try { stored = JSON.parse(localStorage.getItem(FACILITY_CACHE) || "null"); } catch (_) { stored = null; }
+    facilityPoints = stored && Array.isArray(stored.points) ? stored.points : [];
+    facilityAreas = stored && Array.isArray(stored.areas) ? stored.areas : [];
+  }
+
+  function saveFacilityCache() {
+    // Se si supera il tetto si buttano i riquadri più vecchi con i loro punti:
+    // meglio perdere una città attraversata settimane fa che riempire la memoria
+    // del telefono.
+    while (facilityPoints.length > FACILITY_MAX_POINTS && facilityAreas.length > 1) {
+      const oldest = facilityAreas.shift();
+      // Si buttano solo i punti che quel riquadro aveva portato: dentro lo stesso
+      // rettangolo possono esserci konbini scaricati ieri e WC scaricati adesso.
+      const drop = new Set(oldest.kind ? kindsServedBy(oldest.kind) : facilityKinds());
+      facilityPoints = facilityPoints.filter(function (point) {
+        return !(drop.has(point.kind)
+          && point.lat >= oldest.south && point.lat <= oldest.north
+          && point.lng >= oldest.west && point.lng <= oldest.east);
+      });
+    }
     try {
-      const stored = JSON.parse(localStorage.getItem(FACILITY_CACHE) || "null");
-      return stored && Array.isArray(stored.points) && stored.points.length ? stored.points : null;
-    } catch (_) { return null; }
+      localStorage.setItem(FACILITY_CACHE, JSON.stringify({ at:Date.now(), points:facilityPoints, areas:facilityAreas }));
+    } catch (_) { /* memoria piena: restano validi per questa sessione */ }
   }
 
-  function fetchFacilities() {
-    const body = "data=" + encodeURIComponent(overpassQuery());
+  // Overpass a volte accetta la connessione e poi non risponde più. Senza un
+  // tempo massimo la richiesta resta appesa e il pannello mostra "Cerco…" per
+  // sempre, che è indistinguibile da "non ha trovato niente": dopo il tempo si
+  // molla e si prova il secondo server.
+  function fetchWithTimeout(endpoint, body, controller) {
+    const timer = setTimeout(function () { controller.abort(); }, OVERPASS_TIMEOUT);
+    return fetch(endpoint, {
+      method: "POST", body: body, signal: controller.signal,
+      headers: { "Content-Type": "application/x-www-form-urlencoded" }
+    })
+      .then(function (response) { return response.ok ? response.json() : null; })
+      .catch(function () { return null; })
+      .finally(function () { clearTimeout(timer); });
+  }
+
+  function fetchArea(area, requestKind, controller) {
+    const body = "data=" + encodeURIComponent(overpassQuery(area, requestKind));
     return OVERPASS_ENDPOINTS.reduce(function (chain, endpoint) {
       return chain.then(function (payload) {
-        if (payload) return payload;
-        return fetch(endpoint, { method:"POST", body:body, headers:{ "Content-Type":"application/x-www-form-urlencoded" } })
-          .then(function (response) { return response.ok ? response.json() : null; })
-          .catch(function () { return null; });
+        // Dopo un abort non si prova il secondo server: quella finestra non si
+        // sta più guardando.
+        if (payload || controller.signal.aborted) return payload;
+        return fetchWithTimeout(endpoint, body, controller);
       });
     }, Promise.resolve(null));
   }
 
-  // Un WC non si sposta: una volta scaricato l'elenco resta valido, e soprattutto
-  // resta disponibile quando la rete non c'è, che è esattamente il momento in cui
-  // serve.
-  function ensureFacilities() {
-    if (facilityPoints) return Promise.resolve(facilityPoints);
-    if (facilityRequest) return facilityRequest;
-    const cached = readFacilityCache();
-    if (cached) {
-      facilityPoints = cached;
-      return Promise.resolve(cached);
-    }
-    if (!navigator.onLine) return Promise.reject(new Error("Servono i dati di OpenStreetMap: riprova quando hai rete."));
-    facilityRequest = fetchFacilities().then(function (payload) {
-      const points = payload ? parseFacilities(payload) : [];
-      if (!points.length) throw new Error("OpenStreetMap non ha risposto: riprova tra un minuto.");
-      facilityPoints = points;
-      try {
-        localStorage.setItem(FACILITY_CACHE, JSON.stringify({ at:Date.now(), points:points }));
-      } catch (_) { /* memoria piena: restano validi per questa sessione */ }
-      return points;
-    }).finally(function () { facilityRequest = null; });
-    return facilityRequest;
+  function mergeChunk(payload, area, requestKind) {
+    const known = new Set(facilityPoints.map(function (point) { return point.id; }));
+    parseFacilities(payload).forEach(function (point) {
+      if (!known.has(point.id)) { known.add(point.id); facilityPoints.push(point); }
+    });
+    facilityAreas.push({ south:area.south, west:area.west, north:area.north, east:area.east, kind:requestKind });
+    saveFacilityCache();
   }
 
-  function facilityIcon(kind) {
+  // Scarica i riquadri attorno a dove sei e attorno all'hotel della tappa, se non
+  // li hai già. Un WC non si sposta: quello che è stato scaricato resta valido e
+  // disponibile anche senza rete, che è esattamente il momento in cui serve.
+  // La regola è una sola: quello che c'è nella finestra che stai guardando.
+  // Spostandoti si scarica la parte nuova. Premendo ◎ La mia posizione la mappa
+  // si porta su di te, quindi "attorno a me" viene da sé senza casi speciali.
+  // Spostando la mappa, le richieste della finestra di prima non servono più:
+  // si fermano invece di occupare la coda e di far aspettare quelle nuove.
+  function abortStaleRequests(areaKey) {
+    Object.keys(facilityRequests).forEach(function (key) {
+      const job = facilityRequests[key];
+      if (job.areaKey === areaKey) return;
+      job.stale = true;
+      job.controller.abort();
+      delete facilityRequests[key];
+    });
+  }
+
+  // Il tetto di due richieste alla volta vale per tutta la mappa, non per ogni
+  // chiamata: accendendo tre caselle in fila partirebbero altrimenti sei
+  // richieste insieme, che è il contrario di quello che si vuole ottenere.
+  let activeRequests = 0;
+  const waitingRequests = [];
+
+  function withRequestSlot(run) {
+    return new Promise(function (resolve) {
+      const attempt = function () {
+        if (activeRequests >= MAX_PARALLEL_REQUESTS) { waitingRequests.push(attempt); return; }
+        activeRequests += 1;
+        resolve(run().finally(function () {
+          activeRequests -= 1;
+          const next = waitingRequests.shift();
+          if (next) next();
+        }));
+      };
+      attempt();
+    });
+  }
+
+  function startRequest(requestKind, area, areaKey) {
+    const key = requestKind + "@" + areaKey;
+    if (facilityRequests[key]) return facilityRequests[key];
+    const job = { areaKey:areaKey, stale:false, controller:new AbortController() };
+    job.promise = withRequestSlot(function () {
+      return fetchArea(area, requestKind, job.controller);
+    }).then(function (payload) {
+      if (job.stale) return "stale";
+      if (!payload) return "failed";
+      mergeChunk(payload, area, requestKind);
+      return "ok";
+    }).finally(function () {
+      if (facilityRequests[key] === job) delete facilityRequests[key];
+    });
+    facilityRequests[key] = job;
+    return job;
+  }
+
+  // Il caricamento non è più un blocco solo: ogni tipo arriva per conto suo e
+  // chi chiama disegna quello che è arrivato senza aspettare il resto. Due
+  // richieste alla volta, perché Overpass è un servizio pubblico e gratuito e
+  // sommergerlo di richieste parallele lo fa rispondere più lentamente a tutti.
+  function loadFacilities(kinds, onChunk) {
+    loadFacilityCache();
+    if (!map) return Promise.resolve(facilityPoints);
+    if (map.getZoom() < FACILITY_MIN_ZOOM) {
+      // Non è un errore, è "non ancora": l'interruttore resta acceso e appena ti
+      // avvicini la zona si carica da sola.
+      const tooFar = new Error("Avvicinati sulla zona che ti interessa: da qui il riquadro sarebbe troppo grande.");
+      tooFar.keepLayerOn = true;
+      return Promise.reject(tooFar);
+    }
+    const area = viewArea();
+    const areaKey = areaKeyOf(area);
+    abortStaleRequests(areaKey);
+    const missing = [];
+    kinds.forEach(function (kind) {
+      const requestKind = requestKindFor(kind);
+      if (missing.indexOf(requestKind) === -1 && !areaCoveredFor(kind, area)) missing.push(requestKind);
+    });
+    if (!missing.length) return Promise.resolve(facilityPoints);
+    if (!navigator.onLine) {
+      return Promise.reject(new Error("Servono i dati di OpenStreetMap: riprova quando hai rete. Le zone già scaricate restano."));
+    }
+    // Partono tutte insieme: è il semaforo di withRequestSlot a tenerne due per
+    // volta, contando anche quelle di altre caselle già in corso.
+    const settled = [];
+    const jobs = missing.map(function (requestKind) {
+      return startRequest(requestKind, area, areaKey).promise.then(function (outcome) {
+        if (outcome === "stale") return outcome;
+        settled.push(requestKind);
+        if (outcome === "ok" && onChunk) {
+          const arrived = function (kind) { return settled.indexOf(requestKindFor(kind)) !== -1; };
+          onChunk(kinds.filter(arrived), kinds.filter(function (kind) { return !arrived(kind); }));
+        }
+        return outcome;
+      });
+    });
+    return Promise.all(jobs).then(function (outcomes) {
+      const done = outcomes.filter(function (outcome) { return outcome === "ok"; }).length;
+      // Interrotte perché la mappa si è mossa: non è un guasto, sta già
+      // ripartendo la ricerca sulla finestra nuova.
+      if (!done && outcomes.some(function (outcome) { return outcome === "stale"; })) return facilityPoints;
+      // Se qualcosa è già in cache si tiene: meglio i punti della zona di prima
+      // che una mappa vuota per una richiesta andata storta.
+      if (!done && !facilityPoints.length) {
+        throw new Error("OpenStreetMap non ha risposto: riprova tra un minuto.");
+      }
+      return facilityPoints;
+    });
+  }
+
+  // La fermata della metro porta addosso la propria linea: la lettera del
+  // codice stazione sul colore ufficiale della linea. È l'unico modo per
+  // distinguere a colpo d'occhio dodici linee che passano nello stesso isolato.
+  function facilityIcon(point) {
+    const kind = point.kind;
+    if (kind === "subway") {
+      const line = point.line || {};
+      const color = line.color || (window.JAPAN_TRANSIT ? window.JAPAN_TRANSIT.unknownColor : "#6c7b86");
+      const letter = escapeHTML((line.code || "M").slice(0, 1));
+      return L.divIcon({
+        className:"map-point-icon",
+        html:'<span class="map-subway-marker" style="--metro:' + escapeHTML(color) + '">' + letter + '</span>',
+        iconSize:[22, 22], iconAnchor:[11, 11]
+      });
+    }
     return L.divIcon({
       className:"map-point-icon",
       html:'<span class="map-facility-marker is-' + kind + '">' + FACILITY_KINDS[kind].glyph + '</span>',
@@ -362,8 +578,15 @@
 
   function facilityPopupHTML(point) {
     const city = window.JAPAN_DATA.cities.find(function (candidate) { return candidate.id === point.city; });
+    const line = point.kind === "subway" && point.line
+      ? '<p class="map-line-row"><span class="map-line-chip" style="--metro:' + escapeHTML(point.line.color) + '">' + escapeHTML(point.line.code) + '</span>'
+        + '<b>' + escapeHTML([point.line.network, point.line.name ? point.line.name + " Line" : ""].filter(Boolean).join(" · ")) + '</b></p>'
+      : "";
+    const operator = point.kind === "station" && point.operator
+      ? '<p class="point-location">' + escapeHTML(point.operator) + '</p>'
+      : "";
     return '<div class="map-popup facility-popup"><p class="map-popup-kicker">' + escapeHTML(FACILITY_KINDS[point.kind].label) + '</p>'
-      + '<h3>' + escapeHTML(facilityName(point)) + '</h3>'
+      + '<h3>' + escapeHTML(facilityName(point)) + '</h3>' + line + operator
       + '<p class="point-location">' + escapeHTML(city ? city.name : "") + '</p>'
       + '<div class="map-popup-actions"><a class="map-popup-action" href="' + googleMapsUrl(point) + '" target="_blank" rel="noopener">Raggiungi con Google Maps ↗</a></div>'
       + '<p class="facility-source">Segnalato su OpenStreetMap: orari e apertura non sono garantiti.</p></div>';
@@ -376,7 +599,7 @@
     });
     facilityPoints.forEach(function (point) {
       if (facilityMarkers[point.id] || !facilityLayers[point.kind]) return;
-      const marker = L.marker([point.lat, point.lng], { icon:facilityIcon(point.kind), title:facilityName(point), alt:facilityName(point) })
+      const marker = L.marker([point.lat, point.lng], { icon:facilityIcon(point), title:facilityName(point), alt:facilityName(point) })
         .bindPopup(facilityPopupHTML(point), { maxWidth:popupMaxWidth(), autoPan:false });
       marker.on("popupopen", function () { fitPopup(marker); centerPopup(marker); });
       marker.addTo(facilityLayers[point.kind]);
@@ -384,35 +607,141 @@
     });
   }
 
+  // Mostra sulla mappa i tipi già arrivati, senza toccare quelli che stanno
+  // ancora caricando: è tutto il senso del caricamento a pezzi.
+  function showArrivedLayers(kinds) {
+    buildFacilityMarkers();
+    if (!map) return;
+    kinds.forEach(function (kind) {
+      if (layerEnabled(kind) && facilityLayers[kind]) facilityLayers[kind].addTo(map);
+    });
+    renderSubwayLegend();
+  }
+
   function syncFacilityLayer(kind) {
     if (!layerEnabled(kind)) {
       if (facilityLayers[kind] && map) facilityLayers[kind].removeFrom(map);
       if (!enabledFacilityKinds().length) facilityStatus("");
+      renderSubwayLegend();
       return;
     }
-    // La prima richiesta a OpenStreetMap richiede una decina di secondi: senza
-    // dirlo, l'attesa si legge come "non ha trovato niente".
-    if (!facilityPoints) facilityStatus("Cerco " + FACILITY_KINDS[kind].plural + " su OpenStreetMap… ci vogliono una decina di secondi, solo la prima volta.");
-    ensureFacilities().then(function () {
-      buildFacilityMarkers();
+    facilityStatus("Cerco " + FACILITY_KINDS[kind].plural + " in questa zona…");
+    loadFacilities([kind], function (shown, pending) {
+      showArrivedLayers(shown);
+      facilityStatus(facilityProgressLabel(shown, pending));
+    }).then(function () {
+      showArrivedLayers([kind]);
       if (!map || !layerEnabled(kind)) return;
-      facilityLayers[kind].addTo(map);
-      facilityStatus(facilityCountLabel() + zoomToFacilities());
+      facilityStatus(settledCountLabel());
     }).catch(function (error) {
-      const input = document.querySelector('[data-map-layer="' + kind + '"]');
-      if (input) input.checked = false;
+      if (!error.keepLayerOn) {
+        const input = document.querySelector('[data-map-layer="' + kind + '"]');
+        if (input) input.checked = false;
+      }
       facilityStatus(error.message);
     });
   }
 
-  function facilityCountLabel() {
+  // Si richiama quando cambia qualcosa che sposta gli ancoraggi: la posizione
+  // che si aggiorna mentre cammini, o la tappa scelta in Viaggio.
+  function refreshFacilities() {
     const kinds = enabledFacilityKinds();
-    if (!kinds.length || !facilityPoints) return "";
-    const counts = kinds.map(function (kind) {
-      const total = facilityPoints.filter(function (point) { return point.kind === kind; }).length;
-      return total + " " + FACILITY_KINDS[kind].count;
+    if (!map || !kinds.length) return;
+    // Spostandosi la richiesta parte in silenzio e il conteggio resta quello di
+    // prima finché non arriva: senza una riga che lo dica sembra che la mappa
+    // nuova non abbia niente.
+    const missing = kinds.filter(function (kind) { return !areaCoveredFor(kind, viewArea()); });
+    if (map.getZoom() >= FACILITY_MIN_ZOOM && missing.length) {
+      facilityStatus("Cerco in questa zona…");
+    }
+    loadFacilities(kinds, function (shown, pending) {
+      showArrivedLayers(shown);
+      facilityStatus(facilityProgressLabel(shown, pending));
+    }).then(function () {
+      showArrivedLayers(kinds);
+      facilityStatus(settledCountLabel());
+    }).catch(function (error) { facilityStatus(error.message); });
+  }
+
+  // Si conta quello che è davvero sotto gli occhi, non il totale scaricato: se
+  // hai i punti dell'hotel ma stai guardando un'altra città, "288 konbini" con
+  // la mappa vuota non spiegherebbe niente.
+  // Dodici pallini colorati sulla mappa non dicono quale linea sia quale. La
+  // legenda elenca solo le linee che stai davvero guardando: a Tokyo sono
+  // tredici in tutto, ma in un isolato non sono mai più di tre o quattro.
+  function renderSubwayLegend() {
+    const box = document.getElementById("subwayLegend");
+    if (!box) return;
+    if (!layerEnabled("subway") || !facilityPoints) {
+      box.hidden = true;
+      box.innerHTML = "";
+      return;
+    }
+    const bounds = map && map.getBounds();
+    const seen = new Map();
+    facilityPoints.forEach(function (point) {
+      if (point.kind !== "subway" || !point.line || !point.line.name) return;
+      if (bounds && !bounds.contains([point.lat, point.lng])) return;
+      const key = point.line.network + "|" + point.line.name;
+      if (!seen.has(key)) seen.set(key, point.line);
     });
-    return counts.join(" e ") + " attorno alle tappe.";
+    const lines = Array.from(seen.values()).sort(function (a, b) { return a.network.localeCompare(b.network) || a.name.localeCompare(b.name); });
+    box.hidden = !lines.length;
+    box.innerHTML = lines.map(function (line) {
+      return '<span class="map-line-chip is-legend" style="--metro:' + escapeHTML(line.color) + '">'
+        + escapeHTML(line.code.slice(0, 1)) + '</span><small>' + escapeHTML(line.name) + '</small>';
+    }).join("");
+  }
+
+  function facilityCountLabel(only) {
+    const kinds = only || enabledFacilityKinds();
+    if (!kinds.length || !facilityPoints) return "";
+    const bounds = map && map.getBounds();
+    const counts = kinds.map(function (kind) {
+      const inVista = facilityPoints.filter(function (point) {
+        return point.kind === kind && (!bounds || bounds.contains([point.lat, point.lng]));
+      }).length;
+      return inVista + " " + FACILITY_KINDS[kind].count;
+    });
+    return counts.join(" e ") + " in questa zona.";
+  }
+
+  // "Cerco ancora" si dice solo di ciò che è davvero in volo: un livello la cui
+  // richiesta è fallita non deve restare scritto come in arrivo per sempre.
+  function pendingKinds() {
+    const inFlight = Object.keys(facilityRequests).map(function (key) { return key.split("@")[0]; });
+    return enabledFacilityKinds().filter(function (kind) { return inFlight.indexOf(requestKindFor(kind)) !== -1; });
+  }
+
+  // A fine caricamento si contano solo i livelli che hanno davvero una risposta:
+  // accendendo tre caselle in fila, le prime a finire non devono dichiarare
+  // "0 stazioni" per un livello che sta ancora arrivando.
+  function settledCountLabel() {
+    const waiting = pendingKinds();
+    const enabled = enabledFacilityKinds();
+    const area = map ? viewArea() : null;
+    const ready = enabled.filter(function (kind) {
+      return waiting.indexOf(kind) === -1 && (!area || areaCoveredFor(kind, area));
+    });
+    if (waiting.length) return facilityProgressLabel(ready, waiting);
+    // Un livello che nessuno sta più cercando e di cui non abbiamo la zona è una
+    // richiesta andata storta: "0 konbini" direbbe che non ce ne sono, che è
+    // un'altra cosa e manderebbe a cercare un caffè al posto della colazione.
+    const missed = enabled.filter(function (kind) { return ready.indexOf(kind) === -1; });
+    const label = facilityCountLabel(ready);
+    if (!missed.length) return label;
+    const names = missed.map(function (kind) { return FACILITY_KINDS[kind].count; }).join(" e ");
+    return (label ? label + " " : "") + "Per " + names + " OpenStreetMap non ha risposto: riprova fra un minuto.";
+  }
+
+  // Mentre si carica si dice quello che c'è già e quello che manca ancora: una
+  // riga che cambia da sola dice "sta arrivando" meglio di un "Cerco…" fermo
+  // per venti secondi.
+  function facilityProgressLabel(shown, pending) {
+    const found = shown.length ? facilityCountLabel(shown) : "";
+    if (!pending.length) return found;
+    const rest = pending.map(function (kind) { return FACILITY_KINDS[kind].count; }).join(" e ");
+    return (found ? found.replace(/\.$/, "") + " · c" : "C") + "erco ancora " + rest + "…";
   }
 
   function initMap() {
@@ -450,7 +779,7 @@
     });
     routeLayer = L.polyline(coordinates, { color:"#b6422e", weight:3, opacity:.72, dashArray:"8 9" }).addTo(map);
 
-    ["visit", "tabelog", "hotel"].forEach(function (type) { pointLayers[type] = L.layerGroup(); });
+    ["visit", "tabelog", "hotel", "merchant"].forEach(function (type) { pointLayers[type] = L.layerGroup(); });
     window.JAPAN_MAP_DATA.points.forEach(function (point) {
       const marker = L.marker([point.lat, point.lng], { icon:pointIcon(point), zIndexOffset:point.type === "hotel" ? 500 : 0, title:point.name, alt:point.name })
         .bindPopup(pointPopupHTML(point), { maxWidth:popupMaxWidth(), autoPan:false });
@@ -465,9 +794,17 @@
       placedMarkers.push({ point:point, marker:marker });
       if (onMap(point)) marker.addTo(pointLayers[point.type]);
     });
-    ["visit", "tabelog", "hotel"].forEach(syncLayer);
-    facilityKinds().forEach(function (kind) { if (layerEnabled(kind)) syncFacilityLayer(kind); });
+    ["visit", "tabelog", "hotel", "merchant"].forEach(syncLayer);
     openOnCurrentCity();
+    facilityKinds().forEach(function (kind) { if (layerEnabled(kind)) syncFacilityLayer(kind); });
+    // Spostando la mappa si scarica anche la zona nuova, una volta sola quando
+    // ci si ferma: senza, "quello che stai guardando" varrebbe solo nell'istante
+    // in cui hai acceso l'interruttore.
+    let settleTimer = null;
+    map.on("moveend zoomend", function () {
+      clearTimeout(settleTimer);
+      settleTimer = setTimeout(refreshFacilities, 600);
+    });
   }
 
   // Se sappiamo in che tappa siete, la mappa si apre lì invece che sull'intero
@@ -563,9 +900,14 @@
     initMap();
     const marker = markerByGuideId[guideId];
     if (!map || !marker) return false;
-    const visitToggle = document.querySelector('[data-map-layer="visit"]');
-    if (visitToggle) visitToggle.checked = true;
-    syncLayer("visit");
+    // Si accende il livello a cui il punto appartiene davvero: aprendo un
+    // negoziante dalla sua scheda, accendere "luoghi da visitare" non lo
+    // farebbe comparire.
+    const point = pointByGuideId[guideId];
+    const type = (point && point.type) || "visit";
+    const toggle = document.querySelector('[data-map-layer="' + type + '"]');
+    if (toggle) toggle.checked = true;
+    syncLayer(type);
     const panel = document.querySelector(".map-panel");
     if (panel) panel.scrollIntoView({ behavior:"smooth", block:"start" });
     window.setTimeout(function () {
@@ -606,16 +948,6 @@
 
   function refreshAllProgressMarkers() {
     Object.keys(markerByGuideId).forEach(refreshProgressMarker);
-  }
-
-  function toggleExpandedMap() {
-    const panel = document.querySelector(".map-panel");
-    const button = document.getElementById("expandMapButton");
-    const expanded = panel.classList.toggle("is-expanded");
-    document.body.classList.toggle("map-is-expanded", expanded);
-    button.setAttribute("aria-pressed", String(expanded));
-    button.textContent = expanded ? "Chiudi mappa" : "Espandi mappa";
-    window.setTimeout(function () { if (map) map.invalidateSize(); }, 80);
   }
 
   // ---- Lazo: si disegna un'area col dito e si ottiene il giro a piedi -------
@@ -875,7 +1207,6 @@
 
   document.getElementById("locateButton").addEventListener("click", locateUser);
   document.getElementById("fitRouteButton").addEventListener("click", fitRoute);
-  document.getElementById("expandMapButton").addEventListener("click", toggleExpandedMap);
   document.getElementById("layersButton").addEventListener("click", function () {
     const legend = document.getElementById("mapLegend");
     const button = document.getElementById("layersButton");
@@ -910,8 +1241,99 @@
     refreshAllProgressMarkers();
   });
   window.addEventListener("tabi:selectionchange", syncSelection);
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape" && document.querySelector(".map-panel.is-expanded")) toggleExpandedMap();
-  });
-  window.TABI_MAP = { focusPoint:focusPoint, fitRoute:fitRoute };
+  // Un percorso di un itinerario è un elenco di luoghi. Qui diventa il giro a
+  // piedi più corto che li tocca tutti, con lo stesso motore del lazo: non c'è
+  // motivo di averne due che fanno la stessa cosa.
+  // Si legge dai dati, non dai marker: gli itinerari si preparano anche senza
+  // aver mai aperto la mappa, e pointByGuideId esiste solo dopo initMap.
+  function stopsForIds(guideIds) {
+    const byGuideId = {};
+    ((window.JAPAN_MAP_DATA && window.JAPAN_MAP_DATA.points) || []).forEach(function (point) {
+      if (point.guideId && !byGuideId[point.guideId]) byGuideId[point.guideId] = point;
+    });
+    return (guideIds || [])
+      .map(function (id) { return byGuideId[id]; })
+      .filter(function (point) { return point && Number.isFinite(point.lat) && Number.isFinite(point.lng); });
+  }
+
+  function walkingRouteForIds(guideIds) {
+    const stops = stopsForIds(guideIds);
+    if (stops.length < 2) return null;
+    const route = buildRoute(null, stops);
+    if (!route) return null;
+    return { url:routeUrl(route), trimmed:route.trimmed, meters:route.meters, stops:route.ordered.length + 1 };
+  }
+
+  // ---- Percorsi automatici -------------------------------------------------
+  //
+  // Un solo link di Google Maps porta origine, destinazione e nove tappe
+  // intermedie: undici luoghi, non di più. Trenta luoghi salvati non stanno in
+  // un giro solo, e tagliarli a caso vuol dire attraversare la città due volte.
+  //
+  // La divisione si fa una volta sola e con l'algoritmo che c'è già: si costruisce
+  // una catena partendo da un'ancora e prendendo ogni volta il luogo più vicino
+  // a quello di prima, poi la si taglia ogni undici. Una catena buona, tagliata,
+  // dà gruppi che stanno vicini fra loro senza bisogno di inventare un
+  // raggruppamento a parte. Ogni gruppo viene poi raddrizzato con il 2-opt, che
+  // su undici punti costa niente, e riparte da dove finiva il gruppo prima: i
+  // giri si susseguono invece di rimbalzare.
+  const MAX_STOPS_PER_LINK = MAX_WAYPOINTS + 2;
+
+  function centroidOf(points) {
+    return {
+      lat: points.reduce(function (sum, p) { return sum + p.lat; }, 0) / points.length,
+      lng: points.reduce(function (sum, p) { return sum + p.lng; }, 0) / points.length
+    };
+  }
+
+  // Senza una posizione da cui partire si comincia dal punto più lontano dal
+  // centro: partendo dal mezzo la catena si aprirebbe a raggiera e i gruppi
+  // verrebbero fuori sovrapposti.
+  function farthestFrom(anchor, points) {
+    return points.reduce(function (best, point) {
+      return !best || metersBetween(anchor, point) > metersBetween(anchor, best) ? point : best;
+    }, null);
+  }
+
+  function nearestChain(anchor, points) {
+    const remaining = points.slice();
+    const chain = [];
+    let current = anchor;
+    while (remaining.length) {
+      let best = 0;
+      for (let i = 1; i < remaining.length; i += 1) {
+        if (metersBetween(current, remaining[i]) < metersBetween(current, remaining[best])) best = i;
+      }
+      current = remaining[best];
+      chain.push(current);
+      remaining.splice(best, 1);
+    }
+    return chain;
+  }
+
+  function autoRouteGroups(guideIds, start) {
+    const points = stopsForIds(guideIds);
+    if (!points.length) return [];
+    const from = start && Number.isFinite(start.lat) && Number.isFinite(start.lng) ? start : null;
+    const anchor = from || farthestFrom(centroidOf(points), points);
+    const chain = nearestChain(anchor, points);
+    const groups = [];
+    let previous = anchor;
+    for (let i = 0; i < chain.length; i += MAX_STOPS_PER_LINK) {
+      const slice = chain.slice(i, i + MAX_STOPS_PER_LINK);
+      const ordered = slice.length > 1 ? shortestOrder(previous, slice) : slice;
+      groups.push({
+        ids: ordered.map(function (point) { return point.guideId; }).filter(Boolean),
+        stops: ordered.length,
+        meters: ordered.length > 1 ? routeLength(ordered[0], ordered.slice(1)) : 0
+      });
+      previous = ordered[ordered.length - 1];
+    }
+    return groups;
+  }
+
+  window.TABI_MAP = {
+    focusPoint:focusPoint, fitRoute:fitRoute, walkingRouteForIds:walkingRouteForIds,
+    autoRouteGroups:autoRouteGroups, maxStopsPerLink:MAX_STOPS_PER_LINK
+  };
 })();

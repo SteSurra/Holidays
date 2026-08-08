@@ -113,12 +113,35 @@ main { min-height: 100vh; padding: calc(var(--header-height) + var(--safe-top) +
 .now-card b { margin-top: .4rem; font: 600 1.2rem/1.25 "Noto Serif JP", serif; overflow-wrap: anywhere; }
 .now-card small { margin-top: .35rem; color: var(--muted); font-size: .8rem; }
 .now-weather { margin-top: .65rem; }
-.weather-card { display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: center; padding: .9rem 1.1rem; border: 1px solid var(--line); border-radius: 14px; background: var(--white); color: var(--ink); text-decoration: none; }
-.weather-icon { font-size: 2rem; line-height: 1; }
-.weather-body { flex: 1 1 200px; display: grid; grid-template-columns: auto 1fr; gap: 0 .7rem; align-items: baseline; }
-.weather-body strong { grid-row: 1 / 3; font: 600 2.1rem/1 "Noto Serif JP", serif; }
-.weather-body b { font-weight: 800; font-size: .92rem; }
-.weather-body small { grid-column: 2; color: var(--muted); font-size: .76rem; line-height: 1.45; }
+/* La card meteo si legge in due tempi: in alto quanto fa adesso, sotto una
+   tabellina di tre giorni. Le colonne sono fisse — giorno, cielo, massima e
+   minima, pioggia — così i numeri di righe diverse stanno uno sopra l'altro e si
+   confrontano con un'occhiata invece di rileggerli. */
+.weather-card { display: grid; gap: .55rem; padding: .9rem 1.1rem; border: 1px solid var(--line); border-radius: 14px; background: var(--white); color: var(--ink); text-decoration: none; }
+.weather-now { display: flex; gap: .7rem; align-items: center; }
+.weather-icon { font-size: 2.1rem; line-height: 1; }
+.weather-now strong { font: 600 2.2rem/1 "Noto Serif JP", serif; }
+.weather-desc { min-width: 0; display: grid; gap: .1rem; }
+.weather-desc b { font-size: .95rem; font-weight: 800; }
+.weather-desc i { color: var(--muted); font-style: normal; font-size: .78rem; font-weight: 700; }
+/* Larghezza massima: su uno schermo grande le quattro colonne si allontanerebbero
+   fino a lasciare un campo vuoto fra i gradi e la pioggia, che è esattamente ciò
+   che impedisce di leggere una riga come una riga. */
+.weather-forecast { display: grid; gap: .1rem; max-width: 21rem; padding-top: .5rem; border-top: 1px solid var(--line); }
+.weather-row { display: grid; grid-template-columns: minmax(4.6rem, auto) 1.5rem 1fr auto; gap: .55rem; align-items: baseline; font-size: .82rem; line-height: 1.5; }
+.weather-row em { color: var(--muted); font-style: normal; font-weight: 800; }
+.weather-row i { font-style: normal; text-align: center; }
+.weather-row b { font-weight: 800; }
+.weather-row b s { margin-left: .3rem; color: var(--muted); font-weight: 700; text-decoration: none; }
+.weather-row u { color: #1b76d1; text-decoration: none; font-weight: 800; text-align: right; }
+/* Oggi è la riga che conta di più: più marcata, le altre due leggermente indietro. */
+.weather-row.is-today { font-size: .95rem; }
+.weather-row.is-today em { color: var(--ink); }
+.weather-row:not(.is-today) { opacity: .8; }
+.weather-fallback { margin: 0; color: var(--muted); font-size: .78rem; }
+.weather-foot { display: flex; flex-wrap: wrap; gap: .3rem 1rem; justify-content: space-between; align-items: baseline; }
+.weather-foot small { color: var(--muted); font-size: .74rem; }
+.weather-foot small:empty { display: none; }
 .weather-link { color: var(--red); font-size: .76rem; font-weight: 800; white-space: nowrap; }
 .weather-card.is-empty { display: grid; gap: .2rem; }
 .weather-card.is-empty strong { font: 600 1.1rem "Noto Serif JP", serif; }
@@ -141,6 +164,12 @@ main { min-height: 100vh; padding: calc(var(--header-height) + var(--safe-top) +
 .day-tips .helper-note { margin: .7rem 0 0; }
 
 .transfer-strip { padding: 0 0 3rem; }.transfer-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .65rem; }.transfer-card { display: flex; gap: .9rem; align-items: flex-start; padding: 1rem; border: 1px solid var(--line); border-radius: 14px; background: color-mix(in srgb, var(--white) 65%, transparent); }.transfer-card > span { flex: 0 0 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; color: var(--paper); background: var(--moss); font-size: .68rem; font-weight: 800; }.transfer-card b, .transfer-card small { display: block; }.transfer-card b { font: 600 1rem "Noto Serif JP", serif; }.transfer-card small { margin-top: .3rem; color: var(--muted); }
+/* Le fermate del trasferimento: nome nostro e nome giapponese impilati, perché
+   quello sotto si mostra a un passante quando il proprio non basta. */
+.transfer-stops { display: flex; flex-wrap: wrap; gap: .3rem .45rem; align-items: center; margin-top: .6rem; }
+.transfer-stop { min-height: var(--tap); display: inline-flex; flex-direction: column; justify-content: center; border: 1px solid var(--line); border-radius: 10px; padding: .3rem .6rem; color: var(--ink); background: var(--white); text-decoration: none; font-size: .74rem; font-weight: 800; line-height: 1.25; }
+.transfer-stop i { color: var(--muted); font-style: normal; font-weight: 600; font-size: .68rem; }
+.transfer-arrow { color: var(--muted); font-size: .7rem; }
 .stay-strip { padding: 0 0 3rem; }.stay-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; }.stay-card { min-height: 190px; display: flex; flex-direction: column; padding: 1rem; border: 1px solid var(--line); border-radius: 14px; background: var(--white); }.stay-card b, .stay-card span, .stay-card small { display: block; }.stay-card b { margin-top: .35rem; font: 600 1.1rem "Noto Serif JP", serif; }.stay-card > span { color: var(--red); font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }.stay-card small { margin-top: .6rem; color: var(--muted); }.stay-card .stay-area { color: var(--moss); font-weight: 800; }.stay-card a { min-height: var(--tap); display: flex; align-items: center; margin-top: auto; padding-top: .8rem; color: var(--red); font-size: .75rem; font-weight: 800; text-decoration: none; }
 
 .back-link { min-height: var(--tap); display: inline-flex; align-items: center; margin-top: 4.6rem; padding: .5rem .95rem .5rem .7rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: var(--white); cursor: pointer; font-size: .78rem; font-weight: 800; }
@@ -176,7 +205,7 @@ select { width: auto; min-width: 165px; padding: 0 2.4rem 0 .9rem; }
 /* Spunta e quantità sulla stessa riga: si può fare l'uno o l'altro gesto. */
 .packing-qty { flex: 0 0 auto; width: 3.6rem; min-height: var(--tap); padding: .35rem .5rem; border: 1px solid var(--line); border-radius: 10px; color: var(--ink); background: var(--white); font: 700 .9rem "DM Sans", sans-serif; text-align: center; }
 .packing-qty::placeholder { color: var(--muted); font-weight: 500; opacity: .6; }
-.place-grid, .food-grid, .shop-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.place-grid, .food-grid, .shop-grid, .merchant-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
 .content-card { position: relative; min-width: 0; overflow: hidden; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); transition: transform .22s ease, box-shadow .22s ease; }
 .content-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
@@ -196,6 +225,12 @@ select { width: auto; min-width: 165px; padding: 0 2.4rem 0 .9rem; }
 .select-toggle.is-on span { border-color: var(--moss); color: var(--paper); background: var(--moss); }
 /* La scheda deselezionata si sbiadisce, il suo quadratino no: è l'unico modo
    per rimetterla sulla mappa, e deve restare leggibile e toccabile. */
+/* Schede senza foto: i piccoli negozianti quasi mai hanno un'immagine con
+   licenza libera, e la regola della guida è non metterne una sbagliata. Senza
+   il riquadro, però, cuore e quadratino galleggiavano sopra il testo. */
+.content-card.is-medialess { display: block; }
+.content-card.is-medialess .card-actions { position: static; justify-content: flex-end; padding: .55rem .55rem 0; }
+.content-card.is-medialess .card-body { padding-top: .3rem; }
 .content-card.is-off-map .card-media { filter: grayscale(1); opacity: .5; }
 .content-card.is-off-map .card-body { opacity: .55; }
 
@@ -260,7 +295,12 @@ select { width: auto; min-width: 165px; padding: 0 2.4rem 0 .9rem; }
 .map-toolbar .eyebrow { margin-bottom: .35rem; }
 .map-actions { display: flex; gap: .5rem; }
 .map-actions button { min-height: var(--tap); border: 1px solid var(--line); border-radius: 999px; background: var(--paper); padding: .65rem .9rem; cursor: pointer; font-size: .75rem; font-weight: 800; }
-.map-legend { display: flex; flex-wrap: wrap; gap: .25rem .9rem; align-items: center; margin: 0 .35rem 1rem; padding: .4rem .75rem; border-radius: 12px; background: var(--paper); }.map-legend label { min-height: var(--tap); display: flex; align-items: center; gap: .45rem; font-size: .73rem; font-weight: 800; cursor: pointer; }.map-legend input { width: 17px; height: 17px; accent-color: var(--red); }.map-legend > span { flex: 1 1 360px; padding-bottom: .45rem; color: var(--muted); font-size: .7rem; }.legend-dot { width: 12px; height: 12px; display: inline-block; border-radius: 50%; }.legend-dot.visit { background: var(--map-visit); }.legend-dot.tabelog { background: var(--gold); }.legend-dot.hotel { background: #1b76d1; }
+/* Le tendine di itinerario e percorso vestono da pillole come i bottoni
+   accanto: sono comandi della mappa, non campi di un modulo. */
+.map-select { display: inline-flex; }
+.map-select select { min-width: 0; max-width: 180px; height: auto; min-height: var(--tap); border: 1px solid var(--line); border-radius: 999px; padding: 0 .8rem; color: var(--ink); background: var(--paper); font: 800 .75rem "DM Sans", sans-serif; cursor: pointer; }
+#mapItineraryRestore { border-color: var(--gold); }
+.map-legend { display: flex; flex-wrap: wrap; gap: .25rem .9rem; align-items: center; margin: 0 .35rem 1rem; padding: .4rem .75rem; border-radius: 12px; background: var(--paper); }.map-legend label { min-height: var(--tap); display: flex; align-items: center; gap: .45rem; font-size: .73rem; font-weight: 800; cursor: pointer; }.map-legend input { width: 17px; height: 17px; accent-color: var(--red); }.map-legend > span { flex: 1 1 360px; padding-bottom: .45rem; color: var(--muted); font-size: .7rem; }.legend-dot { width: 12px; height: 12px; display: inline-block; border-radius: 50%; }.legend-dot.visit { background: var(--map-visit); }.legend-dot.tabelog { background: var(--gold); }.legend-dot.hotel { background: #1b76d1; }.legend-dot.merchant { background: var(--red-dark); }
 #tripMap { height: min(63vh, 680px); min-height: 440px; border-radius: 16px; background: var(--paper-deep); overflow: hidden; }
 #tripMap.is-lasso { cursor: crosshair; touch-action: none; }
 /* I comandi di zoom di Leaflet sono 30px: troppo piccoli per un pollice. */
@@ -288,16 +328,20 @@ select { width: auto; min-width: 165px; padding: 0 2.4rem 0 .9rem; }
 .map-popup-done { border: 1px solid var(--moss); color: var(--moss) !important; background: var(--white); }.map-popup-done.is-done { color: var(--paper) !important; background: var(--moss); }
 .map-point-icon { background: transparent; border: 0; }.map-visit-marker { width: 22px; height: 22px; display: grid; place-items: center; border: 2px solid white; border-radius: 50%; background: var(--map-visit); box-shadow: 0 1px 4px rgba(0,0,0,.5); }
 .map-visit-marker svg { width: 13px; height: 13px; display: block; fill: #fff; }.map-score-marker { min-width: 38px; height: 22px; display: grid; place-items: center; padding: 0 4px; border: 2px solid white; border-radius: 8px; color: white; background: var(--gold); box-shadow: 0 3px 10px rgba(29,37,34,.3); font-size: .66rem; font-weight: 900; }.map-hotel-marker { width: 26px; height: 26px; display: grid; place-items: center; border: 2px solid white; border-radius: 7px; color: white; background: #1b76d1; box-shadow: 0 4px 12px rgba(29,37,34,.34); font-size: .7rem; font-weight: 900; }
+/* Il negoziante porta la noren, la tenda all'ingresso delle botteghe: si
+   distingue dal verde dei luoghi da vedere senza bisogno della legenda. */
+.map-shop-marker { position: relative; width: 22px; height: 22px; display: grid; place-items: center; border: 2px solid white; border-radius: 6px; background: var(--red-dark); box-shadow: 0 1px 4px rgba(0,0,0,.5); }
+.map-shop-marker svg { width: 13px; height: 13px; display: block; fill: #fff; }
+.map-shop-marker.is-done { opacity: .45; }
 /* Già visitato: resta il simbolo della categoria, sbiadito, con una spunta
    d'angolo. Si capisce insieme cosa fosse e che ci si è già passati. */
-.map-visit-marker { position: relative; }
+.map-visit-marker, .map-shop-marker { position: relative; }
 .map-visit-marker.is-done { opacity: .45; background: var(--map-visit); }
-.map-visit-marker .visit-check { position: absolute; right: -5px; bottom: -5px; width: 13px; height: 13px; display: grid; place-items: center; border: 1.5px solid white; border-radius: 50%; color: white; background: var(--moss); font-size: .5rem; font-style: normal; font-weight: 900; line-height: 1; }
+.map-visit-marker .visit-check, .map-shop-marker .visit-check { position: absolute; right: -5px; bottom: -5px; width: 13px; height: 13px; display: grid; place-items: center; border: 1.5px solid white; border-radius: 50%; color: white; background: var(--moss); font-size: .5rem; font-style: normal; font-weight: 900; line-height: 1; }
 .map-popup-select { min-height: var(--tap); display: grid; place-items: center; width: 100%; padding: .65rem .75rem; border: 1px solid var(--line); border-radius: 9px; color: var(--ink) !important; background: var(--white); font: 800 .72rem "DM Sans", sans-serif; cursor: pointer; }
 /* Il messaggio sta dentro il pannello dei livelli, dove si sta guardando. */
 .facility-status { grid-column: 1 / -1; margin: 0; padding: .6rem .8rem; border-left: 3px solid var(--moss); border-radius: 0 10px 10px 0; background: color-mix(in srgb, var(--moss) 12%, transparent); color: var(--ink); font-size: .78rem; font-weight: 700; }
 .facility-status[hidden] { display: none; }
-.map-panel.is-expanded { position: fixed; z-index: 80; inset: 0; margin: 0; overflow: auto; border: 0; border-radius: 0; padding: calc(1rem + var(--safe-top)) calc(1rem + var(--safe-right)) calc(1rem + var(--safe-bottom)) calc(1rem + var(--safe-left)); }.map-panel.is-expanded #tripMap { height: calc(100dvh - 190px - var(--safe-top) - var(--safe-bottom)); max-height: none; }.map-is-expanded { overflow: hidden; }
 body:has(dialog[open]) { overflow: hidden; }
 
 .history-intro h1 { color: var(--gold); }
@@ -319,9 +363,8 @@ body:has(dialog[open]) { overflow: hidden; }
 .saved-tile { border: 1px solid var(--line); border-radius: var(--radius); padding: 1.2rem; background: var(--white); }
 .saved-tile strong { display: block; font: 600 2.5rem "Noto Serif JP", serif; }.saved-tile span { color: var(--muted); font-size: .8rem; }
 .saved-group { margin: 2.5rem 0; }.saved-group h2 { font: 600 2rem "Noto Serif JP", serif; }.saved-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: .7rem; }
-.saved-row { display: flex; gap: .6rem; justify-content: space-between; align-items: center; padding: .5rem 1rem; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+.saved-row { border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
 .saved-row > div { min-width: 0; }
-.saved-row b, .saved-row small { display: block; overflow-wrap: anywhere; }.saved-row small { color: var(--muted); }.saved-row button { flex: 0 0 var(--tap); min-height: var(--tap); display: grid; place-items: center; border: 0; border-radius: 50%; background: none; color: var(--red); cursor: pointer; font-size: 1.05rem; }
 
 .phrases-intro h1 { color: var(--moss); }
 .phrase-toolbar { position: sticky; z-index: 20; top: calc(var(--header-height) + var(--safe-top) + var(--offline-height)); display: grid; gap: .7rem; padding: 1rem 0; background: color-mix(in srgb, var(--paper) 91%, transparent); backdrop-filter: blur(14px); }
@@ -418,7 +461,7 @@ body:has(dialog[open]) { overflow: hidden; }
 
 @media (max-width: 1050px) {
   .hero { grid-template-columns: 1fr 1fr; }.hero h1 { font-size: clamp(3rem, 7vw, 5rem); }
-  .place-grid, .food-grid, .shop-grid { grid-template-columns: repeat(2, 1fr); }
+  .place-grid, .food-grid, .shop-grid, .merchant-grid { grid-template-columns: repeat(2, 1fr); }
   .phrase-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 760px) {
@@ -436,11 +479,15 @@ body:has(dialog[open]) { overflow: hidden; }
   .page-intro { padding: 2.4rem 0 1.5rem; }.page-intro h1 { max-width: 100%; font-size: clamp(2.6rem, 11vw, 4rem); overflow-wrap: anywhere; }.page-intro > p:last-child { font-size: .95rem; }
   .sticky-toolbar { margin-inline: -14px; padding: .7rem 14px; border-bottom: 1px solid var(--line); box-shadow: 0 10px 25px rgba(29,37,34,.06); }
   .toolbar { flex-wrap: wrap; gap: .55rem; }.toolbar .search-box { flex: 1 1 calc(100% - 104px); min-width: 0; }.toolbar .search-box input { height: 44px; }.filter-toggle { flex: 0 0 94px; min-height: 44px; display: flex; align-items: center; justify-content: center; gap: .42rem; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); background: var(--white); font-weight: 800; }.filter-toggle span { min-width: 20px; height: 20px; display: grid; place-items: center; border-radius: 99px; color: white; background: var(--muted); font-size: .66rem; }.filter-toggle.has-active span { background: var(--red); }.toolbar select, .toolbar > .toggle, .toolbar > .filter-reset, .toolbar > .select-scope { display: none; }.toolbar.filters-open select, .toolbar.filters-open > .toggle, .toolbar.filters-open > .filter-reset, .toolbar.filters-open > .select-scope { display: flex; }.toolbar.filters-open { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }.toolbar.filters-open .search-box { grid-column: 1; }.toolbar.filters-open .filter-toggle { grid-column: 2; justify-self: end; }.toolbar.filters-open select { width: 100%; min-width: 0; padding-right: 1.8rem; }.toolbar.filters-open > .toggle, .toolbar.filters-open > .filter-reset, .toolbar.filters-open > .select-scope { grid-column: 1 / -1; width: 100%; }.toolbar.filters-open > .select-scope button { flex: 1 1 0; justify-content: center; }.toolbar.filters-open > .filter-reset { min-height: var(--tap); align-items: center; justify-content: center; border-radius: 10px; }
-  .place-grid, .food-grid, .shop-grid { grid-template-columns: 1fr; }.content-card { display: grid; grid-template-columns: 42% 58%; }.card-media { height: 100%; aspect-ratio: auto; }.card-actions { top: .55rem; right: auto; left: .55rem; }.card-body { padding: .85rem; }.card-description { -webkit-line-clamp: 2; min-height: 2.6em; }.tag-row { display: none; }.content-card h3 { font-size: 1.12rem; }.card-kicker { display: block; }.card-kicker .rating { display: block; margin-top: .18rem; }
+  .place-grid, .food-grid, .shop-grid, .merchant-grid { grid-template-columns: 1fr; }.content-card { display: grid; grid-template-columns: 42% 58%; }.card-media { height: 100%; aspect-ratio: auto; }.card-actions { top: .55rem; right: auto; left: .55rem; }.card-body { padding: .85rem; }.card-description { -webkit-line-clamp: 2; min-height: 2.6em; }.tag-row { display: none; }.content-card h3 { font-size: 1.12rem; }.card-kicker { display: block; }.card-kicker .rating, .card-kicker .score-badge, .card-kicker .score-missing { display: inline-block; margin-top: .3rem; }
   /* In colonna il flex non separa più i due testi: senza questo si legge
      "Riti e simboli€€" tutto attaccato. */
-  .card-kicker span + span:not(.rating)::before { content: "·"; margin: 0 .4rem; color: var(--muted); }
-  .map-panel { margin-top: .6rem; padding: .7rem; }.map-toolbar { align-items: stretch; flex-direction: column; gap: .6rem; padding-bottom: .7rem; }.map-actions { overflow-x: auto; padding-bottom: .2rem; }.map-actions button { flex: 0 0 auto; } #tripMap { min-height: 360px; height: min(64vh, 560px); }
+  .card-kicker span + span:not(.rating):not(.score-badge):not(.score-missing)::before { content: "·"; margin: 0 .4rem; color: var(--muted); }
+  /* Su telefono la tabellina resta identica, solo un filo più stretta: le
+     colonne allineate sono proprio ciò che la rende leggibile in poca larghezza. */
+  .weather-row { grid-template-columns: minmax(4.2rem, auto) 1.3rem 1fr auto; gap: .45rem; font-size: .8rem; }
+  .weather-row.is-today { font-size: .9rem; }
+  .map-panel { margin-top: .6rem; padding: .7rem; }.map-toolbar { align-items: stretch; flex-direction: column; gap: .6rem; padding-bottom: .7rem; }.map-actions { overflow-x: auto; padding-bottom: .2rem; }.map-actions button, .map-actions .map-select { flex: 0 0 auto; }.map-select select { max-width: 46vw; } #tripMap { min-height: 360px; height: min(64vh, 560px); }
   .history-grid { grid-template-columns: 1fr; }.history-card { min-height: 280px; }
   .phrase-toolbar { margin-inline: -14px; padding: .7rem 14px; border-bottom: 1px solid var(--line); }.phrase-grid { grid-template-columns: 1fr; }.emergency-panel { grid-template-columns: 1fr; gap: 1rem; }.emergency-grid { grid-template-columns: 1fr; }
   .local-profile { grid-template-columns: 1fr; }.profile-fields { grid-template-columns: 1fr; }.sync-actions { grid-column: auto; flex-direction: column; }.local-profile > .helper-note { grid-column: auto; }
@@ -457,6 +504,16 @@ body:has(dialog[open]) { overflow: hidden; }
   .phrase-card { padding: 1rem; }.phrase-card dl { grid-template-columns: 1fr; }
   .bottom-nav button small { font-size: .7rem; letter-spacing: -.02em; }
   .leaflet-popup-content { margin: .8rem; min-width: 0; }
+}
+/* Su uno schermo da 320px domani e dopodomani non ci stanno con tutto: il primo
+   pezzo a cedere è la faccina del cielo, che è la meno informativa — gradi e
+   probabilità di pioggia restano, e l'icona di oggi resta comunque grande sopra. */
+/* A 320px il nome del giorno per esteso ruba la larghezza ai numeri: si stringe
+   la sua colonna, e "Mercoledì" va a capo da solo senza toccare le altre. */
+@media (max-width: 400px) {
+  .weather-row { grid-template-columns: minmax(3.6rem, auto) 1.2rem 1fr auto; gap: .35rem; font-size: .76rem; }
+  .weather-row.is-today { font-size: .86rem; }
+  .weather-now strong { font-size: 1.9rem; }
 }
 /* Sotto i 360px due select affiancate taglierebbero le etichette. */
 @media (max-width: 360px) {
@@ -484,7 +541,7 @@ body:has(dialog[open]) { overflow: hidden; }
   }
   body::before { opacity: .18; }
   .image-shimmer { background: linear-gradient(110deg, #232a2c 8%, #2d3538 18%, #232a2c 33%); }
-  .tag, .detail-list div, .phrase-card dl div, .search-phrase, .translator-options a, .detail-sources a, .safety-links a, .map-actions button, .map-legend { background: var(--paper-deep); }
+  .tag, .detail-list div, .phrase-card dl div, .search-phrase, .translator-options a, .detail-sources a, .safety-links a, .map-actions button, .map-select select, .map-legend { background: var(--paper-deep); }
   .guide-section-fun { background: linear-gradient(120deg, #6b5a2b, #4d431f); }
   .guide-section-fun > span, .guide-section-fun h3 { color: #f5e8bd; }
   .hero-art { background: #46403a; }
@@ -501,14 +558,6 @@ body:has(dialog[open]) { overflow: hidden; }
 .history-card .card-actions { top: 1rem; right: 1rem; left: auto; }
 .history-card .card-footer { position: relative; z-index: 2; }
 
-.video-guides { margin: 1rem 0 5rem; padding-top: 2rem; border-top: 1px solid var(--line); }
-.video-guide-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-.video-guide-card { min-width: 0; display: grid; grid-template-columns: 58px 1fr; gap: 1rem; padding: 1.2rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
-.video-guide-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-.video-guide-card > span { width: 54px; height: 54px; display: grid; place-items: center; border-radius: 50%; color: white; background: var(--red); }
-.video-guide-card small { color: var(--red); font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
-.video-guide-card h3 { margin: .25rem 0 .45rem; font: 600 1.25rem/1.2 "Noto Serif JP", serif; }
-.video-guide-card p { margin: 0; color: var(--muted); font-size: .82rem; }
 
 .map-popup-media { position: relative; height: 128px; overflow: hidden; margin: -.35rem -.35rem .75rem; border-radius: 10px; background: var(--paper-deep); }
 .map-popup-media img { width: 100%; height: 100%; display: block; object-fit: cover; }
@@ -668,7 +717,7 @@ a.cross-link { text-decoration: none; color: inherit; }
   .progress-hero { grid-template-columns: 1fr; gap: 1.2rem; padding: 1.3rem; }
   .progress-ring { width: 155px; }
   .progress-area-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .progress-city-grid, .video-guide-grid { grid-template-columns: 1fr; }
+  .progress-city-grid { grid-template-columns: 1fr; }
   .photo-translator { grid-template-columns: 1fr; gap: 1rem; padding: 1.1rem; }
   .saved-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .bottom-nav { width: calc(100% - 16px); gap: 1px; padding: .34rem; }
@@ -685,15 +734,12 @@ a.cross-link { text-decoration: none; color: inherit; }
   .safety-links { grid-template-columns: 1fr; }
   .translator-options { grid-template-columns: 1fr; }
   .detail-sources > div, .detail-booking > div { grid-template-columns: 1fr; }
-  .map-panel.is-expanded { padding: calc(.6rem + var(--safe-top)) calc(.6rem + var(--safe-right)) calc(.6rem + var(--safe-bottom)) calc(.6rem + var(--safe-left)); }.map-panel.is-expanded #tripMap { height: calc(100dvh - 245px - var(--safe-top) - var(--safe-bottom)); min-height: 320px; }
 }
 
 @media (max-width: 430px) {
   .progress-area-grid { grid-template-columns: 1fr; }
   .translator-controls { display: grid; grid-template-columns: 1fr; }
   .translator-controls button, .translator-controls .file-button { width: 100%; }
-  .video-guide-card { grid-template-columns: 44px 1fr; padding: .9rem; }
-  .video-guide-card > span { width: 42px; height: 42px; }
   .progress-actions { display: grid; grid-template-columns: 1fr; }.progress-actions button { width: 100%; }
 }
 
@@ -767,4 +813,138 @@ body:has(.bottom-nav.is-collapsed) main { padding-bottom: 52px; }
   .money-grid { grid-template-columns: 1fr; }
   .speech-steps { grid-template-columns: 1fr; }
   .speech-dialog { width: 100%; max-width: none; margin: auto 0 0; border-radius: 24px 24px 0 0; padding: 1.2rem 1rem calc(1.2rem + var(--safe-bottom)); }
+}
+
+/* ---- Negozianti ---------------------------------------------------------- */
+/* Il voto non è nostro: sta nel colore della fonte, non in quello della guida,
+   così non si confonde con "la nostra scelta" dei cibi. Dove manca si dice
+   che manca, in grigio e senza numero, invece di lasciare un vuoto ambiguo. */
+.score-badge { color: white; background: var(--gold); border-radius: 999px; padding: .18rem .5rem; letter-spacing: .02em; font-size: .62rem; }
+.score-missing { color: var(--muted); letter-spacing: .02em; font-weight: 700; }
+.tag.is-odd { color: var(--paper); background: var(--red); }
+.merchant-note { display: block; margin: 0 0 4.5rem; max-width: 64ch; }
+.merchants-intro h1 { color: var(--red); }
+
+/* ---- Itinerari e percorsi ------------------------------------------------ */
+/* Il tasto che cancella tutto è rosso e sta in fondo al menu, staccato dalle
+   voci di navigazione: si trova quando lo si cerca, non mentre si cerca altro. */
+.nav-menu-reset { width: 100%; min-height: var(--tap); display: flex; gap: .7rem; align-items: center; margin-top: .8rem; padding: .9rem 1rem; border: 1px solid color-mix(in srgb, var(--red) 50%, transparent); border-radius: 14px; color: var(--red); background: transparent; text-align: left; cursor: pointer; font: 800 1.05rem "DM Sans", sans-serif; }
+.nav-menu-reset span { display: grid; font-size: .88rem; }
+.nav-menu-reset small { color: var(--muted); font-size: .74rem; font-weight: 500; }
+
+.itinerary-intro h1 { color: var(--moss); }
+.itinerary-new { display: grid; grid-template-columns: 1fr 1.25fr; gap: 1.5rem; margin: 1.5rem 0 2.2rem; padding: 1.5rem; border: 1px solid var(--line); border-radius: 20px; background: var(--white); }
+.itinerary-new h2 { margin: .2rem 0 .5rem; font: 600 1.7rem "Noto Serif JP", serif; }
+.itinerary-new p { margin: 0; color: var(--muted); font-size: .86rem; }
+.itinerary-fields { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem; align-content: start; }
+.itinerary-fields input, .itinerary-fields select { width: 100%; height: 46px; border: 1px solid var(--line); border-radius: 12px; padding: 0 .8rem; color: var(--ink); background: var(--paper); }
+.itinerary-fields button { grid-column: 1 / -1; min-height: var(--tap); border: 0; border-radius: 11px; color: var(--paper); background: var(--ink); cursor: pointer; font-weight: 800; }
+.itinerary-new > .helper-note { grid-column: 1 / -1; margin: 0; }
+
+.itinerary-list { display: grid; gap: 1rem; padding-bottom: 4rem; }
+.itinerary-card { padding: 1.3rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+.itinerary-card.is-active { border-color: var(--moss); box-shadow: inset 3px 0 0 var(--moss); }
+.itinerary-head { display: flex; flex-wrap: wrap; gap: .5rem 1rem; justify-content: space-between; align-items: flex-start; }
+.itinerary-head h2 { margin: 0; font: 600 1.9rem "Noto Serif JP", serif; }
+.itinerary-head .eyebrow { margin: 0 0 .15rem; }
+.itinerary-flag { flex: 0 0 auto; border-radius: 999px; padding: .3rem .7rem; color: var(--paper); background: var(--moss); font-size: .64rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.itinerary-actions { display: flex; flex-wrap: wrap; gap: .45rem; margin: 1rem 0 .3rem; }
+.itinerary-actions button, .route-actions button, .route-walk { min-height: var(--tap); display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; padding: .45rem 1rem; color: var(--ink); background: var(--paper); text-decoration: none; cursor: pointer; font: 800 .74rem "DM Sans", sans-serif; }
+.itinerary-actions .primary-action { border-color: var(--ink); color: var(--paper); background: var(--ink); }
+.itinerary-actions .danger-action { border-color: color-mix(in srgb, var(--red) 45%, transparent); color: var(--red); background: transparent; }
+.route-walk { border-color: var(--moss); color: var(--moss); background: transparent; }
+.itinerary-places { margin-top: .9rem; }
+.itinerary-places summary { min-height: var(--tap); display: flex; align-items: center; color: var(--muted); cursor: pointer; font-size: .76rem; font-weight: 800; }
+.itinerary-chips { display: flex; flex-wrap: wrap; gap: .35rem; margin: .3rem 0 .2rem; }
+/* La chip è uno span con due bottoni dentro (scheda e ✕): un bottone dentro un
+   bottone non è HTML valido. data-card-id la fa aggiornare da refreshCardState
+   come una scheda qualsiasi quando cambia il visitato. */
+.itinerary-chip { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: var(--paper); font: 700 .72rem "DM Sans", sans-serif; }
+.itinerary-chip > button { border: 0; background: none; color: inherit; cursor: pointer; font: inherit; padding: .35rem .15rem .35rem .7rem; }
+.itinerary-chip .chip-remove { padding: .35rem .6rem .35rem .3rem; color: var(--red); font-size: .95rem; line-height: 1; }
+/* Visitato: la spunta è quella globale di tabi-done, la stessa delle schede. */
+.itinerary-chip.is-done { border-color: color-mix(in srgb, var(--moss) 55%, transparent); }
+.itinerary-chip.is-done > button:first-child { color: var(--muted); }
+.itinerary-chip.is-done > button:first-child::before { content: "✓ "; color: var(--moss); font-weight: 900; }
+.itinerary-routes { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.itinerary-routes h3 { margin: 0 0 .7rem; color: var(--red); font: 800 .68rem "DM Sans", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+.route-row { margin-bottom: .6rem; padding: .9rem 1rem; border-radius: 14px; background: var(--paper); }
+.route-row.is-active { box-shadow: inset 3px 0 0 var(--moss); }
+.route-head b { display: block; font: 600 1.15rem "Noto Serif JP", serif; }
+.route-head small { display: block; color: var(--muted); font-size: .74rem; }
+.route-actions { display: flex; flex-wrap: wrap; gap: .4rem; margin: .6rem 0 .2rem; }
+.route-actions button, .route-walk { background: var(--white); }
+.route-remove { flex: 0 0 var(--tap); justify-content: center; padding: 0; color: var(--red); font-size: 1.05rem; }
+.route-row .itinerary-chips { margin-top: .55rem; }
+.route-new { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .8rem; }
+.route-new input { flex: 1 1 220px; min-width: 0; height: 46px; border: 1px solid var(--line); border-radius: 12px; padding: 0 .8rem; color: var(--ink); background: var(--paper); }
+.route-new button { min-height: var(--tap); border: 0; border-radius: 12px; padding: .5rem 1.1rem; color: var(--paper); background: var(--moss); cursor: pointer; font-weight: 800; font-size: .76rem; }
+
+/* ---- Salvati che si aprono ----------------------------------------------- */
+/* Un elenco di soli nomi non aiuta a ricordare che cos'era una cosa salvata tre
+   giorni fa: la riga si apre e mostra la scheda intera, con gli stessi pezzi
+   delle griglie. */
+.saved-group h2 em { color: var(--muted); font: 700 1rem "DM Sans", sans-serif; font-style: normal; }
+.saved-row { display: grid; grid-template-columns: 1fr var(--tap); gap: 0 .4rem; align-items: center; padding: 0 .4rem 0 0; }
+.saved-row.is-open { grid-column: 1 / -1; }
+.saved-open { min-height: var(--tap); display: flex; gap: .6rem; justify-content: space-between; align-items: center; min-width: 0; padding: .6rem 0 .6rem 1rem; border: 0; background: none; color: var(--ink); text-align: left; cursor: pointer; }
+.saved-open > span { min-width: 0; }
+.saved-open b, .saved-open small { display: block; overflow-wrap: anywhere; }
+.saved-open small { color: var(--muted); font-size: .74rem; font-weight: 500; }
+.saved-open i { flex: 0 0 auto; color: var(--muted); font-style: normal; transition: transform .18s ease; }
+.saved-row.is-open .saved-open i { transform: rotate(180deg); }
+.saved-remove { flex: none; min-height: var(--tap); display: grid; place-items: center; border: 0; border-radius: 50%; background: none; color: var(--red); cursor: pointer; font-size: 1.05rem; }
+.saved-panel { grid-column: 1 / -1; padding: 0 1rem 1rem; }
+.saved-body { display: grid; gap: 1rem; padding-top: .6rem; border-top: 1px solid var(--line); }
+/* La colonna della foto esiste solo se una foto c'è: per i negozianti quasi mai,
+   e senza questo il testo restava schiacciato nei 200px del riquadro assente. */
+.saved-body:has(.card-media) { grid-template-columns: 200px 1fr; }
+.saved-body .card-media { border-radius: 12px; }
+.saved-body .history-detail-hero { min-height: 150px; border-radius: 12px; }
+.saved-body-copy { min-width: 0; }
+.saved-body-copy h4 { margin: 0 0 .35rem; font: 600 1.3rem "Noto Serif JP", serif; }
+.saved-body-copy > p { margin: 0; color: var(--muted); font-size: .85rem; }
+.saved-body .detail-list { margin-top: .8rem; }
+.saved-body .detail-list div { background: var(--paper-deep); }
+.saved-body .card-footer { flex-wrap: wrap; gap: 0 1rem; }
+
+/* ---- Stazioni e metropolitana sulla mappa -------------------------------- */
+/* La fermata porta addosso la propria linea: lettera del codice stazione sul
+   colore ufficiale. È l'unico modo per leggere a colpo d'occhio dodici linee
+   che passano nello stesso isolato. */
+.map-facility-marker.is-station { background: #2f5d8c; font-family: "Noto Serif JP", serif; }
+.map-subway-marker { width: 22px; height: 22px; display: grid; place-items: center; border: 2px solid white; border-radius: 50%; color: white; background: var(--metro, #6c7b86); box-shadow: 0 3px 9px rgba(29,37,34,.34); font-size: .68rem; font-weight: 900; }
+.legend-dot.station { background: #2f5d8c; }
+.legend-dot.hospital { background: #c1272d; }
+.map-facility-marker.is-hospital { background: #c1272d; font-weight: 900; }
+.legend-dot.subway { background: linear-gradient(135deg, #f62e36 50%, #009bbf 50%); }
+.map-line-row { display: flex; gap: .45rem; align-items: center; margin: 0 0 .5rem; }
+.map-line-chip { flex: 0 0 auto; width: 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; color: white; background: var(--metro, #6c7b86); font-size: .62rem; font-weight: 900; }
+.map-line-chip.is-legend { width: 19px; height: 19px; font-size: .58rem; }
+.subway-legend { flex: 1 1 100%; display: flex; flex-wrap: wrap; gap: .3rem .75rem; align-items: center; padding: .5rem 0 .2rem; }
+.subway-legend small { margin-right: .35rem; color: var(--ink); font-size: .7rem; font-weight: 700; }
+
+@media (prefers-color-scheme: dark) {
+  .itinerary-new, .itinerary-card { background: var(--paper-deep); }
+  .route-row, .itinerary-chip, .itinerary-fields input, .itinerary-fields select, .route-new input { background: var(--paper); }
+  .route-actions button, .itinerary-actions button, .route-walk { background: var(--paper); }
+  .itinerary-actions .primary-action { color: var(--paper); background: var(--ink); }
+  .saved-body .detail-list div { background: var(--paper); }
+}
+
+@media (max-width: 1050px) {
+  .saved-body:has(.card-media) { grid-template-columns: 160px 1fr; }
+}
+
+@media (max-width: 760px) {
+  .itinerary-new { grid-template-columns: 1fr; }
+  .itinerary-fields { grid-template-columns: 1fr; }
+  .itinerary-head h2 { font-size: 1.55rem; }
+  .itinerary-actions button, .itinerary-actions .route-walk { flex: 1 1 calc(50% - .3rem); justify-content: center; }
+  /* Sotto i 760px la scheda salvata va in colonna: 160px di foto accanto a una
+     tabella lascerebbero due parole per riga. */
+  .saved-body, .saved-body:has(.card-media) { grid-template-columns: 1fr; }
+  .saved-body .card-media { aspect-ratio: 16 / 9; }
+  .saved-panel { padding-inline: .8rem; }
+  .subway-legend { gap: .25rem .6rem; }
 }

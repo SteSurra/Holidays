@@ -3,13 +3,14 @@
 
   const data = window.JAPAN_DATA;
   const cityById = Object.fromEntries(data.cities.map(function (city) { return [city.id, city]; }));
-  const itemById = Object.fromEntries([].concat(data.places, data.mapPlaces || [], data.experiences || [], data.foods, data.shopping, data.history).map(function (item) { return [item.id, item]; }));
+  const itemById = Object.fromEntries([].concat(data.places, data.mapPlaces || [], data.experiences || [], data.foods, data.shopping, data.merchants || [], data.history).map(function (item) { return [item.id, item]; }));
   const mapGuideIds = new Set(((window.JAPAN_MAP_DATA && window.JAPAN_MAP_DATA.points) || []).map(function (point) { return point.guideId; }).filter(Boolean));
   const fallbackByType = {
     place: "assets/fallback-place.svg",
     experience: "assets/fallback-place.svg",
     food: "assets/fallback-food.svg",
-    shop: "assets/fallback-shop.svg"
+    shop: "assets/fallback-shop.svg",
+    merchant: "assets/fallback-shop.svg"
   };
   const state = {
     favorites: new Set(readJSON("tabi-favorites", [])),
@@ -26,6 +27,10 @@
     packed: new Set(readJSON("tabi-packing", [])),
     packedQty: readJSON("tabi-packing-qty-v1", {}),
     notes: readJSON("tabi-notes-v1", []),
+    // Selezioni salvate: un itinerario per tappa, e dentro i suoi percorsi.
+    itineraries: readJSON("tabi-itineraries-v1", []),
+    activeItinerary: readJSON("tabi-itinerary-active-v1", { itinerary: "", route: "" }),
+    savedType: "all",
     // Da quale menu (Scopri o Utilità) è stata aperta una schermata: serve al
     // tasto indietro per riportare al menu invece che alla pagina sottostante.
     menuOrigin: {},
@@ -34,6 +39,7 @@
       experience: { search: "", city: "all", category: "all", setting: "all", nearby: false },
       food: { search: "", city: "all", category: "all", local: false },
       shop: { search: "", city: "all", category: "all" },
+      merchant: { search: "", city: "all", category: "all", odd: false },
       history: { search: "", city: "all", category: "all" },
       phrase: { search: "", category: "all" }
     }
@@ -73,8 +79,39 @@
     return mapGuideIds.has(item.id);
   }
 
+  // Una scheda senza punto sulla mappa non ha il quadratino, quindi non avrebbe
+  // modo di tornare indietro se finisse fra i nascosti: vale sempre come
+  // "mostrata", oggi e per qualsiasi scheda aggiunta in futuro.
   function isSelected(id) {
-    return !state.hidden.has(id);
+    return !mapGuideIds.has(id) || !state.hidden.has(id);
+  }
+
+  // Se una scheda perde il suo punto — capita ristrutturando i dati — il suo id
+  // resterebbe fra i nascosti per sempre, invisibile e irraggiungibile. Alla
+  // partenza si ripulisce.
+  function pruneUnselectableHidden() {
+    let changed = false;
+    Array.from(state.hidden).forEach(function (id) {
+      if (!mapGuideIds.has(id)) { state.hidden.delete(id); changed = true; }
+    });
+    if (changed) localStorage.setItem("tabi-hidden-v1", JSON.stringify(Array.from(state.hidden)));
+  }
+
+  // I negozianti sono più di cento e non sono tappe di un viaggio: accesi tutti
+  // insieme coprirebbero la mappa di insegne. Partono quindi tolti uno per uno,
+  // e si rimettono a mano quelli che interessano davvero — è l'unico gruppo che
+  // nasce spento, quindi lo si fa una volta sola e lo si ricorda, altrimenti
+  // ogni ricarica cancellerebbe le scelte fatte.
+  function hideMerchantsOnFirstRun() {
+    if (localStorage.getItem("tabi-merchants-start-hidden") === "done") return;
+    let touched = false;
+    (data.merchants || []).forEach(function (item) {
+      if (!mapGuideIds.has(item.id) || state.hidden.has(item.id)) return;
+      state.hidden.add(item.id);
+      touched = true;
+    });
+    localStorage.setItem("tabi-merchants-start-hidden", "done");
+    if (touched) localStorage.setItem("tabi-hidden-v1", JSON.stringify(Array.from(state.hidden)));
   }
 
   function escapeHTML(value) {
@@ -112,10 +149,12 @@
     document.getElementById("shopCity").innerHTML = cityOptions(true);
     document.getElementById("historyCity").innerHTML = cityOptions(false);
     document.getElementById("placeCategory").innerHTML = categoryOptions(data.labels.placeCategories, "Tutte le categorie");
-    document.getElementById("experienceCategory").innerHTML = categoryOptions(data.labels.experienceCategories, "Tutte le esperienze");
+    document.getElementById("experienceCategory").innerHTML = categoryOptions(data.labels.experienceCategories, "Tutte le attività");
     document.getElementById("experienceSetting").innerHTML = categoryOptions(data.labels.experienceSettings, "Ovunque");
     document.getElementById("foodCategory").innerHTML = categoryOptions(data.labels.foodCategories, "Tutte le portate");
     document.getElementById("shopCategory").innerHTML = categoryOptions(data.labels.shopCategories, "Tutte le categorie");
+    document.getElementById("merchantCity").innerHTML = cityOptions(false);
+    document.getElementById("merchantCategory").innerHTML = categoryOptions(data.labels.merchantCategories, "Tutti i mestieri");
     document.getElementById("historyCategory").innerHTML = categoryOptions(data.labels.historyCategories, "Tutti gli argomenti");
 
     bindFilter("placeSearch", "place", "search", "input");
@@ -131,6 +170,15 @@
     bindFilter("shopSearch", "shop", "search", "input");
     bindFilter("shopCity", "shop", "city", "change");
     bindFilter("shopCategory", "shop", "category", "change");
+    bindFilter("merchantSearch", "merchant", "search", "input");
+    bindFilter("merchantCity", "merchant", "city", "change");
+    bindFilter("merchantCategory", "merchant", "category", "change");
+    document.getElementById("merchantOdd").addEventListener("change", function (event) {
+      state.filters.merchant.odd = event.target.checked;
+      resetPaging("merchantGrid");
+      renderMerchants();
+      updateFilterToggle("merchant");
+    });
     bindFilter("historySearch", "history", "search", "input");
     bindFilter("historyCity", "history", "city", "change");
     bindFilter("historyCategory", "history", "category", "change");
@@ -140,13 +188,13 @@
       updateFilterToggle("food");
     });
     applyCurrentCityToFilters();
-    ["place", "experience", "food", "shop", "history"].forEach(updateFilterToggle);
+    ["place", "experience", "food", "shop", "merchant", "history"].forEach(updateFilterToggle);
   }
 
   // Se sappiamo in che tappa siete, le liste partono da lì. Senza, "Cibi tipici"
   // si apre su 196 piatti di tutto il Giappone: la stessa lista, ma inutile.
   // Resta un filtro come gli altri, quindi "Azzera filtri" lo toglie.
-  const CITY_FILTER_SELECTS = { place:"placeCity", experience:"experienceCity", food:"foodCity", shop:"shopCity", history:"historyCity" };
+  const CITY_FILTER_SELECTS = { place:"placeCity", experience:"experienceCity", food:"foodCity", shop:"shopCity", merchant:"merchantCity", history:"historyCity" };
 
   function applyCurrentCityToFilters() {
     const cityId = localStorage.getItem("tabi-current-city") || "";
@@ -161,6 +209,9 @@
   function retargetListsToCurrentCity() {
     applyCurrentCityToFilters();
     Object.keys(CITY_FILTER_SELECTS).forEach(renderGroup);
+    renderMapItineraryPicker();
+    // Cambiando tappa cambia l'hotel attorno a cui la mappa cerca WC e konbini.
+    window.dispatchEvent(new CustomEvent("tabi:citychange"));
   }
 
   // Scrivere in un campo di ricerca ridisegnava la griglia a ogni tasto: con 196
@@ -190,7 +241,7 @@
   function updateFilterToggle(group) {
     const filters = state.filters[group];
     const count = (filters.city !== "all" ? 1 : 0) + (filters.category !== "all" ? 1 : 0)
-      + (filters.setting && filters.setting !== "all" ? 1 : 0) + (filters.local ? 1 : 0) + (filters.nearby ? 1 : 0);
+      + (filters.setting && filters.setting !== "all" ? 1 : 0) + (filters.local ? 1 : 0) + (filters.nearby ? 1 : 0) + (filters.odd ? 1 : 0);
     const button = document.querySelector('[data-filter-toggle="' + group + '"]');
     if (!button) return;
     button.querySelector("span").textContent = count;
@@ -202,6 +253,11 @@
     filters.city = "all";
     filters.category = "all";
     if (Object.prototype.hasOwnProperty.call(filters, "local")) filters.local = false;
+    if (Object.prototype.hasOwnProperty.call(filters, "odd")) {
+      filters.odd = false;
+      const odd = document.getElementById("merchantOdd");
+      if (odd) odd.checked = false;
+    }
     if (Object.prototype.hasOwnProperty.call(filters, "nearby")) {
       filters.nearby = false;
       const nearby = document.querySelector('[data-nearby="' + group + '"]');
@@ -212,6 +268,7 @@
       experience: ["experienceCity", "experienceCategory", "experienceSetting"],
       food: ["foodCity", "foodCategory"],
       shop: ["shopCity", "shopCategory"],
+      merchant: ["merchantCity", "merchantCategory"],
       history: ["historyCity", "historyCategory"]
     };
     ids[group].forEach(function (id) { document.getElementById(id).value = "all"; });
@@ -242,9 +299,13 @@
       || (["shop", "food"].includes(item.type) && item.city === "all" && filters.city !== "all-japan");
     return (!filters.search || haystack.includes(normalize(filters.search)))
       && cityMatch
-      && (filters.category === "all" || item.category === filters.category)
+      // Un centro commerciale sta anche fra i vestiti: `extraCategories` lo fa
+      // trovare da chi cerca vestiti, senza scriverlo due volte nei dati.
+      && (filters.category === "all" || item.category === filters.category
+        || (item.extraCategories || []).indexOf(filters.category) !== -1)
       && (!filters.setting || filters.setting === "all" || item.setting === filters.setting || item.setting === "misto")
-      && (!filters.local || item.local);
+      && (!filters.local || item.local)
+      && (!filters.odd || item.odd);
   }
 
   // Due stati diversi non possono somigliarsi: "tolto dalla mappa" sbiadisce e
@@ -285,20 +346,25 @@
 
   function completionLabels(item) {
     if (item.type === "place") return ["Visitato", "Segna visitato", "Segnato come visitato"];
-    if (item.type === "experience") return ["Fatta", "Segna fatta", "Esperienza segnata come fatta"];
+    if (item.type === "experience") return ["Fatta", "Segna fatta", "Attività segnata come fatta"];
     if (item.type === "food") return ["Provato", "Segna provato", "Segnato come provato"];
     if (item.type === "history") return ["Letta", "Segna letta", "Storia segnata come letta"];
+    if (item.type === "merchant") return ["Visitato", "Segna visitato", "Negozio segnato come visitato"];
     return ["Comprato", "Segna comprato", "Segnato come comprato"];
   }
 
   function typeLabel(item) {
-    return { place:"Luogo", experience:"Esperienza", food:"Cibo", shop:"Acquisto", history:"Storia" }[item.type] || item.type;
+    return { place:"Luogo", experience:"Attività", food:"Cibo", shop:"Acquisto", merchant:"Negoziante", history:"Storia" }[item.type] || item.type;
   }
 
   function footer(item) {
     const done = state.done.has(item.id);
     const labels = completionLabels(item);
-    const maps = ["place", "experience"].includes(item.type) ? '<a href="' + mapsUrl(item) + '" target="_blank" rel="noopener">Maps ↗</a>' : '';
+    const maps = ["place", "experience", "merchant"].includes(item.type) ? '<a href="' + mapsUrl(item) + '" target="_blank" rel="noopener">Maps ↗</a>' : '';
+    // Il voto vivo sta di là, non qui: un tocco e si legge quello di oggi.
+    const live = item.type === "merchant"
+      ? '<a href="' + escapeHTML(merchantLiveUrl(item)) + '" target="_blank" rel="noopener">' + (item.ratingUrl ? "Voto di oggi ↗" : "Voto e orari ↗") + '</a>'
+      : '';
     // Se il luogo non sta sulla mappa il collegamento resta nel DOM ma sparisce:
     // così torna da solo quando lo si riseleziona, senza ricostruire la scheda,
     // e nel frattempo non offre un link che non troverebbe niente.
@@ -307,7 +373,7 @@
       : '';
     return '<div class="card-footer">'
       + '<button class="done-button ' + (done ? "is-done" : "") + '" type="button" data-action="done" data-id="' + item.id + '">' + (done ? "✓ " + labels[0] : labels[1]) + '</button>'
-      + ownMap + maps
+      + ownMap + maps + live
       + '<button type="button" data-action="details" data-id="' + item.id + '">Dettagli ↗</button>'
       + '</div>';
   }
@@ -421,6 +487,45 @@
       + footer(item) + '</div></article>';
   }
 
+  // Il voto non è nostro e non è di oggi: è quello letto su Tabelog il giorno
+  // scritto nel dato. Su Tabelog cambia ogni settimana e non esiste un modo
+  // lecito di rileggerlo da qui, quindi accanto al numero c'è sempre la data e
+  // il collegamento alla pagina viva. Dove il voto manca — Tabelog copre solo
+  // il cibo, e un negozio di carte non ci sta — si dice che manca e si manda su
+  // Google Maps, invece di inventarne uno.
+  function merchantScoreHTML(item) {
+    if (!item.rating) {
+      return '<span class="score-missing" title="Tabelog copre solo il cibo: per gli altri mestieri il voto si legge su Google Maps">Voto su Maps</span>';
+    }
+    return '<span class="score-badge" title="Voto Tabelog letto il ' + escapeHTML(item.ratingChecked) + ' e non aggiornato in automatico">Tabelog ' + item.rating.toFixed(2) + '</span>';
+  }
+
+  function merchantLiveUrl(item) {
+    return item.ratingUrl || mapsUrl(item);
+  }
+
+  function merchantCard(item) {
+    return '<article class="' + cardClasses(item, "merchant-card") + '" data-card-id="' + item.id + '">' + actionButtons(item) + cardImage(item)
+      + '<div class="card-body"><div class="card-kicker"><span>' + escapeHTML(data.labels.merchantCategories[item.category]) + '</span>' + merchantScoreHTML(item) + '</div>'
+      + '<h3>' + escapeHTML(item.name) + '<span class="jp-name">' + escapeHTML(item.jp) + '</span></h3>'
+      + '<p class="card-description">' + escapeHTML(item.description) + '</p>'
+      + '<div class="tag-row"><span class="tag">' + escapeHTML(item.area) + '</span>'
+      + (item.odd ? '<span class="tag is-odd">Ci si va anche solo per questo</span>' : '') + '</div>'
+      + footer(item) + '</div></article>';
+  }
+
+  function renderMerchants() {
+    const items = (data.merchants || []).filter(function (item) { return matches(item, state.filters.merchant); });
+    renderCards("merchantGrid", "merchantMeta", "merchantEmpty", items, merchantCard, "negozianti");
+    // I negozianti hanno un punto sulla mappa come i luoghi, quindi hanno anche
+    // il loro «Seleziona tutti»: partendo tutti spenti, riaccenderli uno a uno
+    // sarebbe un lavoro da cento tocchi.
+    renderSelectionSummary("merchant", items);
+    document.querySelectorAll("#merchantCategoryRail .category-chip").forEach(function (button) {
+      button.classList.toggle("is-active", button.dataset.merchantCategory === state.filters.merchant.category);
+    });
+  }
+
   function historyCard(item) {
     return '<article class="history-card' + (state.done.has(item.id) ? " is-done" : "") + '" data-card-id="' + item.id + '" data-kanji="' + escapeHTML(item.kanji) + '">'
       + actionButtons(item) + '<span class="done-badge">✓ ' + escapeHTML(completionLabels(item)[0]) + '</span>'
@@ -443,7 +548,7 @@
 
   function renderExperiences() {
     const items = (data.experiences || []).filter(function (item) { return matches(item, state.filters.experience); });
-    renderCards("experienceGrid", "experienceMeta", "experienceEmpty", state.filters.experience.nearby ? sortByDistance(items) : items, experienceCard, "esperienze");
+    renderCards("experienceGrid", "experienceMeta", "experienceEmpty", state.filters.experience.nearby ? sortByDistance(items) : items, experienceCard, "attività");
     renderSelectionSummary("experience", items);
   }
 
@@ -699,7 +804,7 @@
     shownCount[gridId] = PAGE_SIZE;
   }
 
-  // La barra vive sia in Mappa sia in Esperienze: i due elenchi alimentano lo
+  // La barra vive sia in Mappa sia in Attività: i due elenchi alimentano lo
   // stesso livello, quindi il conteggio è uno solo ed è sempre sul totale.
   // Il conteggio sta nella riga dei risultati e i due pulsanti dentro i filtri:
   // agiscono su quello che il filtro sta mostrando, non su tutto il Giappone,
@@ -716,14 +821,19 @@
     const counter = document.getElementById("mapSelectionCount");
     if (counter) counter.textContent = allOn === total ? "" : "Sulla mappa ci sono " + allOn + " luoghi di " + total + ": gli altri li hai nascosti.";
 
-    const meta = document.getElementById(group === "place" ? "placeMeta" : "experienceMeta");
+    const meta = document.getElementById(group + "Meta");
     if (meta && meta.dataset.base) {
       meta.textContent = meta.dataset.base + (shown.length ? " · " + on + " sulla mappa" : "");
     }
 
+    // I due numeri dicono che cosa farebbe il tocco, non quanti elementi ci sono
+    // in elenco: «Seleziona tutti (12)» sono i dodici ancora spenti. Con lo
+    // stesso numero su tutti e due — come prima — non si capiva a che punto si
+    // era, e applicando un itinerario i numeri restavano identici.
+    const off = shown.length - on;
     document.querySelectorAll('[data-select-scope="' + group + '"]').forEach(function (box) {
-      box.innerHTML = '<button type="button" data-select-all="' + group + '"' + (on === shown.length ? " disabled" : "") + '>Seleziona tutti (' + shown.length + ')</button>'
-        + '<button type="button" data-select-none="' + group + '"' + (on === 0 ? " disabled" : "") + '>Deseleziona tutti (' + shown.length + ')</button>';
+      box.innerHTML = '<button type="button" data-select-all="' + group + '"' + (off === 0 ? " disabled" : "") + '>Seleziona tutti (' + off + ')</button>'
+        + '<button type="button" data-select-none="' + group + '"' + (on === 0 ? " disabled" : "") + '>Deseleziona tutti (' + on + ')</button>';
       box.hidden = !shown.length;
     });
   }
@@ -731,9 +841,12 @@
   function refreshSelectionViews() {
     renderPlaces();
     renderExperiences();
+    renderMerchants();
+    renderMapItineraryPicker();
   }
 
   function toggleSelected(id) {
+    if (!mapGuideIds.has(id)) return;
     if (state.hidden.has(id)) state.hidden.delete(id);
     else state.hidden.add(id);
     saveHidden();
@@ -751,6 +864,10 @@
     });
     renderSelectionSummary("place", lastFiltered.place || []);
     renderSelectionSummary("experience", lastFiltered.experience || []);
+    renderSelectionSummary("merchant", lastFiltered.merchant || []);
+    // Un solo quadratino basta a far divergere la mappa dall'itinerario salvato:
+    // la riga sotto la mappa deve accorgersene subito, non al prossimo giro.
+    renderMapItineraryPicker();
   }
 
   // Agisce solo sugli elementi che il filtro sta mostrando, ed è annullabile
@@ -761,6 +878,7 @@
     if (!items.length) return;
     const previous = new Set(state.hidden);
     items.forEach(function (item) {
+      if (!isSelectable(item)) return;
       if (hide) state.hidden.add(item.id);
       else state.hidden.delete(item.id);
     });
@@ -773,13 +891,14 @@
     });
   }
 
-  const GROUP_GRIDS = { place:"placeGrid", experience:"experienceGrid", food:"foodGrid", shop:"shopGrid", history:"historyGrid" };
+  const GROUP_GRIDS = { place:"placeGrid", experience:"experienceGrid", food:"foodGrid", shop:"shopGrid", merchant:"merchantGrid", history:"historyGrid" };
 
   function renderGroup(group) {
     if (group === "place") renderPlaces();
     if (group === "experience") renderExperiences();
     if (group === "food") renderFoods();
     if (group === "shop") renderShopping();
+    if (group === "merchant") renderMerchants();
     if (group === "history") renderHistory();
   }
 
@@ -788,7 +907,16 @@
       return '<button class="route-stop" type="button" data-city-route="' + city.id + '"><span class="stop-index">TAPPA ' + String(city.order).padStart(2, "0") + ' · ' + escapeHTML(city.visitType) + '</span><b>' + escapeHTML(city.name) + ' ' + escapeHTML(city.jp) + '</b><small>' + escapeHTML(city.summary) + '</small><em>' + escapeHTML(city.arrival) + '</em></button>';
     }).join("");
     document.getElementById("transferGrid").innerHTML = data.legs.map(function (leg, index) {
-      return '<article class="transfer-card"><span>' + String(index + 1).padStart(2, "0") + '</span><div><b>' + escapeHTML(leg.from) + ' → ' + escapeHTML(leg.to) + '</b><small>' + escapeHTML(leg.mode) + ' · ' + escapeHTML(leg.note) + '</small></div></article>';
+      // Le fermate portano il nome giapponese e il collegamento a Maps: alla
+      // biglietteria il nome in kanji si mostra, e il link evita di cercare
+      // "Tsuruga" fra dodici omonimi mentre il treno sta partendo.
+      const stops = (leg.stops || []).map(function (stop) {
+        const url = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(stop.search || stop.name);
+        return '<a class="transfer-stop" href="' + url + '" target="_blank" rel="noopener">'
+          + escapeHTML(stop.name) + '<i lang="ja">' + escapeHTML(stop.jp) + '</i></a>';
+      }).join('<span class="transfer-arrow" aria-hidden="true">→</span>');
+      return '<article class="transfer-card"><span>' + String(index + 1).padStart(2, "0") + '</span><div><b>' + escapeHTML(leg.from) + ' → ' + escapeHTML(leg.to) + '</b><small>' + escapeHTML(leg.mode) + ' · ' + escapeHTML(leg.note) + '</small>'
+        + (stops ? '<div class="transfer-stops">' + stops + '</div>' : '') + '</div></article>';
     }).join("");
     document.getElementById("stayGrid").innerHTML = data.lodging.map(function (stay) {
       const hotelMaps = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(stay.name + " Japan");
@@ -881,19 +1009,34 @@
     if (cached && Date.now() - cached.at < 60 * 60 * 1000) return cached;
     if (!navigator.onLine) return cached || null;
     try {
+      // Tre giorni invece di uno: chi guarda la card la sera sta già decidendo
+      // domani, e un secondo giro di richieste per saperlo sarebbe sprecato.
       const url = "https://api.open-meteo.com/v1/forecast?latitude=" + city.lat + "&longitude=" + city.lng
-        + "&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max"
-        + "&timezone=Asia%2FTokyo&forecast_days=1";
+        + "&current=temperature_2m,relative_humidity_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max"
+        + "&timezone=Asia%2FTokyo&forecast_days=3";
       const response = await fetch(url, { cache: "no-store" });
       if (!response.ok) return cached || null;
       const payload = await response.json();
+      const daily = payload.daily || {};
       const record = {
         at: Date.now(),
         now: Math.round(payload.current.temperature_2m),
-        code: payload.daily.weather_code[0],
-        max: Math.round(payload.daily.temperature_2m_max[0]),
-        min: Math.round(payload.daily.temperature_2m_min[0]),
-        rain: payload.daily.precipitation_probability_max[0]
+        code: daily.weather_code[0],
+        max: Math.round(daily.temperature_2m_max[0]),
+        min: Math.round(daily.temperature_2m_min[0]),
+        rain: daily.precipitation_probability_max[0],
+        // In Giappone d'estate l'umidità cambia la giornata più della massima:
+        // 31° con l'80% si camminano in un altro modo.
+        humidity: Math.round(payload.current.relative_humidity_2m),
+        days: (daily.time || []).slice(0, 3).map(function (day, index) {
+          return {
+            date: day,
+            code: daily.weather_code[index],
+            max: Math.round(daily.temperature_2m_max[index]),
+            min: Math.round(daily.temperature_2m_min[index]),
+            rain: daily.precipitation_probability_max[index]
+          };
+        })
       };
       const store = readJSON("tabi-weather", {});
       store[city.id] = record;
@@ -902,6 +1045,37 @@
     } catch (_) {
       return cached || null;
     }
+  }
+
+  // Tre giorni si leggono confrontandoli, e per confrontarli devono incolonnarsi:
+  // nome, cielo, massima e minima, pioggia sempre nella stessa posizione. Con i
+  // valori sparsi in riga l'occhio deve rileggere ogni volta da capo. Oggi è la
+  // riga più marcata perché è la giornata che stai vivendo; gli altri due giorni
+  // sono lì per decidere domani.
+  function dayName(iso, index) {
+    if (index === 0) return "Oggi";
+    if (index === 1) return "Domani";
+    const parsed = new Date(iso + "T12:00:00");
+    const name = parsed.toLocaleDateString("it-IT", { weekday: "long" });
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  }
+
+  function forecastRowHTML(day, index) {
+    return '<span class="weather-row' + (index === 0 ? " is-today" : "") + '">'
+      + '<em>' + escapeHTML(dayName(day.date, index)) + '</em>'
+      + '<i aria-hidden="true">' + weatherLabel(day.code)[1] + '</i>'
+      + '<b>' + day.max + '°<s>' + day.min + '°</s></b>'
+      + '<u>' + day.rain + '%</u></span>';
+  }
+
+  function forecastDaysHTML(weather) {
+    const days = weather.days && weather.days.length ? weather.days : null;
+    // Le previsioni salvate prima di questa versione hanno un giorno solo: in
+    // quel caso si scrive la riga di prima invece di lasciare un buco.
+    if (!days) {
+      return '<p class="weather-fallback">Massima ' + weather.max + '° · minima ' + weather.min + '° · pioggia ' + weather.rain + '%</p>';
+    }
+    return '<span class="weather-forecast">' + days.map(forecastRowHTML).join("") + '</span>';
   }
 
   function renderWeather(city) {
@@ -918,12 +1092,15 @@
       const label = weatherLabel(weather.code);
       const stale = Date.now() - weather.at > 3 * 60 * 60 * 1000;
       box.innerHTML = '<a class="weather-card" href="' + forecast + '" target="_blank" rel="noopener">'
-        + '<span class="weather-icon" aria-hidden="true">' + label[1] + '</span>'
-        + '<span class="weather-body"><strong>' + weather.now + '°</strong>'
-        + '<b>' + escapeHTML(label[0]) + '</b>'
-        + '<small>Massima ' + weather.max + '° · minima ' + weather.min + '° · pioggia ' + weather.rain + '%'
-        + (stale ? " · dato non recente, sei stato offline" : "") + '</small></span>'
-        + '<span class="weather-link">Previsioni complete ↗</span></a>';
+        + '<span class="weather-now"><span class="weather-icon" aria-hidden="true">' + label[1] + '</span>'
+        + '<strong>' + weather.now + '°</strong>'
+        + '<span class="weather-desc"><b>' + escapeHTML(label[0]) + '</b>'
+        // Le previsioni salvate prima di questa versione non hanno l'umidità:
+        // senza la guardia scriverebbero "umidità undefined%" per un'ora.
+        + (weather.humidity == null ? "" : '<i>umidità ' + weather.humidity + '%</i>') + '</span></span>'
+        + forecastDaysHTML(weather)
+        + '<span class="weather-foot">' + (stale ? '<small>Dato non recente, sei stato offline</small>' : '<small></small>')
+        + '<span class="weather-link">Previsioni complete ↗</span></span></a>';
     });
   }
 
@@ -985,6 +1162,19 @@
     document.getElementById("shopCategoryRail").innerHTML = entries.map(function (entry) {
       return '<button class="category-chip ' + (entry[0] === "all" ? "is-active" : "") + '" type="button" data-category="' + entry[0] + '">' + escapeHTML(entry[1]) + '</button>';
     }).join("");
+    const trades = [["all", "Tutti i mestieri"]].concat(Object.entries(data.labels.merchantCategories));
+    document.getElementById("merchantCategoryRail").innerHTML = trades.map(function (entry) {
+      return '<button class="category-chip ' + (entry[0] === "all" ? "is-active" : "") + '" type="button" data-merchant-category="' + entry[0] + '">' + escapeHTML(entry[1]) + '</button>';
+    }).join("");
+    const note = document.getElementById("merchantSourceNote");
+    // Un terzo delle botteghe non sta su OpenStreetMap con il proprio nome:
+    // senza un indirizzo verificato non diventano un punto e la loro scheda non
+    // ha il quadratino. Detto qui, perché una scheda senza quadratino in mezzo
+    // alle altre sembra un guasto.
+    const onMap = (data.merchants || []).filter(function (item) { return mapGuideIds.has(item.id); }).length;
+    if (note) note.textContent = "I voti vengono da Tabelog e sono quelli letti il " + data.merchantRatingChecked
+      + ": cambiano ogni settimana e non si aggiornano da soli, quindi ogni scheda porta il collegamento alla pagina viva. Tabelog copre soltanto il cibo: per carte, coltelli e artigianato un voto non c'è, e la scheda lo dice invece di inventarne uno. "
+      + onMap + " negozianti su " + (data.merchants || []).length + " hanno un indirizzo verificato e possono stare sulla mappa, col quadratino sulla scheda; gli altri sono botteghe che OpenStreetMap non registra con il loro nome, e per quelle resta il collegamento a Google Maps.";
   }
 
   function setupImages() {
@@ -1048,7 +1238,12 @@
     // mostrare un segnaposto o, peggio, una foto a caso. Resta la descrizione.
     if (!result || !result.url) {
       const media = image.closest(".card-media");
-      if (media) media.remove();
+      if (!media) return;
+      // Senza il riquadro della foto i pulsanti in alto resterebbero sospesi
+      // sopra il testo: la scheda lo dichiara e li rimette in riga.
+      const card = media.closest(".content-card");
+      if (card) card.classList.add("is-medialess");
+      media.remove();
       return;
     }
     image.dataset.resolved = result.url;
@@ -1105,7 +1300,7 @@
 
   function subjectEvidence(item, texts) {
     const hints = item && SUBJECT_HINTS[item.type];
-    // Luoghi ed esperienze hanno nomi propri: lì è il nome a fare da prova.
+    // Luoghi e attività hanno nomi propri: lì è il nome a fare da prova.
     if (!hints) return true;
     const joined = texts.filter(Boolean).join(" · ");
     if (hints.test(joined)) return true;
@@ -1455,18 +1650,19 @@
   window.TABI_GEO = { requestPosition: function (options) { return requestPosition(options); } };
 
   const VIEW_TITLES = {
-    overview: "Viaggio", places: "Mappa", experiences: "Esperienze", history: "Storie",
-    food: "Cibo", shopping: "Acquisti", phrases: "Parole", progress: "Progressi",
+    overview: "Viaggio", places: "Mappa", experiences: "Attività", history: "Storie",
+    food: "Cibo", shopping: "Acquisti", merchants: "Negozianti", itineraries: "Itinerari",
+    phrases: "Parole", progress: "Progressi",
     translate: "Traduttore", packing: "Valigia", notes: "Note", saved: "Salvati",
     emergency: "Emergenze", money: "Contanti"
   };
   const MENU_TITLES = { discover: "Scopri", tools: "Utilità" };
   const NAV_GROUPS = {
-    discover: ["experiences", "food", "shopping", "history"],
+    discover: ["experiences", "food", "merchants", "shopping", "history"],
     // "Fotografa e traduci" è salito nella barra: davanti a un menu si usa in
     // piedi, non si va a cercarlo in un menu. Al suo posto scende Progressi,
     // che è un riepilogo da fine giornata.
-    tools: ["emergency", "progress", "money", "packing", "notes", "saved"]
+    tools: ["itineraries", "emergency", "progress", "money", "packing", "notes", "saved"]
   };
 
   function viewTitle(view) {
@@ -1521,8 +1717,8 @@
   // ha ancora chiesto. Poi resta in memoria, come prima.
   const VIEW_RENDERERS = {
     places: renderPlaces, experiences: renderExperiences, food: renderFoods,
-    shopping: renderShopping, history: renderHistory, phrases: renderPhrases,
-    packing: renderPacking, notes: renderNotes
+    shopping: renderShopping, merchants: renderMerchants, history: renderHistory,
+    phrases: renderPhrases, packing: renderPacking, notes: renderNotes
   };
   const renderedViews = new Set();
 
@@ -1548,6 +1744,7 @@
     const navDialog = document.getElementById("navMenuDialog");
     if (navDialog && navDialog.open) navDialog.close();
     if (view === "saved") renderSaved();
+    if (view === "itineraries") renderItineraries();
     if (view === "progress") renderProgress();
     if (view === "money") renderMoney();
     renderViewOnDemand(view);
@@ -1601,6 +1798,10 @@
     saveState();
     refreshCardState(id);
     updateProgress();
+    // Segnare visitato cambia i giri: quella tappa esce dal percorso a piedi e
+    // dai conteggi. Se la schermata degli itinerari è a schermo deve accorgersene
+    // adesso, non alla prossima apertura.
+    if (document.getElementById("itineraryList") && document.getElementById("itineraries").classList.contains("is-active")) renderItineraries();
     window.dispatchEvent(new CustomEvent("tabi:progresschange", { detail:{ id:id, done:state.done.has(id) } }));
   }
 
@@ -1635,6 +1836,32 @@
     });
   }
 
+  // La stessa tabella serve al riquadro dei dettagli e alla scheda espansa dei
+  // salvati: scritta una volta sola, le due non possono raccontare cose diverse.
+  function detailCellsFor(item) {
+    if (item.type === "place") {
+      return detailCells([["Categoria", data.labels.placeCategories[item.category]], ["Zona", item.area], ["Tempo", item.duration], ["Quando", item.tip]]);
+    }
+    if (item.type === "experience") {
+      return detailCells([["Tipo", data.labels.experienceCategories[item.category]], ["Zona", item.area], ["Tempo", item.duration], ["Da organizzare", item.booking || item.tip]]);
+    }
+    if (item.type === "food") {
+      return detailCells([["Portata", data.labels.foodCategories[item.category]], ["Contesto", item.context], ["Quanto ci convince", item.rating >= 4.6 ? "La nostra scelta" : item.rating >= 4.3 ? "Da provare" : "Se capita"], ["Selezione", item.local ? "Scoperta locale" : "Grande classico"]]);
+    }
+    if (item.type === "history") {
+      return detailCells([["Città", cityName(item.city)], ["Argomento", data.labels.historyCategories[item.category]]]);
+    }
+    if (item.type === "merchant") {
+      return detailCells([
+        ["Mestiere", data.labels.merchantCategories[item.category]],
+        ["Zona", item.area],
+        ["Voto", item.rating ? "Tabelog " + item.rating.toFixed(2) + ", letto il " + item.ratingChecked : "Non su Tabelog: si legge su Google Maps"],
+        ["Da sapere", item.tip]
+      ]);
+    }
+    return detailCells([["Categoria", data.labels.shopCategories[item.category]], ["Dove cercarlo", item.where], ["Prezzo", item.price], ["Consiglio", item.tip]]);
+  }
+
   function showDetails(id) {
     const item = itemById[id];
     if (!item) return;
@@ -1642,24 +1869,17 @@
     const imageUrl = cardImageElement && (cardImageElement.dataset.resolved || cardImageElement.src);
     const imageCredit = cardImageElement && cardImageElement.dataset.credit;
     const imageSourceUrl = cardImageElement && cardImageElement.dataset.sourceUrl;
-    let details = "";
     let hero = "";
     let actions = "";
-    if (item.type === "place") {
-      details = detailCells([["Categoria", data.labels.placeCategories[item.category]], ["Zona", item.area], ["Tempo", item.duration], ["Quando", item.tip]]);
-    } else if (item.type === "experience") {
-      details = detailCells([["Tipo", data.labels.experienceCategories[item.category]], ["Zona", item.area], ["Tempo", item.duration], ["Da organizzare", item.booking || item.tip]]);
-    } else if (item.type === "food") {
-      details = detailCells([["Portata", data.labels.foodCategories[item.category]], ["Contesto", item.context], ["Quanto ci convince", item.rating >= 4.6 ? "La nostra scelta" : item.rating >= 4.3 ? "Da provare" : "Se capita"], ["Selezione", item.local ? "Scoperta locale" : "Grande classico"]]);
-    } else if (item.type === "history") {
-      details = detailCells([["Città", cityName(item.city)], ["Argomento", data.labels.historyCategories[item.category]]]);
-    } else {
-      details = detailCells([["Categoria", data.labels.shopCategories[item.category]], ["Dove cercarlo", item.where], ["Prezzo", item.price], ["Consiglio", item.tip]]);
-    }
+    const details = detailCellsFor(item);
     const actionLinks = [];
     if (["place", "experience"].includes(item.type)) {
       if (mapGuideIds.has(item.id)) actionLinks.push('<a class="primary-action" href="' + ownMapUrl(item) + '" data-map-focus="' + item.id + '">Apri nella mappa Tabi</a>');
       actionLinks.push('<a class="secondary-action" href="' + mapsUrl(item) + '" target="_blank" rel="noopener">Raggiungi con Google Maps</a>');
+    }
+    if (item.type === "merchant") {
+      actionLinks.push('<a class="primary-action" href="' + mapsUrl(item) + '" target="_blank" rel="noopener">Raggiungi con Google Maps</a>');
+      if (item.ratingUrl) actionLinks.push('<a class="secondary-action" href="' + escapeHTML(item.ratingUrl) + '" target="_blank" rel="noopener">Voto di oggi su Tabelog ↗</a>');
     }
     if (item.sourceUrl && !(item.sources && item.sources.length)) actionLinks.push('<a class="secondary-action" href="' + escapeHTML(item.sourceUrl) + '" target="_blank" rel="noopener">' + escapeHTML(item.sourceTitle || "Fonte utile") + ' ↗</a>');
     actionLinks.push('<button class="secondary-action detail-done-button" type="button" data-action="done" data-id="' + item.id + '">' + (state.done.has(item.id) ? "✓ " + completionLabels(item)[0] : completionLabels(item)[1]) + '</button>');
@@ -1730,17 +1950,497 @@
     }).join("") + '</div>';
   }
 
-  function renderSaved() {
-    const favoriteItems = Array.from(state.favorites).map(function (id) { return itemById[id]; }).filter(Boolean);
-    const doneItems = Array.from(state.done).map(function (id) { return itemById[id]; }).filter(Boolean);
-    const types = ["place", "experience", "food", "shop", "history"];
-    const counts = types.map(function (type) {
-      return favoriteItems.filter(function (item) { return item.type === type; }).length;
+  // ---- Itinerari e percorsi -------------------------------------------------
+  //
+  // Un itinerario non è una struttura nuova: è una fotografia della selezione
+  // che governa già la mappa, con un nome e una tappa attaccati. Prepararne uno
+  // vuol dire accendere e spegnere i luoghi come si è sempre fatto, e poi
+  // salvarli; riaprirlo vuol dire rimettere esattamente quegli interruttori.
+  //
+  // Dentro un itinerario stanno i percorsi, che sono la stessa cosa un livello
+  // più in basso: un sottoinsieme dei suoi luoghi, per la mattina o per una
+  // sera. Applicare un percorso lascia sulla mappa solo quelli, e da lì Google
+  // Maps sa già fare il giro a piedi più corto.
+  //
+  // Tutto resta su questo telefono, come i preferiti e le spunte: nessun
+  // account, nessun server.
+
+  function saveItineraries() {
+    localStorage.setItem("tabi-itineraries-v1", JSON.stringify(state.itineraries));
+  }
+
+  function saveActiveItinerary() {
+    localStorage.setItem("tabi-itinerary-active-v1", JSON.stringify(state.activeItinerary));
+  }
+
+  function newLocalId(prefix) {
+    return prefix + "-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 7);
+  }
+
+  // Solo i luoghi che hanno un punto sulla mappa: gli altri non hanno un
+  // interruttore, quindi non possono far parte di una selezione.
+  function mappableItems(cityId) {
+    return [].concat(data.places, data.mapPlaces || [], data.experiences || []).filter(function (item) {
+      return mapGuideIds.has(item.id) && (!cityId || item.city === cityId);
     });
-    document.getElementById("savedSummary").innerHTML = [
-      ["Luoghi", counts[0]], ["Esperienze", counts[1]], ["Cibi", counts[2]], ["Acquisti", counts[3]], ["Storie", counts[4]]
-    ].map(function (entry) {
-      return '<div class="saved-tile"><strong>' + entry[1] + '</strong><span>' + entry[0] + '</span></div>';
+  }
+
+  function selectedIdsForCity(cityId) {
+    return mappableItems(cityId).filter(function (item) { return isSelected(item.id); }).map(function (item) { return item.id; });
+  }
+
+  function applySelection(cityId, ids) {
+    const wanted = new Set(ids);
+    mappableItems(cityId).forEach(function (item) {
+      if (wanted.has(item.id)) state.hidden.delete(item.id);
+      else state.hidden.add(item.id);
+    });
+    saveHidden();
+    refreshSelectionViews();
+    renderMapItineraryPicker();
+  }
+
+  function findItinerary(id) {
+    return state.itineraries.find(function (entry) { return entry.id === id; });
+  }
+
+  function findRoute(itinerary, routeId) {
+    return itinerary && (itinerary.routes || []).find(function (route) { return route.id === routeId; });
+  }
+
+  function activeItinerary() {
+    return findItinerary(state.activeItinerary.itinerary);
+  }
+
+  // Gli id salvati possono riferirsi a luoghi che nel frattempo non esistono
+  // più: si tengono fuori invece di far sparire il percorso.
+  function knownIds(ids) {
+    return (ids || []).filter(function (id) { return mapGuideIds.has(id) && itemById[id]; });
+  }
+
+  function setActive(itineraryId, routeId) {
+    state.activeItinerary = { itinerary: itineraryId || "", route: routeId || "" };
+    saveActiveItinerary();
+  }
+
+  function createItinerary() {
+    const nameField = document.getElementById("itineraryName");
+    const cityField = document.getElementById("itineraryCity");
+    const name = nameField.value.trim();
+    const city = cityField.value;
+    if (!name) {
+      showToast("Dai un nome all'itinerario prima di crearlo");
+      nameField.focus();
+      return;
+    }
+    const selected = selectedIdsForCity(city);
+    const itinerary = { id: newLocalId("itin"), name: name, city: city, createdAt: Date.now(), selected: selected, routes: [] };
+    state.itineraries.unshift(itinerary);
+    saveItineraries();
+    setActive(itinerary.id, "");
+    nameField.value = "";
+    renderItineraries();
+    showToast("Itinerario salvato con " + selected.length + " luoghi");
+  }
+
+  function itinerarySelection(itinerary, route) {
+    return knownIds(route ? route.selected : itinerary.selected);
+  }
+
+  function applyItinerary(itineraryId, routeId) {
+    const itinerary = findItinerary(itineraryId);
+    if (!itinerary) return;
+    const route = routeId ? findRoute(itinerary, routeId) : null;
+    if (routeId && !route) return;
+    setActive(itinerary.id, route ? route.id : "");
+    applySelection(itinerary.city, itinerarySelection(itinerary, route));
+    renderItineraries();
+    showToast(route ? "Sulla mappa il percorso «" + route.name + "»" : "Sulla mappa l'itinerario «" + itinerary.name + "»");
+  }
+
+  function syncFromMap(itineraryId, routeId) {
+    const itinerary = findItinerary(itineraryId);
+    if (!itinerary) return;
+    const selected = selectedIdsForCity(itinerary.city);
+    if (routeId) {
+      const route = findRoute(itinerary, routeId);
+      if (!route) return;
+      // Un percorso vive dentro il suo itinerario: non può contenere luoghi che
+      // l'itinerario non ha.
+      const allowed = new Set(itinerary.selected);
+      route.selected = selected.filter(function (id) { return allowed.has(id); });
+    } else {
+      itinerary.selected = selected;
+      const allowed = new Set(selected);
+      (itinerary.routes || []).forEach(function (route) {
+        route.selected = route.selected.filter(function (id) { return allowed.has(id); });
+      });
+    }
+    saveItineraries();
+    renderItineraries();
+    showToast("Aggiornato con la mappa di adesso");
+  }
+
+  function createRoute(itineraryId) {
+    const itinerary = findItinerary(itineraryId);
+    const field = document.querySelector('[data-route-name="' + itineraryId + '"]');
+    if (!itinerary || !field) return;
+    const name = field.value.trim();
+    if (!name) {
+      showToast("Dai un nome al percorso");
+      field.focus();
+      return;
+    }
+    const allowed = new Set(itinerary.selected);
+    const selected = selectedIdsForCity(itinerary.city).filter(function (id) { return allowed.has(id); });
+    const route = { id: newLocalId("route"), name: name, selected: selected };
+    itinerary.routes = (itinerary.routes || []).concat([route]);
+    saveItineraries();
+    field.value = "";
+    renderItineraries();
+    showToast("Percorso «" + name + "» con " + selected.length + " tappe");
+  }
+
+  // I gruppi del motore automatico diventano percorsi normali: hanno già il
+  // link di Google Maps, si applicano alla mappa e si eliminano uno per uno.
+  // Rigenerare sostituisce solo i giri automatici precedenti — due generazioni
+  // insieme sarebbero lo stesso elenco scritto due volte — mentre i percorsi
+  // fatti a mano non si toccano.
+  function createAutoRoutes(itineraryId, start) {
+    const itinerary = findItinerary(itineraryId);
+    if (!itinerary || !window.TABI_MAP) return;
+    // I visitati non entrano nei giri nuovi, come non entrano nel lazo: i giri
+    // servono a quello che resta da fare.
+    const ids = activeStops(knownIds(itinerary.selected));
+    if (!ids.length) {
+      showToast(knownIds(itinerary.selected).length
+        ? "Hai già visitato tutte le tappe di questo itinerario"
+        : "L'itinerario è vuoto: accendi qualcosa sulla mappa e aggiorna");
+      return;
+    }
+    const groups = window.TABI_MAP.autoRouteGroups(ids, start || null);
+    if (!groups.length) return;
+    const kept = (itinerary.routes || []).filter(function (route) { return !route.auto; });
+    itinerary.routes = kept.concat(groups.map(function (group, index) {
+      const name = "Giro " + (index + 1) + " · " + group.ids.length + (group.ids.length === 1 ? " tappa" : " tappe");
+      return { id: newLocalId("route"), name: name, selected: group.ids, auto: true };
+    }));
+    saveItineraries();
+    // Se era attivo un giro automatico appena sostituito, l'attivo non esiste più.
+    if (state.activeItinerary.itinerary === itineraryId && state.activeItinerary.route && !findRoute(itinerary, state.activeItinerary.route)) setActive(itineraryId, "");
+    renderItineraries();
+    showToast(groups.length === 1
+      ? "Tutte le tappe stanno in un giro solo"
+      : groups.length + " giri pronti: ognuno si apre in Google Maps");
+  }
+
+  function createAutoRoutesFromGps(itineraryId) {
+    showToast("Cerco la tua posizione…");
+    requestPosition().then(function (position) {
+      createAutoRoutes(itineraryId, { lat: position.coords.latitude, lng: position.coords.longitude });
+    }).catch(function (error) {
+      showToast(error.message);
+    });
+  }
+
+  function removeItinerary(itineraryId) {
+    const itinerary = findItinerary(itineraryId);
+    if (!itinerary || !window.confirm("Eliminare l'itinerario «" + itinerary.name + "» e i suoi percorsi? I luoghi restano dove sono.")) return;
+    state.itineraries = state.itineraries.filter(function (entry) { return entry.id !== itineraryId; });
+    saveItineraries();
+    if (state.activeItinerary.itinerary === itineraryId) setActive("", "");
+    renderItineraries();
+    showToast("Itinerario eliminato");
+  }
+
+  function removeRoute(itineraryId, routeId) {
+    const itinerary = findItinerary(itineraryId);
+    if (!itinerary) return;
+    itinerary.routes = (itinerary.routes || []).filter(function (route) { return route.id !== routeId; });
+    saveItineraries();
+    if (state.activeItinerary.route === routeId) setActive(itineraryId, "");
+    renderItineraries();
+    showToast("Percorso eliminato");
+  }
+
+  // Togliere una tappa da qui tocca solo questo itinerario o questo percorso:
+  // niente mappa, niente altri itinerari. Il visitato è un'altra cosa: vive in
+  // tabi-done ed è condiviso da tutti, quindi qui non si sfiora.
+  function removeStop(itineraryId, routeId, placeId) {
+    const itinerary = findItinerary(itineraryId);
+    if (!itinerary) return;
+    const without = function (ids) { return (ids || []).filter(function (id) { return id !== placeId; }); };
+    if (routeId) {
+      const route = findRoute(itinerary, routeId);
+      if (!route) return;
+      route.selected = without(route.selected);
+    } else {
+      // Un percorso non può contenere luoghi che l'itinerario non ha: la
+      // rimozione dall'itinerario scende a cascata, come in syncFromMap.
+      itinerary.selected = without(itinerary.selected);
+      (itinerary.routes || []).forEach(function (route) { route.selected = without(route.selected); });
+    }
+    saveItineraries();
+    renderItineraries();
+    showToast(routeId ? "Tappa tolta dal percorso" : "Tappa tolta dall'itinerario e dai suoi percorsi");
+  }
+
+  // Quello che hai già visitato esce dal giro: rifarlo domani non ha senso, e
+  // occuperebbe una delle undici tappe che Google concede. Resta scritto
+  // nell'itinerario, sbiadito, perché toglierlo davvero è un'altra cosa — la ✕ —
+  // e perché togliendo la spunta deve tornare nel giro senza doverlo riscrivere.
+  function activeStops(ids) {
+    return ids.filter(function (id) { return !state.done.has(id); });
+  }
+
+  // Google Maps accetta undici tappe in tutto: con una selezione più lunga il
+  // giro tiene le più vicine fra loro. Dirlo è meglio che consegnare in
+  // silenzio un percorso che non contiene metà dei luoghi salvati.
+  function walkingLinkHTML(allIds, label) {
+    const ids = activeStops(allIds);
+    const route = window.TABI_MAP && window.TABI_MAP.walkingRouteForIds(ids);
+    if (!route) return "";
+    const scope = route.trimmed ? route.stops + " tappe su " + ids.length : route.stops + " tappe";
+    return '<a class="route-walk" href="' + escapeHTML(route.url) + '" target="_blank" rel="noopener"'
+      + (route.trimmed ? ' title="Google Maps ne accetta 11: il giro tiene le più vicine fra loro"' : '') + '>'
+      + escapeHTML(label + " · " + scope + " · " + formatDistance(route.meters)) + ' ↗</a>';
+  }
+
+  // Ogni chip porta due cose: il visitato, che è quello globale di tabi-done
+  // (data-card-id fa sì che refreshCardState la aggiorni come una scheda), e la
+  // ✕ che invece toglie la tappa solo da questo itinerario o percorso.
+  function itineraryPlacesHTML(ids, itineraryId, routeId) {
+    if (!ids.length) return '<p class="helper-note">Nessun luogo: accendi qualcosa sulla mappa e premi «Aggiorna con la mappa».</p>';
+    return '<div class="itinerary-chips">' + ids.map(function (id) {
+      const item = itemById[id];
+      return '<span class="itinerary-chip' + (state.done.has(id) ? " is-done" : "") + '" data-card-id="' + escapeHTML(id) + '">'
+        + '<button type="button" data-action="details" data-id="' + escapeHTML(id) + '">' + escapeHTML(item.name) + '</button>'
+        + '<button class="chip-remove" type="button" data-stop-remove="' + escapeHTML(id) + '" data-itinerary="' + itineraryId + '"'
+        + (routeId ? ' data-route="' + routeId + '"' : '')
+        + ' aria-label="Togli ' + escapeHTML(item.name) + ' da questo ' + (routeId ? "percorso" : "itinerario") + '">×</button></span>';
+    }).join("") + '</div>';
+  }
+
+  // Il conteggio dice le tappe che restano da fare, e a parte quelle già viste:
+  // «3 tappe · 2 già visitate» si legge a colpo d'occhio quanto manca.
+  function stopsCountHTML(ids) {
+    const left = activeStops(ids).length;
+    const done = ids.length - left;
+    return left + (left === 1 ? " tappa" : " tappe") + (done ? " · " + done + (done === 1 ? " già visitata" : " già visitate") : "");
+  }
+
+  function routeRowHTML(itinerary, route) {
+    const ids = knownIds(route.selected);
+    const active = state.activeItinerary.itinerary === itinerary.id && state.activeItinerary.route === route.id;
+    return '<article class="route-row' + (active ? " is-active" : "") + '">'
+      + '<div class="route-head"><b>' + escapeHTML(route.name) + '</b><small>' + stopsCountHTML(ids) + (active ? " · sulla mappa adesso" : "") + '</small></div>'
+      + '<div class="route-actions">'
+      + '<button type="button" data-route-apply="' + route.id + '" data-itinerary="' + itinerary.id + '">' + (active ? "Rimetti" : "Sulla mappa") + '</button>'
+      + walkingLinkHTML(ids, "Giro a piedi")
+      + '<button type="button" data-route-sync="' + route.id + '" data-itinerary="' + itinerary.id + '">Aggiorna</button>'
+      + '<button class="route-remove" type="button" data-route-delete="' + route.id + '" data-itinerary="' + itinerary.id + '" aria-label="Elimina il percorso ' + escapeHTML(route.name) + '">×</button>'
+      + '</div>'
+      + itineraryPlacesHTML(ids, itinerary.id, route.id) + '</article>';
+  }
+
+  function itineraryCardHTML(itinerary) {
+    const ids = knownIds(itinerary.selected);
+    const active = state.activeItinerary.itinerary === itinerary.id;
+    const routes = (itinerary.routes || []).map(function (route) { return routeRowHTML(itinerary, route); }).join("");
+    return '<article class="itinerary-card' + (active ? " is-active" : "") + '">'
+      + '<header class="itinerary-head"><div><p class="eyebrow">' + escapeHTML(cityName(itinerary.city)) + ' · ' + stopsCountHTML(ids) + '</p>'
+      + '<h2>' + escapeHTML(itinerary.name) + '</h2></div>'
+      + (active ? '<span class="itinerary-flag">' + (state.activeItinerary.route ? "Percorso attivo" : "Sulla mappa") + '</span>' : '') + '</header>'
+      + '<div class="itinerary-actions">'
+      + '<button class="primary-action" type="button" data-itinerary-apply="' + itinerary.id + '">' + (active && !state.activeItinerary.route ? "Rimetti sulla mappa" : "Mettilo sulla mappa") + '</button>'
+      + walkingLinkHTML(ids, "Giro a piedi")
+      + '<button type="button" data-itinerary-sync="' + itinerary.id + '">Aggiorna con la mappa</button>'
+      + '<button type="button" data-itinerary-autoroute="' + itinerary.id + '">Percorsi automatici · per vicinanza</button>'
+      + '<button type="button" data-itinerary-autoroute-gps="' + itinerary.id + '">Percorsi automatici · da dove sono</button>'
+      + '<button class="danger-action" type="button" data-itinerary-delete="' + itinerary.id + '">Elimina</button>'
+      + '</div>'
+      + '<details class="itinerary-places"><summary>I luoghi dell\'itinerario</summary>' + itineraryPlacesHTML(ids, itinerary.id, "") + '</details>'
+      + '<section class="itinerary-routes"><h3>Percorsi</h3>'
+      + (routes || '<p class="helper-note">Nessun percorso. Lascia sulla mappa solo le tappe di una mattina e salvale qui sotto: l\'itinerario resta intero.</p>')
+      + '<div class="route-new"><input type="text" maxlength="60" data-route-name="' + itinerary.id + '" placeholder="Es. Mattina a Higashiyama" aria-label="Nome del nuovo percorso">'
+      + '<button type="button" data-route-create="' + itinerary.id + '">Aggiungi percorso</button></div>'
+      + '</section></article>';
+  }
+
+  function renderItineraries() {
+    const list = document.getElementById("itineraryList");
+    if (!list) return;
+    const select = document.getElementById("itineraryCity");
+    if (select && !select.options.length) {
+      select.innerHTML = data.cities.map(function (city) {
+        return '<option value="' + city.id + '">' + escapeHTML(city.name) + '</option>';
+      }).join("");
+      select.value = localStorage.getItem("tabi-current-city") || data.cities[0].id;
+    }
+    const hint = document.getElementById("itineraryHint");
+    if (hint && select) {
+      const count = selectedIdsForCity(select.value).length;
+      hint.textContent = "Su " + cityName(select.value) + " hai " + count + (count === 1 ? " luogo acceso" : " luoghi accesi") + ": è quello che verrà salvato.";
+    }
+    list.innerHTML = state.itineraries.map(itineraryCardHTML).join("");
+    document.getElementById("itineraryEmpty").hidden = state.itineraries.length !== 0;
+    renderMapItineraryPicker();
+  }
+
+  // Il selettore sta nella barra della mappa, accanto a «La mia posizione» e
+  // «Livelli»: è lì che si guarda mentre si decide dove andare. Prima era una
+  // card sotto la mappa, che diceva le stesse cose occupando uno schermo di
+  // telefono. Due tendine native invece di un menu disegnato a mano: sul
+  // telefono aprono la rotella del sistema, che è più comoda di qualsiasi
+  // elenco costruito qui dentro.
+  function selectionDiffers(itinerary, route) {
+    const wanted = itinerarySelection(itinerary, route);
+    const current = selectedIdsForCity(itinerary.city);
+    return wanted.length !== current.length || wanted.some(function (id) { return current.indexOf(id) === -1; });
+  }
+
+  function optionHTML(value, label, selected) {
+    return '<option value="' + escapeHTML(value) + '"' + (selected ? " selected" : "") + '>' + escapeHTML(label) + '</option>';
+  }
+
+  function renderMapItineraryPicker() {
+    const select = document.getElementById("mapItinerary");
+    if (!select) return;
+    const itinerary = activeItinerary();
+    const route = itinerary && state.activeItinerary.route ? findRoute(itinerary, state.activeItinerary.route) : null;
+
+    // «Crea itinerario» in testa: chi non ne ha ancora nessuno trova qui la
+    // strada per la schermata, invece di una tendina vuota che non spiega niente.
+    const byCity = {};
+    state.itineraries.forEach(function (entry) {
+      if (!byCity[entry.city]) byCity[entry.city] = [];
+      byCity[entry.city].push(entry);
+    });
+    const groups = Object.keys(byCity).map(function (cityId) {
+      return '<optgroup label="' + escapeHTML(cityName(cityId)) + '">' + byCity[cityId].map(function (entry) {
+        return optionHTML(entry.id, entry.name, itinerary && entry.id === itinerary.id);
+      }).join("") + '</optgroup>';
+    }).join("");
+    select.innerHTML = optionHTML("__create", "＋ Crea itinerario", false)
+      + optionHTML("", state.itineraries.length ? "Nessuno · selezione libera" : "Nessun itinerario salvato", !itinerary)
+      + groups;
+
+    const routeBox = document.getElementById("mapRouteBox");
+    const routeSelect = document.getElementById("mapRoute");
+    const routes = itinerary ? (itinerary.routes || []) : [];
+    routeBox.hidden = !routes.length;
+    // Si svuota anche quando non ci sono percorsi: dietro l'hidden resterebbero
+    // le opzioni dell'itinerario di prima, pronte a riapparire sbagliate.
+    routeSelect.innerHTML = routes.length
+      ? optionHTML("", "Tutto l'itinerario", !route)
+        + routes.map(function (entry) { return optionHTML(entry.id, entry.name, route && entry.id === route.id); }).join("")
+      : "";
+
+    // Il tasto compare solo quando serve: se hai acceso o spento qualcosa a
+    // mano, la mappa non è più quella salvata e va detto senza occupare spazio
+    // il resto del tempo.
+    const restore = document.getElementById("mapItineraryRestore");
+    const changed = Boolean(itinerary) && selectionDiffers(itinerary, route);
+    restore.hidden = !changed;
+    if (changed) {
+      restore.dataset.itineraryApply = itinerary.id;
+      restore.dataset.itineraryRoute = route ? route.id : "";
+    }
+  }
+
+  function setupItineraries() {
+    const create = document.getElementById("itineraryCreate");
+    if (create) create.addEventListener("click", createItinerary);
+    const city = document.getElementById("itineraryCity");
+    if (city) city.addEventListener("change", renderItineraries);
+    const name = document.getElementById("itineraryName");
+    if (name) name.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") createItinerary();
+    });
+    document.addEventListener("keydown", function (event) {
+      const field = event.target.closest && event.target.closest("[data-route-name]");
+      if (field && event.key === "Enter") createRoute(field.dataset.routeName);
+    });
+    // Le tendine della barra mappa passano dalle stesse funzioni dei bottoni
+    // della schermata Itinerari: qui si sceglie soltanto, la logica resta una.
+    const mapItinerary = document.getElementById("mapItinerary");
+    if (mapItinerary) mapItinerary.addEventListener("change", function () {
+      const value = mapItinerary.value;
+      if (value === "__create") {
+        // Prima si rimette la tendina sullo stato vero, poi si naviga: al
+        // ritorno non deve restare scritto «Crea itinerario».
+        renderMapItineraryPicker();
+        rememberMenuOrigin("itineraries");
+        switchView("itineraries");
+        return;
+      }
+      if (!value) {
+        setActive("", "");
+        renderItineraries();
+        showToast("Itinerario tolto: la selezione resta come l'hai lasciata");
+        return;
+      }
+      applyItinerary(value, "");
+    });
+    const mapRoute = document.getElementById("mapRoute");
+    if (mapRoute) mapRoute.addEventListener("change", function () {
+      if (state.activeItinerary.itinerary) applyItinerary(state.activeItinerary.itinerary, mapRoute.value);
+    });
+    // Il selettore vale anche prima che si apra la schermata degli itinerari:
+    // chi non li usa deve comunque vedere che esistono.
+    renderMapItineraryPicker();
+  }
+
+  // I salvati erano un elenco di nomi: per ricordarsi che cos'era «Kaikado»
+  // bisognava tornare nella sua schermata e ritrovarlo. Ora ogni riga si apre e
+  // mostra la scheda intera — foto, descrizione, tabella e gli stessi pulsanti —
+  // costruita con gli stessi pezzi delle griglie, così non può divergere.
+  // Si costruisce solo quando si apre: cento schede aperte all'ingresso
+  // vorrebbero dire cento foto da scaricare per guardarne due.
+  const SAVED_TYPES = [
+    ["place", "Luoghi"], ["experience", "Attività"], ["food", "Cibi"],
+    ["merchant", "Negozianti"], ["shop", "Acquisti"], ["history", "Storie"]
+  ];
+
+  function savedBodyHTML(item) {
+    const media = item.type === "history"
+      ? '<div class="history-detail-hero" aria-hidden="true"><span>' + escapeHTML(item.kanji) + '</span><small>' + escapeHTML(cityName(item.city)) + '</small></div>'
+      : cardImage(item);
+    const jp = item.jp ? ' <span class="jp-name">' + escapeHTML(item.jp) + '</span>' : "";
+    const lead = item.longDescription || item.description || item.explanation || "";
+    return '<div class="saved-body">' + media
+      + '<div class="saved-body-copy"><h4>' + escapeHTML(item.name || item.title) + jp + '</h4>'
+      + '<p>' + escapeHTML(lead) + '</p>' + detailCellsFor(item) + footer(item) + '</div></div>';
+  }
+
+  function savedRowHTML(item, action) {
+    const kicker = escapeHTML(cityName(item.city)) + ' · ' + escapeHTML(typeLabel(item));
+    return '<article class="saved-row" data-saved-id="' + escapeHTML(item.id) + '">'
+      + '<button class="saved-open" type="button" data-saved-toggle="' + escapeHTML(item.id) + '" aria-expanded="false">'
+      + '<span><b>' + escapeHTML(item.name || item.title) + '</b><small>' + kicker + '</small></span>'
+      + '<i aria-hidden="true">▾</i></button>'
+      + '<button class="saved-remove" type="button" data-action="' + action + '" data-id="' + escapeHTML(item.id) + '" aria-label="Togli ' + escapeHTML(item.name || item.title) + ' dai salvati">×</button>'
+      + '<div class="saved-panel" hidden></div></article>';
+  }
+
+  function renderSaved() {
+    const filter = state.savedType || "all";
+    const pick = function (ids) {
+      return Array.from(ids).map(function (id) { return itemById[id]; })
+        .filter(Boolean)
+        .filter(function (item) { return filter === "all" || item.type === filter; });
+    };
+    const favoriteItems = pick(state.favorites);
+    const doneItems = pick(state.done);
+    const allFavorites = Array.from(state.favorites).map(function (id) { return itemById[id]; }).filter(Boolean);
+
+    document.getElementById("savedSummary").innerHTML = SAVED_TYPES.map(function (entry) {
+      const count = allFavorites.filter(function (item) { return item.type === entry[0]; }).length;
+      return '<div class="saved-tile"><strong>' + count + '</strong><span>' + entry[1] + '</span></div>';
+    }).join("");
+
+    document.getElementById("savedTypeRail").innerHTML = [["all", "Tutto"]].concat(SAVED_TYPES).map(function (entry) {
+      return '<button class="category-chip' + (entry[0] === filter ? " is-active" : "") + '" type="button" data-saved-type="' + entry[0] + '">' + escapeHTML(entry[1]) + '</button>';
     }).join("");
 
     const groups = [
@@ -1749,16 +2449,31 @@
     ];
     document.getElementById("savedSections").innerHTML = groups.map(function (group) {
       if (!group[1].length) return '<section class="saved-group"><h2>' + group[0] + '</h2><div class="empty-state"><div><strong>Ancora vuoto.</strong><span>Usa il cuore o i pulsanti sulle schede.</span></div></div></section>';
-      return '<section class="saved-group"><h2>' + group[0] + '</h2><div class="saved-list">' + group[1].map(function (item) {
-        return '<article class="saved-row"><div><b>' + escapeHTML(item.name) + '</b><small>' + escapeHTML(cityName(item.city)) + ' · ' + typeLabel(item) + '</small></div><button type="button" data-action="' + group[2] + '" data-id="' + item.id + '" aria-label="Rimuovi">×</button></article>';
-      }).join("") + '</div></section>';
+      return '<section class="saved-group"><h2>' + group[0] + ' <em>' + group[1].length + '</em></h2><div class="saved-list">'
+        + group[1].map(function (item) { return savedRowHTML(item, group[2]); }).join("")
+        + '</div></section>';
     }).join("");
+  }
+
+  function toggleSavedRow(id, button) {
+    const row = button.closest(".saved-row");
+    const panel = row && row.querySelector(".saved-panel");
+    if (!panel) return;
+    const open = panel.hidden;
+    if (open && !panel.dataset.ready) {
+      panel.innerHTML = savedBodyHTML(itemById[id]);
+      panel.dataset.ready = "true";
+      observeImages(panel);
+    }
+    panel.hidden = !open;
+    row.classList.toggle("is-open", open);
+    button.setAttribute("aria-expanded", String(open));
   }
 
   function progressAreas() {
     return [
       { type:"place", title:"Luoghi", action:"Visitati", view:"places", items:[].concat(data.places, data.mapPlaces || []) },
-      { type:"experience", title:"Esperienze", action:"Fatte", view:"experiences", items:data.experiences || [] },
+      { type:"experience", title:"Attività", action:"Fatte", view:"experiences", items:data.experiences || [] },
       { type:"food", title:"Cibi", action:"Provati", view:"food", items:data.foods },
       // Gli acquisti restano fuori dai progressi: cosa si compra è una faccenda
       // personale e non ha senso trasformarla in una percentuale condivisa.
@@ -2021,14 +2736,15 @@
 
   const searchGroups = [
     { key: "place", label: "Luoghi" },
-    { key: "experience", label: "Esperienze" },
+    { key: "experience", label: "Attività" },
     { key: "food", label: "Cibo" },
     { key: "shop", label: "Acquisti" },
+    { key: "merchant", label: "Negozianti" },
     { key: "history", label: "Storie" }
   ];
 
   function searchCatalog() {
-    return [].concat(data.places, data.mapPlaces || [], data.experiences || [], data.foods, data.shopping, data.history);
+    return [].concat(data.places, data.mapPlaces || [], data.experiences || [], data.foods, data.shopping, data.merchants || [], data.history);
   }
 
   // Un nome che è esattamente quello cercato vale più di una descrizione che lo
@@ -2058,7 +2774,7 @@
     const normalized = normalize(query.trim());
     const converter = converterHTML(query);
     if (normalized.length < 2) {
-      container.innerHTML = converter || '<p class="search-hint">Cerca in tutta la guida: luoghi, esperienze, piatti, acquisti, storie e frasi. Scrivi un numero per convertirlo in euro.</p>';
+      container.innerHTML = converter || '<p class="search-hint">Cerca in tutta la guida: luoghi, attività, piatti, acquisti, storie e frasi. Scrivi un numero per convertirlo in euro.</p>';
       return;
     }
     const found = searchCatalog().filter(function (item) { return itemHaystack(item).includes(normalized); });
@@ -2072,7 +2788,7 @@
     });
 
     // I gruppi si ordinano per quanto è buono il loro miglior risultato, non per
-    // ordine di catalogo: cercando "ramen", sette esperienze che nominano il
+    // ordine di catalogo: cercando "ramen", sette attività che nominano il
     // ramen di sfuggita stavano davanti al piatto che si chiama proprio così.
     const ordered = searchGroups.slice().sort(function (a, b) {
       return bestScore(byType[b.key], normalized) - bestScore(byType[a.key], normalized);
@@ -2462,7 +3178,7 @@
   }
 
   // Ogni punto "visit" della mappa porta un guideId verso la sua scheda: è il
-  // solo posto in cui luoghi ed esperienze hanno delle coordinate.
+  // solo posto in cui luoghi e attività hanno delle coordinate.
   const coordsByGuideId = (function () {
     const index = {};
     ((window.JAPAN_MAP_DATA && window.JAPAN_MAP_DATA.points) || []).forEach(function (point) {
@@ -2530,14 +3246,6 @@
         });
       });
     });
-  }
-
-  function setupExperienceVideos() {
-    const grid = document.getElementById("videoGuideGrid");
-    if (!grid) return;
-    grid.innerHTML = (data.videoGuides || []).map(function (video) {
-      return '<a class="video-guide-card" href="' + escapeHTML(video.url) + '" target="_blank" rel="noopener"><span>▶</span><div><small>' + escapeHTML(video.author) + '</small><h3>' + escapeHTML(video.title) + '</h3><p>' + escapeHTML(video.note) + '</p></div></a>';
-    }).join("");
   }
 
   function loadExternalScript(src) {
@@ -2717,6 +3425,28 @@
     toastTimer = setTimeout(function () { toast.classList.remove("is-visible", "has-action"); }, undoLabel ? 6000 : 1800);
   }
 
+  // Tutto quello che l'app scrive su questo telefono. Elencate una per una e non
+  // cancellando l'intero localStorage: il dominio può ospitare altro, e quello
+  // che non è nostro non si tocca.
+  const STORAGE_KEYS = [
+    "tabi-favorites", "tabi-done", "tabi-hidden-v1", "tabi-itineraries-v1", "tabi-itinerary-active-v1",
+    "tabi-current-city", "tabi-notes-v1", "tabi-packing", "tabi-packing-qty-v1", "tabi-local-profile",
+    "tabi-nav-hidden", "tabi-weather", "tabi-jpy-rate", "tabi-jpy-rate-auto", "tabi-image-cache-v4",
+    "tabi-facilities-v4", "tabi-cache-ready", "tabi-merchants-start-hidden"
+  ];
+
+  // Un solo tasto per rimettere l'app come appena installata: serve a chi ha
+  // pasticciato e non sa più quale delle dieci liste sistemare. Si chiede
+  // conferma perché non c'è modo di tornare indietro — l'Annulla dei toast qui
+  // non basterebbe.
+  function resetEverything() {
+    if (!window.confirm("Sei sicuro?\n\nCancelli da questo telefono itinerari e percorsi, spunte di visita, preferiti, note, valigia, selezione della mappa e dati salvati. L'app torna come appena installata e non si può annullare.")) return;
+    STORAGE_KEYS.forEach(function (key) { localStorage.removeItem(key); });
+    // Si ricarica invece di rimettere a mano venti pezzi di stato: dopo un
+    // azzeramento la pagina appena aperta è la definizione stessa di "come nuova".
+    window.location.href = window.location.pathname;
+  }
+
   function setupEvents() {
     document.addEventListener("click", function (event) {
       const navMenu = event.target.closest("[data-nav-menu]");
@@ -2732,9 +3462,14 @@
         switchView(view);
         return;
       }
+      const resetAll = event.target.closest("[data-reset-all]");
+      if (resetAll) {
+        resetEverything();
+        return;
+      }
       const resetProgress = event.target.closest("[data-reset-progress]");
       if (resetProgress) {
-        if (!window.confirm("Cancellare tutte le spunte di luoghi, esperienze, cibi, acquisti e storie su questo dispositivo? I preferiti resteranno salvati.")) return;
+        if (!window.confirm("Cancellare tutte le spunte di luoghi, attività, cibi, acquisti e storie su questo dispositivo? I preferiti resteranno salvati.")) return;
         state.done.clear();
         saveState();
         renderPlaces();
@@ -2784,6 +3519,56 @@
         }, 120);
         return;
       }
+      const itineraryApply = event.target.closest("[data-itinerary-apply]");
+      if (itineraryApply) {
+        applyItinerary(itineraryApply.dataset.itineraryApply, itineraryApply.dataset.itineraryRoute || "");
+        return;
+      }
+      const itinerarySync = event.target.closest("[data-itinerary-sync]");
+      if (itinerarySync) {
+        syncFromMap(itinerarySync.dataset.itinerarySync, "");
+        return;
+      }
+      const itineraryDelete = event.target.closest("[data-itinerary-delete]");
+      if (itineraryDelete) {
+        removeItinerary(itineraryDelete.dataset.itineraryDelete);
+        return;
+      }
+      const routeApply = event.target.closest("[data-route-apply]");
+      if (routeApply) {
+        applyItinerary(routeApply.dataset.itinerary, routeApply.dataset.routeApply);
+        return;
+      }
+      const routeSync = event.target.closest("[data-route-sync]");
+      if (routeSync) {
+        syncFromMap(routeSync.dataset.itinerary, routeSync.dataset.routeSync);
+        return;
+      }
+      const routeDelete = event.target.closest("[data-route-delete]");
+      if (routeDelete) {
+        removeRoute(routeDelete.dataset.itinerary, routeDelete.dataset.routeDelete);
+        return;
+      }
+      const routeCreate = event.target.closest("[data-route-create]");
+      if (routeCreate) {
+        createRoute(routeCreate.dataset.routeCreate);
+        return;
+      }
+      const autoRoutesGps = event.target.closest("[data-itinerary-autoroute-gps]");
+      if (autoRoutesGps) {
+        createAutoRoutesFromGps(autoRoutesGps.dataset.itineraryAutorouteGps);
+        return;
+      }
+      const autoRoutes = event.target.closest("[data-itinerary-autoroute]");
+      if (autoRoutes) {
+        createAutoRoutes(autoRoutes.dataset.itineraryAutoroute, null);
+        return;
+      }
+      const stopRemove = event.target.closest("[data-stop-remove]");
+      if (stopRemove) {
+        removeStop(stopRemove.dataset.itinerary, stopRemove.dataset.route || "", stopRemove.dataset.stopRemove);
+        return;
+      }
       const showMore = event.target.closest("[data-show-more]");
       if (showMore) {
         const gridId = showMore.dataset.showMore;
@@ -2798,12 +3583,26 @@
         setAllSelected(hide ? selectAll.dataset.selectNone : selectAll.dataset.selectAll, hide);
         return;
       }
+      const savedToggle = event.target.closest("[data-saved-toggle]");
+      if (savedToggle) {
+        toggleSavedRow(savedToggle.dataset.savedToggle, savedToggle);
+        return;
+      }
+      const savedType = event.target.closest("[data-saved-type]");
+      if (savedType) {
+        state.savedType = savedType.dataset.savedType;
+        renderSaved();
+        return;
+      }
       const action = event.target.closest("[data-action]");
       if (action) {
         if (action.dataset.action === "favorite") toggleFavorite(action.dataset.id);
         if (action.dataset.action === "done") toggleDone(action.dataset.id);
         if (action.dataset.action === "details") showDetails(action.dataset.id);
         if (action.dataset.action === "select") toggleSelected(action.dataset.id);
+        // La ✕ dei salvati toglie davvero la riga: senza questo restava a
+        // schermo, svuotata, fino al rientro nella schermata.
+        if (action.classList.contains("saved-remove")) renderSaved();
         return;
       }
       const chip = event.target.closest("[data-category]");
@@ -2812,6 +3611,15 @@
         document.getElementById("shopCategory").value = chip.dataset.category;
         renderShopping();
         updateFilterToggle("shop");
+        return;
+      }
+      const tradeChip = event.target.closest("[data-merchant-category]");
+      if (tradeChip) {
+        state.filters.merchant.category = tradeChip.dataset.merchantCategory;
+        document.getElementById("merchantCategory").value = tradeChip.dataset.merchantCategory;
+        resetPaging("merchantGrid");
+        renderMerchants();
+        updateFilterToggle("merchant");
         return;
       }
       const phraseChip = event.target.closest("[data-phrase-category]");
@@ -2874,7 +3682,7 @@
         window.location.reload();
       });
       window.addEventListener("load", function () {
-        navigator.serviceWorker.register("sw.js?v=20260804z", { updateViaCache: "none" }).then(function (registration) {
+        navigator.serviceWorker.register("sw.js?v=20260808a", { updateViaCache: "none" }).then(function (registration) {
           registration.update();
         });
       });
@@ -2917,6 +3725,8 @@
   }
 
   function init() {
+    pruneUnselectableHidden();
+    hideMerchantsOnFirstRun();
     setupImages();
     setupFilters();
     setupBackButtons();
@@ -2925,7 +3735,6 @@
     setupCurrentCity();
     setupCategoryRail();
     setupPhrasebook();
-    setupExperienceVideos();
     setupPhotoTranslator();
     setupEmergencyLocation();
     setupEvents();
@@ -2940,6 +3749,7 @@
     setupPacking();
     setupNotes();
     setupReadyPanel();
+    setupItineraries();
     // Le griglie non si disegnano più qui: ci pensa switchView alla prima
     // apertura di ogni schermata.
     updateProgress();

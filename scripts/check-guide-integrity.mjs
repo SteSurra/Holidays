@@ -11,6 +11,7 @@ const dataFiles = [
   "assets/history-data.js",
   "assets/phrases-data.js",
   "assets/map-data.js",
+  "assets/merchants-data.js",
   "assets/experiences-data.js",
   "assets/source-data.js",
   "assets/guide-data.js"
@@ -23,7 +24,7 @@ for (const file of dataFiles) {
 const data = context.window.JAPAN_DATA;
 const mapPoints = context.window.JAPAN_MAP_DATA.points;
 const failures = [];
-const catalogs = [data.places, data.mapPlaces, data.experiences, data.foods, data.shopping, data.history];
+const catalogs = [data.places, data.mapPlaces, data.experiences, data.foods, data.shopping, data.history, data.merchants];
 const allItems = catalogs.flat();
 
 function reportDuplicates(values, label) {
@@ -55,6 +56,26 @@ for (const point of mapPoints) {
   if (!Number.isFinite(point.lat) || !Number.isFinite(point.lng)) failures.push(`${point.id}: invalid coordinates`);
   if (point.type === "visit" && !point.guideId) failures.push(`${point.id}: missing detail guide link`);
   if (point.guideId && !allItems.some((item) => item.id === point.guideId)) failures.push(`${point.id}: unknown guide link ${point.guideId}`);
+}
+
+// Un luogo o un'esperienza senza punto sulla mappa non ha il quadratino per
+// metterlo o toglierlo, quindi resta fuori da "seleziona tutti". Succedeva senza
+// accorgersene: il punto "Animate Akihabara" si agganciava alla scheda del
+// quartiere e lasciava il negozio senza. Chi ne aggiunge uno nuovo deve
+// decidere: dargli delle coordinate, oppure metterlo qui e dire perché.
+const placelessOnPurpose = new Map([
+  ["place-shirakawago-viewpoint", "stesso belvedere di experience-shirakawago-shiroyama-walk, che porta il punto"],
+  ["experience-tokyo-karaoke", "catene sparse per la citta, nessun indirizzo unico"],
+  ["experience-tokyo-kintsugi-workshop", "si tiene in sedi diverse a seconda del corso"],
+  ["experience-tokyo-street-kart", "operatori con garage multipli, nessuna sede unica"]
+]);
+const mappedGuideIds = new Set(mapPoints.map((point) => point.guideId).filter(Boolean));
+for (const item of [...data.places, ...data.mapPlaces, ...data.experiences]) {
+  if (mappedGuideIds.has(item.id) || placelessOnPurpose.has(item.id)) continue;
+  failures.push(`${item.id}: no map point, so its card has no map checkbox — add coordinates or record the reason in placelessOnPurpose`);
+}
+for (const id of placelessOnPurpose.keys()) {
+  if (mappedGuideIds.has(id)) failures.push(`${id}: now has a map point, drop it from placelessOnPurpose`);
 }
 
 for (const item of [...data.foods, ...data.shopping]) {
@@ -91,7 +112,8 @@ const cityKeyedFiles = [
   "assets/food-extra-data.js",
   "assets/history-data.js",
   "assets/shopping-data.js",
-  "assets/experiences-data.js"
+  "assets/experiences-data.js",
+  "assets/merchants-data.js"
 ];
 for (const file of cityKeyedFiles) {
   const dropped = new Map();
@@ -107,9 +129,55 @@ for (const file of cityKeyedFiles) {
   }
 }
 
+// I negozianti portano un voto che non è nostro. La regola è una sola e va
+// verificata: un numero senza la fonte che lo ha prodotto non deve esistere,
+// perché a schermo diventerebbe indistinguibile da un giudizio della guida.
+const merchants = data.merchants || [];
+const merchantCategories = new Set(Object.keys(data.labels.merchantCategories || {}));
+reportDuplicates(merchants.map((item) => item.id), "merchant id");
+if (!merchants.length) failures.push("merchants catalogue is empty");
+if (!data.merchantRatingChecked) failures.push("merchants: missing the date the ratings were read");
+for (const item of merchants) {
+  if (!item.name || !item.description || !item.tip || !item.area) failures.push(`${item.id}: incomplete merchant card`);
+  if (!merchantCategories.has(item.category)) failures.push(`${item.id}: unknown merchant trade ${item.category}`);
+  if (!cityIds.has(item.city)) failures.push(`${item.id}: unknown city ${item.city}`);
+  if (!item.imageQuery) failures.push(`${item.id}: missing image query`);
+  if (item.rating && !item.ratingSource) failures.push(`${item.id}: rating without a source`);
+  if (item.ratingSource && !item.rating) failures.push(`${item.id}: rating source without a rating`);
+  if (item.rating && (item.rating < 1 || item.rating > 5)) failures.push(`${item.id}: rating outside the Tabelog scale`);
+  if (item.ratingUrl && !/^https:\/\//.test(item.ratingUrl)) failures.push(`${item.id}: invalid rating link`);
+}
+// La promessa della schermata è "tre o quattro nomi per mestiere": un mestiere
+// con due sole schede non è una selezione. Il conto è sul mestiere, non sulla
+// singola città — a Nara esiste un solo produttore storico di inchiostro e va
+// bene così — ma un mestiere presente in una città sola sarebbe una curiosità
+// locale travestita da categoria.
+// Un negozio conta per il mestiere principale e per quelli in cui compare di
+// rimbalzo: la schermata dei vestiti mostra anche i grandi magazzini, quindi
+// "vestiti" non è una curiosità di una città sola solo perché le boutique
+// stanno tutte a Tokyo.
+const tradesOf = (item) => [item.category].concat(item.extraCategories || []);
+const perTrade = new Map();
+for (const item of merchants) {
+  for (const trade of tradesOf(item)) {
+    if (!perTrade.has(trade)) perTrade.set(trade, new Set());
+    perTrade.get(trade).add(item.city);
+  }
+}
+for (const trade of merchantCategories) {
+  const cities = perTrade.get(trade);
+  const count = merchants.filter((item) => tradesOf(item).includes(trade)).length;
+  if (count < 3) failures.push(`${trade}: only ${count} merchant(s) — the screen promises three or four per trade`);
+  if (!cities || cities.size < 2) failures.push(`${trade}: present in a single city — it is a local curiosity, not a trade`);
+}
+for (const city of ["tokyo", "kyoto", "osaka"]) {
+  const count = merchants.filter((item) => item.city === city).length;
+  if (count < 4) failures.push(`${city}: only ${count} merchant(s) for a main stop`);
+}
+
 if (failures.length) {
   console.error("Guide-integrity check failed:\n" + failures.map((item) => `- ${item}`).join("\n"));
   process.exit(1);
 }
 
-console.log(`Guide-integrity check passed: ${mapPoints.filter((point) => point.type === "visit").length} map points, ${data.places.length + data.mapPlaces.length} places, ${data.experiences.length} experiences, ${data.foods.length} foods, ${data.shopping.length} purchases, ${data.history.length} stories, ${data.phrases.length} phrases.`);
+console.log(`Guide-integrity check passed: ${mapPoints.filter((point) => point.type === "visit").length} map points, ${data.places.length + data.mapPlaces.length} places, ${data.experiences.length} experiences, ${data.foods.length} foods, ${data.shopping.length} purchases, ${data.history.length} stories, ${merchants.length} merchants, ${data.phrases.length} phrases.`);

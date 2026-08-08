@@ -4,17 +4,17 @@
   const data = window.JAPAN_DATA;
   const mapData = window.JAPAN_MAP_DATA;
   const sources = {
-    osaka: ["Osaka Info · Esperienze", "https://osaka-info.jp/en/spot/experience/"],
+    osaka: ["Osaka Info · Attività", "https://osaka-info.jp/en/spot/experience/"],
     nara: ["Visit Nara · Cose da fare", "https://www.visitnara.jp/see-and-do/"],
     miyajima: ["Miyajima Tourist Association", "https://www.miyajima.or.jp/english/"],
-    hiroshima: ["Dive Hiroshima · Esperienze", "https://dive-hiroshima.com/en/explore/?category=5"],
-    kyoto: ["Kyoto City Tourism · Esperienze", "https://kyoto.travel/en/experiences/"],
+    hiroshima: ["Dive Hiroshima · Attività", "https://dive-hiroshima.com/en/explore/?category=5"],
+    kyoto: ["Kyoto City Tourism · Attività", "https://kyoto.travel/en/experiences/"],
     kanazawa: ["Visit Kanazawa · Attività", "https://visitkanazawa.jp/en/activities/"],
     shirakawago: ["Shirakawa-go Tourist Association", "https://shirakawa-go.gr.jp/en/active/"],
-    takayama: ["Hida Takayama · Esperienze", "https://www.hida.jp/english/recreationandleisure/foodandculture/"],
+    takayama: ["Hida Takayama · Attività", "https://www.hida.jp/english/recreationandleisure/foodandculture/"],
     matsumoto: ["Visit Matsumoto", "https://visitmatsumoto.com/en/"],
-    nagano: ["Go Nagano · Esperienze", "https://www.go-nagano.net/en/trip-idea/things-to-do-around-nagano-city"],
-    tokyo: ["GO TOKYO · Esperienze", "https://www.gotokyo.org/en/experiences/index.html"],
+    nagano: ["Go Nagano · Attività", "https://www.go-nagano.net/en/trip-idea/things-to-do-around-nagano-city"],
+    tokyo: ["GO TOKYO · Attività", "https://www.gotokyo.org/en/experiences/index.html"],
     driving: ["JAF · Guidare in Giappone", "https://english.jaf.or.jp/driving-in-japan/drive-in-japan/switch-to-japanese-license"]
   };
 
@@ -227,26 +227,11 @@ tokyo|komazawa-park|Komazawa Olympic Park|駒沢オリンピック公園|nature|
       name: item.name,
       type: "visit",
       category: item.category === "museum" ? "museo" : "esperienza",
-      group: "Esperienze e attività",
+      group: "Attività",
       area: item.area,
       lat: item.lat,
       lng: item.lng,
       description: item.description
     });
   });
-
-  data.videoGuides = [
-    {
-      title: "Tutto il Giappone, un morso alla volta",
-      author: "Nicolò Balini",
-      note: "Un video da usare come ispirazione gastronomica e come allenamento alla densità di assaggi.",
-      url: "https://www.youtube.com/watch?v=9Y5diu0NPj8"
-    },
-    {
-      title: "Non è il solito viaggio in Giappone",
-      author: "Nicolò Balini",
-      note: "Un racconto meno da checklist e più da atmosfera, utile prima di partire ma non come fonte per orari o prenotazioni.",
-      url: "https://www.youtube.com/watch?v=JViLpf9VbJw"
-    }
-  ];
 })();

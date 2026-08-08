@@ -6,9 +6,9 @@
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#b6422e" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#14181a" media="(prefers-color-scheme: dark)">
-  <meta name="description" content="Guida di viaggio in Giappone con itinerario, mappa, luoghi, esperienze, cibo, acquisti e storie.">
+  <meta name="description" content="Guida di viaggio in Giappone con itinerario, mappa, luoghi, attività, cibo, acquisti e storie.">
   <title>Giappone 2026 | Tabi</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260805u">
+  <link rel="manifest" href="manifest.webmanifest?v=20260810b">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://commons.wikimedia.org">
@@ -18,9 +18,9 @@
   <link rel="preconnect" href="https://tile.openstreetmap.org">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Noto+Serif+JP:wght@500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="assets/styles.css?v=20260805u">
-  <link rel="icon" href="assets/icons/icon.svg?v=20260805u" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260805u">
+  <link rel="stylesheet" href="assets/styles.css?v=20260810b">
+  <link rel="icon" href="assets/icons/icon.svg?v=20260810b" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260810b">
 </head>
 <body>
   <a class="skip-link" href="#main">Vai al contenuto</a>
@@ -85,17 +85,22 @@
       <section class="map-panel" aria-labelledby="mapTitle">
         <h2 id="mapTitle" class="visually-hidden">Mappa del viaggio</h2>
         <div id="tripMap" role="application" aria-label="Mappa delle tappe del viaggio in Giappone"></div>
-        <div class="map-actions"><button id="locateButton" type="button">◎ La mia posizione</button><button id="lassoButton" type="button" aria-pressed="false">✎ Disegna un'area</button><button id="fitRouteButton" type="button">Inquadra il viaggio</button><button id="expandMapButton" type="button" aria-pressed="false">Espandi mappa</button><button id="layersButton" type="button" aria-expanded="false" aria-controls="mapLegend">◈ Livelli</button></div>
+        <div class="map-actions"><button id="locateButton" type="button">◎ La mia posizione</button><button id="lassoButton" type="button" aria-pressed="false">✎ Disegna un'area</button><button id="fitRouteButton" type="button">Inquadra il viaggio</button><button id="layersButton" type="button" aria-expanded="false" aria-controls="mapLegend">◈ Livelli</button><label class="map-select"><span class="visually-hidden">Itinerario sulla mappa</span><select id="mapItinerary" aria-label="Scegli l'itinerario da mettere sulla mappa"></select></label><label class="map-select" id="mapRouteBox" hidden><span class="visually-hidden">Percorso dell'itinerario</span><select id="mapRoute" aria-label="Scegli il percorso dell'itinerario"></select></label><button id="mapItineraryRestore" type="button" hidden>↺ Rimetti la selezione</button></div>
         <div class="lasso-bar"><p id="lassoStatus" role="status"></p><button id="lassoUseGpsButton" type="button" hidden>◎ Parti da dove sono</button><a id="lassoLink" class="lasso-link" target="_blank" rel="noopener" hidden>Apri il giro in Google Maps ↗</a></div>
         <div class="map-legend" id="mapLegend" aria-label="Legenda e filtri della mappa" hidden>
           <label><input type="checkbox" data-map-layer="visit" checked><i class="legend-dot visit"></i> Luoghi da visitare</label>
           <label><input type="checkbox" data-map-layer="tabelog"><i class="legend-dot tabelog"></i> Locali Tabelog</label>
           <label><input type="checkbox" data-map-layer="hotel" checked><i class="legend-dot hotel"></i> Hotel</label>
+          <label><input type="checkbox" data-map-layer="merchant"><i class="legend-dot merchant"></i> Negozianti</label>
           <label><input type="checkbox" data-map-layer="toilet"><i class="legend-dot toilet"></i> WC pubblici</label>
           <label><input type="checkbox" data-map-layer="water"><i class="legend-dot water"></i> Fontanelle</label>
           <label><input type="checkbox" data-map-layer="konbini"><i class="legend-dot konbini"></i> Konbini</label>
+          <label><input type="checkbox" data-map-layer="hospital"><i class="legend-dot hospital"></i> Ospedali</label>
+          <label><input type="checkbox" data-map-layer="station"><i class="legend-dot station"></i> Stazioni ferroviarie</label>
+          <label><input type="checkbox" data-map-layer="subway"><i class="legend-dot subway"></i> Metro, linea per linea</label>
+          <div class="subway-legend" id="subwayLegend" aria-label="Linee della metropolitana visibili" hidden></div>
           <p class="facility-status" id="facilityStatus" role="status" hidden></p>
-          <span>Locali Tabelog, WC, fontanelle e konbini partono spenti: accendili quando ti servono. Il punteggio Tabelog è quello del giorno della selezione e nel punto trovi il collegamento alla scheda con voto aggiornato, orari e prenotazione; WC, fontanelle e konbini arrivano da OpenStreetMap, si scaricano al primo tocco e si vedono solo da vicino.</span>
+          <span>Locali Tabelog, negozianti, WC, fontanelle, konbini, ospedali, stazioni e metro partono spenti: accendili quando ti servono. I negozianti partono anche tolti dalla mappa uno per uno — accendi il livello e poi rimetti quelli che ti interessano, così non ti ritrovi cento insegne addosso. Il punteggio Tabelog è quello del giorno della selezione e nel punto trovi il collegamento alla scheda con voto aggiornato, orari e prenotazione; il resto arriva da OpenStreetMap, si scarica per la zona che stai guardando e si vede solo da vicino. Ogni fermata della metro porta la lettera e il colore ufficiale della sua linea.</span>
         </div>
         <p class="helper-note">Nei punti puoi leggere i dettagli, segnare la visita o avviare Google Maps. <span id="mapSelectionCount"></span></p>
       </section>
@@ -115,26 +120,22 @@
 
     <section class="view" id="experiences" data-view="experiences">
       <div class="page-intro experiences-intro">
-        <p class="eyebrow">Non soltanto guardare</p><h1>Esperienze</h1>
+        <p class="eyebrow">Non soltanto guardare</p><h1>Attività</h1>
         <p>Musei, laboratori, spettacoli, parchi, bagni, sport e attività insolite nelle sole tappe del viaggio.</p>
       </div>
       <div class="toolbar sticky-toolbar" data-filter-group="experience">
         <label class="search-box"><span aria-hidden="true">⌕</span><input id="experienceSearch" type="search" placeholder="Cerca museo, laboratorio o attività…" autocomplete="off"></label>
         <button class="filter-toggle" type="button" data-filter-toggle="experience" aria-expanded="false">Filtri <span>0</span></button>
-        <select id="experienceCity" aria-label="Filtra esperienze per città"></select>
-        <select id="experienceCategory" aria-label="Filtra esperienze per tipologia"></select>
-        <select id="experienceSetting" aria-label="Filtra esperienze per ambiente"></select>
+        <select id="experienceCity" aria-label="Filtra attività per città"></select>
+        <select id="experienceCategory" aria-label="Filtra attività per tipologia"></select>
+        <select id="experienceSetting" aria-label="Filtra attività per ambiente"></select>
         <label class="toggle"><input type="checkbox" data-nearby="experience"><span>Vicino a me</span></label>
-        <div class="select-scope" data-select-scope="experience" aria-label="Metti o togli dalla mappa le esperienze mostrate"></div>
+        <div class="select-scope" data-select-scope="experience" aria-label="Metti o togli dalla mappa le attività mostrate"></div>
         <button class="filter-reset" type="button" data-filter-reset="experience">Azzera filtri</button>
       </div>
       <div class="results-meta" id="experienceMeta"></div>
       <div class="card-grid experience-grid" id="experienceGrid"></div>
-      <div class="empty-state" id="experienceEmpty" hidden><strong>Nessuna esperienza trovata.</strong><span>Prova a cambiare i filtri.</span></div>
-      <section class="video-guides" aria-labelledby="videoGuideTitle">
-        <div class="section-heading compact"><div><p class="eyebrow">Video-appunti</p><h2 id="videoGuideTitle">Ispirazione prima di partire</h2></div><span class="hint">Non sostituiscono le fonti ufficiali</span></div>
-        <div class="video-guide-grid" id="videoGuideGrid"></div>
-      </section>
+      <div class="empty-state" id="experienceEmpty" hidden><strong>Nessuna attività trovata.</strong><span>Prova a cambiare i filtri.</span></div>
     </section>
 
     <section class="view" id="history" data-view="history">
@@ -190,6 +191,45 @@
       <div class="empty-state" id="shopEmpty" hidden><strong>Nessun acquisto trovato.</strong><span>Prova a cambiare i filtri.</span></div>
     </section>
 
+    <section class="view" id="merchants" data-view="merchants">
+      <div class="page-intro merchants-intro">
+        <p class="eyebrow">Chi vende una cosa sola, e la fa meglio degli altri</p><h1>Negozianti</h1>
+        <p>Dalle gelaterie ai grandi magazzini: mochi, tè, carte, coltelli, elettronica, vestiti, cartoleria, artigianato e negozi che non ti aspetti, città per città. Dove il voto esiste è quello di Tabelog letto il giorno scritto sulla scheda; quello di oggi è sempre a un tocco. Sulla mappa partono tutti spenti: accendi il quadratino di quelli che ti interessano e compariranno accanto ai luoghi.</p>
+      </div>
+      <div class="toolbar sticky-toolbar" data-filter-group="merchant">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="merchantSearch" type="search" placeholder="Cerca negozio, dolce o mestiere…" autocomplete="off"></label>
+        <button class="filter-toggle" type="button" data-filter-toggle="merchant" aria-expanded="false">Filtri <span>0</span></button>
+        <select id="merchantCity" aria-label="Filtra negozianti per città"></select>
+        <select id="merchantCategory" aria-label="Filtra negozianti per mestiere"></select>
+        <label class="toggle"><input id="merchantOdd" type="checkbox"><span>Solo i particolari</span></label>
+        <div class="select-scope" data-select-scope="merchant" aria-label="Metti o togli dalla mappa i negozianti mostrati"></div>
+        <button class="filter-reset" type="button" data-filter-reset="merchant">Azzera filtri</button>
+      </div>
+      <div class="category-rail" id="merchantCategoryRail"></div>
+      <div class="results-meta" id="merchantMeta"></div>
+      <div class="card-grid merchant-grid" id="merchantGrid"></div>
+      <div class="empty-state" id="merchantEmpty" hidden><strong>Nessun negoziante trovato.</strong><span>Prova a cambiare città o mestiere.</span></div>
+      <p class="helper-note merchant-note" id="merchantSourceNote"></p>
+    </section>
+
+    <section class="view" id="itineraries" data-view="itineraries">
+      <div class="page-intro itinerary-intro">
+        <p class="eyebrow">Decidere la sera prima, camminare il giorno dopo</p><h1>Itinerari</h1>
+        <p>Un itinerario è una selezione salvata: gli dai un nome, lo leghi a una tappa e la mappa che avevi preparato resta lì, anche dopo che ne hai fatta un'altra. Dentro ogni itinerario puoi ritagliare uno o più percorsi — la mattina, il giro dei templi, l'ultima sera — e accenderli uno alla volta.</p>
+      </div>
+      <section class="itinerary-new" aria-labelledby="itineraryNewTitle">
+        <div><p class="eyebrow">Nuovo</p><h2 id="itineraryNewTitle">Salva quello che c'è ora sulla mappa</h2><p>Prepara la selezione in Mappa, poi dalle un nome qui: l'itinerario fotografa i luoghi accesi della tappa che scegli, e li rimette quando lo riapri.</p></div>
+        <div class="itinerary-fields">
+          <input id="itineraryName" type="text" maxlength="60" placeholder="Es. Kyoto in tre giorni">
+          <select id="itineraryCity" aria-label="Tappa dell'itinerario"></select>
+          <button id="itineraryCreate" type="button">Crea itinerario</button>
+        </div>
+        <p class="helper-note" id="itineraryHint"></p>
+      </section>
+      <div class="itinerary-list" id="itineraryList"></div>
+      <div class="empty-state" id="itineraryEmpty" hidden><strong>Ancora nessun itinerario.</strong><span>Scegli una tappa qui sopra e dagli un nome.</span></div>
+    </section>
+
     <section class="view" id="progress" data-view="progress">
       <div class="page-intro progress-intro">
         <p class="eyebrow">Il viaggio prende forma</p><h1>Progressi</h1>
@@ -216,6 +256,7 @@
         <p class="helper-note">Esporta la checklist da un telefono e importala sugli altri per unire preferiti e attività completate.</p>
       </section>
       <div class="saved-summary" id="savedSummary"></div>
+      <div class="category-rail" id="savedTypeRail" aria-label="Filtra i salvati per tipo"></div>
       <div class="saved-sections" id="savedSections"></div>
     </section>
 
@@ -355,7 +396,7 @@
   <dialog class="detail-dialog" id="detailDialog"><button class="dialog-close" type="button" aria-label="Chiudi">×</button><div id="dialogContent"></div></dialog>
   <dialog class="nav-menu-dialog" id="navMenuDialog">
     <button class="nav-menu-close" type="button" aria-label="Chiudi menu">×</button>
-    <div data-nav-panel="discover"><p class="eyebrow">Scopri il Giappone</p><h2>Cosa vuoi esplorare?</h2><div class="nav-menu-grid"><button data-go="experiences">☆ <span>Esperienze<small>Musei, attività e cose insolite</small></span></button><button data-go="food">○ <span>Cibo<small>Piatti, bevande e street food</small></span></button><button data-go="shopping">◇ <span>Acquisti<small>Artigianato, beauty, manga e tech</small></span></button><button data-go="history">文 <span>Storie<small>Contesto, architettura e aneddoti</small></span></button></div></div>
+    <div data-nav-panel="discover"><p class="eyebrow">Scopri il Giappone</p><h2>Cosa vuoi esplorare?</h2><div class="nav-menu-grid"><button data-go="experiences">☆ <span>Attività<small>Musei, laboratori e cose insolite</small></span></button><button data-go="food">○ <span>Cibo<small>Piatti, bevande e street food</small></span></button><button data-go="merchants">店 <span>Negozianti<small>I migliori per mestiere, città per città</small></span></button><button data-go="shopping">◇ <span>Acquisti<small>Artigianato, beauty, manga e tech</small></span></button><button data-go="history">文 <span>Storie<small>Contesto, architettura e aneddoti</small></span></button></div></div>
     <div data-nav-panel="tools" hidden><p class="eyebrow">Utilità rapide</p><h2>Cosa ti serve adesso?</h2>
       <div class="quick-rate">
         <label for="quickYen">Quanto costa in euro?</label>
@@ -363,7 +404,8 @@
         <p class="helper-note" id="quickYenNote"></p>
         <button class="quick-rate-guide" type="button" data-go="money">Monete e banconote →</button>
       </div>
-      <div class="nav-menu-grid"><button data-go="emergency">! <span>Emergenze<small>Numeri, frasi e posizione</small></span></button><button data-go="progress">✓ <span>Progressi<small>Cosa avete già visto e provato</small></span></button><button data-go="packing">🧳 <span>Cosa portare<small>Lista valigia da spuntare</small></span></button><button data-go="notes">✎ <span>Note<small>Appunti salvati sul telefono</small></span></button><button data-go="saved">♡ <span>Salvati<small>Preferiti e checklist di gruppo</small></span></button></div></div>
+      <div class="nav-menu-grid"><button data-go="itineraries">⌥ <span>Itinerari<small>Selezioni salvate e percorsi per tappa</small></span></button><button data-go="emergency">! <span>Emergenze<small>Numeri, frasi e posizione</small></span></button><button data-go="progress">✓ <span>Progressi<small>Cosa avete già visto e provato</small></span></button><button data-go="packing">🧳 <span>Cosa portare<small>Lista valigia da spuntare</small></span></button><button data-go="notes">✎ <span>Note<small>Appunti salvati sul telefono</small></span></button><button data-go="saved">♡ <span>Salvati<small>Preferiti e checklist di gruppo</small></span></button></div>
+      <button class="nav-menu-reset" type="button" data-reset-all>⟲ <span>Riporta l'app come nuova<small>Cancella itinerari, spunte, preferiti, note e valigia da questo telefono</small></span></button></div>
   </dialog>
   <dialog class="speech-dialog" id="speechDialog" aria-labelledby="speechDialogTitle">
     <button class="dialog-close" type="button" aria-label="Chiudi">×</button>
@@ -380,22 +422,24 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script src="assets/data.js?v=20260805u" defer></script>
-  <script src="assets/food-data.js?v=20260805u" defer></script>
-  <script src="assets/shopping-data.js?v=20260805u" defer></script>
-  <script src="assets/food-extra-data.js?v=20260805u" defer></script>
-  <script src="assets/travel-data.js?v=20260805u" defer></script>
-  <script src="assets/history-data.js?v=20260805u" defer></script>
-  <script src="assets/phrases-data.js?v=20260805u" defer></script>
-  <script src="assets/glossary-data.js?v=20260805u" defer></script>
-  <script src="assets/packing-data.js?v=20260805u" defer></script>
-  <script src="assets/money-data.js?v=20260805u" defer></script>
-  <script src="assets/day-tips-data.js?v=20260805u" defer></script>
-  <script src="assets/map-data.js?v=20260805u" defer></script>
-  <script src="assets/experiences-data.js?v=20260805u" defer></script>
-  <script src="assets/source-data.js?v=20260805u" defer></script>
-  <script src="assets/guide-data.js?v=20260805u" defer></script>
-  <script src="assets/map.js?v=20260805u" defer></script>
-  <script src="assets/app.js?v=20260805u" defer></script>
+  <script src="assets/data.js?v=20260810b" defer></script>
+  <script src="assets/food-data.js?v=20260810b" defer></script>
+  <script src="assets/shopping-data.js?v=20260810b" defer></script>
+  <script src="assets/food-extra-data.js?v=20260810b" defer></script>
+  <script src="assets/travel-data.js?v=20260810b" defer></script>
+  <script src="assets/history-data.js?v=20260810b" defer></script>
+  <script src="assets/phrases-data.js?v=20260810b" defer></script>
+  <script src="assets/glossary-data.js?v=20260810b" defer></script>
+  <script src="assets/packing-data.js?v=20260810b" defer></script>
+  <script src="assets/money-data.js?v=20260810b" defer></script>
+  <script src="assets/day-tips-data.js?v=20260810b" defer></script>
+  <script src="assets/map-data.js?v=20260810b" defer></script>
+  <script src="assets/merchants-data.js?v=20260810b" defer></script>
+  <script src="assets/transit-data.js?v=20260810b" defer></script>
+  <script src="assets/experiences-data.js?v=20260810b" defer></script>
+  <script src="assets/source-data.js?v=20260810b" defer></script>
+  <script src="assets/guide-data.js?v=20260810b" defer></script>
+  <script src="assets/map.js?v=20260810b" defer></script>
+  <script src="assets/app.js?v=20260810b" defer></script>
 </body>
 </html>

@@ -42,6 +42,22 @@ Cover craftsmanship, pantry, home and kitchen, textiles, stationery, beauty, fas
 
 For each shopping item, generate or store guide sections for: why to seek it locally, recognition, where to look, actual scarcity, compatibility and baggage, purchase strategy, and a memorable note. Phrase availability as `domestic-market`, `local edition`, `limited distribution`, or `harder to find in the user's home market`; avoid unsupported absolute claims.
 
+## Merchant
+
+`id`, `type: "merchant"`, `city`, `trade`, `name`, `local_name`, `area`, `description`, `tip`, `rating`, `rating_source`, `rating_url`, `rating_checked`, `image_query`, `flags`.
+
+A merchant is a shopkeeper, not a shop category: someone who sells one thing and is known for doing it better than the rest. Group merchants by *trade*, and derive the trades from what the destination is actually famous for rather than from a generic retail taxonomy — ice cream, rice cakes, trading cards, knives, ink, gold leaf, rice paddles. Aim for three or four per trade, chosen by rating or by being genuinely peculiar; mark the peculiar ones with a flag so the interface can filter to them.
+
+Ratings are the hard part and the place where a guide loses its credibility. Never write a number the interface cannot attribute. Store the score, the platform it came from, the date it was read, and, when a stable venue page exists, its URL. Render the number with its source and date, and put a link to the live page on every card, because a cached score drifts within weeks. When the platform does not cover a trade — restaurant sites do not list card shops — say so in the card and send the reader to a general maps listing instead of substituting a plausible number. A fabricated rating is worse than a missing one.
+
+## Saved Selection
+
+`id`, `name`, `city`, `created_at`, `selected: [item_id]`, `routes: [{ id, name, selected: [item_id] }]`.
+
+An itinerary is not a new structure: it is a named snapshot of the map selection the user already controls, bound to one stop. Creating one captures the currently visible mappable items of that city; applying one restores exactly those switches and leaves other cities untouched. Routes are the same idea one level down — a subset of the itinerary's own items, for a morning or an evening — and must be constrained to their parent: pruning the itinerary prunes its routes.
+
+Keep a single active pointer (`{ itinerary, route }`) and show it wherever the map is shown, not only inside the management screen. Compare the saved selection against the live one on every render and say plainly when they differ, offering both directions: restore the saved one, or overwrite it with what is on screen now. Reuse the existing walking-route builder for a route's external directions link, and state how many stops the external service actually accepted when it caps them.
+
 ## Remote Image
 
 Required runtime fields: stable item ID, meaningful alt text, local fallback, one primary query, two or more alternate queries, and cached resolution metadata containing URL, creator or source, license label, and landing-page URL.
@@ -64,7 +80,7 @@ Publish only city, hotel name when explicitly supplied for public use, neighborh
 
 ## Local Data
 
-When an optional device-only gallery is enabled, store personal photos as compressed blobs in IndexedDB. Store favorites, completion state, nickname, and group label in localStorage. Completion covers places, experiences, foods, shopping, and history and is summarized overall, by domain, and by city. Provide a confirmed one-click reset for completion state only. Export group progress as a versioned JSON document containing only stable item IDs and optional local labels.
+When an optional device-only gallery is enabled, store personal photos as compressed blobs in IndexedDB. Store favorites, completion state, nickname, group label, saved selections, and the active-selection pointer in localStorage. Completion covers places, experiences, foods, shopping, and history and is summarized overall, by domain, and by city. Provide a confirmed one-click reset for completion state only. Export group progress as a versioned JSON document containing only stable item IDs and optional local labels.
 
 ## Photo OCR
 
@@ -88,4 +104,8 @@ In shared-gallery mode, use authenticated users, a private object bucket, trip m
 - Progress totals equal the union of all five completion catalogs and survive reload on the same browser.
 - One action clears all completion state while preserving favorites, and map markers update immediately.
 - Place, experience, food, and history details expose their factual sources and do not reuse identical memorable notes.
+- Every merchant rating carries its source and the date it was read; no rating exists without one, and no trade is covered by a single card.
+- Saved selections restore exactly the items they captured, never touch other cities, and declare when the live selection has drifted from the stored one.
+- Every saved favourite or completed item can be expanded in place into the same photo, copy, detail table, and actions as its full card, built from the shared card helpers rather than a parallel implementation.
+- Transit layers resolve each metro stop to a specific line with its official colour, and fall back to a neutral marker instead of guessing when the line cannot be determined.
 - The service-worker cache lists every first-party runtime file.

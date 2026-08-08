@@ -19,10 +19,10 @@ i progressi non si sincronizzano fra due telefoni, ognuno ha i suoi.
 |---|---|
 | **Viaggio** | Dove sei oggi, la rotta, i trasferimenti, gli hotel |
 | **Mappa** | La mappa e l'elenco dei 163 luoghi |
-| **Scopri** | *menu* → Esperienze, Cibo, Acquisti, Storie |
+| **Scopri** | *menu* → Attività, Cibo, Negozianti, Acquisti, Storie |
 | **Parole** | Frasario con pronuncia |
 | **Traduci** | Fotografa un menu o un cartello |
-| **Utilità** | *menu* → Emergenze, Progressi, Contanti, Valigia, Note, Salvati |
+| **Utilità** | *menu* → Itinerari, Emergenze, Progressi, Contanti, Valigia, Note, Salvati |
 
 In alto: la **lente** cerca in tutta la guida, il **cuore** apre i salvati.
 
@@ -34,11 +34,11 @@ In alto: la **lente** cerca in tutta la guida, il **cuore** apre i salvati.
 
 Il menu a tendina in cima. Appena scegli la tappa in cui ti trovi:
 
-- compare il **meteo di oggi** con massima, minima e probabilità di pioggia;
+- compare il **meteo di oggi** con massima, minima, probabilità di pioggia e umidità;
 - compaiono i **promemoria della giornata**;
 - **tutte le liste si posizionano su quella città**. Aprendo *Cibo* trovi i
   piatti del posto in cui sei, non 212 piatti di tutto il Giappone. Vale anche
-  per luoghi, acquisti ed esperienze;
+  per luoghi, acquisti e attività;
 - la **mappa si apre su quella città** invece che sull'intero paese.
 
 Per tornare a vedere tutto: *Filtri → Azzera filtri*.
@@ -61,7 +61,12 @@ spiega la regola e porta alla pagina dell'isola che segna le due fasce buone.
 - **La rotta** — le 13 tappe in ordine, con nome giapponese, tipo (base,
   escursione, sosta) e come ci si arriva. Toccandone una si apre la mappa
   filtrata su quella città.
-- **I trasferimenti** — i sette spostamenti fra le basi, con mezzo e nota.
+- **I trasferimenti** — i nove spostamenti, dall'arrivo a Kansai fino al bus per
+  Haneda, con il mezzo e **le fermate da cui si parte e a cui si scende**. Ogni
+  fermata porta il nome giapponese sotto — quello da mostrare alla biglietteria
+  quando il nostro non basta — e si apre in Google Maps con un tocco: alla
+  stazione di Kanazawa l'autobus per Shirakawa-go parte dall'uscita ovest, e
+  saperlo prima vale più di cercarlo con lo zaino in spalla.
 - **Gli hotel** — le sette basi confermate, con quartiere, motivo della scelta e
   collegamento a Google Maps.
 
@@ -77,7 +82,6 @@ dice il tipo (torii per i santuari, tetto per i templi, montagna per la natura).
 | **◎ La mia posizione** | Puntino blu, **che continua a seguirti** mentre cammini |
 | **✎ Disegna un'area** | Attiva il lazo (§ 2.3) |
 | **Inquadra il viaggio** | Torna alla vista su tutto il Giappone |
-| **Espandi mappa** | Mappa a tutto schermo |
 | **◈ Livelli** | WC, fontanelle, konbini, ristoranti (§ 2.4) |
 
 ### 2.1 · Scegliere quali luoghi stanno sulla mappa
@@ -93,6 +97,12 @@ un tappeto di punti.
 
 Toccandolo il punto sparisce o riappare all'istante. La scheda resta comunque
 nell'elenco: non stai cancellando niente, stai solo decidendo cosa mostrare.
+
+Il quadratino manca solo dove non c'è un punto da mostrare: quattro schede in
+tutto, fra cui il karaoke e il laboratorio di kintsugi, che non hanno un
+indirizzo unico ma tante sedi in giro per la città. Quelle quattro **non si
+possono né togliere né rimettere**, e nemmeno *Deseleziona tutti* le tocca:
+restano sempre visibili, perché senza quadratino non avrebbero modo di tornare.
 
 Lo stesso comando è **dentro il riquadro che si apre toccando un punto sulla
 mappa**, insieme a *Segna visitato*, *Apri la guida completa* e *Raggiungi con
@@ -118,7 +128,7 @@ Le scelte restano salvate anche chiudendo l'app.
 ### 2.2 · Segnare un posto come visitato
 
 Sotto ogni scheda c'è **Segna visitato** — che diventa *Segna fatta* per le
-esperienze, *Segna provato* per i cibi, *Segna comprato* per gli acquisti,
+attività, *Segna provato* per i cibi, *Segna comprato* per gli acquisti,
 *Segna letta* per le storie. Lo stesso pulsante è nel riquadro dei punti sulla
 mappa e in fondo alla scheda dei dettagli. Per togliere la spunta, ripremilo.
 
@@ -177,14 +187,94 @@ Per uscire dal lazo senza disegnare, ripremi il pulsante.
   recensioni. Il numero sul punto è il voto **del giorno in cui è stato scelto**;
   nel riquadro c'è il collegamento alla scheda aggiornata con orari e
   prenotazione.
+- **Negozianti** — le botteghe della sezione *Negozianti*, con la loro tenda
+  rossa. Sono più di cento e partono **tutti spenti uno per uno**: accendi il
+  livello e poi rimetti sulla mappa quelli che ti interessano dal quadratino
+  della scheda, o con *Seleziona tutti* dopo aver filtrato per città. Valgono le
+  stesse regole dei luoghi: quadratino per metterli e toglierli, *Segna visitato*
+  per spuntarli.
 - **WC pubblici**, **Fontanelle**, **Konbini** — da OpenStreetMap.
+- **Ospedali** — la croce rossa. Si accende una volta sola in tutto il viaggio,
+  ed è quella volta che conta: se qualcuno sta male vedi subito quali sono i più
+  vicini e con un tocco parte Google Maps. I numeri da chiamare e le frasi per
+  il pronto soccorso stanno in *Utilità → Emergenze*.
+- **Stazioni ferroviarie** — il simbolo blu 鉄. Nel riquadro c'è la compagnia che
+  la gestisce: in Giappone la stessa stazione può appartenere a tre società
+  diverse, e i biglietti non si scambiano fra loro.
+- **Metro, linea per linea** — ogni fermata porta **la lettera e il colore
+  ufficiale della sua linea**: la M rossa è la Marunouchi a Tokyo e la Midosuji
+  a Osaka, la K verde è la Karasuma di Kyoto. Nelle stazioni di scambio trovi un
+  punto per ogni linea, come nella segnaletica vera. Sotto gli interruttori
+  compare la **legenda delle linee che stai guardando**, che a Tokyo sono tre o
+  quattro per isolato e non tredici.
 
-Due cose da sapere sui tre livelli di OpenStreetMap. La **prima volta** che ne
-accendi uno l'app scarica i dati e ci mette **una decina di secondi**: te lo
-scrive nel pannello. Dopo restano sul telefono e funzionano anche offline, che è
-quando servono davvero. E sono centinaia di punti minuscoli, **da lontano
-invisibili** sotto i pin delle tappe: per questo, se la mappa è larga, accendendo
-un livello l'app la stringe da sola sulla città in cui sei e te lo dice.
+La regola è una sola: **ti mostrano quello che c'è nella finestra che stai
+guardando**. Accendi l'interruttore e compare tutto quello che sta nella mappa
+in quel momento; **sposti la mappa e carica la zona nuova**, da solo, quando ti
+fermi. Il pannello dice quanti ne ha trovati: *«32 konbini in questa zona»*.
+
+Anche *«attorno a me»* si ottiene così: **◎ La mia posizione** porta la mappa su
+di te, e da lì la ricerca è di nuovo la finestra.
+
+Quello che hai scaricato **resta sul telefono** e funziona offline, che è quando
+serve davvero: tornare in una zona già vista non richiede nulla.
+
+**Quello che arriva si vede subito.** Ogni livello viene chiesto per conto suo,
+quindi se ne accendi tre non aspetti il più lento per vedere il primo: i konbini
+compaiono appena arrivano, e intanto il pannello scrive che cosa manca ancora —
+*«14 konbini in questa zona · cerco ancora WC e stazioni…»*. Se sposti la mappa
+mentre cerca, le richieste della finestra di prima si fermano e riparte su quella
+nuova. Quando un livello non riceve risposta il pannello lo dice con il suo nome,
+invece di scrivere zero come se non ci fosse niente.
+
+Una sola avvertenza: **da lontano non funziona**. Sopra mezzo Giappone il
+riquadro sarebbe enorme, quindi l'app te lo dice e aspetta — l'interruttore
+resta acceso, e appena ti avvicini carica da sola.
+
+---
+
+## 2.5 · Itinerari e percorsi
+
+Un **itinerario** è una selezione salvata. Prepari la mappa come vuoi — accendi
+i luoghi che ti interessano, spegni gli altri — poi in *Utilità → Itinerari* gli
+dai un nome e scegli la tappa. Da quel momento quella mappa resta lì, anche dopo
+che ne hai preparata un'altra, e la rimetti con un tocco su **Mettilo sulla
+mappa**.
+
+Dentro un itinerario stanno i **percorsi**: la stessa cosa un livello più sotto.
+Lasci sulla mappa solo le tappe di una mattina, scrivi il nome nel campo in fondo
+alla scheda — *Mattina a Higashiyama* — e **Aggiungi percorso**. Un percorso non
+può contenere luoghi che il suo itinerario non ha: se togli qualcosa
+dall'itinerario, sparisce anche dai percorsi.
+
+Su ogni itinerario e su ogni percorso c'è **Giro a piedi ↗**: apre Google Maps
+già ordinato nel giro più corto che tocca quelle tappe. Google ne accetta undici
+in tutto: se ne hai di più, il pulsante scrive quante ne ha prese e tiene le più
+vicine fra loro.
+
+Con più di undici luoghi conviene lasciar fare all'app: **Percorsi automatici**
+divide l'itinerario in giri già pronti da undici tappe l'uno, ognuno col suo link
+di Google Maps. *Per vicinanza* parte dal luogo più esterno e incatena i vicini;
+*da dove sono* parte dalla tua posizione, quindi il primo giro comincia sotto
+casa. Rigenerarli rifà solo i giri automatici: quelli che hai scritto a mano
+restano dove sono, e **Aggiorna con la mappa** continua a servire per i percorsi
+costruiti da te.
+
+Nell'elenco delle tappe, la **✕** su una tappa la toglie solo da lì: da quel
+percorso, o da quell'itinerario e dai suoi percorsi. Gli altri itinerari non se
+ne accorgono, e il luogo resta sulla mappa e nelle schede. Il **visitato**, al
+contrario, è uno solo per tutta l'app: quando lo segni da qualsiasi parte, la
+spunta compare su ogni itinerario in cui quella tappa appare.
+
+Nella barra sotto la mappa la tendina **itinerario** dice sempre quale stai
+guardando e te ne fa scegliere un altro; accanto compare quella dei suoi
+percorsi. Il primo elemento, *＋ Crea itinerario*, porta dritto alla schermata.
+Se nel frattempo hai acceso o spento qualcosa a mano, spunta **↺ Rimetti la
+selezione** per tornare a quello salvato — oppure **Aggiorna con la mappa**
+dentro la scheda, per salvare la versione nuova.
+
+Gli itinerari restano su questo telefono come tutto il resto. Cancellarne uno non
+tocca i luoghi: sparisce la lista, non le schede.
 
 ---
 
@@ -234,11 +324,30 @@ Quattro sezioni con la stessa struttura della mappa: ricerca, filtri, schede,
   altra cosa e altra scala.
 - **Acquisti** — 150 fra artigianato, cibo da portare a casa, beauty, manga e
   tecnologia, con dove si trovano e cosa guardare.
-- **Esperienze** — 100 fra musei, laboratori, onsen e corsi di cucina. Molte
+- **Attività** — 100 fra musei, laboratori, onsen e corsi di cucina. Molte
   hanno il collegamento per prenotare.
 - **Storie** — 83 pezzi corti di storia, architettura e aneddoti, per capire
   cosa stai guardando. Ognuna ha un **Da ricordare** con la cosa da tenere a
   mente.
+- **Negozianti** — 108 nomi divisi per mestiere: gelaterie, mochi e dolci, tè e
+  sake, carte e manga, coltelli, artigianato locale, **centri commerciali e
+  depāto**, **vestiti e usato**, **elettronica**, **100 yen e drugstore**,
+  **cartoleria**, **dischi e libri usati** e *negozi che non ti aspetti*. Scelti
+  per il voto o perché sono strambi: il gelataio che fa anche il ramen, i mochi
+  battuti a martello in mezzo alla strada, il soft cream ricoperto di foglia
+  d'oro. La spunta **Solo i particolari** lascia in elenco solo quelli.
+
+  Un negozio può stare in **più mestieri**: un grande magazzino compare anche
+  cercando *vestiti*, perché è lì che uno ci va a cercarli. Chi ha un indirizzo
+  verificato ha anche il quadratino per **metterlo sulla mappa** (§ 2.4).
+
+  Sul voto vale la stessa regola dei locali sulla mappa: **non è nostro**. Dove
+  c'è, la pastiglia gialla dice *Tabelog* e il numero, ed è quello letto il
+  giorno scritto nella scheda — cambia ogni settimana e l'app non lo riaggiorna
+  da sola. Per il voto di oggi c'è **Voto e orari ↗** su ogni scheda. Dove
+  invece si legge *Voto su Maps* significa che quel mestiere su Tabelog non
+  esiste — è un sito di cibo, e un negozio di carte non ci sta — e il numero
+  te lo dà Google Maps: preferiamo dirlo che inventarne uno.
 
 ---
 
@@ -295,15 +404,27 @@ suggerimento, non un valore già inserito. In cima c'è la barra di avanzamento.
   convertitore yen-euro col cambio della Banca Centrale Europea.
 - **Note** — appunti liberi sul telefono: numeri di prenotazione, un ristorante
   consigliato, dove hai lasciato la valigia.
-- **Salvati** — tutto quello che hai messo fra i preferiti col cuore.
+- **Itinerari** — le selezioni salvate della mappa, tappa per tappa, con i loro
+  percorsi. Vedi il capitolo 2.5.
+- **Salvati** — tutto quello che hai messo fra i preferiti col cuore, più quello
+  che hai già segnato come fatto. Ogni riga **si apre**: tocchi il nome e dentro
+  trovi la foto, la descrizione lunga, la tabella dei dettagli e gli stessi
+  pulsanti delle schede normali, senza dover tornare nella sua schermata. In
+  cima, i tasti per vedere solo i luoghi, solo i cibi, solo i negozianti.
+
+In fondo al menu, in rosso, c'è **Riporta l'app come nuova**: cancella da questo
+telefono itinerari e percorsi, spunte, preferiti, note, valigia e selezione della
+mappa, e riporta tutto a com'era appena installata. Chiede conferma perché non
+si può annullare — serve a chi ha pasticciato e non sa più quale delle liste
+sistemare, non a fare pulizia di una cosa sola.
 
 ---
 
 ## 7 · La ricerca
 
-La lente in alto cerca **in tutta la guida insieme**: luoghi, esperienze, cibi,
+La lente in alto cerca **in tutta la guida insieme**: luoghi, attività, cibi,
 acquisti, storie e frasi. I risultati sono ordinati per pertinenza, non per
-categoria: cercando *ramen* escono prima i ramen, non le esperienze che lo
+categoria: cercando *ramen* escono prima i ramen, non le attività che lo
 nominano di sfuggita. Se sei in una tappa, i risultati di quella città salgono in
 alto.
 
