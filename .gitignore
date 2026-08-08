@@ -19,6 +19,16 @@ tickets/
 # Local editor/preview config, not part of the guide.
 .claude/
 
+# Device-gate / local npm scratch (vanilla guide has no build step).
+node_modules/
+package.json
+package-lock.json
+playwright-report/
+test-results/
+
+# Local QA campaign output only — recreate under qa/ during review; never ship.
+qa/
+
 # Scratch extracts / downloaded CLIs for offline pack sizing (can be multi-GB).
 tmp/
 

@@ -412,7 +412,9 @@ e non viene salvata. In fondo, le frasi giapponesi per salute ed emergenze.
 La rotella in alto apre **Impostazioni**. Lì sta **Dati offline**: si sceglie
 il piano (Minimo → Massimo) con lo spazio stimato in MB, il dettaglio mappa
 **z14 / z15** quando il pacchetto è pubblicato, e si avvia il download sul
-Wi‑Fi. Non è nella Valigia né in altre schede Utilità.
+Wi‑Fi. Se hai già un piano ma manca un pezzo nuovo (es. servizi sulla mappa),
+all'apertura compare un aggiornamento da scaricare — solo i byte mancanti, non
+l'intero piano. Non è nella Valigia né in altre schede Utilità.
 
 ### Cosa portare
 

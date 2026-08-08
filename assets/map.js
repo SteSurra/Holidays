@@ -83,10 +83,13 @@
     // (i timbri di stazione su Commons), passa dalla via curata come tutti.
     const senzaImmagine = point.type === "stamp" && !point.imageUrl;
     const media = senzaImmagine ? "" : '<div class="map-popup-media"><img src="' + fallback + '" data-map-image-id="' + escapeHTML(imageId) + '" data-map-image-type="' + imageType + '" alt="' + escapeHTML(point.name) + '" referrerpolicy="no-referrer"><a class="map-photo-credit" target="_blank" rel="noopener" hidden></a></div>';
-    return '<div class="map-popup point-popup">' + media + '<p class="map-popup-kicker">' + escapeHTML(kicker) + '</p>'
+    // Stamp bodies concatenate description + Dove: — clamp in a scrollable
+    // region so small screens do not trap the whole popup in endless text.
+    const bodyClass = point.type === "stamp" ? "map-popup-body is-stamp" : "map-popup-body";
+    return '<div class="map-popup point-popup' + (point.type === "stamp" ? " is-stamp" : "") + '">' + media + '<p class="map-popup-kicker">' + escapeHTML(kicker) + '</p>'
       + '<h3>' + escapeHTML(point.name) + '</h3>'
       + '<p class="point-location">' + escapeHTML(point.group || point.area || (city && city.name)) + (point.area && point.group !== point.area ? ' · ' + escapeHTML(point.area) : '') + '</p>'
-      + '<p>' + escapeHTML(point.description) + '</p>' + rating
+      + '<p class="' + bodyClass + '">' + escapeHTML(point.description) + '</p>' + rating
       + '<div class="map-popup-actions">' + done + select + guide + tabelog + '<a class="map-popup-action" href="' + googleMapsUrl(point) + '" target="_blank" rel="noopener">Raggiungi con Google Maps ↗</a></div></div>';
   }
 
@@ -316,6 +319,9 @@
   // Le richieste in volo, una per tipo e finestra: chi chiede la stessa cosa si
   // aggancia invece di ripeterla, e chi cambia finestra le può fermare.
   const facilityRequests = {};
+  let facilityPackBboxes = null;
+  const facilityPackIds = new Set();
+  let facilityPackLoadPromise = null;
 
   function isFacility(type) {
     return Object.prototype.hasOwnProperty.call(FACILITY_KINDS, type);
@@ -390,11 +396,92 @@
   // precedenti non portano il tipo perché venivano da una richiesta che li
   // chiedeva tutti insieme: quelli valgono ancora per chiunque.
   function areaCoveredFor(kind, area) {
+    if (facilityPackCoversArea(area)) return true;
     const requestKind = requestKindFor(kind);
     return (facilityAreas || []).some(function (done) {
       return (!done.kind || done.kind === requestKind)
         && done.south <= area.south && done.west <= area.west
         && done.north >= area.north && done.east >= area.east;
+    });
+  }
+
+  function facilityPackCoversArea(area) {
+    if (!facilityPackBboxes || !facilityPackBboxes.length) return false;
+    const centerLat = (area.south + area.north) / 2;
+    const centerLng = (area.west + area.east) / 2;
+    return facilityPackBboxes.some(function (box) {
+      return centerLat >= box.south && centerLat <= box.north
+        && centerLng >= box.west && centerLng <= box.east;
+    });
+  }
+
+  function expandPackFacilityRow(row, index) {
+    const kind = row[0];
+    const point = {
+      id: kind + "-pack-" + index,
+      kind: kind,
+      lat: row[1],
+      lng: row[2],
+      city: row[4] || "",
+      name: row[3] || ""
+    };
+    if (kind === "station" && row[5]) point.operator = row[5];
+    if (kind === "subway" && row[5]) {
+      point.line = { code: row[5], color: row[6] || "#6c7b86", name: row[7] || "", network: row[8] || "" };
+    }
+    return point;
+  }
+
+  function seedFacilitiesFromPack(pack) {
+    if (!pack || !Array.isArray(pack.points)) return;
+    loadFacilityCache();
+    clearFacilityPackFromMemory();
+    facilityPackBboxes = Array.isArray(pack.bboxes) ? pack.bboxes : null;
+    const known = new Set(facilityPoints.map(function (point) { return point.id; }));
+    pack.points.forEach(function (row, index) {
+      const point = expandPackFacilityRow(row, index);
+      facilityPackIds.add(point.id);
+      if (!known.has(point.id)) {
+        known.add(point.id);
+        facilityPoints.push(point);
+      }
+    });
+    buildFacilityMarkers();
+  }
+
+  function clearFacilityPackFromMemory() {
+    if (!facilityPackIds.size) return;
+    facilityPoints = (facilityPoints || []).filter(function (point) { return !facilityPackIds.has(point.id); });
+    facilityPackIds.clear();
+    facilityPackBboxes = null;
+    pruneFacilityMarkers();
+  }
+
+  function ensureFacilityPackLoaded() {
+    if (facilityPackBboxes) return Promise.resolve(true);
+    if (!window.TABI_OFFLINE_PACK || typeof window.TABI_OFFLINE_PACK.loadFacilityPack !== "function") {
+      return Promise.resolve(false);
+    }
+    if (!window.TABI_OFFLINE_PACK.needsFacilities
+      || !window.TABI_OFFLINE_PACK.needsFacilities(window.TABI_OFFLINE_PACK.getActiveTier().level)) {
+      clearFacilityPackFromMemory();
+      return Promise.resolve(false);
+    }
+    if (!facilityPackLoadPromise) {
+      facilityPackLoadPromise = window.TABI_OFFLINE_PACK.loadFacilityPack().then(function (pack) {
+        if (pack) seedFacilitiesFromPack(pack);
+        return !!facilityPackBboxes;
+      }).finally(function () {
+        facilityPackLoadPromise = null;
+      });
+    }
+    return facilityPackLoadPromise;
+  }
+
+  function refreshFacilityPack() {
+    return ensureFacilityPackLoaded().then(function (loaded) {
+      if (!loaded) clearFacilityPackFromMemory();
+      return loaded;
     });
   }
 
@@ -482,8 +569,9 @@
       });
     }
     if (hadEviction) pruneFacilityMarkers();
+    const incremental = facilityPoints.filter(function (point) { return !facilityPackIds.has(point.id); });
     try {
-      localStorage.setItem(FACILITY_CACHE, JSON.stringify({ at:Date.now(), points:facilityPoints, areas:facilityAreas }));
+      localStorage.setItem(FACILITY_CACHE, JSON.stringify({ at:Date.now(), points:incremental, areas:facilityAreas }));
     } catch (_) { /* memoria piena: restano validi per questa sessione */ }
   }
 
@@ -610,56 +698,47 @@
   // sommergerlo di richieste parallele lo fa rispondere più lentamente a tutti.
   function loadFacilities(kinds, onChunk) {
     loadFacilityCache();
-    if (!map) return Promise.resolve(facilityPoints);
-    if (map.getZoom() < FACILITY_MIN_ZOOM) {
-      // Non è un errore, è "non ancora": l'interruttore resta acceso e appena ti
-      // avvicini la zona si carica da sola.
-      const tooFar = new Error("Avvicinati sulla zona che ti interessa: da qui il riquadro sarebbe troppo grande.");
-      tooFar.keepLayerOn = true;
-      return Promise.reject(tooFar);
-    }
-    const area = viewArea();
-    const areaKey = areaKeyOf(area);
-    abortStaleRequests(areaKey);
-    const missing = [];
-    kinds.forEach(function (kind) {
-      const requestKind = requestKindFor(kind);
-      if (missing.indexOf(requestKind) === -1 && !areaCoveredFor(kind, area)) missing.push(requestKind);
-    });
-    if (!missing.length) return Promise.resolve(facilityPoints);
-    if (!navigator.onLine) {
-      // Anche questo è un "non ancora": spegnere la casella da soli faceva
-      // sembrare un guasto quello che è solo mancanza di rete. L'interruttore
-      // resta acceso e al ritorno della rete la zona si carica da sola.
-      const offline = new Error("Zona non ancora scaricata: serve la rete. Le zone già scaricate restano.");
-      offline.keepLayerOn = true;
-      return Promise.reject(offline);
-    }
-    // Partono tutte insieme: è il semaforo di withRequestSlot a tenerne due per
-    // volta, contando anche quelle di altre caselle già in corso.
-    const settled = [];
-    const jobs = missing.map(function (requestKind) {
-      return startRequest(requestKind, area, areaKey).promise.then(function (outcome) {
-        if (outcome === "stale") return outcome;
-        settled.push(requestKind);
-        if (outcome === "ok" && onChunk) {
-          const arrived = function (kind) { return settled.indexOf(requestKindFor(kind)) !== -1; };
-          onChunk(kinds.filter(arrived), kinds.filter(function (kind) { return !arrived(kind); }));
-        }
-        return outcome;
-      });
-    });
-    return Promise.all(jobs).then(function (outcomes) {
-      const done = outcomes.filter(function (outcome) { return outcome === "ok"; }).length;
-      // Interrotte perché la mappa si è mossa: non è un guasto, sta già
-      // ripartendo la ricerca sulla finestra nuova.
-      if (!done && outcomes.some(function (outcome) { return outcome === "stale"; })) return facilityPoints;
-      // Se qualcosa è già in cache si tiene: meglio i punti della zona di prima
-      // che una mappa vuota per una richiesta andata storta.
-      if (!done && !facilityPoints.length) {
-        throw new Error("OpenStreetMap non ha risposto: riprova tra un minuto.");
+    return ensureFacilityPackLoaded().then(function () {
+      if (!map) return facilityPoints;
+      if (map.getZoom() < FACILITY_MIN_ZOOM) {
+        const tooFar = new Error("Avvicinati sulla zona che ti interessa: da qui il riquadro sarebbe troppo grande.");
+        tooFar.keepLayerOn = true;
+        return Promise.reject(tooFar);
       }
-      return facilityPoints;
+      const area = viewArea();
+      const areaKey = areaKeyOf(area);
+      abortStaleRequests(areaKey);
+      const missing = [];
+      kinds.forEach(function (kind) {
+        const requestKind = requestKindFor(kind);
+        if (missing.indexOf(requestKind) === -1 && !areaCoveredFor(kind, area)) missing.push(requestKind);
+      });
+      if (!missing.length) return facilityPoints;
+      if (!navigator.onLine) {
+        const offline = new Error("Zona non ancora scaricata: serve la rete o il piano Ampio/Massimo. Le zone già scaricate restano.");
+        offline.keepLayerOn = true;
+        return Promise.reject(offline);
+      }
+      const settled = [];
+      const jobs = missing.map(function (requestKind) {
+        return startRequest(requestKind, area, areaKey).promise.then(function (outcome) {
+          if (outcome === "stale") return outcome;
+          settled.push(requestKind);
+          if (outcome === "ok" && onChunk) {
+            const arrived = function (kind) { return settled.indexOf(requestKindFor(kind)) !== -1; };
+            onChunk(kinds.filter(arrived), kinds.filter(function (kind) { return !arrived(kind); }));
+          }
+          return outcome;
+        });
+      });
+      return Promise.all(jobs).then(function (outcomes) {
+        const done = outcomes.filter(function (outcome) { return outcome === "ok"; }).length;
+        if (!done && outcomes.some(function (outcome) { return outcome === "stale"; })) return facilityPoints;
+        if (!done && !facilityPoints.length) {
+          throw new Error("OpenStreetMap non ha risposto: riprova tra un minuto.");
+        }
+        return facilityPoints;
+      });
     });
   }
 
@@ -995,7 +1074,11 @@
 
     applyOfflineBasemap();
     if (window.TABI_OFFLINE_PACK) {
-      window.TABI_OFFLINE_PACK.onTierChange(function () { applyOfflineBasemap(); });
+      window.TABI_OFFLINE_PACK.onTierChange(function () {
+        applyOfflineBasemap();
+        refreshFacilityPack();
+      });
+      refreshFacilityPack();
     }
     window.addEventListener("online", function () { applyOfflineBasemap(); });
     window.addEventListener("offline", function () { applyOfflineBasemap(); });
@@ -1368,10 +1451,14 @@
       const toggle = document.querySelector('[data-map-layer="' + point.type + '"]');
       return (!toggle || toggle.checked) && onMap(point) && Number.isFinite(point.lat) && Number.isFinite(point.lng);
     });
-    const inArea = visible.filter(function (point) { return insidePolygon(point.lat, point.lng, lassoPoints); });
+    const inArea = visible.filter(function (point) {
+      if (point.type === "stamp") return false;
+      return insidePolygon(point.lat, point.lng, lassoPoints);
+    });
     // Un posto dove si è già stati non va rimesso nel giro. Resta comunque
     // raggiungibile dal suo punto: nel popup c'è il collegamento a Google Maps,
     // e togliendo la spunta di visita rientra subito nella selezione ad area.
+    // Stamps never join a walking lasso — they are collectibles, not visit stops.
     lassoSelection = inArea.filter(function (point) { return !point.guideId || !doneIds.has(point.guideId); });
     const skipped = inArea.length - lassoSelection.length;
     lassoSkippedNote = skipped ? " " + skipped + (skipped === 1 ? " già visitato escluso." : " già visitati esclusi.") : "";

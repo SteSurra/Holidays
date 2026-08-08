@@ -31,10 +31,10 @@
   let fetchCooldownUntil = 0;
 
   const LEVELS = [
-    { id: "minimo", label: "Minimo", hint: "Guide e storie. Foto e mappa chiedono rete." },
-    { id: "medio", label: "Medio", hint: "Anche le foto delle schede. Mappa ancora online." },
-    { id: "ampio", label: "Ampio", hint: "Foto + mappe a dettaglio strada intorno a ogni tappa." },
-    { id: "max", label: "Massimo", hint: "Foto + mappa del Giappone a dettaglio strada. Solo Wi‑Fi." }
+    { id: "minimo", label: "Minimo", hint: "Guide e storie + servizi utili sulla mappa. Foto e tiles chiedono rete." },
+    { id: "medio", label: "Medio", hint: "Anche le foto delle schede + servizi utili sulla mappa. I tiles restano online." },
+    { id: "ampio", label: "Ampio", hint: "Foto + mappe intorno alle tappe + WC, konbini e stazioni offline." },
+    { id: "max", label: "Massimo", hint: "Foto + mappa del Giappone + servizi utili sulle tappe. Solo Wi‑Fi." }
   ];
 
   const ZOOMS = [
@@ -45,6 +45,7 @@
   let jobAbort = null;
   let mapBlobUrl = null;
   let mapBlobKey = "";
+  let activeTierMissingBytes = 0;
   const photoObjectUrls = {};
   const tierListeners = [];
 
@@ -87,6 +88,21 @@
     if (!stored || !stored.key) return { key: "minimo", level: "minimo", zoom: "14" };
     const parsed = parseTarget(stored.key);
     return { key: stored.key, level: parsed.level, zoom: parsed.zoom };
+  }
+
+  async function refreshActiveTierMissingBytes() {
+    const job = getJob();
+    if (job && (job.status === "busy" || job.status === "partial")) {
+      activeTierMissingBytes = 0;
+      return 0;
+    }
+    const active = getActiveTier();
+    try {
+      activeTierMissingBytes = await estimateDownloadBytes(active.key);
+    } catch (_) {
+      activeTierMissingBytes = 0;
+    }
+    return activeTierMissingBytes;
   }
 
   function getJob() {
@@ -179,6 +195,18 @@
 
   function needsMap(level) {
     return level === "ampio" || level === "max";
+  }
+
+  function needsFacilities(level) {
+    return level === "minimo" || level === "medio" || level === "ampio" || level === "max";
+  }
+
+  function facilityPackSpec() {
+    const pack = manifest().packs && manifest().packs.facilities_ampio;
+    if (!pack) return null;
+    const sources = packSources(pack);
+    if (!sources.length) return null;
+    return { file: pack.file || "facilities-ampio.json.gz", bytes: pack.bytes, urls: sources.map(function (src) { return src.url; }) };
   }
 
   function mapPackKey(level, zoom) {
@@ -342,7 +370,9 @@
     const registration = await navigator.serviceWorker.ready.catch(function () { return null; });
     if (!registration || !registration.active) return { ok: false, reason: "Service worker non attivo" };
     return new Promise(function (resolve) {
-      const timeout = setTimeout(function () { resolve({ ok: true, timeout: true }); }, 12000);
+      const timeout = setTimeout(function () {
+        resolve({ ok: false, timeout: true, reason: "Timeout riconciliazione shell" });
+      }, 12000);
       function onMessage(event) {
         const data = event.data;
         if (!data || data.type !== "tabi:reconciled") return;
@@ -674,6 +704,39 @@
     };
   }
 
+  async function installFacilityPack(pack, signal, onProgress) {
+    const bytes = await downloadBytes(pack.urls, pack.bytes, onProgress, signal);
+    if (pack.bytes && bytes.length !== pack.bytes) {
+      throw new Error("Pacchetto servizi incompleto (" + bytes.length + "/" + pack.bytes + ").");
+    }
+    await idbPutMapBlob(pack.file, new Blob([bytes]));
+    return { bytes: bytes.length };
+  }
+
+  async function verifyFacilityPack() {
+    const pack = manifest().packs && manifest().packs.facilities_ampio;
+    if (!pack || !needsFacilities(getActiveTier().level)) return true;
+    if (!packSources(pack).length) return true;
+    return (await idbMapSize(pack.file)) === pack.bytes;
+  }
+
+  async function purgeFacilityPack() {
+    const pack = manifest().packs && manifest().packs.facilities_ampio;
+    if (pack && pack.file) await idbDeleteMap(pack.file);
+  }
+
+  async function loadFacilityPack() {
+    const tier = getActiveTier();
+    if (!needsFacilities(tier.level)) return null;
+    const pack = manifest().packs && manifest().packs.facilities_ampio;
+    if (!pack || !packSources(pack).length) return null;
+    if ((await idbMapSize(pack.file)) !== pack.bytes) return null;
+    const blob = await idbGetMapBlob(pack.file);
+    if (!blob) return null;
+    const buf = await gunzipToBuffer(new Uint8Array(await blob.arrayBuffer()));
+    return JSON.parse(new TextDecoder().decode(buf));
+  }
+
   async function cacheCuratedPhotos(photos, signal, onItem) {
     if (!photos.length) return { okCount: 0, failCount: 0 };
     if (!("caches" in window)) return { okCount: 0, failCount: photos.length };
@@ -975,7 +1038,7 @@
   async function purgeMapFiles(keepFile) {
     const files = new Set(
       Object.keys(manifest().packs || {})
-        .filter(function (key) { return key !== "photos_medio"; })
+        .filter(function (key) { return key !== "photos_medio" && key !== "facilities_ampio"; })
         .map(function (key) { return manifest().packs[key].file; })
         .filter(Boolean)
     );
@@ -1037,18 +1100,28 @@
       mapComplete = !!local.complete;
       mapMissingBytes = local.complete ? 0 : local.missingBytes;
     }
+    let facilityMissingBytes = 0;
+    if (needsFacilities(parsed.level)) {
+      const facPack = facilityPackSpec();
+      if (facPack && facPack.bytes) {
+        const facSize = await idbMapSize(facPack.file);
+        if (facSize !== facPack.bytes) facilityMissingBytes = facPack.bytes;
+      }
+    }
     if (Resume && typeof Resume.estimateRemainingDownloadBytes === "function") {
       return Resume.estimateRemainingDownloadBytes({
         needsPhotos: needsPhotos(parsed.level),
         photosAlreadyOnDevice: photosAlready,
         photoBytes: photoBytes,
         mapComplete: mapComplete,
-        mapMissingBytes: mapMissingBytes
+        mapMissingBytes: mapMissingBytes,
+        facilityMissingBytes: facilityMissingBytes
       });
     }
     let bytes = 0;
     if (needsPhotos(parsed.level) && !photosAlready) bytes += photoBytes;
     if (!mapComplete) bytes += mapMissingBytes;
+    bytes += facilityMissingBytes;
     return bytes;
   }
 
@@ -1595,6 +1668,7 @@
   async function purgeForTarget(target) {
     const parsed = parseTarget(target);
     if (!needsPhotos(parsed.level)) await purgePhotoCache();
+    if (!needsFacilities(parsed.level)) await purgeFacilityPack();
     const keepPack = mapPackKey(parsed.level, parsed.zoom);
     const keepFile = keepPack && manifest().packs[keepPack] ? manifest().packs[keepPack].file : null;
     await purgeMapFiles(keepFile);
@@ -1610,8 +1684,9 @@
     const photos = curatedEntries();
     const mapKey = mapPackKey(parsed.level, parsed.zoom);
     const photoPack = needsPhotos(parsed.level) ? photoPackSpec() : null;
+    const facilityPack = needsFacilities(parsed.level) ? facilityPackSpec() : null;
     const photoSteps = needsPhotos(parsed.level) ? (photoPack ? 1 : photos.length) : 0;
-    const totalSteps = 1 + photoSteps + (mapKey ? 1 : 0);
+    const totalSteps = 1 + photoSteps + (mapKey ? 1 : 0) + (facilityPack ? 1 : 0);
     let done = 0;
 
     const controller = new AbortController();
@@ -1650,7 +1725,10 @@
 
     try {
       progress("shell");
-      await reconcileShell(release);
+      const shell = await reconcileShell(release);
+      if (!shell || !shell.ok) {
+        throw new Error((shell && shell.reason) || "Shell non aggiornata.");
+      }
 
       let photoInstall = null;
       if (needsPhotos(parsed.level)) {
@@ -1791,6 +1869,32 @@
         await purgeMapFiles(null);
       }
 
+      if (facilityPack) {
+        const facSize = await idbMapSize(facilityPack.file);
+        if (facSize !== facilityPack.bytes) {
+          progress("facilities", 1, { photoReused: photoReused });
+          await installFacilityPack(facilityPack, signal, function (received, total) {
+            if (signal.aborted) return;
+            const facJob = Object.assign({
+              status: "busy",
+              target: target,
+              phase: "facilities",
+              done: done,
+              total: totalSteps,
+              photoReused: photoReused,
+              facilityReceived: received,
+              facilityTotal: total
+            });
+            setJob(facJob);
+            if (ui && ui.onProgress) ui.onProgress(facJob);
+          });
+        } else {
+          progress("facilities", 1, { photoReused: photoReused, facilitySkipped: true });
+        }
+      } else if (!needsFacilities(parsed.level)) {
+        await purgeFacilityPack();
+      }
+
       if (signal.aborted) throw new DOMException("Aborted", "AbortError");
 
       const verifyJob = {
@@ -1887,6 +1991,7 @@
     if (mapKey) {
       if (!(await verifyMapFile(mapKey))) return { ok: false, reason: "File mappa non verificato." };
     }
+    if (!(await verifyFacilityPack())) return { ok: false, reason: "Pacchetto servizi non verificato." };
     return { ok: true };
   }
 
@@ -1896,16 +2001,26 @@
     if (job && (job.status === "partial" || job.status === "busy")) {
       return null;
     }
+    if (activeTierMissingBytes > 0) {
+      if (tier.level === "minimo" || tier.level === "medio") {
+        return "Offline: guide e testi. Servizi sulla mappa richiedono un aggiornamento (Impostazioni → Dati offline).";
+      }
+      return "Offline: contenuti parziali — scarica l'aggiornamento in Impostazioni → Dati offline.";
+    }
     if (tier.level === "minimo") {
-      return "Offline: guide e testi disponibili. Foto e mappa richiedono rete.";
+      return "Offline: guide, testi e servizi utili sulla mappa. Foto e tiles richiedono rete.";
     }
     if (tier.level === "medio") {
-      return "Offline: guide, testi e foto delle schede. La mappa richiede rete.";
+      return "Offline: guide, testi, foto e servizi utili sulla mappa. I tiles richiedono rete.";
     }
     if (tier.level === "ampio") {
-      return "Offline: guide, foto e mappe delle tappe. Fuori città la mappa può mancare.";
+      return "Offline: guide, foto, mappe e servizi utili intorno alle tappe.";
     }
-    return "Offline: guida, foto e mappa del Giappone sul telefono.";
+    return "Offline: guida, foto, mappa del Giappone e servizi utili sulle tappe.";
+  }
+
+  function upgradeConfirmMessage(bytes) {
+    return "Manca un aggiornamento offline (circa " + humanBytes(bytes) + "). Scaricare?";
   }
 
   function confirmMessage(target, activeKey, toDownloadBytes) {
@@ -1946,10 +2061,10 @@
 
   function describeTarget(key) {
     const p = parseTarget(key);
-    if (p.level === "minimo") return "testi e guide";
-    if (p.level === "medio") return "testi, guide e foto";
-    if (p.level === "ampio") return "testi, foto e mappe delle tappe (z" + p.zoom + ")";
-    return "tutto incluso la mappa del Giappone (z" + p.zoom + ")";
+    if (p.level === "minimo") return "testi, guide e servizi utili sulla mappa";
+    if (p.level === "medio") return "testi, guide, foto e servizi utili sulla mappa";
+    if (p.level === "ampio") return "testi, foto, mappe delle tappe e servizi utili (z" + p.zoom + ")";
+    return "tutto incluso mappa del Giappone e servizi utili sulle tappe (z" + p.zoom + ")";
   }
 
   function compareTarget(a, b) {
@@ -1976,8 +2091,16 @@
     const dialog = document.getElementById("offlinePackDialog");
     const dialogBody = document.getElementById("offlinePackDialogBody");
     const dialogConfirm = document.getElementById("offlinePackDialogConfirm");
+    const dialogTitle = document.getElementById("offlinePackDialogTitle");
     let pendingTarget = null;
     let pendingRelease = "";
+    let pendingUpgradeOnly = false;
+    let upgradeConfirmClicked = false;
+    let upgradePromptShownSession = false;
+    // Chiudi su un job parziale nasconde Riprendi/Chiudi senza cancellare
+    // tabi-offline-job: i byte restano e Riprendi torna al prossimo render
+    // utile (cambio piano o nuovo progresso).
+    let partialUiDismissed = false;
     // Bozza scelta dall'utente: renderTiers ricostruisce i radio, quindi non
     // può basarsi solo su getActiveTier() altrimenti ogni change ripristina
     // il piano già attivo e "Scarica piano" non compare mai.
@@ -2160,11 +2283,27 @@
         if (progressEl) progressEl.hidden = true;
         return;
       }
-      statusEl.textContent = "Piano attivo: " + LEVELS.find(function (l) { return l.id === active.level; }).label
-        + (needsMap(active.level) ? " (z" + active.zoom + ")" : "")
-        + " · " + (opt ? opt.label : "") + " — completo";
+      const levelLabel = LEVELS.find(function (l) { return l.id === active.level; }).label;
+      const zoomSuffix = needsMap(active.level) ? " (z" + active.zoom + ")" : "";
+      const sizeLabel = opt ? opt.label : "";
+      if (activeTierMissingBytes > 0) {
+        statusEl.textContent = "Piano attivo: " + levelLabel + zoomSuffix
+          + " · manca un aggiornamento (circa " + humanBytes(activeTierMissingBytes) + ")";
+        statusEl.dataset.tone = "warn";
+        if (progressEl) progressEl.hidden = true;
+        return;
+      }
+      statusEl.textContent = "Piano attivo: " + levelLabel + zoomSuffix
+        + " · " + sizeLabel + " — completo";
       statusEl.dataset.tone = "ok";
       if (progressEl) progressEl.hidden = true;
+    }
+
+    function revertDraftToActive() {
+      draftKey = null;
+      pendingTarget = null;
+      renderTiers();
+      renderActions();
     }
 
     function renderActions() {
@@ -2172,17 +2311,21 @@
       const job = getJob();
       const target = selectedTarget();
       actionsEl.innerHTML = "";
-      if (job && job.status === "partial") {
+      if (job && job.status === "partial" && !partialUiDismissed) {
         const resume = document.createElement("button");
         resume.type = "button";
         resume.textContent = "Riprendi";
-        resume.addEventListener("click", function () { startChange(job.target || target); });
+        resume.addEventListener("click", function () {
+          partialUiDismissed = false;
+          startChange(job.target || target);
+        });
         actionsEl.appendChild(resume);
         const close = document.createElement("button");
         close.type = "button";
-        close.textContent = "Chiudi";
+        close.textContent = "Nascondi";
         close.addEventListener("click", function () {
-          setJob(null);
+          // Keep tabi-offline-job + bytes so Riprendi remains possible.
+          partialUiDismissed = true;
           renderAll();
         });
         actionsEl.appendChild(close);
@@ -2196,9 +2339,30 @@
         cancel.textContent = "Annulla";
         cancel.addEventListener("click", function () {
           cancelBusyJob();
+          partialUiDismissed = false;
           renderAll();
         });
         actionsEl.appendChild(cancel);
+        return;
+      }
+      if (job && job.status === "partial" && partialUiDismissed) {
+        const resume = document.createElement("button");
+        resume.type = "button";
+        resume.textContent = "Riprendi download";
+        resume.addEventListener("click", function () {
+          partialUiDismissed = false;
+          startChange(job.target || target);
+        });
+        actionsEl.appendChild(resume);
+      }
+      if (target === active.key && activeTierMissingBytes > 0 && !(job && job.status === "partial")) {
+        const upgrade = document.createElement("button");
+        upgrade.type = "button";
+        upgrade.textContent = "Scarica aggiornamento";
+        upgrade.addEventListener("click", function () {
+          openUpgradeConfirm(active.key, activeTierMissingBytes);
+        });
+        actionsEl.appendChild(upgrade);
         return;
       }
       if (target !== active.key) {
@@ -2207,15 +2371,63 @@
         apply.textContent = compareTarget(target, active.key) > 0 ? "Scarica piano" : "Riduci piano";
         apply.addEventListener("click", function () { openConfirm(target); });
         actionsEl.appendChild(apply);
+        const cancelDraft = document.createElement("button");
+        cancelDraft.type = "button";
+        cancelDraft.textContent = "Annulla";
+        cancelDraft.addEventListener("click", revertDraftToActive);
+        actionsEl.appendChild(cancelDraft);
       }
     }
 
     function renderAll() {
       reclaimOrphanBusyJob();
+      refreshActiveTierMissingBytes().then(function () {
+        renderTiers();
+        renderStatus();
+        renderActions();
+        refreshStorageLine();
+      });
+    }
+
+    async function maybePromptTierUpgrade() {
+      const settingsView = document.getElementById("settings");
+      if (!settingsView || !settingsView.classList.contains("is-active")) return;
+      const job = getJob();
+      if (job && (job.status === "busy" || job.status === "partial")) return;
+      if (!navigator.onLine) return;
+      if (upgradePromptShownSession) return;
+      if (activeTierMissingBytes <= 0) return;
+      upgradePromptShownSession = true;
+      openUpgradeConfirm(getActiveTier().key, activeTierMissingBytes);
+    }
+
+    async function bootPanel() {
+      reclaimOrphanBusyJob();
+      await refreshActiveTierMissingBytes();
       renderTiers();
       renderStatus();
       renderActions();
       refreshStorageLine();
+      // Upgrade prompt only when Impostazioni is on screen — never over Viaggio.
+    }
+
+    function openUpgradeConfirm(target, bytes) {
+      if (!navigator.onLine) {
+        statusEl.textContent = "Serve la rete per scaricare l'aggiornamento.";
+        statusEl.dataset.tone = "warn";
+        return;
+      }
+      pendingTarget = target;
+      pendingUpgradeOnly = true;
+      let body = upgradeConfirmMessage(bytes);
+      const parsed = parseTarget(target);
+      const cell = cellularWarning();
+      if (cell && (needsMap(parsed.level) || parsed.level === "ampio" || parsed.level === "max")) {
+        body += "\n\n" + cell;
+      }
+      if (dialogBody) dialogBody.textContent = body;
+      if (dialogTitle) dialogTitle.textContent = "Aggiornamento offline?";
+      if (dialog) dialog.showModal();
     }
 
     async function openConfirm(target) {
@@ -2231,6 +2443,7 @@
         return;
       }
       pendingTarget = target;
+      pendingUpgradeOnly = false;
       const active = getActiveTier();
       const goingUp = compareTarget(target, active.key) > 0;
       let toDownloadBytes = 0;
@@ -2251,11 +2464,13 @@
         body += "\n\n" + cell;
       }
       if (dialogBody) dialogBody.textContent = body;
+      if (dialogTitle) dialogTitle.textContent = "Cambiare piano offline?";
       if (dialog) dialog.showModal();
     }
 
     async function startChange(target) {
       if (dialog) dialog.close();
+      pendingUpgradeOnly = false;
       draftKey = target;
       const release = pendingRelease || (window.TABI_RELEASE || "");
       await runJob(target, {
@@ -2279,21 +2494,55 @@
       if (target === activeKey) draftKey = null;
       renderTiers();
       renderActions();
-      if (target !== activeKey) openConfirm(target);
+      // Confirm opens only via Scarica piano / Riduci piano — browsing tiers
+      // must not spam the modal on every radio change.
     }
 
     if (dialogConfirm) {
       dialogConfirm.addEventListener("click", function () {
-        if (pendingTarget) startChange(pendingTarget);
+        if (pendingTarget) {
+          upgradeConfirmClicked = true;
+          partialUiDismissed = false;
+          startChange(pendingTarget);
+        }
+      });
+    }
+
+    const dialogCancel = document.getElementById("offlinePackDialogCancel");
+    if (dialogCancel) {
+      dialogCancel.addEventListener("click", function () {
+        if (dialog) dialog.close();
+      });
+    }
+
+    if (dialog) {
+      dialog.addEventListener("close", function () {
+        if (pendingUpgradeOnly && !upgradeConfirmClicked) {
+          upgradePromptShownSession = true;
+        }
+        const dismissedTierChange = !upgradeConfirmClicked && !pendingUpgradeOnly && pendingTarget;
+        pendingUpgradeOnly = false;
+        upgradeConfirmClicked = false;
+        pendingTarget = null;
+        if (dismissedTierChange) revertDraftToActive();
+        if (dialogTitle) dialogTitle.textContent = "Cambiare piano offline?";
       });
     }
 
     tierList.addEventListener("change", onSelectionChange);
     zoomList.addEventListener("change", onSelectionChange);
 
+    window.addEventListener("tabi:viewchange", function (event) {
+      if (event.detail && event.detail.view === "settings") {
+        refreshActiveTierMissingBytes().then(function () {
+          renderAll();
+          maybePromptTierUpgrade();
+        });
+      }
+    });
+
     pendingRelease = window.TABI_RELEASE || "";
-    reclaimOrphanBusyJob();
-    renderAll();
+    bootPanel();
   }
 
   window.TABI_OFFLINE_PACK = {
@@ -2308,6 +2557,11 @@
     photoUrlForItem: photoUrlForItem,
     getMapBlob: getMapBlob,
     getMapBlobUrl: getMapBlobUrl,
+    loadFacilityPack: loadFacilityPack,
+    needsFacilities: needsFacilities,
+    estimateDownloadBytes: estimateDownloadBytes,
+    refreshActiveTierMissingBytes: refreshActiveTierMissingBytes,
+    missingBytesForActiveTier: function () { return activeTierMissingBytes; },
     onTierChange: function (fn) {
       tierListeners.push(fn);
     },

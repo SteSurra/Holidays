@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Travel Guide"
+  short_description: "Exhaustive QA for travel PWAs before a trip"
+  default_prompt: "Use $review-travel-guide to run a full regression QA on the guide — bugs and travel UX only."

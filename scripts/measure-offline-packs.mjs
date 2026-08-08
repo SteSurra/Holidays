@@ -30,6 +30,8 @@ const TMP_PACKS = path.join(ROOT, "tmp", "offline-packs");
 const REGION_GEOJSON = path.join(ROOT, "scripts", "offline-pack-regions", "ampio-tappe.geojson");
 const LEDGER_JSON = path.join(ROOT, "story-work", "offline-size-ledger.json");
 const LEDGER_MD = path.join(ROOT, "story-work", "offline-size-ledger.md");
+const SIZE_DATA_JS = path.join(ROOT, "assets", "offline-size-data.js");
+const FACILITY_META = path.join(ROOT, "tmp", "offline-packs", "facilities-ampio.meta.json");
 const DEFAULT_SRC = "https://build.protomaps.com/20260806.pmtiles";
 const PHOTO_WIDTH = 960;
 const PHOTO_CONCURRENCY = 2;
@@ -363,11 +365,40 @@ function loadPreviousLedger() {
   }
 }
 
-function buildUiTotals({ shell, photos, maps }) {
+function measureFacilities() {
+  if (!existsSync(FACILITY_META)) {
+    console.warn(`Facilities: missing ${FACILITY_META} — run node scripts/build-offline-facility-pack.mjs`);
+    return null;
+  }
+  const meta = JSON.parse(readFileSync(FACILITY_META, "utf8"));
+  const bytes = meta.bytes ?? null;
+  console.log(
+    `Facilities: ${humanBytes(bytes)} (${meta.count ?? "—"} points, ${meta.bubbles ?? "—"} bubbles)`
+  );
+  return { totalBytes: bytes, meta };
+}
+
+function uiLabel(bytes) {
+  if (bytes == null || Number.isNaN(bytes)) return "—";
+  const mb = bytes / (1024 * 1024);
+  if (mb >= 1024) return `${(mb / 1024).toFixed(1).replace(".", ",")} GB`;
+  if (mb >= 100) return `${Math.round(mb)} MB`;
+  if (mb >= 10) return `${Math.round(mb)} MB`;
+  return `${mb.toFixed(1).replace(".", ",")} MB`;
+}
+
+function buildUiTotals({ shell, photos, maps, facilities }) {
   const shellBytes = shell?.totalBytes ?? null;
   const photoBytes = photos?.totalBytes ?? null;
+  const facilityBytes = facilities?.totalBytes ?? null;
+  const minimo =
+    shellBytes != null
+      ? (facilityBytes != null ? shellBytes + facilityBytes : shellBytes)
+      : null;
   const medio =
-    shellBytes != null && photoBytes != null ? shellBytes + photoBytes : null;
+    shellBytes != null && photoBytes != null
+      ? (facilityBytes != null ? shellBytes + photoBytes + facilityBytes : shellBytes + photoBytes)
+      : null;
   const byName = Object.fromEntries((maps?.extracts || []).filter((e) => e.ok).map((e) => [e.name, e.bytes]));
 
   function withMap(mapBytes) {
@@ -376,13 +407,57 @@ function buildUiTotals({ shell, photos, maps }) {
   }
 
   return {
-    minimo: shellBytes,
+    minimo,
     medio,
     ampio_z14: withMap(byName["ampio-z14.pmtiles"]),
     ampio_z15: withMap(byName["ampio-z15.pmtiles"]),
     max_z14: withMap(byName["japan-z14.pmtiles"]),
     max_z15: withMap(byName["japan-z15.pmtiles"])
   };
+}
+
+function writeSizeData(ledger) {
+  const ui = ledger.uiTotals || {};
+  const maps = Object.fromEntries(
+    (ledger.maps?.extracts || []).filter((e) => e.ok).map((e) => {
+      const key = e.name === "ampio-z14.pmtiles"
+        ? "ampio_z14"
+        : e.name === "ampio-z15.pmtiles"
+          ? "ampio_z15"
+          : e.name === "japan-z14.pmtiles"
+            ? "max_z14"
+            : e.name === "japan-z15.pmtiles"
+              ? "max_z15"
+              : null;
+      return key ? [key, e.bytes] : [];
+    }).filter((row) => row.length)
+  );
+  const options = {};
+  for (const key of ["minimo", "medio", "ampio_z14", "ampio_z15", "max_z14", "max_z15"]) {
+    options[key] = { bytes: ui[key] ?? null, label: uiLabel(ui[key]) };
+  }
+  const body = [
+    "// Generated from story-work/offline-size-ledger.json — re-run measure-offline-packs.mjs to refresh.",
+    "window.TABI_OFFLINE_SIZES = {",
+    `  measuredAt: ${JSON.stringify(ledger.measuredAt)},`,
+    "  options: {",
+    ...Object.keys(options).map((key) =>
+      `    ${key}: { bytes: ${options[key].bytes}, label: ${JSON.stringify(options[key].label)} },`
+    ),
+    "  },",
+    "  components: {",
+    `    shell: ${ledger.shell?.totalBytes ?? "null"},`,
+    `    photos: ${ledger.photos?.totalBytes ?? "null"},`,
+    `    facilities: ${ledger.facilities?.totalBytes ?? "null"},`,
+    "    maps: {",
+    ...Object.keys(maps).map((key) => `      ${key}: ${maps[key]},`),
+    "    }",
+    "  }",
+    "};",
+    ""
+  ].join("\n");
+  writeFileSync(SIZE_DATA_JS, body);
+  console.log(`Wrote ${path.relative(ROOT, SIZE_DATA_JS)}`);
 }
 
 function writeLedger(ledger) {
@@ -397,12 +472,12 @@ function writeLedger(ledger) {
       .join("; ") || "—";
 
   const rows = [
-    ["minimo", "Shell only", ui.minimo, "Shell files from sw.js SHELL + sw.js"],
-    ["medio", "Shell + curated photos @960", ui.medio, `${ledger.photos?.okCount ?? "—"}/${ledger.photos?.count ?? "—"} photos ok`],
-    ["ampio_z14", "Medio + Ampio city bubbles z≤14", ui.ampio_z14, "region=ampio-tappe.geojson"],
-    ["ampio_z15", "Medio + Ampio city bubbles z≤15", ui.ampio_z15, "region=ampio-tappe.geojson"],
-    ["max_z14", "Medio + Japan bbox z≤14", ui.max_z14, `bbox=${JAPAN_BBOX}`],
-    ["max_z15", "Medio + Japan bbox z≤15", ui.max_z15, `bbox=${JAPAN_BBOX}`]
+    ["minimo", "Shell + facility layers", ui.minimo, "Shell files from sw.js SHELL + facilities-ampio.json.gz"],
+    ["medio", "Shell + curated photos @960 + facility layers", ui.medio, `${ledger.photos?.okCount ?? "—"}/${ledger.photos?.count ?? "—"} photos ok + facilities`],
+    ["ampio_z14", "Medio + Ampio z≤14 + facility layers", ui.ampio_z14, "region=ampio-tappe.geojson + facilities"],
+    ["ampio_z15", "Medio + Ampio z≤15 + facility layers", ui.ampio_z15, "region=ampio-tappe.geojson + facilities"],
+    ["max_z14", "Medio + Japan z≤14 + facility layers", ui.max_z14, `bbox=${JAPAN_BBOX} + trip-bubble facilities`],
+    ["max_z15", "Medio + Japan z≤15 + facility layers", ui.max_z15, `bbox=${JAPAN_BBOX} + trip-bubble facilities`]
   ];
 
   const md = [
@@ -426,6 +501,7 @@ function writeLedger(ledger) {
     `|---|---:|---:|---|`,
     `| Shell | ${ledger.shell?.totalBytes ?? "—"} | ${humanBytes(ledger.shell?.totalBytes)} | ${ledger.shell?.files?.filter((f) => !f.directory && f.bytes != null).length ?? "—"} files; missing ${ledger.shell?.missingCount ?? 0} |`,
     `| Photos @${PHOTO_WIDTH} | ${ledger.photos?.totalBytes ?? "—"} | ${humanBytes(ledger.photos?.totalBytes)} | ok ${ledger.photos?.okCount ?? "—"} / ${ledger.photos?.count ?? "—"}; fails ${ledger.photos?.failCount ?? "—"} |`,
+    `| Facilities (trip bubbles) | ${ledger.facilities?.totalBytes ?? "—"} | ${humanBytes(ledger.facilities?.totalBytes)} | ${ledger.facilities?.meta?.count ?? "—"} points; build with build-offline-facility-pack.mjs |`,
     `| Maps | — | — | ${mapsNote} |`,
     "",
     "## Map extracts",
@@ -473,8 +549,8 @@ function writeLedger(ledger) {
   md.push(
     "## Formulas",
     "",
-    "- `minimo` = shell",
-    "- `medio` = shell + photos",
+    "- `minimo` = shell + facilities-ampio.json.gz",
+    "- `medio` = shell + photos + facilities-ampio.json.gz",
     "- `ampio_z14` = medio + ampio-z14.pmtiles",
     "- `ampio_z15` = medio + ampio-z15.pmtiles",
     "- `max_z14` = medio + japan-z14.pmtiles",
@@ -483,6 +559,7 @@ function writeLedger(ledger) {
   );
 
   writeFileSync(LEDGER_MD, md.join("\n"));
+  writeSizeData(ledger);
   console.log(`Wrote ${path.relative(ROOT, LEDGER_JSON)}`);
   console.log(`Wrote ${path.relative(ROOT, LEDGER_MD)}`);
 }
@@ -504,6 +581,7 @@ async function main() {
     shell: previous?.shell || null,
     photos: previous?.photos || null,
     maps: previous?.maps || null,
+    facilities: previous?.facilities || null,
     uiTotals: null,
     partial: null
   };
@@ -552,6 +630,10 @@ async function main() {
       skipReason: "--skip-maps / --photos-only: map extracts not run in this invocation."
     };
     ledger.partial = "Maps not measured in this run (--skip-maps or --photos-only).";
+  }
+
+  if (!ledger.facilities) {
+    ledger.facilities = measureFacilities();
   }
 
   ledger.uiTotals = buildUiTotals(ledger);

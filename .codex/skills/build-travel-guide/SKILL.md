@@ -39,7 +39,7 @@ If an existing guide is provided, inspect and preserve its itinerary, hotel name
 10. Add a route map, user geolocation only after a button press, a Google Maps link for every mapped item — built as coordinates in the documented `api=1` form, per [references/maps-links.md](references/maps-links.md), which also covers name-search drift on a foreign phone, geocoding, and the 9-waypoint ceiling on walking routes — a shareable in-site link that focuses its Leaflet marker, completion controls inside each relevant popup, and a full detail entry reachable from each popup. Enable wheel, trackpad, pinch, double-click, fractional zoom, and a focused or expanded map mode. Resolve popup photos lazily only when opened. When importing a user map, discard folder descriptions and unrelated logistics, preserve existing points, normalize duplicates, and ingest only public-safe names, categories, and coordinates.
 11. Add transit layers when the destination has them, off by default: railway stations under one symbol and colour, and metro stops resolved to their individual line. Derive the line from the station code and operator carried by the open map data rather than downloading route relations, keep a curated table of official line names and colours so the mapping works offline, and fall back to a neutral marker when the line cannot be determined instead of guessing. Show a legend of the lines currently in view, not of the whole network.
 12. Load openly licensed remote images lazily with limited concurrency, per-item caching, meaningful alt text, source attribution, at least two alternate queries, retry/backoff, provider cooldowns, deterministic provider rotation, and local SVG fallback. Rotate Wikimedia Commons, Openverse, Japanese Wikipedia, and English Wikipedia; do not keep hammering a provider after `429`.
-13. Keep the application installable and the static shell available offline. Do not claim map tiles or remote photos work fully offline.
+13. Keep the application installable and the static shell available offline. Do not claim map tiles or remote photos work fully offline. Map, photo, and facility archives are built and published on demand — not on every push. Read [references/offline-packs.md](references/offline-packs.md) before changing curated images, trip bubbles, or manifest URLs.
 14. Decide images at build time, not in the browser: a script resolves each item through article lead image → Wikidata P18 → scored Commons search, writes one generated data file keyed by item ID, and the runtime search survives only as the fallback for what that pass could not cover. Keep the manual corrections in a separate overrides file the generator never rewrites. Audit resolution across every dataset — places included — instead of spot-checking, look at the chosen images with your own eyes, and grep the chosen filenames for wrong-medium and wrong-place words: that text audit catches what the eye slides over. Do not replace a missing image with a confidently wrong one.
 15. Track completion across places, experiences, foods, shopping, and history using stable IDs in localStorage. Show overall, per-domain, and per-city progress; preserve existing keys, provide one confirmed reset for all completion state without deleting favorites, and support versioned export/import without requiring registration.
 16. For photo translation, do not build an in-page OCR pipeline: browser OCR reads vertical Japanese poorly, adds a CDN dependency the service worker cannot precache, and still hands the result to a translator that never saw the image. Instead capture the photo and hand it to the user's own AI app (ChatGPT, Gemini) via the Web Share API with a prefilled translate-and-explain prompt, with a copy-photo-and-open-chat fallback for browsers without file sharing. The photo must leave the device only through the user's explicit share or copy gesture — the guide never uploads it. Keep a separate plain-text card that deep-links typed text to Google Translate (`?sl=auto&tl=it&op=translate&text=…`). See [references/hard-lessons.md](references/hard-lessons.md).
@@ -106,6 +106,15 @@ For an intentionally public gallery, require a clear consent dialog before the f
 
 Never expose an administrative or service-role secret in frontend code. Public client identifiers may be committed only when the provider explicitly designs them for browser use and row-level access rules are enabled and tested.
 
+## Offline pack refresh
+
+Offline packs are multi-hundred-MB to multi-GB artifacts on orphan branches.
+They are **not** CI-built on every content change.
+
+- Follow the trigger matrix in [references/offline-packs.md](references/offline-packs.md): shell-only changes need `bump-version` only; photo, map, or facility data changes need the matching build + CORS publish scripts, then manifest and size updates on `main`.
+- A new manifest on `main` prompts existing complete-tier users to download missing bytes client-side; it does not rebuild server packs.
+- Always bump the shell after manifest or `offline-size-data.js` changes so the gap prompt and **Scarica aggiornamento** path can run.
+
 ## Publication Gate
 
 Before making a repository public or deploying:
@@ -113,4 +122,5 @@ Before making a repository public or deploying:
 - search the repository and Git history for sensitive material;
 - confirm no exact dates, booking artifacts, credentials, personal photos, or private notes are tracked;
 - show the local result and obtain explicit publication approval;
-- verify the final public URL after deployment.
+- verify the final public URL after deployment;
+- for full bug and travel-UX regression (offline tiers, map, stories, admission, PWA shell), run the sister skill [../review-travel-guide/SKILL.md](../review-travel-guide/SKILL.md) (`$review-travel-guide`).

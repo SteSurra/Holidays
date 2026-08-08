@@ -1,4 +1,4 @@
-const CACHE = "tabi-japan-v160";
+const CACHE = "tabi-japan-v166";
 const TILE_CACHE = "tabi-tiles-v1";
 const IMAGE_CACHE = "tabi-images-v1";
 // Il solo prefetch delle tappe vale 297 riquadri: con un tetto più basso una
@@ -7,7 +7,7 @@ const TILE_LIMIT = 700;
 // Stesso token di index.html, sempre: se divergono il precache salva URL che la
 // pagina non richiederà mai, e l'app "offline" riscarica tutto dalla rete.
 // L'allineamento è verificato da scripts/check-guide-integrity.mjs.
-const VERSION = "?v=20260807g";
+const VERSION = "?v=20260807m";
 
 // Guscio di prima parte: senza questo l'app non parte. L'installazione fallisce
 // se manca anche un solo file, ed è giusto così.

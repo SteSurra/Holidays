@@ -209,17 +209,28 @@
     return { ok: false };
   }
 
-  /** Remaining download for confirm dialog / progress: photos if needed + missing map only. */
+  /** Remaining download for confirm dialog / progress: photos if needed + missing map + facilities. */
   function estimateRemainingDownloadBytes(opts) {
+    return inspectTierGap(opts).totalBytes;
+  }
+
+  /** Byte breakdown when an installed tier is missing pack components (e.g. facilities). */
+  function inspectTierGap(opts) {
     const options = opts || {};
-    let bytes = 0;
+    let photoMissingBytes = 0;
     if (options.needsPhotos && !options.photosAlreadyOnDevice) {
-      bytes += options.photoBytes || 0;
+      photoMissingBytes = options.photoBytes || 0;
     }
-    if (!options.mapComplete) {
-      bytes += options.mapMissingBytes || 0;
-    }
-    return bytes;
+    const mapMissingBytes = options.mapComplete
+      ? 0
+      : (options.mapMissingBytes || 0);
+    const facilityMissingBytes = options.facilityMissingBytes || 0;
+    return {
+      photoMissingBytes: photoMissingBytes,
+      mapMissingBytes: mapMissingBytes,
+      facilityMissingBytes: facilityMissingBytes,
+      totalBytes: photoMissingBytes + mapMissingBytes + facilityMissingBytes
+    };
   }
 
   function mapPartProgressExtra(sources, offsetOrPartOk) {
@@ -272,6 +283,7 @@
     planPartFetches: planPartFetches,
     photosAlreadyOnDeviceDecision: photosAlreadyOnDeviceDecision,
     estimateRemainingDownloadBytes: estimateRemainingDownloadBytes,
+    inspectTierGap: inspectTierGap,
     mapPartProgressExtra: mapPartProgressExtra,
     resumeSkipStatusText: resumeSkipStatusText
   };

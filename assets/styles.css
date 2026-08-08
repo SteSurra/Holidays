@@ -58,8 +58,11 @@ a { color: inherit; }
 .header-saved:first-letter { color: var(--red); }
 .header-search span[aria-hidden] { font-size: 1.2rem; line-height: 1; }
 
-.offline-banner { position: fixed; z-index: 29; top: calc(var(--header-height) + var(--safe-top)); left: 0; right: 0; height: var(--offline-height); overflow: hidden; margin: 0; display: flex; align-items: center; justify-content: center; padding-inline: calc(12px + var(--safe-left)) calc(12px + var(--safe-right)); color: white; background: var(--red-dark); font-size: .72rem; font-weight: 700; white-space: nowrap; text-align: center; }
+.offline-banner { position: fixed; z-index: 29; top: calc(var(--header-height) + var(--safe-top)); left: 0; right: 0; min-height: var(--offline-height); height: auto; overflow: hidden; margin: 0; display: flex; align-items: center; justify-content: center; padding: .35rem calc(12px + var(--safe-left)) .35rem calc(12px + var(--safe-right)); color: white; background: var(--red-dark); font-size: .72rem; font-weight: 700; white-space: normal; line-height: 1.25; text-align: center; }
 .offline-banner[hidden] { display: none; }
+@media (max-width: 360px) {
+  body.is-offline { --offline-height: 44px; }
+}
 
 main { min-height: 100vh; padding: calc(var(--header-height) + var(--safe-top) + var(--offline-height)) 0 110px; }
 .view { display: none; animation: view-in .38s ease both; }
@@ -330,6 +333,8 @@ select { width: auto; min-width: 165px; padding: 0 2.4rem 0 .9rem; }
 .leaflet-popup-content-wrapper { border-radius: 14px; box-shadow: 0 16px 50px rgba(0,0,0,.2); }
 .leaflet-container a.leaflet-popup-close-button { color: var(--muted); }
 .leaflet-popup-content { margin: 1rem; min-width: min(230px, 62vw); max-height: 38vh; overflow-y: auto; overscroll-behavior: contain; font-family: "DM Sans", sans-serif; }
+.map-popup-body.is-stamp { max-height: 7.2em; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+.legend-hint { display: inline; font-weight: 600; color: var(--muted); text-transform: none; letter-spacing: 0; }
 .map-popup h3 { margin: 0 0 .2rem; font: 600 1.3rem "Noto Serif JP", serif; }.map-popup > p { margin: 0 0 .8rem; color: var(--muted); font-size: .78rem; }.map-popup .map-popup-kicker { margin-bottom: .28rem; color: var(--red); font-size: .64rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }.map-popup .point-location { margin-bottom: .5rem; color: var(--moss); font-weight: 800; }.map-popup-stats { display: flex; gap: .4rem; margin: .65rem 0; }.map-popup-stats span, .tabelog-rating { display: inline-block; padding: .3rem .5rem; border-radius: 999px; background: var(--paper-deep); font-size: .68rem; font-weight: 800; }.tabelog-rating { margin-bottom: .7rem; color: white; background: var(--gold); }.map-popup-actions { display: grid; gap: .42rem; }.map-popup-action, .map-popup-detail, .map-popup-done { min-height: var(--tap); display: grid; place-items: center; width: 100%; border: 0; padding: .65rem .75rem; border-radius: 9px; color: var(--paper) !important; background: var(--ink); text-align: center; text-decoration: none; font: 800 .72rem "DM Sans", sans-serif; cursor: pointer; }.map-popup-detail { color: var(--ink) !important; background: var(--paper-deep); }
 .map-popup-action.is-tabelog { color: white !important; background: var(--gold); }
 .map-popup-done { border: 1px solid var(--moss); color: var(--moss) !important; background: var(--white); }.map-popup-done.is-done { color: var(--paper) !important; background: var(--moss); }
@@ -925,12 +930,21 @@ button.ocr-destination:disabled { opacity: .4; cursor: default; }
 /* Stessi token di .dialog-body: .primary-action nudo è crema fissa da hero
    e su dialog bianco (o in tema scuro con --ink chiaro) il testo sparisce. */
 .offline-pack-dialog-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
-.offline-pack-dialog-actions .primary-action {
+.offline-pack-dialog-actions button {
   flex: 1 1 auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: .85rem 1.25rem;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--white);
+}
+.offline-pack-dialog-actions .primary-action {
   text-decoration: none;
   color: var(--paper);
   border-color: var(--ink);
@@ -1077,6 +1091,7 @@ body:has(.bottom-nav.is-collapsed) main { padding-bottom: 52px; }
   /* Il popup non deve mangiarsi tutta la mappa: attorno al punto deve restare
      visibile abbastanza carta da capire dove ci si trova. */
   .leaflet-popup-content { max-height: min(30vh, 224px); }
+  .map-popup-body.is-stamp { max-height: 5.6em; }
   .map-popup-media { height: 92px; }
   .map-popup h3 { font-size: 1.14rem; }
   .map-popup > p { font-size: .74rem; }

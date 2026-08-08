@@ -1,5 +1,5 @@
 {
-  "measuredAt": "2026-08-07T17:03:42.282Z",
+  "measuredAt": "2026-08",
   "protomapsSrcDefault": "https://build.protomaps.com/20260806.pmtiles",
   "japanBbox": "129.0,30.9,145.9,45.6",
   "photoWidth": 960,
@@ -215,12 +215,23 @@
     ]
   },
   "uiTotals": {
-    "minimo": 3654086,
-    "medio": 136297844,
-    "ampio_z14": 212728802,
-    "ampio_z15": 340449003,
-    "max_z14": 1389358185,
-    "max_z15": 2866054517
+    "minimo": 3785669,
+    "medio": 136429427,
+    "ampio_z14": 212860385,
+    "ampio_z15": 340580586,
+    "max_z14": 1389489768,
+    "max_z15": 2866186100
   },
-  "partial": null
+  "partial": null,
+  "facilities": {
+    "totalBytes": 131583,
+    "meta": {
+      "file": "facilities-ampio.json.gz",
+      "bytes": 131583,
+      "jsonBytes": 722859,
+      "count": 14683,
+      "bubbles": 13,
+      "builtAt": "2026-08"
+    }
+  }
 }

@@ -26,6 +26,8 @@
   let filterText = "";
   let objectUrls = [];
   let persistAsked = false;
+  // Survives search/category re-renders so an open row stays open.
+  let expandedId = null;
 
   function openDb() {
     return new Promise(function (resolve, reject) {
@@ -165,6 +167,27 @@
     panel.hidden = !open;
     row.classList.toggle("is-open", open);
     button.setAttribute("aria-expanded", String(open));
+    expandedId = open ? id : (expandedId === id ? null : expandedId);
+  }
+
+  function expandDocumentRow(id) {
+    const groupsBox = byId("documentsGroups");
+    const button = groupsBox && groupsBox.querySelector('[data-document-toggle="' + id + '"]');
+    if (!button) {
+      expandedId = null;
+      return;
+    }
+    const row = button.closest(".document-row");
+    const panel = row && row.querySelector(".document-panel");
+    const record = findRecord(id);
+    if (!panel || !record || !panel.hidden) return;
+    const url = URL.createObjectURL(record.blob);
+    objectUrls.push(url);
+    panel.innerHTML = documentPanelHTML(record, url);
+    panel.dataset.ready = "true";
+    panel.hidden = false;
+    row.classList.add("is-open");
+    button.setAttribute("aria-expanded", "true");
   }
 
   function render() {
@@ -188,6 +211,7 @@
     if (filterText && !visible.length && records.length) status.textContent = "Nessun documento con questo nome.";
     else if (records.length) status.textContent = records.length + (records.length === 1 ? " documento salvato" : " documenti salvati") + " su questo telefono.";
     else status.textContent = "";
+    if (expandedId) expandDocumentRow(expandedId);
     updateUsage();
   }
 
@@ -230,6 +254,7 @@
     if (!record) return;
     tx("readwrite", function (store) { return store.delete(id); }).then(function () {
       records = records.filter(function (row) { return row.id !== id; });
+      if (expandedId === id) expandedId = null;
       render();
       // Annullabile: il record resta in mano al toast finché non scade.
       toast("Documento eliminato", "Annulla", function () {

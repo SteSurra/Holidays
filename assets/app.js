@@ -70,7 +70,7 @@
   // "cache pronta". NON va nell'URL di registrazione del service worker: un
   // URL che cambia a ogni rilascio forza una reinstallazione del worker in
   // più — e il toast di aggiornamento arrivava due volte di fila.
-  const RELEASE = "20260807g";
+  const RELEASE = "20260807m";
   window.TABI_RELEASE = RELEASE;
 
   function readJSON(key, fallback) {
@@ -385,9 +385,11 @@
       || item.city === filters.city
       || (["shop", "food"].includes(item.type) && item.city === "all" && filters.city !== "all-japan");
     const admissionFilter = filters.admission;
+    // Solo gratis includes mixed (free main area + paid sub-area). Solo a
+    // pagamento is paid-only — mixed must not appear there.
     const admissionMatch = !admissionFilter || admissionFilter === "all"
       || item.admission === admissionFilter
-      || item.admission === "mixed";
+      || (admissionFilter === "free" && item.admission === "mixed");
     return (!filters.search || haystack.includes(normalizeQuery(filters.search)))
       && cityMatch
       // Un centro commerciale sta anche fra i vestiti: `extraCategories` lo fa
@@ -510,6 +512,27 @@
     if (dialog) dialog.showModal();
   }
 
+  function openMailto(url) {
+    // location.href = mailto can unload a standalone PWA. Prefer a temporary
+    // blank-target link (or window.open) so the guide stays in context.
+    try {
+      const link = document.createElement("a");
+      link.href = url;
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.style.display = "none";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      return;
+    } catch (_) { /* fall through */ }
+    try {
+      const opened = window.open(url, "_blank", "noopener");
+      if (opened) return;
+    } catch (_) { /* fall through */ }
+    window.location.href = url;
+  }
+
   function sendFeedback(kind) {
     if (!pendingFeedbackContext) return;
     const context = pendingFeedbackContext;
@@ -517,11 +540,9 @@
     pendingFeedbackContext = null;
     const dialog = document.getElementById("feedbackDialog");
     if (dialog && dialog.open) dialog.close();
-    // Il toast vive fuori dal top layer: con il dettaglio ancora aperto resta
-    // sotto e il fallback «Copia bozza» non si vede.
-    const detailDialog = document.getElementById("detailDialog");
-    if (detailDialog && detailDialog.open) detailDialog.close();
-    window.location.href = draft.mailto;
+    // Keep the detail sheet open when possible — only the chooser closes.
+    // Toast still needs to be reachable; clipboard fallback covers mail fails.
+    openMailto(draft.mailto);
     showToast("Se la posta non si apre", "Copia bozza", function () {
       if (!navigator.clipboard || !navigator.clipboard.writeText) {
         showToast("Copia non disponibile su questo browser");
@@ -879,9 +900,9 @@
       el.innerHTML = "";
       return;
     }
-    let item = filteredItems.find(function (entry) { return entry.city === city; });
-    if (!item) item = data.history.find(function (entry) { return entry.city === city; });
+    const item = filteredItems.find(function (entry) { return entry.city === city; });
     if (!item) {
+      // Do not fall back to unfiltered history — filters must hide the chapter.
       el.hidden = true;
       el.innerHTML = "";
       return;
@@ -3599,7 +3620,7 @@
         state.packed.add(id);
       } else {
         delete state.packedQty[id];
-        if (field.value.trim() === "" ? false : value === 0) state.packed.delete(id);
+        if (field.value.trim() === "" || value === 0) state.packed.delete(id);
       }
       savePacking();
       const item = field.closest(".packing-item");
@@ -4414,6 +4435,16 @@
       const leaving = state.currentView;
       const next = location.hash.slice(1) || "overview";
       switchView(next, false);
+      const url = new URL(window.location.href);
+      const point = url.searchParams.get("point");
+      if (next !== "places" && point) {
+        url.searchParams.delete("point");
+        history.replaceState(history.state || { view: next }, "", url.pathname + url.search + url.hash);
+      } else if (next === "places" && point && window.TABI_MAP) {
+        window.setTimeout(function () {
+          if (window.TABI_MAP) window.TABI_MAP.focusPoint(point);
+        }, 180);
+      }
       if (next !== leaving) reopenMenuFor(leaving);
     });
     // Sulla home l'hash è vuoto ma la vista si chiama "overview": senza questo

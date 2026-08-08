@@ -204,6 +204,105 @@ scenario("offline-pack.js wires Resume helpers and skips complete parts", functi
   );
 });
 
+scenario("estimate includes missing facility pack bytes on upgrade", function () {
+  const facilityBytes = 131583;
+  const remaining = Resume.estimateRemainingDownloadBytes({
+    needsPhotos: true,
+    photosAlreadyOnDevice: true,
+    photoBytes: 0,
+    mapComplete: true,
+    mapMissingBytes: 0,
+    facilityMissingBytes: facilityBytes
+  });
+  assertEqual(remaining, facilityBytes, "facility pack counted when map+photos done");
+});
+
+scenario("minimo tier includes facility pack in estimate", function () {
+  const packSrc = readFileSync(packPath, "utf8");
+  assert(
+    /function needsFacilities\(level\)[\s\S]*?level === "minimo"/.test(packSrc),
+    "needsFacilities must include minimo"
+  );
+  const facilityBytes = packs.facilities_ampio.bytes;
+  const shellOnly = Resume.estimateRemainingDownloadBytes({
+    needsPhotos: false,
+    photosAlreadyOnDevice: false,
+    photoBytes: 0,
+    mapComplete: true,
+    mapMissingBytes: 0,
+    facilityMissingBytes: facilityBytes
+  });
+  assertEqual(shellOnly, facilityBytes, "minimo cold install counts facility pack");
+});
+
+scenario("inspectTierGap: facilities-only gap on complete tier", function () {
+  const facilityBytes = packs.facilities_ampio.bytes;
+  const gap = Resume.inspectTierGap({
+    needsPhotos: true,
+    photosAlreadyOnDevice: true,
+    photoBytes: photoBytes,
+    mapComplete: true,
+    mapMissingBytes: 0,
+    facilityMissingBytes: facilityBytes
+  });
+  assertEqual(gap.totalBytes, facilityBytes, "total bytes");
+  assertEqual(gap.facilityMissingBytes, facilityBytes, "facility bytes");
+  assertEqual(gap.mapMissingBytes, 0, "map bytes");
+  assertEqual(gap.photoMissingBytes, 0, "photo bytes");
+});
+
+scenario("offline-pack prompts when active tier has missing components", function () {
+  const packSrc = readFileSync(packPath, "utf8");
+  assert(
+    packSrc.indexOf("maybePromptTierUpgrade") !== -1,
+    "offline-pack.js must check missing components on boot"
+  );
+  assert(
+    packSrc.indexOf("Scarica aggiornamento") !== -1,
+    "offline-pack.js must offer Scarica aggiornamento CTA"
+  );
+  assert(
+    packSrc.indexOf("Manca un aggiornamento offline") !== -1,
+    "offline-pack.js must use upgrade confirm copy"
+  );
+  assert(
+    packSrc.indexOf("refreshActiveTierMissingBytes") !== -1,
+    "offline-pack.js must refresh missing-byte estimate for active tier"
+  );
+});
+
+scenario("offline-pack upgrade dismiss is session-only, re-prompts on cold boot", function () {
+  const packSrc = readFileSync(packPath, "utf8");
+  assert(
+    packSrc.indexOf("tabi-offline-upgrade-dismiss") === -1,
+    "offline-pack.js must not persist upgrade dismiss in localStorage"
+  );
+  assert(
+    packSrc.indexOf("upgradePromptShownSession") !== -1,
+    "offline-pack.js must use session flag for upgrade dismiss"
+  );
+  const promptFn = packSrc.match(/async function maybePromptTierUpgrade\(\)[\s\S]*?\n    \}/);
+  assert(promptFn, "maybePromptTierUpgrade found");
+  assert(
+    promptFn[0].indexOf("upgradePromptShownSession") !== -1,
+    "maybePromptTierUpgrade must check upgradePromptShownSession"
+  );
+  assert(
+    promptFn[0].indexOf("isUpgradeDismissed") === -1,
+    "maybePromptTierUpgrade must not call isUpgradeDismissed"
+  );
+  const closeHandler = packSrc.match(/dialog\.addEventListener\("close"[\s\S]*?\n    \}/);
+  assert(closeHandler, "dialog close handler found");
+  assert(
+    closeHandler[0].indexOf("upgradePromptShownSession = true") !== -1,
+    "dialog close must set upgradePromptShownSession"
+  );
+  assert(
+    closeHandler[0].indexOf("dismissUpgradePrompt") === -1,
+    "dialog close must not call dismissUpgradePrompt"
+  );
+});
+
 scenario("index.html loads resume logic before offline-pack.js", function () {
   const index = readFileSync(new URL("../index.html", import.meta.url), "utf8");
   const logicAt = index.indexOf("assets/offline-resume-logic.js");

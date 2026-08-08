@@ -7,6 +7,9 @@ lesson, append it here in the same commit — this file is the skill's memory.
 
 ## Offline and the service worker
 
+For the on-demand refresh checklist (which pack to rebuild when content changes),
+see [offline-packs.md](offline-packs.md).
+
 - **Map tiles are only cacheable with CORS.** A tile layer without `crossOrigin`
   produces `no-cors` requests; the responses are *opaque*, `response.ok` is
   `false`, and a `if (response.ok)` cache guard silently stores nothing. Set
@@ -71,6 +74,20 @@ lesson, append it here in the same commit — this file is the skill's memory.
   only a verified-complete plan; `tabi-offline-job` may stay `partial` until the
   user taps Riprendi. Never toast “pronto” from a progress counter — verify
   Cache Storage photo counts and OPFS/IndexedDB map bytes against the manifest.
+- **Dismissing a partial pack must not erase the job.** A «Chiudi» /
+  «Nascondi» control may hide Riprendi UI, but must never `setJob(null)` while
+  status is `partial` — that deletes resumable bytes and forces a full
+  re-download. Keep `tabi-offline-job` until the user completes, cancels via
+  a deliberate purge, or starts a different target.
+- **Tier radios are a draft; confirm is explicit.** Do not open the download
+  confirm modal on every radio `change`. Let the traveler browse Minimo /
+  Medio / Ampio, show «Scarica piano» / «Riduci piano», and confirm once.
+  Dismiss (× / Annulla) clears `draftKey` and restores radios to the active
+  tier. Upgrade prompts belong on the Settings view, never at boot over
+  Viaggio.
+- **Shell reconcile timeout is failure.** A 12s SW reconcile that never
+  replies must resolve `{ ok: false, timeout: true }` and abort the pack job
+  into `partial` — never treat timeout as `{ ok: true }` and continue.
 - **Map packs need versioned URLs and byte checks.** Do not hotlink ephemeral
   planet builds for user downloads; ship `offline-pack-manifest.js` with `url`
   + `bytes`, verify after download, delete corrupt OPFS / IndexedDB files.
@@ -166,11 +183,11 @@ lesson, append it here in the same commit — this file is the skill's memory.
   Annulla without an AbortController. Cancel must always clear or demote the
   job even when `jobAbort` is null; guard `progress` writers on
   `signal.aborted` so a hung await cannot rewrite `busy` after cancel.
-- **Offline tiers live only in Settings (header gear), not in Packing.**
+- **Offline tiers live only in Settings, not in Packing.**
   Host the full Minimo/Medio/Ampio/Massimo selector, zoom options, progress,
   and download actions in Impostazioni (`data-view="settings"`). Do not put
-  the panel in Valigia / packing or deep-link “Apri Dati offline” into another
-  tab — packing is the checklist only; the gear is the single entry point.
+  the panel in Valigia / packing — packing is the checklist only. Discoverability:
+  header ⚙ **and** a Settings tile in the Utilità menu (same as other tools).
 - **Hide map zoom options whose manifest `url` is null.** Do not offer Max z15
   (or any pack) until the release asset exists — show only published zooms.
 - **Never leave “Controllo in corso…” as the permanent offline status.** The
@@ -181,24 +198,24 @@ lesson, append it here in the same commit — this file is the skill's memory.
 - **`setupUI` must always paint the four tier radios on first call.** Size
   labels can be empty if measurements are missing; the radios themselves must
   still appear so the panel never looks blank.
-- **Preserve draft selection across tier re-renders; open confirm on change.**
+- **Preserve draft selection across tier re-renders; confirm is explicit.**
   If `change` rebuilds the radio HTML from `getActiveTier()` alone, the new
-  choice is wiped before actions render — “Scarica piano” never appears and
-  download never starts. Keep a `draftKey` for the user’s pending choice,
-  paint checked state from that, and on radio/zoom change to a different tier
-  than active immediately `openConfirm(selectedTarget())` so Continua →
-  download is one gesture path.
+  choice is wiped before actions render — “Scarica piano” never appears.
+  Keep a `draftKey` for the user’s pending choice and paint checked state
+  from that. Do **not** open the confirm modal on every radio change — show
+  «Scarica piano» / «Riduci piano» and open confirm only on that CTA.
+  Dismiss (× / Annulla) clears `draftKey` and restores radios to the active tier.
 - **Never put bare `.primary-action` on a light dialog.** The global class is
   hero cream (`#f1eee5`) with `color: var(--ink)`. On a `.feedback-dialog`
   (paper/white surface) Continua becomes a white pill; in dark theme `--ink`
   lightens and the label vanishes. Scope dialog CTAs like `.dialog-body`:
   ink background / paper text for primary (same token pair as itinerary and
   documents toolbars).
-- **Confirm dialogs: one affirmative CTA plus the X, not a second Annulla.**
-  When dismiss already exists as the dialog close control, a labeled Cancel
-  duplicates the same exit and crowds the one-thumb confirm. Keep Continua
-  (or equivalent) and the × only; leave the draft selection so the panel
-  CTA can still start the download after dismiss.
+- **Tier confirm: Continua plus Annulla that reverts the draft.** × and
+  Annulla must clear `draftKey` and restore radios to the active tier —
+  leaving a ghost selection after dismiss desyncs UI from `tabi-offline-tier`.
+  Panel-level Annulla (next to Scarica piano) does the same without opening
+  the dialog.
 
 ## Storage
 
@@ -268,9 +285,18 @@ lesson, append it here in the same commit — this file is the skill's memory.
   refreshes itself for free; only the popup currently open needs `update()`.
   Look up guide items through a `Map` index — a per-marker linear scan over a
   700-item concat cost ~300k array copies on the first map open.
+- **Lasso walking routes exclude stamps.** Stamp markers pass `!point.guideId`
+  and would otherwise join the Google Maps walk. Filter `point.type === "stamp"`
+  out of lasso selection — collectibles are not visit stops.
+- **Clamp long stamp popup bodies on small screens.** Stamp copy concatenates
+  description + Dove:; give `.map-popup-body.is-stamp` a max-height + scroll
+  so the popup stays scannable at 320px.
 - **Patch rows, don't rebuild lists.** A packing checkbox that re-rendered the
   whole list lost the user's scroll mid-suitcase; the quantity field next to
   it was already surgical. Make the two paths symmetrical from day one.
+- **Clearing packing qty must uncheck.** Writing a quantity auto-checks; an
+  empty field (or zero) must `packed.delete(id)` — otherwise the checkmark
+  stays after the traveler clears the number.
 - **Nothing expensive inside comparators or per-item predicates.** No
   `localStorage.getItem`, no `new RegExp`, no `normalize()` per comparison:
   hoist the query normalization, precompile the word-boundary regex, and
@@ -382,6 +408,21 @@ lesson, append it here in the same commit — this file is the skill's memory.
 - **Offline "not yet" is not an error.** A facility layer toggled with no
   network must keep its switch on with an honest message, not untick itself;
   the area loads by itself when the network returns.
+- **Facility packs live in IndexedDB, not localStorage.** Pre-seeding ten
+  thousand OSM nodes into `localStorage` blows the quota and slows every boot.
+  Ship a gzip JSON pack (~130 KB for trip bubbles) with every offline tier from
+  Minimo upward — small enough to download on confirm, useful on the map even
+  before Ampio tiles — load it into memory once, and keep Overpass only for
+  online gaps outside the trip bubbles.
+- **A verified tier can still be incomplete after new pack components ship.**
+  `tabi-offline-tier` promotes only after `verifyJobComplete`; users who
+  installed Ampio before facilities existed keep a “complete” tier with no
+  facility blob. On boot, compare `estimateDownloadBytes(activeKey)` to zero —
+  if positive while tier matches, prompt once per session (× or dialog close
+  sets a session flag only — re-prompt on every cold boot until download) with
+  confirm copy and `runJob` on the same key so photos/maps
+  skip via existing resume logic. Status must not say “completo” when bytes
+  remain; offer “Scarica aggiornamento” in the panel.
 
 ## Representative photos
 
@@ -565,6 +606,10 @@ lesson, append it here in the same commit — this file is the skill's memory.
   the file name on every row; start collapsed like saved favourites and load
   thumbnails and object URLs only on first expand — a wall of previews is
   noise at the gate.
+- **Preserve `expandedId` across document `render()`.** Search and category
+  changes rebuild the list and revoke object URLs; without remembering the
+  open row id, expand collapses mid-edit. Re-open that id after paint (or
+  clear it if the row is filtered out).
 
 ## Developer feedback
 
@@ -572,14 +617,27 @@ lesson, append it here in the same commit — this file is the skill's memory.
   idea) that opens the user's mail client with subject and body prefilled
   captures item context without a server, analytics SDK, or extra form fields.
   Offer a clipboard fallback toast: some phones have no default mail app.
+- **Never assign `location.href = mailto` in a PWA.** That can unload the
+  standalone webview and lose the open detail. Prefer a temporary
+  `<a target="_blank" rel="noopener">` click (or `window.open`); keep the
+  clipboard toast as fallback.
+- **Device-gate honesty beats a fake hardware pass.** Without a physical phone,
+  maximize coverage with Playwright mobile emulation (390/360, light/dark) plus
+  code-path checks for Web Share, real `tel:`/`mailto` apps, pack GB downloads,
+  and standalone safe-area. Record `emulated-pass` / `code-verified` /
+  `blocked-needs-hardware` / `fail` in `qa/DEVICE-GATE.md` — never mark A2HS,
+  share sheet, or airplane tiles green from headless Chromium alone. Runner:
+  `qa/device-gate-playwright.mjs`. Keep result dates as `YYYY-MM` prose so
+  `check-public-content` does not fail the QA artifacts.
 - **Assemble the developer address at runtime.** `check-public-content.mjs`
   rejects literal email strings in tracked files; `["user", "domain.tld"].join("@")`
   keeps the inbox out of the public repo while still enabling mailto links.
 - **Segnala in header, errore in scheda.** A global ✉ in the site header opens
-  app-level feedback (problem or idea) from any view; Impostazioni stays on the
-  adjacent ⚙ only — neither duplicates Utilità. Inside an item detail sheet, use
-  the same ✉ glyph with fixed copy **Segnala un errore**; item context still
-  rides in the mailto body via `data-id`, not in per-type link text.
+  app-level feedback (problem or idea) from any view; Impostazioni is header ⚙
+  **and** a Utilità menu tile (offline tiers are otherwise hard to find).
+  Inside an item detail sheet, use the same ✉ glyph with fixed copy
+  **Segnala un errore**; item context still rides in the mailto body via
+  `data-id`, not in per-type link text.
 
 ## Story batch merge order
 
@@ -614,6 +672,10 @@ lesson, append it here in the same commit — this file is the skill's memory.
   just because the page never prints the word “Free”. Use `mixed` when the
   same place has a documented paid sub-area; leave `guide-map-visit-*`
   synthetics pending until promoted to a persistable row.
+- **Filter: `mixed` belongs in Solo gratis, not Solo a pagamento.** Matching
+  `item.admission === "mixed"` for every non-`all` filter wrongly lists free-
+  main venues under paid-only. Implement
+  `admission === filter || (filter === "free" && admission === "mixed")`.
 - **Experience admission is the last column, after optional `sourceKey` and
   `setting`.** Appending `free|paid|mixed` directly after `lat|lng` on a
   short experience row writes the class into `sourceKey`, so the parser
