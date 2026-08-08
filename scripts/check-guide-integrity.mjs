@@ -250,31 +250,43 @@ for (const stamp of stamps) {
   // sta in stazione, gli altri stanno almeno nella città che dichiarano. Il
   // metro serve a intercettare una cifra sbagliata — un refuso sposta di
   // chilometri o di continenti — non a misurare la precisione.
-  const isCastle = /名城|castell/i.test(stamp.program || "");
-  const anchorCandidates = isCastle
-    ? (data.places || []).filter((place) => place.city === stamp.city && place.category === "castello")
-      .concat(mapPoints.filter((point) => point.type === "visit" && point.city === stamp.city && /castello|皇居|palazzo imperiale/i.test(point.name + " " + (point.jp || ""))))
-    : [];
   const city = data.cities.find((entry) => entry.id === stamp.city);
-  if (isCastle && !anchorCandidates.length) {
-    failures.push(`stamp ${stamp.slug}: castle programme but no castle in ${stamp.city}`);
-    continue;
-  }
   if (!city) {
     failures.push(`stamp ${stamp.slug}: unknown city ${stamp.city}`);
     continue;
   }
+  // Il timbro si ancora al SUO sito, cercato per nome nativo o latino — non a
+  // un sito qualsiasi della stessa città. La prima versione agganciava ogni
+  // timbro-castello al primo castello del posto, e così il timbro di Takiyama
+  // veniva misurato contro il castello di Edo, a trentotto chilometri, mentre
+  // i castelli attorno a Hakone venivano respinti perché la guida non li ha:
+  // ci sono programmi che toccano siti fuori dall'itinerario, ed è normale.
+  const compact = (value) => String(value || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]/g, "");
+  const siteKey = compact(stamp.site);
+  const anchors = mapPoints.filter((point) => {
+    if (point.type === "stamp" || point.city !== stamp.city) return false;
+    if (stamp.jp && point.jp && point.jp === stamp.jp) return true;
+    const pointKey = compact(point.name);
+    if (siteKey.length < 5 || pointKey.length < 5) return false;
+    if (!pointKey.includes(siteKey) && !siteKey.includes(pointKey)) return false;
+    // "Takiyama-jō" contiene "Takiya", che è un negozio a trentasette
+    // chilometri: la sottostringa da sola aggancia qualunque cosa, serve che
+    // i due nomi siano quasi tutto l'uno dell'altro.
+    return Math.min(siteKey.length, pointKey.length) / Math.max(siteKey.length, pointKey.length) >= 0.7;
+  }).filter((anchor) => Number.isFinite(anchor.lat));
+
   // Il recinto del castello di Edo è largo più di un chilometro e mezzo e le
-  // sue tre postazioni stanno agli angoli: la soglia è larga per questo.
-  // Fuori dai castelli si controlla solo che il timbro cada nella sua città.
-  const anchors = anchorCandidates
-    .map((candidate) => (Number.isFinite(candidate.lat) ? candidate : mapPoints.find((point) => point.guideId === candidate.id)))
-    .filter((anchor) => anchor && Number.isFinite(anchor.lat));
-  const limit = isCastle ? 2000 : 30000;
-  const reference = anchors.length ? anchors : [city];
+  // sue tre postazioni stanno agli angoli: due chilometri quando il sito è
+  // noto. Quando non lo è, basta che il timbro sia raggiungibile dal viaggio:
+  // il riferimento sono tutte le tappe E le fermate dei trasferimenti, perché
+  // un timbro può stare in una stazione di cambio — Tsuruga sta a centoquattordici
+  // chilometri da Kanazawa e ci si passa comunque, scendendo dal Thunderbird.
+  const fermate = (data.legs || []).flatMap((leg) => leg.stops || []).filter((stop) => Number.isFinite(stop.lat));
+  const limit = anchors.length ? 2000 : 50000;
+  const reference = anchors.length ? anchors : [city].concat(fermate);
   const distance = Math.min(...reference.map((anchor) => metersBetween(stamp.lat, stamp.lng, anchor.lat, anchor.lng)));
   if (distance > limit) {
-    failures.push(`stamp ${stamp.slug}: ${distance} m from ${anchors.length ? "its castle" : city.name} — beyond the ${limit} m the programme allows`);
+    failures.push(`stamp ${stamp.slug}: ${distance} m from ${anchors.length ? anchors[0].name : city.name} — beyond the ${limit} m allowed`);
   }
 }
 
