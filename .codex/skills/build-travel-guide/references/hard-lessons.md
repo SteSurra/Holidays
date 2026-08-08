@@ -267,6 +267,51 @@ lesson, append it here in the same commit — this file is the skill's memory.
   cache, bump the cache key — 650 stale wrong choices otherwise survive on
   every returning device.
 
+## Writing the guide with agents
+
+- **An exact-match uniqueness check licenses the repetition it cannot see.**
+  The integrity script refuses two cards that share a whole sentence, and
+  every card passed it — while a third of the guide closed on the same joke
+  shape ("probably the only X in the world"). Repetition arrives as
+  paraphrase, and no string comparison catches paraphrase. Budget a reader
+  whose only job is to read the cards in a row, hand it the corpus already
+  shipped AND the rules the automated check enforces, and let it say what the
+  check structurally cannot. Then rewrite in batches that each see what the
+  previous batches wrote, or the replacements converge on a new single shape.
+- **The reviewer's justification is not the traveler's description.** A
+  selection pass produces text aimed at whoever ordered the selection —
+  "for this reason medium and not high", "it turns the castle card into a
+  chapter", "the guide already has". Piped straight into a data field it
+  ships to someone walking with a phone. Convert it deliberately, and have
+  the importer refuse to write when it still smells of the review.
+- **Compute every file before touching any of them.** An importer that wrote
+  the places, then failed to find the experiences table and exited, left
+  twenty-four cards with no map point and no activities — a half-written
+  dataset that passes no check and is harder to diagnose than a clean
+  failure. Build all outputs in memory, verify every anchor exists, then
+  write.
+- **A handwritten story is not on the phone until every enrichment path
+  applies it.** `enrichAll` ran `applyStory` on the curated catalogs, then
+  `enrichMapPoints` created twenty-four more guide items from visit pins
+  and stopped at the category model. The stories for those IDs sat in
+  `story-data.js`, integrity counted the keys, and the cards on the phone
+  stayed templated. Any path that invents a guide item after the main pass
+  must call the same story apply — or run one apply over the whole catalog
+  at the end.
+- **Anchor a validation to the specific subject, never to its category.** The
+  stamp check measured each castle stamp against *any* castle in the same
+  city: one stamp was judged against a castle thirty-seven kilometres away,
+  and legitimate stamps were rejected because the guide happens not to list
+  their castle. Match by native name, and when there is no match fall back to
+  something the journey actually touches — including the transfer stations,
+  because a stamp can sit in a station you only change trains at.
+- **Agent runs are expensive and their cache is scoped to the session.**
+  Resuming a workflow in a new session silently re-runs the research instead
+  of replaying it. Persist every raw result outside the session as soon as it
+  lands, and generate follow-up scripts with the data embedded rather than
+  passed as arguments: the run then reproduces anywhere, and the payload never
+  crosses the context window twice.
+
 ## Photo translation
 
 - **In-app OCR pipelines age poorly; the user's AI app does not.** Tesseract

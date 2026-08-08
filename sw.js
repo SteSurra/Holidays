@@ -1,4 +1,4 @@
-const CACHE = "tabi-japan-v122";
+const CACHE = "tabi-japan-v125";
 const TILE_CACHE = "tabi-tiles-v1";
 // Il solo prefetch delle tappe vale 297 riquadri: con un tetto più basso una
 // passeggiata sulla mappa sfratterebbe le città appena scaricate.
@@ -6,7 +6,7 @@ const TILE_LIMIT = 700;
 // Stesso token di index.html, sempre: se divergono il precache salva URL che la
 // pagina non richiederà mai, e l'app "offline" riscarica tutto dalla rete.
 // L'allineamento è verificato da scripts/check-guide-integrity.mjs.
-const VERSION = "?v=20260807b";
+const VERSION = "?v=20260807e";
 
 // Guscio di prima parte: senza questo l'app non parte. L'installazione fallisce
 // se manca anche un solo file, ed è giusto così.

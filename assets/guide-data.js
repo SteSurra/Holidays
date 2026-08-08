@@ -734,11 +734,16 @@
         booking: "Controlla calendario, accesso e disponibilità sul sito ufficiale",
         imageQuery: point.name + " " + cityName(point.city) + " Japan"
       };
+      // Stessa strada di enrichAll: senza applyStory qui le schede scritte per
+      // i punti mappa restano nel file e non arrivano mai sul telefono — è già
+      // successo con le ventiquattro visite aggiunte dai percorsi.
       if (isExperience) {
         enrichExperience(item);
+        applyStory(item);
         data.experiences.push(item);
       } else {
         enrichPlace(item);
+        applyStory(item);
         data.mapPlaces.push(item);
       }
       point.guideId = item.id;
