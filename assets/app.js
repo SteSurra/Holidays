@@ -76,7 +76,7 @@
   // "cache pronta". NON va nell'URL di registrazione del service worker: un
   // URL che cambia a ogni rilascio forza una reinstallazione del worker in
   // più — e il toast di aggiornamento arrivava due volte di fila.
-  const RELEASE = "20260808f";
+  const RELEASE = "20260808g";
   window.TABI_RELEASE = RELEASE;
 
   function readJSON(key, fallback) {

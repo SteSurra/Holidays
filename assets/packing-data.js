@@ -144,6 +144,8 @@ scarpette-scoglio|1||mare|entrambi|
 telo-mare|1||mare|stiva|
 custodia-waterproof|1|Telefono e documenti al mare|mare|mano|
 headlamp|1|Escursioni e ryokan poco illuminati|montagna|mano|
+moschettoni||Per appendere shopper, borraccia o etichette allo zaino||entrambi|
+sacchetti-sottovuoto||Comprimono i vestiti e liberano spazio per i souvenir||entrambi|
 `
     },
     {
@@ -288,6 +290,8 @@ felpina|1|Aereo e stazioni: aria condizionata aggressiva||mano|
     "telo-mare": "Telo mare",
     "custodia-waterproof": "Custodia impermeabile telefono",
     "headlamp": "Frontale",
+    "moschettoni": "Moschettoni",
+    "sacchetti-sottovuoto": "Sacchetti sottovuoto",
     "kindle": "Lettore e-book",
     "caricatore-kindle": "Caricatore del lettore",
     "caricatore-telefono": "Caricatore telefono",
