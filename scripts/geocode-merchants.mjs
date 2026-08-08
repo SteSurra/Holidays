@@ -41,14 +41,39 @@ function sleep(ms) {
 // risponde con un asilo che sta in città ma non c'entra niente. Si accetta solo
 // se il nome trovato contiene davvero quello cercato — meglio nessuna coordinata
 // che una che manda dall'altra parte del quartiere.
+// Prima di confrontare due nomi vanno messi nella stessa forma: su
+// OpenStreetMap le insegne giapponesi portano spesso uno spazio dove noi non lo
+// scriviamo — 出町 ふたば per 出町ふたば — e i caratteri possono essere a
+// larghezza piena. Con un confronto letterale il risultato giusto veniva
+// buttato via come se fosse un omonimo.
+function normalizeName(text) {
+  return (text || "").normalize("NFKC").replace(/[\s　·・]+/g, "").toLowerCase();
+}
+
 function nameMatches(query, displayName) {
-  const found = displayName.toLowerCase();
-  const wanted = query.toLowerCase().trim();
+  const found = normalizeName(displayName);
+  const wanted = normalizeName(query);
+  // Due caratteri dentro un nome più lungo non sono un riconoscimento: 瑞穂
+  // "combacia" con 瑞穂大橋 e con 瑞穂会館, che non sono il negozio.
+  if (wanted.length < 3) return false;
   if (found.includes(wanted)) return true;
   // Le insegne latine spesso sono più lunghe del nome ufficiale ("Yodobashi
-  // Camera Akiba" per "ヨドバシAkiba"): basta che la prima parola coincida.
-  const head = wanted.split(/[\s·・]/)[0];
+  // Camera Akiba" per "ヨドバシAkiba"): basta che la prima parte coincida.
+  const head = normalizeName(query.split(/[\s·・,]/)[0]);
   return head.length >= 4 && found.includes(head);
+}
+
+// Un negozio è un negozio, non un ponte. Cercando 瑞穂 Nominatim rispondeva col
+// ponte 瑞穂大橋: sta nel riquadro giusto e il nome ci somiglia, ma non è un
+// posto dove si entra. Si accettano solo le categorie che possono essere una
+// bottega, e le cose che di sicuro non lo sono restano fuori.
+const SHOP_CLASSES = ["shop", "amenity", "craft", "tourism", "office", "leisure", "building", "man_made"];
+const NOT_A_SHOP_TYPES = ["bridge", "viaduct", "tunnel", "bus_stop", "station", "platform"];
+
+function isPlaceLikeShop(hit) {
+  if (NOT_A_SHOP_TYPES.includes(hit.type)) return false;
+  if (!hit.class) return true;
+  return SHOP_CLASSES.includes(hit.class);
 }
 
 async function geocode(query, city) {
@@ -69,6 +94,7 @@ async function geocode(query, city) {
     const lng = Number(hit.lon);
     if (!Number.isFinite(lat) || !Number.isFinite(lng)) continue;
     if (box && (lat < box[0] || lat > box[1] || lng < box[2] || lng > box[3])) continue;
+    if (!isPlaceLikeShop(hit)) continue;
     if (!nameMatches(query, hit.display_name)) continue;
     return { lat: lat.toFixed(5), lng: lng.toFixed(5), name: hit.display_name };
   }

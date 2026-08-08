@@ -356,6 +356,16 @@ body:has(dialog[open]) { overflow: hidden; }
 .local-profile { display: grid; gap: 1rem; margin: 2rem 0; padding: 1.5rem; border: 1px solid var(--line); border-radius: 20px; background: var(--white); }
 .local-profile h2 { margin: .2rem 0 .7rem; font: 600 1.8rem "Noto Serif JP", serif; }.local-profile p { color: var(--muted); }
 .sync-actions { display: flex; gap: .55rem; padding-top: 1rem; border-top: 1px solid var(--line); }.sync-actions button, .sync-actions label { display: grid; place-items: center; min-height: 42px; border: 1px solid var(--line); border-radius: 999px; padding: .5rem 1rem; background: var(--paper); cursor: pointer; font-size: .75rem; font-weight: 800; }.sync-actions input { position: absolute; width: 1px; height: 1px; opacity: 0; }.local-profile > .helper-note { margin: 0; }
+.sync-actions button[disabled] { opacity: .45; cursor: default; }
+/* I salvati senza un punto sulla mappa: stessa pastiglia dei filtri, ma qui
+   vanno a capo invece di scorrere di lato — è un elenco da leggere tutto. */
+.off-map { padding-top: 1rem; border-top: 1px solid var(--line); }
+.off-map h3 { margin: 0 0 .3rem; font-size: .8rem; }
+.off-map .helper-note { margin: 0 0 .6rem; }
+.off-map-list { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 0 1.2rem; }
+.off-map-list:last-child { margin-bottom: 0; }
+.off-map-list .category-chip { min-height: auto; padding: .45rem .7rem; font-weight: 600; text-align: left; }
+.off-map-list .category-chip small { color: var(--muted); font-weight: 700; }
 
 .saved-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0; }
 .saved-tile { border: 1px solid var(--line); border-radius: var(--radius); padding: 1.2rem; background: var(--white); }

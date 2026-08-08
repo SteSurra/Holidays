@@ -4,7 +4,9 @@ import vm from "node:vm";
 const root = new URL("../", import.meta.url);
 const context = { window: {} };
 vm.createContext(context);
-for (const file of ["assets/data.js", "assets/food-data.js", "assets/shopping-data.js", "assets/food-extra-data.js"]) {
+// Anche attività e negozianti: le loro query immagine non venivano mai
+// verificate, ed erano proprio le schede con i soggetti più difficili.
+for (const file of ["assets/data.js", "assets/food-data.js", "assets/shopping-data.js", "assets/food-extra-data.js", "assets/map-data.js", "assets/merchants-data.js", "assets/experiences-data.js"]) {
   vm.runInContext(readFileSync(new URL(file, root), "utf8"), context, { filename: file });
 }
 
@@ -13,7 +15,14 @@ const typeArg = process.argv.find((arg) => arg.startsWith("--type="))?.split("="
 const limitArg = Number(process.argv.find((arg) => arg.startsWith("--limit="))?.split("=")[1] || 0);
 const offsetArg = Number(process.argv.find((arg) => arg.startsWith("--offset="))?.split("=")[1] || 0);
 const workersArg = Number(process.argv.find((arg) => arg.startsWith("--workers="))?.split("=")[1] || 1);
-const collections = typeArg === "food" ? [data.foods] : typeArg === "shop" ? [data.shopping] : [data.foods, data.shopping];
+const collectionsByType = {
+  food: [data.foods],
+  shop: [data.shopping],
+  experience: [data.experiences || []],
+  merchant: [data.merchants || []],
+  all: [data.foods, data.shopping, data.experiences || [], data.merchants || []]
+};
+const collections = collectionsByType[typeArg] || collectionsByType.all;
 let items = collections.flat().slice(Math.max(offsetArg, 0));
 if (limitArg > 0) items = items.slice(0, limitArg);
 

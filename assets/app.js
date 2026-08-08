@@ -67,15 +67,33 @@
     try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch (_) { return fallback; }
   }
 
+  // localStorage può rifiutare la scrittura: quota piena o navigazione privata.
+  // Un preferito che non si salva non deve far esplodere il tocco che lo ha
+  // chiesto lasciando la schermata a metà. Alla prima quota piena si sacrifica
+  // la cache delle immagini — l'unico dato ricostruibile — e si riprova.
+  function safeSetItem(key, value) {
+    try { localStorage.setItem(key, value); return true; }
+    catch (_) {
+      try {
+        localStorage.removeItem("tabi-image-cache-v4");
+        state.imageCache = {};
+        // Se a sfondare la quota era proprio la cache immagini, riscriverla
+        // intera rifarebbe il danno: riparte vuota.
+        localStorage.setItem(key, key === "tabi-image-cache-v4" ? "{}" : value);
+        return true;
+      } catch (_) { return false; }
+    }
+  }
+
   function saveState() {
-    localStorage.setItem("tabi-favorites", JSON.stringify(Array.from(state.favorites)));
-    localStorage.setItem("tabi-done", JSON.stringify(Array.from(state.done)));
+    safeSetItem("tabi-favorites", JSON.stringify(Array.from(state.favorites)));
+    safeSetItem("tabi-done", JSON.stringify(Array.from(state.done)));
   }
 
   // La mappa si riallinea da sola: ricostruisce il livello dei luoghi invece di
   // reinizializzarsi, come già fa per le spunte di visita.
   function saveHidden() {
-    localStorage.setItem("tabi-hidden-v1", JSON.stringify(Array.from(state.hidden)));
+    safeSetItem("tabi-hidden-v1", JSON.stringify(Array.from(state.hidden)));
     window.dispatchEvent(new CustomEvent("tabi:selectionchange"));
   }
 
@@ -100,7 +118,7 @@
     Array.from(state.hidden).forEach(function (id) {
       if (!mapGuideIds.has(id)) { state.hidden.delete(id); changed = true; }
     });
-    if (changed) localStorage.setItem("tabi-hidden-v1", JSON.stringify(Array.from(state.hidden)));
+    if (changed) safeSetItem("tabi-hidden-v1", JSON.stringify(Array.from(state.hidden)));
   }
 
   // I negozianti sono più di cento e non sono tappe di un viaggio: accesi tutti
@@ -116,14 +134,29 @@
       state.hidden.add(item.id);
       touched = true;
     });
-    localStorage.setItem("tabi-merchants-start-hidden", "done");
-    if (touched) localStorage.setItem("tabi-hidden-v1", JSON.stringify(Array.from(state.hidden)));
+    safeSetItem("tabi-merchants-start-hidden", "done");
+    if (touched) safeSetItem("tabi-hidden-v1", JSON.stringify(Array.from(state.hidden)));
   }
 
   function escapeHTML(value) {
     return String(value == null ? "" : value).replace(/[&<>"']/g, function (char) {
       return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[char];
     });
+  }
+
+  // L'init scrive e ascolta su decine di id di index.html: un id rinominato
+  // faceva TypeError a metà init e uccideva l'intera app prima del primo
+  // disegno. Il pezzo mancante si segnala in console e il resto parte.
+  function setHTML(id, html) {
+    const node = document.getElementById(id);
+    if (node) node.innerHTML = html;
+    else console.warn("[tabi] elemento mancante: #" + id);
+  }
+
+  function listen(id, eventName, handler) {
+    const node = document.getElementById(id);
+    if (node) node.addEventListener(eventName, handler);
+    else console.warn("[tabi] elemento mancante: #" + id);
   }
 
   function normalize(value) {
@@ -149,19 +182,19 @@
   }
 
   function setupFilters() {
-    document.getElementById("placeCity").innerHTML = cityOptions(false);
-    document.getElementById("experienceCity").innerHTML = cityOptions(false);
-    document.getElementById("foodCity").innerHTML = cityOptions(true);
-    document.getElementById("shopCity").innerHTML = cityOptions(true);
-    document.getElementById("historyCity").innerHTML = cityOptions(false);
-    document.getElementById("placeCategory").innerHTML = categoryOptions(data.labels.placeCategories, "Tutte le categorie");
-    document.getElementById("experienceCategory").innerHTML = categoryOptions(data.labels.experienceCategories, "Tutte le attività");
-    document.getElementById("experienceSetting").innerHTML = categoryOptions(data.labels.experienceSettings, "Ovunque");
-    document.getElementById("foodCategory").innerHTML = categoryOptions(data.labels.foodCategories, "Tutte le portate");
-    document.getElementById("shopCategory").innerHTML = categoryOptions(data.labels.shopCategories, "Tutte le categorie");
-    document.getElementById("merchantCity").innerHTML = cityOptions(false);
-    document.getElementById("merchantCategory").innerHTML = categoryOptions(data.labels.merchantCategories, "Tutti i mestieri");
-    document.getElementById("historyCategory").innerHTML = categoryOptions(data.labels.historyCategories, "Tutti gli argomenti");
+    setHTML("placeCity", cityOptions(false));
+    setHTML("experienceCity", cityOptions(false));
+    setHTML("foodCity", cityOptions(true));
+    setHTML("shopCity", cityOptions(true));
+    setHTML("historyCity", cityOptions(false));
+    setHTML("placeCategory", categoryOptions(data.labels.placeCategories, "Tutte le categorie"));
+    setHTML("experienceCategory", categoryOptions(data.labels.experienceCategories, "Tutte le attività"));
+    setHTML("experienceSetting", categoryOptions(data.labels.experienceSettings, "Ovunque"));
+    setHTML("foodCategory", categoryOptions(data.labels.foodCategories, "Tutte le portate"));
+    setHTML("shopCategory", categoryOptions(data.labels.shopCategories, "Tutte le categorie"));
+    setHTML("merchantCity", cityOptions(false));
+    setHTML("merchantCategory", categoryOptions(data.labels.merchantCategories, "Tutti i mestieri"));
+    setHTML("historyCategory", categoryOptions(data.labels.historyCategories, "Tutti gli argomenti"));
 
     bindFilter("placeSearch", "place", "search", "input");
     bindFilter("placeCity", "place", "city", "change");
@@ -179,7 +212,7 @@
     bindFilter("merchantSearch", "merchant", "search", "input");
     bindFilter("merchantCity", "merchant", "city", "change");
     bindFilter("merchantCategory", "merchant", "category", "change");
-    document.getElementById("merchantOdd").addEventListener("change", function (event) {
+    listen("merchantOdd", "change", function (event) {
       state.filters.merchant.odd = event.target.checked;
       resetPaging("merchantGrid");
       renderMerchants();
@@ -188,8 +221,9 @@
     bindFilter("historySearch", "history", "search", "input");
     bindFilter("historyCity", "history", "city", "change");
     bindFilter("historyCategory", "history", "category", "change");
-    document.getElementById("foodLocal").addEventListener("change", function (event) {
+    listen("foodLocal", "change", function (event) {
       state.filters.food.local = event.target.checked;
+      resetPaging("foodGrid");
       renderFoods();
       updateFilterToggle("food");
     });
@@ -238,7 +272,7 @@
       updateFilterToggle(group);
     };
     const run = eventName === "input" ? debounce(apply, 150) : apply;
-    document.getElementById(elementId).addEventListener(eventName, function (event) {
+    listen(elementId, eventName, function (event) {
       state.filters[group][field] = event.target.value;
       run();
     });
@@ -279,6 +313,7 @@
     };
     ids[group].forEach(function (id) { document.getElementById(id).value = "all"; });
     if (group === "food") document.getElementById("foodLocal").checked = false;
+    resetPaging(GROUP_GRIDS[group]);
     renderGroup(group);
     updateFilterToggle(group);
   }
@@ -297,13 +332,27 @@
     return value;
   }
 
+  // La stessa query veniva rinormalizzata (NFD + regex) una volta per scheda a
+  // ogni tasto premuto: la si normalizza una volta e la si ricorda finché non
+  // cambia.
+  let lastQueryRaw = null;
+  let lastQueryNorm = "";
+
+  function normalizeQuery(value) {
+    if (value !== lastQueryRaw) {
+      lastQueryRaw = value;
+      lastQueryNorm = normalize(value);
+    }
+    return lastQueryNorm;
+  }
+
   function matches(item, filters) {
     const haystack = itemHaystack(item);
     const cityMatch = filters.city === "all"
       || (filters.city === "all-japan" && item.city === "all")
       || item.city === filters.city
       || (["shop", "food"].includes(item.type) && item.city === "all" && filters.city !== "all-japan");
-    return (!filters.search || haystack.includes(normalize(filters.search)))
+    return (!filters.search || haystack.includes(normalizeQuery(filters.search)))
       && cityMatch
       // Un centro commerciale sta anche fra i vestiti: `extraCategories` lo fa
       // trovare da chi cerca vestiti, senza scriverlo due volte nei dati.
@@ -797,6 +846,7 @@
     const grid = document.getElementById(gridId);
     const shown = Math.min(items.length, shownCount[gridId] || PAGE_SIZE);
     shownCount[gridId] = shown;
+    unobserveImages(grid);
     grid.innerHTML = items.slice(0, shown).map(renderer).join("");
     // Il conteggio base resta memorizzato: la selezione ci aggiunge un pezzo in
     // coda e va riscritto da capo, non accodato di nuovo a ogni tocco.
@@ -839,7 +889,7 @@
     const on = shown.filter(function (item) { return isSelected(item.id); }).length;
 
     const total = mapGuideIds.size;
-    const allOn = total - Array.from(state.hidden).filter(function (id) { return mapGuideIds.has(id); }).length;
+    const allOn = total - hiddenMapIds().length;
     const counter = document.getElementById("mapSelectionCount");
     if (counter) counter.textContent = allOn === total ? "" : "Sulla mappa ci sono " + allOn + " luoghi di " + total + ": gli altri li hai nascosti.";
 
@@ -860,10 +910,44 @@
     });
   }
 
+  // Preferiti e mappa sono due elenchi diversi: si può amare un ramen senza
+  // poterlo mettere da nessuna parte. Qui restano solo i salvati che un punto ce
+  // l'hanno davvero, gli unici su cui la selezione può agire.
+  function favoriteMapIds() {
+    return Array.from(state.favorites).filter(function (id) { return mapGuideIds.has(id); });
+  }
+
+  // I nascosti che contano qualcosa: nell'elenco può restare l'id di una scheda
+  // sparita, e sommarlo direbbe un numero che sulla mappa non esiste.
+  function hiddenMapIds() {
+    return Array.from(state.hidden).filter(function (id) { return mapGuideIds.has(id); });
+  }
+
+  // Un punto acceso col livello spento resta invisibile, quindi accendendo una
+  // selezione da un'altra schermata vanno accesi anche i livelli. Solo quelli
+  // che servono: accendere i negozianti quando fra i salvati non ce n'è nemmeno
+  // uno riempirebbe la mappa di insegne per niente.
+  function mapLayersFor(ids) {
+    const types = [];
+    ids.forEach(function (id) {
+      const item = itemById[id];
+      const type = item && item.type === "merchant" ? "merchant" : "visit";
+      if (types.indexOf(type) === -1) types.push(type);
+    });
+    return types;
+  }
+
+  // Un'operazione di massa sulla selezione toccava tre griglie intere, quasi
+  // sempre a schermata chiusa. Si ridisegna solo quella sotto gli occhi; le
+  // altre escono dall'elenco delle già-disegnate e si rifanno alla prossima
+  // apertura, come alla prima.
   function refreshSelectionViews() {
-    renderPlaces();
-    renderExperiences();
-    renderMerchants();
+    const selectionRenderers = { places: renderPlaces, experiences: renderExperiences, merchants: renderMerchants };
+    Object.keys(selectionRenderers).forEach(function (view) {
+      if (state.currentView === view) selectionRenderers[view]();
+      else renderedViews.delete(view);
+    });
+    renderSavedMapSummary();
     renderMapItineraryPicker();
   }
 
@@ -887,6 +971,7 @@
     renderSelectionSummary("place", lastFiltered.place || []);
     renderSelectionSummary("experience", lastFiltered.experience || []);
     renderSelectionSummary("merchant", lastFiltered.merchant || []);
+    renderSavedMapSummary();
     // Un solo quadratino basta a far divergere la mappa dall'itinerario salvato:
     // la riga sotto la mappa deve accorgersene subito, non al prossimo giro.
     renderMapItineraryPicker();
@@ -911,6 +996,144 @@
       saveHidden();
       refreshSelectionViews();
     });
+  }
+
+  // Tre modi di partire dai salvati per decidere che cosa sta sulla mappa:
+  // "only" lascia soltanto quelli, "add" li accende senza spegnere niente,
+  // "all" svuota l'elenco dei nascosti. Annullabili come «Deseleziona tutti»,
+  // perché il primo cancella in un tocco una selezione costruita in mezz'ora.
+  // Il campo è tutto il Giappone e non la tappa: i preferiti si mettono da parte
+  // guardando il viaggio intero, non una città alla volta.
+  function applyFavoriteSelection(mode) {
+    const wanted = new Set(favoriteMapIds());
+    // Quello che il tocco accenderà davvero: serve al messaggio e a decidere
+    // quali livelli aprire.
+    const turnedOn = mode === "all"
+      ? hiddenMapIds()
+      : Array.from(wanted).filter(function (id) { return state.hidden.has(id); });
+    // Anche con il pulsante spento tolto a mano dagli strumenti del browser non
+    // deve succedere niente: «solo i salvati» senza salvati svuoterebbe la mappa.
+    if (mode === "only" ? !wanted.size : !turnedOn.length) return;
+    const previous = new Set(state.hidden);
+    if (mode === "only") {
+      mapGuideIds.forEach(function (id) {
+        if (wanted.has(id)) state.hidden.delete(id);
+        else state.hidden.add(id);
+      });
+    } else if (mode === "add") {
+      turnedOn.forEach(function (id) { state.hidden.delete(id); });
+    } else {
+      state.hidden.clear();
+    }
+    // I livelli prima della selezione: al salvataggio la mappa si riallinea da
+    // sola e trova i gruppi già accesi, invece di aggiungere marker a un livello
+    // che non è a schermo.
+    if (window.TABI_MAP && window.TABI_MAP.showLayers) {
+      window.TABI_MAP.showLayers(mapLayersFor(mode === "only" ? Array.from(wanted) : turnedOn));
+    }
+    saveHidden();
+    refreshSelectionViews();
+    const missing = state.favorites.size - wanted.size;
+    const message = mode === "only"
+      ? "Sulla mappa solo i salvati: " + wanted.size + (missing ? ". Altri " + missing + " non hanno un punto." : "")
+      : "Rimessi sulla mappa: " + turnedOn.length;
+    showToast(message, "Annulla", function () {
+      state.hidden = previous;
+      saveHidden();
+      refreshSelectionViews();
+    });
+  }
+
+  // Lo stesso conteggio della mappa, detto dove si scelgono i salvati: si vede
+  // subito quanti dei propri preferiti finirebbero davvero su una mappa e quanti
+  // no, senza doverla aprire per scoprire che metà non c'è.
+  function renderSavedMapSummary() {
+    const box = document.getElementById("savedMapActions");
+    const note = document.getElementById("savedMapNote");
+    if (!box || !note) return;
+    const total = mapGuideIds.size;
+    const saved = state.favorites.size;
+    const mappable = favoriteMapIds();
+    const missing = saved - mappable.length;
+    const toAdd = mappable.filter(function (id) { return state.hidden.has(id); }).length;
+    const hidden = hiddenMapIds();
+
+    // Come nei «Seleziona tutti» delle griglie, i numeri dicono che cosa farebbe
+    // il tocco. Il primo è l'eccezione e dice quanti ne resterebbero: toglie e
+    // mette nello stesso gesto, e un numero solo non può raccontarli entrambi.
+    box.innerHTML = '<button type="button" data-saved-map="only"' + (mappable.length ? "" : " disabled") + '>Solo i salvati (' + mappable.length + ')</button>'
+      + '<button type="button" data-saved-map="add"' + (toAdd ? "" : " disabled") + '>Aggiungi i salvati (' + toAdd + ')</button>'
+      + '<button type="button" data-saved-map="all"' + (hidden.length ? "" : " disabled") + '>Rimetti tutti (' + hidden.length + ')</button>';
+
+    const lines = [];
+    if (!saved) {
+      lines.push("Non hai ancora salvati: usa il cuore sulle schede, poi da qui la mappa si costruisce con quelli.");
+    } else if (!mappable.length) {
+      lines.push("Nessuno dei tuoi " + saved + " salvati ha un punto sulla mappa: li trovi elencati qui sotto. Salva un luogo, un'attività o un negoziante e questi tasti si accendono.");
+    } else {
+      lines.push("Dei tuoi " + saved + " salvati, " + mappable.length + " hanno un punto sulla mappa.");
+      if (missing) lines.push(missing === 1
+        ? "Uno solo no, ed è elencato qui sotto: nessuno di questi tasti può metterlo sulla mappa."
+        : "Gli altri " + missing + " no, e sono elencati qui sotto: nessuno di questi tasti può metterli sulla mappa.");
+    }
+    lines.push(hidden.length
+      ? "Adesso sulla mappa ci sono " + (total - hidden.length) + " luoghi di " + total + "."
+      : "Adesso sulla mappa ci sono tutti e " + total + " i luoghi.");
+    // I negozianti partono tolti apposta: «Rimetti tutti» annulla quella scelta
+    // per sempre, ed è giusto saperlo prima di toccarlo, non dopo.
+    const merchants = hidden.filter(function (id) { return itemById[id] && itemById[id].type === "merchant"; }).length;
+    if (merchants) lines.push("«Rimetti tutti» riporta sulla mappa anche " + merchants + " negozianti, tolti apposta alla partenza per non coprirla di insegne.");
+    note.textContent = lines.join(" ");
+
+    renderSavedOffMap();
+    // Le righe già aperte dei salvati contengono la scheda intera, compreso il
+    // collegamento alla mappa. Non hanno un data-card-id, quindi nessuno le
+    // aggiorna: senza questo offrirebbero un punto che non c'è più.
+    document.querySelectorAll(".saved-row .own-map-link").forEach(function (link) {
+      link.classList.toggle("is-off", !isSelected(link.dataset.mapFocus));
+    });
+  }
+
+  // Il numero da solo inganna: dopo «Solo i salvati» si crede di avere sulla
+  // mappa tutto quello che si è messo da parte, e i cibi o il negoziante senza
+  // indirizzo spariscono dalla testa. Qui stanno con nome e cognome, divisi per
+  // il motivo — un piatto un indirizzo non ce l'ha e basta, un locale invece lo
+  // avrebbe ed è la guida a non averne le coordinate.
+  const OFF_MAP_GROUPS = [
+    { types:["food", "shop", "history"], title:"Non possono stare sulla mappa",
+      note:"Un piatto, un acquisto o una storia non è un indirizzo: restano qui e li ritrovi in Cibi tipici, Acquisti e Storie." },
+    { types:["place", "experience", "merchant"], title:"Un indirizzo lo avrebbero, ma non ce l'abbiamo",
+      note:"Di questi la guida non ha le coordinate, quindi nessun tasto qui sopra può metterli sulla mappa: segnateli a parte se ci tenete." }
+  ];
+
+  function offMapChipHTML(item) {
+    return '<button class="category-chip" type="button" data-action="details" data-id="' + escapeHTML(item.id) + '">'
+      + escapeHTML(item.name || item.title) + ' <small>' + escapeHTML(typeLabel(item)) + ' · ' + escapeHTML(cityName(item.city)) + '</small></button>';
+  }
+
+  function renderSavedOffMap() {
+    const box = document.getElementById("savedOffMap");
+    if (!box) return;
+    const items = Array.from(state.favorites).map(function (id) { return itemById[id]; })
+      .filter(function (item) { return item && !mapGuideIds.has(item.id); });
+    if (!items.length) {
+      box.hidden = true;
+      box.innerHTML = "";
+      return;
+    }
+    box.hidden = false;
+    box.innerHTML = OFF_MAP_GROUPS.map(function (group) {
+      // Ordine stabile: fra un tocco e l'altro l'elenco non deve rimescolarsi.
+      const found = items.filter(function (item) { return group.types.indexOf(item.type) !== -1; })
+        .sort(function (a, b) {
+          return (group.types.indexOf(a.type) - group.types.indexOf(b.type))
+            || String(a.name || a.title).localeCompare(String(b.name || b.title), "it");
+        });
+      if (!found.length) return "";
+      return '<h3>' + escapeHTML(group.title) + ' (' + found.length + ')</h3>'
+        + '<p class="helper-note">' + escapeHTML(group.note) + '</p>'
+        + '<div class="off-map-list">' + found.map(offMapChipHTML).join("") + '</div>';
+    }).join("");
   }
 
   const GROUP_GRIDS = { place:"placeGrid", experience:"experienceGrid", food:"foodGrid", shop:"shopGrid", merchant:"merchantGrid", history:"historyGrid" };
@@ -973,7 +1196,7 @@
     }).join("");
     select.value = localStorage.getItem("tabi-current-city") || "";
     select.addEventListener("change", function () {
-      if (select.value) localStorage.setItem("tabi-current-city", select.value);
+      if (select.value) safeSetItem("tabi-current-city", select.value);
       else localStorage.removeItem("tabi-current-city");
       renderCurrentCity();
       retargetListsToCurrentCity();
@@ -1058,6 +1281,14 @@
       if (!response.ok) return cached || null;
       const payload = await response.json();
       const daily = payload.daily || {};
+      // Un 200 con dentro un'altra forma (manutenzione, captive portal che
+      // risponde lui) esplodeva al primo campo mancante e veniva scambiato per
+      // "meteo rotto": se la risposta non ha la forma attesa si tiene la cache.
+      if (!payload.current || !Number.isFinite(payload.current.temperature_2m)
+        || !Array.isArray(daily.weather_code) || !Array.isArray(daily.temperature_2m_max)
+        || !Array.isArray(daily.temperature_2m_min) || !Array.isArray(daily.precipitation_probability_max)) {
+        return cached || null;
+      }
       const record = {
         at: Date.now(),
         now: Math.round(payload.current.temperature_2m),
@@ -1080,7 +1311,7 @@
       };
       const store = readJSON("tabi-weather", {});
       store[city.id] = record;
-      localStorage.setItem("tabi-weather", JSON.stringify(store));
+      safeSetItem("tabi-weather", JSON.stringify(store));
       return record;
     } catch (_) {
       return cached || null;
@@ -1183,6 +1414,7 @@
 
   function renderCurrentCity() {
     const body = document.getElementById("nowBody");
+    overviewStale = false;
     const cityId = localStorage.getItem("tabi-current-city") || "";
     const city = cityById[cityId];
     if (!city) {
@@ -1225,6 +1457,16 @@
         enqueueImage(entry.target);
       });
     }, { rootMargin: "500px 0px" });
+  }
+
+  // L'observer tiene un riferimento forte a ogni immagine osservata: le schede
+  // buttate via da un filtro resterebbero in memoria per sempre, osservate ma
+  // irraggiungibili. Prima di svuotare una griglia si disiscrivono.
+  function unobserveImages(root) {
+    if (!imageObserver) return;
+    root.querySelectorAll(".lazy-remote-image").forEach(function (image) {
+      imageObserver.unobserve(image);
+    });
   }
 
   function observeImages(root) {
@@ -1670,7 +1912,7 @@
       state.imageCache[item.id] = result;
       const keys = Object.keys(state.imageCache);
       if (keys.length > 650) delete state.imageCache[keys[0]];
-      localStorage.setItem("tabi-image-cache-v4", JSON.stringify(state.imageCache));
+      safeSetItem("tabi-image-cache-v4", JSON.stringify(state.imageCache));
       return result;
     } catch (_) {
       return "";
@@ -1688,6 +1930,9 @@
   };
 
   window.TABI_GEO = { requestPosition: function (options) { return requestPosition(options); } };
+  // La mappa non ha un suo sistema di avvisi: quando deve dire qualcosa che non
+  // sta in un bottone (perché la posizione è fallita, ad esempio) usa il toast.
+  window.TABI_UI = { toast: function (message) { showToast(message); } };
 
   const VIEW_TITLES = {
     overview: "Viaggio", places: "Mappa", experiences: "Attività", history: "Storie",
@@ -1785,7 +2030,9 @@
     if (navDialog && navDialog.open) navDialog.close();
     if (view === "saved") renderSaved();
     if (view === "itineraries") renderItineraries();
-    if (view === "progress") renderProgress();
+    // Il lavoro rimandato dai cuoricini si salda qui, solo se serve davvero.
+    if (view === "progress" && progressStale) renderProgress();
+    if (view === "overview" && overviewStale) renderCurrentCity();
     if (view === "money") renderMoney();
     renderViewOnDemand(view);
     if (updateHash !== false) {
@@ -1825,6 +2072,10 @@
     saveState();
     refreshCardState(id);
     updateProgress();
+    // È l'unico gesto che cambia il numeratore. Serve anche fuori da Salvati:
+    // mettendo un cuore dal dettaglio aperto lì dentro la schermata non cambia,
+    // e i numeri dietro la finestra resterebbero quelli di prima.
+    renderSavedMapSummary();
   }
 
   function toggleDone(id) {
@@ -2006,11 +2257,11 @@
   // account, nessun server.
 
   function saveItineraries() {
-    localStorage.setItem("tabi-itineraries-v1", JSON.stringify(state.itineraries));
+    safeSetItem("tabi-itineraries-v1", JSON.stringify(state.itineraries));
   }
 
   function saveActiveItinerary() {
-    localStorage.setItem("tabi-itinerary-active-v1", JSON.stringify(state.activeItinerary));
+    safeSetItem("tabi-itinerary-active-v1", JSON.stringify(state.activeItinerary));
   }
 
   function newLocalId(prefix) {
@@ -2493,6 +2744,7 @@
         + group[1].map(function (item) { return savedRowHTML(item, group[2]); }).join("")
         + '</div></section>';
     }).join("");
+    renderSavedMapSummary();
   }
 
   function toggleSavedRow(id, button) {
@@ -2530,6 +2782,7 @@
   function renderProgress() {
     const root = document.getElementById("progressOverview");
     if (!root) return;
+    progressStale = false;
     const areas = progressAreas();
     const allItems = areas.flatMap(function (area) { return area.items; });
     const overall = progressStat(allItems);
@@ -2555,9 +2808,22 @@
     }).join("");
   }
 
+  // Le classifiche si ridisegnano solo quando sono sotto gli occhi: rifare la
+  // schermata Progressi a ogni cuoricino, con la schermata chiusa, costava
+  // decine di migliaia di confronti a tocco. I flag ricordano il lavoro
+  // rimandato e switchView lo salda al rientro.
+  let progressStale = true;
+  let overviewStale = false;
+
+  function refreshOverviewSoon() {
+    if (state.currentView === "overview") renderCurrentCity();
+    else overviewStale = true;
+  }
+
   function updateProgress() {
-    renderProgress();
-    renderCurrentCity();
+    if (state.currentView === "progress") renderProgress();
+    else progressStale = true;
+    refreshOverviewSoon();
   }
 
   // Il cambio si aggiorna da solo quando c'è rete e resta sul telefono per
@@ -2599,7 +2865,7 @@
         const value = Number(source.read(await response.json()));
         if (!Number.isFinite(value) || value <= 0) continue;
         const record = { rate: value, at: Date.now(), label: source.label };
-        localStorage.setItem("tabi-jpy-rate-auto", JSON.stringify(record));
+        safeSetItem("tabi-jpy-rate-auto", JSON.stringify(record));
         return record;
       } catch (_) { /* si prova la fonte successiva, poi si tiene il valore vecchio */ }
     }
@@ -2754,30 +3020,32 @@
     { key: "history", label: "Storie" }
   ];
 
+  // Il catalogo non cambia dopo il caricamento: ricostruirlo — ottocento voci —
+  // a ogni tasto premuto era solo lavoro per il garbage collector.
+  let searchCatalogCache = null;
+
   function searchCatalog() {
-    return [].concat(data.places, data.mapPlaces || [], data.experiences || [], data.foods, data.shopping, data.merchants || [], data.history);
+    if (!searchCatalogCache) searchCatalogCache = [].concat(data.places, data.mapPlaces || [], data.experiences || [], data.foods, data.shopping, data.merchants || [], data.history);
+    return searchCatalogCache;
   }
 
   // Un nome che è esattamente quello cercato vale più di una descrizione che lo
   // nomina di passaggio. Senza pesi, "ramen" restituiva prima un corso di
-  // okonomiyaki e un laboratorio di momiji manju.
-  function searchScore(item, normalized) {
+  // okonomiyaki e un laboratorio di momiji manju. Il punteggio si calcola una
+  // volta per risultato: dentro il sort veniva rifatto O(n log n) volte, con
+  // una lettura di localStorage e una RegExp nuova a ogni confronto.
+  function searchScore(item, normalized, wordStart, currentCity) {
     const name = normalize(item.name || item.title || "");
     const jp = normalize([item.jp, (item.aliases || []).join(" ")].join(" "));
     let score = 0;
     if (name === normalized) score = 100;
     else if (name.startsWith(normalized)) score = 80;
-    else if (new RegExp("(^|[^a-z0-9])" + normalized.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).test(name)) score = 60;
+    else if (wordStart.test(name)) score = 60;
     else if (name.includes(normalized)) score = 40;
     else if (jp.includes(normalized)) score = 35;
     else score = 10;
-    if (item.city && item.city === (localStorage.getItem("tabi-current-city") || "")) score += 15;
+    if (item.city && item.city === currentCity) score += 15;
     return score;
-  }
-
-  function bestScore(items, normalized) {
-    if (!items || !items.length) return -1;
-    return items.reduce(function (max, item) { return Math.max(max, searchScore(item, normalized)); }, 0);
   }
 
   function renderSearchResults(query) {
@@ -2789,10 +3057,14 @@
       return;
     }
     const found = searchCatalog().filter(function (item) { return itemHaystack(item).includes(normalized); });
+    const wordStart = new RegExp("(^|[^a-z0-9])" + normalized.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+    const currentCity = localStorage.getItem("tabi-current-city") || "";
     const byType = {};
-    found.forEach(function (item) { (byType[item.type] = byType[item.type] || []).push(item); });
+    found.forEach(function (item) {
+      (byType[item.type] = byType[item.type] || []).push({ item: item, score: searchScore(item, normalized, wordStart, currentCity) });
+    });
     Object.keys(byType).forEach(function (type) {
-      byType[type].sort(function (a, b) { return searchScore(b, normalized) - searchScore(a, normalized); });
+      byType[type].sort(function (a, b) { return b.score - a.score; });
     });
     const phrases = phrasebookPhrases().filter(function (item) {
       return normalize([item.jp, item.romaji, item.italianReading, item.meaning, item.note].join(" ")).includes(normalized);
@@ -2801,20 +3073,24 @@
     // I gruppi si ordinano per quanto è buono il loro miglior risultato, non per
     // ordine di catalogo: cercando "ramen", sette attività che nominano il
     // ramen di sfuggita stavano davanti al piatto che si chiama proprio così.
+    // Ogni gruppo è già ordinato, quindi il migliore è il primo.
     const ordered = searchGroups.slice().sort(function (a, b) {
-      return bestScore(byType[b.key], normalized) - bestScore(byType[a.key], normalized);
+      const bestA = byType[a.key] ? byType[a.key][0].score : -1;
+      const bestB = byType[b.key] ? byType[b.key][0].score : -1;
+      return bestB - bestA;
     });
 
     const sections = ordered.map(function (group) {
-      const items = byType[group.key] || [];
-      if (!items.length) return "";
-      const rows = items.slice(0, 6).map(function (item) {
+      const entries = byType[group.key] || [];
+      if (!entries.length) return "";
+      const rows = entries.slice(0, 6).map(function (entry) {
+        const item = entry.item;
         return '<button class="search-row" type="button" data-search-item="' + escapeHTML(item.id) + '">'
           + '<b>' + escapeHTML(item.name || item.title) + '</b>'
           + '<small>' + escapeHTML(cityName(item.city)) + ' · ' + escapeHTML(typeLabel(item)) + '</small></button>';
       }).join("");
-      const more = items.length > 6 ? '<p class="search-more">e altri ' + (items.length - 6) + '</p>' : "";
-      return '<div class="search-group"><h3>' + group.label + ' <em>' + items.length + '</em></h3>' + rows + more + '</div>';
+      const more = entries.length > 6 ? '<p class="search-more">e altri ' + (entries.length - 6) + '</p>' : "";
+      return '<div class="search-group"><h3>' + group.label + ' <em>' + entries.length + '</em></h3>' + rows + more + '</div>';
     }).join("");
 
     const phraseSection = phrases.length
@@ -2902,8 +3178,8 @@
   }
 
   function savePacking() {
-    localStorage.setItem("tabi-packing", JSON.stringify(Array.from(state.packed)));
-    localStorage.setItem("tabi-packing-qty-v1", JSON.stringify(state.packedQty));
+    safeSetItem("tabi-packing", JSON.stringify(Array.from(state.packed)));
+    safeSetItem("tabi-packing-qty-v1", JSON.stringify(state.packedQty));
   }
 
   function setupPacking() {
@@ -2911,14 +3187,24 @@
     groups.addEventListener("change", function (event) {
       const box = event.target.closest("[data-pack]");
       if (!box) return;
-      if (box.checked) state.packed.add(box.dataset.pack);
+      const id = box.dataset.pack;
+      if (box.checked) state.packed.add(id);
       else {
-        state.packed.delete(box.dataset.pack);
-        delete state.packedQty[box.dataset.pack];
+        state.packed.delete(id);
+        delete state.packedQty[id];
       }
       savePacking();
-      renderPacking();
-      renderCurrentCity();
+      // Stesso trattamento chirurgico del campo quantità: si aggiorna la riga
+      // toccata e il riepilogo, non l'intera lista — rifarla a ogni spunta
+      // faceva perdere lo scroll a metà valigia.
+      const item = box.closest(".packing-item");
+      if (item) {
+        item.classList.toggle("is-packed", box.checked);
+        const qty = item.querySelector("[data-pack-qty]");
+        if (qty && !box.checked) qty.value = "";
+      }
+      renderPackingSummary();
+      refreshOverviewSoon();
     });
     // Scrivere una quantità spunta l'oggetto; svuotare il campo o mettere zero
     // lo toglie. Così non serve fare due gesti per la stessa cosa.
@@ -2940,7 +3226,7 @@
       const box = item && item.querySelector("[data-pack]");
       if (box) box.checked = state.packed.has(id);
       renderPackingSummary();
-      renderCurrentCity();
+      refreshOverviewSoon();
     }, 250));
     document.getElementById("packingResetButton").addEventListener("click", function () {
       if (!state.packed.size) return;
@@ -2949,16 +3235,17 @@
       state.packed.clear();
       savePacking();
       renderPacking();
-      renderCurrentCity();
+      refreshOverviewSoon();
       showToast("Lista valigia azzerata");
     });
-    renderPacking();
+    // Niente render qui: la lista si disegna alla prima apertura della
+    // schermata, come tutte le altre griglie (VIEW_RENDERERS).
   }
 
   // ---- Note ----------------------------------------------------------------
 
   function saveNotes() {
-    localStorage.setItem("tabi-notes-v1", JSON.stringify(state.notes));
+    safeSetItem("tabi-notes-v1", JSON.stringify(state.notes));
   }
 
   function renderNotes(focusId) {
@@ -3020,7 +3307,8 @@
       renderNotes();
       showToast("Nota eliminata");
     });
-    renderNotes();
+    // Niente render qui: come la valigia, la lista si disegna alla prima
+    // apertura della schermata (VIEW_RENDERERS).
   }
 
   // ---- Pronta per il viaggio ----------------------------------------------
@@ -3093,8 +3381,11 @@
       // gratuito e non vanno martellate.
       for (const url of jobs) {
         try {
-          await fetch(url, { mode: "no-cors" });
-          loaded += 1;
+          // In CORS la risposta è leggibile e il service worker può salvarla
+          // nella cache delle tile: con no-cors si "scaricava" senza salvare
+          // niente, e il conteggio finale era una bugia.
+          const response = await fetch(url, { mode: "cors" });
+          if (response.ok) loaded += 1;
         } catch (_) { /* si prosegue */ }
         tilesStatus.textContent = "Scarico le mappe: " + loaded + " di " + jobs.length + "…";
         await new Promise(function (resolve) { setTimeout(resolve, 90); });
@@ -3175,8 +3466,15 @@
         reject(new Error("Posizione non supportata da questo dispositivo."));
         return;
       }
-      navigator.geolocation.getCurrentPosition(resolve, function () {
-        reject(new Error("Posizione non disponibile. Controlla il permesso del browser e riprova."));
+      navigator.geolocation.getCurrentPosition(resolve, function (error) {
+        // Tre guasti diversi, tre rimedi diversi: solo il permesso si sistema
+        // nelle impostazioni. Con un messaggio unico non si sa cosa fare.
+        const reasons = {
+          1: "Permesso posizione negato: riattivalo nelle impostazioni del browser per questo sito.",
+          2: "Posizione non determinabile ora: all'aperto funziona meglio, riprova.",
+          3: "La ricerca della posizione ha impiegato troppo: riprova."
+        };
+        reject(new Error(reasons[error && error.code] || "Posizione non disponibile: riprova."));
       }, Object.assign({ enableHighAccuracy: true, timeout: 12000, maximumAge: 30000 }, options || {}));
     });
   }
@@ -3230,6 +3528,7 @@
       input.addEventListener("change", function () {
         if (!input.checked) {
           state.filters[group].nearby = false;
+          resetPaging(GROUP_GRIDS[group]);
           renderGroup(group);
           updateFilterToggle(group);
           return;
@@ -3239,6 +3538,7 @@
           state.position = { lat: position.coords.latitude, lng: position.coords.longitude };
           state.filters[group].nearby = true;
           input.disabled = false;
+          resetPaging(GROUP_GRIDS[group]);
           renderGroup(group);
           updateFilterToggle(group);
           showToast("Ordinati dal più vicino");
@@ -3402,7 +3702,7 @@
       nav.classList.toggle("is-collapsed", value);
       grip.setAttribute("aria-expanded", String(!value));
       grip.setAttribute("aria-label", value ? "Mostra la barra di navigazione" : "Nascondi la barra di navigazione");
-      if (remember !== false) localStorage.setItem("tabi-nav-hidden", value ? "1" : "0");
+      if (remember !== false) safeSetItem("tabi-nav-hidden", value ? "1" : "0");
     }
 
     setCollapsed(localStorage.getItem("tabi-nav-hidden") === "1", false);
@@ -3513,6 +3813,7 @@
       if (route) {
         state.filters.place.city = route.dataset.cityRoute;
         document.getElementById("placeCity").value = route.dataset.cityRoute;
+        resetPaging("placeGrid");
         renderPlaces();
         updateFilterToggle("place");
         switchView("places");
@@ -3521,6 +3822,7 @@
       const filterToggle = event.target.closest("[data-filter-toggle]");
       if (filterToggle) {
         const toolbar = document.querySelector('[data-filter-group="' + filterToggle.dataset.filterToggle + '"]');
+        if (!toolbar) return;
         const open = toolbar.classList.toggle("filters-open");
         filterToggle.setAttribute("aria-expanded", String(open));
         return;
@@ -3603,6 +3905,11 @@
         if (group) renderGroup(group);
         return;
       }
+      const savedMap = event.target.closest("[data-saved-map]");
+      if (savedMap) {
+        applyFavoriteSelection(savedMap.dataset.savedMap);
+        return;
+      }
       const selectAll = event.target.closest("[data-select-all], [data-select-none]");
       if (selectAll) {
         const hide = selectAll.hasAttribute("data-select-none");
@@ -3635,6 +3942,7 @@
       if (chip) {
         state.filters.shop.category = chip.dataset.category;
         document.getElementById("shopCategory").value = chip.dataset.category;
+        resetPaging("shopGrid");
         renderShopping();
         updateFilterToggle("shop");
         return;
@@ -3705,10 +4013,16 @@
       navigator.serviceWorker.addEventListener("controllerchange", function () {
         if (refreshing) return;
         refreshing = true;
-        window.location.reload();
+        // Ricaricare da soli strappava la pagina di mano a chi stava leggendo:
+        // la versione nuova è già pronta, si applica quando lo decide l'utente
+        // (o al prossimo avvio, da sola).
+        showToast("Guida aggiornata e pronta", "Ricarica", function () { window.location.reload(); });
       });
       window.addEventListener("load", function () {
-        navigator.serviceWorker.register("sw.js?v=20260808a", { updateViaCache: "none" }).then(function (registration) {
+        // Stesso token del resto dei file: se resta indietro, la firma di
+        // "cache pronta" non cambia mai e il controllo post-aggiornamento non
+        // riparte. È verificato da scripts/check-guide-integrity.mjs.
+        navigator.serviceWorker.register("sw.js?v=20260804b", { updateViaCache: "none" }).then(function (registration) {
           registration.update();
         });
       });
@@ -3727,7 +4041,7 @@
       const data = event.data;
       if (!data || data.type !== "tabi:reconciled") return;
       if (data.report.failed) return;
-      localStorage.setItem("tabi-cache-ready", data.report.signature);
+      safeSetItem("tabi-cache-ready", data.report.signature);
       if (data.report.restored) showToast("Guida completa disponibile offline");
     });
     navigator.serviceWorker.ready.then(function (registration) {
@@ -3777,8 +4091,8 @@
     setupReadyPanel();
     setupItineraries();
     // Le griglie non si disegnano più qui: ci pensa switchView alla prima
-    // apertura di ogni schermata.
-    updateProgress();
+    // apertura di ogni schermata. Vale anche per i Progressi, che partono
+    // "stale" e si disegnano alla prima entrata.
     setupChecklistSync();
     switchView(location.hash.slice(1) || "overview", false);
     const requestedPoint = location.hash === "#places" && new URLSearchParams(location.search).get("point");

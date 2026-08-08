@@ -381,8 +381,8 @@
       "area": "Higashimuki",
       "score": 3.72,
       "tabelog": "nara/A2901/A290101/29000222",
-      "lat": 34.6812,
-      "lng": 135.8283,
+      "lat": 34.68193,
+      "lng": 135.82886,
       "description": "Celebre per il mochi pestato a velocità record, dolce imperdibile."
     },
     {
@@ -1055,8 +1055,8 @@
       "type": "visit",
       "category": "mercato",
       "area": "Kanazawa",
-      "lat": 36.5716,
-      "lng": 136.657,
+      "lat": 36.57173,
+      "lng": 136.65599,
       "description": "Vivace mercato coperto con pesce fresco, granchi e frutti di mare del Mar del Giappone."
     },
     {

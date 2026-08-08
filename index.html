@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#14181a" media="(prefers-color-scheme: dark)">
   <meta name="description" content="Guida di viaggio in Giappone con itinerario, mappa, luoghi, attività, cibo, acquisti e storie.">
   <title>Giappone 2026 | Tabi</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260810i">
+  <link rel="manifest" href="manifest.webmanifest?v=20260804b">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://commons.wikimedia.org">
@@ -16,11 +16,15 @@
   <link rel="preconnect" href="https://ja.wikipedia.org">
   <link rel="preconnect" href="https://en.wikipedia.org">
   <link rel="preconnect" href="https://tile.openstreetmap.org">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Noto+Serif+JP:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <!-- I caratteri non bloccano il primo disegno: il foglio si carica come
+       "print" (non bloccante) e si promuove ad "all" appena arriva. Con la
+       rete lenta l'app compare subito col carattere di sistema. -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Noto+Serif+JP:wght@500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Noto+Serif+JP:wght@500;600;700&amp;display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="assets/styles.css?v=20260810i">
-  <link rel="icon" href="assets/icons/icon.svg?v=20260810i" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260810i">
+  <link rel="stylesheet" href="assets/styles.css?v=20260804b">
+  <link rel="icon" href="assets/icons/icon.svg?v=20260804b" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260804b">
 </head>
 <body>
   <a class="skip-link" href="#main">Vai al contenuto</a>
@@ -254,6 +258,12 @@
         <p class="helper-note">Esporta la checklist da un telefono e importala sugli altri per unire preferiti e attività completate.</p>
       </section>
       <div class="saved-summary" id="savedSummary"></div>
+      <section class="local-profile" id="savedMapPicker">
+        <div><p class="eyebrow">Dai salvati alla mappa</p><h2>La mappa dei vostri salvati</h2><p>Mette sulla mappa solo quello che avete scelto. I tasti accendono da soli i livelli «Luoghi da visitare» e «Negozianti» nella legenda: un punto acceso con il suo livello spento resterebbe invisibile lo stesso.</p></div>
+        <div class="sync-actions" id="savedMapActions"></div>
+        <p class="helper-note" id="savedMapNote"></p>
+        <div class="off-map" id="savedOffMap" hidden></div>
+      </section>
       <div class="category-rail" id="savedTypeRail" aria-label="Filtra i salvati per tipo"></div>
       <div class="saved-sections" id="savedSections"></div>
     </section>
@@ -424,24 +434,24 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script src="assets/data.js?v=20260810i" defer></script>
-  <script src="assets/food-data.js?v=20260810i" defer></script>
-  <script src="assets/shopping-data.js?v=20260810i" defer></script>
-  <script src="assets/food-extra-data.js?v=20260810i" defer></script>
-  <script src="assets/travel-data.js?v=20260810i" defer></script>
-  <script src="assets/history-data.js?v=20260810i" defer></script>
-  <script src="assets/phrases-data.js?v=20260810i" defer></script>
-  <script src="assets/glossary-data.js?v=20260810i" defer></script>
-  <script src="assets/packing-data.js?v=20260810i" defer></script>
-  <script src="assets/money-data.js?v=20260810i" defer></script>
-  <script src="assets/day-tips-data.js?v=20260810i" defer></script>
-  <script src="assets/map-data.js?v=20260810i" defer></script>
-  <script src="assets/merchants-data.js?v=20260810i" defer></script>
-  <script src="assets/transit-data.js?v=20260810i" defer></script>
-  <script src="assets/experiences-data.js?v=20260810i" defer></script>
-  <script src="assets/source-data.js?v=20260810i" defer></script>
-  <script src="assets/guide-data.js?v=20260810i" defer></script>
-  <script src="assets/map.js?v=20260810i" defer></script>
-  <script src="assets/app.js?v=20260810i" defer></script>
+  <script src="assets/data.js?v=20260804b" defer></script>
+  <script src="assets/food-data.js?v=20260804b" defer></script>
+  <script src="assets/shopping-data.js?v=20260804b" defer></script>
+  <script src="assets/food-extra-data.js?v=20260804b" defer></script>
+  <script src="assets/travel-data.js?v=20260804b" defer></script>
+  <script src="assets/history-data.js?v=20260804b" defer></script>
+  <script src="assets/phrases-data.js?v=20260804b" defer></script>
+  <script src="assets/glossary-data.js?v=20260804b" defer></script>
+  <script src="assets/packing-data.js?v=20260804b" defer></script>
+  <script src="assets/money-data.js?v=20260804b" defer></script>
+  <script src="assets/day-tips-data.js?v=20260804b" defer></script>
+  <script src="assets/map-data.js?v=20260804b" defer></script>
+  <script src="assets/merchants-data.js?v=20260804b" defer></script>
+  <script src="assets/transit-data.js?v=20260804b" defer></script>
+  <script src="assets/experiences-data.js?v=20260804b" defer></script>
+  <script src="assets/source-data.js?v=20260804b" defer></script>
+  <script src="assets/guide-data.js?v=20260804b" defer></script>
+  <script src="assets/map.js?v=20260804b" defer></script>
+  <script src="assets/app.js?v=20260804b" defer></script>
 </body>
 </html>

@@ -130,7 +130,12 @@ for (const stop of stops) {
 
 const missing = results.filter(function (entry) { return !entry.hit; });
 console.log("\n" + (results.length - missing.length) + "/" + results.length + " fermate confermate.");
-if (missing.length) console.log("Da mettere a mano: " + missing.map(function (entry) { return entry.stop.key; }).join(", "));
+if (missing.length) {
+  console.log("Da mettere a mano: " + missing.map(function (entry) { return entry.stop.key; }).join(", "));
+  // Una fermata fuori raggio stampava l'errore e usciva comunque con 0: in uno
+  // script di controllo un fallimento che non fallisce è peggio di niente.
+  process.exitCode = 1;
+}
 
 // Il formato del link conta quanto le coordinate: `api=1` è l'unico che Google
 // dichiara valido allo stesso modo su Android, iPhone e web. L'indirizzo interno

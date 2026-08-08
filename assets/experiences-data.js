@@ -30,8 +30,18 @@
     quirky: "Giappone insolito"
   };
 
+  // L'aggancio nome\u2192punto rinormalizzava gli stessi ~400 nomi per ognuna delle
+  // 100 attivit\u00e0, all'avvio, sul telefono: il risultato si ricorda per stringa.
+  const normalizeCache = new Map();
+
   function normalize(value) {
-    return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "");
+    const key = String(value || "");
+    let cached = normalizeCache.get(key);
+    if (cached === undefined) {
+      cached = key.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "");
+      normalizeCache.set(key, cached);
+    }
+    return cached;
   }
 
   function inferCategory(item) {

@@ -175,6 +175,61 @@ for (const city of ["tokyo", "kyoto", "osaka"]) {
   if (count < 4) failures.push(`${city}: only ${count} merchant(s) for a main stop`);
 }
 
+// Il service worker precacha gli asset con il token ?v= : se diverge da quello
+// usato in index.html, la shell "in cache" contiene URL che la pagina non
+// richiede mai e offline non funziona niente.
+const swSource = readFileSync("sw.js", "utf8");
+const indexSource = readFileSync("index.html", "utf8");
+const swVersion = (swSource.match(/const VERSION = "(\?v=[^"]+)"/) || [])[1];
+const indexVersions = [...new Set([...indexSource.matchAll(/\?v=[0-9a-z]+/g)].map((match) => match[0]))];
+if (!swVersion) failures.push("sw.js: VERSION token not found");
+if (indexVersions.length !== 1) failures.push(`index.html: expected one ?v= token, found ${indexVersions.length} (${indexVersions.join(", ")})`);
+if (swVersion && indexVersions.length === 1 && swVersion !== indexVersions[0]) {
+  failures.push(`service-worker version mismatch: sw.js has ${swVersion}, index.html has ${indexVersions[0]}`);
+}
+
+// La registrazione in app.js porta il proprio token: se resta indietro, la
+// firma "cache pronta" (worker.scriptURL) non cambia mai fra una versione e
+// l'altra e il reconcile post-aggiornamento non riparte. È successo.
+const appSource = readFileSync("assets/app.js", "utf8");
+const registerToken = (appSource.match(/serviceWorker\.register\("sw\.js(\?v=[0-9a-z]+)"/) || [])[1];
+if (!registerToken) failures.push("app.js: service worker registration token not found");
+else if (swVersion && registerToken !== swVersion) {
+  failures.push(`service-worker registration mismatch: app.js registers sw.js${registerToken}, sw.js declares ${swVersion}`);
+}
+
+// Ogni file che index.html chiede deve stare nella SHELL del service worker:
+// un file dimenticato lì funziona con la rete e sparisce offline, cioè
+// esattamente quando serve. (Le risorse esterne hanno la loro lista EXTERNAL.)
+const requestedAssets = [...indexSource.matchAll(/(?:src|href)="(assets\/[^"?]+)(?:\?v=[0-9a-z]+)?"/g)]
+  .map((match) => match[1])
+  .filter((path) => !path.endsWith(".png"));
+const shellPaths = [...swSource.matchAll(/"((?:\.\/|assets\/|index|manifest)[^"]*?)"(?: \+ VERSION)?/g)].map((match) => match[1]);
+const shellSet = new Set(shellPaths);
+for (const asset of new Set(requestedAssets)) {
+  if (!shellSet.has(asset)) failures.push(`sw.js SHELL: missing "${asset}" requested by index.html — offline it would 404`);
+}
+
+// L'ordine dei primi tre script è portante: data.js crea __JAPAN_PARTIAL__,
+// food-data lo estende, shopping-data lo promuove a JAPAN_DATA. Invertirli
+// significa un TypeError al primo avvio. Il contratto vive solo qui.
+const scriptOrder = [...indexSource.matchAll(/<script[^>]+src="assets\/([a-z-]+\.js)/g)].map((match) => match[1]);
+const expectedPrefix = ["data.js", "food-data.js", "shopping-data.js"];
+for (let i = 0; i < expectedPrefix.length; i += 1) {
+  if (scriptOrder[i] !== expectedPrefix[i]) {
+    failures.push(`index.html: script #${i + 1} must be ${expectedPrefix[i]} (found ${scriptOrder[i] || "none"}) — the __JAPAN_PARTIAL__ handoff depends on this order`);
+    break;
+  }
+}
+if (scriptOrder.indexOf("guide-data.js") !== -1 && scriptOrder.indexOf("map-data.js") !== -1
+  && scriptOrder.indexOf("guide-data.js") < scriptOrder.indexOf("map-data.js")) {
+  failures.push("index.html: guide-data.js must load after map-data.js — enrichMapPoints reads JAPAN_MAP_DATA");
+}
+if (scriptOrder.indexOf("guide-data.js") !== -1 && scriptOrder.indexOf("experiences-data.js") !== -1
+  && scriptOrder.indexOf("guide-data.js") < scriptOrder.indexOf("experiences-data.js")) {
+  failures.push("index.html: guide-data.js must load after experiences-data.js — the experience overrides come first");
+}
+
 if (failures.length) {
   console.error("Guide-integrity check failed:\n" + failures.map((item) => `- ${item}`).join("\n"));
   process.exit(1);

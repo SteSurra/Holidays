@@ -84,11 +84,20 @@
     return "https://tabelog.com/en/" + point.tabelog + "/";
   }
 
+  // Cercare una scheda scorrendo ~700 voci andava bene per una chiamata, non
+  // per una a marker: l'indice si costruisce alla prima richiesta, quando i
+  // file dati hanno finito di arricchirsi, e da lì è una lettura secca.
+  let guideItemIndex = null;
+
   function findGuideItem(id) {
-    const data = window.JAPAN_DATA;
-    return [].concat(data.places || [], data.mapPlaces || [], data.experiences || [], data.foods || [], data.shopping || [], data.merchants || []).find(function (item) {
-      return item.id === id;
-    });
+    if (!guideItemIndex) {
+      const data = window.JAPAN_DATA;
+      guideItemIndex = new Map();
+      [].concat(data.places || [], data.mapPlaces || [], data.experiences || [], data.foods || [], data.shopping || [], data.merchants || []).forEach(function (item) {
+        if (!guideItemIndex.has(item.id)) guideItemIndex.set(item.id, item);
+      });
+    }
+    return guideItemIndex.get(id);
   }
 
   function popupImageItem(point) {
@@ -206,6 +215,22 @@
     if (!map || !pointLayers[type]) return;
     if (layerEnabled(type)) pointLayers[type].addTo(map);
     else pointLayers[type].removeFrom(map);
+  }
+
+  // Selezione e livelli sono due cose diverse: un punto acceso il cui livello è
+  // spento resta invisibile lo stesso. Chi decide una selezione da un'altra
+  // schermata deve poter accendere anche i livelli, altrimenti il tocco sembra
+  // non aver fatto niente. Si accende soltanto: spegnere un livello che era
+  // stato aperto a mano sarebbe una decisione non dell'utente. Vale anche prima
+  // che la mappa esista — syncLayer esce subito, ma la casella resta spuntata e
+  // initMap la legge quando costruisce i livelli.
+  function showLayers(types) {
+    (types || []).forEach(function (type) {
+      const toggle = document.querySelector('[data-map-layer="' + type + '"]');
+      if (!toggle || toggle.checked) return;
+      toggle.checked = true;
+      syncLayer(type);
+    });
   }
 
   // ---- WC pubblici, fontanelle e konbini -----------------------------------
@@ -378,19 +403,41 @@
   // senza che nessuno le leggesse più, e la memoria di localStorage è poca.
   const FACILITY_CACHE_OLD = ["tabi-facilities-v2", "tabi-facilities-v3"];
 
+  // Trenta giorni senza aprire la mappa e i punti scaricati si buttano: un
+  // konbini chiuso o un WC rimosso da OpenStreetMap non devono sopravvivere per
+  // sempre. Ogni salvataggio rinfresca la data, quindi durante il viaggio la
+  // cache non scade mai sotto i piedi.
+  const FACILITY_TTL = 30 * 24 * 60 * 60 * 1000;
+
   function loadFacilityCache() {
     if (facilityPoints) return;
     FACILITY_CACHE_OLD.forEach(function (key) { localStorage.removeItem(key); });
     let stored = null;
     try { stored = JSON.parse(localStorage.getItem(FACILITY_CACHE) || "null"); } catch (_) { stored = null; }
-    facilityPoints = stored && Array.isArray(stored.points) ? stored.points : [];
-    facilityAreas = stored && Array.isArray(stored.areas) ? stored.areas : [];
+    const fresh = stored && Number.isFinite(stored.at) && Date.now() - stored.at < FACILITY_TTL;
+    facilityPoints = fresh && Array.isArray(stored.points) ? stored.points : [];
+    facilityAreas = fresh && Array.isArray(stored.areas) ? stored.areas : [];
+  }
+
+  // I punti sfrattati dalla cache lasciavano il marker sul livello: pin di zone
+  // buttate settimane prima, vivi fino alla chiusura della pagina.
+  function pruneFacilityMarkers() {
+    const alive = new Set(facilityPoints.map(function (point) { return point.id; }));
+    Object.keys(facilityMarkers).forEach(function (id) {
+      if (alive.has(id)) return;
+      const marker = facilityMarkers[id];
+      Object.keys(facilityLayers).forEach(function (kind) {
+        if (facilityLayers[kind].hasLayer(marker)) facilityLayers[kind].removeLayer(marker);
+      });
+      delete facilityMarkers[id];
+    });
   }
 
   function saveFacilityCache() {
     // Se si supera il tetto si buttano i riquadri più vecchi con i loro punti:
     // meglio perdere una città attraversata settimane fa che riempire la memoria
     // del telefono.
+    const hadEviction = facilityPoints.length > FACILITY_MAX_POINTS;
     while (facilityPoints.length > FACILITY_MAX_POINTS && facilityAreas.length > 1) {
       const oldest = facilityAreas.shift();
       // Si buttano solo i punti che quel riquadro aveva portato: dentro lo stesso
@@ -402,22 +449,45 @@
           && point.lng >= oldest.west && point.lng <= oldest.east);
       });
     }
+    if (hadEviction) pruneFacilityMarkers();
     try {
       localStorage.setItem(FACILITY_CACHE, JSON.stringify({ at:Date.now(), points:facilityPoints, areas:facilityAreas }));
     } catch (_) { /* memoria piena: restano validi per questa sessione */ }
+  }
+
+  // Serializzare fino a 4000 punti a ogni pezzo arrivato è un lavoro da mezzo
+  // secondo di telefono: si scrive una volta a raffica finita. Se la pagina
+  // chiude prima, si perde solo l'ultimo pezzo — è riscaricabile.
+  let facilitySaveTimer = null;
+
+  function scheduleFacilitySave() {
+    clearTimeout(facilitySaveTimer);
+    facilitySaveTimer = setTimeout(saveFacilityCache, 800);
   }
 
   // Overpass a volte accetta la connessione e poi non risponde più. Senza un
   // tempo massimo la richiesta resta appesa e il pannello mostra "Cerco…" per
   // sempre, che è indistinguibile da "non ha trovato niente": dopo il tempo si
   // molla e si prova il secondo server.
+  // Un server che risponde 429 sta chiedendo di rallentare: riprovarlo subito è
+  // il modo migliore per farsi bloccare del tutto. Si rispetta Retry-After — o
+  // un minuto, se non c'è — come già fa la pipeline delle foto in app.js.
+  const overpassCooldowns = {};
+
   function fetchWithTimeout(endpoint, body, controller) {
     const timer = setTimeout(function () { controller.abort(); }, OVERPASS_TIMEOUT);
     return fetch(endpoint, {
       method: "POST", body: body, signal: controller.signal,
       headers: { "Content-Type": "application/x-www-form-urlencoded" }
     })
-      .then(function (response) { return response.ok ? response.json() : null; })
+      .then(function (response) {
+        if (response.status === 429 || response.status === 504) {
+          const retryAfter = Number(response.headers.get("Retry-After"));
+          overpassCooldowns[endpoint] = Date.now() + (Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : 60000);
+          return null;
+        }
+        return response.ok ? response.json() : null;
+      })
       .catch(function () { return null; })
       .finally(function () { clearTimeout(timer); });
   }
@@ -427,8 +497,10 @@
     return OVERPASS_ENDPOINTS.reduce(function (chain, endpoint) {
       return chain.then(function (payload) {
         // Dopo un abort non si prova il secondo server: quella finestra non si
-        // sta più guardando.
+        // sta più guardando. Un server in castigo per 429 si salta finché non
+        // scade il suo Retry-After.
         if (payload || controller.signal.aborted) return payload;
+        if ((overpassCooldowns[endpoint] || 0) > Date.now()) return payload;
         return fetchWithTimeout(endpoint, body, controller);
       });
     }, Promise.resolve(null));
@@ -440,7 +512,7 @@
       if (!known.has(point.id)) { known.add(point.id); facilityPoints.push(point); }
     });
     facilityAreas.push({ south:area.south, west:area.west, north:area.north, east:area.east, kind:requestKind });
-    saveFacilityCache();
+    scheduleFacilitySave();
   }
 
   // Scarica i riquadri attorno a dove sei e attorno all'hotel della tappa, se non
@@ -524,7 +596,12 @@
     });
     if (!missing.length) return Promise.resolve(facilityPoints);
     if (!navigator.onLine) {
-      return Promise.reject(new Error("Servono i dati di OpenStreetMap: riprova quando hai rete. Le zone già scaricate restano."));
+      // Anche questo è un "non ancora": spegnere la casella da soli faceva
+      // sembrare un guasto quello che è solo mancanza di rete. L'interruttore
+      // resta acceso e al ritorno della rete la zona si carica da sola.
+      const offline = new Error("Zona non ancora scaricata: serve la rete. Le zone già scaricate restano.");
+      offline.keepLayerOn = true;
+      return Promise.reject(offline);
     }
     // Partono tutte insieme: è il semaforo di withRequestSlot a tenerne due per
     // volta, contando anche quelle di altre caselle già in corso.
@@ -600,7 +677,9 @@
     facilityPoints.forEach(function (point) {
       if (facilityMarkers[point.id] || !facilityLayers[point.kind]) return;
       const marker = L.marker([point.lat, point.lng], { icon:facilityIcon(point), title:facilityName(point), alt:facilityName(point) })
-        .bindPopup(facilityPopupHTML(point), { maxWidth:popupMaxWidth(), autoPan:false });
+        // Come per i punti della guida: il popup si costruisce all'apertura.
+        // Qui i marker possono essere migliaia (konbini, stazioni).
+        .bindPopup(function () { return facilityPopupHTML(point); }, { maxWidth:popupMaxWidth(), autoPan:false });
       marker.on("popupopen", function () { fitPopup(marker); centerPopup(marker); });
       marker.addTo(facilityLayers[point.kind]);
       facilityMarkers[point.id] = marker;
@@ -766,6 +845,12 @@
     });
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom:18,
+      // Con CORS la risposta non è "opaque" e il service worker può salvarla:
+      // senza questo attributo nessuna tile finiva mai nella cache offline.
+      crossOrigin:"",
+      // Offline o con rete che perde colpi, un riquadro mancante diventa carta
+      // neutra invece di un'icona di immagine rotta.
+      errorTileUrl:"data:image/svg+xml;charset=utf-8," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256"><rect width="256" height="256" fill="#ece7dc"/></svg>'),
       attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
@@ -782,7 +867,10 @@
     ["visit", "tabelog", "hotel", "merchant"].forEach(function (type) { pointLayers[type] = L.layerGroup(); });
     window.JAPAN_MAP_DATA.points.forEach(function (point) {
       const marker = L.marker([point.lat, point.lng], { icon:pointIcon(point), zIndexOffset:point.type === "hotel" ? 500 : 0, title:point.name, alt:point.name })
-        .bindPopup(pointPopupHTML(point), { maxWidth:popupMaxWidth(), autoPan:false });
+        // Il contenuto è una funzione: si valuta all'apertura, sempre fresco.
+        // Costruire subito 400 popup teneva occupato il primo tocco su Mappa
+        // per niente — quasi tutti non verranno mai aperti.
+        .bindPopup(function () { return pointPopupHTML(point); }, { maxWidth:popupMaxWidth(), autoPan:false });
       marker.on("add", function () { marker.getElement().setAttribute("aria-label", point.name); });
       marker.on("popupopen", function () { fitPopup(marker); centerPopup(marker); hydratePopupImage(marker, point); });
       if (point.guideId && !markerByGuideId[point.guideId]) {
@@ -868,7 +956,13 @@
     watchId = navigator.geolocation.watchPosition(function (position) {
       if (!map) return;
       drawUser([position.coords.latitude, position.coords.longitude]);
-    }, function () {}, { enableHighAccuracy:true, maximumAge:10000, timeout:20000 });
+    }, function () {
+      // Il GPS sparisce in galleria o fra i palazzi: il puntino resterebbe
+      // fermo su un posto in cui non sei più senza che nulla lo dica. Si smette
+      // di seguire e il bottone torna a offrire la ricerca.
+      stopFollowing();
+      resetLocateButton();
+    }, { enableHighAccuracy:true, maximumAge:10000, timeout:20000 });
   }
 
   function stopFollowing() {
@@ -877,9 +971,20 @@
     watchId = null;
   }
 
+  const LOCATE_LABEL = "◎ La mia posizione";
+  let locateResetTimer = null;
+
+  function resetLocateButton() {
+    const button = document.getElementById("locateButton");
+    if (!button) return;
+    button.disabled = false;
+    button.textContent = LOCATE_LABEL;
+  }
+
   function locateUser() {
     const button = document.getElementById("locateButton");
     if (!window.TABI_GEO) return;
+    clearTimeout(locateResetTimer);
     button.disabled = true;
     button.textContent = "Ricerca posizione…";
     window.TABI_GEO.requestPosition({ maximumAge:60000 }).then(function (position) {
@@ -890,9 +995,14 @@
       startFollowing();
       button.disabled = false;
       button.textContent = "◎ Ti sto seguendo";
-    }).catch(function () {
+    }).catch(function (error) {
+      // Il motivo vero (permesso negato, GPS assente, tempo scaduto) arriva da
+      // requestPosition e passa dal toast; il bottone non resta bloccato
+      // sull'errore per sempre.
       button.disabled = false;
       button.textContent = "Posizione non disponibile";
+      if (window.TABI_UI && error && error.message) window.TABI_UI.toast(error.message);
+      locateResetTimer = setTimeout(resetLocateButton, 5000);
     });
   }
 
@@ -920,18 +1030,27 @@
     return true;
   }
 
+  // Il contenuto dei popup è una funzione valutata all'apertura: un popup
+  // chiuso non va toccato, si rigenererà fresco da solo. Solo quello aperto
+  // sotto gli occhi dell'utente va ridisegnato subito, foto compresa.
+  function redrawOpenPopup(marker, point) {
+    if (!marker.isPopupOpen()) return;
+    marker.getPopup().update();
+    window.setTimeout(function () { hydratePopupImage(marker, point); }, 0);
+  }
+
   function refreshProgressMarker(guideId) {
     const marker = markerByGuideId[guideId];
     const point = pointByGuideId[guideId];
     if (!marker || !point) return;
     marker.setIcon(pointIcon(point));
-    marker.setPopupContent(pointPopupHTML(point));
-    if (marker.isPopupOpen()) window.setTimeout(function () { hydratePopupImage(marker, point); }, 0);
+    redrawOpenPopup(marker, point);
   }
 
   // Rilegge la selezione e aggiunge o toglie i marker dal livello, senza
   // reinizializzare la mappa: gli stessi marker restano, cambia solo chi è a
-  // schermo. Il popup si rigenera perché contiene l'interruttore.
+  // schermo. Prima qui si rigeneravano ~340 popup a ogni spunta; ora nessuno,
+  // salvo quello eventualmente aperto.
   function syncSelection() {
     hiddenIds = hiddenIdSet();
     if (!map) return;
@@ -942,7 +1061,7 @@
       const isOnLayer = layer.hasLayer(entry.marker);
       if (shouldShow && !isOnLayer) layer.addLayer(entry.marker);
       if (!shouldShow && isOnLayer) layer.removeLayer(entry.marker);
-      if (shouldShow && entry.point.guideId) entry.marker.setPopupContent(pointPopupHTML(entry.point));
+      if (shouldShow && entry.point.guideId) redrawOpenPopup(entry.marker, entry.point);
     });
   }
 
@@ -990,9 +1109,69 @@
     return 2 * 6371000 * Math.atan2(Math.sqrt(h), Math.sqrt(1 - h));
   }
 
-  // Vicino più prossimo per l'ordine iniziale, poi 2-opt per raddrizzare gli
-  // incroci: su una decina di tappe basta e avanza, e gira in un istante.
+  // Percorso più breve esatto (Held-Karp): con le tappe che un link Google
+  // regge (fino a 11) la programmazione dinamica sui sottoinsiemi costa meno
+  // di un millisecondo e garantisce l'ottimo, dove il 2-opt poteva fermarsi a
+  // un incrocio quasi giusto. Oltre la dozzina — oggi irraggiungibile — si
+  // torna al vicino-più-prossimo raddrizzato, che scala senza esplodere.
+  const EXACT_ORDER_LIMIT = 12;
+
   function shortestOrder(start, stops) {
+    if (!stops.length) return [];
+    if (stops.length > EXACT_ORDER_LIMIT) return approximateOrder(start, stops);
+    const n = stops.length;
+    // La matrice delle distanze si calcola una volta sola: l'haversine è la
+    // parte costosa e la DP la interroga migliaia di volte.
+    const fromStart = new Float64Array(n);
+    const dist = new Float64Array(n * n);
+    for (let i = 0; i < n; i += 1) {
+      fromStart[i] = metersBetween(start, stops[i]);
+      for (let j = i + 1; j < n; j += 1) {
+        const d = metersBetween(stops[i], stops[j]);
+        dist[i * n + j] = d;
+        dist[j * n + i] = d;
+      }
+    }
+    const size = 1 << n;
+    const cost = new Float64Array(size * n).fill(Infinity);
+    const parent = new Int8Array(size * n).fill(-1);
+    for (let j = 0; j < n; j += 1) cost[(1 << j) * n + j] = fromStart[j];
+    for (let mask = 1; mask < size; mask += 1) {
+      for (let j = 0; j < n; j += 1) {
+        if (!(mask & (1 << j))) continue;
+        const base = cost[mask * n + j];
+        if (base === Infinity) continue;
+        for (let k = 0; k < n; k += 1) {
+          if (mask & (1 << k)) continue;
+          const nextIndex = (mask | (1 << k)) * n + k;
+          const candidate = base + dist[j * n + k];
+          if (candidate < cost[nextIndex]) {
+            cost[nextIndex] = candidate;
+            parent[nextIndex] = j;
+          }
+        }
+      }
+    }
+    const full = size - 1;
+    let last = 0;
+    for (let j = 1; j < n; j += 1) {
+      if (cost[full * n + j] < cost[full * n + last]) last = j;
+    }
+    const order = [];
+    let mask = full;
+    let at = last;
+    while (at !== -1) {
+      order.push(stops[at]);
+      const prev = parent[mask * n + at];
+      mask ^= 1 << at;
+      at = prev;
+    }
+    return order.reverse();
+  }
+
+  // Il vecchio ordine approssimato: vicino più prossimo, poi 2-opt per
+  // raddrizzare gli incroci. Serve solo sopra EXACT_ORDER_LIMIT.
+  function approximateOrder(start, stops) {
     const remaining = stops.slice();
     const route = [];
     let current = start;
@@ -1197,19 +1376,29 @@
     document.addEventListener("touchend", end);
   }
 
-  document.getElementById("lassoButton").addEventListener("click", function () {
+  // Questi agganci girano all'esecuzione dello script: un id rinominato in
+  // index.html faceva TypeError qui e uccideva l'intera IIFE, mappa compresa.
+  // Il pezzo mancante si segnala e il resto continua a funzionare.
+  function listen(id, eventName, handler) {
+    const node = document.getElementById(id);
+    if (node) node.addEventListener(eventName, handler);
+    else console.warn("[tabi-map] elemento mancante: #" + id);
+  }
+
+  listen("lassoButton", "click", function () {
     initMap();
     if (!map) return;
     if (!map.__lassoReady) { setupLasso(); map.__lassoReady = true; }
     toggleLasso();
   });
-  document.getElementById("lassoUseGpsButton").addEventListener("click", useGpsForRoute);
+  listen("lassoUseGpsButton", "click", useGpsForRoute);
 
-  document.getElementById("locateButton").addEventListener("click", locateUser);
-  document.getElementById("fitRouteButton").addEventListener("click", fitRoute);
-  document.getElementById("layersButton").addEventListener("click", function () {
+  listen("locateButton", "click", locateUser);
+  listen("fitRouteButton", "click", fitRoute);
+  listen("layersButton", "click", function () {
     const legend = document.getElementById("mapLegend");
     const button = document.getElementById("layersButton");
+    if (!legend || !button) return;
     legend.hidden = !legend.hidden;
     button.setAttribute("aria-expanded", String(!legend.hidden));
   });
@@ -1334,6 +1523,6 @@
 
   window.TABI_MAP = {
     focusPoint:focusPoint, fitRoute:fitRoute, walkingRouteForIds:walkingRouteForIds,
-    autoRouteGroups:autoRouteGroups, maxStopsPerLink:MAX_STOPS_PER_LINK
+    autoRouteGroups:autoRouteGroups, maxStopsPerLink:MAX_STOPS_PER_LINK, showLayers:showLayers
   };
 })();

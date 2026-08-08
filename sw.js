@@ -1,7 +1,12 @@
-const CACHE = "tabi-japan-v98";
+const CACHE = "tabi-japan-v103";
 const TILE_CACHE = "tabi-tiles-v1";
-const TILE_LIMIT = 320;
-const VERSION = "?v=20260808a";
+// Il solo prefetch delle tappe vale 297 riquadri: con un tetto più basso una
+// passeggiata sulla mappa sfratterebbe le città appena scaricate.
+const TILE_LIMIT = 700;
+// Stesso token di index.html, sempre: se divergono il precache salva URL che la
+// pagina non richiederà mai, e l'app "offline" riscarica tutto dalla rete.
+// L'allineamento è verificato da scripts/check-guide-integrity.mjs.
+const VERSION = "?v=20260804b";
 
 // Guscio di prima parte: senza questo l'app non parte. L'installazione fallisce
 // se manca anche un solo file, ed è giusto così.
@@ -103,7 +108,9 @@ self.addEventListener("fetch", function (event) {
       return cache.match(event.request).then(function (cached) {
         if (cached) return cached;
         return fetch(event.request).then(function (response) {
-          if (response.ok) cache.put(event.request, response.clone()).then(function () { return trimTiles(cache); });
+          // Le tile chieste senza CORS arrivano "opaque": ok è false ma il
+          // contenuto è buono. Scartarle significava non salvare mai niente.
+          if (response.ok || response.type === "opaque") cache.put(event.request, response.clone()).then(function () { return trimTiles(cache); });
           return response;
         }).catch(function () { return Response.error(); });
       });
@@ -114,10 +121,16 @@ self.addEventListener("fetch", function (event) {
   if (url.origin !== self.location.origin && RUNTIME_HOSTS.indexOf(url.hostname) === -1) return;
 
   if (event.request.mode === "navigate") {
-    event.respondWith(fetch(event.request).then(function (response) {
-      if (response.ok) caches.open(CACHE).then(function (cache) { cache.put("index.html", response.clone()); });
-      return response;
-    }).catch(function () { return caches.match("index.html"); }));
+    // Prima la copia locale, poi la rete in sottofondo: su una SIM straniera
+    // lenta l'app deve aprirsi subito. La versione nuova finisce in cache e
+    // arriva col prossimo avvio (o col "Ricarica" del toast di aggiornamento).
+    event.respondWith(caches.match("index.html").then(function (cached) {
+      const network = fetch(event.request).then(function (response) {
+        if (response.ok) caches.open(CACHE).then(function (cache) { cache.put("index.html", response.clone()); });
+        return response;
+      }).catch(function () { return cached; });
+      return cached || network;
+    }));
     return;
   }
 
@@ -125,7 +138,9 @@ self.addEventListener("fetch", function (event) {
     const network = fetch(event.request).then(function (response) {
       if (response.ok) caches.open(CACHE).then(function (cache) { cache.put(event.request, response.clone()); });
       return response;
-    }).catch(function () { return cached || caches.match("index.html"); });
+    // Un file che manca deve fallire da file: rispondere con index.html a uno
+    // script o a un'immagine produce errori di sintassi e figure corrotte.
+    }).catch(function () { return cached || Response.error(); });
     return cached || network;
   }));
 });

@@ -654,8 +654,19 @@
     ];
   }
 
+  // L'aggancio punto\u2192scheda rinormalizzava gli stessi ~260 nomi per ognuno dei
+  // 261 punti mappa, all'avvio: era la voce pi\u00f9 cara di tutto il boot. Il
+  // risultato si ricorda per stringa; la logica di aggancio non cambia.
+  const normalizedNames = new Map();
+
   function normalizeName(value) {
-    return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "");
+    const key = String(value || "");
+    let cached = normalizedNames.get(key);
+    if (cached === undefined) {
+      cached = key.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "");
+      normalizedNames.set(key, cached);
+    }
+    return cached;
   }
 
   function findGuideItem(point) {

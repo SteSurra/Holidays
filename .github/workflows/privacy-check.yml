@@ -17,3 +17,7 @@ jobs:
           node-version: 22
       - run: node scripts/check-public-content.mjs
       - run: node scripts/check-guide-integrity.mjs
+      # Deterministico e senza rete: confronta l'ordine calcolato con l'ottimo
+      # per forza bruta. Gli altri check (link, alloggi, fermate) chiamano
+      # servizi esterni e restano manuali.
+      - run: node scripts/check-route-optimizer.mjs
