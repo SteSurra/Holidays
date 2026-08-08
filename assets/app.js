@@ -3,7 +3,7 @@
 
   const data = window.JAPAN_DATA;
   const cityById = Object.fromEntries(data.cities.map(function (city) { return [city.id, city]; }));
-  const itemById = Object.fromEntries([].concat(data.places, data.mapPlaces || [], data.experiences || [], data.foods, data.shopping, data.merchants || [], data.history).map(function (item) { return [item.id, item]; }));
+  const itemById = Object.fromEntries([].concat(data.places, data.experiences || [], data.foods, data.shopping, data.merchants || [], data.history).map(function (item) { return [item.id, item]; }));
   const mapGuideIds = new Set(((window.JAPAN_MAP_DATA && window.JAPAN_MAP_DATA.points) || []).map(function (point) { return point.guideId; }).filter(Boolean));
   // Dal guideId al punto della mappa: è la via per dare coordinate anche alle
   // schede, che di loro un lat/lng non ce l'hanno.
@@ -60,8 +60,13 @@
   let quickRateSync;
   let moneyRateRequested = false;
   let toastTimer;
-  let ocrWorker;
-  let ocrPreviewUrl;
+
+  // La versione dell'app, uguale al token ?v= dei file: la scrive
+  // scripts/bump-version.mjs a ogni rilascio e fa da firma per il controllo
+  // "cache pronta". NON va nell'URL di registrazione del service worker: un
+  // URL che cambia a ogni rilascio forza una reinstallazione del worker in
+  // più — e il toast di aggiornamento arrivava due volte di fila.
+  const RELEASE = "20260804i";
 
   function readJSON(key, fallback) {
     try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch (_) { return fallback; }
@@ -161,6 +166,10 @@
 
   function normalize(value) {
     return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  }
+
+  function reducedMotion() {
+    return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
 
   function cityName(id) {
@@ -607,7 +616,7 @@
   }
 
   function renderPlaces() {
-    const items = [].concat(data.places, data.mapPlaces || []).filter(function (item) { return matches(item, state.filters.place); });
+    const items = data.places.filter(function (item) { return matches(item, state.filters.place); });
     renderCards("placeGrid", "placeMeta", "placeEmpty", state.filters.place.nearby ? sortByDistance(items) : items, placeCard, "luoghi");
     renderSelectionSummary("place", items);
   }
@@ -1346,7 +1355,11 @@
     if (!days) {
       return '<p class="weather-fallback">Massima ' + weather.max + '° · minima ' + weather.min + '° · pioggia ' + weather.rain + '%</p>';
     }
-    return '<span class="weather-forecast">' + days.map(forecastRowHTML).join("") + '</span>';
+    // La riga di intestazione usa la stessa griglia delle righe dei giorni:
+    // "31° 25° 60%" da solo obbligava a indovinare quale numero fosse cosa.
+    return '<span class="weather-forecast">'
+      + '<span class="weather-row weather-head"><em></em><i></i><b>Max <s>min</s></b><u>Pioggia</u></span>'
+      + days.map(forecastRowHTML).join("") + '</span>';
   }
 
   function renderWeather(city) {
@@ -1930,16 +1943,17 @@
   };
 
   window.TABI_GEO = { requestPosition: function (options) { return requestPosition(options); } };
-  // La mappa non ha un suo sistema di avvisi: quando deve dire qualcosa che non
-  // sta in un bottone (perché la posizione è fallita, ad esempio) usa il toast.
-  window.TABI_UI = { toast: function (message) { showToast(message); } };
+  // Mappa e Documenti non hanno un loro sistema di avvisi: quando devono dire
+  // qualcosa che non sta in un bottone usano il toast, azione di annulla
+  // compresa (è il pattern dell'eliminazione reversibile).
+  window.TABI_UI = { toast: function (message, actionLabel, onAction) { showToast(message, actionLabel, onAction); } };
 
   const VIEW_TITLES = {
     overview: "Viaggio", places: "Mappa", experiences: "Attività", history: "Storie",
     food: "Cibo", shopping: "Acquisti", merchants: "Negozianti", itineraries: "Itinerari",
     phrases: "Parole", progress: "Progressi",
     translate: "Traduttore", packing: "Valigia", notes: "Note", saved: "Salvati",
-    emergency: "Emergenze", money: "Contanti"
+    emergency: "Emergenze", money: "Contanti", documents: "Documenti"
   };
   const MENU_TITLES = { discover: "Scopri", tools: "Utilità" };
   const NAV_GROUPS = {
@@ -1947,7 +1961,7 @@
     // "Fotografa e traduci" è salito nella barra: davanti a un menu si usa in
     // piedi, non si va a cercarlo in un menu. Al suo posto scende Progressi,
     // che è un riepilogo da fine giornata.
-    tools: ["phrases", "emergency", "progress", "money", "packing", "notes", "saved"]
+    tools: ["phrases", "emergency", "progress", "money", "packing", "documents", "notes", "saved"]
   };
 
   function viewTitle(view) {
@@ -2021,7 +2035,9 @@
     document.querySelectorAll("[data-nav]").forEach(function (button) {
       const active = button.dataset.nav === view;
       button.classList.toggle("is-active", active);
-      if (active) window.setTimeout(function () { button.scrollIntoView({ behavior:"smooth", block:"nearest", inline:"center" }); }, 0);
+      // L'override CSS di prefers-reduced-motion non arriva alle API JS: chi ha
+      // chiesto meno animazioni le deve vedere ridotte anche qui.
+      if (active) window.setTimeout(function () { button.scrollIntoView({ behavior:reducedMotion() ? "auto" : "smooth", block:"nearest", inline:"center" }); }, 0);
     });
     document.querySelectorAll("[data-nav-menu]").forEach(function (button) {
       button.classList.toggle("is-active", (NAV_GROUPS[button.dataset.navMenu] || []).includes(view));
@@ -2058,6 +2074,16 @@
     window.requestAnimationFrame(function () {
       window.requestAnimationFrame(function () { window.scrollTo({ top:0, behavior:"auto" }); });
     });
+    // Il focus segue la navigazione: senza, uno screen reader resta sul bottone
+    // premuto e non annuncia la schermata nuova. Solo sui cambi chiesti
+    // dall'utente — all'avvio e sul gesto "indietro" il focus non si ruba.
+    if (updateHash !== false) {
+      const heading = document.querySelector('[data-view="' + view + '"] h1, [data-view="' + view + '"] h2');
+      if (heading) {
+        heading.setAttribute("tabindex", "-1");
+        heading.focus({ preventScroll: true });
+      }
+    }
     window.dispatchEvent(new CustomEvent("tabi:viewchange", { detail: { view: view } }));
   }
 
@@ -2271,7 +2297,7 @@
   // Solo i luoghi che hanno un punto sulla mappa: gli altri non hanno un
   // interruttore, quindi non possono far parte di una selezione.
   function mappableItems(cityId) {
-    return [].concat(data.places, data.mapPlaces || [], data.experiences || []).filter(function (item) {
+    return [].concat(data.places, data.experiences || []).filter(function (item) {
       return mapGuideIds.has(item.id) && (!cityId || item.city === cityId);
     });
   }
@@ -2764,7 +2790,7 @@
 
   function progressAreas() {
     return [
-      { type:"place", title:"Luoghi", action:"Visitati", view:"places", items:[].concat(data.places, data.mapPlaces || []) },
+      { type:"place", title:"Luoghi", action:"Visitati", view:"places", items:data.places },
       { type:"experience", title:"Attività", action:"Fatte", view:"experiences", items:data.experiences || [] },
       { type:"food", title:"Cibi", action:"Provati", view:"food", items:data.foods },
       // Gli acquisti restano fuori dai progressi: cosa si compra è una faccenda
@@ -3025,7 +3051,7 @@
   let searchCatalogCache = null;
 
   function searchCatalog() {
-    if (!searchCatalogCache) searchCatalogCache = [].concat(data.places, data.mapPlaces || [], data.experiences || [], data.foods, data.shopping, data.merchants || [], data.history);
+    if (!searchCatalogCache) searchCatalogCache = [].concat(data.places, data.experiences || [], data.foods, data.shopping, data.merchants || [], data.history);
     return searchCatalogCache;
   }
 
@@ -3552,136 +3578,140 @@
     });
   }
 
-  function loadExternalScript(src) {
-    const existing = document.querySelector('script[src="' + src + '"]');
-    if (existing) return new Promise(function (resolve, reject) {
-      if (window.Tesseract) return resolve();
-      existing.addEventListener("load", resolve, { once:true });
-      existing.addEventListener("error", reject, { once:true });
-    });
-    return new Promise(function (resolve, reject) {
-      const script = document.createElement("script");
-      script.src = src;
-      script.async = true;
-      script.onload = resolve;
-      script.onerror = reject;
-      document.head.appendChild(script);
-    });
-  }
-
+  // La foto va all'assistente che l'utente già usa, non a un lettore in
+  // pagina: l'OCR nel browser leggeva male il giapponese verticale, pesava un
+  // download da CDN che il service worker non copriva, e passava comunque da
+  // un traduttore che non vedeva l'immagine. ChatGPT e Gemini la vedono.
+  // La foto lascia il telefono solo per un gesto esplicito di condivisione o
+  // copia: l'app non carica mai nulla da sola.
   function setupPhotoTranslator() {
     const input = document.getElementById("translatePhotoInput");
     if (!input) return;
     const preview = document.getElementById("translatePhotoPreview");
-    const readButton = document.getElementById("ocrReadButton");
-    const shareButton = document.getElementById("ocrShareButton");
-    const clearButton = document.getElementById("ocrClearButton");
-    const output = document.getElementById("ocrOutput");
-    const status = document.getElementById("ocrStatus");
+    const shareButton = document.getElementById("photoShareButton");
+    const clearButton = document.getElementById("photoClearButton");
+    const status = document.getElementById("photoStatus");
+    const appButtons = [
+      { node: document.getElementById("photoToChatgpt"), name: "ChatGPT", url: "https://chatgpt.com/" },
+      { node: document.getElementById("photoToGemini"), name: "Gemini", url: "https://gemini.google.com/app" }
+    ].filter(function (entry) { return entry.node; });
 
-    // Tre destinazioni per lo stesso testo, perché servono a cose diverse:
-    // Traduttore dà la riga tradotta e basta, i due assistenti dicono anche che
-    // cos'è — davanti a un menu è la differenza fra sapere il nome di un piatto e
-    // sapere che contiene pesce crudo. La foto vera e propria non si può mandare
-    // per link: nessuno dei tre la accetta in un indirizzo, e per quella c'è la
-    // condivisione del telefono.
-    const AI_PROMPT = "Traduci in italiano questo testo giapponese. Poi dimmi in due righe che cos'è (se è un menu elenca i piatti con gli ingredienti principali, segnalando pesce crudo, carne di maiale, frutti di mare e arachidi):\n\n";
-    const DESTINATIONS = [
-      { id:"ocrToTranslate", url:function (text) { return "https://translate.google.com/?sl=ja&tl=it&op=translate&text=" + encodeURIComponent(text.slice(0, 3500)); } },
-      { id:"ocrToChatgpt", url:function (text) { return "https://chatgpt.com/?q=" + encodeURIComponent(AI_PROMPT + text.slice(0, 1400)); } },
-      { id:"ocrToCopilot", url:function (text) { return "https://copilot.microsoft.com/?q=" + encodeURIComponent(AI_PROMPT + text.slice(0, 1400)); } }
-    ].map(function (entry) { return Object.assign({ node: document.getElementById(entry.id) }, entry); })
-      .filter(function (entry) { return entry.node; });
-
-    function setDestinations(text) {
-      DESTINATIONS.forEach(function (entry) {
-        entry.node.classList.toggle("is-disabled", !text);
-        if (text) entry.node.href = entry.url(text);
-        else entry.node.removeAttribute("href");
-      });
-    }
+    const AI_PROMPT = "Traduci in italiano il testo in questa foto. Poi dimmi in due righe che cos'è: se è un menu elenca i piatti con gli ingredienti principali, segnalando pesce crudo, carne di maiale, frutti di mare e arachidi.";
+    let previewUrl = "";
 
     function currentFile() {
       return input.files && input.files[0];
     }
 
     function canShareFile(file) {
-      if (!navigator.share || !navigator.canShare) return false;
+      if (!file || !navigator.share || !navigator.canShare) return false;
       try {
-        return navigator.canShare({ files:[file] });
+        return navigator.canShare({ files:[file], text:AI_PROMPT });
       } catch (_) {
         return false;
       }
     }
 
+    function setReady(ready) {
+      shareButton.hidden = !ready || !canShareFile(currentFile());
+      clearButton.hidden = !ready;
+      appButtons.forEach(function (entry) { entry.node.disabled = !ready; });
+    }
+
     function reset() {
       input.value = "";
-      output.value = "";
       status.textContent = "Nessuna foto selezionata.";
-      readButton.disabled = true;
-      shareButton.hidden = true;
-      setDestinations("");
       preview.hidden = true;
       preview.removeAttribute("src");
-      if (ocrPreviewUrl) URL.revokeObjectURL(ocrPreviewUrl);
-      ocrPreviewUrl = "";
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+      previewUrl = "";
+      setReady(false);
     }
 
     input.addEventListener("change", function () {
       const file = currentFile();
       if (!file) return reset();
-      if (ocrPreviewUrl) URL.revokeObjectURL(ocrPreviewUrl);
-      ocrPreviewUrl = URL.createObjectURL(file);
-      preview.src = ocrPreviewUrl;
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+      previewUrl = URL.createObjectURL(file);
+      preview.src = previewUrl;
       preview.hidden = false;
-      output.value = "";
-      readButton.disabled = false;
-      status.textContent = "Foto pronta. Il riconoscimento avviene sul dispositivo.";
-      shareButton.hidden = !canShareFile(file);
-      setDestinations("");
+      status.textContent = "Foto pronta: condividila o aprila in un assistente.";
+      setReady(true);
     });
-
-    readButton.addEventListener("click", async function () {
-      const file = currentFile();
-      if (!file) return;
-      readButton.disabled = true;
-      status.textContent = "Carico il lettore giapponese…";
-      try {
-        await loadExternalScript("https://cdn.jsdelivr.net/npm/tesseract.js@7/dist/tesseract.min.js");
-        if (!ocrWorker) {
-          ocrWorker = await window.Tesseract.createWorker(["jpn", "eng"], 1, {
-            logger: function (message) {
-              if (Number.isFinite(message.progress)) status.textContent = "Lettura in corso: " + Math.round(message.progress * 100) + "%";
-            }
-          });
-        }
-        const result = await ocrWorker.recognize(file);
-        const textResult = String(result.data && result.data.text || "").trim();
-        output.value = textResult;
-        if (!textResult) {
-          status.textContent = "Non ho riconosciuto testo. Prova più vicino, dritto e con più luce.";
-        } else {
-          status.textContent = "Testo riconosciuto sul dispositivo. Correggilo qui sotto, poi scegli dove mandarlo.";
-          setDestinations(textResult);
-        }
-      } catch (_) {
-        status.textContent = "Lettore non disponibile. Puoi condividere la foto con Google Lens o l'app Traduci del telefono.";
-      } finally {
-        readButton.disabled = false;
-      }
-    });
-
-    // Il riconoscimento sbaglia spesso un carattere: se lo correggi qui, i tre
-    // collegamenti devono partire dal testo corretto, non da quello letto.
-    output.addEventListener("input", function () { setDestinations(output.value.trim()); });
 
     shareButton.addEventListener("click", async function () {
       const file = currentFile();
       if (!file || !navigator.share) return;
-      try { await navigator.share({ files:[file], title:"Traduci questa foto" }); } catch (_) { /* Condivisione annullata. */ }
+      try {
+        // La richiesta viaggia insieme alla foto: nell'app scelta arriva già
+        // scritta. Qualche destinazione la scarta e tiene solo l'immagine —
+        // pazienza, la parola "traduci" resta un gesto da tastiera.
+        await navigator.share({ files:[file], text:AI_PROMPT, title:"Traduci questa foto" });
+      } catch (_) { /* Condivisione annullata. */ }
     });
+
+    // Le foto della fotocamera sono JPEG (o HEIC), ma negli appunti i browser
+    // accettano solo PNG: si ridisegna su canvas, ridotta, prima di copiarla.
+    function fileAsPngBlob(file) {
+      return new Promise(function (resolve, reject) {
+        const image = new Image();
+        const url = URL.createObjectURL(file);
+        image.onload = function () {
+          const scale = Math.min(1, 2000 / Math.max(image.naturalWidth || 1, image.naturalHeight || 1));
+          const canvas = document.createElement("canvas");
+          canvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
+          canvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
+          canvas.getContext("2d").drawImage(image, 0, 0, canvas.width, canvas.height);
+          URL.revokeObjectURL(url);
+          canvas.toBlob(function (blob) {
+            if (blob) resolve(blob);
+            else reject(new Error("conversione non riuscita"));
+          }, "image/png");
+        };
+        image.onerror = function () {
+          URL.revokeObjectURL(url);
+          reject(new Error("immagine non leggibile"));
+        };
+        image.src = url;
+      });
+    }
+
+    appButtons.forEach(function (entry) {
+      entry.node.addEventListener("click", function () {
+        const file = currentFile();
+        if (!file) return;
+        // La copia si registra nello stesso gesto del clic (ClipboardItem
+        // accetta una Promise) e la chat si apre subito dopo: aspettare la
+        // conversione prima di aprire farebbe scattare il blocco popup.
+        if (navigator.clipboard && window.ClipboardItem) {
+          navigator.clipboard.write([new ClipboardItem({ "image/png": fileAsPngBlob(file) })]).then(function () {
+            status.textContent = "Foto copiata. In " + entry.name + " tocca il campo del messaggio, incolla e chiedi di tradurla.";
+          }).catch(function () {
+            status.textContent = "Non sono riuscito a copiarla: in " + entry.name + " allegala con la graffetta (la trovi nel rullino), poi chiedi di tradurla.";
+          });
+          status.textContent = "Copio la foto e apro " + entry.name + "…";
+        } else {
+          status.textContent = "Questo browser non copia le foto: in " + entry.name + " allegala con la graffetta, poi chiedi di tradurla.";
+        }
+        window.open(entry.url, "_blank", "noopener");
+      });
+    });
+
     clearButton.addEventListener("click", reset);
     reset();
+
+    // Il traduttore per il testo scritto: il collegamento si aggiorna mentre
+    // si digita e parte con la lingua riconosciuta da Google, verso l'italiano.
+    const textInput = document.getElementById("textTranslateInput");
+    const textLink = document.getElementById("textToTranslate");
+    if (textInput && textLink) {
+      textInput.addEventListener("input", function () {
+        const text = textInput.value.trim();
+        textLink.classList.toggle("is-disabled", !text);
+        if (text) textLink.href = "https://translate.google.com/?sl=auto&tl=it&op=translate&text=" + encodeURIComponent(text.slice(0, 3500));
+        else textLink.removeAttribute("href");
+      });
+    }
   }
 
   // La barra in basso si abbassa con uno scorrimento verso il basso, per
@@ -4010,19 +4040,25 @@
     });
     if ("serviceWorker" in navigator) {
       let refreshing = false;
+      // Se la pagina è partita senza un worker al comando, il cambio che segue
+      // è la prima installazione, non un aggiornamento: annunciarla confonde.
+      const hadController = Boolean(navigator.serviceWorker.controller);
       navigator.serviceWorker.addEventListener("controllerchange", function () {
         if (refreshing) return;
         refreshing = true;
+        if (!hadController) return;
         // Ricaricare da soli strappava la pagina di mano a chi stava leggendo:
         // la versione nuova è già pronta, si applica quando lo decide l'utente
         // (o al prossimo avvio, da sola).
         showToast("Guida aggiornata e pronta", "Ricarica", function () { window.location.reload(); });
       });
       window.addEventListener("load", function () {
-        // Stesso token del resto dei file: se resta indietro, la firma di
-        // "cache pronta" non cambia mai e il controllo post-aggiornamento non
-        // riparte. È verificato da scripts/check-guide-integrity.mjs.
-        navigator.serviceWorker.register("sw.js?v=20260804b", { updateViaCache: "none" }).then(function (registration) {
+        // URL di registrazione STABILE, senza token: con updateViaCache "none"
+        // gli aggiornamenti arrivano dal confronto dei byte. Il token nell'URL
+        // faceva ri-registrare il worker a un indirizzo nuovo a ogni rilascio:
+        // un'installazione in più e il toast di aggiornamento due volte di
+        // fila. La versione dell'app vive nella costante RELEASE.
+        navigator.serviceWorker.register("sw.js", { updateViaCache: "none" }).then(function (registration) {
           registration.update();
         });
       });
@@ -4047,9 +4083,52 @@
     navigator.serviceWorker.ready.then(function (registration) {
       const worker = registration.active;
       if (!worker) return;
-      if (localStorage.getItem("tabi-cache-ready") === worker.scriptURL) return;
-      worker.postMessage({ type: "tabi:reconcile", signature: worker.scriptURL });
+      // La firma è la versione dell'app, non l'URL del worker: l'URL ora è
+      // stabile per scelta, e come firma non cambierebbe mai più.
+      if (localStorage.getItem("tabi-cache-ready") === RELEASE) return;
+      worker.postMessage({ type: "tabi:reconcile", signature: RELEASE });
     });
+  }
+
+  // Il tema segue il sistema finché non lo si forza: la sera in giro il
+  // sistema può essere ancora chiaro, e in pieno sole serve il chiaro forzato.
+  // Lo script inline in index.html applica la classe prima del primo disegno;
+  // qui vivono il bottone che cicla sistema → chiaro → scuro e il colore
+  // della cornice del browser.
+  function setupTheme() {
+    const button = document.getElementById("themeButton");
+    if (!button) return;
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const GLYPHS = { auto: "◐", light: "○", dark: "●" };
+    const NAMES = { auto: "come il sistema", light: "chiaro", dark: "scuro" };
+
+    function current() {
+      const stored = localStorage.getItem("tabi-theme");
+      return stored === "light" || stored === "dark" ? stored : "auto";
+    }
+
+    function apply() {
+      const mode = current();
+      const dark = mode === "dark" || (mode === "auto" && media.matches);
+      document.documentElement.classList.toggle("theme-dark", dark);
+      document.querySelectorAll('meta[name="theme-color"]').forEach(function (meta) {
+        meta.setAttribute("content", dark ? "#14181a" : "#b6422e");
+      });
+      button.textContent = GLYPHS[mode];
+      button.setAttribute("aria-label", "Tema: " + NAMES[mode] + ". Tocca per cambiare.");
+      button.title = "Tema: " + NAMES[mode];
+    }
+
+    button.addEventListener("click", function () {
+      const order = ["auto", "light", "dark"];
+      const next = order[(order.indexOf(current()) + 1) % order.length];
+      if (next === "auto") localStorage.removeItem("tabi-theme");
+      else safeSetItem("tabi-theme", next);
+      apply();
+      showToast("Tema: " + NAMES[next]);
+    });
+    if (media.addEventListener) media.addEventListener("change", apply);
+    apply();
   }
 
   function setupConnectionBanner() {
@@ -4082,6 +4161,7 @@
     setupInstall();
     setupOfflineReadiness();
     setupConnectionBanner();
+    setupTheme();
     setupRate();
     setupQuickRate();
     setupGlobalSearch();

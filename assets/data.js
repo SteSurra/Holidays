@@ -21,12 +21,8 @@
     return { id:r[0], name:r[1], jp:r[2], region:r[3], lat:r[4], lng:r[5], summary:r[6], visitType:r[7], arrival:r[8], order:i+1 };
   });
 
-  function parseTable(text, fields) {
-    return text.trim().split("\n").filter(Boolean).map(function (line) {
-      const values = line.split("|");
-      return fields.reduce(function (item, field, index) { item[field] = values[index]; return item; }, {});
-    });
-  }
+  // Il parser vive in parse-lib.js: una copia sola per tutti i cataloghi.
+  const parseTable = window.TABI_PARSE.table;
 
   const placeRows = parseTable(`
 tokyo|sensoji|Senso-ji|浅草寺|tempio|Asakusa|Il tempio più antico di Tokyo: arrivaci presto, poi perditi nelle vie laterali dietro Nakamise.|1-2 ore|Mattina presto o dopo il tramonto|Sensoji temple Tokyo

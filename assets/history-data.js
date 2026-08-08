@@ -1,7 +1,7 @@
 (function () {
   "use strict";
   const fields = ["city","slug","category","kanji","title","explanation","anecdote"];
-  const rows = `
+  const rawRows = `
 tokyo|edo-city|storia|江戸|Da Edo a Tokyo|Per oltre due secoli Edo fu il centro politico dello shogunato Tokugawa, mentre Kyoto restava capitale imperiale. Nel 1868 il nome cambiò in Tokyo, capitale orientale.|La rete di canali e molti quartieri moderni seguono ancora la forma della città dei samurai.
 tokyo|shitamachi|cultura|町|Che cosa significa shitamachi|La città bassa era l'area popolare di artigiani e mercanti a est del palazzo. Asakusa, Ueno e Yanaka conservano ancora una scala più umana.|I piccoli santuari tra le case spesso appartengono alla storia del singolo vicinato.
 tokyo|shrine-temple|spiritualita|社|Santuario o tempio?|I santuari shintoisti hanno torii e celebrano i kami; i templi buddhisti hanno porte sanmon, incenso e statue del Buddha. Le due tradizioni convivono da secoli.|A Senso-ji puoi incontrare un tempio buddhista e, a pochi passi, il santuario Asakusa.
@@ -85,10 +85,9 @@ tokyo|great-kanto-earthquake|storia|震|La città ricostruita dopo il 1923|Il gr
 tokyo|showa-alleys|cultura|昭|I vicoli della Tokyo Showa|Omoide Yokocho, Golden Gai e altri yokocho conservano piccoli locali nati o consolidati nel dopoguerra. Spazi minimi creano relazioni molto ravvicinate tra gestori e clienti.|In sei metri quadrati entrano un bancone, otto persone e conversazioni che in Italia richiederebbero una piazza.
 tokyo|hachiko|aneddoti|犬|Hachiko oltre il punto d'incontro|Il cane Akita continuò ad attendere il padrone alla stazione di Shibuya dopo la sua morte e divenne simbolo di lealtà. La statua è oggi uno dei luoghi di ritrovo più affollati.|Monumento alla fedeltà, circondato da persone che scrivono arrivo tra due minuti mentre sono ancora sul treno.
 tokyo|gotokuji-cats|mitologia|猫|Il tempio dei gatti che invitano|Gotokuji collega la propria tradizione a un gatto che avrebbe invitato un signore feudale al riparo, salvandolo da un temporale. Le offerte di maneki-neko riempiono il complesso.|Migliaia di gatti con la zampa alzata formano la riunione di condominio più silenziosa di Tokyo.
-`.trim().split("\n").map(function (line) {
-    const values = line.split("|");
-    return fields.reduce(function (item, field, index) { item[field] = values[index]; return item; }, {});
-  });
+`;
+  // Parser condiviso in parse-lib.js (filtra anche eventuali righe vuote).
+  const rows = window.TABI_PARSE.table(rawRows, fields);
   const historyCategories = {
     storia:"Storia", architettura:"Architettura", spiritualita:"Spiritualità",
     cultura:"Vita e cultura", aneddoti:"Aneddoti", mitologia:"Miti",

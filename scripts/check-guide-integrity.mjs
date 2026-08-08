@@ -3,6 +3,7 @@ import vm from "node:vm";
 
 const context = vm.createContext({ window: {}, console });
 const dataFiles = [
+  "assets/parse-lib.js",
   "assets/data.js",
   "assets/food-data.js",
   "assets/shopping-data.js",
@@ -56,6 +57,15 @@ for (const point of mapPoints) {
   if (!Number.isFinite(point.lat) || !Number.isFinite(point.lng)) failures.push(`${point.id}: invalid coordinates`);
   if (point.type === "visit" && !point.guideId) failures.push(`${point.id}: missing detail guide link`);
   if (point.guideId && !allItems.some((item) => item.id === point.guideId)) failures.push(`${point.id}: unknown guide link ${point.guideId}`);
+}
+
+// Un punto "visit" che non aggancia nessuna scheda curata genera in
+// guide-data.js una scheda sintetica ("Da adattare alla giornata"): qualità da
+// segnaposto che entrava in app in silenzio. Qui diventa un errore di build:
+// o il punto trova la sua scheda, o la scheda si scrive davvero. L'app non
+// concatena più data.mapPlaces da nessuna parte, e deve restare vuoto.
+for (const item of data.mapPlaces || []) {
+  failures.push(`${item.id}: synthetic stub card for an unmatched map point — curate a real entry or fix the point name`);
 }
 
 // Un luogo o un'esperienza senza punto sulla mappa non ha il quadratino per
@@ -188,14 +198,21 @@ if (swVersion && indexVersions.length === 1 && swVersion !== indexVersions[0]) {
   failures.push(`service-worker version mismatch: sw.js has ${swVersion}, index.html has ${indexVersions[0]}`);
 }
 
-// La registrazione in app.js porta il proprio token: se resta indietro, la
-// firma "cache pronta" (worker.scriptURL) non cambia mai fra una versione e
-// l'altra e il reconcile post-aggiornamento non riparte. È successo.
+// L'URL di registrazione deve restare "sw.js" fisso: con un token nell'URL
+// ogni rilascio ri-registrava il worker a un indirizzo nuovo, il browser lo
+// installava come se fosse un altro worker e il toast di aggiornamento
+// arrivava due volte di fila. La versione dell'app vive nella costante
+// RELEASE, che fa da firma "cache pronta" e deve seguire il token dei file.
 const appSource = readFileSync("assets/app.js", "utf8");
-const registerToken = (appSource.match(/serviceWorker\.register\("sw\.js(\?v=[0-9a-z]+)"/) || [])[1];
-if (!registerToken) failures.push("app.js: service worker registration token not found");
-else if (swVersion && registerToken !== swVersion) {
-  failures.push(`service-worker registration mismatch: app.js registers sw.js${registerToken}, sw.js declares ${swVersion}`);
+const registerUrl = (appSource.match(/serviceWorker\.register\("([^"]+)"/) || [])[1];
+if (!registerUrl) failures.push("app.js: service worker registration not found");
+else if (registerUrl !== "sw.js") {
+  failures.push(`app.js: the service worker must be registered at the stable URL "sw.js" (found "${registerUrl}") — a per-release URL forces an extra install and a duplicate update toast`);
+}
+const releaseToken = (appSource.match(/const RELEASE = "([0-9a-z]+)"/) || [])[1];
+if (!releaseToken) failures.push("app.js: RELEASE constant not found");
+else if (indexVersions.length === 1 && "?v=" + releaseToken !== indexVersions[0]) {
+  failures.push(`release token mismatch: app.js RELEASE is ${releaseToken}, index.html uses ${indexVersions[0]} — the cache-ready check would go stale`);
 }
 
 // Ogni file che index.html chiede deve stare nella SHELL del service worker:
@@ -214,7 +231,7 @@ for (const asset of new Set(requestedAssets)) {
 // food-data lo estende, shopping-data lo promuove a JAPAN_DATA. Invertirli
 // significa un TypeError al primo avvio. Il contratto vive solo qui.
 const scriptOrder = [...indexSource.matchAll(/<script[^>]+src="assets\/([a-z-]+\.js)/g)].map((match) => match[1]);
-const expectedPrefix = ["data.js", "food-data.js", "shopping-data.js"];
+const expectedPrefix = ["parse-lib.js", "data.js", "food-data.js", "shopping-data.js"];
 for (let i = 0; i < expectedPrefix.length; i += 1) {
   if (scriptOrder[i] !== expectedPrefix[i]) {
     failures.push(`index.html: script #${i + 1} must be ${expectedPrefix[i]} (found ${scriptOrder[i] || "none"}) — the __JAPAN_PARTIAL__ handoff depends on this order`);

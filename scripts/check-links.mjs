@@ -28,6 +28,7 @@ const read = (path) => readFileSync(new URL(path, root), "utf8");
 // --- 1) URL dai dati: si valutano i file e si cammina l'oggetto risultante ---
 const context = vm.createContext({ window: {}, console });
 const dataFiles = [
+  "assets/parse-lib.js",
   "assets/data.js", "assets/food-data.js", "assets/shopping-data.js", "assets/food-extra-data.js",
   "assets/travel-data.js", "assets/history-data.js", "assets/phrases-data.js", "assets/map-data.js",
   "assets/merchants-data.js", "assets/transit-data.js", "assets/experiences-data.js",

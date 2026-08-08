@@ -26,12 +26,17 @@ lesson, append it here in the same commit — this file is the skill's memory.
 - **Updates never reload the page by themselves.** `controllerchange` →
   `location.reload()` yanks the page out from under a reader. Offer a toast
   with a reload action; the new version also applies naturally on next launch.
-- **One version token, everywhere, machine-checked.** The `?v=` token must be
-  identical in `index.html`, in `sw.js` (`VERSION` and the `CACHE` bump), and
-  in the *registration URL* in `app.js` — a stale registration token froze the
-  cache-ready signature across releases and the post-update reconcile never
-  ran. Keep a `bump-version` script so a release is one command, and assert
-  the alignment in the integrity script.
+- **One version token for the files; a STABLE URL for the registration.** The
+  `?v=` token must be identical in `index.html`, in `sw.js` (`VERSION` and the
+  `CACHE` bump), and in a `RELEASE` constant in `app.js` that signs the
+  cache-ready check. But the service worker must be registered at a fixed
+  `sw.js` with `updateViaCache: "none"`: putting the token in the
+  registration URL made every release re-register the worker at a new
+  address, the browser installed it as a second worker, and the update toast
+  fired twice in a row. (The original sin was signing cache-readiness with
+  `worker.scriptURL` — version the signature, never the URL.) Keep a
+  `bump-version` script so a release is one command, and assert both the
+  alignment and the URL stability in the integrity script.
 - **The SHELL list must be provably complete.** Assert that every asset
   `index.html` requests appears in the service worker precache list; a file
   missing there works online and 404s exactly when the trip needs it.
@@ -110,6 +115,19 @@ lesson, append it here in the same commit — this file is the skill's memory.
 - **Full-viewport decorative overlays are invisible in sunlight and expensive
   always.** The SVG-turbulence paper grain repaints the entire screen; below
   tablet width it goes off.
+- **Dark mode lives in ONE block, driven by a class on the root.** Three
+  `@media (prefers-color-scheme)` blocks hundreds of lines apart meant every
+  new component silently missed its dark rules. A single `html.theme-dark`
+  block (class set by a tiny inline head script, so no light flash) also
+  enables a manual system→light→dark toggle — forced light for sunlight,
+  forced dark for evenings before the OS switches. Update the theme-color
+  metas from the same code path.
+- **One shared parser, with the variants as named options.** The same
+  pipe-table parser was copy-pasted six times and had drifted into three
+  accidental variants (undefined vs "" fill, trimmed cells). The shared
+  helper keeps each file's exact semantics as explicit options — and the
+  refactor is only done when a byte-for-byte snapshot of the full data model
+  before and after says IDENTICAL.
 
 ## Data integrity and checks
 

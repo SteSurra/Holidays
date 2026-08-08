@@ -50,8 +50,15 @@ swSrc = swSrc
   .split("?v=" + current).join("?v=" + next)
   .replace(/const CACHE = "tabi-japan-v\d+"/, 'const CACHE = "tabi-japan-v' + nextCache + '"');
 writeFileSync(SW, swSrc);
+// In app.js si aggiorna la costante RELEASE, non un URL: la registrazione del
+// service worker resta a "sw.js" fisso, altrimenti ogni rilascio installerebbe
+// un worker "nuovo" solo per il cambio di indirizzo (doppio toast).
 const appSrc = readFileSync(APP, "utf8");
-writeFileSync(APP, appSrc.split("sw.js?v=" + current).join("sw.js?v=" + next));
+if (!appSrc.includes('const RELEASE = "' + current + '"')) {
+  console.error("app.js: costante RELEASE non allineata al token corrente (" + current + ").");
+  process.exit(1);
+}
+writeFileSync(APP, appSrc.split('const RELEASE = "' + current + '"').join('const RELEASE = "' + next + '"'));
 
 console.log("Token: " + current + " → " + next + " · cache: tabi-japan-v" + nextCache);
 console.log("Ora: node scripts/check-guide-integrity.mjs per la conferma.");

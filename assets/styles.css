@@ -35,6 +35,9 @@ body.is-offline { --offline-height: 32px; }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+/* Il focus programmatico sui titoli (annuncio schermata agli screen reader)
+   non deve disegnare l'anello: non sono elementi interattivi. */
+h1[tabindex="-1"]:focus, h2[tabindex="-1"]:focus { outline: none; }
 body { margin: 0; overflow-x: clip; color: var(--ink); background: var(--paper); font-family: "DM Sans", sans-serif; line-height: 1.5; }
 body::before { content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .34; z-index: -1; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E"); }
 button, input, select { font: inherit; }
@@ -138,6 +141,10 @@ main { min-height: 100vh; padding: calc(var(--header-height) + var(--safe-top) +
 .weather-row.is-today { font-size: .95rem; }
 .weather-row.is-today em { color: var(--ink); }
 .weather-row:not(.is-today) { opacity: .8; }
+/* Intestazioni delle colonne: stessa griglia delle righe, così "Max min" e
+   "Pioggia" cadono esattamente sopra i loro numeri. */
+.weather-row.weather-head { font-size: .58rem; text-transform: uppercase; letter-spacing: .07em; align-items: end; margin-bottom: -.15rem; }
+.weather-head b, .weather-head b s, .weather-head u { color: var(--muted); font-weight: 800; }
 .weather-fallback { margin: 0; color: var(--muted); font-size: .78rem; }
 .weather-foot { display: flex; flex-wrap: wrap; gap: .3rem 1rem; justify-content: space-between; align-items: baseline; }
 .weather-foot small { color: var(--muted); font-size: .74rem; }
@@ -533,29 +540,39 @@ body:has(dialog[open]) { overflow: hidden; }
 /* Tema scuro: la guida si usa anche di sera, in treno e in camera al buio.
    Si ridefiniscono solo i token; le superfici volutamente scure (hero, barra,
    pannelli emergenza e progressi) usano --deep e restano come sono. */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #14181a;
-    --paper-deep: #212829;
-    --ink: #edf0ed;
-    --muted: #a2aba6;
-    --line: rgba(237, 240, 237, .17);
-    --red: #e0745d;
-    --red-dark: #b6422e;
-    --moss: #93b189;
-    --gold: #d6a755;
-    --white: #1c2224;
-    --shadow: 0 18px 55px rgba(0, 0, 0, .55);
-  }
-  body::before { opacity: .18; }
-  .image-shimmer { background: linear-gradient(110deg, #232a2c 8%, #2d3538 18%, #232a2c 33%); }
-  .tag, .detail-list div, .phrase-card dl div, .search-phrase, .translator-options a, .ocr-destination, .detail-sources a, .safety-links a, .map-actions button, .map-select select, .map-legend { background: var(--paper-deep); }
-  .ocr-destination.is-primary { background: var(--red); }
-  .guide-section-fun { background: linear-gradient(120deg, #6b5a2b, #4d431f); }
-  .guide-section-fun > span, .guide-section-fun h3 { color: #f5e8bd; }
-  .hero-art { background: #46403a; }
-  .search-row:hover { background: var(--paper-deep); }
+/* Tema scuro: UN blocco solo, agganciato alla classe html.theme-dark.
+   La classe la mette lo script inline in index.html — segue il sistema finché
+   l'utente non forza Chiaro o Scuro dal bottone nell'intestazione. I tre
+   blocchi @media sparsi facevano perdere il dark ai componenti nuovi in
+   silenzio: ogni regola scura nuova va aggiunta QUI. */
+html.theme-dark {
+  color-scheme: dark;
+  --paper: #14181a;
+  --paper-deep: #212829;
+  --ink: #edf0ed;
+  --muted: #a2aba6;
+  --line: rgba(237, 240, 237, .17);
+  --red: #e0745d;
+  --red-dark: #b6422e;
+  --moss: #93b189;
+  --gold: #d6a755;
+  --white: #1c2224;
+  --shadow: 0 18px 55px rgba(0, 0, 0, .55);
 }
+html.theme-dark body::before { opacity: .18; }
+html.theme-dark .image-shimmer { background: linear-gradient(110deg, #232a2c 8%, #2d3538 18%, #232a2c 33%); }
+html.theme-dark .tag, html.theme-dark .detail-list div, html.theme-dark .phrase-card dl div, html.theme-dark .search-phrase, html.theme-dark .ocr-destination, html.theme-dark .detail-sources a, html.theme-dark .safety-links a, html.theme-dark .map-actions button, html.theme-dark .map-select select, html.theme-dark .map-legend { background: var(--paper-deep); }
+html.theme-dark .ocr-destination.is-primary { background: var(--red); }
+html.theme-dark .guide-section-fun { background: linear-gradient(120deg, #6b5a2b, #4d431f); }
+html.theme-dark .guide-section-fun > span, html.theme-dark .guide-section-fun h3 { color: #f5e8bd; }
+html.theme-dark .hero-art { background: #46403a; }
+html.theme-dark .search-row:hover { background: var(--paper-deep); }
+html.theme-dark .money-tips li, html.theme-dark .speech-steps > div { background: var(--paper-deep); }
+html.theme-dark .itinerary-new, html.theme-dark .itinerary-card { background: var(--paper-deep); }
+html.theme-dark .route-row, html.theme-dark .itinerary-chip, html.theme-dark .itinerary-fields input, html.theme-dark .itinerary-fields select, html.theme-dark .route-new input { background: var(--paper); }
+html.theme-dark .route-actions button, html.theme-dark .itinerary-actions button, html.theme-dark .route-walk { background: var(--paper); }
+html.theme-dark .itinerary-actions .primary-action { color: var(--paper); background: var(--ink); }
+html.theme-dark .saved-body .detail-list div { background: var(--paper); }
 
 /* Experiences, progress and travel tools */
 .experiences-intro h1 { color: #9a5c22; }
@@ -622,14 +639,15 @@ body:has(dialog[open]) { overflow: hidden; }
 /* Le tre destinazioni del testo: Traduttore per primo e marcato, perché nove
    volte su dieci serve solo la traduzione, gli assistenti accanto per quando
    serve capire che cos'è. Restano spente finché non c'è testo da mandare. */
-.ocr-destinations { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .45rem; }
+.ocr-destinations { display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: .45rem; }
+button.ocr-destination { font: inherit; text-align: left; cursor: pointer; }
+button.ocr-destination:disabled { opacity: .4; cursor: default; }
 .ocr-destination { min-width: 0; min-height: var(--tap); display: flex; flex-direction: column; justify-content: center; gap: .15rem; padding: .6rem .8rem; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); background: var(--paper); text-decoration: none; }
 .ocr-destination strong { font-size: .82rem; font-weight: 800; }
 .ocr-destination span { color: var(--muted); font-size: .68rem; line-height: 1.35; }
 .ocr-destination.is-primary { color: white; border-color: var(--red); background: var(--red); }
 .ocr-destination.is-primary span { color: rgba(255,255,255,.82); }
 .ocr-destination.is-disabled { opacity: .4; pointer-events: none; }
-.translator-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .45rem; }.translator-options a { min-width: 0; display: flex; flex-direction: column; gap: .18rem; padding: .65rem; border-radius: 10px; color: var(--ink); background: var(--paper); text-decoration: none; }.translator-options span { color: var(--muted); font-size: .66rem; line-height: 1.35; }
 
 .bottom-nav { width: min(620px, calc(100% - 28px)); display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); }
 .bottom-nav button { min-width: 0; }
@@ -743,11 +761,9 @@ a.cross-link { text-decoration: none; color: inherit; }
   .packing-groups, .notes-list { grid-template-columns: 1fr; }
   .ready-actions button { flex: 1 1 100%; }
   .safety-links { grid-template-columns: 1fr; }
-  .translator-options { grid-template-columns: 1fr; }
   /* Su telefono tre colonne lascerebbero due parole per riga: Traduttore a tutta
      larghezza, i due assistenti affiancati sotto. */
-  .ocr-destinations { grid-template-columns: 1fr 1fr; }
-  .ocr-destination.is-primary { grid-column: 1 / -1; }
+  .ocr-destinations { grid-template-columns: 1fr; }
   .detail-sources > div, .detail-booking > div { grid-template-columns: 1fr; }
 }
 
@@ -813,10 +829,6 @@ body:has(.bottom-nav.is-collapsed) main { padding-bottom: 52px; }
 .speech-steps h3 { margin: 0 0 .5rem; color: var(--red); font: 800 .68rem "DM Sans", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
 .speech-steps ol { margin: 0; padding-left: 1.1rem; }
 .speech-steps li { margin-bottom: .35rem; font-size: .82rem; line-height: 1.45; }
-
-@media (prefers-color-scheme: dark) {
-  .money-tips li, .speech-steps > div { background: var(--paper-deep); }
-}
 
 @media (max-width: 820px) {
   /* Il popup non deve mangiarsi tutta la mappa: attorno al punto deve restare
@@ -939,14 +951,6 @@ body:has(.bottom-nav.is-collapsed) main { padding-bottom: 52px; }
 .subway-legend { flex: 1 1 100%; display: flex; flex-wrap: wrap; gap: .3rem .75rem; align-items: center; padding: .5rem 0 .2rem; }
 .subway-legend small { margin-right: .35rem; color: var(--ink); font-size: .7rem; font-weight: 700; }
 
-@media (prefers-color-scheme: dark) {
-  .itinerary-new, .itinerary-card { background: var(--paper-deep); }
-  .route-row, .itinerary-chip, .itinerary-fields input, .itinerary-fields select, .route-new input { background: var(--paper); }
-  .route-actions button, .itinerary-actions button, .route-walk { background: var(--paper); }
-  .itinerary-actions .primary-action { color: var(--paper); background: var(--ink); }
-  .saved-body .detail-list div { background: var(--paper); }
-}
-
 @media (max-width: 1050px) {
   .saved-body:has(.card-media) { grid-template-columns: 160px 1fr; }
 }
@@ -963,3 +967,65 @@ body:has(.bottom-nav.is-collapsed) main { padding-bottom: 52px; }
   .saved-panel { padding-inline: .8rem; }
   .subway-legend { gap: .25rem .6rem; }
 }
+
+/* ------------------------------------------------------------------ */
+/* Documenti: biglietti, QR e conferme, solo su questo dispositivo.    */
+/* Tutto a token, così il tema scuro arriva gratis.                    */
+.documents-panel { margin: 1rem 0 3rem; }
+.documents-toolbar { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin-bottom: .6rem; }
+/* Inchiostro su carta invertiti, come il bottone foto del traduttore: la
+   coppia di token si scambia da sola col tema scuro. Il .primary-action nudo
+   ha lo sfondo chiaro fisso e al buio il testo sparirebbe. */
+.documents-toolbar .file-button { flex: 0 0 auto; min-height: var(--tap); border-radius: 999px; padding: .55rem .95rem; color: var(--paper); border: 1px solid var(--ink); background: var(--ink); font-size: .8rem; font-weight: 800; }
+#documentFilter { flex: 1 1 200px; min-width: 0; min-height: var(--tap); padding: .55rem .8rem; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); background: var(--white); }
+.documents-status { margin: 0 0 1rem; color: var(--muted); font-size: .78rem; }
+.document-group { min-width: 0; padding: 1.2rem; margin-bottom: 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+.document-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: .7rem; margin-top: .8rem; }
+.document-card { display: flex; gap: .7rem; min-width: 0; padding: .6rem; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); }
+.document-thumb { flex: 0 0 74px; width: 74px; height: 74px; padding: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 10px; background: var(--paper-deep); cursor: zoom-in; }
+.document-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.document-thumb.is-file { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .1rem; font-size: 1.5rem; cursor: pointer; }
+.document-thumb.is-file small { font-size: .62rem; font-weight: 700; color: var(--muted); letter-spacing: .08em; }
+.document-fields { display: flex; flex-direction: column; gap: .35rem; min-width: 0; flex: 1; }
+.document-name { width: 100%; min-width: 0; padding: .35rem .5rem; border: 1px solid transparent; border-radius: 8px; color: var(--ink); background: transparent; font-weight: 700; }
+.document-name:focus { border-color: var(--line); background: var(--white); outline: none; }
+.document-category select { width: 100%; min-width: 0; padding: .3rem .5rem; border: 1px solid var(--line); border-radius: 8px; color: var(--muted); background: var(--paper); font-size: .74rem; }
+.document-foot { display: flex; align-items: center; justify-content: space-between; gap: .5rem; margin-top: auto; }
+.document-foot small { color: var(--muted); font-size: .68rem; }
+.document-delete { padding: .3rem .55rem; border: 1px solid var(--line); border-radius: 8px; color: var(--muted); background: transparent; font-size: .72rem; cursor: pointer; }
+.documents-privacy { display: block; margin-top: 1.2rem; }
+.document-viewer { width: min(96vw, 720px); border: none; border-radius: 18px; padding: 1rem; color: var(--ink); background: var(--paper); }
+.document-viewer::backdrop { background: rgba(10, 12, 12, .82); }
+.document-viewer-title { margin: 0 2rem .6rem 0; font-size: 1.05rem; }
+.document-viewer img { display: block; width: 100%; max-height: 74vh; object-fit: contain; border-radius: 10px; background: var(--white); }
+@media (max-width: 430px) {
+  .document-grid { grid-template-columns: 1fr; }
+}
+
+/* Kit dei trasferimenti (overview): carte statiche, tutto a token. */
+.kit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: .8rem; }
+.kit-card { min-width: 0; padding: 1.1rem 1.2rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+.kit-card h3 { margin: 0 0 .45rem; font-size: 1rem; }
+.kit-card h3 span { margin-right: .25rem; }
+.kit-card p { margin: 0; color: var(--muted); font-size: .82rem; line-height: 1.6; }
+.kit-card b { color: var(--ink); }
+
+/* ------------------------------------------------------------------ */
+/* Tascabilità: in strada contano batteria e leggibilità.              */
+/* Ogni backdrop-filter su un elemento fisso ricomposita l'intero      */
+/* viewport a ogni frame di scroll, e la grana di carta full-screen    */
+/* si ripaga solo su uno schermo grande: sotto i 761px si spengono,    */
+/* e i fondi diventano quasi pieni per restare leggibili senza vetro.  */
+@media (max-width: 760px) {
+  body::before { display: none; }
+  .site-header, .toolbar, .phrase-toolbar, .media-badge, .bottom-nav, .bottom-nav.is-collapsed .nav-grip,
+  .nav-menu-dialog::backdrop, .detail-dialog::backdrop, .search-dialog::backdrop, .speech-dialog::backdrop {
+    backdrop-filter: none; -webkit-backdrop-filter: none;
+  }
+  .site-header { background: color-mix(in srgb, var(--paper) 97%, transparent); }
+  .toolbar, .phrase-toolbar { background: color-mix(in srgb, var(--paper) 97%, transparent); }
+  .bottom-nav, .bottom-nav.is-collapsed .nav-grip { background: rgba(29, 37, 34, .97); }
+}
+
+/* Il bottone del tema nell'intestazione: cicla sistema → chiaro → scuro. */
+.header-theme { width: var(--tap); min-height: var(--tap); border: 1px solid var(--line); border-radius: 50%; color: var(--ink); background: transparent; cursor: pointer; font-size: 1rem; line-height: 1; }

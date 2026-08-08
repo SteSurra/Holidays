@@ -5,6 +5,9 @@
     return { title:title, url:url, kind:kind };
   };
 
+  // Registro gemello di quello in experiences-data.js: qui le pagine-guida
+  // per la ricerca, lì le pagine-attività che firmano le schede. Chi aggiorna
+  // un ente turistico deve guardare in entrambi.
   window.JAPAN_RESEARCH_SOURCES = {
     general: {
       food: [

@@ -3,6 +3,9 @@
 
   const data = window.JAPAN_DATA;
   const mapData = window.JAPAN_MAP_DATA;
+  // Registro gemello di quello in source-data.js: qui le pagine-attività che
+  // firmano le schede, lì le pagine-guida per la ricerca. Si somigliano ma non
+  // coincidono; chi aggiorna un ente turistico deve guardare in entrambi.
   const sources = {
     osaka: ["Osaka Info · Attività", "https://osaka-info.jp/en/spot/experience/"],
     nara: ["Visit Nara · Cose da fare", "https://www.visitnara.jp/see-and-do/"],
@@ -92,13 +95,8 @@
     "experience-miyajima-ropeway": "outdoor"
   };
   function parseRows(text) {
-    return text.trim().split("\n").filter(Boolean).map(function (line) {
-      const values = line.split("|");
-      return fields.reduce(function (item, field, index) {
-        item[field] = values[index] || "";
-        return item;
-      }, {});
-    });
+    // Parser condiviso in parse-lib.js; qui le colonne mancanti diventano "".
+    return window.TABI_PARSE.table(text, fields, { fill: "" });
   }
 
   const additions = parseRows(`

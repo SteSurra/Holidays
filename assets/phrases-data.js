@@ -6,6 +6,8 @@
     orientamento: "Orientarsi",
     trasporti: "Trasporti",
     ristorante: "Mangiare",
+    dieta: "Allergie e diete",
+    cartelli: "Cartelli",
     shopping: "Acquisti",
     hotel: "Hotel",
     salute: "Salute",
@@ -62,6 +64,20 @@ emergenza|助けてください|tasukete kudasai|tasuketè kudasài|Aiutatemi, p
 emergenza|警察を呼んでください|keisatsu o yonde kudasai|keisàzu o ionde kudasài|Chiamate la polizia|Per un'urgenza di polizia il numero nazionale è 110.
 emergenza|救急車を呼んでください|kyūkyūsha o yonde kudasai|chiù-chiùscia o ionde kudasài|Chiamate un'ambulanza|Per ambulanza o vigili del fuoco il numero nazionale è 119.
 emergenza|道に迷いました|michi ni mayoimashita|mìci ni maioimascità|Mi sono perso|La frase è utile; la posizione blu sulla mappa è ancora più convincente.
+dieta|私はベジタリアンです|watashi wa bejitarian desu|uatàsci ua begitàrian des|Sono vegetariano/a|Il dashi, il brodo di base, è quasi sempre di pesce: se conta davvero, aggiungi dashi nashi de — senza dashi.
+dieta|豚肉は食べられません|butaniku wa taberaremasen|butanìku ua taberaremasèn|Non posso mangiare carne di maiale|Il chāshū del ramen e il katsu sono maiale anche quando il menu non lo dichiara a voce alta.
+dieta|ピーナッツアレルギーがあります|pīnattsu arerugī ga arimasu|pinàzzu arerughì ga arimàs|Sono allergico/a alle arachidi|Con le allergie serie mostra la frase scritta e aspetta un sì convinto: la pronuncia non è il posto dove rischiare.
+dieta|エビとカニのアレルギーがあります|ebi to kani no arerugī ga arimasu|èbi to kàni no arerughì ga arimàs|Sono allergico/a a gamberi e granchi|Ebi è il gambero, kani il granchio: nel brodo e nei fritti si nascondono entrambi.
+dieta|卵抜きでお願いします|tamago nuki de onegaishimasu|tamàgo nùchi de onegài scimàs|Senza uovo, per favore|Nuki significa senza e si aggancia a qualsiasi ingrediente: X nuki de onegaishimasu.
+dieta|グルテンは食べられません|guruten wa taberaremasen|gurùten ua taberaremasèn|Non posso mangiare glutine|La salsa di soia comune contiene grano: chiedi del tamari, che di solito ne è privo.
+dieta|これには何が入っていますか|kore ni wa nani ga haitteimasu ka|kòre ni ua nàni ga haitteimàs ka|Che cosa c'è dentro?|La domanda che apre ogni trattativa con un piatto misterioso.
+cartelli|入口 / 出口|iriguchi / deguchi|irigùci / degùci|Ingresso / uscita|La coppia che risolve metà delle esitazioni davanti a una porta giapponese.
+cartelli|男 / 女|otoko / onna|otòko / ònna|Uomini / donne|Su certi bagni c'è solo il kanji: 男 ha le gambe divaricate, 女 è il tratto incrociato.
+cartelli|営業中 / 準備中|eigyōchū / junbichū|eighiociù / giunbiciù|Aperto / in preparazione|準備中 è il modo gentile di dire chiuso: stanno preparando, tornate dopo.
+cartelli|満席 / 空席|manseki / kūseki|mansèchi / kusèchi|Al completo / posti liberi|Sulla porta dei ristoranti: 満 pieno, 空 vuoto — gli stessi kanji dei parcheggi.
+cartelli|禁煙|kin'en|chin-èn|Vietato fumare|In molte città vale anche per strada: si fuma solo nelle aree segnalate.
+cartelli|お手洗い|otearai|otearài|Bagno|L'altro nome del bagno oltre a トイレ: sui cartelli eleganti trovate questo.
+cartelli|割引|waribiki|uaribìchi|Sconto|Accanto a un numero e a %, è la parola che giustifica l'ingresso.
 `.trim().split("\n").map(function (line) {
     const values = line.split("|");
     return fields.reduce(function (item, field, index) { item[field] = values[index]; return item; }, {});
@@ -71,7 +87,7 @@ emergenza|道に迷いました|michi ni mayoimashita|mìci ni maioimascità|Mi 
   window.JAPAN_DATA.phraseCategories = categories;
   // Le frasi di emergenza vivono solo nel tab Emergenze: qui restano nel dataset,
   // ma fuori dal frasario per non avere due strade per la stessa cosa.
-  window.JAPAN_DATA.phrasebookCategories = ["cortesia", "orientamento", "trasporti", "ristorante", "shopping", "hotel", "salute"];
+  window.JAPAN_DATA.phrasebookCategories = ["cortesia", "orientamento", "trasporti", "ristorante", "dieta", "cartelli", "shopping", "hotel", "salute"];
   window.JAPAN_DATA.phrases = rows;
   window.JAPAN_DATA.emergencyNumbers = [
     { number: "110", title: "Polizia", detail: "Urgenze di polizia", href: "tel:110" },
@@ -116,6 +132,26 @@ emergenza|道に迷いました|michi ni mayoimashita|mìci ni maioimascità|Mi 
           phone: "+39 06 36225",
           href: "tel:+390636225",
           source: "https://www.viaggiaresicuri.it/"
+        }
+      ]
+    },
+    {
+      id: "disastri",
+      eyebrow: "Se la terra trema o arriva un tifone",
+      title: "Terremoti e tifoni, senza panico",
+      note: "I telefoni in Giappone urlano l'allerta qualche secondo prima delle scosse forti. Se succede: lontano da scaffali e vetrine, sotto un tavolo o contro una parete interna, e si aspetta che finisca — gli edifici sono progettati per flettersi. Niente ascensori; in hotel si segue il personale. Vicino alla costa, dopo una scossa lunga o forte si sale subito in un punto alto senza aspettare l'annuncio dello tsunami.",
+      entries: [
+        {
+          name: "Safety tips · l'app ufficiale per i visitatori",
+          detail: "Allerte di terremoto, tsunami e tifone in inglese, con le istruzioni delle autorità e le zone di evacuazione. Installatela prima di partire: durante un'emergenza la rete può essere lenta.",
+          link: "https://www.jnto.go.jp/safety-tips/eng/app.html",
+          linkLabel: "Scarica Safety tips"
+        },
+        {
+          name: "Tifone in arrivo",
+          detail: "I treni si fermano prima che arrivi il peggio e lo annunciano con un giorno d'anticipo (keikaku unkyū, sospensione programmata): controllate lo stato della vostra linea prima di muovervi e spostate la giornata, non l'orario. Nelle ore centrali del passaggio si resta in hotel; i konbini restano l'ultima cosa a chiudere.",
+          link: "https://www.jma.go.jp/bosai/map.html#lang=en",
+          linkLabel: "Allerte della Japan Meteorological Agency"
         }
       ]
     },

@@ -15,8 +15,10 @@ memoria della skill: la prossima guida parte dalle lezioni già pagate qui.
 ## Comandi
 
 - Rilascio: `node scripts/bump-version.mjs` (allinea token `?v=`, `VERSION`,
-  `CACHE` e registrazione SW in un colpo solo). Ogni push che tocca file della
-  SHELL richiede un bump.
+  `CACHE` e la costante `RELEASE` di app.js in un colpo solo). Ogni push che
+  tocca file della SHELL richiede un bump. L'URL di registrazione del service
+  worker resta `sw.js` fisso, senza token: versionarlo causava un doppio
+  toast di aggiornamento a ogni rilascio.
 - Check locali (sempre prima di un push):
   `node scripts/check-guide-integrity.mjs && node scripts/check-public-content.mjs && node scripts/check-route-optimizer.mjs`
 - Check con rete (prima di un rilascio importante): `check-links.mjs`,

@@ -69,6 +69,11 @@ spiega la regola e porta alla pagina dell'isola che segna le due fasce buone.
   saperlo prima vale più di cercarlo con lo zaino in spalla.
 - **Gli hotel** — le sette basi confermate, con quartiere, motivo della scelta e
   collegamento a Google Maps.
+- **Il kit dei trasferimenti** — quattro carte fisse su come si paga e ci si
+  muove: la carta IC (comprarla, ricaricarla, cosa paga), come si usa il pass
+  ferroviario (prenotare i posti gratis, il nodo Nozomi, cosa resta fuori), il
+  takkyubin per spedire le valigie da un hotel all'altro nei giorni di bus, e
+  i coin locker con il piano B quando alle dieci sono già tutti pieni.
 
 ---
 
@@ -353,24 +358,29 @@ Quattro sezioni con la stessa struttura della mappa: ricerca, filtri, schede,
 
 ## 5 · Parole e Traduci
 
-**Parole** è il frasario: 48 frasi per situazione, ognuna con il giapponese
+**Parole** è il frasario: 62 frasi per situazione, ognuna con il giapponese
 grande **da mostrare direttamente allo schermo**, il pulsante **♪** che la
 **pronuncia ad alta voce**, come leggerla scritta all'italiana e il romaji
 diviso in sillabe. Le frasi di salute ed emergenza sono anche in *Emergenze*.
+Due categorie sono pensate per essere mostrate più che dette: **Allergie e
+diete** (vegetariano, maiale, arachidi, crostacei, glutine — da far leggere al
+cameriere, non da pronunciare) e **Cartelli**, i kanji delle insegne:
+ingresso/uscita, uomini/donne, aperto/in preparazione, al completo.
 
-**Traduci** serve per menu senza foto, cartelli ed etichette. Si fotografa, il
-testo viene letto **sul telefono** (la foto non parte da lì), lo si corregge se
-il riconoscimento ha sbagliato un carattere, e poi si sceglie dove mandarlo:
+**Traduci** serve per menu, cartelli ed etichette, e ha due strade:
 
-- **Google Traduttore** — la traduzione e basta, è quasi sempre ciò che serve;
-- **ChatGPT** o **Copilot** — arrivano con la richiesta già scritta di tradurre
-  *e* di dire che cos'è, elencando i piatti di un menu con gli ingredienti a
-  rischio. Serve essere già connessi a quel servizio.
+- **Foto → AI.** Si scatta (o si sceglie) la foto e si preme **Condividi a
+  ChatGPT o Gemini**: si apre la tendina del telefono, si sceglie l'app, e la
+  richiesta arriva già scritta insieme alla foto — tradurre *e* dire che cos'è,
+  elencando i piatti di un menu con gli ingredienti a rischio (pesce crudo,
+  maiale, frutti di mare, arachidi). In alternativa i bottoni **Apri in
+  ChatGPT / Apri in Gemini** copiano la foto e aprono la chat nel browser:
+  lì la si incolla e si chiede di tradurla. Serve il proprio account.
+- **Testo → Google Traduttore.** Per una frase scritta o ricopiata: si digita
+  nel riquadro e si apre la traduzione già pronta.
 
-Per mandare la **foto** invece del testo c'è *Manda la foto a un'app*: si apre la
-condivisione del telefono e da lì scegli Traduttore, ChatGPT, Copilot o altro.
-Nessuno di questi servizi accetta un'immagine dentro un collegamento, quindi la
-condivisione del sistema è l'unica strada per l'immagine. Richiede rete.
+La foto parte **solo** con il gesto di condivisione o copia: l'app della guida
+non carica mai nulla da sola. Entrambe le strade richiedono rete.
 
 ---
 
@@ -405,6 +415,20 @@ sera è fresca. Due modi di usare la lista, a scelta:
 
 Dove serve, il campo mostra in grigio la **quantità consigliata**: è un
 suggerimento, non un valore già inserito. In cima c'è la barra di avanzamento.
+
+### Documenti
+
+I biglietti, i QR e le conferme del viaggio, pronti al tornello anche senza
+rete. Si aggiunge una foto o un PDF con **＋ Aggiungi documento** (si può anche
+fotografare un biglietto al volo), gli si dà un nome e una categoria — Ingressi,
+Trasporti, Alloggi, Documenti personali, Altro — e da quel momento lo si
+ritrova per nome con la ricerca in cima. Toccando la miniatura un'immagine si
+apre **a schermo pieno**, grande abbastanza da farla leggere a un lettore
+ottico; un PDF si apre in una scheda. Eliminare chiede… niente: si elimina e
+compare **Annulla** per qualche secondo, come per le note.
+
+Tutto resta **solo su questo dispositivo**: nessun file viene caricato in
+rete, e la riga in fondo alla schermata mostra quanto spazio sta usando l'app.
 
 ### Le altre voci
 

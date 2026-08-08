@@ -148,12 +148,8 @@ kanazawa|forus|Kanazawa Forus|金沢フォーラス|grandi|vestiti|Stazione di K
 
   const allowedCities = new Set(window.JAPAN_DATA.cities.map(function (city) { return city.id; }));
 
-  const merchants = rows.trim().split("\n").filter(Boolean).map(function (line) {
-    const values = line.split("|");
-    const item = fields.reduce(function (row, field, index) {
-      row[field] = (values[index] || "").trim();
-      return row;
-    }, {});
+  // Parser condiviso in parse-lib.js: righe lunghe, celle da ripulire.
+  const merchants = window.TABI_PARSE.table(rows, fields, { fill: "", trim: true }).map(function (item) {
     item.id = "merchant-" + item.city + "-" + item.slug;
     item.type = "merchant";
     item.rating = item.rating ? Number(item.rating) : 0;

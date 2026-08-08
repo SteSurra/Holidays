@@ -1,11 +1,8 @@
 (function () {
   "use strict";
   function parse(text) {
-    const fields = ["city","slug","name","jp","category","context","rating","local","description","imageQuery"];
-    return text.trim().split("\n").filter(Boolean).map(function (line) {
-      const values = line.split("|");
-      return fields.reduce(function (item, field, index) { item[field] = values[index]; return item; }, {});
-    });
+    // Parser condiviso in parse-lib.js.
+    return window.TABI_PARSE.table(text, ["city","slug","name","jp","category","context","rating","local","description","imageQuery"]);
   }
 
   const rows = parse(`

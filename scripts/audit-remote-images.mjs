@@ -6,7 +6,7 @@ const context = { window: {} };
 vm.createContext(context);
 // Anche attività e negozianti: le loro query immagine non venivano mai
 // verificate, ed erano proprio le schede con i soggetti più difficili.
-for (const file of ["assets/data.js", "assets/food-data.js", "assets/shopping-data.js", "assets/food-extra-data.js", "assets/map-data.js", "assets/merchants-data.js", "assets/experiences-data.js"]) {
+for (const file of ["assets/parse-lib.js", "assets/data.js", "assets/food-data.js", "assets/shopping-data.js", "assets/food-extra-data.js", "assets/map-data.js", "assets/merchants-data.js", "assets/experiences-data.js"]) {
   vm.runInContext(readFileSync(new URL(file, root), "utf8"), context, { filename: file });
 }
 

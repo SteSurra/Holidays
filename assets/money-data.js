@@ -77,7 +77,11 @@
     "Distributori, armadietti e biglietterie prendono monete da 10, 50, 100 e 500 yen e banconote da 1000. Le monete da 1 e 5 yen quasi mai.",
     "Le monete si accumulano in fretta: tieni un porta-monete e sbarazzatene alle casse automatiche, che accettano manciate intere.",
     "Il resto si conta davanti a te e si porge con due mani: aspetta di riceverlo prima di allontanarti.",
-    "Le banconote nuove del 2024 e quelle vecchie convivono: valgono lo stesso e cambiano solo i volti."
+    "Le banconote nuove del 2024 e quelle vecchie convivono: valgono lo stesso e cambiano solo i volti.",
+    "Contanti dagli ATM dei konbini: Seven Bank nei 7-Eleven e gli ATM di Japan Post accettano le carte estere e parlano inglese. Molti ATM di banca no: se uno rifiuta la carta, non è la carta — è l'ATM sbagliato.",
+    "Il prelievo ha un tetto per operazione (spesso ¥100.000, più basso di notte): se serve di più si ripete l'operazione, la commissione la decide soprattutto la tua banca.",
+    "Tax-free dai ¥5.000 di spesa nello stesso negozio nello stesso giorno, con il passaporto fisico (non la foto): i consumabili finiscono in un sacchetto sigillato da non aprire finché siete in Giappone. Nei department store c'è un banco dedicato ai rimborsi, di solito all'ultimo piano.",
+    "Sui cartellini 税込 è il prezzo IVA inclusa, 税抜 senza: la differenza in cassa è il 10% (8% sul cibo da asporto). Se il numero grande sembra un affare, cercate il numero piccolo accanto."
   ];
 
   window.JAPAN_MONEY = { coins: coins, notes: notes, tips: tips };

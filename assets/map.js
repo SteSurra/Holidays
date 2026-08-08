@@ -93,7 +93,7 @@
     if (!guideItemIndex) {
       const data = window.JAPAN_DATA;
       guideItemIndex = new Map();
-      [].concat(data.places || [], data.mapPlaces || [], data.experiences || [], data.foods || [], data.shopping || [], data.merchants || []).forEach(function (item) {
+      [].concat(data.places || [], data.experiences || [], data.foods || [], data.shopping || [], data.merchants || []).forEach(function (item) {
         if (!guideItemIndex.has(item.id)) guideItemIndex.set(item.id, item);
       });
     }
@@ -1019,7 +1019,8 @@
     if (toggle) toggle.checked = true;
     syncLayer(type);
     const panel = document.querySelector(".map-panel");
-    if (panel) panel.scrollIntoView({ behavior:"smooth", block:"start" });
+    const smooth = !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    if (panel) panel.scrollIntoView({ behavior:smooth ? "smooth" : "auto", block:"start" });
     window.setTimeout(function () {
       map.invalidateSize();
       // Senza animazione: il popup si centra da solo appena si apre e durante
@@ -1246,6 +1247,18 @@
     return total;
   }
 
+  // Misura dichiarata, non stimata: su questo telefono si legge in console
+  // quanto costa davvero l'ordine ottimo. Con 11 tappe Node misura ~2 ms;
+  // solo se un telefono reale superasse i ~16 ms varrebbe la pena spezzare il
+  // calcolo — un Web Worker per un tocco singolo non ripaga la complessità.
+  function timedRoute(label, run) {
+    const t0 = performance.now();
+    const result = run();
+    const elapsed = performance.now() - t0;
+    if (window.console && console.debug) console.debug("[tabi-map] " + label + " in " + elapsed.toFixed(1) + " ms");
+    return result;
+  }
+
   function buildRoute(start, selection) {
     // Con una partenza esterna entrano origine + 9 intermedie + destinazione;
     // senza, la prima tappa fa da origine e ne entra una in più.
@@ -1262,20 +1275,22 @@
       trimmed = selection.length - limit;
     }
     if (start) {
-      const ordered = shortestOrder(start, stops);
+      const ordered = timedRoute("giro ottimo da origine fissa (" + stops.length + " tappe)", function () { return shortestOrder(start, stops); });
       return { origin: start, ordered: ordered, trimmed: trimmed, meters: routeLength(start, ordered) };
     }
     // Senza posizione si prova ogni tappa come partenza e si tiene il giro più
     // corto: con dieci punti costa nulla e il risultato è molto migliore che
     // partire dalla prima capitata.
-    let best = null;
-    stops.forEach(function (candidate) {
-      const rest = stops.filter(function (point) { return point !== candidate; });
-      const ordered = rest.length ? shortestOrder(candidate, rest) : [];
-      const meters = ordered.length ? routeLength(candidate, ordered) : 0;
-      if (!best || meters < best.meters) best = { origin: candidate, ordered: ordered, trimmed: trimmed, meters: meters };
+    return timedRoute("giro ottimo su ogni partenza (" + stops.length + " tappe)", function () {
+      let best = null;
+      stops.forEach(function (candidate) {
+        const rest = stops.filter(function (point) { return point !== candidate; });
+        const ordered = rest.length ? shortestOrder(candidate, rest) : [];
+        const meters = ordered.length ? routeLength(candidate, ordered) : 0;
+        if (!best || meters < best.meters) best = { origin: candidate, ordered: ordered, trimmed: trimmed, meters: meters };
+      });
+      return best;
     });
-    return best;
   }
 
   function routeUrl(route) {

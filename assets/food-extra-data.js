@@ -6,13 +6,8 @@
   const sourceUrl = "https://www.japan.travel/en/gastronomy/";
 
   function parseRows(text) {
-    return text.trim().split("\n").filter(Boolean).map(function (line) {
-      const values = line.split("|");
-      return fields.reduce(function (item, field, index) {
-        item[field] = values[index] || "";
-        return item;
-      }, {});
-    });
+    // Parser condiviso in parse-lib.js; qui le colonne mancanti diventano "".
+    return window.TABI_PARSE.table(text, fields, { fill: "" });
   }
 
   const rows = parseRows(`
