@@ -132,21 +132,75 @@ miyajima|grilled-oysters|Ostriche alla griglia|焼き牡蠣|secondi|street food|
 miyajima|anagomeshi|Anago-meshi|あなご飯|primi|ristorante|4.9|0|Grongo dolce-affumicato sopra riso cotto nel suo brodo.|anagomeshi Miyajima
 miyajima|momiji|Momiji manju|もみじ饅頭|dolci|pasticceria|4.6|0|Tortina morbida a foglia d'acero, ottima appena sfornata.|momiji manju Miyajima
 miyajima|age-momiji|Age momiji|揚げもみじ|dolci|street food|4.7|0|Momiji manju su stecco, pastellato e fritto.|age momiji Miyajima
-miyajima|oyster-curry-pan|Oyster curry pan|牡蠣カレーパン|street|street food|4.4|1|Pane fritto ripieno di curry e ostriche.|oyster curry bread Miyajima
+miyajima|oyster-curry-pan|Oyster curry pan|牡蠣カレーパン|street|street food|4.4|1|Pane fritto ripieno di curry e ostriche.|Japanese curry pan fried bread
 miyajima|nigiriten|Nigiri-ten|にぎり天|street|street food|4.4|1|Spiedino caldo di pasta di pesce con formaggio o polpo.|nigiriten Miyajima
 miyajima|momiji-croissant|Momiji croissant|もみじクロワッサン|dolci|panetteria|4.3|1|Croissant a forma d'acero con ripieni stagionali.|momiji croissant Miyajima
+all|konbini-onigiri|Onigiri da konbini|コンビニおにぎり|primi|konbini|4.6|0|Triangolo di riso con alga separata e ripieni come salmone, umeboshi, tonno e maionese.|Japanese convenience store onigiri
+all|tamago-sando|Tamago sando|たまごサンド|street|konbini|4.7|0|Tramezzino morbidissimo con crema di uova, maionese giapponese e talvolta tuorlo morbido.|Japanese egg sandwich konbini
+all|konbini-fried-chicken|Pollo fritto da konbini|コンビニチキン|street|konbini|4.7|0|Cotoletta o boccone di pollo caldo venduto alla cassa, croccante fuori e succoso dentro.|Famichiki Japanese convenience store chicken
+all|konbini-oden|Oden da konbini|コンビニおでん|secondi|konbini|4.3|1|Daikon, uova, konnyaku e paste di pesce tenuti caldi in un brodo leggero al dashi.|Japanese convenience store oden
+all|nikuman|Nikuman|肉まん|street|konbini|4.6|0|Panino al vapore soffice con ripieno caldo di maiale, disponibile anche in varianti regionali.|nikuman convenience store Japan
+all|melon-pan|Melon pan|メロンパン|dolci|konbini|4.4|0|Panino dolce con superficie biscottata a griglia; il nome richiama la forma, non sempre il sapore.|Japanese melon pan convenience store
+all|konbini-desserts|Dolci stagionali da konbini|コンビニスイーツ|dolci|konbini|4.5|1|Purin, roll cake, mochi, cheesecake e collaborazioni limitate che cambiano spesso.|Japanese convenience store desserts
+all|ekiben|Ekiben|駅弁|primi|stazione|4.7|0|Bento ferroviario legato alla regione o alla linea, pensato per essere mangiato in viaggio.|Japanese ekiben station bento
+all|depachika-bento|Bento da depachika|デパ地下弁当|primi|depachika|4.7|1|Vassoi curatissimi preparati nei piani alimentari dei department store, dal sushi alle verdure cotte.|Japanese depachika bento
+all|bottled-green-tea|Tè verde in bottiglia|ペットボトル緑茶|bevande|distributore|4.5|0|Sencha, hojicha o tè al gelsomino non zuccherati, venduti freddi e talvolta caldi.|Japanese bottled green tea vending machine
+all|canned-coffee|Caffè in lattina|缶コーヒー|bevande|distributore|4.2|0|Caffè nero, con latte o zuccherato, disponibile caldo o freddo in lattine compatte.|Japanese canned coffee vending machine
+all|pocari-sweat|Pocari Sweat e Aquarius|ポカリスエット|bevande|distributore|4.1|0|Bevande isotoniche leggere, utili nelle giornate molto calde nonostante il nome poco pubblicitario.|Pocari Sweat Aquarius vending machine
+all|calpis-water|Calpis Water|カルピスウォーター|bevande|distributore|4.3|0|Bevanda lattiginosa, dolce e acidula, derivata da latte fermentato e diluita con acqua.|Calpis Water bottle Japan
+all|hot-corn-soup|Zuppa di mais in lattina|コーンポタージュ|bevande|distributore|4.0|1|Potage caldo e cremoso erogato dal distributore, con veri chicchi che sfidano l'apertura della lattina.|Japanese hot corn soup vending machine
+all|ramune|Ramune|ラムネ|bevande|negozio|4.2|0|Gassosa dolce in bottiglia con biglia di vetro, famosa quasi quanto la bevanda stessa.|Japanese ramune marble bottle
+all|royal-milk-tea|Royal milk tea|ロイヤルミルクティー|bevande|distributore|4.3|0|Tè nero dolce e lattiginoso, venduto freddo o caldo in bottiglia e lattina.|Japanese royal milk tea vending machine
+osaka|kobe-beef|Kobe beef teppanyaki|神戸ビーフ|secondi|ristorante|4.9|0|Wagyu Tajima certificato della prefettura di Hyogo, marezzato e cotto in piccole porzioni sulla piastra.|Kobe beef teppanyaki Osaka
+osaka|wagyu-yakiniku|Wagyu yakiniku|和牛焼肉|secondi|ristorante|4.8|0|Tagli di manzo wagyu da grigliare al tavolo, confrontando marezzatura, parte e condimento.|wagyu yakiniku Osaka
 `);
 
   const foodCategories = {
     primi:"Primi e riso", secondi:"Secondi", street:"Street food",
     dolci:"Dolci", contorni:"Contorni", bevande:"Bevande"
   };
+  const curatedImages = {
+    "tokyo/edomae-sushi": ["Nigiri%20assortment.jpg", "https://commons.wikimedia.org/wiki/File:Nigiri_assortment.jpg", "RightCowLeftCoast · CC BY-SA 4.0 · Wikimedia Commons"],
+    "tokyo/monjayaki": ["Monjayaki%20001.JPG", "https://commons.wikimedia.org/wiki/File:Monjayaki_001.JPG", "Ocdp · CC0 · Wikimedia Commons"],
+    "tokyo/tempura": ["Tempura.jpg", "https://commons.wikimedia.org/wiki/File:Tempura.jpg", "PatriceNeff · CC BY 1.0 · Wikimedia Commons"],
+    "tokyo/fukagawa-meshi": ["Fukagawa-meshi.jpg", "https://commons.wikimedia.org/wiki/File:Fukagawa-meshi.jpg", "Yamaguchi Yoshiaki · CC BY-SA 2.0 · Wikimedia Commons"],
+    "tokyo/chanko": ["Chankonabe.jpg", "https://commons.wikimedia.org/wiki/File:Chankonabe.jpg", "George N · CC BY 2.0 · Wikimedia Commons"],
+    "tokyo/ningyoyaki": ["Ningho-Yaki.JPG", "https://commons.wikimedia.org/wiki/File:Ningho-Yaki.JPG", "Shoestring · pubblico dominio · Wikimedia Commons"],
+    "tokyo/anmitsu": ["Anmitsu%20001.jpg", "https://commons.wikimedia.org/wiki/File:Anmitsu_001.jpg", "Ocdp · CC0 · Wikimedia Commons"],
+    "tokyo/taiyaki": ["Taiyaki%20003.jpg", "https://commons.wikimedia.org/wiki/File:Taiyaki_003.jpg", "Ocdp · CC0 · Wikimedia Commons"],
+    "tokyo/yakitori": ["Yakitori%20from%20Akiyoshi%20in%20Namba%2C%20Osaka%2C%20Japan.jpg", "https://commons.wikimedia.org/wiki/File:Yakitori_from_Akiyoshi_in_Namba,_Osaka,_Japan.jpg", "Linglingsan · pubblico dominio · Wikimedia Commons"],
+    "tokyo/shoyu-ramen": ["Shoyu%20Ramen%EF%BC%88Tokyo%20Ramen%EF%BC%89%20-%2001.jpg", "https://commons.wikimedia.org/wiki/File:Shoyu_Ramen%EF%BC%88Tokyo_Ramen%EF%BC%89_-_01.jpg", "Quercus acuta · CC BY-SA 4.0 · Wikimedia Commons"],
+    "all/konbini-onigiri": ["Onigiri%20001.jpg", "https://commons.wikimedia.org/wiki/File:Onigiri_001.jpg", "Ocdp · CC0 · Wikimedia Commons"],
+    "all/tamago-sando": ["Egg%20Sandwich%20001.jpg", "https://commons.wikimedia.org/wiki/File:Egg_Sandwich_001.jpg", "Ocdp · CC0 · Wikimedia Commons"],
+    "all/konbini-fried-chicken": ["Karaage.jpg", "https://commons.wikimedia.org/wiki/File:Karaage.jpg", "RightCowLeftCoast · Wikimedia Commons"],
+    "all/konbini-oden": ["Japan%20Oden.JPG", "https://commons.wikimedia.org/wiki/File:Japan_Oden.JPG", "Wikimedia Commons · pubblico dominio"],
+    "all/nikuman": ["Nikuman.jpg", "https://commons.wikimedia.org/wiki/File:Nikuman.jpg", "hirotomo · CC BY-SA · Wikimedia Commons"],
+    "all/melon-pan": ["Melonpan.jpg", "https://commons.wikimedia.org/wiki/File:Melonpan.jpg", "Sakurai Midori · CC BY-SA 2.1 JP · Wikimedia Commons"],
+    "all/konbini-desserts": ["Basque-style%20cheesecake%20from%20Japanese%20convenience%20stores.jpg", "https://commons.wikimedia.org/wiki/File:Basque-style_cheesecake_from_Japanese_convenience_stores.jpg", "さえぼー · CC BY-SA 4.0 · Wikimedia Commons"],
+    "all/ekiben": ["Ekiben%20%2816942832905%29.jpg", "https://commons.wikimedia.org/wiki/File:Ekiben_(16942832905).jpg", "masataka muto · CC BY-SA 2.0 · Wikimedia Commons"],
+    "all/depachika-bento": ["Bento%20box.jpg", "https://commons.wikimedia.org/wiki/File:Bento_box.jpg", "Marisa DeMeglio · CC BY 2.0 · Wikimedia Commons"],
+    "all/bottled-green-tea": ["Japanese%20green%20tea.jpg", "https://commons.wikimedia.org/wiki/File:Japanese_green_tea.jpg", "Codobai · Wikimedia Commons"],
+    "all/canned-coffee": ["Photograph%20of%20Canned%20Coffee%20Cans.jpg", "https://commons.wikimedia.org/wiki/File:Photograph_of_Canned_Coffee_Cans.jpg", "Lucas Kelleher · pubblico dominio · Wikimedia Commons"],
+    "all/pocari-sweat": ["POCARI%20SWEAT%20500ml%20PET%20in%20Japan.jpg", "https://commons.wikimedia.org/wiki/File:POCARI_SWEAT_500ml_PET_in_Japan.jpg", "Tokumeigakarinoaoshima · Wikimedia Commons"],
+    "all/calpis-water": ["Calpis%20Water%20plastic%20bottle.png", "https://commons.wikimedia.org/wiki/File:Calpis_Water_plastic_bottle.png", "KKPCW (Kyu3) · CC BY-SA 4.0 · Wikimedia Commons"],
+    "all/ramune": ["Ramune%20by%20Kimura%20Drink%20Co%20Ltd.jpg", "https://commons.wikimedia.org/wiki/File:Ramune_by_Kimura_Drink_Co_Ltd.jpg", "Alexander Klink · Wikimedia Commons"],
+    "osaka/kobe-beef": ["Kobe%20Beef.png", "https://commons.wikimedia.org/wiki/File:Kobe_Beef.png", "Dani Chaboya · CC BY 4.0 · Wikimedia Commons"],
+    "osaka/wagyu-yakiniku": ["Japanese%20barbecue.jpg", "https://commons.wikimedia.org/wiki/File:Japanese_barbecue.jpg", "Cristina Bejarano · CC BY 2.0 · Wikimedia Commons"],
+    "takayama/mitarashi": ["Mitarashi%20dango%20by%20denver935.jpg", "https://commons.wikimedia.org/wiki/File:Mitarashi_dango_by_denver935.jpg", "denver935 · CC BY 2.0 · Wikimedia Commons"]
+  };
   const allowedCities = new Set(window.__JAPAN_PARTIAL__.cities.map(function (city) { return city.id; }));
-  const foods = rows.filter(function (row) { return allowedCities.has(row.city); }).map(function (row) {
+  const foods = rows.filter(function (row) { return row.city === "all" || allowedCities.has(row.city); }).map(function (row) {
     row.id = "food-" + row.city + "-" + row.slug;
     row.rating = Number(row.rating);
     row.local = row.local === "1";
     row.type = "food";
+    const curated = curatedImages[row.city + "/" + row.slug];
+    if (curated) Object.assign(row, {
+      imageUrl: "https://commons.wikimedia.org/wiki/Special:Redirect/file/" + curated[0] + "?width=960",
+      imageSourceUrl: curated[1],
+      imageCredit: curated[2],
+      imageProvider: "curated"
+    });
     return row;
   });
   window.__JAPAN_PARTIAL__.foods = foods;

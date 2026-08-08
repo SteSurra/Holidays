@@ -4,6 +4,13 @@
   let routeLayer;
   let userMarker;
   const pointLayers = {};
+  const markerByGuideId = {};
+  const pointByGuideId = {};
+
+  function completedIds() {
+    try { return new Set(JSON.parse(localStorage.getItem("tabi-done") || "[]")); } catch (_) { return new Set(); }
+  }
+  const doneIds = completedIds();
 
   function escapeHTML(value) {
     return String(value || "").replace(/[&<>"']/g, function (char) {
@@ -30,14 +37,80 @@
 
   function pointPopupHTML(point) {
     const city = window.JAPAN_DATA.cities.find(function (candidate) { return candidate.id === point.city; });
+    const item = point.guideId && findGuideItem(point.guideId);
+    let imageType = "place";
+    if ((item && item.type === "food") || point.type === "tabelog") imageType = "food";
+    else if (item && item.type === "shop") imageType = "shop";
+    else if (item && item.type === "experience") imageType = "experience";
+    const imageId = point.guideId || "map-image-" + point.id;
+    const fallback = imageType === "food" ? "assets/fallback-food.svg" : imageType === "shop" ? "assets/fallback-shop.svg" : "assets/fallback-place.svg";
     const typeLabel = point.type === "tabelog" ? "Locale Tabelog" : point.type === "hotel" ? "Hotel del viaggio" : "Da visitare";
     const rating = point.type === "tabelog" ? '<span class="tabelog-rating">Tabelog ' + Number(point.score).toFixed(2) + '</span>' : "";
     const guide = point.guideId ? '<button class="map-popup-detail" type="button" data-action="details" data-id="' + escapeHTML(point.guideId) + '">Apri la guida completa ↗</button>' : "";
-    return '<div class="map-popup point-popup"><p class="map-popup-kicker">' + escapeHTML(typeLabel) + ' · ' + escapeHTML(point.category) + '</p>'
+    const done = point.guideId && item && (item.type === "place" || item.type === "experience") ? '<button class="map-popup-done' + (doneIds.has(point.guideId) ? ' is-done' : '') + '" type="button" data-action="done" data-id="' + escapeHTML(point.guideId) + '">' + (doneIds.has(point.guideId) ? (item.type === "experience" ? "✓ Fatta" : "✓ Visitato") : (item.type === "experience" ? "Segna fatta" : "Segna visitato")) + '</button>' : "";
+    return '<div class="map-popup point-popup"><div class="map-popup-media"><img src="' + fallback + '" data-map-image-id="' + escapeHTML(imageId) + '" data-map-image-type="' + imageType + '" alt="' + escapeHTML(point.name) + '" referrerpolicy="no-referrer"><a class="map-photo-credit" target="_blank" rel="noopener" hidden></a></div><p class="map-popup-kicker">' + escapeHTML(typeLabel) + ' · ' + escapeHTML(point.category) + '</p>'
       + '<h3>' + escapeHTML(point.name) + '</h3>'
       + '<p class="point-location">' + escapeHTML(point.group || point.area || (city && city.name)) + (point.area && point.group !== point.area ? ' · ' + escapeHTML(point.area) : '') + '</p>'
       + '<p>' + escapeHTML(point.description) + '</p>' + rating
-      + '<div class="map-popup-actions">' + guide + '<a class="map-popup-action" href="' + googleMapsUrl(point) + '" target="_blank" rel="noopener">Raggiungi con Google Maps ↗</a></div></div>';
+      + '<div class="map-popup-actions">' + done + guide + '<a class="map-popup-action" href="' + googleMapsUrl(point) + '" target="_blank" rel="noopener">Raggiungi con Google Maps ↗</a></div></div>';
+  }
+
+  function findGuideItem(id) {
+    const data = window.JAPAN_DATA;
+    return [].concat(data.places || [], data.mapPlaces || [], data.experiences || [], data.foods || [], data.shopping || []).find(function (item) {
+      return item.id === id;
+    });
+  }
+
+  function popupImageItem(point) {
+    const linked = point.guideId && findGuideItem(point.guideId);
+    if (linked) return linked;
+    return {
+      id: "map-image-" + point.id,
+      type: point.type === "tabelog" ? "food" : "place",
+      city: point.city,
+      name: point.name,
+      jp: "",
+      imageQuery: point.name + " " + ((window.JAPAN_DATA.cities.find(function (city) { return city.id === point.city; }) || {}).name || "Japan")
+    };
+  }
+
+  function hydratePopupImage(marker, point) {
+    const popup = marker.getPopup() && marker.getPopup().getElement();
+    const image = popup && popup.querySelector("[data-map-image-id]");
+    if (!image || image.dataset.loading === "true" || image.dataset.loaded === "true" || !window.TABI_IMAGES) return;
+    const item = popupImageItem(point);
+    const credit = popup.querySelector(".map-photo-credit");
+    image.dataset.loading = "true";
+
+    function apply(result) {
+      image.dataset.loading = "false";
+      if (!result || !result.url) return;
+      image.dataset.provider = result.provider || "";
+      image.src = result.url;
+      if (result.credit && result.sourceUrl && credit) {
+        credit.href = result.sourceUrl;
+        credit.textContent = "Foto: " + result.credit + " ↗";
+        credit.hidden = false;
+      }
+    }
+
+    image.addEventListener("load", function () { image.dataset.loaded = "true"; });
+    image.addEventListener("error", function () {
+      const failed = new Set((image.dataset.failedProviders || "").split(",").filter(Boolean));
+      failed.add(image.dataset.provider || item.imageProvider || "official");
+      image.dataset.failedProviders = Array.from(failed).join(",");
+      image.dataset.loaded = "false";
+      if (credit) credit.hidden = true;
+      const providerLimit = 4 + (item.imageUrl ? 1 : 0);
+      if (failed.size >= providerLimit) {
+        image.src = window.TABI_IMAGES.fallbackFor(item.type);
+        image.dataset.provider = "fallback";
+        return;
+      }
+      window.TABI_IMAGES.resolveItem(item, { skipDirect:true, force:true, excludedProviders:Array.from(failed) }).then(apply);
+    });
+    window.TABI_IMAGES.resolveItem(item).then(apply);
   }
 
   function pointIcon(point) {
@@ -47,7 +120,8 @@
     if (point.type === "hotel") {
       return L.divIcon({ className:"map-point-icon", html:'<span class="map-hotel-marker">H</span>', iconSize:[28, 28], iconAnchor:[14, 14] });
     }
-    return L.divIcon({ className:"map-point-icon", html:'<span class="map-visit-marker"></span>', iconSize:[18, 18], iconAnchor:[9, 9] });
+    const isDone = point.guideId && doneIds.has(point.guideId);
+    return L.divIcon({ className:"map-point-icon", html:'<span class="map-visit-marker' + (isDone ? ' is-done' : '') + '">' + (isDone ? '✓' : '') + '</span>', iconSize:[isDone ? 24 : 18, isDone ? 24 : 18], iconAnchor:[isDone ? 12 : 9, isDone ? 12 : 9] });
   }
 
   function layerEnabled(type) {
@@ -69,7 +143,18 @@
       return;
     }
 
-    map = L.map(container, { zoomControl:true, scrollWheelZoom:false, preferCanvas:true });
+    map = L.map(container, {
+      zoomControl:true,
+      scrollWheelZoom:true,
+      touchZoom:true,
+      doubleClickZoom:true,
+      zoomSnap:0.25,
+      zoomDelta:0.5,
+      wheelDebounceTime:25,
+      wheelPxPerZoomLevel:110,
+      bounceAtZoomLimits:false,
+      preferCanvas:true
+    });
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom:18,
       attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -88,12 +173,35 @@
     ["visit", "tabelog", "hotel"].forEach(function (type) { pointLayers[type] = L.layerGroup(); });
     window.JAPAN_MAP_DATA.points.forEach(function (point) {
       const marker = L.marker([point.lat, point.lng], { icon:pointIcon(point), zIndexOffset:point.type === "hotel" ? 500 : 0, title:point.name, alt:point.name })
-        .bindPopup(pointPopupHTML(point), { maxWidth:310 });
+        .bindPopup(pointPopupHTML(point), { maxWidth:popupMaxWidth() });
       marker.on("add", function () { marker.getElement().setAttribute("aria-label", point.name); });
+      marker.on("popupopen", function () { fitPopup(marker); hydratePopupImage(marker, point); });
+      if (point.guideId && !markerByGuideId[point.guideId]) {
+        markerByGuideId[point.guideId] = marker;
+        pointByGuideId[point.guideId] = point;
+      }
       marker.addTo(pointLayers[point.type]);
     });
     ["visit", "tabelog", "hotel"].forEach(syncLayer);
     fitRoute();
+  }
+
+  // Il popup vive dentro #tripMap, che ha overflow:hidden: oltre le misure del
+  // contenitore verrebbe tagliato, pulsante di chiusura compreso.
+  function popupMaxWidth() {
+    const container = document.getElementById("tripMap");
+    const available = (container ? container.clientWidth : window.innerWidth) - 48;
+    return Math.max(190, Math.min(310, available));
+  }
+
+  // L'altezza è gestita in CSS (max-height su .leaflet-popup-content): Leaflet
+  // misura una volta sola all'apertura e la foto arriva dopo, quindi il suo
+  // maxHeight resterebbe indietro.
+  function fitPopup(marker) {
+    const popup = marker.getPopup();
+    if (!popup || popup.options.maxWidth === popupMaxWidth()) return;
+    popup.options.maxWidth = popupMaxWidth();
+    popup.update();
   }
 
   function fitRoute() {
@@ -102,13 +210,10 @@
 
   function locateUser() {
     const button = document.getElementById("locateButton");
-    if (!navigator.geolocation) {
-      button.textContent = "Posizione non supportata";
-      return;
-    }
+    if (!window.TABI_GEO) return;
     button.disabled = true;
     button.textContent = "Ricerca posizione…";
-    navigator.geolocation.getCurrentPosition(function (position) {
+    window.TABI_GEO.requestPosition({ maximumAge:60000 }).then(function (position) {
       const latlng = [position.coords.latitude, position.coords.longitude];
       if (userMarker) userMarker.remove();
       userMarker = L.circleMarker(latlng, { radius:9, color:"#fff", weight:3, fillColor:"#1b76d1", fillOpacity:1 }).addTo(map).bindPopup("Sei qui");
@@ -116,14 +221,244 @@
       userMarker.openPopup();
       button.disabled = false;
       button.textContent = "◎ La mia posizione";
-    }, function () {
+    }).catch(function () {
       button.disabled = false;
       button.textContent = "Posizione non disponibile";
-    }, { enableHighAccuracy:true, timeout:12000, maximumAge:60000 });
+    });
   }
+
+  function focusPoint(guideId) {
+    initMap();
+    const marker = markerByGuideId[guideId];
+    if (!map || !marker) return false;
+    const visitToggle = document.querySelector('[data-map-layer="visit"]');
+    if (visitToggle) visitToggle.checked = true;
+    syncLayer("visit");
+    const panel = document.querySelector(".map-panel");
+    if (panel) panel.scrollIntoView({ behavior:"smooth", block:"start" });
+    window.setTimeout(function () {
+      map.invalidateSize();
+      map.setView(marker.getLatLng(), 16, { animate:true });
+      marker.openPopup();
+    }, 100);
+    return true;
+  }
+
+  function refreshProgressMarker(guideId) {
+    const marker = markerByGuideId[guideId];
+    const point = pointByGuideId[guideId];
+    if (!marker || !point) return;
+    marker.setIcon(pointIcon(point));
+    marker.setPopupContent(pointPopupHTML(point));
+    if (marker.isPopupOpen()) window.setTimeout(function () { hydratePopupImage(marker, point); }, 0);
+  }
+
+  function refreshAllProgressMarkers() {
+    Object.keys(markerByGuideId).forEach(refreshProgressMarker);
+  }
+
+  function toggleExpandedMap() {
+    const panel = document.querySelector(".map-panel");
+    const button = document.getElementById("expandMapButton");
+    const expanded = panel.classList.toggle("is-expanded");
+    document.body.classList.toggle("map-is-expanded", expanded);
+    button.setAttribute("aria-pressed", String(expanded));
+    button.textContent = expanded ? "Chiudi mappa" : "Espandi mappa";
+    window.setTimeout(function () { if (map) map.invalidateSize(); }, 80);
+  }
+
+  // ---- Lazo: si disegna un'area col dito e si ottiene il giro a piedi -------
+
+  let lassoActive = false;
+  let lassoLayer = null;
+  let lassoPoints = [];
+  let lassoSelection = [];
+
+  function lassoStatus(text) {
+    const box = document.getElementById("lassoStatus");
+    if (box) box.textContent = text;
+  }
+
+  function containerToLatLng(event) {
+    const rect = map.getContainer().getBoundingClientRect();
+    const touch = event.touches && event.touches[0];
+    const x = (touch ? touch.clientX : event.clientX) - rect.left;
+    const y = (touch ? touch.clientY : event.clientY) - rect.top;
+    return map.containerPointToLatLng([x, y]);
+  }
+
+  // Punto dentro poligono, algoritmo ray casting: nessuna libreria in più.
+  function insidePolygon(lat, lng, polygon) {
+    let inside = false;
+    for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i, i += 1) {
+      const yi = polygon[i].lat, xi = polygon[i].lng;
+      const yj = polygon[j].lat, xj = polygon[j].lng;
+      if ((yi > lat) !== (yj > lat) && lng < ((xj - xi) * (lat - yi)) / (yj - yi) + xi) inside = !inside;
+    }
+    return inside;
+  }
+
+  function metersBetween(a, b) {
+    const rad = Math.PI / 180;
+    const dLat = (b.lat - a.lat) * rad;
+    const dLng = (b.lng - a.lng) * rad;
+    const h = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * rad) * Math.cos(b.lat * rad) * Math.sin(dLng / 2) ** 2;
+    return 2 * 6371000 * Math.atan2(Math.sqrt(h), Math.sqrt(1 - h));
+  }
+
+  // Vicino più prossimo per l'ordine iniziale, poi 2-opt per raddrizzare gli
+  // incroci: su una decina di tappe basta e avanza, e gira in un istante.
+  function shortestOrder(start, stops) {
+    const remaining = stops.slice();
+    const route = [];
+    let current = start;
+    while (remaining.length) {
+      let best = 0;
+      for (let i = 1; i < remaining.length; i += 1) {
+        if (metersBetween(current, remaining[i]) < metersBetween(current, remaining[best])) best = i;
+      }
+      current = remaining[best];
+      route.push(current);
+      remaining.splice(best, 1);
+    }
+    const legs = function (order) {
+      let total = metersBetween(start, order[0]);
+      for (let i = 1; i < order.length; i += 1) total += metersBetween(order[i - 1], order[i]);
+      return total;
+    };
+    let improved = true;
+    while (improved && route.length > 3) {
+      improved = false;
+      for (let i = 0; i < route.length - 1; i += 1) {
+        for (let j = i + 1; j < route.length; j += 1) {
+          const candidate = route.slice(0, i).concat(route.slice(i, j + 1).reverse(), route.slice(j + 1));
+          if (legs(candidate) < legs(route) - 1) {
+            route.splice(0, route.length, ...candidate);
+            improved = true;
+          }
+        }
+      }
+    }
+    return route;
+  }
+
+  function clearLasso() {
+    if (lassoLayer) { lassoLayer.remove(); lassoLayer = null; }
+    lassoPoints = [];
+    lassoSelection = [];
+    document.getElementById("lassoOpenButton").hidden = true;
+  }
+
+  function finishLasso() {
+    if (lassoPoints.length < 8) { lassoStatus("Area troppo piccola: riprova disegnando un cerchio più ampio."); clearLasso(); return; }
+    const visible = window.JAPAN_MAP_DATA.points.filter(function (point) {
+      const toggle = document.querySelector('[data-map-layer="' + point.type + '"]');
+      return (!toggle || toggle.checked) && Number.isFinite(point.lat) && Number.isFinite(point.lng);
+    });
+    lassoSelection = visible.filter(function (point) { return insidePolygon(point.lat, point.lng, lassoPoints); });
+    if (!lassoSelection.length) { lassoStatus("Nessun luogo dentro l'area. Prova a disegnarla più larga o riattiva i livelli."); return; }
+    lassoStatus(lassoSelection.length + (lassoSelection.length === 1 ? " luogo selezionato." : " luoghi selezionati.") + " Premi “Apri il giro” per calcolare il percorso.");
+    document.getElementById("lassoOpenButton").hidden = false;
+  }
+
+  function openLassoRoute() {
+    if (!lassoSelection.length) return;
+    const button = document.getElementById("lassoOpenButton");
+    button.disabled = true;
+    lassoStatus("Cerco la tua posizione…");
+    window.TABI_GEO.requestPosition().then(function (position) {
+      const start = { lat: position.coords.latitude, lng: position.coords.longitude };
+      let stops = lassoSelection.slice();
+      let trimmed = 0;
+      // Google Maps accetta al massimo 9 tappe intermedie più la destinazione.
+      if (stops.length > 10) {
+        stops = stops
+          .map(function (point) { return { point: point, distance: metersBetween(start, point) }; })
+          .sort(function (a, b) { return a.distance - b.distance; })
+          .slice(0, 10)
+          .map(function (entry) { return entry.point; });
+        trimmed = lassoSelection.length - 10;
+      }
+      const ordered = shortestOrder(start, stops);
+      const destination = ordered[ordered.length - 1];
+      const waypoints = ordered.slice(0, -1).map(function (point) { return point.lat + "," + point.lng; }).join("|");
+      const url = "https://www.google.com/maps/dir/?api=1&travelmode=walking"
+        + "&origin=" + start.lat + "," + start.lng
+        + "&destination=" + destination.lat + "," + destination.lng
+        + (waypoints ? "&waypoints=" + encodeURIComponent(waypoints) : "");
+      let total = metersBetween(start, ordered[0]);
+      for (let i = 1; i < ordered.length; i += 1) total += metersBetween(ordered[i - 1], ordered[i]);
+      lassoStatus("Giro di " + ordered.length + " tappe, circa " + (total / 1000).toFixed(1).replace(".", ",") + " km in linea d'aria."
+        + (trimmed ? " Ho tenuto le 10 più vicine e ne ho lasciate fuori " + trimmed + ": Google Maps non ne accetta di più." : "")
+        + " Apro Google Maps.");
+      button.disabled = false;
+      window.open(url, "_blank", "noopener");
+    }).catch(function (error) {
+      button.disabled = false;
+      lassoStatus(error.message);
+    });
+  }
+
+  function toggleLasso() {
+    const button = document.getElementById("lassoButton");
+    const container = map && map.getContainer();
+    if (!container) return;
+    lassoActive = !lassoActive;
+    button.setAttribute("aria-pressed", String(lassoActive));
+    button.textContent = lassoActive ? "Annulla area" : "✎ Disegna un'area";
+    container.classList.toggle("is-lasso", lassoActive);
+    if (lassoActive) {
+      map.dragging.disable();
+      map.doubleClickZoom.disable();
+      lassoStatus("Tieni premuto sulla mappa e disegna un cerchio attorno alla zona che vuoi girare.");
+    } else {
+      map.dragging.enable();
+      map.doubleClickZoom.enable();
+      clearLasso();
+      lassoStatus("");
+    }
+  }
+
+  function setupLasso() {
+    const container = map.getContainer();
+    function start(event) {
+      if (!lassoActive) return;
+      event.preventDefault();
+      clearLasso();
+      document.getElementById("lassoOpenButton").hidden = true;
+      lassoPoints = [containerToLatLng(event)];
+      lassoLayer = L.polygon(lassoPoints, { color:"#b6422e", weight:2, dashArray:"6 5", fillOpacity:.12 }).addTo(map);
+      container.addEventListener("mousemove", move);
+      container.addEventListener("touchmove", move, { passive:false });
+    }
+    function move(event) {
+      if (!lassoActive || !lassoLayer) return;
+      event.preventDefault();
+      lassoPoints.push(containerToLatLng(event));
+      lassoLayer.setLatLngs(lassoPoints);
+    }
+    function end() {
+      container.removeEventListener("mousemove", move);
+      container.removeEventListener("touchmove", move);
+      if (lassoActive && lassoLayer) finishLasso();
+    }
+    container.addEventListener("mousedown", start);
+    container.addEventListener("touchstart", start, { passive:false });
+    document.addEventListener("mouseup", end);
+    document.addEventListener("touchend", end);
+  }
+
+  document.getElementById("lassoButton").addEventListener("click", function () {
+    initMap();
+    if (!map) return;
+    if (!map.__lassoReady) { setupLasso(); map.__lassoReady = true; }
+    toggleLasso();
+  });
+  document.getElementById("lassoOpenButton").addEventListener("click", openLassoRoute);
 
   document.getElementById("locateButton").addEventListener("click", locateUser);
   document.getElementById("fitRouteButton").addEventListener("click", fitRoute);
+  document.getElementById("expandMapButton").addEventListener("click", toggleExpandedMap);
   document.querySelectorAll("[data-map-layer]").forEach(function (input) {
     input.addEventListener("change", function () { syncLayer(input.dataset.mapLayer); });
   });
@@ -132,4 +467,17 @@
     initMap();
     setTimeout(function () { if (map) map.invalidateSize(); }, 80);
   });
+  window.addEventListener("tabi:progresschange", function (event) {
+    if (event.detail.done) doneIds.add(event.detail.id);
+    else doneIds.delete(event.detail.id);
+    refreshProgressMarker(event.detail.id);
+  });
+  window.addEventListener("tabi:progressreset", function () {
+    doneIds.clear();
+    refreshAllProgressMarkers();
+  });
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && document.querySelector(".map-panel.is-expanded")) toggleExpandedMap();
+  });
+  window.TABI_MAP = { focusPoint:focusPoint, fitRoute:fitRoute };
 })();

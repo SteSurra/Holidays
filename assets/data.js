@@ -93,7 +93,8 @@ miyajima|senjokaku|Senjokaku|千畳閣|tempio|Itsukushima|Grande padiglione inco
     tempio:"Templi", santuario:"Santuari", quartiere:"Quartieri", natura:"Natura",
     panorama:"Panorami", museo:"Musei", castello:"Castelli", shopping:"Shopping",
     mercato:"Mercati", "casa-storica":"Case storiche", giardino:"Giardini",
-    memoriale:"Memoria", cibo:"Cibo"
+    memoriale:"Memoria", cibo:"Cibo", curiosita:"Statue e curiosità",
+    esperienza:"Esperienze"
   };
   const places = placeRows.map(function (row) {
     row.id = "place-" + row.city + "-" + row.slug;

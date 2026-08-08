@@ -16,3 +16,4 @@ jobs:
         with:
           node-version: 22
       - run: node scripts/check-public-content.mjs
+      - run: node scripts/check-guide-integrity.mjs

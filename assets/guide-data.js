@@ -2,7 +2,16 @@
   "use strict";
 
   const data = window.JAPAN_DATA;
+  const sourceRegistry = window.JAPAN_RESEARCH_SOURCES || { general:{}, cities:{} };
   const cityGuides = {
+    all: {
+      identity: "Le soste quotidiane tra stazioni, konbini, depachika e distributori automatici raccontano il Giappone contemporaneo quanto i piatti regionali più famosi.",
+      place: "Questi prodotti si incontrano lungo tutto il viaggio e cambiano per catena, stagione e regione.",
+      food: "Confronta versioni, temperatura di servizio e ingredienti: anche una bevanda in lattina o un panino da konbini può avere una cultura d'uso precisa.",
+      history: "Convenience store, ferrovie e distribuzione automatica hanno trasformato abitudini urbane, pasti rapidi e disponibilità di prodotti durante tutto il giorno.",
+      signs: "Cerca etichette stagionali, prodotti regionali, ripiani caldi e freddi e indicazioni limited.",
+      route: "Usa queste scoperte come pause tra le tappe, senza sostituire tutti i pasti con triangoli di riso per puro entusiasmo logistico."
+    },
     osaka: {
       identity: "Osaka si capisce attraverso l'acqua, i commerci e una cultura urbana diretta: qui l'eleganza conta meno dell'energia con cui strade, mercati e locali vengono vissuti.",
       place: "La città alterna grandi infrastrutture contemporanee a tracce della città mercantile. Nei quartieri centrali osserva ponti, canali, insegne verticali e il rapporto continuo tra piano strada e locali ai piani superiori.",
@@ -225,6 +234,11 @@
     negozio: { how: "Confronta varianti e confezioni prima dell'acquisto. Spesso è disponibile un piccolo assaggio o una descrizione degli ingredienti.", order: "Indica il prodotto e la quantità; omiyage-yō segnala che lo cerchi come regalo da viaggio." },
     sakagura: { how: "Segui l'ordine di degustazione e usa acqua tra gli assaggi. Nota differenze di riso, filtrazione e temperatura.", order: "Chiedi un nomikurabe, confronto di più sake, e indica se preferisci uno stile secco, aromatico o corposo." },
     caffè: { how: "Prenditi tempo: molti dessert sono assemblati al momento e pensati come esperienza completa.", order: "Controlla i set bevanda-dessert e le proposte limitate alla stagione prima di scegliere dal menu standard." }
+    ,konbini: { how: "Porta i prodotti alla cassa; per quelli caldi indica ciò che vuoi dal banco. Usa gli spazi interni o esterni quando disponibili e differenzia i rifiuti.", order: "Controlla etichetta, allergeni e data. Atatamete kudasai chiede di scaldare il prodotto, se è previsto." }
+    ,distributore: { how: "Controlla il colore dell'etichetta del pulsante: rosso indica spesso caldo e blu freddo. Recupera prodotto e resto prima di allontanarti.", order: "Inserisci monete, banconote compatibili o una carta IC, seleziona e verifica la temperatura prima di aprire." }
+    ,stazione: { how: "Mangia l'ekiben sullo shinkansen o sui treni dove è normale consumare un pasto; sui commuter affollati è meglio aspettare.", order: "Cerca il nome della regione, il contenuto illustrato e l'eventuale cordino che scalda il bento." }
+    ,depachika: { how: "Osserva i banchi prima di scegliere: il reparto combina specialità regionali, gastronomia e pasticceria in uno spazio molto denso.", order: "Indica quantità e prodotto; poco prima della chiusura possono apparire sconti, seguiti da una competizione silenziosa ma molto seria." }
+    ,tempio: { how: "Consuma il piatto con calma e segui le regole del luogo: la cucina templare valorizza ingredienti, stagioni e assenza di spreco.", order: "Verifica se serve prenotazione e comunica esigenze alimentari in anticipo; vegetariano non esclude automaticamente tutti gli allergeni." }
   };
 
   const historyGuides = {
@@ -237,32 +251,170 @@
     aneddoti: { lens: "Usa l'aneddoto come porta d'ingresso, poi collegalo al contesto più ampio e verifica cosa è memoria, simbolo o fatto documentato.", look: "Monumenti, offerte e racconti ripetuti dai luoghi mostrano come una storia viene ricordata nel tempo." }
   };
 
-  const placeHumor = {
-    tempio: "Obiettivo ufficiale: contemplazione. Obiettivo realistico: non farsi ipnotizzare dal negozio degli amuleti dopo sette minuti di pace interiore.",
-    santuario: "Se dopo il torii ti senti improvvisamente più solenne, funziona. Se compri cinque omamori per coprire ogni possibile catastrofe, funziona anche il marketing.",
-    panorama: "Prima guarda il panorama con gli occhi. Poi fai pure 38 foto quasi identiche che, a casa, nessuno saprà distinguere.",
-    quartiere: "La regola è semplice: quando Google Maps dice di tornare indietro, probabilmente hai appena trovato la strada più interessante.",
-    shopping: "Entra per dare un'occhiata, esci con una busta e una spiegazione molto articolata sul perché quell'oggetto fosse culturalmente indispensabile.",
-    castello: "Le scale furono progettate per rallentare gli invasori. Dopo qualche piano capirai che funzionano ancora benissimo sui turisti.",
-    museo: "Non serve leggere ogni pannello come se ci fosse un esame finale. Scegli tre cose da ricordare e risparmia la dignità dei tuoi piedi.",
-    natura: "La montagna non sa che avete una tabella di marcia. Se decide di aggiungere nebbia, fango o salite infinite, ha sempre l'ultima parola.",
-    giardino: "Sembra tutto spontaneo, ma ogni pietra è probabilmente più studiata della disposizione dei mobili in casa vostra.",
-    mercato: "Assaggiare tutto è ricerca culturale. Ripeterlo dopo il dodicesimo spuntino è una linea difensiva comunque rispettabile.",
-    "casa-storica": "Le stanze minimaliste fanno venire voglia di buttare metà delle proprie cose. L'effetto dura in media fino al prossimo negozio di souvenir.",
-    memoriale: "Qui la battuta si ferma: prendetevi il tempo necessario, leggete una storia individuale e lasciate che il luogo faccia il resto.",
-    cibo: "Dire 'prendiamo solo un assaggio' è il modo tradizionale con cui iniziano pasti completamente fuori controllo."
+  const shoppingGuides = {
+    beauty: {
+      why: "Il mercato beauty giapponese premia texture leggere, formati ricarica, protezione solare e prodotti molto specializzati. Drugstore e variety store permettono di confrontare linee che in Italia arrivano solo in parte o molto più tardi.",
+      recognize: "Leggi nome completo, numero della variante, quantità e funzione: confezioni quasi identiche possono indicare formula moist, light, medicated, waterproof o limited.",
+      buy: "Confronta il prezzo in due catene, controlla il sigillo e preferisci un prodotto adatto alla tua routine a una scorta guidata soltanto dalla viralità."
+    },
+    manga: {
+      why: "In Giappone il manga è ancora un ecosistema fisico fatto di riviste settimanali, tankōbon, artbook, bonus di catena e materiali di produzione che raramente vengono localizzati integralmente.",
+      recognize: "Controlla editore, ISBN, fascetta obi, allegati e indicazioni shokai o tokuten. Per l'usato guarda dorso, ingiallimento, odore e presenza degli inserti.",
+      buy: "Scegli una serie o un autore prima di entrare: gli scaffali sono progettati per demolire rapidamente ogni piano ragionevole."
+    },
+    gaming: {
+      why: "Store ufficiali, lotterie, capsule e catene hobby distribuiscono collezioni, colori e collaborazioni legate al mercato domestico e alle singole città.",
+      recognize: "Cerca logo del produttore, copyright, etichetta dello store e confezione originale. Distingui merce ufficiale, premio da sala giochi e riproduzione non autorizzata.",
+      buy: "Controlla se l'articolo è casuale, limitato per persona o incompatibile fuori dal Giappone; stabilisci un budget prima di incontrare la parete dei blind box."
+    },
+    tecnologia: {
+      why: "Le grandi catene giapponesi concentrano modelli domestici, accessori di nicchia, usato ben classificato e dispositivi pensati per abitudini locali che raramente compaiono nei negozi italiani.",
+      recognize: "Annota il codice modello esatto e verifica layout, lingua, tensione, spina, frequenze radio, regione, app necessaria, garanzia e disponibilità dei consumabili.",
+      buy: "Fai una foto al cartellino e confronta scheda tecnica e prezzo finale. Se il prodotto funziona soltanto grazie a un trasformatore enorme, il souvenir tecnologico ha già perso la discussione."
+    },
+    cartoleria: {
+      why: "La cartoleria giapponese unisce strumenti molto precisi a collaborazioni, colori e sistemi di carta pensati per il mercato locale. La differenza emerge nell'uso, non solo nella confezione.",
+      recognize: "Prova impugnatura, scorrimento e meccanismo; controlla formato, rigatura, diametro, numero di fori e codice delle ricariche.",
+      buy: "Compra un sistema completo ma piccolo: corpo, un ricambio e il supporto corretto. Una penna rara senza cartuccia reperibile è soltanto una scultura sottile."
+    },
+    moda: {
+      why: "Marchi domestici, denim, tessili tradizionali e second hand offrono tagli, materiali e capsule che in Italia hanno distribuzione limitata o prezzi molto diversi.",
+      recognize: "Controlla misure in centimetri, composizione, cuciture, codice articolo e istruzioni di lavaggio. Nel vintage esamina luce, odore e punti di stress.",
+      buy: "Prova tutto e immagina tre occasioni reali in cui lo userai. Se nessuna include una festa in costume, il test sta funzionando."
+    },
+    dispensa: {
+      why: "Supermercati, depachika e negozi regionali mostrano condimenti, tè, fermentati e confezioni regalo che raccontano il territorio molto meglio di un souvenir generico.",
+      recognize: "Leggi provenienza, ingredienti, data, conservazione e tipo di confezione. Distingui il prodotto regionale da una semplice grafica turistica.",
+      buy: "Preferisci formati piccoli, sigillati e robusti; verifica le regole doganali aggiornate prima di portare prodotti animali, freschi o non chiaramente etichettati."
+    },
+    casa: {
+      why: "Utensili e oggetti domestici giapponesi mettono insieme specializzazione, ergonomia e tradizioni materiali locali. I pezzi migliori continuano a essere utili dopo il viaggio.",
+      recognize: "Chiedi materiale, luogo di produzione, tecnica, manutenzione e destinazione d'uso. Peso e bilanciamento spesso rivelano più della decorazione.",
+      buy: "Misura spazio e fragilità prima di pagare; per lame e utensili controlla sempre le regole del trasporto e usa una protezione adeguata."
+    },
+    artigianato: {
+      why: "Ogni regione sviluppa tecniche legate a materie, clima e committenza. Acquistare in bottega permette di collegare oggetto, artigiano e luogo invece di comprare soltanto un motivo decorativo.",
+      recognize: "Cerca nome dell'atelier, materia, segni della lavorazione e una spiegazione della tecnica. Una piccola irregolarità coerente è diversa da una finitura trascurata.",
+      buy: "Chiedi come proteggere e mantenere il pezzo. Il prezzo va confrontato con tempo e competenza, non con il portachiavi industriale della bancarella accanto."
+    },
+    tessili: {
+      why: "Tenugui, furoshiki, tessiture regionali e ricami trasformano tecniche storiche in oggetti leggeri e realmente utilizzabili.",
+      recognize: "Controlla fibra, stampa o tessitura, bordi, solidità del colore e provenienza. Chiedi se il tessuto può essere lavato e come cambierà con l'uso.",
+      buy: "Apri il tessuto quando consentito per vedere il disegno completo; la confezione può nascondere la metà più interessante o quella più discutibile."
+    },
+    tradizione: {
+      why: "Amuleti, sigilli e oggetti rituali acquistati nel loro luogo d'uso conservano un legame preciso con la visita e con la pratica che rappresentano.",
+      recognize: "Leggi scopo, luogo e modalità d'uso; non trattare un oggetto consacrato come un gadget intercambiabile.",
+      buy: "Scegli pochi oggetti con un significato chiaro e conservali con rispetto. La collezione completa delle protezioni cosmiche non è obbligatoria."
+    },
+    benessere: {
+      why: "Incenso, oggetti per il bagno e piccoli rituali domestici mostrano un'idea del benessere fondata anche su profumo, stagione e gesto quotidiano.",
+      recognize: "Controlla ingredienti, intensità, modalità d'uso e accessori necessari. Per l'incenso prova campioni prima di comprare confezioni grandi.",
+      buy: "Evita promesse terapeutiche vaghe e scegli in base a uso e sensibilità personali; naturale non significa automaticamente adatto a tutti."
+    },
+    arte: {
+      why: "Stampe, dischi e opere su carta permettono di portare a casa grafica, musica e tecniche visive con una provenienza verificabile.",
+      recognize: "Chiedi autore, editore o bottega, tecnica, data, tiratura e stato. Distingui originale, ristampa, riproduzione e prodotto decorativo.",
+      buy: "Pretendi una custodia rigida o una spedizione adeguata. L'arte piegata in quattro per risparmiare spazio diventa performance, ma non quella desiderata."
+    },
+    pop: {
+      why: "Insegne, squadre locali, mascotte e oggetti quotidiani trasformano il linguaggio visivo di una città in souvenir più personali dei prodotti nazionali.",
+      recognize: "Cerca un riferimento preciso a quartiere, evento, squadra o creatore e controlla che non sia una stampa generica applicata ovunque.",
+      buy: "Scegli ciò che farà ancora ridere o ricordare il luogo tra un anno; l'effetto neon del momento non supera sempre il controllo qualità domestico."
+    }
   };
 
-  const foodHumor = {
-    primi: "Il rumore dei noodles non è un difetto di educazione: è il momento in cui potete fare slurp con convinzione e chiamarlo immersione culturale.",
-    secondi: "Se il primo boccone vi fa chiudere gli occhi, ottimo. Se vi fa anche annuire lentamente come giudici televisivi, state forse esagerando ma nessuno vi fermerà.",
-    street: "Viene servito a temperatura vulcano e voi direte comunque 'tranquilli, non scotta'. La lingua presenterà reclamo poco dopo.",
-    dolci: "Sono piccoli, eleganti e quindi apparentemente innocui. Questa è propaganda della pasticceria: ordinare il secondo resta facilissimo.",
-    contorni: "Il piattino che sembrava decorativo finirà per essere la cosa di cui discuterete per venti minuti. È così che il Giappone vince ai dettagli.",
-    bevande: "Il tasting nasce per confrontare aromi e territorio. Fotografare i bicchieri e poi dimenticare quale fosse il preferito è una variante turistica molto diffusa."
+  function stableIndex(item, length) {
+    const text = String(item.id || item.name || item.title);
+    let hash = 0;
+    for (let index = 0; index < text.length; index += 1) hash = ((hash << 5) - hash + text.charCodeAt(index)) | 0;
+    return Math.abs(hash) % length;
+  }
+
+  function itemText(item) {
+    return (item.name + " " + (item.jp || "") + " " + (item.description || item.explanation || "")).toLowerCase();
+  }
+
+  function placeHumorFor(item) {
+    const endings = [
+      "La foto va bene, ma prima concedigli almeno trenta secondi senza telefono: pratica radicale, apparentemente.",
+      "Se il gruppo propone una visita rapida, ricordate che 'rapida' è un'unità di misura che smette di esistere appena compare una bottega.",
+      "Il vero test non è arrivarci: è uscire senza aver aperto Google Maps altre sei volte dentro lo stesso isolato."
+    ];
+    const notes = {
+      tempio:"A " + item.name + " l'illuminazione spirituale non è garantita; il cedimento davanti agli amuleti, invece, ha statistiche eccellenti.",
+      santuario:"Attraversate il torii di " + item.name + " con rispetto: la modalità solenne dura almeno finché qualcuno non chiede la diciassettesima foto.",
+      panorama:"Da " + item.name + " guardate prima l'orizzonte, poi producete pure il tradizionale archivio di 38 immagini identiche.",
+      quartiere:"Perdersi attorno a " + item.name + " è esplorazione urbana; girare in tondo per la quarta volta è ormai una visita guidata autogestita.",
+      shopping:"A " + item.name + " si entra per curiosità e si esce con una busta e una tesi sul valore antropologico dell'acquisto.",
+      castello:"Le difese di " + item.name + " rallentavano gli invasori; scale e dislivelli continuano il servizio sui polpacci contemporanei.",
+      museo:"A " + item.name + " scegliete tre cose da ricordare: leggere ogni pannello trasforma la cultura in una punizione per i piedi.",
+      curiosita:"Fuori contesto, la foto di " + item.name + " sembrerà un errore di giudizio. Proprio per questo finirà tra le migliori.",
+      esperienza:"A " + item.name + " il piano è fare cultura; il risultato potrebbe essere la storia imbarazzante citata dal gruppo fino al 2037.",
+      natura:"Il paesaggio di " + item.name + " non ha letto il programma: meteo, fango e salita conservano diritto di veto.",
+      giardino:"A " + item.name + " tutto sembra spontaneo, ma perfino una pietra ha probabilmente un piano di carriera più preciso del nostro.",
+      mercato:"A " + item.name + " il dodicesimo assaggio non è fame: è ricerca sul campo con un budget sempre meno scientifico.",
+      "casa-storica":"Gli interni di " + item.name + " faranno desiderare una vita minimalista. L'effetto scade al prossimo negozio.",
+      memoriale:"A " + item.name + " la battuta resta fuori: prendete tempo, leggete una storia individuale e ascoltate il luogo.",
+      cibo:"Vicino a " + item.name + ", 'solo un assaggio' resta la formula ufficiale con cui iniziano pasti fuori controllo."
+    };
+    return (notes[item.category] || notes.quartiere) + " " + endings[stableIndex(item, endings.length)];
+  }
+
+  function foodHumorFor(item) {
+    const text = itemText(item);
+    let joke;
+    if (/natto/.test(text)) joke = item.name + " mette alla prova due cose: il rapporto con le consistenze filanti e la sincerità di chi dice 'io mangio tutto'.";
+    else if (/fugu|pesce palla/.test(text)) joke = "Con " + item.name + " niente eroismi da film: scegliete un locale autorizzato e lasciate la suspense alla sceneggiatura.";
+    else if (/melon.?pan|melopan/.test(text)) joke = item.name + " non contiene necessariamente melone: il primo piccolo tradimento del giorno arriva però con una crosta così buona da essere perdonato.";
+    else if (/takoyaki/.test(text)) joke = item.name + " sembra innocuo, ma dentro conserva lava al polpo. Mordere subito è coraggio; aspettare è intelligenza raramente documentata.";
+    else if (/okonomiyaki/.test(text)) joke = "Davanti a " + item.name + " tutti diventano esperti di spatola. La piastra, professionista navigata, non commenta.";
+    else if (/kobe|wagyu|hida|gyū|manzo|beef/.test(text)) joke = "Con " + item.name + " il gruppo discuterà di marezzatura con l'autorità di chi, fino a ieri, diceva soltanto 'ben cotta'.";
+    else if (/ramen|udon|soba|sōmen|noodle|yakisoba/.test(text)) joke = "Per " + item.name + " lo slurp è ammesso; indossare metà brodo sulla maglietta resta invece una reinterpretazione personale dell'etichetta.";
+    else if (/sushi|sashimi|tataki|crudo|ostric|iwagaki/.test(text)) joke = item.name + " richiede freschezza, fiducia e moderazione con la salsa di soia: annegare tutto non è degustazione, è occultamento di prove.";
+    else if (/konbini|onigiri|sandwich|sando|vending|distribut|lattina/.test(text)) joke = item.name + " dimostra che la sosta tecnica può degenerare in una spedizione gastronomica tra scaffali entro novanta secondi.";
+    else if (/sake|shōchū|birra|umeshu|highball|whisky|alcol/.test(text)) joke = "Con " + item.name + " prendete nota del preferito prima del terzo assaggio: dopo, la classifica tende a diventare diplomatica e poco leggibile.";
+    else if (/matcha|tè|tea/.test(text)) joke = item.name + " promette una pausa zen; scegliere tra sessanta confezioni nel negozio può annullare l'effetto con notevole efficienza.";
+    else if (/mochi|dango|daifuku/.test(text)) joke = item.name + " è elegante e gommoso: masticare con calma è rispetto culturale e anche un ottimo accordo con le vie respiratorie.";
+    else if (/curry|karē/.test(text)) joke = item.name + " arriva rassicurante, poi il livello di piccantezza trasforma la sicurezza occidentale in una trattativa sindacale con la fronte.";
+    else if (/purin|parfait|gelat|cake|torta|dolce|wagashi|manjū|castella/.test(text)) joke = item.name + " è piccolo e curato, quindi il cervello lo classifica come innocente. La richiesta del bis sfrutta esattamente questa falla.";
+    else if (/fritt|katsu|karaage|tempura/.test(text)) joke = item.name + " fa quel rumore croccante che sospende ogni proposito di moderazione pronunciato nelle precedenti ventiquattr'ore.";
+    else joke = item.name + " sarà ordinato 'per dividerlo'. Questa formula giuridica decade appena qualcuno scopre di aver preso il boccone migliore.";
+    return joke + " A " + cityName(item.city) + " il campione va comunque assaggiato prima di emettere sentenze internazionali.";
+  }
+
+  const experienceGuides = {
+    museum: { why: "Un museo ben scelto rende visibili dettagli, materiali e storie che fuori resterebbero senza didascalia.", do: "Prima individua il tema centrale, poi scegli poche opere o sale da osservare davvero. La completezza forzata è il modo più rapido per ricordare soltanto il guardaroba.", know: "Controlla mostre temporanee, ultimo ingresso, fotografie consentite e chiusure parziali." },
+    theme: { why: "I grandi ambienti immersivi e i parchi raccontano anche il modo giapponese di progettare flussi, attese, scenografie e merchandising.", do: "Decidi prima le priorità, lascia margine tra attività e non passare l'intera visita a ottimizzare una coda che nel frattempo ha cambiato forma.", know: "Biglietti, fasce, pass e regole possono cambiare: usa sempre il canale ufficiale prima di partire." },
+    workshop: { why: "Fare un oggetto costringe a notare gesti, tempi e materiali che una vetrina rende invisibili.", do: "Chiedi di vedere un esempio finito, ascolta la sequenza completa e accetta che la prima prova non sembri prodotta da un maestro con quarant'anni di esperienza.", know: "Verifica lingua, materiali inclusi, tempi di asciugatura o cottura e modalità di ritiro o spedizione." },
+    show: { why: "Musica, teatro e danza permettono di capire ritmo, costume e rapporto con il pubblico senza trasformare ogni tradizione in un oggetto fermo.", do: "Leggi una breve introduzione prima, poi durante lo spettacolo osserva voce, strumenti, gesti e cambi di scena invece di inseguire ogni parola.", know: "Controlla calendario, durata, lingua dei supporti, fotografia e politica sui ritardi." },
+    wellness: { why: "Sentō e onsen sono spazi quotidiani con regole precise, non soltanto piscine più calde e molto più silenziose.", do: "Lavati prima di entrare, tieni l'asciugamano fuori dalla vasca, parla piano e lascia il telefono nell'armadietto.", know: "Verifica politica sui tatuaggi, separazione delle aree, asciugamani, sapone e accesso giornaliero." },
+    sports: { why: "Partecipare o assistere a uno sport mostra disciplina, tifo, rituali e uso dello spazio in modo molto più diretto di una spiegazione astratta.", do: "Segui l'istruttore o le regole dello stadio, usa attrezzatura adatta e non confondere entusiasmo con diritto di precedenza.", know: "Controlla assicurazione, condizioni fisiche, meteo, licenze e regole del traffico quando l'attività esce su strada." },
+    nature: { why: "Un percorso attivo collega paesaggio, clima e orientamento; è spesso il modo migliore per capire perché un santuario o un villaggio esistano proprio lì.", do: "Parti con acqua, scarpe e tempo di ritorno realistico. Il percorso non diventa più corto perché il gruppo ha prenotato cena.", know: "Verifica meteo, trasporti, orario dell'ultima corsa, accessi stagionali e luce residua." },
+    food: { why: "Una degustazione o una lezione pratica trasforma il piatto da fotografia a sequenza di ingredienti, temperature e gesti.", do: "Assaggia in ordine, prendi due appunti comprensibili e fai domande sulla tecnica invece di limitarti a dichiarare tutto buonissimo.", know: "Comunica allergie, dieta e limiti con anticipo; per l'alcol pianifica il rientro senza guida." },
+    quirky: { why: "Le attività insolite funzionano quando mostrano un'abitudine o una passione locale, non soltanto quando producono una foto rumorosa.", do: "Capisci prima regole e contesto, poi partecipa senza occupare spazi, bloccare passaggi o trasformare i residenti in comparse.", know: "Controlla costi extra, lingua, assicurazione, accessibilità e reputazione recente dell'operatore." }
   };
 
-  const historyHumor = {
+  const experienceHumorLead = {
+    museum: "Il piano era vedere due sale con calma. Poi è comparso il bookshop, il vero boss finale di ogni istituzione culturale.",
+    theme: "La giornata verrà misurata in attrazioni, passi e percentuale di batteria. Il romanticismo sopravvive finché qualcuno non apre l'app delle code.",
+    workshop: "Il maestro farà sembrare il gesto semplicissimo. Il vostro oggetto dimostrerà, con grande sincerità, che era un'illusione ottica.",
+    show: "Se non capite ogni parola non è un problema. Se applaudite da soli nel silenzio assoluto, avete appena creato una scena bonus.",
+    wellness: "Dopo dieci minuti di acqua calda sarete persone nuove. Dopo venti, persone nuove che devono sedersi un attimo.",
+    sports: "Competere è naturale. Trasformare un laboratorio introduttivo nelle Olimpiadi del gruppo è invece una scelta perfettamente evitabile.",
+    nature: "La vista ripaga la salita. Questa frase viene tradizionalmente pronunciata da chi è già arrivato e ha recuperato il fiato.",
+    food: "La lezione insegna tecnica e moderazione. Il gruppo apprenderà sicuramente la prima.",
+    quirky: "Potrebbe diventare il ricordo migliore del viaggio o una storia che inizierà sempre con: sembrava una buona idea. Entrambi sono risultati utili."
+  };
+
+  const experienceSources = {
+    osaka:"https://osaka-info.jp/en/spot/experience/", nara:"https://www.visitnara.jp/see-and-do/", miyajima:"https://www.miyajima.or.jp/english/",
+    hiroshima:"https://dive-hiroshima.com/en/explore/?category=5", kyoto:"https://kyoto.travel/en/experiences/", kanazawa:"https://visitkanazawa.jp/en/activities/",
+    shirakawago:"https://shirakawa-go.gr.jp/en/active/", takayama:"https://www.hida.jp/english/recreationandleisure/foodandculture/",
+    matsumoto:"https://visitmatsumoto.com/en/", nagano:"https://www.go-nagano.net/en/trip-idea/things-to-do-around-nagano-city", tokyo:"https://www.gotokyo.org/en/experiences/index.html"
+  };
+
+  const historyHumorLead = {
     storia: "Riassunto brutale: qualcuno voleva più potere, qualcun altro non era d'accordo e nel frattempo sono comparsi mura, tasse e un numero impressionante di incendi.",
     cultura: "Se una regola vi sembra inspiegabilmente precisa, probabilmente dietro ci sono tre secoli di pratica e almeno una persona che vi sta osservando mentre la sbagliate.",
     spiritualita: "Non serve raggiungere l'illuminazione entro la chiusura. Basta rallentare, osservare e non trasformare ogni gesto rituale in un servizio fotografico.",
@@ -270,6 +422,23 @@
     mitologia: "Quando la spiegazione include una dea, una montagna scagliata in aria e un animale messaggero, il realismo può tranquillamente aspettare fuori.",
     artigianato: "Dopo aver visto quante ore richiede un oggetto, il prezzo smette di sembrare alto e inizia a sembrare un educato rimprovero.",
     aneddoti: "È la storia che ricorderete a cena, probabilmente con dettagli sempre più spettacolari a ogni nuova narrazione."
+  };
+
+  const shoppingHumorLead = {
+    beauty: "Entrare per un balsamo labbra e uscire con una routine in nove passaggi è una trasformazione narrativa molto rispettata nei drugstore.",
+    manga: "La frase 'prendo solo un volume' perde validità giuridica appena compare uno scaffale con bonus esclusivi.",
+    gaming: "Il personaggio era casuale, il secondo tentativo necessario e il quinto ormai una questione d'onore: così nasce un piccolo problema statistico.",
+    tecnologia: "Se servono tre adattatori, un account giapponese e un tutorial di quaranta minuti, forse avete comprato un hobby e non un dispositivo.",
+    cartoleria: "Una nuova penna non sistemerà la vostra vita. Scriverà però la lista delle cose da sistemare con una fluidità eccezionale.",
+    moda: "Il capo avant-garde funziona perfettamente a Tokyo. La prova definitiva sarà indossarlo per andare al supermercato sotto casa.",
+    dispensa: "Il limite della valigia trasforma rapidamente il depachika da paradiso gastronomico a esercizio avanzato di logistica.",
+    casa: "L'utensile monofunzione giapponese risolve un problema che non sapevate di avere e ora, inspiegabilmente, appare urgente.",
+    artigianato: "Dopo aver ascoltato la lavorazione per venti minuti, l'oggetto non è più caro: siete voi a sentirvi improvvisamente prodotti in serie.",
+    tessili: "Il furoshiki è riutilizzabile, elegante e sostenibile. Riempirlo di altri acquisti era probabilmente previsto fin dall'inizio.",
+    tradizione: "Avere un amuleto per viaggio, salute, studio e fortuna non è ansia: è diversificazione spirituale del portafoglio.",
+    benessere: "L'incenso promette calma. Il tentativo di scegliere tra sessanta profumi diversi metterà alla prova la tesi prima dell'acquisto.",
+    arte: "Avete comprato una stampa minimalista per semplificare casa. Ora serve una cornice su misura, una parete libera e una riunione condominiale.",
+    pop: "Era un gadget ironico e costava poco. Ventisette gadget dopo, il concetto di poco richiede una commissione d'inchiesta."
   };
 
   function foodSafety(item) {
@@ -288,22 +457,80 @@
   }
 
   function cityName(id) {
+    if (id === "all") return "Tutto il Giappone";
     const city = data.cities.find(function (candidate) { return candidate.id === id; });
     return city ? city.name : id;
   }
 
+  function uniqueSources(sources) {
+    const seen = new Set();
+    return sources.filter(function (entry) {
+      if (!entry || !entry.url || seen.has(entry.url)) return false;
+      seen.add(entry.url);
+      return true;
+    });
+  }
+
+  function sourcesFor(item, domain) {
+    const current = item.sourceUrl ? [{ title:item.sourceTitle || "Fonte ufficiale", url:item.sourceUrl, kind:"fonte specifica" }] : [];
+    const local = (sourceRegistry.cities && sourceRegistry.cities[item.city]) || [];
+    const general = (sourceRegistry.general && sourceRegistry.general[domain]) || [];
+    return uniqueSources(current.concat(local.slice(0, 2), general.slice(0, 2))).slice(0, 4);
+  }
+
+  function foodProfile(item) {
+    const text = itemText(item);
+    if (/natto/.test(text)) return { see:"Cerca i fagioli interi coperti da fili tenaci: mescolandolo, la trama diventa ancora più evidente.", taste:"Aspettati fermentazione decisa, note tostate di soia e una consistenza vischiosa che conta quanto il sapore." };
+    if (/ramen|udon|soba|sōmen|noodle|yakisoba/.test(text)) return { see:"Guarda spessore e curvatura del noodle, limpidezza o densità del brodo e guarnizioni: sono gli indizi più rapidi per distinguere lo stile.", taste:"Assaggia prima brodo e pasta separatamente, poi insieme: sapidità, grasso, dashi e consistenza cambiano molto tra una preparazione e l'altra." };
+    if (/sushi|sashimi|tataki|crudo/.test(text)) return { see:"Osserva taglio, lucentezza, temperatura e rapporto tra pesce, riso o condimento; una montagna di salsa nasconde proprio ciò che dovresti valutare.", taste:"La qualità emerge da temperatura, consistenza e umami più che da condimenti aggressivi. Parti senza aggiunte e correggi soltanto dopo." };
+    if (/wagyu|kobe|hida|gyū|manzo|beef/.test(text)) return { see:"La marezzatura deve essere fine e distribuita, non soltanto una fascia di grasso esterna. Chiedi taglio, provenienza e quantità prima di ordinare.", taste:"Aspettati grasso dolce, fusione rapida e porzioni più piccole del normale: il confronto migliore è tra tagli e cotture, non tra montagne di carne." };
+    if (/mochi|dango|daifuku/.test(text)) return { see:"La superficie deve apparire morbida e regolare; ripieno, tostatura o salsa distinguono preparazioni che in vetrina possono sembrare simili.", taste:"La componente centrale è la masticabilità del riso glutinoso, bilanciata da fagiolo rosso, soia tostata, sesamo o frutta." };
+    if (/takoyaki|okonomiyaki|ikayaki|negiyaki/.test(text)) return { see:"Piastra, doratura, salse e movimento del cuoco fanno parte del riconoscimento. Controlla che l'interno sia cotto ma ancora morbido.", taste:"Il contrasto tipico è tra superficie rosolata, interno cremoso o elastico, dashi, salsa dolce-salata e guarnizioni aromatiche." };
+    if (/sake|shōchū|birra|umeshu|highball|whisky|alcol/.test(text)) return { see:"Leggi stile, gradazione, produttore e servizio. Temperatura e bicchiere possono cambiare molto la percezione dello stesso prodotto.", taste:"Procedi dal più delicato al più intenso, alterna acqua e annota subito aroma, dolcezza, acidità e finale." };
+    if (item.category === "dolci") return { see:"Forma, ripieno, stagione e finitura sono indizi importanti: molti dolci comunicano il periodo dell'anno prima ancora del gusto.", taste:"La dolcezza è spesso più misurata di quella italiana; consistenza, fagiolo, riso, tè o frutta hanno un ruolo altrettanto importante." };
+    return { see:"Usa la descrizione specifica della scheda come controllo: forma, ingrediente dominante, metodo di cottura e guarnizione devono raccontare la stessa preparazione.", taste:"Assaggia il primo boccone senza correggere subito con salse o spezie; poi separa consistenza, sapidità, dolcezza, acidità, aroma e retrogusto." };
+  }
+
+  function experienceHumorFor(item) {
+    const lead = experienceHumorLead[item.category] || experienceHumorLead.quirky;
+    const variants = ["A " + item.name + " il gruppo avrà comunque prove fotografiche.", "Per " + item.name + " nominate prima un adulto responsabile; probabilmente si dimetterà a metà.", item.name + " è il genere di idea che migliora molto quando nessuno pronuncia 'facciamo una gara'."];
+    return lead + " " + variants[stableIndex(item, variants.length)];
+  }
+
+  function historyHumorFor(item) {
+    const lead = historyHumorLead[item.category] || historyHumorLead.storia;
+    const variants = ["Usate " + item.title + " per sembrare preparati; citare anche l'aneddoto vi porterà pericolosamente vicino a diventare la guida del gruppo.", "Dopo aver letto " + item.title + ", almeno una pietra a " + cityName(item.city) + " sembrerà meno casuale. È già un risultato accademico.", "Memorizzate una sola idea di " + item.title + ": sette date confuse non impressionano nessuno, soprattutto prima di pranzo."];
+    return lead + " " + variants[stableIndex(item, variants.length)] + " Il riferimento, qui, è proprio " + cityName(item.city) + ".";
+  }
+
+  function shoppingHumorFor(item) {
+    const lead = shoppingHumorLead[item.category] || shoppingHumorLead.artigianato;
+    return lead + " Nel caso di " + item.name + " a " + cityName(item.city) + ", la frase 'entra comodamente in valigia' richiede una verifica indipendente.";
+  }
+
+  function lower(text) {
+    const value = String(text || "");
+    return value.charAt(0).toLowerCase() + value.slice(1);
+  }
+
   function enrichPlace(item) {
-    const city = cityGuides[item.city];
+    const city = cityGuides[item.city] || cityGuides.all;
     const guide = placeGuides[item.category] || placeGuides.quartiere;
-    item.longDescription = item.description + " Nel contesto di " + cityName(item.city) + ", questa tappa aiuta a leggere il carattere della città e merita di essere osservata oltre la fotografia più famosa.";
+    item.longDescription = item.description
+      + " Si trova nell'area di " + item.area + ", a " + cityName(item.city) + ", e ci si sta di solito " + item.duration.toLowerCase() + "."
+      + " " + guide.why
+      + " Se è la prima volta che vedete un luogo di questo tipo, conviene sapere in anticipo cosa state guardando: " + lower(guide.observe)
+      + " " + city.identity
+      + " Il consiglio pratico che fa la differenza qui è semplice: " + item.tip.charAt(0).toLowerCase() + item.tip.slice(1) + ".";
+    item.sources = sourcesFor(item, "culture");
     item.guideSections = [
-      { title: "Perché vale la visita", body: guide.why + " A " + cityGuides[item.city].identity },
-      { title: "Cosa osservare", body: guide.observe + " In particolare, nell'area di " + item.area + ", " + city.signs.charAt(0).toLowerCase() + city.signs.slice(1) },
+      { title: "Perché vale la visita", body: item.description + " " + guide.why + " " + city.identity },
+      { title: "Cosa osservare", body: "A " + item.name + " parti dagli elementi citati nella descrizione e confrontali con scala, materiali, accessi e rapporto con il quartiere. " + guide.observe + " Nell'area di " + item.area + ", " + city.signs.charAt(0).toLowerCase() + city.signs.slice(1) },
       { title: "Come viverlo", body: "Tempo indicativo: " + item.duration + ". Momento consigliato: " + item.tip + ". " + guide.visit },
       { title: "La chiave della città", body: city.place + " " + city.history },
       { title: "Rispetto e buone maniere", body: guide.etiquette },
       { title: "Come collegarlo al viaggio", body: city.route },
-      { title: "Nota semiseria", body: placeHumor[item.category] || placeHumor.quartiere, fun: true }
+      { title: "Nota semiseria", body: placeHumorFor(item), fun: true }
     ];
   }
 
@@ -311,15 +538,48 @@
     const city = cityGuides[item.city];
     const guide = foodGuides[item.category] || foodGuides.secondi;
     const context = contextGuides[item.context] || contextGuides.ristorante;
-    item.longDescription = item.description + " Provarlo a " + cityName(item.city) + " aiuta a collegare ingredienti, tecniche e abitudini locali oltre le specialità più note.";
+    const profile = foodProfile(item);
+    item.longDescription = item.description
+      + " In giapponese si scrive " + item.jp + ", ed è il nome da mostrare o indicare se non riuscite a pronunciarlo."
+      + " Lo si trova soprattutto in un contesto preciso, " + item.context + ": " + lower(context.how)
+      + " " + profile.see
+      + " " + profile.taste
+      + " " + guide.know;
+    item.sources = sourcesFor(item, "food");
     item.guideSections = [
-      { title: "Come riconoscerlo", body: guide.recognize + " Per " + item.name + ", usa come riferimento la descrizione della scheda e confronta aspetto, cottura e guarnizioni prima di ordinare." },
-      { title: "Che sapore aspettarsi", body: guide.flavor + " " + city.food },
+      { title: "Come riconoscerlo", body: profile.see + " " + guide.recognize + " Per " + item.name + " il riferimento principale resta questo: " + item.description },
+      { title: "Che sapore aspettarsi", body: profile.taste + " " + guide.flavor + " " + city.food },
       { title: "Come si mangia", body: guide.eat + " " + context.how },
       { title: "Come ordinarlo", body: "Mostra il nome " + item.jp + " al personale. " + context.order },
       { title: "Da sapere", body: guide.know + " " + foodSafety(item) },
       { title: "Per capirne il contesto", body: city.identity + " " + city.history },
-      { title: "Nota semiseria", body: foodHumor[item.category] || foodHumor.secondi, fun: true }
+      { title: "Nota semiseria", body: foodHumorFor(item), fun: true }
+    ];
+  }
+
+  function enrichExperience(item) {
+    const city = cityGuides[item.city] || cityGuides.all;
+    const guide = experienceGuides[item.category] || experienceGuides.quirky;
+    item.longDescription = item.description
+      + " Si fa a " + cityName(item.city) + ", zona " + item.area + ", e richiede " + item.duration.toLowerCase() + "."
+      + " " + guide.why
+      + " In concreto, ecco come funziona per chi non l'ha mai fatto. " + guide.do
+      + " Una cosa da sapere prima di presentarsi: " + lower(guide.know)
+      + " " + (item.booking || "Verifica accesso e disponibilità prima di andare.");
+    if (!item.sourceUrl) {
+      item.sourceUrl = experienceSources[item.city];
+      item.sourceTitle = "Guida turistica ufficiale · " + cityName(item.city);
+    }
+    item.sources = sourcesFor(item, "culture");
+    item.imageQueries = [item.imageQuery, item.jp + " " + item.name, item.name + " " + cityName(item.city)];
+    item.guideSections = [
+      { title: "Perché farla", body: guide.why + " " + city.identity },
+      { title: "Cosa succede davvero", body: item.description + " Tempo indicativo: " + item.duration + "." },
+      { title: "Come viverla bene", body: guide.do },
+      { title: "Prima di andare", body: (item.booking || item.tip || "Verifica accesso e disponibilità.") + " " + guide.know },
+      { title: "Rispetto e sicurezza", body: "Segui il personale, non invadere aree di lavoro e chiedi sempre prima di fotografare persone o procedure. Le attività su strada o fisicamente impegnative richiedono una valutazione più severa di una normale visita." },
+      { title: "Come collegarla alla tappa", body: city.route + " " + city.place },
+      { title: "Nota semiseria", body: experienceHumorFor(item), fun: true }
     ];
   }
 
@@ -328,15 +588,51 @@
     const guide = historyGuides[item.category] || historyGuides.storia;
     item.name = item.title;
     item.jp = item.kanji;
-    item.longDescription = item.explanation + " Questo tema offre una chiave concreta per leggere " + cityName(item.city) + " sul posto e collegare ciò che vedrai alla storia della città.";
+    item.longDescription = item.explanation
+      + " In giapponese la parola chiave è " + item.kanji + "."
+      + " Perché serve saperlo prima di arrivare: " + lower(guide.lens)
+      + " Sul posto si traduce in cose molto concrete da guardare. " + guide.look
+      + " " + city.history
+      + " Se dovete portarvi via una cosa sola da questa scheda, portatevi questa: " + item.anecdote;
+    item.sources = sourcesFor(item, "culture");
     item.guideSections = [
       { title: "Il quadro generale", body: city.history + " " + item.explanation },
-      { title: "La domanda giusta", body: guide.lens },
+      { title: "La domanda giusta", body: guide.lens + " Per " + item.title + ", chiediti quali parti del racconto sono ancora visibili e quali sopravvivono soltanto nei rituali, nei nomi o nella memoria locale." },
       { title: "Cosa riconoscere sul posto", body: guide.look + " " + city.signs },
       { title: "Collegalo alle visite", body: city.place + " " + city.route },
       { title: "L'aneddoto da ricordare", body: item.anecdote },
       { title: "Parole chiave", body: item.kanji + " · " + item.title + " · " + data.labels.historyCategories[item.category] + " · " + data.cities.find(function (candidate) { return candidate.id === item.city; }).name },
-      { title: "Nota semiseria", body: historyHumor[item.category] || historyHumor.storia, fun: true }
+      { title: "Nota semiseria", body: historyHumorFor(item), fun: true }
+    ];
+  }
+
+  function shoppingChecks(item) {
+    const text = (item.name + " " + item.jp + " " + item.description + " " + item.tip).toLowerCase();
+    const notes = [];
+    if (item.category === "beauty") notes.push("Leggi ingredienti e istruzioni, verifica la scadenza dopo apertura e fai un patch test se la formula è nuova per te.");
+    if (item.category === "tecnologia") notes.push("Un apparecchio giapponese può essere progettato per 100 V, layout JIS, servizi regionali o garanzia domestica: il codice modello va verificato prima del pagamento.");
+    if (/liquid|olio|lozione|siero|smalt|inchiostro|sake|salsa|miso|pasta/.test(text)) notes.push("Proteggi i liquidi in un sacchetto separato e controlla i limiti del bagaglio a mano.");
+    if (/coltello|lama|knife/.test(text)) notes.push("Le lame vanno protette e trasportate secondo le regole della compagnia e del paese di arrivo.");
+    if (/usato|vintage|second.hand|中古/.test(text)) notes.push("Per l'usato controlla condizioni, accessori, reso e funzionamento prima di lasciare il negozio.");
+    if (item.category === "dispensa") notes.push("Per alimenti e prodotti di origine animale verifica le regole doganali in vigore al momento del rientro.");
+    if (!notes.length) notes.push("Conserva etichetta, ricevuta e istruzioni almeno fino al rientro, soprattutto per oggetti fragili o di valore.");
+    return notes.join(" ");
+  }
+
+  function enrichShopping(item) {
+    const guide = shoppingGuides[item.category] || shoppingGuides.artigianato;
+    const placeContext = item.city === "all" ? "È una ricerca adatta a più tappe del viaggio: confrontare assortimenti tra città aiuta a distinguere un prodotto nazionale da un'edizione realmente locale." : "Cercarlo a " + cityName(item.city) + " collega l'acquisto alle botteghe, ai materiali e alla cultura commerciale della zona.";
+    item.longDescription = item.description + " " + placeContext;
+    item.sources = sourcesFor(item, "shopping");
+    item.imageQueries = [item.imageQuery, item.jp + " " + item.name, item.name + " Japan product"];
+    item.guideSections = [
+      { title: "Perché cercarlo in Giappone", body: guide.why + " " + placeContext },
+      { title: "Come riconoscerlo", body: guide.recognize },
+      { title: "Dove guardare", body: "Punto di partenza: " + item.where + ". Confronta negozio ufficiale, specialista e grande catena quando esistono; disponibilità, colori ed edizioni cambiano rapidamente." },
+      { title: "Quanto è davvero raro", body: "Consideralo soprattutto più facile da trovare, più vario o più conveniente in Giappone, non automaticamente impossibile da acquistare in Italia. Verifica codice o edizione esatta prima di pagare un sovrapprezzo per la parola limited." },
+      { title: "Compatibilità e valigia", body: shoppingChecks(item) },
+      { title: "Strategia d'acquisto", body: "Fascia indicativa: " + item.price + ". " + item.tip + " " + guide.buy },
+      { title: "Nota semiseria", body: shoppingHumorFor(item), fun: true }
     ];
   }
 
@@ -344,46 +640,71 @@
     return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "");
   }
 
-  function findCuratedPlace(point) {
+  function findGuideItem(point) {
     const pointName = normalizeName(point.name);
-    return data.places.find(function (place) {
-      if (place.city !== point.city) return false;
-      const placeName = normalizeName(place.name);
-      return pointName === placeName || (Math.min(pointName.length, placeName.length) >= 7 && (pointName.includes(placeName) || placeName.includes(pointName)));
+    const candidates = [].concat(data.places, data.experiences || []);
+    if (point.guideId) {
+      const linked = candidates.find(function (item) { return item.id === point.guideId; });
+      if (linked) return linked;
+    }
+    return candidates.find(function (item) {
+      if (item.city !== point.city) return false;
+      const itemName = normalizeName(item.name);
+      return pointName === itemName || (Math.min(pointName.length, itemName.length) >= 7 && (pointName.includes(itemName) || itemName.includes(pointName)));
     });
+  }
+
+  function mapExperienceCategory(point) {
+    if (point.category === "museo") return "museum";
+    const text = normalizeName(point.name + " " + point.category);
+    if (/onsen|sento|spa/.test(text)) return "wellness";
+    if (/universal|disney|aquarium|teamlab|ghibli/.test(text)) return "theme";
+    if (/kabuki|kembu|theater|theatre/.test(text)) return "show";
+    if (/kokugikan|sumo|baseball|cycling|kart/.test(text)) return "sports";
+    if (/kimono|workshop|craft|yuzen|pottery/.test(text)) return "workshop";
+    return "quirky";
   }
 
   function enrichMapPoints() {
     data.mapPlaces = [];
     if (!window.JAPAN_MAP_DATA) return;
     window.JAPAN_MAP_DATA.points.filter(function (point) { return point.type === "visit"; }).forEach(function (point) {
-      const curated = findCuratedPlace(point);
+      const curated = findGuideItem(point);
       if (curated) {
         point.guideId = curated.id;
         return;
       }
-      const category = placeGuides[point.category] ? point.category : "quartiere";
+      const isExperience = point.category === "museo" || point.category === "esperienza";
+      const category = data.labels.placeCategories[point.category] ? point.category : "quartiere";
       const item = {
         id: "guide-" + point.id,
-        type: "place",
+        type: isExperience ? "experience" : "place",
         city: point.city,
         name: point.name,
         jp: "",
-        category: category,
+        category: isExperience ? mapExperienceCategory(point) : category,
         area: point.area || point.group || cityName(point.city),
         description: point.description,
         duration: "Da adattare alla giornata",
         tip: "Valuta affluenza e accessi sul posto",
+        booking: "Controlla calendario, accesso e disponibilità sul sito ufficiale",
         imageQuery: point.name + " " + cityName(point.city) + " Japan"
       };
-      enrichPlace(item);
-      data.mapPlaces.push(item);
+      if (isExperience) {
+        enrichExperience(item);
+        data.experiences.push(item);
+      } else {
+        enrichPlace(item);
+        data.mapPlaces.push(item);
+      }
       point.guideId = item.id;
     });
   }
 
   data.places.forEach(enrichPlace);
   data.foods.forEach(enrichFood);
+  data.shopping.forEach(enrichShopping);
   data.history.forEach(enrichHistory);
+  (data.experiences || []).forEach(enrichExperience);
   enrichMapPoints();
 })();
