@@ -106,6 +106,18 @@ main { min-height: 100vh; padding: calc(var(--header-height) + var(--safe-top) +
 .now-card > span { color: var(--red); font-size: .66rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .now-card b { margin-top: .4rem; font: 600 1.2rem/1.25 "Noto Serif JP", serif; overflow-wrap: anywhere; }
 .now-card small { margin-top: .35rem; color: var(--muted); font-size: .8rem; }
+.now-weather { margin-top: .65rem; }
+.weather-card { display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: center; padding: .9rem 1.1rem; border: 1px solid var(--line); border-radius: 14px; background: var(--white); color: var(--ink); text-decoration: none; }
+.weather-icon { font-size: 2rem; line-height: 1; }
+.weather-body { flex: 1 1 200px; display: grid; grid-template-columns: auto 1fr; gap: 0 .7rem; align-items: baseline; }
+.weather-body strong { grid-row: 1 / 3; font: 600 2.1rem/1 "Noto Serif JP", serif; }
+.weather-body b { font-weight: 800; font-size: .92rem; }
+.weather-body small { grid-column: 2; color: var(--muted); font-size: .76rem; line-height: 1.45; }
+.weather-link { color: var(--red); font-size: .76rem; font-weight: 800; white-space: nowrap; }
+.weather-card.is-empty { display: grid; gap: .2rem; }
+.weather-card.is-empty strong { font: 600 1.1rem "Noto Serif JP", serif; }
+.weather-card.is-empty span { color: var(--muted); font-size: .8rem; }
+
 .now-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .65rem; }
 .now-actions button { min-height: var(--tap); border: 1px solid var(--line); border-radius: 999px; padding: .6rem 1rem; color: var(--ink); background: var(--white); cursor: pointer; font-size: .78rem; font-weight: 800; }
 
@@ -125,8 +137,10 @@ main { min-height: 100vh; padding: calc(var(--header-height) + var(--safe-top) +
 .day-tips .helper-note { margin: .7rem 0 0; }
 
 .transfer-strip { padding: 0 0 3rem; }.transfer-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .65rem; }.transfer-card { display: flex; gap: .9rem; align-items: flex-start; padding: 1rem; border: 1px solid var(--line); border-radius: 14px; background: color-mix(in srgb, var(--white) 65%, transparent); }.transfer-card > span { flex: 0 0 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; color: var(--paper); background: var(--moss); font-size: .68rem; font-weight: 800; }.transfer-card b, .transfer-card small { display: block; }.transfer-card b { font: 600 1rem "Noto Serif JP", serif; }.transfer-card small { margin-top: .3rem; color: var(--muted); }
-.stay-strip { padding: 0 0 3rem; }.stay-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; }.stay-card { min-height: 190px; display: flex; flex-direction: column; padding: 1rem; border: 1px solid var(--line); border-radius: 14px; background: var(--white); }.stay-card b, .stay-card span, .stay-card small { display: block; }.stay-card b { margin-top: .35rem; font: 600 1.1rem "Noto Serif JP", serif; }.stay-card > span { color: var(--red); font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }.stay-card small { margin-top: .6rem; color: var(--muted); }.stay-card .stay-area { color: var(--moss); font-weight: 800; }.stay-card a { margin-top: auto; padding-top: .8rem; color: var(--red); font-size: .75rem; font-weight: 800; text-decoration: none; }
+.stay-strip { padding: 0 0 3rem; }.stay-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; }.stay-card { min-height: 190px; display: flex; flex-direction: column; padding: 1rem; border: 1px solid var(--line); border-radius: 14px; background: var(--white); }.stay-card b, .stay-card span, .stay-card small { display: block; }.stay-card b { margin-top: .35rem; font: 600 1.1rem "Noto Serif JP", serif; }.stay-card > span { color: var(--red); font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }.stay-card small { margin-top: .6rem; color: var(--muted); }.stay-card .stay-area { color: var(--moss); font-weight: 800; }.stay-card a { min-height: var(--tap); display: flex; align-items: center; margin-top: auto; padding-top: .8rem; color: var(--red); font-size: .75rem; font-weight: 800; text-decoration: none; }
 
+.back-link { min-height: var(--tap); display: inline-flex; align-items: center; margin-top: 4.6rem; padding: .5rem .95rem .5rem .7rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: var(--white); cursor: pointer; font-size: .78rem; font-weight: 800; }
+.back-link + .page-intro { padding-top: 1.2rem; }
 .page-intro { padding: 5.5rem 0 2.2rem; border-bottom: 1px solid var(--line); }
 .page-intro h1 { font-size: clamp(3.5rem, 8vw, 8rem); }
 .page-intro > p:last-child { max-width: 650px; color: var(--muted); font-size: 1.06rem; }
@@ -150,9 +164,6 @@ select { width: auto; min-width: 165px; padding: 0 2.4rem 0 .9rem; }
 .content-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
 .card-media { aspect-ratio: 16/10; position: relative; overflow: hidden; background: var(--paper-deep); }
 .card-media img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; transition: opacity .35s ease, transform .5s ease; }
-.media-script { position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; padding: .5rem; color: color-mix(in srgb, var(--ink) 62%, transparent); font: 600 clamp(1.6rem, 7vw, 2.6rem)/1.15 "Noto Serif JP", serif; text-align: center; overflow-wrap: anywhere; transition: opacity .3s ease; }
-.card-media img.is-loaded + .media-script { opacity: 0; }
-.card-media.has-script img.is-loaded { z-index: 2; }
 .card-media img.is-loaded { opacity: 1; }.content-card:hover .card-media img { transform: scale(1.025); }
 .image-shimmer { position: absolute; inset: 0; background: linear-gradient(110deg, #e3ddcf 8%, #f3eee5 18%, #e3ddcf 33%); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; }
 @keyframes shimmer { to { background-position-x: -200%; } }
@@ -186,10 +197,14 @@ select { width: auto; min-width: 165px; padding: 0 2.4rem 0 .9rem; }
 .map-legend { display: flex; flex-wrap: wrap; gap: .25rem .9rem; align-items: center; margin: 0 .35rem 1rem; padding: .4rem .75rem; border-radius: 12px; background: var(--paper); }.map-legend label { min-height: var(--tap); display: flex; align-items: center; gap: .45rem; font-size: .73rem; font-weight: 800; cursor: pointer; }.map-legend input { width: 17px; height: 17px; accent-color: var(--red); }.map-legend > span { flex: 1 1 360px; padding-bottom: .45rem; color: var(--muted); font-size: .7rem; }.legend-dot { width: 12px; height: 12px; display: inline-block; border-radius: 50%; }.legend-dot.visit { background: var(--moss); }.legend-dot.tabelog { background: var(--gold); }.legend-dot.hotel { background: #1b76d1; }
 #tripMap { height: min(63vh, 680px); min-height: 440px; border-radius: 16px; background: var(--paper-deep); overflow: hidden; }
 #tripMap.is-lasso { cursor: crosshair; touch-action: none; }
+/* I comandi di zoom di Leaflet sono 30px: troppo piccoli per un pollice. */
+.leaflet-touch .leaflet-bar a, .leaflet-bar a { width: var(--tap); height: var(--tap); line-height: var(--tap); font-size: 1.3rem; }
 #tripMap.is-lasso .leaflet-marker-icon, #tripMap.is-lasso .leaflet-interactive { pointer-events: none; }
 .lasso-bar { display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: center; justify-content: space-between; margin: 0 .35rem .8rem; }
 .lasso-bar p { margin: 0; flex: 1 1 240px; color: var(--muted); font-size: .78rem; line-height: 1.5; }
 .lasso-bar p:empty { display: none; }
+.lasso-link { min-height: var(--tap); display: inline-flex; align-items: center; border-radius: 999px; padding: .6rem 1.1rem; color: var(--paper); background: var(--red); text-decoration: none; font-size: .78rem; font-weight: 800; }
+.lasso-link[hidden] { display: none; }
 .lasso-bar button { min-height: var(--tap); border: 0; border-radius: 999px; padding: .6rem 1.1rem; color: var(--paper); background: var(--moss); cursor: pointer; font-size: .78rem; font-weight: 800; }
 .lasso-bar button:disabled { opacity: .55; cursor: default; }
 #lassoButton[aria-pressed="true"] { color: var(--paper); background: var(--red); border-color: var(--red); }
@@ -261,7 +276,10 @@ body:has(dialog[open]) { overflow: hidden; }
 .bottom-nav button { min-height: 52px; border: 0; border-radius: 13px; background: none; color: var(--nav-fg); cursor: pointer; }
 .bottom-nav button span, .bottom-nav button small { display: block; }.bottom-nav button span { font-size: 1.15rem; line-height: 1; }.bottom-nav button small { margin-top: .28rem; font-size: .62rem; font-weight: 700; }
 .bottom-nav button.is-active { color: var(--on-dark-fg); background: var(--on-dark-bg); }
-.mobile-nav { display: none; }
+/* Stessa navigazione su telefono e su browser: sei voci ovunque. Prima il
+   desktop mostrava nove tab diretti e nascondeva i due menu, e Traduttore,
+   Valigia e Note — che vivono solo dentro Utilità — erano irraggiungibili. */
+.desktop-nav { display: none !important; }
 .nav-menu-dialog { width: min(620px, calc(100% - 20px)); padding: 1.3rem; border: 0; border-radius: 24px; color: var(--ink); background: var(--white); box-shadow: 0 30px 100px rgba(0,0,0,.32); }.nav-menu-dialog::backdrop { background: rgba(20,25,23,.66); backdrop-filter: blur(5px); }.nav-menu-dialog h2 { margin: .2rem 2.5rem 1.2rem 0; font: 600 clamp(1.8rem, 6vw, 2.7rem)/1.1 "Noto Serif JP", serif; }.nav-menu-close { position: absolute; top: 1rem; right: 1rem; width: var(--tap); height: var(--tap); border: 0; border-radius: 50%; color: var(--paper); background: var(--ink); cursor: pointer; font-size: 1.2rem; }.nav-menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .65rem; }.nav-menu-grid button { display: grid; grid-template-columns: 36px 1fr; gap: .65rem; align-items: start; min-width: 0; border: 1px solid var(--line); border-radius: 14px; padding: 1rem; color: var(--red); background: var(--paper); text-align: left; cursor: pointer; font: 700 1.2rem "Noto Serif JP", serif; }.nav-menu-grid button span, .nav-menu-grid button small { display: block; }.nav-menu-grid button span { color: var(--ink); }.nav-menu-grid button small { margin-top: .25rem; color: var(--muted); font: 500 .72rem/1.4 "DM Sans", sans-serif; }
 
 .detail-dialog { width: min(860px, calc(100% - 28px)); max-height: min(91dvh, 1080px); padding: 0; border: 0; border-radius: 24px; color: var(--ink); background: var(--white); box-shadow: 0 30px 100px rgba(0,0,0,.32); }
@@ -310,10 +328,14 @@ body:has(dialog[open]) { overflow: hidden; }
   .now-grid { grid-template-columns: 1fr; }.now-card { padding: .9rem 1rem; }
   .now-actions button { flex: 1 1 100%; }
   .day-tips { padding: 1rem; }.day-tips-list li { grid-template-columns: 1fr; }
+  .back-link { margin-top: 1.6rem; }.back-link + .page-intro { padding-top: .8rem; }
   .page-intro { padding: 2.4rem 0 1.5rem; }.page-intro h1 { max-width: 100%; font-size: clamp(2.6rem, 11vw, 4rem); overflow-wrap: anywhere; }.page-intro > p:last-child { font-size: .95rem; }
   .sticky-toolbar { margin-inline: -14px; padding: .7rem 14px; border-bottom: 1px solid var(--line); box-shadow: 0 10px 25px rgba(29,37,34,.06); }
   .toolbar { flex-wrap: wrap; gap: .55rem; }.toolbar .search-box { flex: 1 1 calc(100% - 104px); min-width: 0; }.toolbar .search-box input { height: 44px; }.filter-toggle { flex: 0 0 94px; min-height: 44px; display: flex; align-items: center; justify-content: center; gap: .42rem; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); background: var(--white); font-weight: 800; }.filter-toggle span { min-width: 20px; height: 20px; display: grid; place-items: center; border-radius: 99px; color: white; background: var(--muted); font-size: .66rem; }.filter-toggle.has-active span { background: var(--red); }.toolbar select, .toolbar > .toggle, .toolbar > .filter-reset { display: none; }.toolbar.filters-open select, .toolbar.filters-open > .toggle, .toolbar.filters-open > .filter-reset { display: flex; }.toolbar.filters-open { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }.toolbar.filters-open .search-box { grid-column: 1; }.toolbar.filters-open .filter-toggle { grid-column: 2; justify-self: end; }.toolbar.filters-open select { width: 100%; min-width: 0; padding-right: 1.8rem; }.toolbar.filters-open > .toggle, .toolbar.filters-open > .filter-reset { grid-column: 1 / -1; width: 100%; }.toolbar.filters-open > .filter-reset { min-height: var(--tap); align-items: center; justify-content: center; border-radius: 10px; }
   .place-grid, .food-grid, .shop-grid { grid-template-columns: 1fr; }.content-card { display: grid; grid-template-columns: 42% 58%; }.card-media { height: 100%; aspect-ratio: auto; }.card-actions { top: .55rem; right: auto; left: .55rem; }.card-body { padding: .85rem; }.card-description { -webkit-line-clamp: 2; min-height: 2.6em; }.tag-row { display: none; }.content-card h3 { font-size: 1.12rem; }.card-kicker { display: block; }.card-kicker .rating { display: block; margin-top: .18rem; }
+  /* In colonna il flex non separa più i due testi: senza questo si legge
+     "Riti e simboli€€" tutto attaccato. */
+  .card-kicker span + span:not(.rating)::before { content: "·"; margin: 0 .4rem; color: var(--muted); }
   .map-panel { padding: .7rem; }.map-toolbar { align-items: stretch; flex-direction: column; gap: .6rem; padding-bottom: .7rem; }.map-actions { overflow-x: auto; padding-bottom: .2rem; }.map-actions button { flex: 0 0 auto; } #tripMap { min-height: 300px; height: min(52vh, 420px); }
   .history-grid { grid-template-columns: 1fr; }.history-card { min-height: 280px; }
   .phrase-toolbar { margin-inline: -14px; padding: .7rem 14px; border-bottom: 1px solid var(--line); }.phrase-grid { grid-template-columns: 1fr; }.emergency-panel { grid-template-columns: 1fr; gap: 1rem; }.emergency-grid { grid-template-columns: 1fr; }
@@ -437,9 +459,16 @@ body:has(dialog[open]) { overflow: hidden; }
 .primary-action.is-disabled { opacity: .45; pointer-events: none; }
 .translator-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .45rem; }.translator-options a { min-width: 0; display: flex; flex-direction: column; gap: .18rem; padding: .65rem; border-radius: 10px; color: var(--ink); background: var(--paper); text-decoration: none; }.translator-options span { color: var(--muted); font-size: .66rem; line-height: 1.35; }
 
-.bottom-nav { width: min(960px, calc(100% - 28px)); display: flex; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; }
-.bottom-nav::-webkit-scrollbar { display: none; }
-.bottom-nav button { flex: 1 0 88px; }
+.bottom-nav { width: min(620px, calc(100% - 28px)); display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.bottom-nav button { min-width: 0; }
+
+.quick-rate { margin: 0 0 1rem; padding: .9rem 1rem; border-radius: 14px; background: var(--paper); }
+.quick-rate > label { display: block; margin-bottom: .5rem; color: var(--muted); font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.quick-rate > div { display: flex; gap: .5rem; align-items: center; }
+.quick-rate input { flex: 1 1 90px; min-width: 0; height: var(--tap); border: 1px solid var(--line); border-radius: 12px; padding: 0 .8rem; color: var(--ink); background: var(--white); font-size: 1rem; }
+.quick-rate > div > span { color: var(--muted); font-size: 1.1rem; font-weight: 800; }
+.quick-rate strong { flex: 1 1 auto; text-align: right; font: 600 1.5rem "Noto Serif JP", serif; }
+.quick-rate .helper-note { margin: .45rem 0 0; }
 
 .search-dialog { width: min(680px, calc(100% - 24px)); max-height: min(84dvh, 900px); padding: 0; border: 0; border-radius: 22px; color: var(--ink); background: var(--white); box-shadow: 0 30px 100px rgba(0,0,0,.32); }
 .search-dialog::backdrop { background: rgba(20,25,23,.66); backdrop-filter: blur(5px); }
@@ -538,9 +567,7 @@ a.cross-link { text-decoration: none; color: inherit; }
   .progress-city-grid, .video-guide-grid { grid-template-columns: 1fr; }
   .photo-translator { grid-template-columns: 1fr; gap: 1rem; padding: 1.1rem; }
   .saved-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .desktop-nav { display: none !important; }
-  .mobile-nav { display: block; }
-  .bottom-nav { width: calc(100% - 16px); display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1px; padding: .34rem; overflow: visible; }
+  .bottom-nav { width: calc(100% - 16px); gap: 1px; padding: .34rem; }
   .bottom-nav button { min-width: 0; padding-inline: 1px; flex-basis: auto; }
   .bottom-nav button small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .nav-menu-dialog { width: 100%; max-width: none; margin: auto 0 0; border-radius: 24px 24px 0 0; padding: 1.2rem 1rem calc(1.2rem + var(--safe-bottom)); }

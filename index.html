@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#14181a" media="(prefers-color-scheme: dark)">
   <meta name="description" content="Guida di viaggio in Giappone con itinerario, mappa, luoghi, esperienze, cibo, acquisti e storie.">
   <title>Giappone 2026 | Tabi</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260804c">
+  <link rel="manifest" href="manifest.webmanifest?v=20260804o">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://commons.wikimedia.org">
@@ -18,9 +18,9 @@
   <link rel="preconnect" href="https://tile.openstreetmap.org">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Noto+Serif+JP:wght@500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="assets/styles.css?v=20260804c">
-  <link rel="icon" href="assets/icons/icon.svg?v=20260804c" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260804c">
+  <link rel="stylesheet" href="assets/styles.css?v=20260804o">
+  <link rel="icon" href="assets/icons/icon.svg?v=20260804o" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260804o">
 </head>
 <body>
   <a class="skip-link" href="#main">Vai al contenuto</a>
@@ -89,7 +89,7 @@
           <div><p class="eyebrow">La rotta completa</p><h2 id="mapTitle">Da Osaka a Tokyo</h2></div>
           <div class="map-actions"><button id="locateButton" type="button">◎ La mia posizione</button><button id="lassoButton" type="button" aria-pressed="false">✎ Disegna un'area</button><button id="fitRouteButton" type="button">Inquadra il viaggio</button><button id="expandMapButton" type="button" aria-pressed="false">Espandi mappa</button></div>
         </div>
-        <div class="lasso-bar"><p id="lassoStatus" role="status"></p><button id="lassoOpenButton" type="button" hidden>Apri il giro in Google Maps ↗</button></div>
+        <div class="lasso-bar"><p id="lassoStatus" role="status"></p><button id="lassoUseGpsButton" type="button" hidden>◎ Parti da dove sono</button><a id="lassoLink" class="lasso-link" target="_blank" rel="noopener" hidden>Apri il giro in Google Maps ↗</a></div>
         <div class="map-legend" aria-label="Legenda e filtri della mappa">
           <label><input type="checkbox" data-map-layer="visit" checked><i class="legend-dot visit"></i> Luoghi da visitare</label>
           <label><input type="checkbox" data-map-layer="tabelog" checked><i class="legend-dot tabelog"></i> Locali Tabelog</label>
@@ -337,26 +337,32 @@
   <dialog class="nav-menu-dialog" id="navMenuDialog">
     <button class="nav-menu-close" type="button" aria-label="Chiudi menu">×</button>
     <div data-nav-panel="discover"><p class="eyebrow">Scopri il Giappone</p><h2>Cosa vuoi esplorare?</h2><div class="nav-menu-grid"><button data-go="experiences">☆ <span>Esperienze<small>Musei, attività e cose insolite</small></span></button><button data-go="food">○ <span>Cibo<small>Piatti, bevande e street food</small></span></button><button data-go="shopping">◇ <span>Acquisti<small>Artigianato, beauty, manga e tech</small></span></button><button data-go="history">文 <span>Storie<small>Contesto, architettura e aneddoti</small></span></button></div></div>
-    <div data-nav-panel="tools" hidden><p class="eyebrow">Utilità rapide</p><h2>Cosa ti serve adesso?</h2><div class="nav-menu-grid"><button data-go="emergency">! <span>Emergenze<small>Numeri, frasi e posizione</small></span></button><button data-go="translate">写 <span>Fotografa e traduci<small>Menu, cartelli ed etichette</small></span></button><button data-go="packing">🧳 <span>Cosa portare<small>Lista valigia da spuntare</small></span></button><button data-go="notes">✎ <span>Note<small>Appunti salvati sul telefono</small></span></button><button data-go="saved">♡ <span>Salvati<small>Preferiti e checklist di gruppo</small></span></button></div></div>
+    <div data-nav-panel="tools" hidden><p class="eyebrow">Utilità rapide</p><h2>Cosa ti serve adesso?</h2>
+      <div class="quick-rate">
+        <label for="quickYen">Quanto costa in euro?</label>
+        <div><input id="quickYen" type="number" inputmode="decimal" min="0" placeholder="3800" aria-label="Importo in yen"><span aria-hidden="true">¥</span><strong id="quickYenOut">—</strong></div>
+        <p class="helper-note" id="quickYenNote"></p>
+      </div>
+      <div class="nav-menu-grid"><button data-go="emergency">! <span>Emergenze<small>Numeri, frasi e posizione</small></span></button><button data-go="translate">写 <span>Fotografa e traduci<small>Menu, cartelli ed etichette</small></span></button><button data-go="packing">🧳 <span>Cosa portare<small>Lista valigia da spuntare</small></span></button><button data-go="notes">✎ <span>Note<small>Appunti salvati sul telefono</small></span></button><button data-go="saved">♡ <span>Salvati<small>Preferiti e checklist di gruppo</small></span></button></div></div>
   </dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script src="assets/data.js?v=20260804c" defer></script>
-  <script src="assets/food-data.js?v=20260804c" defer></script>
-  <script src="assets/shopping-data.js?v=20260804c" defer></script>
-  <script src="assets/food-extra-data.js?v=20260804c" defer></script>
-  <script src="assets/travel-data.js?v=20260804c" defer></script>
-  <script src="assets/history-data.js?v=20260804c" defer></script>
-  <script src="assets/phrases-data.js?v=20260804c" defer></script>
-  <script src="assets/glossary-data.js?v=20260804c" defer></script>
-  <script src="assets/packing-data.js?v=20260804c" defer></script>
-  <script src="assets/day-tips-data.js?v=20260804c" defer></script>
-  <script src="assets/map-data.js?v=20260804c" defer></script>
-  <script src="assets/experiences-data.js?v=20260804c" defer></script>
-  <script src="assets/source-data.js?v=20260804c" defer></script>
-  <script src="assets/guide-data.js?v=20260804c" defer></script>
-  <script src="assets/map.js?v=20260804c" defer></script>
-  <script src="assets/app.js?v=20260804c" defer></script>
+  <script src="assets/data.js?v=20260804o" defer></script>
+  <script src="assets/food-data.js?v=20260804o" defer></script>
+  <script src="assets/shopping-data.js?v=20260804o" defer></script>
+  <script src="assets/food-extra-data.js?v=20260804o" defer></script>
+  <script src="assets/travel-data.js?v=20260804o" defer></script>
+  <script src="assets/history-data.js?v=20260804o" defer></script>
+  <script src="assets/phrases-data.js?v=20260804o" defer></script>
+  <script src="assets/glossary-data.js?v=20260804o" defer></script>
+  <script src="assets/packing-data.js?v=20260804o" defer></script>
+  <script src="assets/day-tips-data.js?v=20260804o" defer></script>
+  <script src="assets/map-data.js?v=20260804o" defer></script>
+  <script src="assets/experiences-data.js?v=20260804o" defer></script>
+  <script src="assets/source-data.js?v=20260804o" defer></script>
+  <script src="assets/guide-data.js?v=20260804o" defer></script>
+  <script src="assets/map.js?v=20260804o" defer></script>
+  <script src="assets/app.js?v=20260804o" defer></script>
 </body>
 </html>

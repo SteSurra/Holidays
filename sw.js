@@ -1,7 +1,7 @@
 const CACHE = "tabi-japan-v23";
 const TILE_CACHE = "tabi-tiles-v1";
 const TILE_LIMIT = 320;
-const VERSION = "?v=20260804c";
+const VERSION = "?v=20260804o";
 
 // Guscio di prima parte: senza questo l'app non parte. L'installazione fallisce
 // se manca anche un solo file, ed è giusto così.

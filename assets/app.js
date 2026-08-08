@@ -16,6 +16,8 @@
     done: new Set(readJSON("tabi-done", [])),
     imageCache: readJSON("tabi-image-cache-v3", {}),
     position: null,
+    currentView: "",
+    previousView: "",
     packed: new Set(readJSON("tabi-packing", [])),
     notes: readJSON("tabi-notes-v1", []),
     filters: {
@@ -180,16 +182,10 @@
       && (!filters.local || item.local);
   }
 
-  // Per molti acquisti — prodotti di marca soprattutto — non esistono foto con
-  // licenza libera. Invece di mettere un'immagine sbagliata, la scheda mostra
-  // il nome giapponese in grande: serve a riconoscere l'oggetto sullo scaffale,
-  // che è poi il motivo per cui si guarda la figura.
   function cardImage(item) {
-    const script = item.jp && /[぀-ヿ一-龯]/.test(item.jp) ? item.jp : "";
-    return '<div class="card-media' + (script ? ' has-script' : '') + '">'
+    return '<div class="card-media">'
       + '<div class="image-shimmer"></div>'
       + '<img class="lazy-remote-image" src="' + fallbackByType[item.type] + '" data-image-id="' + escapeHTML(item.id) + '" data-type="' + item.type + '" alt="' + escapeHTML(item.name) + '" loading="lazy" decoding="async" referrerpolicy="no-referrer">'
-      + (script ? '<span class="media-script" aria-hidden="true">' + escapeHTML(script) + '</span>' : '')
       + '<span class="media-badge">' + escapeHTML(cityName(item.city)) + '</span>'
       + '</div>';
   }
@@ -581,6 +577,73 @@
     return "tra " + hours + (rest ? "h " + rest + "min" : hours === 1 ? " ora" : " ore");
   }
 
+  // Meteo della tappa scelta. Fonte gratuita e senza chiave; l'ultimo dato
+  // resta sul telefono, così anche senza rete si vede almeno com'era stamattina.
+  const WEATHER_CODES = {
+    0: ["Sereno", "☀"], 1: ["Poco nuvoloso", "🌤"], 2: ["Parzialmente nuvoloso", "⛅"], 3: ["Coperto", "☁"],
+    45: ["Nebbia", "🌫"], 48: ["Nebbia gelata", "🌫"],
+    51: ["Pioviggine leggera", "🌦"], 53: ["Pioviggine", "🌦"], 55: ["Pioviggine intensa", "🌦"],
+    61: ["Pioggia debole", "🌧"], 63: ["Pioggia", "🌧"], 65: ["Pioggia forte", "🌧"],
+    71: ["Neve debole", "🌨"], 73: ["Neve", "🌨"], 75: ["Neve forte", "🌨"],
+    80: ["Rovesci", "🌦"], 81: ["Rovesci intensi", "🌧"], 82: ["Rovesci violenti", "⛈"],
+    95: ["Temporale", "⛈"], 96: ["Temporale con grandine", "⛈"], 99: ["Temporale forte", "⛈"]
+  };
+
+  function weatherLabel(code) {
+    return WEATHER_CODES[code] || ["Condizioni variabili", "🌡"];
+  }
+
+  async function fetchWeather(city) {
+    const cached = readJSON("tabi-weather", {})[city.id];
+    if (cached && Date.now() - cached.at < 60 * 60 * 1000) return cached;
+    if (!navigator.onLine) return cached || null;
+    try {
+      const url = "https://api.open-meteo.com/v1/forecast?latitude=" + city.lat + "&longitude=" + city.lng
+        + "&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max"
+        + "&timezone=Asia%2FTokyo&forecast_days=1";
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) return cached || null;
+      const payload = await response.json();
+      const record = {
+        at: Date.now(),
+        now: Math.round(payload.current.temperature_2m),
+        code: payload.daily.weather_code[0],
+        max: Math.round(payload.daily.temperature_2m_max[0]),
+        min: Math.round(payload.daily.temperature_2m_min[0]),
+        rain: payload.daily.precipitation_probability_max[0]
+      };
+      const store = readJSON("tabi-weather", {});
+      store[city.id] = record;
+      localStorage.setItem("tabi-weather", JSON.stringify(store));
+      return record;
+    } catch (_) {
+      return cached || null;
+    }
+  }
+
+  function renderWeather(city) {
+    const box = document.getElementById("nowWeather");
+    if (!box) return;
+    const forecast = "https://www.google.com/search?q=" + encodeURIComponent("meteo " + city.name + " Giappone");
+    fetchWeather(city).then(function (weather) {
+      if (!document.getElementById("nowWeather")) return;
+      if (!weather) {
+        box.innerHTML = '<a class="weather-card is-empty" href="' + forecast + '" target="_blank" rel="noopener">'
+          + '<strong>Meteo non disponibile</strong><span>Serve la rete. Apri le previsioni complete ↗</span></a>';
+        return;
+      }
+      const label = weatherLabel(weather.code);
+      const stale = Date.now() - weather.at > 3 * 60 * 60 * 1000;
+      box.innerHTML = '<a class="weather-card" href="' + forecast + '" target="_blank" rel="noopener">'
+        + '<span class="weather-icon" aria-hidden="true">' + label[1] + '</span>'
+        + '<span class="weather-body"><strong>' + weather.now + '°</strong>'
+        + '<b>' + escapeHTML(label[0]) + '</b>'
+        + '<small>Massima ' + weather.max + '° · minima ' + weather.min + '° · pioggia ' + weather.rain + '%'
+        + (stale ? " · dato non recente, sei stato offline" : "") + '</small></span>'
+        + '<span class="weather-link">Previsioni complete ↗</span></a>';
+    });
+  }
+
   function dayTipsHTML(city) {
     const tips = (data.dayTips || []).find(function (item) { return item.city === city.id; });
     if (!tips) return "";
@@ -638,9 +701,11 @@
             : '<b>Ultima tappa</b><small>Da qui si torna a casa</small>') + '</article>'
       + '<article class="now-card"><span>Da spuntare qui</span><b>' + left + '</b><small>su ' + stat.total + ' voci di ' + escapeHTML(city.name) + '</small></article>'
       + '</div>'
+      + '<div id="nowWeather" class="now-weather"></div>'
       + '<div class="now-actions"><button type="button" data-city-route="' + cityId + '">Luoghi a ' + escapeHTML(city.name) + ' →</button>'
       + '<button type="button" data-city-food="' + cityId + '">Cosa mangiare qui →</button></div>'
       + dayTipsHTML(city);
+    renderWeather(city);
   }
 
   function setupCategoryRail() {
@@ -669,7 +734,7 @@
       }, { once: true });
       image.addEventListener("error", function () {
         const item = itemById[image.dataset.imageId];
-        if (!item || image.dataset.provider === "fallback") return;
+        if (!item) return;
         const failed = new Set((image.dataset.failedProviders || "").split(",").filter(Boolean));
         failed.add(image.dataset.provider || "direct");
         image.dataset.failedProviders = Array.from(failed).join(",");
@@ -707,11 +772,17 @@
 
   function applyImageResult(image, result) {
     if (!image || !image.isConnected) return;
-    const fallback = fallbackByType[image.dataset.type] || fallbackByType.place;
-    image.dataset.resolved = result && result.url ? result.url : fallback;
-    image.dataset.credit = result && result.credit || "";
-    image.dataset.sourceUrl = result && result.sourceUrl || "";
-    image.dataset.provider = result && result.provider || "fallback";
+    // Nessuna foto attendibile: il riquadro sparisce del tutto invece di
+    // mostrare un segnaposto o, peggio, una foto a caso. Resta la descrizione.
+    if (!result || !result.url) {
+      const media = image.closest(".card-media");
+      if (media) media.remove();
+      return;
+    }
+    image.dataset.resolved = result.url;
+    image.dataset.credit = result.credit || "";
+    image.dataset.sourceUrl = result.sourceUrl || "";
+    image.dataset.provider = result.provider || "";
     if (image.src !== new URL(image.dataset.resolved, document.baseURI).href) image.src = image.dataset.resolved;
   }
 
@@ -751,12 +822,17 @@
     });
   }
 
-  function isRelevant(query, title, rank) {
+  // Regola: nel dubbio, nessuna foto. Una sola parola in comune non basta più,
+  // perché è così che finivano ceramiche giapponesi illustrate da archivi
+  // parrocchiali americani. Meglio una scheda senza immagine che una scheda che
+  // mostra la cosa sbagliata: la descrizione da sola è più onesta.
+  function isRelevant(query, title) {
     const queryWords = significantWords(query);
-    if (queryWords.length < 2) return true;
     const titleWords = new Set(significantWords(title));
+    if (!queryWords.length) return false;
     const matches = queryWords.filter(function (word) { return titleWords.has(word); }).length;
-    return matches >= 2 || (rank <= 1 && matches >= 1);
+    if (queryWords.length === 1) return matches === 1;
+    return matches >= 2;
   }
 
   function wait(milliseconds) {
@@ -803,7 +879,7 @@
     });
     const page = pages.find(function (candidate) {
       return usableImage(candidate.imageinfo && candidate.imageinfo[0], candidate.title)
-        && isRelevant(query, String(candidate.title || "").replace(/^File:/, "").replace(/\.[a-z0-9]+$/i, ""), candidate.index || 99);
+        && isRelevant(query, String(candidate.title || "").replace(/^File:/, "").replace(/\.[a-z0-9]+$/i, ""));
     });
     if (!page) return null;
     const info = page.imageinfo[0];
@@ -825,7 +901,7 @@
     const payload = await response.json();
     const candidate = (payload.results || []).find(function (result, index) {
       return !result.mature && (result.thumbnail || result.url) && (!result.width || result.width >= 360) && (!result.height || result.height >= 240)
-        && isRelevant(query, [result.title, (result.tags || []).map(function (tag) { return tag.name; }).join(" ")].join(" "), index);
+        && isRelevant(query, [result.title, (result.tags || []).map(function (tag) { return tag.name; }).join(" ")].join(" "));
     });
     if (!candidate) return null;
     return {
@@ -833,6 +909,71 @@
       credit: [candidate.creator || candidate.source, candidate.license && candidate.license.toUpperCase(), "Openverse"].filter(Boolean).join(" · "),
       sourceUrl: candidate.foreign_landing_url || candidate.detail_url || "https://openverse.org/",
       provider: "openverse"
+    };
+  }
+
+  // Collezioni museali in pubblico dominio, senza chiave. Coprono bene gli
+  // oggetti tradizionali (stampe, ceramica, tessuti, lacche) che le ricerche
+  // generiche sbagliavano. Il filtro sull'origine giapponese è severo perché
+  // anche questi archivi, se non trovano nulla, rispondono lo stesso.
+  function looksJapanese(text) {
+    return /giapp|japan|nippon|日本/i.test(String(text || ""));
+  }
+
+  // Negli archivi museali il nome della città inganna: "Matsumoto temari"
+  // pescava il ritratto di un attore che si chiamava Matsumoto, e un oggetto di
+  // Kyoto qualsiasi rispondeva a qualunque ricerca su Kyoto. L'origine
+  // giapponese è già garantita dal filtro sul paese, quindi le città si tolgono
+  // dal confronto e deve restare un aggancio sul termine specifico.
+  const CITY_WORDS = new Set(data.cities.map(function (city) { return normalize(city.name).replace(/[^a-z]/g, ""); }));
+
+  function museumMatch(query, title) {
+    const wanted = significantWords(query).filter(function (word) { return !CITY_WORDS.has(word); });
+    if (!wanted.length) return false;
+    const titleWords = new Set(significantWords(title));
+    return wanted.some(function (word) { return titleWords.has(word); });
+  }
+
+  async function searchMet(query) {
+    const search = await fetchImageSearch("https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&artistOrCulture=true&q=" + encodeURIComponent(query), "met");
+    if (!search || !search.ok) return null;
+    const payload = await search.json();
+    const ids = (payload.objectIDs || []).slice(0, 4);
+    for (const id of ids) {
+      const detail = await fetchImageSearch("https://collectionapi.metmuseum.org/public/collection/v1/objects/" + id, "met");
+      if (!detail || !detail.ok) continue;
+      const object = await detail.json();
+      if (!object.primaryImageSmall || !object.isPublicDomain) continue;
+      if (!looksJapanese(object.culture) && !looksJapanese(object.country) && !looksJapanese(object.artistNationality)) continue;
+      if (!museumMatch(query, object.title + " " + (object.objectName || ""))) continue;
+      return {
+        url: object.primaryImageSmall,
+        credit: [object.title, object.objectDate, "The Met · pubblico dominio"].filter(Boolean).join(" · "),
+        sourceUrl: object.objectURL || "https://www.metmuseum.org/",
+        provider: "met"
+      };
+    }
+    return null;
+  }
+
+  async function searchArtInstitute(query) {
+    const params = new URLSearchParams({
+      q: query, limit: "5",
+      fields: "id,title,image_id,place_of_origin,artwork_type_title,date_display,is_public_domain"
+    });
+    const response = await fetchImageSearch("https://api.artic.edu/api/v1/artworks/search?" + params.toString(), "artic");
+    if (!response || !response.ok) return null;
+    const payload = await response.json();
+    const hit = (payload.data || []).find(function (item) {
+      return item.image_id && item.is_public_domain !== false && looksJapanese(item.place_of_origin)
+        && museumMatch(query, item.title + " " + (item.artwork_type_title || ""));
+    });
+    if (!hit) return null;
+    return {
+      url: "https://www.artic.edu/iiif/2/" + hit.image_id + "/full/843,/0/default.jpg",
+      credit: [hit.title, hit.date_display, "Art Institute of Chicago · CC0"].filter(Boolean).join(" · "),
+      sourceUrl: "https://www.artic.edu/artworks/" + hit.id,
+      provider: "artic"
     };
   }
 
@@ -849,15 +990,8 @@
     const pages = Object.values((payload.query && payload.query.pages) || {}).sort(function (left, right) {
       return (left.index || 99) - (right.index || 99);
     });
-    const ignoredWords = new Set(["japan", "japanese", "food", "dish", "product"]);
-    const queryWords = normalize(query).replace(/[^\p{L}\p{N}]+/gu, " ").trim().split(/\s+/).filter(function (word) {
-      return word.length >= 3 && !ignoredWords.has(word);
-    });
     const page = pages.find(function (candidate) {
-      const titleWords = normalize(candidate.title).replace(/[^\p{L}\p{N}]+/gu, " ").trim().split(/\s+/);
-      const matches = queryWords.filter(function (word) { return titleWords.includes(word); }).length;
-      const relevant = queryWords.length < 2 || matches >= 2 || (candidate.index === 1 && matches >= 1);
-      return relevant && candidate.thumbnail && candidate.thumbnail.source
+      return isRelevant(query, candidate.title) && candidate.thumbnail && candidate.thumbnail.source
         && (!candidate.thumbnail.width || candidate.thumbnail.width >= 360)
         && !/(disambiguation|曖昧さ回避)/i.test(candidate.title || "");
     });
@@ -876,6 +1010,12 @@
     }, 0);
   }
 
+  // I musei illustrano reperti storici, non quello che c'è oggi sullo scaffale:
+  // per una stampa ukiyo-e o un kimono d'epoca è esattamente il soggetto giusto,
+  // per una ceramica che compri domani una tazza del Settecento sarebbe
+  // fuorviante. Quindi solo arte, moda d'epoca e oggetti rituali.
+  const MUSEUM_CATEGORIES = new Set(["arte", "tradizione", "moda"]);
+
   function rotatedProviders(item) {
     const providers = [
       ["commons", searchCommons],
@@ -883,6 +1023,9 @@
       ["wikipedia-ja", function (query) { return searchWikipedia(query, "ja"); }],
       ["wikipedia-en", function (query) { return searchWikipedia(query, "en"); }]
     ];
+    if (item.type === "history" || (item.type === "shop" && MUSEUM_CATEGORIES.has(item.category))) {
+      providers.push(["met", searchMet], ["artic", searchArtInstitute]);
+    }
     const offset = Math.abs(stableHash(item.id)) % providers.length;
     return providers.slice(offset).concat(providers.slice(0, offset));
   }
@@ -949,6 +1092,31 @@
 
   window.TABI_GEO = { requestPosition: function (options) { return requestPosition(options); } };
 
+  const VIEW_TITLES = {
+    overview: "Viaggio", places: "Mappa", experiences: "Esperienze", history: "Storie",
+    food: "Cibo", shopping: "Acquisti", phrases: "Parole", progress: "Progressi",
+    translate: "Traduttore", packing: "Valigia", notes: "Note", saved: "Salvati", emergency: "Emergenze"
+  };
+
+  function viewTitle(view) {
+    return VIEW_TITLES[view] || "";
+  }
+
+  // Il tasto indietro va su ogni schermata, non solo su quelle secondarie:
+  // generarlo qui evita di ripeterlo dodici volte nell'HTML e garantisce che
+  // nessuna vista se lo dimentichi.
+  function setupBackButtons() {
+    document.querySelectorAll(".view").forEach(function (section) {
+      if (section.dataset.view === "overview" || section.querySelector("[data-back]")) return;
+      const button = document.createElement("button");
+      button.className = "back-link";
+      button.type = "button";
+      button.setAttribute("data-back", "");
+      button.textContent = "← Indietro";
+      section.insertBefore(button, section.firstElementChild);
+    });
+  }
+
   function switchView(view, updateHash) {
     if (!document.querySelector('[data-view="' + view + '"]')) view = "overview";
     document.querySelectorAll(".view").forEach(function (section) {
@@ -971,7 +1139,19 @@
       const url = new URL(window.location.href);
       if (view !== "places") url.searchParams.delete("point");
       url.hash = view;
-      history.replaceState(null, "", url.pathname + url.search + url.hash);
+      const target = url.pathname + url.search + url.hash;
+      // pushState invece di replaceState: così il gesto "indietro" del telefono
+      // e il tasto del browser tornano alla schermata precedente, invece di
+      // buttare fuori dall'app. Senza, dalle viste secondarie non si esce.
+      if (location.hash.slice(1) !== view) history.pushState({ view: view }, "", target);
+      else history.replaceState({ view: view }, "", target);
+    }
+    state.previousView = state.currentView && state.currentView !== view ? state.currentView : state.previousView;
+    state.currentView = view;
+    const back = document.querySelector('[data-view="' + view + '"] [data-back]');
+    if (back) {
+      back.textContent = "← " + (viewTitle(state.previousView) || "Viaggio");
+      back.hidden = view === "overview";
     }
     window.scrollTo({ top: 0, behavior: "auto" });
     window.requestAnimationFrame(function () {
@@ -1095,16 +1275,18 @@
       const failed = new Set((dialogHero.dataset.failedProviders || "").split(",").filter(Boolean));
       failed.add(dialogHero.dataset.provider || (item.imageProvider || "official"));
       dialogHero.dataset.failedProviders = Array.from(failed).join(",");
-      if (failed.size >= 4) return void (dialogHero.src = fallbackByType[item.type] || fallbackByType.place);
+      if (failed.size >= 4) return void dialogHero.remove();
       resolveImage(item, { skipDirect:true, force:true, excludedProviders:Array.from(failed) }).then(function (result) {
-        dialogHero.dataset.provider = result && result.provider || "fallback";
-        dialogHero.src = result && result.url || fallbackByType[item.type] || fallbackByType.place;
+        if (!result || !result.url) return void dialogHero.remove();
+        dialogHero.dataset.provider = result.provider || "";
+        dialogHero.src = result.url;
       });
     });
     if (item.type !== "history" && !imageCredit) {
       resolveImage(item).then(function (result) {
-        if (!result || !result.url || !detailDialog.open || detailDialog.dataset.itemId !== id) return;
+        if (!detailDialog.open || detailDialog.dataset.itemId !== id) return;
         const dialogImage = detailDialog.querySelector(".dialog-hero");
+        if (!result || !result.url) return void (dialogImage && dialogImage.remove());
         if (dialogImage) {
           dialogImage.dataset.provider = result.provider || "";
           dialogImage.src = result.url;
@@ -1252,6 +1434,31 @@
       } catch (_) { /* si prova la fonte successiva, poi si tiene il valore vecchio */ }
     }
     return current;
+  }
+
+  // Convertitore sempre a portata: sta nel menu Utilità, quindi non occupa
+  // spazio permanente ma è a un tocco da qualsiasi schermata.
+  function setupQuickRate() {
+    const input = document.getElementById("quickYen");
+    const output = document.getElementById("quickYenOut");
+    const note = document.getElementById("quickYenNote");
+    function sync() {
+      const current = jpyRate();
+      const amount = Number(String(input.value).replace(",", "."));
+      if (!current) {
+        output.textContent = "—";
+        note.textContent = navigator.onLine ? "Recupero il cambio…" : "Cambio non ancora scaricato: serve la rete una volta sola.";
+        return;
+      }
+      output.textContent = Number.isFinite(amount) && amount > 0 ? formatNumber(amount * current.rate, 2) + " €" : "—";
+      note.textContent = "1 ¥ = " + formatNumber(current.rate, 4) + " € · " + current.source
+        + (current.at ? " · " + rateAgeLabel(current.at) : "");
+    }
+    input.addEventListener("input", sync);
+    document.querySelectorAll('[data-nav-menu="tools"]').forEach(function (button) {
+      button.addEventListener("click", function () { refreshRate(false).then(sync); sync(); });
+    });
+    sync();
   }
 
   function setupRateField() {
@@ -1973,7 +2180,15 @@
         if (phrase) speakJapanese(phrase.jp);
       }
     });
-    window.addEventListener("hashchange", function () { switchView(location.hash.slice(1), false); });
+    window.addEventListener("popstate", function () { switchView(location.hash.slice(1) || "overview", false); });
+    window.addEventListener("hashchange", function () {
+      if ((state.currentView || "") !== location.hash.slice(1)) switchView(location.hash.slice(1) || "overview", false);
+    });
+    document.addEventListener("click", function (event) {
+      if (!event.target.closest("[data-back]")) return;
+      if (history.length > 1) history.back();
+      else switchView(state.previousView || "overview");
+    });
     const dialog = document.getElementById("detailDialog");
     document.querySelector(".dialog-close").addEventListener("click", function () { dialog.close(); });
     dialog.addEventListener("click", function (event) { if (event.target === dialog) dialog.close(); });
@@ -2003,7 +2218,7 @@
         window.location.reload();
       });
       window.addEventListener("load", function () {
-        navigator.serviceWorker.register("sw.js?v=20260804c", { updateViaCache: "none" }).then(function (registration) {
+        navigator.serviceWorker.register("sw.js?v=20260804o", { updateViaCache: "none" }).then(function (registration) {
           registration.update();
         });
       });
@@ -2048,6 +2263,7 @@
   function init() {
     setupImages();
     setupFilters();
+    setupBackButtons();
     setupSpeech();
     setupRoute();
     setupCurrentCity();
@@ -2061,6 +2277,7 @@
     setupOfflineReadiness();
     setupConnectionBanner();
     setupRateField();
+    setupQuickRate();
     setupGlobalSearch();
     setupNearby();
     setupPacking();

@@ -346,7 +346,8 @@
     if (lassoLayer) { lassoLayer.remove(); lassoLayer = null; }
     lassoPoints = [];
     lassoSelection = [];
-    document.getElementById("lassoOpenButton").hidden = true;
+    document.getElementById("lassoLink").hidden = true;
+    document.getElementById("lassoUseGpsButton").hidden = true;
   }
 
   function finishLasso() {
@@ -357,45 +358,97 @@
     });
     lassoSelection = visible.filter(function (point) { return insidePolygon(point.lat, point.lng, lassoPoints); });
     if (!lassoSelection.length) { lassoStatus("Nessun luogo dentro l'area. Prova a disegnarla più larga o riattiva i livelli."); return; }
-    lassoStatus(lassoSelection.length + (lassoSelection.length === 1 ? " luogo selezionato." : " luoghi selezionati.") + " Premi “Apri il giro” per calcolare il percorso.");
-    document.getElementById("lassoOpenButton").hidden = false;
+    prepareRoute();
   }
 
-  function openLassoRoute() {
-    if (!lassoSelection.length) return;
-    const button = document.getElementById("lassoOpenButton");
-    button.disabled = true;
-    lassoStatus("Cerco la tua posizione…");
-    window.TABI_GEO.requestPosition().then(function (position) {
-      const start = { lat: position.coords.latitude, lng: position.coords.longitude };
-      let stops = lassoSelection.slice();
-      let trimmed = 0;
-      // Google Maps accetta al massimo 9 tappe intermedie più la destinazione.
-      if (stops.length > 10) {
-        stops = stops
-          .map(function (point) { return { point: point, distance: metersBetween(start, point) }; })
-          .sort(function (a, b) { return a.distance - b.distance; })
-          .slice(0, 10)
-          .map(function (entry) { return entry.point; });
-        trimmed = lassoSelection.length - 10;
-      }
+  // Google Maps accetta origine, destinazione e al massimo 9 tappe intermedie.
+  const MAX_WAYPOINTS = 9;
+
+  function routeLength(start, ordered) {
+    let total = metersBetween(start, ordered[0]);
+    for (let i = 1; i < ordered.length; i += 1) total += metersBetween(ordered[i - 1], ordered[i]);
+    return total;
+  }
+
+  function buildRoute(start, selection) {
+    // Con una partenza esterna entrano origine + 9 intermedie + destinazione;
+    // senza, la prima tappa fa da origine e ne entra una in più.
+    const limit = start ? MAX_WAYPOINTS + 1 : MAX_WAYPOINTS + 2;
+    let stops = selection.slice();
+    let trimmed = 0;
+    if (stops.length > limit) {
+      const anchor = start || stops[0];
+      stops = stops
+        .map(function (point) { return { point: point, distance: metersBetween(anchor, point) }; })
+        .sort(function (a, b) { return a.distance - b.distance; })
+        .slice(0, limit)
+        .map(function (entry) { return entry.point; });
+      trimmed = selection.length - limit;
+    }
+    if (start) {
       const ordered = shortestOrder(start, stops);
-      const destination = ordered[ordered.length - 1];
-      const waypoints = ordered.slice(0, -1).map(function (point) { return point.lat + "," + point.lng; }).join("|");
-      const url = "https://www.google.com/maps/dir/?api=1&travelmode=walking"
-        + "&origin=" + start.lat + "," + start.lng
-        + "&destination=" + destination.lat + "," + destination.lng
-        + (waypoints ? "&waypoints=" + encodeURIComponent(waypoints) : "");
-      let total = metersBetween(start, ordered[0]);
-      for (let i = 1; i < ordered.length; i += 1) total += metersBetween(ordered[i - 1], ordered[i]);
-      lassoStatus("Giro di " + ordered.length + " tappe, circa " + (total / 1000).toFixed(1).replace(".", ",") + " km in linea d'aria."
-        + (trimmed ? " Ho tenuto le 10 più vicine e ne ho lasciate fuori " + trimmed + ": Google Maps non ne accetta di più." : "")
-        + " Apro Google Maps.");
+      return { origin: start, ordered: ordered, trimmed: trimmed, meters: routeLength(start, ordered) };
+    }
+    // Senza posizione si prova ogni tappa come partenza e si tiene il giro più
+    // corto: con dieci punti costa nulla e il risultato è molto migliore che
+    // partire dalla prima capitata.
+    let best = null;
+    stops.forEach(function (candidate) {
+      const rest = stops.filter(function (point) { return point !== candidate; });
+      const ordered = rest.length ? shortestOrder(candidate, rest) : [];
+      const meters = ordered.length ? routeLength(candidate, ordered) : 0;
+      if (!best || meters < best.meters) best = { origin: candidate, ordered: ordered, trimmed: trimmed, meters: meters };
+    });
+    return best;
+  }
+
+  function routeUrl(route) {
+    const stops = route.ordered;
+    const destination = stops.length ? stops[stops.length - 1] : route.origin;
+    const waypoints = stops.slice(0, -1).map(function (point) { return point.lat + "," + point.lng; }).join("|");
+    return "https://www.google.com/maps/dir/?api=1&travelmode=walking"
+      + "&origin=" + route.origin.lat + "," + route.origin.lng
+      + "&destination=" + destination.lat + "," + destination.lng
+      + (waypoints ? "&waypoints=" + encodeURIComponent(waypoints) : "");
+  }
+
+  // Niente window.open: su iPhone la scheda aperta prima di attendere la
+  // posizione resta bianca, e finché il permesso non risponde — fino a dodici
+  // secondi — sembra che non succeda nulla. Il percorso viene quindi calcolato
+  // subito alla chiusura del lazo e messo in un vero link: toccarlo è un gesto
+  // diretto dell'utente, che nessun browser blocca.
+  function showRoute(route, note) {
+    const link = document.getElementById("lassoLink");
+    if (!route) { lassoStatus("Non riesco a costruire il giro con questi punti."); return; }
+    link.href = routeUrl(route);
+    link.hidden = false;
+    lassoStatus(note + " Giro di " + (route.ordered.length + 1) + " tappe, circa "
+      + (route.meters / 1000).toFixed(1).replace(".", ",") + " km in linea d'aria."
+      + (route.trimmed ? " Ne ho lasciate fuori " + route.trimmed + ": Google Maps non accetta più di " + MAX_WAYPOINTS + " tappe intermedie." : ""));
+  }
+
+  function prepareRoute() {
+    if (!lassoSelection.length) return;
+    // Percorso pronto subito, con una delle tappe come partenza: il link è
+    // toccabile prima ancora che il telefono decida cosa fare col permesso.
+    showRoute(buildRoute(null, lassoSelection), lassoSelection.length + " luoghi nell'area."
+      + " Il giro è pronto e parte da una delle tappe: tocca “Parti da dove sono” se preferisci partire dalla tua posizione.");
+    document.getElementById("lassoUseGpsButton").hidden = false;
+  }
+
+  function useGpsForRoute() {
+    const button = document.getElementById("lassoUseGpsButton");
+    if (!lassoSelection.length || !window.TABI_GEO) return;
+    button.disabled = true;
+    lassoStatus("Cerco la tua posizione… il link qui accanto funziona già, parte da una delle tappe.");
+    window.TABI_GEO.requestPosition().then(function (position) {
       button.disabled = false;
-      window.open(url, "_blank", "noopener");
+      button.hidden = true;
+      const start = { lat: position.coords.latitude, lng: position.coords.longitude, name: "la tua posizione" };
+      showRoute(buildRoute(start, lassoSelection), "Parto dalla tua posizione.");
     }).catch(function (error) {
       button.disabled = false;
-      lassoStatus(error.message);
+      lassoStatus(error.message + " Il link resta valido: parte da una delle tappe selezionate.");
     });
   }
 
@@ -425,7 +478,6 @@
       if (!lassoActive) return;
       event.preventDefault();
       clearLasso();
-      document.getElementById("lassoOpenButton").hidden = true;
       lassoPoints = [containerToLatLng(event)];
       lassoLayer = L.polygon(lassoPoints, { color:"#b6422e", weight:2, dashArray:"6 5", fillOpacity:.12 }).addTo(map);
       container.addEventListener("mousemove", move);
@@ -454,7 +506,7 @@
     if (!map.__lassoReady) { setupLasso(); map.__lassoReady = true; }
     toggleLasso();
   });
-  document.getElementById("lassoOpenButton").addEventListener("click", openLassoRoute);
+  document.getElementById("lassoUseGpsButton").addEventListener("click", useGpsForRoute);
 
   document.getElementById("locateButton").addEventListener("click", locateUser);
   document.getElementById("fitRouteButton").addEventListener("click", fitRoute);
