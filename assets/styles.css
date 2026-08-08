@@ -968,9 +968,23 @@ button.ocr-destination:disabled { opacity: .4; cursor: default; }
 .packing-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-items: start; }
 .packing-group, .packing-custom { min-width: 0; padding: 1.2rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
 .packing-custom { margin-top: 1rem; }
+.packing-group > summary.packing-group-head,
+.packing-custom > summary.packing-group-head {
+  list-style: none; cursor: pointer; min-height: var(--tap);
+  display: flex; justify-content: space-between; align-items: center; gap: .75rem;
+}
+.packing-group > summary.packing-group-head::-webkit-details-marker,
+.packing-custom > summary.packing-group-head::-webkit-details-marker { display: none; }
+.packing-group > summary.packing-group-head::after,
+.packing-custom > summary.packing-group-head::after {
+  content: "▸"; flex: 0 0 auto; color: var(--muted); font-size: .85rem; line-height: 1;
+  transition: transform .15s ease;
+}
+.packing-group[open] > summary.packing-group-head::after,
+.packing-custom[open] > summary.packing-group-head::after { transform: rotate(90deg); }
 .packing-group-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
-.packing-group-head h2 { margin: 0; font: 600 1.4rem "Noto Serif JP", serif; }
-.packing-group-head span { color: var(--red); font-size: .8rem; font-weight: 800; }
+.packing-group-head h2 { margin: 0; flex: 1 1 auto; min-width: 0; font: 600 1.4rem "Noto Serif JP", serif; }
+.packing-group-head span { flex: 0 0 auto; color: var(--red); font-size: .8rem; font-weight: 800; }
 .packing-group-note { margin: .4rem 0 .9rem; color: var(--muted); font-size: .8rem; line-height: 1.5; }
 .packing-custom-form { display: grid; grid-template-columns: 1.4fr 1.4fr 1fr auto; gap: .55rem; margin-bottom: .8rem; }
 .packing-custom-form input, .packing-custom-form select { min-height: var(--tap); border: 1px solid var(--line); border-radius: 10px; padding: .55rem .7rem; color: var(--ink); background: var(--white); font: inherit; }

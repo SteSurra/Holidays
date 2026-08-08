@@ -309,6 +309,10 @@ see [offline-packs.md](offline-packs.md).
 - **Patch rows, don't rebuild lists.** A packing checkbox that re-rendered the
   whole list lost the user's scroll mid-suitcase; the quantity field next to
   it was already surgical. Make the two paths symmetrical from day one.
+- **Remember `<details>` open across filter re-renders.** Collapsed packing
+  groups are great until a chip tap rebuilds `innerHTML` and snaps every panel
+  shut. Keep a session map (`groupId → open`); listen for `toggle` in *capture*
+  (`toggle` does not bubble). Default stays collapsed on cold open.
 - **Clearing packing qty must uncheck.** Writing a quantity auto-checks; an
   empty field (or zero) must `packed.delete(id)` — otherwise the checkmark
   stays after the traveler clears the number.

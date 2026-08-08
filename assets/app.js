@@ -39,6 +39,9 @@
     packingHidden: new Set(readJSON("tabi-packing-hidden-v1", [])),
     packingCustom: readJSON("tabi-packing-custom-v1", []),
     packingFilters: { context: "all", bag: "all" },
+    // Solo sessione: quali categorie Valigia restano aperte tra un
+    // re-render (filtri / hide). Default collapsed.
+    packingOpenGroups: Object.create(null),
     notes: readJSON("tabi-notes-v1", []),
     // Selezioni salvate: un itinerario per tappa, e dentro i suoi percorsi.
     itineraries: readJSON("tabi-itineraries-v1", []),
@@ -73,7 +76,7 @@
   // "cache pronta". NON va nell'URL di registrazione del service worker: un
   // URL che cambia a ogni rilascio forza una reinstallazione del worker in
   // più — e il toast di aggiornamento arrivava due volte di fila.
-  const RELEASE = "20260808d";
+  const RELEASE = "20260808e";
   window.TABI_RELEASE = RELEASE;
 
   function readJSON(key, fallback) {
@@ -3619,7 +3622,10 @@
       if (counter) counter.textContent = group.items.filter(function (item) { return state.packed.has(item.id); }).length + "/" + group.items.length;
     });
     const customCount = document.getElementById("packingCustomCount");
-    if (customCount) customCount.textContent = String(customItems.length);
+    if (customCount) {
+      const customDone = customItems.filter(function (item) { return state.packed.has(item.id); }).length;
+      customCount.textContent = customDone + "/" + customItems.length;
+    }
   }
 
   function renderPackingTips() {
@@ -3653,11 +3659,18 @@
     const groups = getPackingCatalogGroups();
     document.getElementById("packingGroups").innerHTML = groups.map(function (group) {
       const groupDone = group.items.filter(function (item) { return state.packed.has(item.id); }).length;
-      return '<section class="packing-group"><div class="packing-group-head"><h2>' + escapeHTML(group.title) + '</h2>'
-        + '<span data-pack-group="' + escapeHTML(group.id) + '">' + groupDone + '/' + group.items.length + '</span></div>'
-        + '<p class="packing-group-note">' + escapeHTML(group.note) + '</p>'
-        + group.items.map(renderPackingItemRow).join("") + '</section>';
+      const isOpen = !!state.packingOpenGroups[group.id];
+      return '<details class="packing-group"' + (isOpen ? " open" : "")
+        + ' data-pack-group-panel="' + escapeHTML(group.id) + '">'
+        + '<summary class="packing-group-head"><h2>' + escapeHTML(group.title) + '</h2>'
+        + '<span data-pack-group="' + escapeHTML(group.id) + '">' + groupDone + '/' + group.items.length + '</span></summary>'
+        + (group.note ? '<p class="packing-group-note">' + escapeHTML(group.note) + '</p>' : "")
+        + group.items.map(renderPackingItemRow).join("") + '</details>';
     }).join("");
+    const customSection = document.getElementById("packingCustomSection");
+    if (customSection) {
+      customSection.open = !!state.packingOpenGroups.custom;
+    }
     renderPackingTips();
     renderPackingCustomList();
     renderPackingFilterChips();
@@ -3677,10 +3690,20 @@
   function setupPacking() {
     const groups = document.getElementById("packingGroups");
     const customList = document.getElementById("packingCustomList");
+    const customSection = document.getElementById("packingCustomSection");
     const toolbar = document.getElementById("packingToolbar");
     // HTML vecchio in cache + JS nuovo (o il contrario) non devono far
     // esplodere l'init: senza questi nodi i filtri non ci sono ancora.
     if (!groups) return;
+
+    // `toggle` non bubble: cattura in capture per ricordare open tra filtri.
+    function rememberPackingOpen(event) {
+      const panel = event.target;
+      if (!panel || panel.tagName !== "DETAILS" || !panel.dataset.packGroupPanel) return;
+      state.packingOpenGroups[panel.dataset.packGroupPanel] = panel.open;
+    }
+    groups.addEventListener("toggle", rememberPackingOpen, true);
+    if (customSection) customSection.addEventListener("toggle", rememberPackingOpen, true);
 
     function handlePackCheckbox(box) {
       const id = box.dataset.pack;
@@ -3794,6 +3817,7 @@
       nameInput.value = "";
       noteInput.value = "";
       bagInput.value = "entrambi";
+      state.packingOpenGroups.custom = true;
       renderPacking();
       showToast("Oggetto aggiunto");
     });
