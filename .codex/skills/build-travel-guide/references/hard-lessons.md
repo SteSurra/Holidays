@@ -420,6 +420,13 @@ see [offline-packs.md](offline-packs.md).
   bag enum, and context tags in the integrity script; never rename existing
   `pack-{group}-{slug}` ids — checkmarks are keyed by id, so a retitle is
   fine and a slug/group move is a silent data loss on update.
+- **Packing labels stay generic; the catalog stays lean.** Prefer "Guanti"
+  over "Guanti leggeri" (micro-variants imply a twin you do not want to list).
+  Collapse near-duplicates into one surviving id with a short note (felpa/pile,
+  k-way/giacca, sapone/detersivo) rather than theme kits that double the list.
+  Context filters and "I miei oggetti" cover edge cases — do not encyclopedize
+  the default catalog. Put LAG / sharp / power-bank rules in group tips or one
+  aviation-critical row, not as identical tip spam on every cream.
 
 ## Geolocation UX
 
