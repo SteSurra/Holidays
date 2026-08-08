@@ -26,6 +26,7 @@ k-way-leggero|1|Compatto: acquazzoni e sentieri umidi||entrambi|
 pigiama|3|Molti hotel danno lo yukata, non tutti||entrambi|
 costume-bagno|2|Piscine e parchi, non per gli onsen tradizionali|mare|entrambi|
 cappellino|2|Sole estivo|mare,citta|entrambi|
+abbigliamento-sportivo||Palestra, running o outdoor leggero — un set basta||entrambi|
 abbigliamento-volo|1|Comodo a strati: undici ore, tre climi||mano|
 guanti-leggeri|1|Mattine fresche in alta quota|montagna|entrambi|
 berretto|1|Vento e sere fresche|montagna,citta|entrambi|
@@ -207,6 +208,7 @@ felpina|1|Aereo e stazioni: aria condizionata aggressiva||mano|
     "pigiama": "Pigiama",
     "costume-bagno": "Costume da bagno",
     "cappellino": "Cappellino",
+    "abbigliamento-sportivo": "Abbigliamento sportivo",
     "abbigliamento-volo": "Abbigliamento per il volo",
     "guanti-leggeri": "Guanti",
     "berretto": "Berretto",
