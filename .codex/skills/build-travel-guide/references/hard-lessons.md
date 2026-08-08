@@ -40,6 +40,21 @@ see [offline-packs.md](offline-packs.md).
   `worker.scriptURL` — version the signature, never the URL.) Keep a
   `bump-version` script so a release is one command, and assert both the
   alignment and the URL stability in the integrity script.
+- **A green push is not a live Pages deploy.** The packing release landed on
+  `main` with a correct `CACHE` / `?v=` bump, but GitHub Pages' legacy
+  `pages build and deployment` run failed because the `build` job stayed
+  `queued` and never got a runner — live `sw.js` kept serving the previous
+  token, so clients never saw `controllerchange` and the update toast never
+  appeared. After every shell push, confirm
+  `repos/.../pages` status is `built` and that live `sw.js` carries the new
+  `CACHE` / `VERSION` (re-trigger with `POST .../pages/builds` if the run
+  errored). Do not debug the service worker until Pages itself has the new
+  bytes.
+- **Packing setup must tolerate a shell mismatch.** New packing JS expects
+  `#packingToolbar`, `#packingCustomList`, and the custom form. If a stale
+  `index.html` is still on screen, those nodes are missing: unguarded
+  `addEventListener` throws and aborts the rest of `init()`. Null-check the
+  packing roots before binding.
 - **The SHELL list must be provably complete.** Assert that every asset
   `index.html` requests appears in the service worker precache list; a file
   missing there works online and 404s exactly when the trip needs it.

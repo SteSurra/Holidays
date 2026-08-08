@@ -73,7 +73,7 @@
   // "cache pronta". NON va nell'URL di registrazione del service worker: un
   // URL che cambia a ogni rilascio forza una reinstallazione del worker in
   // più — e il toast di aggiornamento arrivava due volte di fila.
-  const RELEASE = "20260808b";
+  const RELEASE = "20260808c";
   window.TABI_RELEASE = RELEASE;
 
   function readJSON(key, fallback) {
@@ -3678,6 +3678,9 @@
     const groups = document.getElementById("packingGroups");
     const customList = document.getElementById("packingCustomList");
     const toolbar = document.getElementById("packingToolbar");
+    // HTML vecchio in cache + JS nuovo (o il contrario) non devono far
+    // esplodere l'init: senza questi nodi i filtri non ci sono ancora.
+    if (!groups) return;
 
     function handlePackCheckbox(box) {
       const id = box.dataset.pack;
@@ -3717,6 +3720,7 @@
     }
 
     function bindPackingList(root) {
+      if (!root) return;
       root.addEventListener("change", function (event) {
         const box = event.target.closest("[data-pack]");
         if (!box) return;
@@ -3752,7 +3756,7 @@
     bindPackingList(groups);
     bindPackingList(customList);
 
-    toolbar.addEventListener("click", function (event) {
+    if (toolbar) toolbar.addEventListener("click", function (event) {
       const contextChip = event.target.closest("[data-pack-context]");
       if (contextChip) {
         state.packingFilters.context = contextChip.dataset.packContext;
@@ -3766,11 +3770,13 @@
       }
     });
 
-    document.getElementById("packingCustomForm").addEventListener("submit", function (event) {
+    const customForm = document.getElementById("packingCustomForm");
+    if (customForm) customForm.addEventListener("submit", function (event) {
       event.preventDefault();
       const nameInput = document.getElementById("packingCustomName");
       const noteInput = document.getElementById("packingCustomNote");
       const bagInput = document.getElementById("packingCustomBag");
+      if (!nameInput || !noteInput || !bagInput) return;
       const name = nameInput.value.trim();
       if (!name) return;
       const item = {
@@ -3792,7 +3798,8 @@
       showToast("Oggetto aggiunto");
     });
 
-    document.getElementById("packingResetButton").addEventListener("click", function () {
+    const resetButton = document.getElementById("packingResetButton");
+    if (resetButton) resetButton.addEventListener("click", function () {
       if (!state.packed.size) return;
       if (!window.confirm("Togliere tutte le spunte e le quantità dalla lista valigia su questo telefono?")) return;
       state.packedQty = {};
@@ -3803,7 +3810,8 @@
       showToast("Lista valigia azzerata");
     });
 
-    document.getElementById("packingRestoreButton").addEventListener("click", function () {
+    const restoreButton = document.getElementById("packingRestoreButton");
+    if (restoreButton) restoreButton.addEventListener("click", function () {
       if (!state.packingHidden.size && !state.packingCustom.length) return;
       if (!window.confirm("Ripristinare la lista predefinita?\n\nGli oggetti nascosti tornano visibili e quelli aggiunti da te vengono eliminati. Le spunte restano dove gli id coincidono.")) return;
       state.packingHidden.clear();
