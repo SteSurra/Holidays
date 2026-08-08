@@ -462,6 +462,39 @@ for (const [file, ids] of idsByFile) {
   }
 }
 
+// Valigia: le righe sono slug|qty|note|contexts|bag|tip. Un "|" in più tra
+// note e bag sposta bag nel tip e i filtri mano/stiva mentono all'utente.
+const packingSource = readFileSync("assets/packing-data.js", "utf8");
+const packingBags = new Set(["mano", "stiva", "entrambi", "solo_mano"]);
+const packingContexts = new Set(["mare", "montagna", "citta"]);
+const packingIds = new Set();
+for (const block of packingSource.matchAll(/id:\s*"([^"]+)"[\s\S]*?rows:\s*`([\s\S]*?)`/g)) {
+  const groupId = block[1];
+  for (const line of block[2].trim().split("\n")) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+    const parts = trimmed.split("|");
+    if (parts.length !== 6) {
+      failures.push(`packing-data.js ${groupId}: row must have 6 fields (got ${parts.length}): ${trimmed}`);
+      continue;
+    }
+    const [slug, , , contextsField, bag] = parts;
+    const id = `pack-${groupId}-${slug}`;
+    if (packingIds.has(id)) failures.push(`packing-data.js: duplicate id ${id}`);
+    packingIds.add(id);
+    const bagValue = bag || "entrambi";
+    if (!packingBags.has(bagValue)) {
+      failures.push(`packing-data.js ${id}: invalid bag "${bagValue}"`);
+    }
+    for (const tag of (contextsField || "").split(",").map((t) => t.trim()).filter(Boolean)) {
+      if (!packingContexts.has(tag)) {
+        failures.push(`packing-data.js ${id}: invalid context "${tag}"`);
+      }
+    }
+  }
+}
+if (!packingIds.size) failures.push("packing-data.js: no packing rows parsed");
+
 if (failures.length) {
   console.error("Guide-integrity check failed:\n" + failures.map((item) => `- ${item}`).join("\n"));
   process.exit(1);

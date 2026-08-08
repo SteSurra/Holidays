@@ -36,6 +36,9 @@
     previousView: "",
     packed: new Set(readJSON("tabi-packing", [])),
     packedQty: readJSON("tabi-packing-qty-v1", {}),
+    packingHidden: new Set(readJSON("tabi-packing-hidden-v1", [])),
+    packingCustom: readJSON("tabi-packing-custom-v1", []),
+    packingFilters: { context: "all", bag: "all" },
     notes: readJSON("tabi-notes-v1", []),
     // Selezioni salvate: un itinerario per tappa, e dentro i suoi percorsi.
     itineraries: readJSON("tabi-itineraries-v1", []),
@@ -70,7 +73,7 @@
   // "cache pronta". NON va nell'URL di registrazione del service worker: un
   // URL che cambia a ogni rilascio forza una reinstallazione del worker in
   // più — e il toast di aggiornamento arrivava due volte di fila.
-  const RELEASE = "20260807m";
+  const RELEASE = "20260808b";
   window.TABI_RELEASE = RELEASE;
 
   function readJSON(key, fallback) {
@@ -3532,50 +3535,132 @@
 
   // ---- Valigia -------------------------------------------------------------
 
+  function packingItemMatchesContext(item, contextFilter) {
+    if (!contextFilter || contextFilter === "all") return true;
+    if (!item.contexts || !item.contexts.length) return true;
+    return item.contexts.indexOf(contextFilter) >= 0;
+  }
+
+  function packingItemMatchesBag(item, bagFilter) {
+    if (!bagFilter || bagFilter === "all") return true;
+    const bag = item.bag || "entrambi";
+    if (bagFilter === "mano") return bag === "mano" || bag === "entrambi" || bag === "solo_mano";
+    if (bagFilter === "stiva") return bag === "stiva" || bag === "entrambi";
+    return true;
+  }
+
+  function packingItemMatchesFilters(item) {
+    return packingItemMatchesContext(item, state.packingFilters.context)
+      && packingItemMatchesBag(item, state.packingFilters.bag);
+  }
+
+  function getPackingCatalogGroups() {
+    return (data.packing || []).map(function (group) {
+      return {
+        id: group.id,
+        title: group.title,
+        note: group.note,
+        items: group.items.filter(function (item) {
+          return !state.packingHidden.has(item.id) && packingItemMatchesFilters(item);
+        })
+      };
+    }).filter(function (group) { return group.items.length; });
+  }
+
+  function getPackingCustomItems() {
+    return state.packingCustom.filter(packingItemMatchesFilters).map(function (item) {
+      return Object.assign({ custom: true }, item);
+    });
+  }
+
+  function packingBagLabel(bag) {
+    if (bag === "solo_mano") return "Solo a mano";
+    if (bag === "mano") return "A mano";
+    if (bag === "stiva") return "Stiva";
+    return "";
+  }
+
+  function renderPackingItemRow(item) {
+    const checked = state.packed.has(item.id);
+    const amount = state.packedQty[item.id];
+    const bagLabel = packingBagLabel(item.bag);
+    const meta = [bagLabel, item.tip].filter(Boolean).join(" · ");
+    return '<div class="packing-item' + (checked ? " is-packed" : "") + '">'
+      + '<label><input type="checkbox" data-pack="' + item.id + '"' + (checked ? " checked" : "") + '>'
+      + '<span><b>' + escapeHTML(item.name) + '</b>'
+      + (item.note ? '<small>' + escapeHTML(item.note) + '</small>' : "")
+      + (meta ? '<small class="packing-meta">' + escapeHTML(meta) + '</small>' : "") + '</span></label>'
+      + '<input class="packing-qty" type="number" inputmode="numeric" min="0" step="1"'
+      + ' data-pack-qty="' + item.id + '" value="' + (amount == null ? "" : escapeHTML(amount)) + '"'
+      + ' placeholder="' + (item.quantity ? escapeHTML(item.quantity) : "") + '"'
+      + ' aria-label="Quantità di ' + escapeHTML(item.name) + '">'
+      + (item.custom
+        ? '<button type="button" class="packing-remove" data-pack-remove="' + item.id + '" aria-label="Elimina ' + escapeHTML(item.name) + '">✕</button>'
+        : '<button type="button" class="packing-hide" data-pack-hide="' + item.id + '" aria-label="Nascondi ' + escapeHTML(item.name) + '">Nascondi</button>')
+      + '</div>';
+  }
+
   // Il riepilogo si aggiorna da solo mentre si scrive una quantità: ridisegnare
   // tutta la lista farebbe perdere il campo su cui si sta digitando.
   function renderPackingSummary() {
-    const groups = data.packing || [];
-    const total = groups.reduce(function (sum, group) { return sum + group.items.length; }, 0);
-    const done = groups.reduce(function (sum, group) {
-      return sum + group.items.filter(function (item) { return state.packed.has(item.id); }).length;
-    }, 0);
+    const groups = getPackingCatalogGroups();
+    const customItems = getPackingCustomItems();
+    const items = groups.reduce(function (all, group) { return all.concat(group.items); }, []).concat(customItems);
+    const total = items.length;
+    const done = items.filter(function (item) { return state.packed.has(item.id); }).length;
     const percent = total ? Math.round((done / total) * 100) : 0;
+    const filterNote = (state.packingFilters.context !== "all" || state.packingFilters.bag !== "all")
+      ? '<span class="packing-filter-note">Filtro attivo</span>' : "";
     document.getElementById("packingSummary").innerHTML =
-      '<div class="packing-bar"><div><strong>' + done + '</strong><span>di ' + total + ' oggetti spuntati</span></div>'
+      '<div class="packing-bar"><div><strong>' + done + '</strong><span>di ' + total + ' oggetti spuntati</span>' + filterNote + '</div>'
       + '<div class="progress-city-bar"><i style="width:' + percent + '%"></i></div></div>';
     groups.forEach(function (group) {
       const counter = document.querySelector('[data-pack-group="' + group.id + '"]');
       if (counter) counter.textContent = group.items.filter(function (item) { return state.packed.has(item.id); }).length + "/" + group.items.length;
     });
+    const customCount = document.getElementById("packingCustomCount");
+    if (customCount) customCount.textContent = String(customItems.length);
+  }
+
+  function renderPackingTips() {
+    const tips = data.packingTips || [];
+    const list = document.getElementById("packingTipsList");
+    if (!list) return;
+    list.innerHTML = tips.map(function (tip) {
+      return '<li><strong>' + escapeHTML(tip.title) + '</strong> ' + escapeHTML(tip.body) + '</li>';
+    }).join("");
+  }
+
+  function renderPackingCustomList() {
+    const list = document.getElementById("packingCustomList");
+    if (!list) return;
+    const items = getPackingCustomItems();
+    list.innerHTML = items.length
+      ? items.map(renderPackingItemRow).join("")
+      : '<p class="packing-empty">Nessun oggetto personalizzato ancora.</p>';
+  }
+
+  function renderPackingFilterChips() {
+    document.querySelectorAll("[data-pack-context]").forEach(function (chip) {
+      chip.classList.toggle("is-active", chip.dataset.packContext === state.packingFilters.context);
+    });
+    document.querySelectorAll("[data-pack-bag]").forEach(function (chip) {
+      chip.classList.toggle("is-active", chip.dataset.packBag === state.packingFilters.bag);
+    });
   }
 
   function renderPacking() {
-    const packed = state.packed;
-    const groups = data.packing || [];
+    const groups = getPackingCatalogGroups();
     document.getElementById("packingGroups").innerHTML = groups.map(function (group) {
-      const groupDone = group.items.filter(function (item) { return packed.has(item.id); }).length;
+      const groupDone = group.items.filter(function (item) { return state.packed.has(item.id); }).length;
       return '<section class="packing-group"><div class="packing-group-head"><h2>' + escapeHTML(group.title) + '</h2>'
         + '<span data-pack-group="' + escapeHTML(group.id) + '">' + groupDone + '/' + group.items.length + '</span></div>'
         + '<p class="packing-group-note">' + escapeHTML(group.note) + '</p>'
-        + group.items.map(function (item) {
-          const checked = packed.has(item.id);
-          // Il numero suggerito dai dati resta come segnaposto, non come
-          // etichetta: nel campo si scrive quante se ne sono messe davvero, e
-          // scrivere un numero equivale a spuntare.
-          const amount = state.packedQty[item.id];
-          return '<div class="packing-item' + (checked ? " is-packed" : "") + '">'
-            + '<label><input type="checkbox" data-pack="' + item.id + '"' + (checked ? " checked" : "") + '>'
-            + '<span><b>' + escapeHTML(item.name) + '</b>'
-            + (item.note ? '<small>' + escapeHTML(item.note) + '</small>' : "") + '</span></label>'
-            + '<input class="packing-qty" type="number" inputmode="numeric" min="0" step="1"'
-            + ' data-pack-qty="' + item.id + '" value="' + (amount == null ? "" : escapeHTML(amount)) + '"'
-            // Niente trattino dove non c'è una quantità consigliata: si leggeva
-            // come uno zero, e la lista sembrava tutta vuota di partenza.
-            + ' placeholder="' + (item.quantity ? escapeHTML(item.quantity) : "") + '"'
-            + ' aria-label="Quantità di ' + escapeHTML(item.name) + '"></div>';
-        }).join("") + '</section>';
+        + group.items.map(renderPackingItemRow).join("") + '</section>';
     }).join("");
+    renderPackingTips();
+    renderPackingCustomList();
+    renderPackingFilterChips();
     renderPackingSummary();
   }
 
@@ -3584,11 +3669,17 @@
     safeSetItem("tabi-packing-qty-v1", JSON.stringify(state.packedQty));
   }
 
+  function savePackingMeta() {
+    safeSetItem("tabi-packing-hidden-v1", JSON.stringify(Array.from(state.packingHidden)));
+    safeSetItem("tabi-packing-custom-v1", JSON.stringify(state.packingCustom));
+  }
+
   function setupPacking() {
     const groups = document.getElementById("packingGroups");
-    groups.addEventListener("change", function (event) {
-      const box = event.target.closest("[data-pack]");
-      if (!box) return;
+    const customList = document.getElementById("packingCustomList");
+    const toolbar = document.getElementById("packingToolbar");
+
+    function handlePackCheckbox(box) {
       const id = box.dataset.pack;
       if (box.checked) state.packed.add(id);
       else {
@@ -3596,9 +3687,6 @@
         delete state.packedQty[id];
       }
       savePacking();
-      // Stesso trattamento chirurgico del campo quantità: si aggiorna la riga
-      // toccata e il riepilogo, non l'intera lista — rifarla a ogni spunta
-      // faceva perdere lo scroll a metà valigia.
       const item = box.closest(".packing-item");
       if (item) {
         item.classList.toggle("is-packed", box.checked);
@@ -3607,12 +3695,9 @@
       }
       renderPackingSummary();
       refreshOverviewSoon();
-    });
-    // Scrivere una quantità spunta l'oggetto; svuotare il campo o mettere zero
-    // lo toglie. Così non serve fare due gesti per la stessa cosa.
-    groups.addEventListener("input", debounce(function (event) {
-      const field = event.target.closest("[data-pack-qty]");
-      if (!field) return;
+    }
+
+    function handlePackQty(field) {
       const id = field.dataset.packQty;
       const value = parseInt(field.value, 10);
       if (Number.isFinite(value) && value > 0) {
@@ -3629,7 +3714,84 @@
       if (box) box.checked = state.packed.has(id);
       renderPackingSummary();
       refreshOverviewSoon();
-    }, 250));
+    }
+
+    function bindPackingList(root) {
+      root.addEventListener("change", function (event) {
+        const box = event.target.closest("[data-pack]");
+        if (!box) return;
+        handlePackCheckbox(box);
+      });
+      root.addEventListener("input", debounce(function (event) {
+        const field = event.target.closest("[data-pack-qty]");
+        if (!field) return;
+        handlePackQty(field);
+      }, 250));
+      root.addEventListener("click", function (event) {
+        const hideBtn = event.target.closest("[data-pack-hide]");
+        if (hideBtn) {
+          state.packingHidden.add(hideBtn.dataset.packHide);
+          savePackingMeta();
+          renderPacking();
+          showToast("Oggetto nascosto");
+          return;
+        }
+        const removeBtn = event.target.closest("[data-pack-remove]");
+        if (!removeBtn) return;
+        const id = removeBtn.dataset.packRemove;
+        state.packingCustom = state.packingCustom.filter(function (item) { return item.id !== id; });
+        state.packed.delete(id);
+        delete state.packedQty[id];
+        savePacking();
+        savePackingMeta();
+        renderPacking();
+        showToast("Oggetto rimosso");
+      });
+    }
+
+    bindPackingList(groups);
+    bindPackingList(customList);
+
+    toolbar.addEventListener("click", function (event) {
+      const contextChip = event.target.closest("[data-pack-context]");
+      if (contextChip) {
+        state.packingFilters.context = contextChip.dataset.packContext;
+        renderPacking();
+        return;
+      }
+      const bagChip = event.target.closest("[data-pack-bag]");
+      if (bagChip) {
+        state.packingFilters.bag = bagChip.dataset.packBag;
+        renderPacking();
+      }
+    });
+
+    document.getElementById("packingCustomForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      const nameInput = document.getElementById("packingCustomName");
+      const noteInput = document.getElementById("packingCustomNote");
+      const bagInput = document.getElementById("packingCustomBag");
+      const name = nameInput.value.trim();
+      if (!name) return;
+      const item = {
+        id: "pack-custom-" + Date.now(),
+        name: name,
+        note: noteInput.value.trim(),
+        quantity: "",
+        contexts: [],
+        bag: bagInput.value || "entrambi",
+        tip: "",
+        custom: true
+      };
+      state.packingCustom.push(item);
+      savePackingMeta();
+      nameInput.value = "";
+      noteInput.value = "";
+      bagInput.value = "entrambi";
+      renderPacking();
+      showToast("Oggetto aggiunto");
+    });
+
     document.getElementById("packingResetButton").addEventListener("click", function () {
       if (!state.packed.size) return;
       if (!window.confirm("Togliere tutte le spunte e le quantità dalla lista valigia su questo telefono?")) return;
@@ -3639,6 +3801,16 @@
       renderPacking();
       refreshOverviewSoon();
       showToast("Lista valigia azzerata");
+    });
+
+    document.getElementById("packingRestoreButton").addEventListener("click", function () {
+      if (!state.packingHidden.size && !state.packingCustom.length) return;
+      if (!window.confirm("Ripristinare la lista predefinita?\n\nGli oggetti nascosti tornano visibili e quelli aggiunti da te vengono eliminati. Le spunte restano dove gli id coincidono.")) return;
+      state.packingHidden.clear();
+      state.packingCustom = [];
+      savePackingMeta();
+      renderPacking();
+      showToast("Lista predefinita ripristinata");
     });
     // Niente render qui: la lista si disegna alla prima apertura della
     // schermata, come tutte le altre griglie (VIEW_RENDERERS).
@@ -4186,7 +4358,8 @@
   // che non è nostro non si tocca.
   const STORAGE_KEYS = [
     "tabi-favorites", "tabi-done", "tabi-hidden-v1", "tabi-itineraries-v1", "tabi-itinerary-active-v1",
-    "tabi-current-city", "tabi-notes-v1", "tabi-packing", "tabi-packing-qty-v1", "tabi-local-profile",
+    "tabi-current-city", "tabi-notes-v1", "tabi-packing", "tabi-packing-qty-v1",
+    "tabi-packing-hidden-v1", "tabi-packing-custom-v1", "tabi-local-profile",
     "tabi-nav-hidden", "tabi-weather", "tabi-jpy-rate", "tabi-jpy-rate-auto", "tabi-image-cache-v6",
     "tabi-facilities-v4", "tabi-cache-ready", "tabi-merchants-start-hidden",
     "tabi-offline-tier", "tabi-offline-job"

@@ -297,6 +297,11 @@ see [offline-packs.md](offline-packs.md).
 - **Clearing packing qty must uncheck.** Writing a quantity auto-checks; an
   empty field (or zero) must `packed.delete(id)` — otherwise the checkmark
   stays after the traveler clears the number.
+- **Packing ids are immutable.** Checkmarks key off `pack-{group}-{slug}`; never
+  rename or move ids when enriching the catalog — only add new rows, retag, or
+  relabel. Custom items and hidden catalog ids live in
+  `tabi-packing-custom-v1` / `tabi-packing-hidden-v1` and must ship in backup
+  restore alongside `tabi-packing` and `tabi-packing-qty-v1`.
 - **Nothing expensive inside comparators or per-item predicates.** No
   `localStorage.getItem`, no `new RegExp`, no `normalize()` per comparison:
   hoist the query normalization, precompile the word-boundary regex, and
@@ -393,6 +398,13 @@ see [offline-packs.md](offline-packs.md).
 - **Init never dies of a renamed id.** `getElementById(...).innerHTML` chains
   at startup turn one HTML rename into a blank app. Write and listen through
   guards that warn and continue.
+- **Packing rows are exactly six pipe fields.** Schema is
+  `slug|qty|note|contexts|bag|tip`. An extra `|` between note and bag (easy
+  when contexts is empty) shifts bag into tip: power banks lose `solo_mano`,
+  notes land in context tags, and mano/stiva filters lie. Assert field count,
+  bag enum, and context tags in the integrity script; never rename existing
+  `pack-{group}-{slug}` ids — checkmarks are keyed by id, so a retitle is
+  fine and a slug/group move is a silent data loss on update.
 
 ## Geolocation UX
 

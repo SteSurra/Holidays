@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#14181a" media="(prefers-color-scheme: dark)">
   <meta name="description" content="Guida di viaggio in Giappone con itinerario, mappa, luoghi, attività, cibo, acquisti e storie.">
   <title>Giappone 2026 | Tabi</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260807m">
+  <link rel="manifest" href="manifest.webmanifest?v=20260808b">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://commons.wikimedia.org">
@@ -33,9 +33,9 @@
       } catch (_) { /* senza storage si segue il sistema al primo apply() */ }
     })();
   </script>
-  <link rel="stylesheet" href="assets/styles.css?v=20260807m">
-  <link rel="icon" href="assets/icons/icon.svg?v=20260807m" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260807m">
+  <link rel="stylesheet" href="assets/styles.css?v=20260808b">
+  <link rel="icon" href="assets/icons/icon.svg?v=20260808b" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260808b">
 </head>
 <body>
   <a class="skip-link" href="#main">Vai al contenuto</a>
@@ -414,11 +414,53 @@
     <section class="view" id="packing" data-view="packing">
       <div class="page-intro packing-intro">
         <p class="eyebrow">Prima di chiudere la valigia</p><h1>Cosa portare</h1>
-        <p>La lista completa divisa per borsa, con le note che contano davvero per il Giappone. Le spunte restano su questo telefono.</p>
+        <p>Lista per mare, montagna e città, con filtri bagaglio e note su liquidi e power bank. Le spunte restano su questo telefono.</p>
+      </div>
+      <details class="packing-tips" id="packingTips">
+        <summary>Consigli per la valigia e i controlli aeroporto</summary>
+        <ul class="packing-tips-list" id="packingTipsList"></ul>
+      </details>
+      <div class="packing-toolbar" id="packingToolbar">
+        <div class="packing-filter-row">
+          <span class="packing-filter-label">Dove</span>
+          <div class="packing-chips" data-pack-filter-group="context">
+            <button type="button" class="category-chip is-active" data-pack-context="all">Tutti</button>
+            <button type="button" class="category-chip" data-pack-context="mare">Mare</button>
+            <button type="button" class="category-chip" data-pack-context="montagna">Montagna</button>
+            <button type="button" class="category-chip" data-pack-context="citta">Città</button>
+          </div>
+        </div>
+        <div class="packing-filter-row">
+          <span class="packing-filter-label">Bagaglio</span>
+          <div class="packing-chips" data-pack-filter-group="bag">
+            <button type="button" class="category-chip is-active" data-pack-bag="all">Tutti</button>
+            <button type="button" class="category-chip" data-pack-bag="mano">A mano</button>
+            <button type="button" class="category-chip" data-pack-bag="stiva">Stiva</button>
+          </div>
+        </div>
       </div>
       <div class="packing-summary" id="packingSummary"></div>
       <div class="packing-groups" id="packingGroups"></div>
-      <div class="packing-footer"><button id="packingResetButton" type="button">Azzera tutte le spunte</button></div>
+      <section class="packing-custom" id="packingCustomSection">
+        <div class="packing-group-head"><h2>I miei oggetti</h2><span id="packingCustomCount">0</span></div>
+        <p class="packing-group-note">Aggiungi ciò che manca nella lista predefinita. Resta salvato su questo telefono e nel backup.</p>
+        <form class="packing-custom-form" id="packingCustomForm">
+          <input type="text" id="packingCustomName" placeholder="Nome oggetto" required maxlength="80" autocomplete="off">
+          <input type="text" id="packingCustomNote" placeholder="Nota (opzionale)" maxlength="120" autocomplete="off">
+          <select id="packingCustomBag" aria-label="Bagaglio">
+            <option value="entrambi">A mano o stiva</option>
+            <option value="mano">Solo a mano</option>
+            <option value="stiva">Meglio in stiva</option>
+            <option value="solo_mano">Obbligo a mano</option>
+          </select>
+          <button type="submit">＋ Aggiungi</button>
+        </form>
+        <div class="packing-custom-list" id="packingCustomList"></div>
+      </section>
+      <div class="packing-footer">
+        <button id="packingResetButton" type="button">Azzera tutte le spunte</button>
+        <button id="packingRestoreButton" type="button">Ripristina lista predefinita</button>
+      </div>
     </section>
 
     <section class="view" id="notes" data-view="notes">
@@ -541,34 +583,34 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
   <script src="https://unpkg.com/pmtiles@4.3.0/dist/pmtiles.js" defer></script>
   <script src="https://unpkg.com/protomaps-leaflet@5.0.0/dist/protomaps-leaflet.js" defer></script>
-  <script src="assets/parse-lib.js?v=20260807m" defer></script>
-  <script src="assets/data.js?v=20260807m" defer></script>
-  <script src="assets/food-data.js?v=20260807m" defer></script>
-  <script src="assets/shopping-data.js?v=20260807m" defer></script>
-  <script src="assets/food-extra-data.js?v=20260807m" defer></script>
-  <script src="assets/travel-data.js?v=20260807m" defer></script>
-  <script src="assets/history-data.js?v=20260807m" defer></script>
-  <script src="assets/phrases-data.js?v=20260807m" defer></script>
-  <script src="assets/glossary-data.js?v=20260807m" defer></script>
-  <script src="assets/packing-data.js?v=20260807m" defer></script>
-  <script src="assets/money-data.js?v=20260807m" defer></script>
-  <script src="assets/day-tips-data.js?v=20260807m" defer></script>
-  <script src="assets/map-data.js?v=20260807m" defer></script>
-  <script src="assets/merchants-data.js?v=20260807m" defer></script>
-  <script src="assets/stamps-data.js?v=20260807m" defer></script>
-  <script src="assets/transit-data.js?v=20260807m" defer></script>
-  <script src="assets/experiences-data.js?v=20260807m" defer></script>
-  <script src="assets/source-data.js?v=20260807m" defer></script>
-  <script src="assets/story-data.js?v=20260807m" defer></script>
-  <script src="assets/guide-data.js?v=20260807m" defer></script>
-  <script src="assets/curated-images-data.js?v=20260807m" defer></script>
-  <script src="assets/offline-size-data.js?v=20260807m" defer></script>
-  <script src="assets/offline-pack-manifest.js?v=20260807m" defer></script>
-  <script src="assets/offline-resume-logic.js?v=20260807m" defer></script>
-  <script src="assets/offline-pack.js?v=20260807m" defer></script>
-  <script src="assets/map.js?v=20260807m" defer></script>
-  <script src="assets/documents.js?v=20260807m" defer></script>
-  <script src="assets/backup.js?v=20260807m" defer></script>
-  <script src="assets/app.js?v=20260807m" defer></script>
+  <script src="assets/parse-lib.js?v=20260808b" defer></script>
+  <script src="assets/data.js?v=20260808b" defer></script>
+  <script src="assets/food-data.js?v=20260808b" defer></script>
+  <script src="assets/shopping-data.js?v=20260808b" defer></script>
+  <script src="assets/food-extra-data.js?v=20260808b" defer></script>
+  <script src="assets/travel-data.js?v=20260808b" defer></script>
+  <script src="assets/history-data.js?v=20260808b" defer></script>
+  <script src="assets/phrases-data.js?v=20260808b" defer></script>
+  <script src="assets/glossary-data.js?v=20260808b" defer></script>
+  <script src="assets/packing-data.js?v=20260808b" defer></script>
+  <script src="assets/money-data.js?v=20260808b" defer></script>
+  <script src="assets/day-tips-data.js?v=20260808b" defer></script>
+  <script src="assets/map-data.js?v=20260808b" defer></script>
+  <script src="assets/merchants-data.js?v=20260808b" defer></script>
+  <script src="assets/stamps-data.js?v=20260808b" defer></script>
+  <script src="assets/transit-data.js?v=20260808b" defer></script>
+  <script src="assets/experiences-data.js?v=20260808b" defer></script>
+  <script src="assets/source-data.js?v=20260808b" defer></script>
+  <script src="assets/story-data.js?v=20260808b" defer></script>
+  <script src="assets/guide-data.js?v=20260808b" defer></script>
+  <script src="assets/curated-images-data.js?v=20260808b" defer></script>
+  <script src="assets/offline-size-data.js?v=20260808b" defer></script>
+  <script src="assets/offline-pack-manifest.js?v=20260808b" defer></script>
+  <script src="assets/offline-resume-logic.js?v=20260808b" defer></script>
+  <script src="assets/offline-pack.js?v=20260808b" defer></script>
+  <script src="assets/map.js?v=20260808b" defer></script>
+  <script src="assets/documents.js?v=20260808b" defer></script>
+  <script src="assets/backup.js?v=20260808b" defer></script>
+  <script src="assets/app.js?v=20260808b" defer></script>
 </body>
 </html>

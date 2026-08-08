@@ -22,6 +22,7 @@
     "tabi-favorites", "tabi-done", "tabi-hidden-v1",
     "tabi-itineraries-v1", "tabi-itinerary-active-v1",
     "tabi-notes-v1", "tabi-packing", "tabi-packing-qty-v1",
+    "tabi-packing-hidden-v1", "tabi-packing-custom-v1",
     "tabi-current-city", "tabi-merchants-start-hidden",
     "tabi-nav-hidden", "tabi-theme"
   ];
