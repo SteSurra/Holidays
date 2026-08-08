@@ -161,6 +161,7 @@ fotocamera-vintage||||solo_mano|Batteria al litio: solo cabina
 pellicole||Chiedi il controllo manuale ai raggi X se sensibili||mano|
 auricolari||In treno e metro si parla a voce bassissima||mano|
 cavo-auricolari||||mano|
+esim||Attiva prima o all'arrivo: dati Giappone, non solo Wi‑Fi hotel; tieni QR/install offline||mano|
 `
     },
     {
@@ -297,6 +298,7 @@ felpina|1|Aereo e stazioni: aria condizionata aggressiva||mano|
     "pellicole": "Pellicole",
     "auricolari": "Auricolari",
     "cavo-auricolari": "Cavo auricolari",
+    "esim": "eSIM",
     "documenti": "Documenti",
     "passaporto": "Passaporto",
     "fotocopia-documenti": "Fotocopia documenti",
