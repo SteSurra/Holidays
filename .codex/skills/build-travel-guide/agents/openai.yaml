@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Travel Guide"
+  short_description: "Create privacy-safe travel companion sites"
+  default_prompt: "Use $build-travel-guide to create a new public travel guide from my itinerary."

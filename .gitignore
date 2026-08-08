@@ -1,0 +1,17 @@
+# Private travel material must never enter the public guide.
+.env
+.env.*
+private/
+photos/
+bookings/
+documents/
+tickets/
+*.pdf
+*.doc
+*.docx
+*.heic
+*.heif
+*.jpg
+*.jpeg
+*.png
+*.webp

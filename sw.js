@@ -1,8 +1,9 @@
-const CACHE = "tabi-japan-v2";
+const CACHE = "tabi-japan-v3";
 const SHELL = [
   "./", "index.html", "manifest.webmanifest",
   "assets/styles.css", "assets/data.js", "assets/food-data.js",
-  "assets/shopping-data.js", "assets/app.js",
+  "assets/shopping-data.js", "assets/travel-data.js", "assets/history-data.js",
+  "assets/map.js", "assets/app.js", "assets/photos.js",
   "assets/fallback-food.svg", "assets/fallback-place.svg",
   "assets/fallback-shop.svg", "assets/icons/icon.svg"
 ];

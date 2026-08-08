@@ -16,7 +16,8 @@
     filters: {
       place: { search: "", city: "all", category: "all" },
       food: { search: "", city: "all", category: "all", local: false },
-      shop: { search: "", city: "all", category: "all" }
+      shop: { search: "", city: "all", category: "all" },
+      history: { search: "", city: "all", category: "all" }
     }
   };
   let imageObserver;
@@ -66,9 +67,11 @@
     document.getElementById("placeCity").innerHTML = cityOptions(false);
     document.getElementById("foodCity").innerHTML = cityOptions(false);
     document.getElementById("shopCity").innerHTML = cityOptions(true);
+    document.getElementById("historyCity").innerHTML = cityOptions(false);
     document.getElementById("placeCategory").innerHTML = categoryOptions(data.labels.placeCategories, "Tutte le categorie");
     document.getElementById("foodCategory").innerHTML = categoryOptions(data.labels.foodCategories, "Tutte le portate");
     document.getElementById("shopCategory").innerHTML = categoryOptions(data.labels.shopCategories, "Tutte le categorie");
+    document.getElementById("historyCategory").innerHTML = categoryOptions(data.labels.historyCategories, "Tutti gli argomenti");
 
     bindFilter("placeSearch", "place", "search", "input");
     bindFilter("placeCity", "place", "city", "change");
@@ -79,6 +82,9 @@
     bindFilter("shopSearch", "shop", "search", "input");
     bindFilter("shopCity", "shop", "city", "change");
     bindFilter("shopCategory", "shop", "category", "change");
+    bindFilter("historySearch", "history", "search", "input");
+    bindFilter("historyCity", "history", "city", "change");
+    bindFilter("historyCategory", "history", "category", "change");
     document.getElementById("foodLocal").addEventListener("change", function (event) {
       state.filters.food.local = event.target.checked;
       renderFoods();
@@ -93,7 +99,7 @@
   }
 
   function matches(item, filters) {
-    const haystack = normalize([item.name, item.jp, item.description, item.context, item.area, item.where, cityName(item.city)].join(" "));
+    const haystack = normalize([item.name, item.jp, item.description, item.context, item.area, item.where, item.title, item.explanation, item.anecdote, cityName(item.city)].join(" "));
     const cityMatch = filters.city === "all"
       || (filters.city === "all-japan" && item.city === "all")
       || item.city === filters.city
@@ -120,10 +126,16 @@
   function footer(item) {
     const done = state.done.has(item.id);
     const labels = item.type === "place" ? ["Visitato", "Segna visitato"] : item.type === "food" ? ["Provato", "Segna provato"] : ["Comprato", "Segna comprato"];
+    const maps = item.type === "place" ? '<a href="' + mapsUrl(item) + '" target="_blank" rel="noopener">Maps ↗</a>' : '';
     return '<div class="card-footer">'
       + '<button class="done-button ' + (done ? "is-done" : "") + '" type="button" data-action="done" data-id="' + item.id + '">' + (done ? "✓ " + labels[0] : labels[1]) + '</button>'
+      + maps
       + '<button type="button" data-action="details" data-id="' + item.id + '">Dettagli ↗</button>'
       + '</div>';
+  }
+
+  function mapsUrl(item) {
+    return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(item.name + " " + cityName(item.city) + " Japan");
   }
 
   function placeCard(item) {
@@ -153,6 +165,13 @@
       + footer(item) + '</div></article>';
   }
 
+  function historyCard(item) {
+    return '<article class="history-card" data-kanji="' + escapeHTML(item.kanji) + '">'
+      + '<div><div class="card-kicker"><span>' + escapeHTML(cityName(item.city)) + '</span><span>' + escapeHTML(data.labels.historyCategories[item.category]) + '</span></div>'
+      + '<h2>' + escapeHTML(item.title) + '</h2><p>' + escapeHTML(item.explanation) + '</p></div>'
+      + '<p class="anecdote"><strong>Da ricordare:</strong> ' + escapeHTML(item.anecdote) + '</p></article>';
+  }
+
   function renderPlaces() {
     const items = data.places.filter(function (item) { return matches(item, state.filters.place); });
     renderCards("placeGrid", "placeMeta", "placeEmpty", items, placeCard, "luoghi");
@@ -171,6 +190,14 @@
     });
   }
 
+  function renderHistory() {
+    const items = data.history.filter(function (item) { return matches(item, state.filters.history); });
+    const grid = document.getElementById("historyGrid");
+    grid.innerHTML = items.map(historyCard).join("");
+    document.getElementById("historyMeta").textContent = items.length + " storie e contesti";
+    document.getElementById("historyEmpty").hidden = items.length !== 0;
+  }
+
   function renderCards(gridId, metaId, emptyId, items, renderer, noun) {
     const grid = document.getElementById(gridId);
     grid.innerHTML = items.map(renderer).join("");
@@ -183,11 +210,15 @@
     if (group === "place") renderPlaces();
     if (group === "food") renderFoods();
     if (group === "shop") renderShopping();
+    if (group === "history") renderHistory();
   }
 
   function setupRoute() {
     document.getElementById("routeStrip").innerHTML = data.cities.map(function (city) {
       return '<button class="route-stop" type="button" data-city-route="' + city.id + '"><span class="stop-index">TAPPA ' + String(city.order).padStart(2, "0") + '</span><b>' + escapeHTML(city.name) + ' ' + escapeHTML(city.jp) + '</b><small>' + escapeHTML(city.summary) + '</small></button>';
+    }).join("");
+    document.getElementById("stayGrid").innerHTML = data.lodging.map(function (stay) {
+      return '<article class="stay-card"><b>' + escapeHTML(cityName(stay.city)) + '</b><span>' + escapeHTML(stay.area) + '</span><small>' + escapeHTML(stay.note) + '</small></article>';
     }).join("");
   }
 
@@ -284,6 +315,7 @@
     if (view === "saved") renderSaved();
     if (updateHash !== false) history.replaceState(null, "", "#" + view);
     window.scrollTo({ top: 0, behavior: "auto" });
+    window.dispatchEvent(new CustomEvent("tabi:viewchange", { detail: { view: view } }));
   }
 
   function toggleFavorite(id) {
@@ -342,7 +374,7 @@
     } else {
       details = detailCells([["Categoria", data.labels.shopCategories[item.category]], ["Dove cercarlo", item.where], ["Prezzo", item.price], ["Consiglio", item.tip]]);
     }
-    const mapLink = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(item.name + " " + cityName(item.city) + " Japan");
+    const mapLink = mapsUrl(item);
     document.getElementById("dialogContent").innerHTML =
       '<img class="dialog-hero" src="' + escapeHTML(imageUrl || fallbackByType[item.type]) + '" alt="' + escapeHTML(item.name) + '">'
       + '<div class="dialog-body"><p class="eyebrow">' + escapeHTML(cityName(item.city)) + '</p>'
@@ -387,6 +419,53 @@
     const percent = Math.round((state.done.size / total) * 100);
     document.getElementById("progressText").textContent = percent + "% vissuto";
     document.getElementById("progressBar").style.width = percent + "%";
+  }
+
+  function setupLocalProfile() {
+    const profile = readJSON("tabi-local-profile", { nickname: "", group: "" });
+    const nickname = document.getElementById("localNickname");
+    const group = document.getElementById("localGroup");
+    nickname.value = profile.nickname || "";
+    group.value = profile.group || "";
+    document.getElementById("saveProfileButton").addEventListener("click", function () {
+      localStorage.setItem("tabi-local-profile", JSON.stringify({ nickname: nickname.value.trim(), group: group.value.trim() }));
+      showToast("Profilo salvato solo su questo dispositivo");
+    });
+    document.getElementById("exportProgressButton").addEventListener("click", function () {
+      const payload = {
+        format: "tabi-checklist-v1",
+        exportedAt: new Date().toISOString(),
+        profile: readJSON("tabi-local-profile", {}),
+        favorites: Array.from(state.favorites),
+        done: Array.from(state.done)
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "tabi-checklist-gruppo.json";
+      link.click();
+      setTimeout(function () { URL.revokeObjectURL(link.href); }, 1000);
+    });
+    document.getElementById("importProgressInput").addEventListener("change", async function (event) {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+      try {
+        const payload = JSON.parse(await file.text());
+        if (payload.format !== "tabi-checklist-v1") throw new Error("Formato non valido");
+        (payload.favorites || []).filter(function (id) { return itemById[id]; }).forEach(function (id) { state.favorites.add(id); });
+        (payload.done || []).filter(function (id) { return itemById[id]; }).forEach(function (id) { state.done.add(id); });
+        saveState();
+        updateProgress();
+        renderPlaces();
+        renderFoods();
+        renderShopping();
+        renderSaved();
+        showToast("Checklist del gruppo unita");
+      } catch (_) {
+        showToast("File checklist non riconosciuto");
+      }
+      event.target.value = "";
+    });
   }
 
   function showToast(message) {
@@ -463,7 +542,9 @@
     renderPlaces();
     renderFoods();
     renderShopping();
+    renderHistory();
     updateProgress();
+    setupLocalProfile();
     switchView(location.hash.slice(1) || "overview", false);
   }
 
