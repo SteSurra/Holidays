@@ -44,20 +44,133 @@ lesson, append it here in the same commit — this file is the skill's memory.
   prefetch means one session of panning evicts the cities saved on purpose.
 - **An errorTileUrl beats a broken-image icon.** Offline, missing tiles should
   render as neutral paper, not as a grid of broken images under floating pins.
+- **Never strip the OSM basemap until an offline layer is proven.** After an
+  Ampio pack install, `applyOfflineBasemap` used to remove the OSM tile layer
+  as soon as a local archive looked present, then call
+  `protomapsL.leafletLayer(...).addTo(map)`. If that constructor or first paint
+  failed silently, the map stayed blank forever — including after the network
+  returned. When `navigator.onLine`, always keep OSM; only when offline, try
+  the local PMTiles layer. Create and `addTo` inside try/catch *before*
+  removing OSM; on failure keep OSM (`errorTileUrl` paper) and toast once;
+  re-run on `online` / `offline` so connectivity flips restore a working base.
+- **Local vector PMTiles need FileSource, not a bare blob: URL.**
+  `protomaps-leaflet` decides PMTiles vs ZXY with
+  `new URL(url).pathname.endsWith(".pmtiles")`. `URL.createObjectURL(blob)` is
+  `blob:origin/uuid` — pathname never ends in `.pmtiles` — so the layer is wired
+  as a ZXY template and paints nothing. Read the OPFS/IDB Blob via `getMapBlob`,
+  wrap with `pmtiles.FileSource` + `pmtiles.PMTiles`, and pass that instance as
+  `leafletLayer({ url })`. Do not use `leafletRasterLayer` on Protomaps extracts:
+  those archives are MVT (tileType 1), not PNG/JPEG.
+- **Match the protomaps-leaflet style key to the library major.** v4 styles with
+  `theme: "light"`; v5 with `flavor: "light"`. Passing only `flavor` on v4 leaves
+  `paintRules` / `labelRules` empty → transparent canvas tiles after OSM is
+  removed (blank map). Pin CDN major + SW `EXTERNAL` together; canvas labels use
+  system/`Noto` font families and do not require a separate glyphs CDN, but
+  missing web fonts degrade text, not the road fill.
 - **A partial offline job is not the active tier.** `tabi-offline-tier` stores
   only a verified-complete plan; `tabi-offline-job` may stay `partial` until the
   user taps Riprendi. Never toast “pronto” from a progress counter — verify
-  Cache Storage photo counts and OPFS map bytes against the manifest.
+  Cache Storage photo counts and OPFS/IndexedDB map bytes against the manifest.
 - **Map packs need versioned URLs and byte checks.** Do not hotlink ephemeral
   planet builds for user downloads; ship `offline-pack-manifest.js` with `url`
-  + `bytes`, verify after download, delete corrupt OPFS files.
+  + `bytes`, verify after download, delete corrupt OPFS / IndexedDB files.
+- **OPFS `createWritable` is missing on Safari/iOS.** `navigator.storage.getDirectory`
+  and `getFileHandle` can exist while `typeof handle.createWritable !== "function"`.
+  Detect via `FileSystemFileHandle.prototype.createWritable`. Keep the OPFS path
+  on Chrome (seek + Range resume). On Safari, do **not** assemble multi-part packs
+  (~195MB Ampio z15) into one in-memory Blob and one `IDB.put`: progress hits
+  “100%” after the network while the UI stays busy with no status change, then
+  the giant put hangs or OOMs. Download parts sequentially, `IDB.put` each part
+  under `file::part::N` plus a `file::meta` record, and let `getMapBlob` return a
+  composite `new Blob(parts)` (lazy, no second full copy). Show an explicit
+  “Salvataggio mappa…” phase after bytes finish; cap the download bar under 100%
+  until verify+promote; time out hung IDB puts and surface errors instead of
+  leaving `status: "busy"`. Single-URL smaller packs may still use one Blob put.
+  `getMapBlobUrl` / `verifyMapFile` / purge must use that store when OPFS writable
+  is absent (and still clear both backends on purge).
+- **Confirm and progress MB must be download delta, not full tier size.** Ampio
+  z14 is ~203 MB from zero but ~73 MB when photos are already on device. Compute
+  `toDownloadBytes` from photos (skipped if `photosAlreadyOnDevice`) plus sum of
+  *missing* map pack part bytes (inspect OPFS prefix / `file::part::N` sizes
+  against the manifest) — never show the full `TABI_OFFLINE_SIZES` tier label
+  as “what you will download” on an upgrade or Riprendi.
+- **GitHub Release assets are not fetchable from a Pages PWA (CORS).**
+  `github.com/.../releases/download/...` 302s to `release-assets.githubusercontent.com`
+  (or similar) with `Accept-Ranges: bytes` but **no** `Access-Control-Allow-Origin`.
+  A `fetch` from `*.github.io` fails after the photo phase and looks “stuck”.
+  Host packs where GET (and Range) returns ACAO for the Pages origin — e.g.
+  `raw.githubusercontent.com` on an orphan branch (`offline-map-packs`), splitting
+  files over ~95 MiB because Git rejects ≥100 MiB blobs. Wire the manifest to
+  those URLs (commit SHA, not a mutable branch tip). Do not rely on
+  `mode: "no-cors"`: opaque bodies cannot be written to OPFS. Surface 401/403/404
+  and CORS/`TypeError` as clear Italian errors; show map progress in MB + ETA.
+  Prefer parallel Range chunks (about 8 MiB × 4) on fresh large single-URL packs,
+  with sequential resume when OPFS already has a prefix.
 - **Photo pack skips per item; abort only below the ratio.** Missing Commons
   files become SVG fallbacks offline; fail the job only when fewer than 95% of
   curated photos cache.
-- **Offline tiers live in Packing (Valigia), with Settings as a deep-link.**
-  Readers expect Minimo/Medio/Ampio/Massimo with MB explanations next to the
-  pre-trip checklist; a Settings-only panel made them ask where the plans went.
-  Keep the full tier selector in packing; Impostazioni may deep-link there.
+- **Verify offline photos by curated URL hits (or pack install meta), never raw
+  `cache.keys().length`.** Cache Storage stores one entry per Commons URL;
+  many curated items share the same file (here ~609 items → ~443 unique URLs).
+  Counting keys against `curatedEntries().length` falsely fails a good Medio
+  install (e.g. “Foto in cache insufficienti (443/609)” after a 606/609 pack
+  unpack). Count `cache.match` hits across curated URLs (item-weighted), and
+  accept a successful `photos_medio` unpack (≥95% of pack manifest entries)
+  recorded in localStorage meta.
+- **Curated photo packs need a real worker pool, not a paced serial loop.**
+  Medio is ~600 Commons redirects (~130 MB). Fetching nearly one-by-one with a
+  `wait(120)` throttle (and a misnamed “concurrency” that only gated the pause)
+  made wall-clock 10–30+ minutes on fast Wi‑Fi — the bottleneck was request
+  count × artificial delay, not bulk bandwidth. Use a small parallel pool
+  (about 6) for the Commons photo phase only, drop per-item pacing when the
+  pool is live, keep shared `Retry-After` / 429 cooldowns and `AbortSignal`,
+  and never apply that pool to OSM tile / map-pack traffic.
+- **Many small third-party GETs ≠ bulk MB — ship a photo archive.** Even a
+  polite 6-wide Commons pool left Medio around ~20 minutes: hundreds of
+  redirects, TLS handshakes, and 429 risk dominate wall-clock, not the ~130 MB
+  payload. Build `photos-medio.tar.gz` at publish time (`build-offline-photo-pack.mjs`),
+  host it with CORS (same orphan-branch / `raw.githubusercontent.com` pattern as
+  map packs; Release CDN alone is not enough), and in the app prefer one
+  download + `DecompressionStream('gzip')` + ustar parse into Cache Storage
+  under the Commons URL keys. Keep the parallel Commons fetch only as fallback
+  when `photos_medio` URLs are null. Progress: bytes for the archive, then a
+  brief “Installazione foto…”.
+- **Reuse curated photos across Medio → Ampio → Max upgrades.** All three
+  tiers share the same `photos_medio` set. Re-downloading ~130 MB on every
+  upgrade wastes data and looks broken when the user already finished Medio.
+  Before the photo phase, skip the archive (and the Commons fallback pool)
+  when curated Cache Storage hits are ≥95% or pack meta is accepted with the
+  same published `bytes` and at least some cached responses remain. Still
+  download the map pack when that layer is missing; on Ampio → Max only skip
+  photos (map files differ). Downgrade Ampio → Medio must purge maps but keep
+  the image cache. Status copy: “Foto già presenti — scarico solo la mappa…”.
+- **Resume map packs by part size — never restart the full pack on Riprendi.**
+  Multi-part Safari/IDB packs (`file::part::N`) often hang after the network
+  bar hits ~100% while `IDB.put` / meta write finishes. A naive resume that
+  deletes “incomplete” storage or re-fetches every part from index 0 doubles
+  wall-clock and burns data. Before each part GET, check that part’s Blob size
+  against the manifest; skip complete parts; count already-present bytes in
+  progress (start from the resumed offset); write `::meta` only after gaps are
+  filled. On mid-download errors keep complete parts (do not `idbDeleteMap` the
+  whole set). OPFS with `createWritable` keeps Range resume on the contiguous
+  file. `estimateDownloadBytes` / confirm dialog must sum missing part bytes
+  (and photos only when `photosAlreadyOnDevice` is false). Status when both
+  apply: “Foto già presenti · mappa: 2/3 pezzi già salvati, scarico il resto…”.
+- **Never persist a live `busy` offline job across reloads.** `tabi-offline-job`
+  survives in localStorage; the in-memory `AbortController` does not. After a
+  hung map download (or any crash mid-job), reload showed “Foto già sul
+  telefono…” / “Scarico…” with an Annulla that called `jobAbort.abort()` on
+  `null` and did nothing forever. On `setupUI` / every render, if status is
+  `busy` and there is no live controller, demote to `partial` with
+  “Download interrotto. Tocca Riprendi.” and offer Riprendi / Chiudi — never
+  Annulla without an AbortController. Cancel must always clear or demote the
+  job even when `jobAbort` is null; guard `progress` writers on
+  `signal.aborted` so a hung await cannot rewrite `busy` after cancel.
+- **Offline tiers live only in Settings (header gear), not in Packing.**
+  Host the full Minimo/Medio/Ampio/Massimo selector, zoom options, progress,
+  and download actions in Impostazioni (`data-view="settings"`). Do not put
+  the panel in Valigia / packing or deep-link “Apri Dati offline” into another
+  tab — packing is the checklist only; the gear is the single entry point.
 - **Hide map zoom options whose manifest `url` is null.** Do not offer Max z15
   (or any pack) until the release asset exists — show only published zooms.
 - **Never leave “Controllo in corso…” as the permanent offline status.** The
@@ -409,6 +522,13 @@ lesson, append it here in the same commit — this file is the skill's memory.
   deep-linking: navigating away too early leaves the clipboard empty. There
   is no reliable way to feature-detect an installed app from the web — the
   fallback is the design, not an apology.
+- **Walking `dir` links need the same app-first tap handler.** A published
+  `https://www.google.com/maps/dir/?api=1…` href is correct for desktop and CI,
+  but `target="_blank"` from a PWA often opens the mobile web instead of Google
+  Maps. Intercept taps on multi-stop walk links only: Android
+  `intent://…#Intent;scheme=https;package=com.google.android.apps.maps;S.browser_fallback_url=…;end`,
+  iOS `comgooglemapsurl://` plus a ~1.4 s hidden-page fallback to the https URL.
+  Keep single-pin `search` links as plain `api=1` anchors.
 
 ## Reader tabs (history / stories)
 

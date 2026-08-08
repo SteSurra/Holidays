@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#14181a" media="(prefers-color-scheme: dark)">
   <meta name="description" content="Guida di viaggio in Giappone con itinerario, mappa, luoghi, attività, cibo, acquisti e storie.">
   <title>Giappone 2026 | Tabi</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260807w">
+  <link rel="manifest" href="manifest.webmanifest?v=20260807g">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://commons.wikimedia.org">
@@ -33,9 +33,9 @@
       } catch (_) { /* senza storage si segue il sistema al primo apply() */ }
     })();
   </script>
-  <link rel="stylesheet" href="assets/styles.css?v=20260807w">
-  <link rel="icon" href="assets/icons/icon.svg?v=20260807w" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260807w">
+  <link rel="stylesheet" href="assets/styles.css?v=20260807g">
+  <link rel="icon" href="assets/icons/icon.svg?v=20260807g" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260807g">
 </head>
 <body>
   <a class="skip-link" href="#main">Vai al contenuto</a>
@@ -396,23 +396,10 @@
     <section class="view" id="settings" data-view="settings">
       <div class="page-intro settings-intro">
         <p class="eyebrow">Telefono e viaggio</p><h1>Impostazioni</h1>
-        <p>I piani offline e le mappe da scaricare stanno nella Valigia, insieme a cosa mettere in borsa.</p>
-      </div>
-      <section class="ready-panel" aria-labelledby="settingsOfflineLinkTitle">
-        <div><p class="eyebrow">Dati offline</p><h2 id="settingsOfflineLinkTitle">Scegli il piano nella Valigia</h2><p>Minimo, Medio, Ampio o Massimo, con lo spazio stimato in MB e il dettaglio mappa quando serve. Meglio sul Wi‑Fi.</p></div>
-        <div class="ready-actions">
-          <button type="button" class="primary-action" data-go="packing" data-scroll-to="offlinePackTitle">Apri Dati offline</button>
-        </div>
-      </section>
-    </section>
-
-    <section class="view" id="packing" data-view="packing">
-      <div class="page-intro packing-intro">
-        <p class="eyebrow">Prima di chiudere la valigia</p><h1>Cosa portare</h1>
-        <p>La lista completa divisa per borsa, con le note che contano davvero per il Giappone. Le spunte restano su questo telefono.</p>
+        <p>Qui scegli quanto della guida tenere sul telefono senza rete. Meglio sul Wi‑Fi.</p>
       </div>
       <section class="ready-panel offline-pack-panel" aria-labelledby="offlinePackTitle">
-        <div><p class="eyebrow">Prima di partire</p><h2 id="offlinePackTitle">Dati offline</h2><p>Senza internet resta disponibile solo ciò che scegli qui. Meglio sul Wi‑Fi.</p></div>
+        <div><p class="eyebrow">Prima di partire</p><h2 id="offlinePackTitle">Dati offline</h2><p>Senza internet resta disponibile solo ciò che scegli qui.</p></div>
         <div class="offline-pack-body">
           <fieldset class="offline-tier-list" id="offlineTierList" aria-label="Piano dati offline"></fieldset>
           <fieldset class="offline-zoom-list" id="offlineZoomList" aria-label="Dettaglio mappa" hidden></fieldset>
@@ -422,6 +409,13 @@
           <div class="ready-actions" id="offlinePackActions"></div>
         </div>
       </section>
+    </section>
+
+    <section class="view" id="packing" data-view="packing">
+      <div class="page-intro packing-intro">
+        <p class="eyebrow">Prima di chiudere la valigia</p><h1>Cosa portare</h1>
+        <p>La lista completa divisa per borsa, con le note che contano davvero per il Giappone. Le spunte restano su questo telefono.</p>
+      </div>
       <div class="packing-summary" id="packingSummary"></div>
       <div class="packing-groups" id="packingGroups"></div>
       <div class="packing-footer"><button id="packingResetButton" type="button">Azzera tutte le spunte</button></div>
@@ -491,7 +485,7 @@
         <p class="helper-note" id="quickYenNote"></p>
         <button class="quick-rate-guide" type="button" data-go="money">Monete e banconote →</button>
       </div>
-      <div class="nav-menu-grid"><button data-go="phrases">あ <span>Parole<small>Frasi pronte, con la pronuncia</small></span></button><button data-go="emergency">! <span>Emergenze<small>Numeri, frasi e posizione</small></span></button><button data-go="progress">✓ <span>Progressi<small>Cosa avete già visto e provato</small></span></button><button data-go="packing" data-scroll-to="offlinePackTitle">🧳 <span>Cosa portare<small>Valigia e piani dati offline</small></span></button><button data-go="documents">🎫 <span>Documenti<small>Biglietti e QR, solo sul telefono</small></span></button><button data-go="notes">✎ <span>Note<small>Appunti salvati sul telefono</small></span></button><button data-go="saved">♡ <span>Salvati<small>Preferiti e checklist di gruppo</small></span></button></div>
+      <div class="nav-menu-grid"><button data-go="phrases">あ <span>Parole<small>Frasi pronte, con la pronuncia</small></span></button><button data-go="emergency">! <span>Emergenze<small>Numeri, frasi e posizione</small></span></button><button data-go="progress">✓ <span>Progressi<small>Cosa avete già visto e provato</small></span></button><button data-go="packing">🧳 <span>Cosa portare<small>Lista valigia, con le note utili</small></span></button><button data-go="documents">🎫 <span>Documenti<small>Biglietti e QR, solo sul telefono</small></span></button><button data-go="notes">✎ <span>Note<small>Appunti salvati sul telefono</small></span></button><button data-go="saved">♡ <span>Salvati<small>Preferiti e checklist di gruppo</small></span></button></div>
       <div class="nav-menu-backup" id="backupPanel">
         <p class="eyebrow">Copia di sicurezza</p>
         <p class="helper-note" id="backupStatus" role="status">Nessun backup salvato su questo telefono.</p>
@@ -544,34 +538,36 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script src="assets/parse-lib.js?v=20260807w" defer></script>
-  <script src="assets/data.js?v=20260807w" defer></script>
-  <script src="assets/food-data.js?v=20260807w" defer></script>
-  <script src="assets/shopping-data.js?v=20260807w" defer></script>
-  <script src="assets/food-extra-data.js?v=20260807w" defer></script>
-  <script src="assets/travel-data.js?v=20260807w" defer></script>
-  <script src="assets/history-data.js?v=20260807w" defer></script>
-  <script src="assets/phrases-data.js?v=20260807w" defer></script>
-  <script src="assets/glossary-data.js?v=20260807w" defer></script>
-  <script src="assets/packing-data.js?v=20260807w" defer></script>
-  <script src="assets/money-data.js?v=20260807w" defer></script>
-  <script src="assets/day-tips-data.js?v=20260807w" defer></script>
-  <script src="assets/map-data.js?v=20260807w" defer></script>
-  <script src="assets/merchants-data.js?v=20260807w" defer></script>
-  <script src="assets/stamps-data.js?v=20260807w" defer></script>
-  <script src="assets/transit-data.js?v=20260807w" defer></script>
-  <script src="assets/experiences-data.js?v=20260807w" defer></script>
-  <script src="assets/source-data.js?v=20260807w" defer></script>
-  <script src="assets/story-data.js?v=20260807w" defer></script>
-  <script src="assets/guide-data.js?v=20260807w" defer></script>
-  <script src="assets/curated-images-data.js?v=20260807w" defer></script>
-  <script src="https://unpkg.com/protomaps-leaflet@4.0.1/dist/protomaps-leaflet.js" defer></script>
-  <script src="assets/offline-size-data.js?v=20260807w" defer></script>
-  <script src="assets/offline-pack-manifest.js?v=20260807w" defer></script>
-  <script src="assets/offline-pack.js?v=20260807w" defer></script>
-  <script src="assets/map.js?v=20260807w" defer></script>
-  <script src="assets/documents.js?v=20260807w" defer></script>
-  <script src="assets/backup.js?v=20260807w" defer></script>
-  <script src="assets/app.js?v=20260807w" defer></script>
+  <script src="https://unpkg.com/pmtiles@4.3.0/dist/pmtiles.js" defer></script>
+  <script src="https://unpkg.com/protomaps-leaflet@5.0.0/dist/protomaps-leaflet.js" defer></script>
+  <script src="assets/parse-lib.js?v=20260807g" defer></script>
+  <script src="assets/data.js?v=20260807g" defer></script>
+  <script src="assets/food-data.js?v=20260807g" defer></script>
+  <script src="assets/shopping-data.js?v=20260807g" defer></script>
+  <script src="assets/food-extra-data.js?v=20260807g" defer></script>
+  <script src="assets/travel-data.js?v=20260807g" defer></script>
+  <script src="assets/history-data.js?v=20260807g" defer></script>
+  <script src="assets/phrases-data.js?v=20260807g" defer></script>
+  <script src="assets/glossary-data.js?v=20260807g" defer></script>
+  <script src="assets/packing-data.js?v=20260807g" defer></script>
+  <script src="assets/money-data.js?v=20260807g" defer></script>
+  <script src="assets/day-tips-data.js?v=20260807g" defer></script>
+  <script src="assets/map-data.js?v=20260807g" defer></script>
+  <script src="assets/merchants-data.js?v=20260807g" defer></script>
+  <script src="assets/stamps-data.js?v=20260807g" defer></script>
+  <script src="assets/transit-data.js?v=20260807g" defer></script>
+  <script src="assets/experiences-data.js?v=20260807g" defer></script>
+  <script src="assets/source-data.js?v=20260807g" defer></script>
+  <script src="assets/story-data.js?v=20260807g" defer></script>
+  <script src="assets/guide-data.js?v=20260807g" defer></script>
+  <script src="assets/curated-images-data.js?v=20260807g" defer></script>
+  <script src="assets/offline-size-data.js?v=20260807g" defer></script>
+  <script src="assets/offline-pack-manifest.js?v=20260807g" defer></script>
+  <script src="assets/offline-resume-logic.js?v=20260807g" defer></script>
+  <script src="assets/offline-pack.js?v=20260807g" defer></script>
+  <script src="assets/map.js?v=20260807g" defer></script>
+  <script src="assets/documents.js?v=20260807g" defer></script>
+  <script src="assets/backup.js?v=20260807g" defer></script>
+  <script src="assets/app.js?v=20260807g" defer></script>
 </body>
 </html>

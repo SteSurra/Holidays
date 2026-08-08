@@ -876,6 +876,7 @@
       preferCanvas:true
     });
     let baseOfflineLayer = null;
+    let offlineBasemapToastAt = 0;
     const baseOsmLayer = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom:18,
       // Con CORS la risposta non è "opaque" e il service worker può salvarla:
@@ -887,31 +888,117 @@
       attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
+    function ensureOsmBasemap() {
+      if (baseOfflineLayer && map.hasLayer(baseOfflineLayer)) {
+        map.removeLayer(baseOfflineLayer);
+        baseOfflineLayer = null;
+      }
+      if (baseOsmLayer && !map.hasLayer(baseOsmLayer)) baseOsmLayer.addTo(map);
+    }
+
+    function toastOfflineBasemapFail(detail) {
+      const now = Date.now();
+      if (now - offlineBasemapToastAt < 8000) return;
+      offlineBasemapToastAt = now;
+      const suffix = detail ? ": " + detail : "";
+      if (window.TABI_UI) {
+        window.TABI_UI.toast("Mappa offline non disponibile" + suffix);
+      }
+    }
+
+    // Vector Protomaps packs need protomaps-leaflet + a PMTiles instance from
+    // FileSource(blob). blob: object URLs do not end in ".pmtiles", so
+    // sourcesToViews treats them as ZXY templates and paints nothing. Never
+    // remove OSM until the offline layer is constructed and added successfully.
+    async function buildOfflinePmtiles(blob, fileName) {
+      if (!window.pmtiles || !window.pmtiles.PMTiles || !window.pmtiles.FileSource) {
+        throw new Error("libreria PMTiles assente");
+      }
+      if (!window.protomapsL || typeof window.protomapsL.leafletLayer !== "function") {
+        throw new Error("protomaps-leaflet assente");
+      }
+      const file = blob instanceof File
+        ? blob
+        : new File([blob], fileName || "offline.pmtiles", { type: "application/vnd.pmtiles" });
+      const archive = new window.pmtiles.PMTiles(new window.pmtiles.FileSource(file));
+      const header = await archive.getHeader();
+      // 1 = MVT. leafletRasterLayer cannot draw these archives.
+      if (header.tileType !== 1) {
+        throw new Error("pacchetto non vettoriale");
+      }
+      return { archive: archive, maxDataZoom: header.maxZoom || 14 };
+    }
+
     async function applyOfflineBasemap() {
-      if (!window.TABI_OFFLINE_PACK || !window.protomapsL) return;
-      const blobUrl = await window.TABI_OFFLINE_PACK.getMapBlobUrl();
-      if (!blobUrl) {
-        if (baseOfflineLayer && map.hasLayer(baseOfflineLayer)) {
-          map.removeLayer(baseOfflineLayer);
-          baseOfflineLayer = null;
-        }
-        if (baseOsmLayer && !map.hasLayer(baseOsmLayer)) baseOsmLayer.addTo(map);
+      // Online: always OSM. Never replace a working network basemap with a
+      // local PMTiles layer that can paint blank after a silent failure.
+      if (navigator.onLine !== false) {
+        ensureOsmBasemap();
         return;
       }
+
+      if (!window.TABI_OFFLINE_PACK || !window.protomapsL) {
+        ensureOsmBasemap();
+        return;
+      }
+
+      const tier = window.TABI_OFFLINE_PACK.getActiveTier
+        ? window.TABI_OFFLINE_PACK.getActiveTier()
+        : null;
+      const wantsMapPack = tier && (tier.level === "ampio" || tier.level === "max");
+
+      let blob = null;
+      try {
+        blob = typeof window.TABI_OFFLINE_PACK.getMapBlob === "function"
+          ? await window.TABI_OFFLINE_PACK.getMapBlob()
+          : null;
+      } catch (error) {
+        console.error("[tabi] getMapBlob", error);
+        blob = null;
+      }
+
+      if (!blob) {
+        ensureOsmBasemap();
+        if (wantsMapPack) toastOfflineBasemapFail("pacchetto assente");
+        return;
+      }
+
+      const fileName = ((tier && tier.key) || "offline") + ".pmtiles";
+
+      let nextLayer = null;
+      try {
+        const built = await buildOfflinePmtiles(blob, fileName);
+        nextLayer = window.protomapsL.leafletLayer({
+          url: built.archive,
+          lang: "it",
+          flavor: "light",
+          theme: "light",
+          maxDataZoom: built.maxDataZoom,
+          maxZoom: 18,
+          attribution: '<a href="https://protomaps.com">Protomaps</a> © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        });
+        nextLayer.addTo(map);
+        if (typeof nextLayer.bringToBack === "function") nextLayer.bringToBack();
+      } catch (error) {
+        console.error("[tabi] offline basemap", error);
+        ensureOsmBasemap();
+        if (wantsMapPack) toastOfflineBasemapFail((error && error.message) || "errore");
+        return;
+      }
+
       if (baseOsmLayer && map.hasLayer(baseOsmLayer)) map.removeLayer(baseOsmLayer);
-      if (baseOfflineLayer && map.hasLayer(baseOfflineLayer)) map.removeLayer(baseOfflineLayer);
-      baseOfflineLayer = window.protomapsL.leafletLayer({
-        url: blobUrl,
-        lang: "it",
-        flavor: "light"
-      });
-      baseOfflineLayer.addTo(map);
+      if (baseOfflineLayer && map.hasLayer(baseOfflineLayer) && baseOfflineLayer !== nextLayer) {
+        map.removeLayer(baseOfflineLayer);
+      }
+      baseOfflineLayer = nextLayer;
     }
 
     applyOfflineBasemap();
     if (window.TABI_OFFLINE_PACK) {
       window.TABI_OFFLINE_PACK.onTierChange(function () { applyOfflineBasemap(); });
     }
+    window.addEventListener("online", function () { applyOfflineBasemap(); });
+    window.addEventListener("offline", function () { applyOfflineBasemap(); });
 
     const coordinates = window.JAPAN_DATA.cities.map(function (city) {
       const icon = L.divIcon({ className:"route-marker", html:String(city.order), iconSize:[34, 34] });

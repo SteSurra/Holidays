@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 /**
- * Publish measured PMTiles under tmp/offline-packs/ to GitHub Releases and wire
- * assets/offline-pack-manifest.js.
+ * Publish measured PMTiles under tmp/offline-packs/ to GitHub Releases.
  *
- * Prerequisites:
- *   gh auth login
- *   # or: export GH_TOKEN=...
+ * IMPORTANT: GitHub Release download URLs are NOT CORS-safe for the PWA.
+ * release-assets.githubusercontent.com omits Access-Control-Allow-Origin, so
+ * browser fetch from GitHub Pages fails. For in-app downloads use:
+ *   node scripts/publish-offline-map-packs-cors.mjs
+ * which publishes to branch offline-map-packs (raw.githubusercontent.com).
  *
+ * This script remains useful as a backup mirror / gh CLI distribution.
  * GitHub release assets are limited to 2 GiB per file. japan-z15.pmtiles exceeds
  * that; host it elsewhere and pass --max-z15-url (or set TABI_MAX_Z15_URL).
  *

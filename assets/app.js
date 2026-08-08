@@ -70,7 +70,7 @@
   // "cache pronta". NON va nell'URL di registrazione del service worker: un
   // URL che cambia a ogni rilascio forza una reinstallazione del worker in
   // più — e il toast di aggiornamento arrivava due volte di fila.
-  const RELEASE = "20260807w";
+  const RELEASE = "20260807g";
   window.TABI_RELEASE = RELEASE;
 
   function readJSON(key, fallback) {
@@ -2379,7 +2379,7 @@
       button.classList.toggle("is-active", (NAV_GROUPS[button.dataset.navMenu] || []).includes(view));
     });
     document.querySelectorAll(".header-settings").forEach(function (button) {
-      button.classList.toggle("is-active", view === "settings" || view === "packing");
+      button.classList.toggle("is-active", view === "settings");
     });
     const navDialog = document.getElementById("navMenuDialog");
     if (navDialog && navDialog.open) navDialog.close();
