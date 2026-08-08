@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Immagine del piatto non disponibile">
+  <rect width="800" height="500" fill="#b6422e"/>
+  <circle cx="400" cy="250" r="145" fill="#f4f0e7"/>
+  <circle cx="400" cy="250" r="105" fill="#e9e1d3"/>
+  <path d="M310 247c45-62 135-62 180 0-35 60-145 60-180 0Z" fill="#536b4d"/>
+  <circle cx="368" cy="225" r="22" fill="#f4f0e7"/><circle cx="430" cy="271" r="18" fill="#f4f0e7"/>
+  <text x="400" y="450" text-anchor="middle" fill="#f4f0e7" font-family="serif" font-size="34">いただきます</text>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Immagine dell'acquisto non disponibile">
+  <rect width="800" height="500" fill="#d9c292"/>
+  <path d="M260 170h280l-25 230H285Z" fill="#b6422e"/>
+  <path d="M330 190c0-100 140-100 140 0" fill="none" stroke="#1d2522" stroke-width="24"/>
+  <circle cx="400" cy="285" r="55" fill="#f4f0e7"/>
+  <text x="400" y="302" text-anchor="middle" fill="#1d2522" font-family="serif" font-size="48">買</text>
+</svg>

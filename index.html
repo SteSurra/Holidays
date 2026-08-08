@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#b6422e">
+  <meta name="description" content="Compagno di viaggio per il Giappone: tappe, luoghi, cibo e acquisti tipici.">
+  <title>Giappone 2026 | Tabi</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://commons.wikimedia.org">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Noto+Serif+JP:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Vai al contenuto</a>
+  <header class="site-header">
+    <a class="brand" href="#overview" aria-label="Tabi, home">
+      <span class="brand-mark" aria-hidden="true">旅</span>
+      <span><strong>Tabi</strong><small>Giappone 2026</small></span>
+    </a>
+    <button class="install-button" id="installButton" type="button" hidden>Installa sul telefono</button>
+  </header>
+
+  <main id="main">
+    <section class="view is-active" id="overview" data-view="overview">
+      <div class="hero">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Il viaggio, in tasca</p>
+          <h1>Dal primo treno<br>all'ultimo <em>ramen</em>.</h1>
+          <p class="hero-lede">Una guida pratica per decidere cosa vedere, assaggiare e portare a casa, città dopo città.</p>
+          <div class="hero-actions">
+            <button class="primary-action" type="button" data-go="places">Esplora le tappe</button>
+            <button class="secondary-action" type="button" data-go="saved">I miei salvati</button>
+          </div>
+        </div>
+        <div class="hero-art reveal" aria-hidden="true">
+          <div class="sun"></div><div class="mountain mountain-back"></div><div class="mountain mountain-front"></div>
+          <div class="route-line"><i></i><i></i><i></i><i></i></div>
+          <span class="vertical-type">日本を旅する</span>
+        </div>
+      </div>
+
+      <div class="dashboard-shell">
+        <section class="trip-strip reveal" aria-labelledby="routeTitle">
+          <div class="section-heading compact"><div><p class="eyebrow">13 tappe</p><h2 id="routeTitle">La rotta</h2></div><span class="hint">Scorri</span></div>
+          <div class="route-scroll" id="routeStrip"></div>
+        </section>
+
+        <section class="today-grid reveal">
+          <article class="stat-card ink"><span>Da scoprire</span><strong id="placeCount">0</strong><small>luoghi selezionati</small></article>
+          <article class="stat-card vermilion"><span>Da assaggiare</span><strong id="foodCount">0</strong><small>specialità locali</small></article>
+          <article class="stat-card moss"><span>Da cercare</span><strong id="shopCount">0</strong><small>acquisti tipici</small></article>
+          <article class="progress-card">
+            <div><span>Il tuo viaggio</span><strong id="progressText">0% vissuto</strong></div>
+            <div class="progress-track"><i id="progressBar"></i></div>
+            <small>Segna luoghi, piatti e acquisti mentre viaggi.</small>
+          </article>
+        </section>
+
+        <section class="editorial-grid reveal">
+          <button class="feature-card food-feature" type="button" data-go="food"><span class="feature-number">01</span><div><p class="eyebrow">Mangiare</p><h2>Non ordinare<br>sempre la solita cosa.</h2><p>Filtra per città, portata e contesto. Le foto arrivano quando servono.</p></div><span class="arrow">↗</span></button>
+          <button class="feature-card shop-feature" type="button" data-go="shopping"><span class="feature-number">02</span><div><p class="eyebrow">Portare a casa</p><h2>Souvenir con<br>una storia vera.</h2><p>Artigianato, dispensa, cartoleria, beauty e cultura pop.</p></div><span class="arrow">↗</span></button>
+        </section>
+      </div>
+    </section>
+
+    <section class="view" id="places" data-view="places">
+      <div class="page-intro">
+        <p class="eyebrow">Muoversi e scoprire</p><h1>Luoghi</h1>
+        <p>Classici, deviazioni interessanti e indirizzi da non saltare.</p>
+      </div>
+      <div class="toolbar sticky-toolbar">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="placeSearch" type="search" placeholder="Cerca luogo o città…" autocomplete="off"></label>
+        <select id="placeCity" aria-label="Filtra luoghi per città"></select>
+        <select id="placeCategory" aria-label="Filtra luoghi per categoria"></select>
+      </div>
+      <div class="results-meta" id="placeMeta"></div>
+      <div class="card-grid place-grid" id="placeGrid"></div>
+      <div class="empty-state" id="placeEmpty" hidden><strong>Nessun luogo trovato.</strong><span>Prova a cambiare i filtri.</span></div>
+    </section>
+
+    <section class="view" id="food" data-view="food">
+      <div class="page-intro food-intro">
+        <p class="eyebrow">La guida per riconoscerli</p><h1>Cibi tipici</h1>
+        <p>Piatti celebri e scoperte locali, con foto caricate a richiesta e fallback offline.</p>
+      </div>
+      <div class="toolbar sticky-toolbar">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="foodSearch" type="search" placeholder="Cerca piatto o ingrediente…" autocomplete="off"></label>
+        <select id="foodCity" aria-label="Filtra cibi per città"></select>
+        <select id="foodCategory" aria-label="Filtra cibi per portata"></select>
+        <label class="toggle"><input id="foodLocal" type="checkbox"><span>Solo scoperte locali</span></label>
+      </div>
+      <div class="results-meta" id="foodMeta"></div>
+      <div class="card-grid food-grid" id="foodGrid"></div>
+      <div class="empty-state" id="foodEmpty" hidden><strong>Nessun piatto trovato.</strong><span>Prova a cambiare i filtri.</span></div>
+    </section>
+
+    <section class="view" id="shopping" data-view="shopping">
+      <div class="page-intro shop-intro">
+        <p class="eyebrow">Cose belle, buone, utili</p><h1>Cosa comprare</h1>
+        <p>Una lista ragionata per evitare souvenir anonimi e riconoscere ciò che vale spazio in valigia.</p>
+      </div>
+      <div class="toolbar sticky-toolbar">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="shopSearch" type="search" placeholder="Cerca oggetto o categoria…" autocomplete="off"></label>
+        <select id="shopCity" aria-label="Filtra acquisti per città"></select>
+        <select id="shopCategory" aria-label="Filtra acquisti per categoria"></select>
+      </div>
+      <div class="category-rail" id="shopCategoryRail"></div>
+      <div class="results-meta" id="shopMeta"></div>
+      <div class="card-grid shop-grid" id="shopGrid"></div>
+      <div class="empty-state" id="shopEmpty" hidden><strong>Nessun acquisto trovato.</strong><span>Prova a cambiare i filtri.</span></div>
+    </section>
+
+    <section class="view" id="saved" data-view="saved">
+      <div class="page-intro saved-intro"><p class="eyebrow">La tua selezione</p><h1>Salvati</h1><p>Preferiti e cose già fatte restano su questo dispositivo.</p></div>
+      <div class="saved-summary" id="savedSummary"></div>
+      <div class="saved-sections" id="savedSections"></div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Navigazione principale">
+    <button class="is-active" type="button" data-nav="overview"><span aria-hidden="true">⌂</span><small>Viaggio</small></button>
+    <button type="button" data-nav="places"><span aria-hidden="true">⌖</span><small>Luoghi</small></button>
+    <button type="button" data-nav="food"><span aria-hidden="true">○</span><small>Cibo</small></button>
+    <button type="button" data-nav="shopping"><span aria-hidden="true">◇</span><small>Acquisti</small></button>
+    <button type="button" data-nav="saved"><span aria-hidden="true">♡</span><small>Salvati</small></button>
+  </nav>
+
+  <dialog class="detail-dialog" id="detailDialog"><button class="dialog-close" type="button" aria-label="Chiudi">×</button><div id="dialogContent"></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/data.js" defer></script>
+  <script src="assets/food-data.js" defer></script>
+  <script src="assets/shopping-data.js" defer></script>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

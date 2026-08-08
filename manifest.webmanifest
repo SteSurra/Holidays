@@ -1,0 +1,13 @@
+{
+  "name": "Tabi - Giappone 2026",
+  "short_name": "Tabi",
+  "description": "Compagno di viaggio per luoghi, cibo e acquisti in Giappone.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f0e7",
+  "theme_color": "#b6422e",
+  "lang": "it",
+  "icons": [
+    { "src": "assets/icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

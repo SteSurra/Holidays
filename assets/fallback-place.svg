@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Immagine del luogo non disponibile">
+  <rect width="800" height="500" fill="#30413b"/>
+  <circle cx="598" cy="126" r="78" fill="#b6422e"/>
+  <path d="M0 405 250 150l250 255Z" fill="#72816d"/><path d="m160 405 240-300 260 300Z" fill="#1d2522"/>
+  <path d="m348 170 52-65 60 70-32-13-22 25-22-28Z" fill="#f4f0e7"/>
+  <text x="64" y="86" fill="#f4f0e7" font-family="serif" font-size="34">日本を旅する</text>
+</svg>
