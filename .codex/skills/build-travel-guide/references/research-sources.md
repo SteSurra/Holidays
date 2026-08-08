@@ -43,6 +43,8 @@ Discovery catalogs such as Google Maps, Michelin, HappyCow, Atlas Obscura, local
 
 Tabelog is searched by prefecture and category for restaurant candidates, recent ratings, photos, and dish vocabulary. Treat scores as snapshots, preserve the retrieval date, never rank unlike categories mechanically, and verify current opening data on the restaurant's official channel.
 
+Pick candidates one specialty at a time, following the restaurant rule in [content-schema.md](content-schema.md): search the dish the stop is known for, not the city's overall ranking, and keep one or two addresses per dish. Record each choice as the venue path taken from its English page, `https://tabelog.com/en/<prefecture>/<area>/<subarea>/<id>/`, so the guide can link the live score, hours, and booking. Tabelog offers no public API and forbids automated collection, so refreshing scores by scraping is out of scope: the outbound link carries the current value.
+
 ## Japan Route Sources
 
 | City or area | Official local sources | Tabelog prefecture |

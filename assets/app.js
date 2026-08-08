@@ -14,12 +14,21 @@
   const state = {
     favorites: new Set(readJSON("tabi-favorites", [])),
     done: new Set(readJSON("tabi-done", [])),
-    imageCache: readJSON("tabi-image-cache-v3", {}),
+    // Chi è *escluso* dalla mappa, non chi è incluso: l'insieme vuoto vale
+    // "mostra tutto", e un luogo aggiunto in futuro compare da solo invece di
+    // sparire in silenzio. La guida mostra tutte le possibilità; è l'utente a
+    // decidere cosa nascondere.
+    hidden: new Set(readJSON("tabi-hidden-v1", [])),
+    listView: localStorage.getItem("tabi-list-view") === "list" ? "list" : "cards",
+    imageCache: readJSON("tabi-image-cache-v4", {}),
     position: null,
     currentView: "",
     previousView: "",
     packed: new Set(readJSON("tabi-packing", [])),
     notes: readJSON("tabi-notes-v1", []),
+    // Da quale menu (Scopri o Utilità) è stata aperta una schermata: serve al
+    // tasto indietro per riportare al menu invece che alla pagina sottostante.
+    menuOrigin: {},
     filters: {
       place: { search: "", city: "all", category: "all", nearby: false },
       experience: { search: "", city: "all", category: "all", setting: "all", nearby: false },
@@ -36,6 +45,8 @@
   const imageRequests = new Map();
   const imageProviderCooldowns = {};
   let deferredInstallPrompt;
+  let quickRateSync;
+  let moneyRateRequested = false;
   let toastTimer;
   let ocrWorker;
   let ocrPreviewUrl;
@@ -47,6 +58,23 @@
   function saveState() {
     localStorage.setItem("tabi-favorites", JSON.stringify(Array.from(state.favorites)));
     localStorage.setItem("tabi-done", JSON.stringify(Array.from(state.done)));
+  }
+
+  // La mappa si riallinea da sola: ricostruisce il livello dei luoghi invece di
+  // reinizializzarsi, come già fa per le spunte di visita.
+  function saveHidden() {
+    localStorage.setItem("tabi-hidden-v1", JSON.stringify(Array.from(state.hidden)));
+    window.dispatchEvent(new CustomEvent("tabi:selectionchange"));
+  }
+
+  // Solo i luoghi che hanno un punto sulla mappa possono essere nascosti: hotel,
+  // Tabelog, WC, fontanelle e konbini hanno già i loro interruttori di livello.
+  function isSelectable(item) {
+    return mapGuideIds.has(item.id);
+  }
+
+  function isSelected(id) {
+    return !state.hidden.has(id);
   }
 
   function escapeHTML(value) {
@@ -192,7 +220,34 @@
 
   function actionButtons(item) {
     const favorite = state.favorites.has(item.id);
-    return '<div class="card-actions"><button class="icon-button favorite-button ' + (favorite ? "is-active" : "") + '" type="button" data-action="favorite" data-id="' + item.id + '" aria-label="' + (favorite ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti") + '">' + (favorite ? "♥" : "♡") + '</button></div>';
+    return '<div class="card-actions">' + selectionToggle(item)
+      + '<button class="icon-button favorite-button ' + (favorite ? "is-active" : "") + '" type="button" data-action="favorite" data-id="' + item.id + '" aria-label="' + (favorite ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti") + '">' + (favorite ? "♥" : "♡") + '</button></div>';
+  }
+
+  // Il quadratino non è un preferito: dice soltanto se il luogo sta sulla mappa.
+  // Tenerlo distinto dal cuore e dalla spunta di visita evita di confondere
+  // "non mi interessa" con "ci sono già stato".
+  function selectionToggle(item) {
+    if (!isSelectable(item)) return "";
+    const on = isSelected(item.id);
+    return '<button class="select-toggle' + (on ? " is-on" : "") + '" type="button" role="switch" aria-checked="' + on + '"'
+      + ' data-action="select" data-id="' + item.id + '"'
+      + ' aria-label="' + escapeHTML(item.name) + (on ? ": togli dalla mappa" : ": rimetti sulla mappa") + '">'
+      + '<span aria-hidden="true">' + (on ? "✓" : "") + '</span></button>';
+  }
+
+  // Vista compatta: solo il nome e il quadratino. Serve a scegliere in fretta
+  // cosa portarsi sulla mappa, non a leggere.
+  function compactRow(item) {
+    const done = state.done.has(item.id);
+    // Chi non ha un punto sulla mappa non ha il quadratino, ma tiene il suo
+    // posto: una colonna che salta rende l'elenco illeggibile.
+    return '<article class="compact-row' + (done ? " is-done" : "") + '" data-card-id="' + item.id + '">'
+      + (isSelectable(item) ? selectionToggle(item) : '<span class="select-spacer" aria-hidden="true"></span>')
+      + '<button class="compact-main" type="button" data-action="details" data-id="' + item.id + '">'
+      + '<b>' + escapeHTML(item.name) + (done ? ' <span class="compact-done" aria-label="già visitato">✓</span>' : '') + '</b>'
+      + '<small>' + escapeHTML(cityName(item.city)) + ' · ' + escapeHTML(item.jp || "") + '</small>'
+      + '</button></article>';
   }
 
   function completionLabels(item) {
@@ -211,7 +266,12 @@
     const done = state.done.has(item.id);
     const labels = completionLabels(item);
     const maps = ["place", "experience"].includes(item.type) ? '<a href="' + mapsUrl(item) + '" target="_blank" rel="noopener">Maps ↗</a>' : '';
-    const ownMap = mapGuideIds.has(item.id) ? '<a href="' + ownMapUrl(item) + '" data-map-focus="' + item.id + '">Mappa Tabi ⌖</a>' : '';
+    // Se il luogo non sta sulla mappa il collegamento resta nel DOM ma sparisce:
+    // così torna da solo quando lo si riseleziona, senza ricostruire la scheda,
+    // e nel frattempo non offre un link che non troverebbe niente.
+    const ownMap = mapGuideIds.has(item.id)
+      ? '<a class="own-map-link' + (isSelected(item.id) ? "" : " is-off") + '" href="' + ownMapUrl(item) + '" data-map-focus="' + item.id + '">Mappa Tabi ⌖</a>'
+      : '';
     return '<div class="card-footer">'
       + '<button class="done-button ' + (done ? "is-done" : "") + '" type="button" data-action="done" data-id="' + item.id + '">' + (done ? "✓ " + labels[0] : labels[1]) + '</button>'
       + ownMap + maps
@@ -286,7 +346,8 @@
   }
 
   function placeCard(item) {
-    return '<article class="content-card" data-card-id="' + item.id + '">' + actionButtons(item) + cardImage(item)
+    return '<article class="content-card' + (isSelectable(item) && !isSelected(item.id) ? " is-off-map" : "") + '" data-card-id="' + item.id + '">'
+      + actionButtons(item) + cardImage(item)
       + '<div class="card-body"><div class="card-kicker"><span>' + escapeHTML(data.labels.placeCategories[item.category]) + escapeHTML(distanceLabel(item)) + '</span><span>' + escapeHTML(item.duration) + '</span></div>'
       + '<h3>' + escapeHTML(item.name) + '<span class="jp-name">' + escapeHTML(item.jp) + '</span></h3>'
       + '<p class="card-description">' + escapeHTML(item.description) + '</p>'
@@ -304,7 +365,8 @@
   }
 
   function experienceCard(item) {
-    return '<article class="content-card experience-card" data-card-id="' + item.id + '">' + actionButtons(item) + cardImage(item)
+    return '<article class="content-card experience-card' + (isSelectable(item) && !isSelected(item.id) ? " is-off-map" : "") + '" data-card-id="' + item.id + '">'
+      + actionButtons(item) + cardImage(item)
       + '<div class="card-body"><div class="card-kicker"><span>' + escapeHTML(data.labels.experienceCategories[item.category]) + escapeHTML(distanceLabel(item)) + '</span><span>' + escapeHTML(item.duration) + '</span></div>'
       + '<h3>' + escapeHTML(item.name) + '<span class="jp-name">' + escapeHTML(item.jp) + '</span></h3>'
       + '<p class="card-description">' + escapeHTML(item.description) + '</p>'
@@ -329,9 +391,17 @@
       + footer(item) + '</div></article>';
   }
 
+  // Schede o elenco: stessi dati, due densità. L'elenco serve a decidere in
+  // fretta cosa portarsi sulla mappa; le schede a capire cosa si sta scegliendo.
+  function listRenderer(cardRenderer) {
+    return state.listView === "list" ? compactRow : cardRenderer;
+  }
+
   function renderPlaces() {
     const items = [].concat(data.places, data.mapPlaces || []).filter(function (item) { return matches(item, state.filters.place); });
-    renderCards("placeGrid", "placeMeta", "placeEmpty", state.filters.place.nearby ? sortByDistance(items) : items, placeCard, "luoghi");
+    document.getElementById("placeGrid").classList.toggle("is-compact", state.listView === "list");
+    renderCards("placeGrid", "placeMeta", "placeEmpty", state.filters.place.nearby ? sortByDistance(items) : items, listRenderer(placeCard), "luoghi");
+    renderSelectionBar();
   }
 
   function renderFoods() {
@@ -341,7 +411,9 @@
 
   function renderExperiences() {
     const items = (data.experiences || []).filter(function (item) { return matches(item, state.filters.experience); });
-    renderCards("experienceGrid", "experienceMeta", "experienceEmpty", state.filters.experience.nearby ? sortByDistance(items) : items, experienceCard, "esperienze");
+    document.getElementById("experienceGrid").classList.toggle("is-compact", state.listView === "list");
+    renderCards("experienceGrid", "experienceMeta", "experienceEmpty", state.filters.experience.nearby ? sortByDistance(items) : items, listRenderer(experienceCard), "esperienze");
+    renderSelectionBar();
   }
 
   function renderShopping() {
@@ -385,11 +457,19 @@
   let japaneseVoice = null;
   let voicesReady = false;
 
+  // Su Android la lingua è scritta in modi diversi da motore a motore: Google
+  // dice "ja-JP", altri "ja_JP" o "jpn-JPN". Un solo formato non basta.
+  function isJapaneseVoice(voice) {
+    const lang = String(voice.lang || "").toLowerCase().replace(/_/g, "-");
+    return lang === "ja" || lang.indexOf("ja-") === 0 || lang.indexOf("jpn") === 0
+      || /japanese|日本/i.test(voice.name || "");
+  }
+
   function pickJapaneseVoice() {
     const voices = window.speechSynthesis.getVoices();
     if (!voices.length) return null;
     voicesReady = true;
-    japaneseVoice = voices.find(function (voice) { return /^ja(-|_|$)/i.test(voice.lang); }) || null;
+    japaneseVoice = voices.find(isJapaneseVoice) || null;
     return japaneseVoice;
   }
 
@@ -397,18 +477,22 @@
     if (!("speechSynthesis" in window)) return;
     pickJapaneseVoice();
     window.speechSynthesis.addEventListener("voiceschanged", pickJapaneseVoice);
+    // Android popola l'elenco molto dopo il caricamento e non sempre emette
+    // voiceschanged: senza qualche tentativo la prima frase toccata direbbe
+    // "manca la voce giapponese" anche quando la voce c'è eccome.
+    let attempts = 0;
+    const timer = window.setInterval(function () {
+      attempts += 1;
+      if (pickJapaneseVoice() || attempts >= 12) window.clearInterval(timer);
+    }, 400);
   }
 
-  function speakJapanese(text) {
+  function speakJapanese(text, meaning) {
     if (!("speechSynthesis" in window)) {
-      showToast("Pronuncia audio non disponibile");
+      openSpeechHelp(text, meaning, "Questo browser non sa leggere ad alta voce.");
       return;
     }
     if (!voicesReady) pickJapaneseVoice();
-    if (voicesReady && !japaneseVoice) {
-      showToast("Nessuna voce giapponese sul dispositivo");
-      return;
-    }
     window.speechSynthesis.cancel();
     // cancel() e speak() nello stesso tick si annullano a vicenda su Chrome e Safari.
     window.setTimeout(function () {
@@ -416,12 +500,44 @@
       utterance.lang = "ja-JP";
       utterance.rate = 0.82;
       if (japaneseVoice) utterance.voice = japaneseVoice;
-      utterance.onerror = function (event) {
-        if (event.error === "interrupted" || event.error === "canceled") return;
-        showToast("Pronuncia non riuscita: alza il volume e riprova");
+      let started = false;
+      let watchdog = 0;
+      utterance.onstart = function () {
+        started = true;
+        window.clearTimeout(watchdog);
       };
+      utterance.onerror = function (event) {
+        window.clearTimeout(watchdog);
+        if (started || event.error === "interrupted" || event.error === "canceled") return;
+        openSpeechHelp(text, meaning, "Il telefono non è riuscito a pronunciare la frase.");
+      };
+      // Se i dati vocali giapponesi non sono installati, quasi nessun motore
+      // Android segnala un errore: semplicemente non parte niente. Un cronometro
+      // è l'unico modo per accorgersene e spiegare come rimediare.
+      watchdog = window.setTimeout(function () {
+        if (started) return;
+        window.speechSynthesis.cancel();
+        openSpeechHelp(text, meaning, japaneseVoice
+          ? "La voce giapponese è installata ma non ha risposto: spesso basta togliere il silenzioso e ritentare."
+          : "Su questo telefono non risulta installata nessuna voce giapponese.");
+      }, 1800);
       window.speechSynthesis.speak(utterance);
     }, 60);
+  }
+
+  function openSpeechHelp(text, meaning, reason) {
+    const dialog = document.getElementById("speechDialog");
+    if (!dialog) {
+      showToast(reason);
+      return;
+    }
+    document.getElementById("speechReason").textContent = reason;
+    const link = document.getElementById("speechFallbackLink");
+    link.href = "https://translate.google.com/?sl=ja&tl=it&text=" + encodeURIComponent(text) + "&op=translate";
+    link.querySelector("span").textContent = meaning
+      ? "Ascolta «" + meaning + "» su Google Traduttore ↗"
+      : "Ascolta la frase su Google Traduttore ↗";
+    if (!dialog.open) dialog.showModal();
   }
 
   // Divisione in more, come Duolingo mostra i kana: la ん isolata, la pausa
@@ -492,6 +608,75 @@
     document.getElementById(metaId).textContent = items.length + " " + noun;
     document.getElementById(emptyId).hidden = items.length !== 0;
     observeImages(grid);
+  }
+
+  // La barra vive sia in Mappa sia in Esperienze: i due elenchi alimentano lo
+  // stesso livello, quindi il conteggio è uno solo ed è sempre sul totale.
+  function renderSelectionBar() {
+    const total = mapGuideIds.size;
+    const on = total - Array.from(state.hidden).filter(function (id) { return mapGuideIds.has(id); }).length;
+    // Una mappa con dei buchi deve dire perché li ha.
+    const counter = document.getElementById("mapSelectionCount");
+    if (counter) counter.textContent = on === total ? "" : "Sulla mappa ci sono " + on + " luoghi di " + total + ": gli altri li hai nascosti.";
+    document.querySelectorAll("[data-selection-bar]").forEach(function (bar) {
+      bar.innerHTML = '<p class="selection-count"><b>' + on + '</b> luoghi di ' + total + ' sulla mappa</p>'
+        + '<div class="selection-actions">'
+        + '<button type="button" data-select-all' + (on === total ? " disabled" : "") + '>Seleziona tutto (' + total + ')</button>'
+        + '<button type="button" data-select-none' + (on === 0 ? " disabled" : "") + '>Deseleziona tutto (' + total + ')</button>'
+        + '</div>'
+        + '<div class="view-switch" role="group" aria-label="Come mostrare l\'elenco">'
+        + '<button type="button" data-list-view="cards" aria-pressed="' + (state.listView !== "list") + '">Schede</button>'
+        + '<button type="button" data-list-view="list" aria-pressed="' + (state.listView === "list") + '">Elenco</button>'
+        + '</div>';
+    });
+  }
+
+  // Luoghi ed Esperienze alimentano lo stesso livello della mappa e mostrano la
+  // stessa barra: se si cambia da una, l'altra non può restare indietro. Si
+  // chiama solo dalle azioni in blocco, non a ogni singolo quadratino.
+  function refreshSelectionViews() {
+    renderPlaces();
+    renderExperiences();
+  }
+
+  function toggleSelected(id) {
+    if (state.hidden.has(id)) state.hidden.delete(id);
+    else state.hidden.add(id);
+    saveHidden();
+    const on = isSelected(id);
+    document.querySelectorAll('[data-card-id="' + id + '"]').forEach(function (card) {
+      card.classList.toggle("is-off-map", !on);
+      const toggle = card.querySelector(".select-toggle");
+      if (!toggle) return;
+      toggle.classList.toggle("is-on", on);
+      toggle.setAttribute("aria-checked", String(on));
+      toggle.setAttribute("aria-label", (itemById[id] ? itemById[id].name : "") + (on ? ": togli dalla mappa" : ": rimetti sulla mappa"));
+      toggle.firstElementChild.textContent = on ? "✓" : "";
+      const link = card.querySelector(".own-map-link");
+      if (link) link.classList.toggle("is-off", !on);
+    });
+    renderSelectionBar();
+  }
+
+  // Cancellare 249 scelte per sbaglio è troppo facile: la si può annullare
+  // finché il toast è a schermo.
+  function setAllSelected(hide) {
+    const previous = new Set(state.hidden);
+    if (hide) mapGuideIds.forEach(function (id) { state.hidden.add(id); });
+    else mapGuideIds.forEach(function (id) { state.hidden.delete(id); });
+    saveHidden();
+    refreshSelectionViews();
+    showToast(hide ? "Nessun luogo sulla mappa" : "Tutti i luoghi sulla mappa", "Annulla", function () {
+      state.hidden = previous;
+      saveHidden();
+      refreshSelectionViews();
+    });
+  }
+
+  function setListView(mode) {
+    state.listView = mode === "list" ? "list" : "cards";
+    localStorage.setItem("tabi-list-view", state.listView);
+    refreshSelectionViews();
   }
 
   function renderGroup(group) {
@@ -677,34 +862,13 @@
       const done = groups.reduce(function (sum, group) {
         return sum + group.items.filter(function (item) { return state.packed.has(item.id); }).length;
       }, 0);
-      body.innerHTML = '<p class="now-empty">Scegli la tappa in cui vi trovate: qui compaiono l\'hotel di stanotte, il prossimo trasferimento, i promemoria della giornata e quanto vi manca da vedere.</p>'
+      body.innerHTML = '<p class="now-empty">Scegli la tappa in cui vi trovate: qui compaiono il meteo di oggi e i promemoria della giornata.</p>'
         + '<div class="now-actions"><button type="button" data-go="packing">Valigia: ' + done + ' di ' + total + ' spuntati →</button></div>';
       return;
     }
-    const stay = data.lodging.find(function (item) { return item.city === cityId; });
-    // Le tratte partono solo dalle basi: per soste ed escursioni si ripiega
-    // sulla tappa successiva dell'itinerario, che c'è sempre.
-    const leg = data.legs.find(function (item) { return normalize(item.from) === normalize(city.name); });
-    const nextCity = data.cities.find(function (item) { return item.order === city.order + 1; });
-    const cityItems = progressAreas().reduce(function (all, area) {
-      return all.concat(area.items.filter(function (item) { return item.city === cityId; }));
-    }, []);
-    const stat = progressStat(cityItems);
-    const left = stat.total - stat.completed;
-    body.innerHTML = '<div class="now-grid">'
-      + '<article class="now-card"><span>Base di stanotte</span>'
-      + (stay ? '<b>' + escapeHTML(stay.name) + '</b><small>' + escapeHTML(stay.area) + '</small>'
-              : '<b>Escursione in giornata</b><small>Si rientra alla base precedente</small>') + '</article>'
-      + '<article class="now-card"><span>Prossimo trasferimento</span>'
-      + (leg ? '<b>' + escapeHTML(leg.to) + '</b><small>' + escapeHTML(leg.mode) + ' · ' + escapeHTML(leg.note) + '</small>'
-            : nextCity ? '<b>' + escapeHTML(nextCity.name) + '</b><small>' + escapeHTML(nextCity.arrival) + '</small>'
-            : '<b>Ultima tappa</b><small>Da qui si torna a casa</small>') + '</article>'
-      + '<article class="now-card"><span>Da spuntare qui</span><b>' + left + '</b><small>su ' + stat.total + ' voci di ' + escapeHTML(city.name) + '</small></article>'
-      + '</div>'
-      + '<div id="nowWeather" class="now-weather"></div>'
-      + '<div class="now-actions"><button type="button" data-city-route="' + cityId + '">Luoghi a ' + escapeHTML(city.name) + ' →</button>'
-      + '<button type="button" data-city-food="' + cityId + '">Cosa mangiare qui →</button></div>'
-      + dayTipsHTML(city);
+    // Meteo e promemoria del giorno bastano: hotel, trasferimenti e conteggi
+    // hanno già una sezione tutta loro poco più sotto e nei Progressi.
+    body.innerHTML = '<div id="nowWeather" class="now-weather"></div>' + dayTipsHTML(city);
     renderWeather(city);
   }
 
@@ -808,7 +972,7 @@
     if (!info || !(info.thumburl || info.url)) return false;
     if (info.mime && !/^image\/(jpeg|png|webp)$/i.test(info.mime)) return false;
     if (info.width && info.height && (info.width < 360 || info.height < 240)) return false;
-    return !/(^|\b)(logo|location map|map of|flag of|diagram|pictogram|icon)(\b|$)/i.test(title || "");
+    return !/(^|\b)(logo|location map|map of|flag of|diagram|pictogram|icon|chart|graph|signboard|coat of arms|floor plan)(\b|$)/i.test(title || "");
   }
 
   // Commons e Openverse restituiscono comunque qualcosa: senza un controllo di
@@ -822,14 +986,83 @@
     });
   }
 
+  // Il titolo che somiglia alla ricerca non basta: "Takoyaki festival, Osaka"
+  // somiglia moltissimo e mostra una folla. Per cibi e acquisti la fonte deve
+  // anche dichiarare che soggetto è — categorie di Commons, tag di Openverse,
+  // descrizione di Wikidata — e senza quella dichiarazione la foto si scarta.
+  const SUBJECT_HINTS = {
+    food: /(\b(food|foods|cuisine|dish|dishes|cooking|cooked|meal|meals|snack|snacks|dessert|desserts|sweets|confection|candy|noodle|noodles|ramen|udon|soba|somen|sushi|sashimi|rice|donburi|curry|soup|stew|hotpot|nabe|grilled|fried|roasted|steamed|bread|pastry|cake|pancake|dumpling|dumplings|skewer|skewers|tofu|miso|seafood|fish|meat|beef|pork|chicken|egg|vegetable|vegetables|fruit|tea|matcha|sake|beer|whisky|drink|drinks|beverage|beverages|bento|breakfast|lunch|dinner|restaurant dish|street food)\b)|料理|食品|食べ物|菓子|和菓子|丼|麺|寿司|鮨|そば|うどん|ラーメン|飲料|茶/i,
+    shop: /(\b(craft|crafts|handicraft|handicrafts|pottery|ceramic|ceramics|porcelain|stoneware|lacquer|lacquerware|textile|textiles|fabric|dyeing|kimono|yukata|obi|paper|washi|knife|knives|cutlery|tableware|chopsticks|toy|toys|figure|figurine|doll|dolls|fan|umbrella|incense|cosmetic|cosmetics|skincare|stationery|souvenir|souvenirs|goods|product|products|print|prints|woodblock|painting|calligraphy|jewellery|jewelry|lantern|basket|broom|comb|tea|matcha|sake|snack|sweets|confection)\b)|工芸|陶器|磁器|漆器|織物|染色|着物|和紙|人形|扇子|香|菓子|茶/i
+  };
+
+  function subjectEvidence(item, texts) {
+    const hints = item && SUBJECT_HINTS[item.type];
+    // Luoghi ed esperienze hanno nomi propri: lì è il nome a fare da prova.
+    if (!hints) return true;
+    const joined = texts.filter(Boolean).join(" · ");
+    if (hints.test(joined)) return true;
+    // Il nome giapponese esatto nel titolo o nelle categorie è una prova
+    // altrettanto buona, e copre i piatti che nessun vocabolario contiene.
+    return Boolean(item.jp && item.jp.length > 1 && joined.indexOf(item.jp) !== -1);
+  }
+
+  // Un piatto va fotografato, non evocato: vetrine, insegne, feste e locali
+  // portano il nome giusto e mostrano tutt'altro. La foto della "Midarashi
+  // Dango Shop" è una strada di Takayama, non un dango.
+  const SUBJECT_DECOYS = /\b(shop|shops|shopping|mall|arcade|plaza|store|stores|storefront|restaurant|ristorante|cafe|café|coffeehouse|izakaya|bar|pub|brewery|factory|building|buildings|exterior|facade|interior of|street|streets|road|alley|station|festival|matsuri|parade|procession|crowd|sign|signboard|signage|banner|poster|billboard|museum|hotel|shrine|temple|castle|park|garden|portrait|logo|map|menu board)\b/i;
+
+  // Le categorie di Commons dicono cosa ritrae davvero il file: quando parlano
+  // di insegne, vetrine o edifici, la foto è del locale e non del piatto.
+  const CATEGORY_DECOYS = /\b(signs|signboards|signage|storefronts|shop fronts|shopfronts|buildings|architecture|streets|roads|exteriors|facades|logos|advertising|billboards)\b/i;
+
+  function looksLikeDecoy(item, text) {
+    return Boolean(item && SUBJECT_HINTS[item.type]) && SUBJECT_DECOYS.test(String(text || ""));
+  }
+
+  // Nelle miniature di Wikimedia il nome vero del file è il penultimo segmento.
+  // Serve perché la foto in cima a una voce di Wikipedia spesso non ritrae la
+  // voce: "Nodoguro" è anche un ristorante di Portland, e la sua vetrina
+  // finiva sulla scheda del pesce.
+  function fileNameFromUrl(url) {
+    const parts = String(url || "").split("?")[0].split("/");
+    const raw = /\/thumb\//.test(url) && parts.length > 1 ? parts[parts.length - 2] : parts[parts.length - 1];
+    try {
+      return decodeURIComponent(raw || "").replace(/_/g, " ").replace(/\.[a-z0-9]+$/i, "");
+    } catch (_) {
+      return String(raw || "").replace(/_/g, " ");
+    }
+  }
+
+  function hasKeyTerm(item, text) {
+    const key = keyTerm(item, significantWords((item && item.name) || ""));
+    if (!key) return true;
+    return new Set(significantWords(text)).has(key)
+      || Boolean(item && item.jp && item.jp.length > 1 && String(text).indexOf(item.jp) !== -1);
+  }
+
+  // La parola più caratteristica del nome deve comparire: senza questo vincolo
+  // "Okonomiyaki Hiroshima" accettava qualunque veduta di Hiroshima, che è
+  // esattamente il modo in cui finivano stazioni e cartelli sulle schede.
+  function keyTerm(item, queryWords) {
+    const own = significantWords((item && item.name) || "").filter(function (word) { return !CITY_WORDS.has(word); });
+    const pool = own.length ? own : queryWords;
+    return pool.slice().sort(function (left, right) { return right.length - left.length; })[0] || "";
+  }
+
   // Regola: nel dubbio, nessuna foto. Una sola parola in comune non basta più,
   // perché è così che finivano ceramiche giapponesi illustrate da archivi
   // parrocchiali americani. Meglio una scheda senza immagine che una scheda che
   // mostra la cosa sbagliata: la descrizione da sola è più onesta.
-  function isRelevant(query, title) {
+  function isRelevant(query, title, item) {
+    // Il nome giapponese esatto nel titolo è la prova più forte che esista, e
+    // sulle voci in kana è l'unica: lì le parole latine non compaiono mai.
+    if (item && item.jp && item.jp.length > 1 && String(title || "").indexOf(item.jp) !== -1) return true;
     const queryWords = significantWords(query);
     const titleWords = new Set(significantWords(title));
     if (!queryWords.length) return false;
+    const key = keyTerm(item, queryWords);
+    // Sulle Wikipedia giapponesi il titolo è in kana: lì fa fede il nome nativo.
+    if (key && !titleWords.has(key) && !(item && item.jp && String(title || "").indexOf(item.jp) !== -1)) return false;
     const matches = queryWords.filter(function (word) { return titleWords.has(word); }).length;
     if (queryWords.length === 1) return matches === 1;
     return matches >= 2;
@@ -865,11 +1098,11 @@
     return null;
   }
 
-  async function searchCommons(query) {
+  async function searchCommons(query, item) {
     const params = new URLSearchParams({
       action: "query", generator: "search", gsrsearch: query + " filetype:bitmap",
-      gsrnamespace: "6", gsrlimit: "8", prop: "imageinfo", iiprop: "url|mime|size|extmetadata",
-      iiurlwidth: "900", format: "json", origin: "*"
+      gsrnamespace: "6", gsrlimit: "8", prop: "imageinfo|categories", iiprop: "url|mime|size|extmetadata",
+      iiurlwidth: "900", cllimit: "max", clshow: "!hidden", format: "json", origin: "*"
     });
     const response = await fetchImageSearch("https://commons.wikimedia.org/w/api.php?" + params.toString(), "commons");
     if (!response || !response.ok) return null;
@@ -878,8 +1111,15 @@
       return (left.index || 99) - (right.index || 99);
     });
     const page = pages.find(function (candidate) {
+      const title = String(candidate.title || "").replace(/^File:/, "").replace(/\.[a-z0-9]+$/i, "");
+      const categories = (candidate.categories || []).map(function (entry) {
+        return String(entry.title || "").replace(/^Category:/, "");
+      });
       return usableImage(candidate.imageinfo && candidate.imageinfo[0], candidate.title)
-        && isRelevant(query, String(candidate.title || "").replace(/^File:/, "").replace(/\.[a-z0-9]+$/i, ""));
+        && !looksLikeDecoy(item, title)
+        && !(SUBJECT_HINTS[item && item.type] && CATEGORY_DECOYS.test(categories.join(" · ")))
+        && isRelevant(query, title, item)
+        && subjectEvidence(item, [title].concat(categories));
     });
     if (!page) return null;
     const info = page.imageinfo[0];
@@ -894,14 +1134,18 @@
     };
   }
 
-  async function searchOpenverse(query) {
+  async function searchOpenverse(query, item) {
     const params = new URLSearchParams({ q: query, page_size: "10", category: "photograph", mature: "false" });
     const response = await fetchImageSearch("https://api.openverse.org/v1/images/?" + params.toString(), "openverse");
     if (!response || !response.ok) return null;
     const payload = await response.json();
-    const candidate = (payload.results || []).find(function (result, index) {
+    const candidate = (payload.results || []).find(function (result) {
+      const tags = (result.tags || []).map(function (tag) { return tag.name; }).join(" ");
       return !result.mature && (result.thumbnail || result.url) && (!result.width || result.width >= 360) && (!result.height || result.height >= 240)
-        && isRelevant(query, [result.title, (result.tags || []).map(function (tag) { return tag.name; }).join(" ")].join(" "));
+        && (!SUBJECT_HINTS[item && item.type] || hasKeyTerm(item, result.title))
+        && !looksLikeDecoy(item, result.title)
+        && isRelevant(query, [result.title, tags].join(" "), item)
+        && subjectEvidence(item, [result.title, tags]);
     });
     if (!candidate) return null;
     return {
@@ -934,7 +1178,7 @@
     return wanted.some(function (word) { return titleWords.has(word); });
   }
 
-  async function searchMet(query) {
+  async function searchMet(query, item) {
     const search = await fetchImageSearch("https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&artistOrCulture=true&q=" + encodeURIComponent(query), "met");
     if (!search || !search.ok) return null;
     const payload = await search.json();
@@ -946,6 +1190,7 @@
       if (!object.primaryImageSmall || !object.isPublicDomain) continue;
       if (!looksJapanese(object.culture) && !looksJapanese(object.country) && !looksJapanese(object.artistNationality)) continue;
       if (!museumMatch(query, object.title + " " + (object.objectName || ""))) continue;
+      if (!subjectEvidence(item, [object.title, object.objectName, object.classification, object.medium])) continue;
       return {
         url: object.primaryImageSmall,
         credit: [object.title, object.objectDate, "The Met · pubblico dominio"].filter(Boolean).join(" · "),
@@ -956,17 +1201,18 @@
     return null;
   }
 
-  async function searchArtInstitute(query) {
+  async function searchArtInstitute(query, item) {
     const params = new URLSearchParams({
       q: query, limit: "5",
-      fields: "id,title,image_id,place_of_origin,artwork_type_title,date_display,is_public_domain"
+      fields: "id,title,image_id,place_of_origin,artwork_type_title,medium_display,date_display,is_public_domain"
     });
     const response = await fetchImageSearch("https://api.artic.edu/api/v1/artworks/search?" + params.toString(), "artic");
     if (!response || !response.ok) return null;
     const payload = await response.json();
-    const hit = (payload.data || []).find(function (item) {
-      return item.image_id && item.is_public_domain !== false && looksJapanese(item.place_of_origin)
-        && museumMatch(query, item.title + " " + (item.artwork_type_title || ""));
+    const hit = (payload.data || []).find(function (artwork) {
+      return artwork.image_id && artwork.is_public_domain !== false && looksJapanese(artwork.place_of_origin)
+        && museumMatch(query, artwork.title + " " + (artwork.artwork_type_title || ""))
+        && subjectEvidence(item, [artwork.title, artwork.artwork_type_title, artwork.medium_display]);
     });
     if (!hit) return null;
     return {
@@ -977,12 +1223,12 @@
     };
   }
 
-  async function searchWikipedia(query, language) {
+  async function searchWikipedia(query, language, item) {
     const provider = "wikipedia-" + language;
     const params = new URLSearchParams({
       action: "query", generator: "search", gsrsearch: query, gsrlimit: "8",
-      prop: "pageimages|info", piprop: "thumbnail", pithumbsize: "900",
-      inprop: "url", format: "json", origin: "*"
+      prop: "pageimages|info|pageterms", piprop: "thumbnail", pithumbsize: "900",
+      wbptterms: "description", inprop: "url", format: "json", origin: "*"
     });
     const response = await fetchImageSearch("https://" + language + ".wikipedia.org/w/api.php?" + params.toString(), provider);
     if (!response || !response.ok) return null;
@@ -991,9 +1237,17 @@
       return (left.index || 99) - (right.index || 99);
     });
     const page = pages.find(function (candidate) {
-      return isRelevant(query, candidate.title) && candidate.thumbnail && candidate.thumbnail.source
+      if (!candidate.thumbnail || !candidate.thumbnail.source) return false;
+      const description = ((candidate.terms && candidate.terms.description) || []).join(" ");
+      const fileName = fileNameFromUrl(candidate.thumbnail.source);
+      // Per cibi e acquisti la foto in cima alla voce non basta: deve portare
+      // nel nome del file la cosa giusta e non ritrarre vetrine o feste.
+      if (SUBJECT_HINTS[item && item.type] && (!hasKeyTerm(item, fileName) || looksLikeDecoy(item, fileName))) return false;
+      return isRelevant(query, candidate.title, item)
         && (!candidate.thumbnail.width || candidate.thumbnail.width >= 360)
-        && !/(disambiguation|曖昧さ回避)/i.test(candidate.title || "");
+        && !/(disambiguation|曖昧さ回避)/i.test(candidate.title || "")
+        && !looksLikeDecoy(item, description)
+        && subjectEvidence(item, [candidate.title, description]);
     });
     if (!page) return null;
     return {
@@ -1020,8 +1274,8 @@
     const providers = [
       ["commons", searchCommons],
       ["openverse", searchOpenverse],
-      ["wikipedia-ja", function (query) { return searchWikipedia(query, "ja"); }],
-      ["wikipedia-en", function (query) { return searchWikipedia(query, "en"); }]
+      ["wikipedia-ja", function (query, entry) { return searchWikipedia(query, "ja", entry); }],
+      ["wikipedia-en", function (query, entry) { return searchWikipedia(query, "en", entry); }]
     ];
     if (item.type === "history" || (item.type === "shop" && MUSEUM_CATEGORIES.has(item.category))) {
       providers.push(["met", searchMet], ["artic", searchArtInstitute]);
@@ -1064,7 +1318,7 @@
       });
       for (const provider of providers) {
         for (const query of queries.slice(0, 2)) {
-          result = await provider[1](query);
+          result = await provider[1](query, item);
           if (result) break;
         }
         if (result) break;
@@ -1073,7 +1327,7 @@
       state.imageCache[item.id] = result;
       const keys = Object.keys(state.imageCache);
       if (keys.length > 650) delete state.imageCache[keys[0]];
-      localStorage.setItem("tabi-image-cache-v3", JSON.stringify(state.imageCache));
+      localStorage.setItem("tabi-image-cache-v4", JSON.stringify(state.imageCache));
       return result;
     } catch (_) {
       return "";
@@ -1095,11 +1349,45 @@
   const VIEW_TITLES = {
     overview: "Viaggio", places: "Mappa", experiences: "Esperienze", history: "Storie",
     food: "Cibo", shopping: "Acquisti", phrases: "Parole", progress: "Progressi",
-    translate: "Traduttore", packing: "Valigia", notes: "Note", saved: "Salvati", emergency: "Emergenze"
+    translate: "Traduttore", packing: "Valigia", notes: "Note", saved: "Salvati",
+    emergency: "Emergenze", money: "Contanti"
+  };
+  const MENU_TITLES = { discover: "Scopri", tools: "Utilità" };
+  const NAV_GROUPS = {
+    discover: ["experiences", "food", "shopping", "history"],
+    tools: ["emergency", "translate", "money", "packing", "notes", "saved"]
   };
 
   function viewTitle(view) {
     return VIEW_TITLES[view] || "";
+  }
+
+  // I menu Scopri e Utilità sono a tutti gli effetti una schermata: chi ci entra
+  // e poi torna indietro si aspetta di ritrovarli aperti, non di essere
+  // sbalzato sulla pagina che c'era prima.
+  function openNavMenu(menu) {
+    const dialog = document.getElementById("navMenuDialog");
+    if (!dialog || !NAV_GROUPS[menu]) return;
+    dialog.querySelectorAll("[data-nav-panel]").forEach(function (panel) {
+      panel.hidden = panel.dataset.navPanel !== menu;
+    });
+    if (!dialog.open) dialog.showModal();
+    if (menu === "tools" && quickRateSync) {
+      quickRateSync();
+      refreshRate(false).then(quickRateSync);
+    }
+  }
+
+  function rememberMenuOrigin(view, menu) {
+    if (menu) state.menuOrigin[view] = menu;
+    else delete state.menuOrigin[view];
+  }
+
+  function reopenMenuFor(view) {
+    const menu = state.menuOrigin[view];
+    if (!menu) return;
+    delete state.menuOrigin[view];
+    openNavMenu(menu);
   }
 
   // Il tasto indietro va su ogni schermata, non solo su quelle secondarie:
@@ -1127,14 +1415,14 @@
       button.classList.toggle("is-active", active);
       if (active) window.setTimeout(function () { button.scrollIntoView({ behavior:"smooth", block:"nearest", inline:"center" }); }, 0);
     });
-    const navGroups = { discover:["experiences", "food", "shopping", "history"], tools:["emergency", "translate", "packing", "notes", "saved"] };
     document.querySelectorAll("[data-nav-menu]").forEach(function (button) {
-      button.classList.toggle("is-active", (navGroups[button.dataset.navMenu] || []).includes(view));
+      button.classList.toggle("is-active", (NAV_GROUPS[button.dataset.navMenu] || []).includes(view));
     });
     const navDialog = document.getElementById("navMenuDialog");
     if (navDialog && navDialog.open) navDialog.close();
     if (view === "saved") renderSaved();
     if (view === "progress") renderProgress();
+    if (view === "money") renderMoney();
     if (updateHash !== false) {
       const url = new URL(window.location.href);
       if (view !== "places") url.searchParams.delete("point");
@@ -1150,7 +1438,8 @@
     state.currentView = view;
     const back = document.querySelector('[data-view="' + view + '"] [data-back]');
     if (back) {
-      back.textContent = "← " + (viewTitle(state.previousView) || "Viaggio");
+      const menu = state.menuOrigin[view];
+      back.textContent = "← " + (menu ? MENU_TITLES[menu] : (viewTitle(state.previousView) || "Viaggio"));
       back.hidden = view === "overview";
     }
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -1455,9 +1744,7 @@
         + (current.at ? " · " + rateAgeLabel(current.at) : "");
     }
     input.addEventListener("input", sync);
-    document.querySelectorAll('[data-nav-menu="tools"]').forEach(function (button) {
-      button.addEventListener("click", function () { refreshRate(false).then(sync); sync(); });
-    });
+    quickRateSync = sync;
     sync();
   }
 
@@ -1520,6 +1807,85 @@
 
   function formatNumber(value, decimals) {
     return value.toLocaleString("it-IT", { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+  }
+
+  // ---- Monete e banconote --------------------------------------------------
+
+  // Disegnate in scala tra loro, 2,2 px per millimetro vero: in mano un taglio
+  // si riconosce dal diametro e dal colore molto prima che dai kanji.
+  const COIN_SCALE = 2.2;
+  const NOTE_SCALE = 0.85;
+  const NOTE_HEIGHT_MM = 76;
+
+  function euroLabel(yen) {
+    const current = jpyRate();
+    return current ? "≈ " + formatNumber(yen * current.rate, 2) + " €" : "";
+  }
+
+  function millimetres(value) {
+    return String(value).replace(".", ",") + " mm";
+  }
+
+  function coinArt(coin) {
+    const size = Math.round(coin.diameter * COIN_SCALE);
+    const center = size / 2;
+    const outer = center - 1;
+    const hole = Math.round(size * 0.115);
+    const label = coin.value === 5 ? "五" : String(coin.value);
+    const fontSize = Math.round(size * (coin.hole ? 0.26 : 0.32));
+    const textY = coin.hole ? center + hole + fontSize * 0.92 : center;
+    // La 500 yen è bicolore: anello di ottone e cuore argentato.
+    return '<svg class="coin-art" viewBox="0 0 ' + size + ' ' + size + '" width="' + size + '" height="' + size + '" role="img" aria-label="Moneta da ' + coin.value + ' yen, diametro ' + millimetres(coin.diameter) + '">'
+      + '<circle cx="' + center + '" cy="' + center + '" r="' + outer + '" fill="' + (coin.ring || coin.color) + '" stroke="' + coin.edge + '" stroke-width="1.6"></circle>'
+      + (coin.ring ? '<circle cx="' + center + '" cy="' + center + '" r="' + (outer * 0.62) + '" fill="' + coin.color + '"></circle>' : '')
+      + (coin.hole ? '<circle cx="' + center + '" cy="' + center + '" r="' + hole + '" fill="var(--paper)" stroke="' + coin.edge + '" stroke-width="1"></circle>' : '')
+      + '<text x="' + center + '" y="' + textY + '" text-anchor="middle" dominant-baseline="' + (coin.hole ? "auto" : "central") + '" font-family="Noto Serif JP, serif" font-size="' + fontSize + '" font-weight="700" fill="' + coin.edge + '">' + label + '</text>'
+      + '</svg>';
+  }
+
+  function noteArt(note) {
+    const width = Math.round(note.width * NOTE_SCALE);
+    const height = Math.round(NOTE_HEIGHT_MM * NOTE_SCALE);
+    return '<svg class="note-art" viewBox="0 0 ' + width + ' ' + height + '" width="' + width + '" height="' + height + '" role="img" aria-label="Banconota da ' + note.value + ' yen, lunga ' + millimetres(note.width) + '">'
+      + '<rect x="1" y="1" width="' + (width - 2) + '" height="' + (height - 2) + '" rx="4" fill="' + note.color + '" stroke="' + note.ink + '" stroke-opacity=".4"></rect>'
+      + '<rect x="5" y="5" width="' + (width - 10) + '" height="' + (height - 10) + '" rx="2" fill="none" stroke="' + note.ink + '" stroke-opacity=".22"></rect>'
+      + '<circle cx="' + (width - 22) + '" cy="' + (height / 2) + '" r="15" fill="' + note.ink + '" fill-opacity=".2"></circle>'
+      + '<text x="12" y="' + (height / 2 - 1) + '" font-family="DM Sans, sans-serif" font-size="18" font-weight="800" fill="' + note.ink + '">' + note.value + '</text>'
+      + '<text x="12" y="' + (height - 13) + '" font-family="Noto Serif JP, serif" font-size="10" font-weight="700" fill="' + note.ink + '" fill-opacity=".8">' + escapeHTML(note.kanji) + '</text>'
+      + '</svg>';
+  }
+
+  function moneyRow(art, value, meta, description, extra) {
+    const euro = euroLabel(value);
+    return '<article class="money-row"><div class="money-art">' + art + '</div>'
+      + '<div class="money-body"><div class="money-head"><b>¥' + formatNumber(value, 0) + '</b>'
+      + (euro ? '<span>' + euro + '</span>' : '') + '</div>'
+      + '<p class="money-meta">' + escapeHTML(meta) + '</p>'
+      + '<p>' + escapeHTML(description) + '</p>'
+      + '<small>' + escapeHTML(extra) + '</small></div></article>';
+  }
+
+  function renderMoney() {
+    const money = window.JAPAN_MONEY;
+    const coinGrid = document.getElementById("moneyCoinGrid");
+    if (!money || !coinGrid) return;
+    coinGrid.innerHTML = money.coins.map(function (coin) {
+      const meta = [coin.kanji, coin.metal, "⌀ " + millimetres(coin.diameter), coin.weight, coin.hole ? "col buco" : ""].filter(Boolean).join(" · ");
+      return moneyRow(coinArt(coin), coin.value, meta, coin.note, "Disegno: " + coin.face);
+    }).join("");
+    document.getElementById("moneyNoteGrid").innerHTML = money.notes.map(function (note) {
+      return moneyRow(noteArt(note), note.value, note.kanji + " · lunga " + millimetres(note.width) + " · alta " + millimetres(NOTE_HEIGHT_MM),
+        note.note, "Fronte: " + note.portrait + " · Retro: " + note.back);
+    }).join("");
+    document.getElementById("moneyTips").innerHTML = money.tips.map(function (tip) {
+      return '<li>' + escapeHTML(tip) + '</li>';
+    }).join("");
+    // Il cambio arriva dalla rete: se non c'è ancora, si riprova una volta sola
+    // e i valori in euro compaiono senza far ricaricare la schermata.
+    if (!jpyRate() && !moneyRateRequested) {
+      moneyRateRequested = true;
+      refreshRate(false).then(function () { if (state.currentView === "money") renderMoney(); });
+    }
   }
 
   const searchGroups = [
@@ -2068,28 +2434,86 @@
     reset();
   }
 
-  function showToast(message) {
+  // La barra in basso si abbassa con uno scorrimento verso il basso, per
+  // liberare lo schermo, e torna con uno verso l'alto. La maniglia sporge
+  // sempre dal bordo, quindi resta anche il tocco per chi non usa i gesti, e la
+  // scelta resta su questo telefono.
+  function setupNavGestures() {
+    const nav = document.getElementById("bottomNav");
+    const grip = document.getElementById("navGrip");
+    if (!nav || !grip) return;
+    let collapsed = null;
+    let startY = 0;
+    let swiped = false;
+
+    function setCollapsed(value, remember) {
+      if (collapsed === value) return;
+      collapsed = value;
+      nav.classList.toggle("is-collapsed", value);
+      grip.setAttribute("aria-expanded", String(!value));
+      grip.setAttribute("aria-label", value ? "Mostra la barra di navigazione" : "Nascondi la barra di navigazione");
+      if (remember !== false) localStorage.setItem("tabi-nav-hidden", value ? "1" : "0");
+    }
+
+    setCollapsed(localStorage.getItem("tabi-nav-hidden") === "1", false);
+
+    nav.addEventListener("touchstart", function (event) {
+      startY = event.touches[0].clientY;
+      swiped = false;
+    }, { passive: true });
+
+    nav.addEventListener("touchmove", function (event) {
+      const delta = event.touches[0].clientY - startY;
+      if (Math.abs(delta) < 26) return;
+      swiped = true;
+      setCollapsed(delta > 0);
+    }, { passive: true });
+
+    // Il dito si stacca sopra un pulsante anche quando si voleva solo abbassare
+    // la barra: senza questo, nascondendola si cambierebbe pure schermata.
+    nav.addEventListener("touchend", function (event) {
+      if (!swiped) return;
+      event.preventDefault();
+      swiped = false;
+    }, { passive: false });
+
+    grip.addEventListener("click", function () { setCollapsed(!collapsed); });
+  }
+
+  function showToast(message, undoLabel, onUndo) {
     const toast = document.getElementById("toast");
     toast.textContent = message;
+    toast.classList.toggle("has-action", Boolean(undoLabel && onUndo));
+    if (undoLabel && onUndo) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "toast-action";
+      button.textContent = undoLabel;
+      button.addEventListener("click", function () {
+        toast.classList.remove("is-visible", "has-action");
+        clearTimeout(toastTimer);
+        onUndo();
+      });
+      toast.appendChild(button);
+    }
     toast.classList.add("is-visible");
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () { toast.classList.remove("is-visible"); }, 1800);
+    toastTimer = setTimeout(function () { toast.classList.remove("is-visible", "has-action"); }, undoLabel ? 6000 : 1800);
   }
 
   function setupEvents() {
     document.addEventListener("click", function (event) {
       const navMenu = event.target.closest("[data-nav-menu]");
       if (navMenu) {
-        const dialog = document.getElementById("navMenuDialog");
-        dialog.querySelectorAll("[data-nav-panel]").forEach(function (panel) {
-          panel.hidden = panel.dataset.navPanel !== navMenu.dataset.navMenu;
-        });
-        dialog.showModal();
+        openNavMenu(navMenu.dataset.navMenu);
         return;
       }
       const nav = event.target.closest("[data-nav], [data-go]");
       if (nav) {
-        switchView(nav.dataset.nav || nav.dataset.go);
+        const view = nav.dataset.nav || nav.dataset.go;
+        const panel = nav.closest("[data-nav-panel]");
+        rememberMenuOrigin(view, panel && panel.dataset.navPanel);
+        switchView(view);
         return;
       }
       const resetProgress = event.target.closest("[data-reset-progress]");
@@ -2115,15 +2539,6 @@
         renderPlaces();
         updateFilterToggle("place");
         switchView("places");
-        return;
-      }
-      const cityFood = event.target.closest("[data-city-food]");
-      if (cityFood) {
-        state.filters.food.city = cityFood.dataset.cityFood;
-        document.getElementById("foodCity").value = cityFood.dataset.cityFood;
-        renderFoods();
-        updateFilterToggle("food");
-        switchView("food");
         return;
       }
       const filterToggle = event.target.closest("[data-filter-toggle]");
@@ -2153,11 +2568,22 @@
         }, 120);
         return;
       }
+      const selectAll = event.target.closest("[data-select-all], [data-select-none]");
+      if (selectAll) {
+        setAllSelected(selectAll.hasAttribute("data-select-none"));
+        return;
+      }
+      const viewSwitch = event.target.closest("[data-list-view]");
+      if (viewSwitch) {
+        setListView(viewSwitch.dataset.listView);
+        return;
+      }
       const action = event.target.closest("[data-action]");
       if (action) {
         if (action.dataset.action === "favorite") toggleFavorite(action.dataset.id);
         if (action.dataset.action === "done") toggleDone(action.dataset.id);
         if (action.dataset.action === "details") showDetails(action.dataset.id);
+        if (action.dataset.action === "select") toggleSelected(action.dataset.id);
         return;
       }
       const chip = event.target.closest("[data-category]");
@@ -2177,21 +2603,31 @@
       const speaker = event.target.closest("[data-speak]");
       if (speaker) {
         const phrase = data.phrases.find(function (item) { return item.id === speaker.dataset.speak; });
-        if (phrase) speakJapanese(phrase.jp);
+        if (phrase) speakJapanese(phrase.jp, phrase.meaning);
       }
     });
-    window.addEventListener("popstate", function () { switchView(location.hash.slice(1) || "overview", false); });
+    window.addEventListener("popstate", function () {
+      const leaving = state.currentView;
+      const next = location.hash.slice(1) || "overview";
+      switchView(next, false);
+      if (next !== leaving) reopenMenuFor(leaving);
+    });
+    // Sulla home l'hash è vuoto ma la vista si chiama "overview": senza questo
+    // confronto la schermata veniva ridisegnata due volte a ogni ritorno,
+    // richiudendo al volo il menu appena riaperto.
     window.addEventListener("hashchange", function () {
-      if ((state.currentView || "") !== location.hash.slice(1)) switchView(location.hash.slice(1) || "overview", false);
+      const view = location.hash.slice(1) || "overview";
+      if (state.currentView !== view) switchView(view, false);
     });
     document.addEventListener("click", function (event) {
       if (!event.target.closest("[data-back]")) return;
       if (history.length > 1) history.back();
       else switchView(state.previousView || "overview");
     });
-    const dialog = document.getElementById("detailDialog");
-    document.querySelector(".dialog-close").addEventListener("click", function () { dialog.close(); });
-    dialog.addEventListener("click", function (event) { if (event.target === dialog) dialog.close(); });
+    document.querySelectorAll(".detail-dialog, .speech-dialog").forEach(function (element) {
+      element.querySelector(".dialog-close").addEventListener("click", function () { element.close(); });
+      element.addEventListener("click", function (event) { if (event.target === element) element.close(); });
+    });
     const navDialog = document.getElementById("navMenuDialog");
     navDialog.querySelector(".nav-menu-close").addEventListener("click", function () { navDialog.close(); });
     navDialog.addEventListener("click", function (event) { if (event.target === navDialog) navDialog.close(); });
@@ -2218,7 +2654,7 @@
         window.location.reload();
       });
       window.addEventListener("load", function () {
-        navigator.serviceWorker.register("sw.js?v=20260804o", { updateViaCache: "none" }).then(function (registration) {
+        navigator.serviceWorker.register("sw.js?v=20260804z", { updateViaCache: "none" }).then(function (registration) {
           registration.update();
         });
       });
@@ -2273,6 +2709,7 @@
     setupPhotoTranslator();
     setupEmergencyLocation();
     setupEvents();
+    setupNavGestures();
     setupInstall();
     setupOfflineReadiness();
     setupConnectionBanner();

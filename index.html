@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#14181a" media="(prefers-color-scheme: dark)">
   <meta name="description" content="Guida di viaggio in Giappone con itinerario, mappa, luoghi, esperienze, cibo, acquisti e storie.">
   <title>Giappone 2026 | Tabi</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260804o">
+  <link rel="manifest" href="manifest.webmanifest?v=20260805a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://commons.wikimedia.org">
@@ -18,9 +18,9 @@
   <link rel="preconnect" href="https://tile.openstreetmap.org">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Noto+Serif+JP:wght@500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="assets/styles.css?v=20260804o">
-  <link rel="icon" href="assets/icons/icon.svg?v=20260804o" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260804o">
+  <link rel="stylesheet" href="assets/styles.css?v=20260805a">
+  <link rel="icon" href="assets/icons/icon.svg?v=20260805a" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260805a">
 </head>
 <body>
   <a class="skip-link" href="#main">Vai al contenuto</a>
@@ -92,12 +92,15 @@
         <div class="lasso-bar"><p id="lassoStatus" role="status"></p><button id="lassoUseGpsButton" type="button" hidden>◎ Parti da dove sono</button><a id="lassoLink" class="lasso-link" target="_blank" rel="noopener" hidden>Apri il giro in Google Maps ↗</a></div>
         <div class="map-legend" aria-label="Legenda e filtri della mappa">
           <label><input type="checkbox" data-map-layer="visit" checked><i class="legend-dot visit"></i> Luoghi da visitare</label>
-          <label><input type="checkbox" data-map-layer="tabelog" checked><i class="legend-dot tabelog"></i> Locali Tabelog</label>
+          <label><input type="checkbox" data-map-layer="tabelog"><i class="legend-dot tabelog"></i> Locali Tabelog</label>
           <label><input type="checkbox" data-map-layer="hotel" checked><i class="legend-dot hotel"></i> Hotel</label>
-          <span>I punteggi Tabelog sono uno snapshot indicativo della selezione originale: verifica il dato attuale prima di scegliere.</span>
+          <label><input type="checkbox" data-map-layer="toilet"><i class="legend-dot toilet"></i> WC pubblici</label>
+          <label><input type="checkbox" data-map-layer="water"><i class="legend-dot water"></i> Fontanelle</label>
+          <label><input type="checkbox" data-map-layer="konbini"><i class="legend-dot konbini"></i> Konbini</label>
+          <span>Locali Tabelog, WC, fontanelle e konbini partono spenti: accendili quando ti servono. Il punteggio Tabelog è quello del giorno della selezione e nel punto trovi il collegamento alla scheda con voto aggiornato, orari e prenotazione; WC, fontanelle e konbini arrivano da OpenStreetMap e si scaricano al primo tocco.</span>
         </div>
         <div id="tripMap" role="application" aria-label="Mappa delle tappe del viaggio in Giappone"></div>
-        <p class="helper-note">Trascina, pizzica o usa il trackpad per muoverti. Nei punti puoi leggere i dettagli, segnare la visita o avviare Google Maps.</p>
+        <p class="helper-note">Trascina, pizzica o usa il trackpad per muoverti. Nei punti puoi leggere i dettagli, segnare la visita o avviare Google Maps. <span id="mapSelectionCount"></span></p>
       </section>
       <div class="toolbar sticky-toolbar" data-filter-group="place">
         <label class="search-box"><span aria-hidden="true">⌕</span><input id="placeSearch" type="search" placeholder="Cerca luogo o città…" autocomplete="off"></label>
@@ -107,6 +110,7 @@
         <label class="toggle"><input type="checkbox" data-nearby="place"><span>Vicino a me</span></label>
         <button class="filter-reset" type="button" data-filter-reset="place">Azzera filtri</button>
       </div>
+      <div class="selection-bar" data-selection-bar aria-label="Quali luoghi stanno sulla mappa"></div>
       <div class="results-meta" id="placeMeta"></div>
       <div class="card-grid place-grid" id="placeGrid"></div>
       <div class="empty-state" id="placeEmpty" hidden><strong>Nessun luogo trovato.</strong><span>Prova a cambiare i filtri.</span></div>
@@ -126,6 +130,7 @@
         <label class="toggle"><input type="checkbox" data-nearby="experience"><span>Vicino a me</span></label>
         <button class="filter-reset" type="button" data-filter-reset="experience">Azzera filtri</button>
       </div>
+      <div class="selection-bar" data-selection-bar aria-label="Quali luoghi stanno sulla mappa"></div>
       <div class="results-meta" id="experienceMeta"></div>
       <div class="card-grid experience-grid" id="experienceGrid"></div>
       <div class="empty-state" id="experienceEmpty" hidden><strong>Nessuna esperienza trovata.</strong><span>Prova a cambiare i filtri.</span></div>
@@ -287,6 +292,26 @@
       </section>
     </section>
 
+    <section class="view" id="money" data-view="money">
+      <div class="page-intro money-intro">
+        <p class="eyebrow">Contanti, senza esitare alla cassa</p><h1>Monete e banconote</h1>
+        <p>Sei monete e quattro banconote: colore, dimensione e buco bastano per capire quanto stai dando, anche senza leggere i kanji.</p>
+      </div>
+      <section class="money-block" aria-labelledby="moneyCoinsTitle">
+        <div class="section-heading compact"><div><p class="eyebrow">Nel palmo della mano</p><h2 id="moneyCoinsTitle">Le monete</h2></div><span class="hint">Disegnate in scala tra loro</span></div>
+        <div class="money-grid" id="moneyCoinGrid"></div>
+      </section>
+      <section class="money-block" aria-labelledby="moneyNotesTitle">
+        <div class="section-heading compact"><div><p class="eyebrow">Nel portafoglio</p><h2 id="moneyNotesTitle">Le banconote</h2></div><span class="hint">Più vale, più è lunga</span></div>
+        <div class="money-grid money-notes" id="moneyNoteGrid"></div>
+        <p class="helper-note">Questi sono disegni stilizzati, non riproduzioni: delle banconote vere contano colore, lunghezza e volto ritratto. Dal 2024 circolano i nuovi tagli, ma i vecchi restano validi e li riceverai ancora come resto.</p>
+      </section>
+      <section class="money-block" aria-labelledby="moneyTipsTitle">
+        <div class="section-heading compact"><div><p class="eyebrow">Alla cassa</p><h2 id="moneyTipsTitle">Come si paga davvero</h2></div></div>
+        <ul class="money-tips" id="moneyTips"></ul>
+      </section>
+    </section>
+
     <section class="view" id="packing" data-view="packing">
       <div class="page-intro packing-intro">
         <p class="eyebrow">Prima di chiudere la valigia</p><h1>Cosa portare</h1>
@@ -312,7 +337,8 @@
     </section>
   </main>
 
-  <nav class="bottom-nav" aria-label="Navigazione principale">
+  <nav class="bottom-nav" id="bottomNav" aria-label="Navigazione principale">
+    <button class="nav-grip" id="navGrip" type="button" aria-expanded="true" aria-controls="bottomNav" aria-label="Nascondi la barra di navigazione"></button>
     <button class="is-active" type="button" data-nav="overview"><span aria-hidden="true">⌂</span><small>Viaggio</small></button>
     <button type="button" data-nav="places"><span aria-hidden="true">⌖</span><small>Mappa</small></button>
     <button class="desktop-nav" type="button" data-nav="experiences"><span aria-hidden="true">☆</span><small>Esperienze</small></button>
@@ -342,27 +368,41 @@
         <label for="quickYen">Quanto costa in euro?</label>
         <div><input id="quickYen" type="number" inputmode="decimal" min="0" placeholder="3800" aria-label="Importo in yen"><span aria-hidden="true">¥</span><strong id="quickYenOut">—</strong></div>
         <p class="helper-note" id="quickYenNote"></p>
+        <button class="quick-rate-guide" type="button" data-go="money">Monete e banconote →</button>
       </div>
       <div class="nav-menu-grid"><button data-go="emergency">! <span>Emergenze<small>Numeri, frasi e posizione</small></span></button><button data-go="translate">写 <span>Fotografa e traduci<small>Menu, cartelli ed etichette</small></span></button><button data-go="packing">🧳 <span>Cosa portare<small>Lista valigia da spuntare</small></span></button><button data-go="notes">✎ <span>Note<small>Appunti salvati sul telefono</small></span></button><button data-go="saved">♡ <span>Salvati<small>Preferiti e checklist di gruppo</small></span></button></div></div>
+  </dialog>
+  <dialog class="speech-dialog" id="speechDialog" aria-labelledby="speechDialogTitle">
+    <button class="dialog-close" type="button" aria-label="Chiudi">×</button>
+    <p class="eyebrow">Audio non partito</p>
+    <h2 id="speechDialogTitle">Manca la voce giapponese</h2>
+    <p class="speech-reason" id="speechReason"></p>
+    <a class="primary-action" id="speechFallbackLink" target="_blank" rel="noopener"><span>Ascolta su Google Traduttore ↗</span></a>
+    <div class="speech-steps">
+      <div><h3>Android</h3><ol><li>Impostazioni → <b>Gestione generale</b> (o <b>Sistema</b>) → <b>Sintesi vocale</b>.</li><li>Accanto a <b>Motore preferito</b> (di solito Speech Services by Google) tocca l'ingranaggio.</li><li><b>Installa dati vocali</b> → <b>Giapponese / 日本語</b> → scarica.</li><li>Torna qui e ritocca il tasto ♪: la frase parte.</li></ol></div>
+      <div><h3>iPhone</h3><ol><li>Impostazioni → <b>Accessibilità</b> → <b>Contenuto pronunciato</b>.</li><li><b>Voci</b> → <b>Giapponese</b> → scarica una voce.</li><li>Controlla che il telefono non sia in silenzioso e alza il volume.</li></ol></div>
+    </div>
+    <p class="helper-note">Il download della voce si fa una volta sola e poi funziona anche offline. Finché non l'hai installata, il link qui sopra legge la frase dentro Google Traduttore.</p>
   </dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script src="assets/data.js?v=20260804o" defer></script>
-  <script src="assets/food-data.js?v=20260804o" defer></script>
-  <script src="assets/shopping-data.js?v=20260804o" defer></script>
-  <script src="assets/food-extra-data.js?v=20260804o" defer></script>
-  <script src="assets/travel-data.js?v=20260804o" defer></script>
-  <script src="assets/history-data.js?v=20260804o" defer></script>
-  <script src="assets/phrases-data.js?v=20260804o" defer></script>
-  <script src="assets/glossary-data.js?v=20260804o" defer></script>
-  <script src="assets/packing-data.js?v=20260804o" defer></script>
-  <script src="assets/day-tips-data.js?v=20260804o" defer></script>
-  <script src="assets/map-data.js?v=20260804o" defer></script>
-  <script src="assets/experiences-data.js?v=20260804o" defer></script>
-  <script src="assets/source-data.js?v=20260804o" defer></script>
-  <script src="assets/guide-data.js?v=20260804o" defer></script>
-  <script src="assets/map.js?v=20260804o" defer></script>
-  <script src="assets/app.js?v=20260804o" defer></script>
+  <script src="assets/data.js?v=20260805a" defer></script>
+  <script src="assets/food-data.js?v=20260805a" defer></script>
+  <script src="assets/shopping-data.js?v=20260805a" defer></script>
+  <script src="assets/food-extra-data.js?v=20260805a" defer></script>
+  <script src="assets/travel-data.js?v=20260805a" defer></script>
+  <script src="assets/history-data.js?v=20260805a" defer></script>
+  <script src="assets/phrases-data.js?v=20260805a" defer></script>
+  <script src="assets/glossary-data.js?v=20260805a" defer></script>
+  <script src="assets/packing-data.js?v=20260805a" defer></script>
+  <script src="assets/money-data.js?v=20260805a" defer></script>
+  <script src="assets/day-tips-data.js?v=20260805a" defer></script>
+  <script src="assets/map-data.js?v=20260805a" defer></script>
+  <script src="assets/experiences-data.js?v=20260805a" defer></script>
+  <script src="assets/source-data.js?v=20260805a" defer></script>
+  <script src="assets/guide-data.js?v=20260805a" defer></script>
+  <script src="assets/map.js?v=20260805a" defer></script>
+  <script src="assets/app.js?v=20260805a" defer></script>
 </body>
 </html>

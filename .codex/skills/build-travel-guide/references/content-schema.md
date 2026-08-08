@@ -24,6 +24,16 @@ Use the shared course categories: `primi`, `secondi`, `street`, `dolci`, `contor
 
 Support `all` for nationally available discoveries such as konbini food, ekiben, depachika meals, vending-machine drinks, and common chains. Universal items should remain visible while filtering any itinerary city unless the user explicitly chooses only nationwide results.
 
+## Restaurant
+
+Required: stable `id`, city ID, name, cuisine category, area or district, coordinates, one-sentence recognition description, rating snapshot, and the direct path to the venue's own page on the rating platform.
+
+Select by dish coverage, never by score ranking: one or two addresses for each specialty the stop is actually known for, so that a traveler standing in that city can eat every local dish it is famous for. A celebrated address for a signature dish belongs in the list even when its score sits below better-rated but generic restaurants; conversely a high score never justifies a second entry for a dish already covered. Expect roughly three to eight per stop, scaled by how long the itinerary stays there, and vary course and price band inside each stop.
+
+Use the rating only to choose between candidates for the same dish in the same stop, never to rank unlike cuisines against each other. Ratings on these platforms are compressed: treat 3.5 as already strong and 4 as exceptional, so a 3.1 tsukemen counter can be the right pick for its category.
+
+Store the score as the snapshot it is, label it as a snapshot in the interface, and always link the venue page so that current score, opening hours and booking come from the source instead of from the guide. Platforms such as Tabelog have no public API, block cross-origin reads, and forbid automated collection: the outbound link is the only honest way to keep the number current, so never build a scraper to refresh it.
+
 ## Shopping
 
 Required: stable `id`, city or `all`, name, local name, category, where to look, indicative price band, description, authenticity or baggage tip, primary image-search query, and alternate image queries.
@@ -74,6 +84,7 @@ In shared-gallery mode, use authenticated users, a private object bucket, trip m
 - The map initializes only when visible and offers Google Maps plus shareable in-site marker links.
 - Every point popup can resolve a lazy photo with attribution and fallback.
 - Every visit marker has a full detail link and every route hotel name matches its map marker exactly.
+- Every mapped restaurant covers a specialty of its stop, links its own venue page on the rating platform, and shows its score as a snapshot rather than a live value.
 - Progress totals equal the union of all five completion catalogs and survive reload on the same browser.
 - One action clears all completion state while preserving favorites, and map markers update immediately.
 - Place, experience, food, and history details expose their factual sources and do not reuse identical memorable notes.

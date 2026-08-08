@@ -143,6 +143,7 @@
       "category": "Ramen",
       "area": "Nakatsu / Umeda",
       "score": 3.85,
+      "tabelog": "osaka/A2701/A270101/27104891",
       "lat": 34.7057,
       "lng": 135.4965,
       "description": "Ramen raffinato al brodo di pesce, tra i migliori d'Osaka."
@@ -156,6 +157,7 @@
       "category": "Ramen",
       "area": "Namba",
       "score": 3.71,
+      "tabelog": "osaka/A2701/A270202/27112089",
       "lat": 34.664,
       "lng": 135.499,
       "description": "Ramen premiato vicino a Namba, brodo intenso e noodles curati."
@@ -169,6 +171,7 @@
       "category": "Sushi",
       "area": "Kitashinchi / Umeda",
       "score": 3.69,
+      "tabelog": "osaka/A2701/A270101/27114022",
       "lat": 34.6955,
       "lng": 135.497,
       "description": "Sushi omakase di alto livello nell'elegante quartiere di Kitashinchi."
@@ -182,6 +185,7 @@
       "category": "Yakitori",
       "area": "Kitashinchi / Umeda",
       "score": 3.69,
+      "tabelog": "osaka/A2701/A270101/27052799",
       "lat": 34.696,
       "lng": 135.4965,
       "description": "Yakitori creativo di alta qualità nel raffinato Kitashinchi."
@@ -195,6 +199,7 @@
       "category": "Okonomiyaki",
       "area": "Uehommachi",
       "score": 3.6,
+      "tabelog": "osaka/A2701/A270205/27103780",
       "lat": 34.666,
       "lng": 135.5185,
       "description": "Okonomiyaki d'eccellenza sulla piastra, tra i più apprezzati della città."
@@ -208,6 +213,7 @@
       "category": "Okonomiyaki",
       "area": "Hozenji Yokocho",
       "score": 3.5,
+      "tabelog": "osaka/A2701/A270202/27011039",
       "lat": 34.6686,
       "lng": 135.5016,
       "description": "Storico okonomiyaki nel suggestivo vicolo di Hozenji Yokocho."
@@ -221,6 +227,7 @@
       "category": "Takoyaki",
       "area": "Umeda",
       "score": 3.47,
+      "tabelog": "osaka/A2701/A270101/27000283",
       "lat": 34.704,
       "lng": 135.499,
       "description": "Takoyaki da grigliare al proprio tavolo, istituzione di Umeda."
@@ -330,6 +337,7 @@
       "category": "Innovativa",
       "area": "Naramachi",
       "score": 4.26,
+      "tabelog": "nara/A2901/A290101/29010346",
       "lat": 34.6795,
       "lng": 135.8265,
       "description": "Cucina innovativa spagnolo-giapponese, il ristorante più quotato di Nara."
@@ -343,6 +351,7 @@
       "category": "Kaiseki",
       "area": "Kintetsu Nara",
       "score": 4.22,
+      "tabelog": "nara/A2901/A290101/29010206",
       "lat": 34.681,
       "lng": 135.8305,
       "description": "Raffinata cucina giapponese kaiseki, tra le migliori della prefettura."
@@ -356,6 +365,7 @@
       "category": "Soba",
       "area": "Kintetsu Nara",
       "score": 4.03,
+      "tabelog": "nara/A2901/A290101/29000052",
       "lat": 34.682,
       "lng": 135.829,
       "description": "Soba artigianale di grande qualità vicino alla stazione Kintetsu Nara."
@@ -369,6 +379,7 @@
       "category": "Wagashi (mochi)",
       "area": "Higashimuki",
       "score": 3.72,
+      "tabelog": "nara/A2901/A290101/29000222",
       "lat": 34.6812,
       "lng": 135.8283,
       "description": "Celebre per il mochi pestato a velocità record, dolce imperdibile."
@@ -466,6 +477,7 @@
       "category": "Kaiseki",
       "area": "Chuden-mae",
       "score": 4.5,
+      "tabelog": "hiroshima/A3401/A340117/34023887",
       "lat": 34.3896,
       "lng": 132.461,
       "description": "Ristorante kaiseki di altissimo livello, tra i migliori del Giappone occidentale."
@@ -479,6 +491,7 @@
       "category": "Sushi",
       "area": "Tatemachi",
       "score": 4.21,
+      "tabelog": "hiroshima/A3401/A340112/34022477",
       "lat": 34.3948,
       "lng": 132.459,
       "description": "Sushi contemporaneo raffinato e creativo, prenotazione difficilissima e omakase acclamato."
@@ -492,6 +505,7 @@
       "category": "Okonomiyaki",
       "area": "Yagenbori",
       "score": 3.69,
+      "tabelog": "hiroshima/A3401/A340110/34000100",
       "lat": 34.3903,
       "lng": 132.4618,
       "description": "Leggendario okonomiyaki croccante, tra i Tabelog Hyakumeiten; spesso lunga fila."
@@ -505,6 +519,7 @@
       "category": "Ostriche",
       "area": "presso Genbaku Dome",
       "score": 3.47,
+      "tabelog": "hiroshima/A3401/A340116/34000041",
       "lat": 34.3925,
       "lng": 132.4555,
       "description": "Storico ristorante su barca ormeggiata sul fiume, specializzato in ostriche di Hiroshima."
@@ -518,6 +533,7 @@
       "category": "Tsukemen",
       "area": "Hatchobori",
       "score": 3.07,
+      "tabelog": "hiroshima/A3401/A340108/34022263",
       "lat": 34.3915,
       "lng": 132.46,
       "description": "Locale d'origine del tsukemen piccante di Hiroshima, noodle freddi e brodo rosso."
@@ -591,6 +607,7 @@
       "category": "Ostriche",
       "area": "Miyajima (Omotesando)",
       "score": 3.71,
+      "tabelog": "hiroshima/A3402/A340202/34002301",
       "lat": 34.2973,
       "lng": 132.321,
       "description": "Specialista di ostriche dal 1950, celebre per le ostriche alla griglia dell'isola."
@@ -604,6 +621,7 @@
       "category": "Anago-meshi",
       "area": "Miyajimaguchi",
       "score": 3.67,
+      "tabelog": "hiroshima/A3402/A340205/34000065",
       "lat": 34.3128,
       "lng": 132.3036,
       "description": "Inventore dell'anago-meshi dal 1901, ciotola di riso con anguilla di mare."
@@ -617,6 +635,7 @@
       "category": "Dolci (age-momiji)",
       "area": "Miyajima (Omotesando)",
       "score": 3.63,
+      "tabelog": "hiroshima/A3402/A340202/34010095",
       "lat": 34.2968,
       "lng": 132.3195,
       "description": "Casa dell'age-momiji fritto; momiji manju tradizionali, Tabelog Hyakumeiten dolci."
@@ -630,6 +649,7 @@
       "category": "Anago-meshi",
       "area": "presso il santuario",
       "score": 3.57,
+      "tabelog": "hiroshima/A3402/A340202/34002045",
       "lat": 34.2951,
       "lng": 132.3204,
       "description": "Anago-meshi storico dal 1901 sull'isola, grigliato al carbone; lunghe file."
@@ -823,6 +843,7 @@
       "category": "Kaiseki",
       "area": "Gion, Higashiyama",
       "score": 4.33,
+      "tabelog": "kyoto/A2601/A260301/26001863",
       "lat": 34.9987,
       "lng": 135.7738,
       "description": "Kaiseki d'autore acclamato, tra i punteggi Tabelog più alti di Kyoto."
@@ -836,6 +857,7 @@
       "category": "Kaiseki",
       "area": "Parco Maruyama",
       "score": 4.26,
+      "tabelog": "kyoto/A2601/A260301/26002279",
       "lat": 35.003,
       "lng": 135.7815,
       "description": "Kaiseki raffinatissimo nel Parco Maruyama, esperienza esclusiva molto ambita."
@@ -849,6 +871,7 @@
       "category": "Sushi",
       "area": "Gion Shijo",
       "score": 3.77,
+      "tabelog": "kyoto/A2601/A260301/26002579",
       "lat": 35.0035,
       "lng": 135.774,
       "description": "Sushi edomae d'eccellenza a Gion, più volte selezionato tra i Tabelog 100."
@@ -862,6 +885,7 @@
       "category": "Ramen",
       "area": "Shijo / Karasuma",
       "score": 3.66,
+      "tabelog": "kyoto/A2601/A260201/26029810",
       "lat": 35.0025,
       "lng": 135.7635,
       "description": "Ramen raffinato al brodo limpido, tra i migliori dell'ovest Giappone."
@@ -875,6 +899,7 @@
       "category": "Soba",
       "area": "Karasuma Oike",
       "score": 3.49,
+      "tabelog": "kyoto/A2601/A260202/26000657",
       "lat": 35.011,
       "lng": 135.759,
       "description": "Soberia storica attiva da secoli, celebre per il nishin soba tradizionale."
@@ -888,6 +913,7 @@
       "category": "Tofu / yudofu",
       "area": "Nanzenji",
       "score": 3.46,
+      "tabelog": "kyoto/A2601/A260301/26001834",
       "lat": 35.011,
       "lng": 135.794,
       "description": "Antica casa di yudofu accanto al Nanzenji, tofu bollito in giardino sereno."
@@ -949,6 +975,7 @@
       "category": "Sala da tè / matcha",
       "area": "Ponte di Uji",
       "score": 3.58,
+      "tabelog": "kyoto/A2607/A260701/26000727",
       "lat": 34.8935,
       "lng": 135.811,
       "description": "Sala da tè fondata nel 1160, tra le più antiche al mondo, matcha e dolci."
@@ -962,6 +989,7 @@
       "category": "Sala da tè / matcha",
       "area": "Uji (JR Uji)",
       "score": 3.54,
+      "tabelog": "kyoto/A2607/A260701/26000722",
       "lat": 34.8905,
       "lng": 135.8072,
       "description": "Storica casa del tè di Uji, celebre per gelatine e parfait al matcha."
@@ -1119,6 +1147,7 @@
       "category": "Sushi",
       "area": "Nonoichi",
       "score": 4.47,
+      "tabelog": "ishikawa/A1702/A170203/17000700",
       "lat": 36.5225,
       "lng": 136.6038,
       "description": "Sushi leggendario dell'Hokuriku, tra i migliori del Giappone; prenotazione difficilissima."
@@ -1132,6 +1161,7 @@
       "category": "Sushi",
       "area": "Katamachi",
       "score": 4.07,
+      "tabelog": "ishikawa/A1701/A170101/17000107",
       "lat": 36.5622,
       "lng": 136.6558,
       "description": "Storico banco di sushi, due stelle Michelin, pesce locale sublime."
@@ -1145,6 +1175,7 @@
       "category": "Kaiseki / Kaga",
       "area": "Katamachi",
       "score": 3.77,
+      "tabelog": "ishikawa/A1701/A170101/17000088",
       "lat": 36.5608,
       "lng": 136.6543,
       "description": "Raffinato kaiseki con prodotti dell'Hokuriku, elegante cucina Kaga stagionale."
@@ -1158,6 +1189,7 @@
       "category": "Kaiseki",
       "area": "Takaoka-cho (vicino Omicho)",
       "score": 3.76,
+      "tabelog": "ishikawa/A1701/A170101/17011922",
       "lat": 36.571,
       "lng": 136.6572,
       "description": "Kaiseki stellato Michelin che esalta ingredienti selezionati dell'Hokuriku."
@@ -1171,6 +1203,7 @@
       "category": "Sushi",
       "area": "Higashi Chaya",
       "score": 3.56,
+      "tabelog": "ishikawa/A1701/A170101/17000174",
       "lat": 36.5718,
       "lng": 136.6683,
       "description": "Sushi d'autore in una casa da tè storica nel quartiere Higashi Chaya."
@@ -1184,6 +1217,7 @@
       "category": "Oden",
       "area": "Katamachi",
       "score": 3.49,
+      "tabelog": "ishikawa/A1701/A170101/17000401",
       "lat": 36.5613,
       "lng": 136.6552,
       "description": "Istituzione dell'oden di Kanazawa, con granchio koubako e sfizi locali."
@@ -1281,6 +1315,7 @@
       "category": "Bistecca / Manzo Hida",
       "area": "vicino stazione",
       "score": 3.77,
+      "tabelog": "gifu/A2104/A210401/21000080",
       "lat": 36.1416,
       "lng": 137.2531,
       "description": "Manzo Hida perfettamente frollato servito come bistecca, croccante e succoso."
@@ -1294,6 +1329,7 @@
       "category": "Chuka soba / Ramen",
       "area": "Città Vecchia",
       "score": 3.62,
+      "tabelog": "gifu/A2104/A210401/21000021",
       "lat": 36.1449,
       "lng": 137.2577,
       "description": "Storica insegna del ramen di Takayama, brodo di soia limpido e tagliatelle arricciate."
@@ -1307,6 +1343,7 @@
       "category": "Soba",
       "area": "Nishinoisshiki-machi",
       "score": 3.56,
+      "tabelog": "gifu/A2104/A210401/21019356",
       "lat": 36.1361,
       "lng": 137.2451,
       "description": "Soba fatta a mano di grano saraceno locale, in una tranquilla casa rustica."
@@ -1320,6 +1357,7 @@
       "category": "Yakiniku / Manzo Hida",
       "area": "Via Yasukawa",
       "score": 3.56,
+      "tabelog": "gifu/A2104/A210401/21006540",
       "lat": 36.1431,
       "lng": 137.257,
       "description": "Yakiniku di pregiato manzo Hida e la famosa ciotola nikumabushi a pranzo."
@@ -1333,6 +1371,7 @@
       "category": "Izakaya locale",
       "area": "Città Vecchia",
       "score": 3.51,
+      "tabelog": "gifu/A2104/A210401/21009589",
       "lat": 36.1436,
       "lng": 137.2586,
       "description": "Bistecca e piatti regionali in un birrificio di sake di duecento anni."
@@ -1418,6 +1457,7 @@
       "category": "Cucina locale / gassho",
       "area": "Ogimachi",
       "score": 3.47,
+      "tabelog": "gifu/A2104/A210404/21003222",
       "lat": 36.2586,
       "lng": 136.9067,
       "description": "Piatti regionali attorno al focolare irori dentro un'autentica casa gassho-zukuri."
@@ -1431,6 +1471,7 @@
       "category": "Soba",
       "area": "Ogimachi",
       "score": 3.46,
+      "tabelog": "gifu/A2104/A210404/21000046",
       "lat": 36.2576,
       "lng": 136.9071,
       "description": "Soba fatta a mano con grano saraceno del posto, saporita e ben strutturata."
@@ -1444,6 +1485,7 @@
       "category": "Hoba miso / Manzo Hida",
       "area": "Ogimachi",
       "score": 3.39,
+      "tabelog": "gifu/A2104/A210404/21008064",
       "lat": 36.2582,
       "lng": 136.9064,
       "description": "Set di manzo Hida grigliato su foglia di magnolia con miso, specialità hoba."
@@ -1529,6 +1571,7 @@
       "category": "Sushi",
       "area": "Shimauchi, Matsumoto",
       "score": 3.77,
+      "tabelog": "nagano/A2002/A200201/20018952",
       "lat": 36.269,
       "lng": 137.9332,
       "description": "Sushi raffinato selezionato nella Tabelog 100, pesce di stagione e omakase di alto livello."
@@ -1542,6 +1585,7 @@
       "category": "Soba di Shinshu",
       "area": "centro Matsumoto",
       "score": 3.74,
+      "tabelog": "nagano/A2002/A200201/20000101",
       "lat": 36.2292,
       "lng": 137.97,
       "description": "Soba artigianale amatissima, spesso lunghe code; grano saraceno pregiato e tempura leggera."
@@ -1555,6 +1599,7 @@
       "category": "Soba di Shinshu",
       "area": "Matsumoto",
       "score": 3.72,
+      "tabelog": "nagano/A2002/A200201/20002376",
       "lat": 36.2345,
       "lng": 137.9698,
       "description": "Tempio della soba di Shinshu, farina macinata a pietra e brodo dashi curato."
@@ -1568,6 +1613,7 @@
       "category": "Izakaya locale",
       "area": "presso il castello",
       "score": 3.43,
+      "tabelog": "nagano/A2002/A200201/20002702",
       "lat": 36.2358,
       "lng": 137.968,
       "description": "Izakaya storico dal 1945: oden, sashimi di cavallo e specialità del Shinshu."
@@ -1641,6 +1687,7 @@
       "category": "Soba di Shinshu",
       "area": "Nagano città",
       "score": 3.87,
+      "tabelog": "nagano/A2001/A200101/20000415",
       "lat": 36.647,
       "lng": 138.188,
       "description": "Soba di altissimo livello, punteggio Tabelog eccezionale; prenotazione difficile."
@@ -1654,6 +1701,7 @@
       "category": "Soba di Togakushi",
       "area": "Togakushi",
       "score": 3.75,
+      "tabelog": "nagano/A2001/A200101/20000191",
       "lat": 36.743,
       "lng": 138.0802,
       "description": "Leggendaria soba di Togakushi servita a matasse, tempura di stagione e sake locale."
@@ -1667,6 +1715,7 @@
       "category": "Soba di Togakushi",
       "area": "Togakushi",
       "score": 3.75,
+      "tabelog": "nagano/A2001/A200101/20001575",
       "lat": 36.744,
       "lng": 138.0788,
       "description": "Soba fatta a mano ogni mattina, tempura fragrante e dolci a base di grano saraceno."
@@ -1680,6 +1729,7 @@
       "category": "Oyaki / locale",
       "area": "Stazione di Nagano",
       "score": 3.35,
+      "tabelog": "nagano/A2001/A200101/20018979",
       "lat": 36.6432,
       "lng": 138.1886,
       "description": "Oyaki tradizionali di Shinshu, focaccine ripiene cotte con verdure di montagna."
@@ -1933,6 +1983,7 @@
       "category": "Sushi edomae",
       "area": "Nihonbashi",
       "score": 4.63,
+      "tabelog": "tokyo/A1302/A130204/13018162",
       "lat": 35.6845,
       "lng": 139.7828,
       "description": "Uno dei migliori sushi edomae del Giappone, prenotazione quasi impossibile e maestria assoluta."
@@ -1946,6 +1997,7 @@
       "category": "Yakitori",
       "area": "Kagurazaka",
       "score": 4.51,
+      "tabelog": "tokyo/A1309/A130905/13266251",
       "lat": 35.7017,
       "lng": 139.7405,
       "description": "Yakitori d'autore con pollo di altissima qualità, tra i migliori spiedini del paese."
@@ -1959,6 +2011,7 @@
       "category": "Tempura",
       "area": "Azabu-Juban",
       "score": 4.49,
+      "tabelog": "tokyo/A1307/A130702/13185763",
       "lat": 35.6553,
       "lng": 139.7365,
       "description": "Tempura raffinatissima servita al banco, tra le più quotate di tutta Tokyo."
@@ -1972,6 +2025,7 @@
       "category": "Ramen",
       "area": "Nishi-Shinjuku",
       "score": 4.01,
+      "tabelog": "tokyo/A1304/A130401/13247487",
       "lat": 35.6905,
       "lng": 139.6855,
       "description": "Ramen shoyu limpido e sofisticato, tra i più quotati vicino a Shinjuku."
@@ -1985,6 +2039,7 @@
       "category": "Soba",
       "area": "Asakusa",
       "score": 3.9,
+      "tabelog": "tokyo/A1311/A131102/13185027",
       "lat": 35.7145,
       "lng": 139.7965,
       "description": "Soba fatta a mano di eccellenza, tra le migliori di Tokyo, nel cuore di Asakusa."
@@ -1998,6 +2053,7 @@
       "category": "Unagi",
       "area": "Yurakucho / Ginza",
       "score": 3.69,
+      "tabelog": "tokyo/A1301/A130103/13250032",
       "lat": 35.6725,
       "lng": 139.7625,
       "description": "Anguilla grigliata al carbone in stile Nagoya, tra i migliori unagi vicino a Ginza."
@@ -2011,6 +2067,7 @@
       "category": "Chanko-nabe",
       "area": "Ryogoku",
       "score": 3.55,
+      "tabelog": "tokyo/A1312/A131201/13002979",
       "lat": 35.6955,
       "lng": 139.7935,
       "description": "Antica casa di chanko-nabe, il ricco stufato dei lottatori di sumo, nel quartiere delle arene."
@@ -2024,6 +2081,7 @@
       "category": "Monjayaki",
       "area": "Tsukishima",
       "score": 3.47,
+      "tabelog": "tokyo/A1313/A131302/13012757",
       "lat": 35.6642,
       "lng": 139.7838,
       "description": "Storica monjayaki di Tsukishima dagli anni Cinquanta, piatto tipico da cuocere sulla piastra."

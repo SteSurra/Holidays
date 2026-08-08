@@ -6,11 +6,23 @@
   const pointLayers = {};
   const markerByGuideId = {};
   const pointByGuideId = {};
+  const placedMarkers = [];
 
   function completedIds() {
     try { return new Set(JSON.parse(localStorage.getItem("tabi-done") || "[]")); } catch (_) { return new Set(); }
   }
   const doneIds = completedIds();
+
+  // I luoghi che l'utente ha tolto dalla mappa. Si tiene l'elenco degli esclusi:
+  // l'insieme vuoto vale "mostra tutto", che è il comportamento di partenza.
+  function hiddenIdSet() {
+    try { return new Set(JSON.parse(localStorage.getItem("tabi-hidden-v1") || "[]")); } catch (_) { return new Set(); }
+  }
+  let hiddenIds = hiddenIdSet();
+
+  function onMap(point) {
+    return !point.guideId || !hiddenIds.has(point.guideId);
+  }
 
   function escapeHTML(value) {
     return String(value || "").replace(/[&<>"']/g, function (char) {
@@ -45,14 +57,29 @@
     const imageId = point.guideId || "map-image-" + point.id;
     const fallback = imageType === "food" ? "assets/fallback-food.svg" : imageType === "shop" ? "assets/fallback-shop.svg" : "assets/fallback-place.svg";
     const typeLabel = point.type === "tabelog" ? "Locale Tabelog" : point.type === "hotel" ? "Hotel del viaggio" : "Da visitare";
-    const rating = point.type === "tabelog" ? '<span class="tabelog-rating">Tabelog ' + Number(point.score).toFixed(2) + '</span>' : "";
+    const rating = point.type === "tabelog" ? '<span class="tabelog-rating">Tabelog ' + Number(point.score).toFixed(2) + ' alla selezione</span>' : "";
+    const tabelog = point.tabelog ? '<a class="map-popup-action is-tabelog" href="' + tabelogUrl(point) + '" target="_blank" rel="noopener">Voto di oggi, orari e prenotazione ↗</a>' : "";
     const guide = point.guideId ? '<button class="map-popup-detail" type="button" data-action="details" data-id="' + escapeHTML(point.guideId) + '">Apri la guida completa ↗</button>' : "";
     const done = point.guideId && item && (item.type === "place" || item.type === "experience") ? '<button class="map-popup-done' + (doneIds.has(point.guideId) ? ' is-done' : '') + '" type="button" data-action="done" data-id="' + escapeHTML(point.guideId) + '">' + (doneIds.has(point.guideId) ? (item.type === "experience" ? "✓ Fatta" : "✓ Visitato") : (item.type === "experience" ? "Segna fatta" : "Segna visitato")) + '</button>' : "";
+    // Togliere un punto dalla mappa mentre lo si sta guardando, senza tornare
+    // all'elenco e senza confonderlo con "ci sono già stato".
+    const select = point.guideId && point.type === "visit"
+      ? '<button class="map-popup-select" type="button" data-action="select" data-id="' + escapeHTML(point.guideId) + '">'
+        + (hiddenIds.has(point.guideId) ? "Rimetti sulla mappa" : "Togli dalla mappa") + '</button>'
+      : "";
     return '<div class="map-popup point-popup"><div class="map-popup-media"><img src="' + fallback + '" data-map-image-id="' + escapeHTML(imageId) + '" data-map-image-type="' + imageType + '" alt="' + escapeHTML(point.name) + '" referrerpolicy="no-referrer"><a class="map-photo-credit" target="_blank" rel="noopener" hidden></a></div><p class="map-popup-kicker">' + escapeHTML(typeLabel) + ' · ' + escapeHTML(point.category) + '</p>'
       + '<h3>' + escapeHTML(point.name) + '</h3>'
       + '<p class="point-location">' + escapeHTML(point.group || point.area || (city && city.name)) + (point.area && point.group !== point.area ? ' · ' + escapeHTML(point.area) : '') + '</p>'
       + '<p>' + escapeHTML(point.description) + '</p>' + rating
-      + '<div class="map-popup-actions">' + done + guide + '<a class="map-popup-action" href="' + googleMapsUrl(point) + '" target="_blank" rel="noopener">Raggiungi con Google Maps ↗</a></div></div>';
+      + '<div class="map-popup-actions">' + done + select + guide + tabelog + '<a class="map-popup-action" href="' + googleMapsUrl(point) + '" target="_blank" rel="noopener">Raggiungi con Google Maps ↗</a></div></div>';
+  }
+
+  // Il punteggio salvato è quello del giorno in cui il locale è entrato in
+  // guida. Su Tabelog cambia di settimana in settimana e non esiste un modo
+  // lecito di rileggerlo da qui: la scheda ufficiale, con voto aggiornato,
+  // orari e prenotazione, resta a un tocco di distanza.
+  function tabelogUrl(point) {
+    return "https://tabelog.com/en/" + point.tabelog + "/";
   }
 
   function findGuideItem(id) {
@@ -113,6 +140,39 @@
     window.TABI_IMAGES.resolveItem(item).then(apply);
   }
 
+  // Il colore dice "da visitare", il simbolo dice che cosa: tutti i templi
+  // hanno lo stesso pittogramma, tutti i castelli un altro, e il verde resta
+  // quello per tutti. Disegnati come SVG e non come emoji, che ogni telefono
+  // colora a modo suo e romperebbe l'unica regola: un solo colore.
+  const VISIT_GLYPHS = {
+    tempio: '<path d="M12 3 L22 9.5 H2 Z"/><path d="M12 10.5 L19.5 15.5 H4.5 Z"/><path d="M9 16.5h6v4.5H9z"/>',
+    santuario: '<path d="M1.5 5h21v2.8h-21z"/><path d="M4.5 10h15v2.2h-15z"/><path d="M5.6 5h2.8v16H5.6z"/><path d="M15.6 5h2.8v16h-2.8z"/>',
+    castello: '<path d="M12 5.5 L20.5 11.5 H3.5 Z"/><path d="M6.5 12.5h11v8.5h-11z"/><path d="M11.2 1.5h1.4v4h-1.4z"/><path d="M12.6 1.8h4.2l-1.6 1.6 1.6 1.6h-4.2z"/>',
+    museo: '<path d="M12 3.5 L22 9 H2 Z"/><path d="M5 10.5h2.6v7.5H5z"/><path d="M10.7 10.5h2.6v7.5h-2.6z"/><path d="M16.4 10.5h2.6v7.5h-2.6z"/><path d="M3.5 19h17v2.2h-17z"/>',
+    quartiere: '<path d="M2.5 21v-8.5H8V21z"/><path d="M9.3 21V8h5.4v13z"/><path d="M16 21v-6.5h5.5V21z"/>',
+    panorama: '<circle cx="18" cy="6.5" r="2.8"/><path d="M1.5 20.5 L8.5 9.5 L13.5 17 L16.5 12.5 L22.5 20.5 Z"/>',
+    natura: '<circle cx="12" cy="9.5" r="6"/><path d="M10.9 14h2.2v7h-2.2z"/>',
+    giardino: '<path d="M12 21 C5.5 17 4.5 8 12 3 C19.5 8 18.5 17 12 21 Z"/>',
+    mercato: '<path d="M3.5 11.5 L6 6.5 h12 L20.5 11.5 Z"/><path d="M5.5 13h13v8h-13z"/>',
+    shopping: '<path d="M5 9h14l1 12H4z"/><path d="M8.6 9V6.8a3.4 3.4 0 0 1 6.8 0V9h-2.2V6.8a1.2 1.2 0 0 0-2.4 0V9z"/>',
+    memoriale: '<path d="M12 3a3 3 0 0 1 3 3v11H9V6a3 3 0 0 1 3-3z"/><path d="M6.5 18h11v3h-11z"/>',
+    "casa-storica": '<path d="M12 4.5 L21 11.5 H3 Z"/><path d="M6 12.5h12v8.5H6z"/><path d="M15.5 4H18v3.6h-2.5z"/>',
+    esperienza: '<path d="M12 2.5 L14.1 9.9 L21.5 12 L14.1 14.1 L12 21.5 L9.9 14.1 L2.5 12 L9.9 9.9 Z"/>',
+    curiosita: '<path d="M12 3l2.7 5.9 6.4.7-4.8 4.4 1.3 6.3-5.6-3.2-5.6 3.2 1.3-6.3-4.8-4.4 6.4-.7z"/>',
+    altro: '<circle cx="12" cy="12" r="5"/>'
+  };
+
+  // Un luogo già visitato tiene il suo simbolo di categoria: sbiadirlo dice
+  // "ci sei passato" senza far dimenticare *cosa* fosse. Sostituirlo con una
+  // spunta, come si faceva prima, cancellava proprio l'informazione utile.
+  function visitMarkerHTML(point, isDone) {
+    const glyph = VISIT_GLYPHS[point.category] || VISIT_GLYPHS.altro;
+    return '<span class="map-visit-marker' + (isDone ? " is-done" : "") + '">'
+      + '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' + glyph + '</svg>'
+      + (isDone ? '<i class="visit-check" aria-hidden="true">✓</i>' : '')
+      + '</span>';
+  }
+
   function pointIcon(point) {
     if (point.type === "tabelog") {
       return L.divIcon({ className:"map-point-icon", html:'<span class="map-score-marker">' + Number(point.score).toFixed(2) + '</span>', iconSize:[42, 24], iconAnchor:[21, 12] });
@@ -120,8 +180,8 @@
     if (point.type === "hotel") {
       return L.divIcon({ className:"map-point-icon", html:'<span class="map-hotel-marker">H</span>', iconSize:[28, 28], iconAnchor:[14, 14] });
     }
-    const isDone = point.guideId && doneIds.has(point.guideId);
-    return L.divIcon({ className:"map-point-icon", html:'<span class="map-visit-marker' + (isDone ? ' is-done' : '') + '">' + (isDone ? '✓' : '') + '</span>', iconSize:[isDone ? 24 : 18, isDone ? 24 : 18], iconAnchor:[isDone ? 12 : 9, isDone ? 12 : 9] });
+    const isDone = Boolean(point.guideId && doneIds.has(point.guideId));
+    return L.divIcon({ className:"map-point-icon", html:visitMarkerHTML(point, isDone), iconSize:[22, 22], iconAnchor:[11, 11] });
   }
 
   function layerEnabled(type) {
@@ -133,6 +193,201 @@
     if (!map || !pointLayers[type]) return;
     if (layerEnabled(type)) pointLayers[type].addTo(map);
     else pointLayers[type].removeFrom(map);
+  }
+
+  // ---- WC pubblici e fontanelle -------------------------------------------
+  // Sono migliaia, cambiano di continuo e non hanno niente da raccontare:
+  // tenerli nei dati della guida non avrebbe senso. Si chiedono a OpenStreetMap
+  // solo quando l'utente accende il flag, e poi restano sul telefono.
+
+  const FACILITY_KINDS = {
+    toilet: { tag:"amenity", value:"toilets", label:"WC pubblico", plural:"i WC pubblici", count:"WC", glyph:"WC" },
+    water: { tag:"amenity", value:"drinking_water", label:"Fontanella", plural:"le fontanelle", count:"fontanelle", glyph:"水" },
+    konbini: { tag:"shop", value:"convenience", label:"Konbini", plural:"i konbini", count:"konbini", glyph:"24h" }
+  };
+  const FACILITY_CACHE = "tabi-facilities-v2";
+  const FACILITY_RADIUS = 2000;
+  const FACILITY_PER_CITY = 40;
+  const OVERPASS_ENDPOINTS = [
+    "https://overpass-api.de/api/interpreter",
+    "https://overpass.kumi.systems/api/interpreter"
+  ];
+  const facilityLayers = {};
+  const facilityMarkers = {};
+  let facilityPoints = null;
+  let facilityRequest = null;
+
+  function isFacility(type) {
+    return Object.prototype.hasOwnProperty.call(FACILITY_KINDS, type);
+  }
+
+  function facilityKinds() {
+    return Object.keys(FACILITY_KINDS);
+  }
+
+  function enabledFacilityKinds() {
+    return facilityKinds().filter(function (kind) { return layerEnabled(kind); });
+  }
+
+  // WC e fontanelle vivono solo sulla mappa: niente elenco sotto ai luoghi, che
+  // è lo spazio delle cose da vedere. Per i messaggi si usa la riga di stato
+  // già presente sotto la barra della mappa.
+  function facilityStatus(text) {
+    lassoStatus(text);
+  }
+
+  function facilityName(point) {
+    return point.name || FACILITY_KINDS[point.kind].label;
+  }
+
+  function overpassQuery() {
+    const clauses = [];
+    window.JAPAN_DATA.cities.forEach(function (city) {
+      facilityKinds().forEach(function (kind) {
+        const spec = FACILITY_KINDS[kind];
+        clauses.push('node["' + spec.tag + '"="' + spec.value + '"](around:' + FACILITY_RADIUS + ',' + city.lat + ',' + city.lng + ');');
+      });
+    });
+    return "[out:json][timeout:60];(" + clauses.join("") + ");out body 2500;";
+  }
+
+  function nearestCity(lat, lng) {
+    return window.JAPAN_DATA.cities.reduce(function (best, city) {
+      const distance = metersBetween({ lat:lat, lng:lng }, city);
+      return !best || distance < best.distance ? { city:city, distance:distance } : best;
+    }, null);
+  }
+
+  function parseFacilities(payload) {
+    const grouped = {};
+    (payload.elements || []).forEach(function (element) {
+      const tags = element.tags || {};
+      const kind = facilityKinds().find(function (key) { return tags[FACILITY_KINDS[key].tag] === FACILITY_KINDS[key].value; });
+      const lat = Number(element.lat);
+      const lng = Number(element.lon);
+      if (!kind || !Number.isFinite(lat) || !Number.isFinite(lng)) return;
+      const near = nearestCity(lat, lng);
+      const key = kind + "|" + near.city.id;
+      (grouped[key] = grouped[key] || []).push({
+        id: kind + "-" + element.id,
+        kind: kind,
+        city: near.city.id,
+        distance: near.distance,
+        lat: Math.round(lat * 1e5) / 1e5,
+        lng: Math.round(lng * 1e5) / 1e5,
+        name: String(tags["name:en"] || tags.name || "").slice(0, 60)
+      });
+    });
+    // Solo i più vicini al centro di ogni tappa: gli altri occuperebbero spazio
+    // sul telefono senza che nessuno ci arrivi mai a piedi.
+    return Object.keys(grouped).reduce(function (all, key) {
+      const nearest = grouped[key].sort(function (a, b) { return a.distance - b.distance; }).slice(0, FACILITY_PER_CITY);
+      nearest.forEach(function (item) { delete item.distance; });
+      return all.concat(nearest);
+    }, []);
+  }
+
+  function readFacilityCache() {
+    try {
+      const stored = JSON.parse(localStorage.getItem(FACILITY_CACHE) || "null");
+      return stored && Array.isArray(stored.points) && stored.points.length ? stored.points : null;
+    } catch (_) { return null; }
+  }
+
+  function fetchFacilities() {
+    const body = "data=" + encodeURIComponent(overpassQuery());
+    return OVERPASS_ENDPOINTS.reduce(function (chain, endpoint) {
+      return chain.then(function (payload) {
+        if (payload) return payload;
+        return fetch(endpoint, { method:"POST", body:body, headers:{ "Content-Type":"application/x-www-form-urlencoded" } })
+          .then(function (response) { return response.ok ? response.json() : null; })
+          .catch(function () { return null; });
+      });
+    }, Promise.resolve(null));
+  }
+
+  // Un WC non si sposta: una volta scaricato l'elenco resta valido, e soprattutto
+  // resta disponibile quando la rete non c'è, che è esattamente il momento in cui
+  // serve.
+  function ensureFacilities() {
+    if (facilityPoints) return Promise.resolve(facilityPoints);
+    if (facilityRequest) return facilityRequest;
+    const cached = readFacilityCache();
+    if (cached) {
+      facilityPoints = cached;
+      return Promise.resolve(cached);
+    }
+    if (!navigator.onLine) return Promise.reject(new Error("Servono i dati di OpenStreetMap: riprova quando hai rete."));
+    facilityRequest = fetchFacilities().then(function (payload) {
+      const points = payload ? parseFacilities(payload) : [];
+      if (!points.length) throw new Error("OpenStreetMap non ha risposto: riprova tra un minuto.");
+      facilityPoints = points;
+      try {
+        localStorage.setItem(FACILITY_CACHE, JSON.stringify({ at:Date.now(), points:points }));
+      } catch (_) { /* memoria piena: restano validi per questa sessione */ }
+      return points;
+    }).finally(function () { facilityRequest = null; });
+    return facilityRequest;
+  }
+
+  function facilityIcon(kind) {
+    return L.divIcon({
+      className:"map-point-icon",
+      html:'<span class="map-facility-marker is-' + kind + '">' + FACILITY_KINDS[kind].glyph + '</span>',
+      iconSize:[26, 20], iconAnchor:[13, 10]
+    });
+  }
+
+  function facilityPopupHTML(point) {
+    const city = window.JAPAN_DATA.cities.find(function (candidate) { return candidate.id === point.city; });
+    return '<div class="map-popup facility-popup"><p class="map-popup-kicker">' + escapeHTML(FACILITY_KINDS[point.kind].label) + '</p>'
+      + '<h3>' + escapeHTML(facilityName(point)) + '</h3>'
+      + '<p class="point-location">' + escapeHTML(city ? city.name : "") + '</p>'
+      + '<div class="map-popup-actions"><a class="map-popup-action" href="' + googleMapsUrl(point) + '" target="_blank" rel="noopener">Raggiungi con Google Maps ↗</a></div>'
+      + '<p class="facility-source">Segnalato su OpenStreetMap: orari e apertura non sono garantiti.</p></div>';
+  }
+
+  function buildFacilityMarkers() {
+    if (!map || !facilityPoints) return;
+    facilityKinds().forEach(function (kind) {
+      if (!facilityLayers[kind]) facilityLayers[kind] = L.layerGroup();
+    });
+    facilityPoints.forEach(function (point) {
+      if (facilityMarkers[point.id] || !facilityLayers[point.kind]) return;
+      const marker = L.marker([point.lat, point.lng], { icon:facilityIcon(point.kind), title:facilityName(point), alt:facilityName(point) })
+        .bindPopup(facilityPopupHTML(point), { maxWidth:popupMaxWidth(), autoPan:false });
+      marker.on("popupopen", function () { fitPopup(marker); centerPopup(marker); });
+      marker.addTo(facilityLayers[point.kind]);
+      facilityMarkers[point.id] = marker;
+    });
+  }
+
+  function syncFacilityLayer(kind) {
+    if (!layerEnabled(kind)) {
+      if (facilityLayers[kind] && map) facilityLayers[kind].removeFrom(map);
+      if (!enabledFacilityKinds().length) facilityStatus("");
+      return;
+    }
+    if (!facilityPoints) facilityStatus("Cerco " + FACILITY_KINDS[kind].plural + " su OpenStreetMap…");
+    ensureFacilities().then(function () {
+      buildFacilityMarkers();
+      if (map && layerEnabled(kind)) facilityLayers[kind].addTo(map);
+      facilityStatus(facilityCountLabel());
+    }).catch(function (error) {
+      const input = document.querySelector('[data-map-layer="' + kind + '"]');
+      if (input) input.checked = false;
+      facilityStatus(error.message);
+    });
+  }
+
+  function facilityCountLabel() {
+    const kinds = enabledFacilityKinds();
+    if (!kinds.length || !facilityPoints) return "";
+    const counts = kinds.map(function (kind) {
+      const total = facilityPoints.filter(function (point) { return point.kind === kind; }).length;
+      return total + " " + FACILITY_KINDS[kind].count;
+    });
+    return counts.join(" e ") + " attorno alle tappe: ingrandisci sulla zona dove sei per vederli.";
   }
 
   function initMap() {
@@ -173,25 +428,31 @@
     ["visit", "tabelog", "hotel"].forEach(function (type) { pointLayers[type] = L.layerGroup(); });
     window.JAPAN_MAP_DATA.points.forEach(function (point) {
       const marker = L.marker([point.lat, point.lng], { icon:pointIcon(point), zIndexOffset:point.type === "hotel" ? 500 : 0, title:point.name, alt:point.name })
-        .bindPopup(pointPopupHTML(point), { maxWidth:popupMaxWidth() });
+        .bindPopup(pointPopupHTML(point), { maxWidth:popupMaxWidth(), autoPan:false });
       marker.on("add", function () { marker.getElement().setAttribute("aria-label", point.name); });
-      marker.on("popupopen", function () { fitPopup(marker); hydratePopupImage(marker, point); });
+      marker.on("popupopen", function () { fitPopup(marker); centerPopup(marker); hydratePopupImage(marker, point); });
       if (point.guideId && !markerByGuideId[point.guideId]) {
         markerByGuideId[point.guideId] = marker;
         pointByGuideId[point.guideId] = point;
       }
-      marker.addTo(pointLayers[point.type]);
+      // Si tiene la coppia punto/marker anche per i doppioni di guideId, così
+      // la selezione li governa tutti e non solo il primo.
+      placedMarkers.push({ point:point, marker:marker });
+      if (onMap(point)) marker.addTo(pointLayers[point.type]);
     });
     ["visit", "tabelog", "hotel"].forEach(syncLayer);
+    facilityKinds().forEach(function (kind) { if (layerEnabled(kind)) syncFacilityLayer(kind); });
     fitRoute();
   }
 
   // Il popup vive dentro #tripMap, che ha overflow:hidden: oltre le misure del
-  // contenitore verrebbe tagliato, pulsante di chiusura compreso.
+  // contenitore verrebbe tagliato, pulsante di chiusura compreso. Sul telefono
+  // resta volutamente più stretto, così attorno al punto si vede ancora la
+  // mappa e si capisce dove ci si trova.
   function popupMaxWidth() {
     const container = document.getElementById("tripMap");
-    const available = (container ? container.clientWidth : window.innerWidth) - 48;
-    return Math.max(190, Math.min(310, available));
+    const width = container ? container.clientWidth : window.innerWidth;
+    return Math.max(190, Math.min(width < 560 ? 268 : 310, width - 64));
   }
 
   // L'altezza è gestita in CSS (max-height su .leaflet-popup-content): Leaflet
@@ -202,6 +463,21 @@
     if (!popup || popup.options.maxWidth === popupMaxWidth()) return;
     popup.options.maxWidth = popupMaxWidth();
     popup.update();
+  }
+
+  // L'autoPan di Leaflet si limita a far entrare il popup nella mappa, quindi
+  // sul telefono restava incollato a un bordo. Qui la mappa si sposta finché il
+  // riquadro non è al centro: il punto resta appena sotto, ben visibile.
+  function centerPopup(marker) {
+    const popup = marker.getPopup();
+    const element = popup && popup.getElement();
+    if (!map || !element) return;
+    const size = map.getSize();
+    const point = map.latLngToContainerPoint(marker.getLatLng());
+    const targetX = Math.round(size.x / 2);
+    const targetY = Math.round(Math.min(size.y - 16, size.y / 2 + (element.offsetHeight || 0) / 2));
+    if (Math.abs(point.x - targetX) < 2 && Math.abs(point.y - targetY) < 2) return;
+    map.panBy([point.x - targetX, point.y - targetY], { animate: true, duration: .28 });
   }
 
   function fitRoute() {
@@ -238,7 +514,9 @@
     if (panel) panel.scrollIntoView({ behavior:"smooth", block:"start" });
     window.setTimeout(function () {
       map.invalidateSize();
-      map.setView(marker.getLatLng(), 16, { animate:true });
+      // Senza animazione: il popup si centra da solo appena si apre e durante
+      // uno spostamento animato le coordinate a schermo sono ancora le vecchie.
+      map.setView(marker.getLatLng(), 16, { animate:false });
       marker.openPopup();
     }, 100);
     return true;
@@ -251,6 +529,23 @@
     marker.setIcon(pointIcon(point));
     marker.setPopupContent(pointPopupHTML(point));
     if (marker.isPopupOpen()) window.setTimeout(function () { hydratePopupImage(marker, point); }, 0);
+  }
+
+  // Rilegge la selezione e aggiunge o toglie i marker dal livello, senza
+  // reinizializzare la mappa: gli stessi marker restano, cambia solo chi è a
+  // schermo. Il popup si rigenera perché contiene l'interruttore.
+  function syncSelection() {
+    hiddenIds = hiddenIdSet();
+    if (!map) return;
+    placedMarkers.forEach(function (entry) {
+      const layer = pointLayers[entry.point.type];
+      if (!layer) return;
+      const shouldShow = onMap(entry.point);
+      const isOnLayer = layer.hasLayer(entry.marker);
+      if (shouldShow && !isOnLayer) layer.addLayer(entry.marker);
+      if (!shouldShow && isOnLayer) layer.removeLayer(entry.marker);
+      if (shouldShow && entry.point.guideId) entry.marker.setPopupContent(pointPopupHTML(entry.point));
+    });
   }
 
   function refreshAllProgressMarkers() {
@@ -273,6 +568,7 @@
   let lassoLayer = null;
   let lassoPoints = [];
   let lassoSelection = [];
+  let lassoSkippedNote = "";
 
   function lassoStatus(text) {
     const box = document.getElementById("lassoStatus");
@@ -346,18 +642,31 @@
     if (lassoLayer) { lassoLayer.remove(); lassoLayer = null; }
     lassoPoints = [];
     lassoSelection = [];
+    lassoSkippedNote = "";
     document.getElementById("lassoLink").hidden = true;
     document.getElementById("lassoUseGpsButton").hidden = true;
   }
 
   function finishLasso() {
     if (lassoPoints.length < 8) { lassoStatus("Area troppo piccola: riprova disegnando un cerchio più ampio."); clearLasso(); return; }
+    hiddenIds = hiddenIdSet();
     const visible = window.JAPAN_MAP_DATA.points.filter(function (point) {
       const toggle = document.querySelector('[data-map-layer="' + point.type + '"]');
-      return (!toggle || toggle.checked) && Number.isFinite(point.lat) && Number.isFinite(point.lng);
+      return (!toggle || toggle.checked) && onMap(point) && Number.isFinite(point.lat) && Number.isFinite(point.lng);
     });
-    lassoSelection = visible.filter(function (point) { return insidePolygon(point.lat, point.lng, lassoPoints); });
-    if (!lassoSelection.length) { lassoStatus("Nessun luogo dentro l'area. Prova a disegnarla più larga o riattiva i livelli."); return; }
+    const inArea = visible.filter(function (point) { return insidePolygon(point.lat, point.lng, lassoPoints); });
+    // Un posto dove si è già stati non va rimesso nel giro. Resta comunque
+    // raggiungibile dal suo punto: nel popup c'è il collegamento a Google Maps,
+    // e togliendo la spunta di visita rientra subito nella selezione ad area.
+    lassoSelection = inArea.filter(function (point) { return !point.guideId || !doneIds.has(point.guideId); });
+    const skipped = inArea.length - lassoSelection.length;
+    lassoSkippedNote = skipped ? " " + skipped + (skipped === 1 ? " già visitato escluso." : " già visitati esclusi.") : "";
+    if (!lassoSelection.length) {
+      lassoStatus(skipped
+        ? "Nell'area ci sono solo luoghi già visitati (" + skipped + "). Disegnala più larga o togli la spunta di visita per rimetterli nel giro."
+        : "Nessun luogo dentro l'area. Prova a disegnarla più larga o riattiva i livelli.");
+      return;
+    }
     prepareRoute();
   }
 
@@ -431,7 +740,7 @@
     if (!lassoSelection.length) return;
     // Percorso pronto subito, con una delle tappe come partenza: il link è
     // toccabile prima ancora che il telefono decida cosa fare col permesso.
-    showRoute(buildRoute(null, lassoSelection), lassoSelection.length + " luoghi nell'area."
+    showRoute(buildRoute(null, lassoSelection), lassoSelection.length + " luoghi nell'area." + lassoSkippedNote
       + " Il giro è pronto e parte da una delle tappe: tocca “Parti da dove sono” se preferisci partire dalla tua posizione.");
     document.getElementById("lassoUseGpsButton").hidden = false;
   }
@@ -512,7 +821,12 @@
   document.getElementById("fitRouteButton").addEventListener("click", fitRoute);
   document.getElementById("expandMapButton").addEventListener("click", toggleExpandedMap);
   document.querySelectorAll("[data-map-layer]").forEach(function (input) {
-    input.addEventListener("change", function () { syncLayer(input.dataset.mapLayer); });
+    input.addEventListener("change", function () {
+      const type = input.dataset.mapLayer;
+      if (!isFacility(type)) return void syncLayer(type);
+      initMap();
+      syncFacilityLayer(type);
+    });
   });
   window.addEventListener("tabi:viewchange", function (event) {
     if (event.detail.view !== "places") return;
@@ -528,6 +842,7 @@
     doneIds.clear();
     refreshAllProgressMarkers();
   });
+  window.addEventListener("tabi:selectionchange", syncSelection);
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape" && document.querySelector(".map-panel.is-expanded")) toggleExpandedMap();
   });
