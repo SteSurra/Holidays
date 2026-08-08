@@ -1,12 +1,13 @@
-const CACHE = "tabi-japan-v134";
+const CACHE = "tabi-japan-v143";
 const TILE_CACHE = "tabi-tiles-v1";
+const IMAGE_CACHE = "tabi-images-v1";
 // Il solo prefetch delle tappe vale 297 riquadri: con un tetto più basso una
 // passeggiata sulla mappa sfratterebbe le città appena scaricate.
 const TILE_LIMIT = 700;
 // Stesso token di index.html, sempre: se divergono il precache salva URL che la
 // pagina non richiederà mai, e l'app "offline" riscarica tutto dalla rete.
 // L'allineamento è verificato da scripts/check-guide-integrity.mjs.
-const VERSION = "?v=20260807n";
+const VERSION = "?v=20260807w";
 
 // Guscio di prima parte: senza questo l'app non parte. L'installazione fallisce
 // se manca anche un solo file, ed è giusto così.
@@ -15,7 +16,7 @@ const SHELL = [
   "assets/styles.css" + VERSION, "assets/parse-lib.js" + VERSION, "assets/data.js" + VERSION, "assets/food-data.js" + VERSION,
   "assets/shopping-data.js" + VERSION, "assets/food-extra-data.js" + VERSION, "assets/travel-data.js" + VERSION, "assets/history-data.js" + VERSION,
   "assets/phrases-data.js" + VERSION, "assets/glossary-data.js" + VERSION, "assets/packing-data.js" + VERSION, "assets/money-data.js" + VERSION, "assets/day-tips-data.js" + VERSION,
-  "assets/map-data.js" + VERSION, "assets/merchants-data.js" + VERSION, "assets/stamps-data.js" + VERSION, "assets/transit-data.js" + VERSION, "assets/experiences-data.js" + VERSION, "assets/source-data.js" + VERSION, "assets/story-data.js" + VERSION, "assets/guide-data.js" + VERSION, "assets/curated-images-data.js" + VERSION, "assets/map.js" + VERSION,
+  "assets/map-data.js" + VERSION, "assets/merchants-data.js" + VERSION, "assets/stamps-data.js" + VERSION, "assets/transit-data.js" + VERSION, "assets/experiences-data.js" + VERSION, "assets/source-data.js" + VERSION, "assets/story-data.js" + VERSION, "assets/guide-data.js" + VERSION, "assets/curated-images-data.js" + VERSION, "assets/offline-size-data.js" + VERSION, "assets/offline-pack-manifest.js" + VERSION, "assets/offline-pack.js" + VERSION, "assets/map.js" + VERSION,
   "assets/documents.js" + VERSION, "assets/backup.js" + VERSION, "assets/app.js" + VERSION,
   "assets/fallback-food.svg", "assets/fallback-place.svg",
   "assets/fallback-shop.svg", "assets/icons/icon.svg" + VERSION,
@@ -28,6 +29,7 @@ const SHELL = [
 const EXTERNAL = [
   "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css",
   "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js",
+  "https://unpkg.com/protomaps-leaflet@4.0.1/dist/protomaps-leaflet.js",
   "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+JP:wght@500;600;700&display=swap"
 ];
 
@@ -76,7 +78,9 @@ self.addEventListener("install", function (event) {
 
 self.addEventListener("activate", function (event) {
   event.waitUntil(caches.keys().then(function (keys) {
-    return Promise.all(keys.filter(function (key) { return key !== CACHE && key !== TILE_CACHE; }).map(function (key) { return caches.delete(key); }));
+    return Promise.all(keys.filter(function (key) {
+      return key !== CACHE && key !== TILE_CACHE && key !== IMAGE_CACHE;
+    }).map(function (key) { return caches.delete(key); }));
   }));
   self.clients.claim();
 });

@@ -1,0 +1,226 @@
+{
+  "measuredAt": "2026-08-07T17:03:42.282Z",
+  "protomapsSrcDefault": "https://build.protomaps.com/20260806.pmtiles",
+  "japanBbox": "129.0,30.9,145.9,45.6",
+  "photoWidth": 960,
+  "flags": {
+    "photosOnly": false,
+    "mapsOnly": true,
+    "skipMaps": false
+  },
+  "shell": {
+    "totalBytes": 3654086,
+    "files": [
+      {
+        "path": ".",
+        "bytes": 0,
+        "directory": true
+      },
+      {
+        "path": "index.html",
+        "bytes": 48248
+      },
+      {
+        "path": "manifest.webmanifest",
+        "bytes": 1365
+      },
+      {
+        "path": "assets/styles.css",
+        "bytes": 115163
+      },
+      {
+        "path": "assets/parse-lib.js",
+        "bytes": 1115
+      },
+      {
+        "path": "assets/data.js",
+        "bytes": 65126
+      },
+      {
+        "path": "assets/food-data.js",
+        "bytes": 28249
+      },
+      {
+        "path": "assets/shopping-data.js",
+        "bytes": 40220
+      },
+      {
+        "path": "assets/food-extra-data.js",
+        "bytes": 19413
+      },
+      {
+        "path": "assets/travel-data.js",
+        "bytes": 6701
+      },
+      {
+        "path": "assets/history-data.js",
+        "bytes": 31076
+      },
+      {
+        "path": "assets/phrases-data.js",
+        "bytes": 17155
+      },
+      {
+        "path": "assets/glossary-data.js",
+        "bytes": 10911
+      },
+      {
+        "path": "assets/packing-data.js",
+        "bytes": 9540
+      },
+      {
+        "path": "assets/money-data.js",
+        "bytes": 5493
+      },
+      {
+        "path": "assets/day-tips-data.js",
+        "bytes": 10562
+      },
+      {
+        "path": "assets/map-data.js",
+        "bytes": 111115
+      },
+      {
+        "path": "assets/merchants-data.js",
+        "bytes": 45366
+      },
+      {
+        "path": "assets/stamps-data.js",
+        "bytes": 68066
+      },
+      {
+        "path": "assets/transit-data.js",
+        "bytes": 3860
+      },
+      {
+        "path": "assets/experiences-data.js",
+        "bytes": 39184
+      },
+      {
+        "path": "assets/source-data.js",
+        "bytes": 4223
+      },
+      {
+        "path": "assets/story-data.js",
+        "bytes": 2344338
+      },
+      {
+        "path": "assets/guide-data.js",
+        "bytes": 79890
+      },
+      {
+        "path": "assets/curated-images-data.js",
+        "bytes": 129641
+      },
+      {
+        "path": "assets/map.js",
+        "bytes": 76643
+      },
+      {
+        "path": "assets/documents.js",
+        "bytes": 15866
+      },
+      {
+        "path": "assets/backup.js",
+        "bytes": 13064
+      },
+      {
+        "path": "assets/app.js",
+        "bytes": 236975
+      },
+      {
+        "path": "assets/fallback-food.svg",
+        "bytes": 585
+      },
+      {
+        "path": "assets/fallback-place.svg",
+        "bytes": 503
+      },
+      {
+        "path": "assets/fallback-shop.svg",
+        "bytes": 486
+      },
+      {
+        "path": "assets/icons/icon.svg",
+        "bytes": 1705
+      },
+      {
+        "path": "assets/icons/icon-192.png",
+        "bytes": 13887
+      },
+      {
+        "path": "assets/icons/icon-512.png",
+        "bytes": 37795
+      },
+      {
+        "path": "assets/icons/apple-touch-icon.png",
+        "bytes": 13188
+      },
+      {
+        "path": "sw.js",
+        "bytes": 7369
+      }
+    ],
+    "missingCount": 0
+  },
+  "photos": {
+    "totalBytes": 132643758,
+    "count": 609,
+    "okCount": 609,
+    "failCount": 0,
+    "failures": [],
+    "sampleVia": "content-length"
+  },
+  "maps": {
+    "src": "https://build.protomaps.com/20260806.pmtiles",
+    "extracts": [
+      {
+        "name": "ampio-z14.pmtiles",
+        "path": "tmp/offline-packs/ampio-z14.pmtiles",
+        "bytes": 76430958,
+        "maxzoom": 14,
+        "mode": "region",
+        "ok": true,
+        "reused": true,
+        "elapsedMs": 0
+      },
+      {
+        "name": "ampio-z15.pmtiles",
+        "path": "tmp/offline-packs/ampio-z15.pmtiles",
+        "bytes": 204151159,
+        "maxzoom": 15,
+        "mode": "region",
+        "ok": true,
+        "reused": true,
+        "elapsedMs": 0
+      },
+      {
+        "name": "japan-z14.pmtiles",
+        "path": "tmp/offline-packs/japan-z14.pmtiles",
+        "bytes": 1253060341,
+        "maxzoom": 14,
+        "mode": "bbox",
+        "ok": true,
+        "elapsedMs": 594397
+      },
+      {
+        "name": "japan-z15.pmtiles",
+        "path": "tmp/offline-packs/japan-z15.pmtiles",
+        "bytes": 2729756673,
+        "maxzoom": 15,
+        "mode": "bbox",
+        "ok": true,
+        "elapsedMs": 1322623
+      }
+    ]
+  },
+  "uiTotals": {
+    "minimo": 3654086,
+    "medio": 136297844,
+    "ampio_z14": 212728802,
+    "ampio_z15": 340449003,
+    "max_z14": 1389358185,
+    "max_z15": 2866054517
+  },
+  "partial": null
+}

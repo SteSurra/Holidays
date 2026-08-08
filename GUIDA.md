@@ -22,9 +22,10 @@ i progressi non si sincronizzano fra due telefoni, ognuno ha i suoi.
 | **Itinerari** | Le selezioni salvate della mappa e i loro percorsi |
 | **Scopri** | *menu* → Attività, Cibo, Negozianti, Acquisti, Storie |
 | **Traduci** | Fotografa un menu o un cartello |
-| **Utilità** | *menu* → Parole, Emergenze, Progressi, Contanti, Valigia, Note, Salvati |
+| **Utilità** | *menu* → Parole, Emergenze, Progressi, Contanti, Valigia (anche dati offline), Note, Salvati |
 
-In alto: la **lente** cerca in tutta la guida, il **cuore** apre i salvati.
+In alto: la **lente** cerca in tutta la guida, la **rotella** apre Impostazioni e
+dati offline, **✉** segnala un problema o un'idea, il **cuore** apre i salvati.
 
 ---
 
@@ -407,6 +408,11 @@ quando non sai dire dove sei. La posizione viene letta solo premendo il pulsante
 e non viene salvata. In fondo, le frasi giapponesi per salute ed emergenze.
 
 ### Cosa portare
+
+In cima alla Valigia c’è **Dati offline**: si sceglie il piano (Minimo →
+Massimo) con lo spazio stimato in MB, il dettaglio mappa **z14 / z15** quando
+il pacchetto è pubblicato, e si avvia il download sul Wi‑Fi. La rotella **⚙**
+in alto apre Impostazioni con lo stesso pannello.
 
 96 oggetti divisi per gruppo, ognuno con la nota che spiega **perché** serve in
 Giappone: le calze perché ci si scalza nei templi, la felpa perché a Takayama la

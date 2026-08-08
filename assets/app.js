@@ -70,7 +70,8 @@
   // "cache pronta". NON va nell'URL di registrazione del service worker: un
   // URL che cambia a ogni rilascio forza una reinstallazione del worker in
   // più — e il toast di aggiornamento arrivava due volte di fila.
-  const RELEASE = "20260807n";
+  const RELEASE = "20260807w";
+  window.TABI_RELEASE = RELEASE;
 
   function readJSON(key, fallback) {
     try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch (_) { return fallback; }
@@ -447,17 +448,6 @@
 
   function typeLabel(item) {
     return { place:"Luogo", experience:"Attività", food:"Cibo", shop:"Acquisto", merchant:"Negoziante", history:"Storia" }[item.type] || item.type;
-  }
-
-  function feedbackItemPhrase(item) {
-    return {
-      place: "questo luogo",
-      experience: "questa attività",
-      food: "questo piatto",
-      shop: "questo acquisto",
-      merchant: "questo negoziante",
-      history: "questa storia"
-    }[item.type] || "questo contenuto";
   }
 
   let pendingFeedbackContext = null;
@@ -2218,12 +2208,25 @@
     // P18, revisione a occhio) batte cache e ricerca live: la ricerca resta
     // solo per ciò che nessuna fonte editoriale copre.
     const curated = window.TABI_CURATED_IMAGES && window.TABI_CURATED_IMAGES[item.id];
-    if (!options.skipDirect && !excluded.has("curated") && curated) return {
-      url: "https://commons.wikimedia.org/wiki/Special:Redirect/file/" + curated[0] + "?width=960",
-      credit: curated[2] || "Wikimedia Commons",
-      sourceUrl: curated[1] || "",
-      provider: "curated"
-    };
+    if (!options.skipDirect && !excluded.has("curated") && curated) {
+      if (window.TABI_OFFLINE_PACK) {
+        const packed = await window.TABI_OFFLINE_PACK.photoUrlForItem(item.id);
+        if (packed) {
+          return {
+            url: packed,
+            credit: curated[2] || "Wikimedia Commons",
+            sourceUrl: curated[1] || "",
+            provider: "curated-pack"
+          };
+        }
+      }
+      return {
+        url: "https://commons.wikimedia.org/wiki/Special:Redirect/file/" + curated[0] + "?width=960",
+        credit: curated[2] || "Wikimedia Commons",
+        sourceUrl: curated[1] || "",
+        provider: "curated"
+      };
+    }
     if (!options.force && state.imageCache[item.id] && !excluded.has(state.imageCache[item.id].provider)) return state.imageCache[item.id];
     if (!navigator.onLine) return "";
     const requestKey = item.id + "|" + Array.from(excluded).sort().join(",");
@@ -2283,7 +2286,7 @@
     food: "Cibo", shopping: "Acquisti", merchants: "Negozianti", itineraries: "Itinerari",
     phrases: "Parole", progress: "Progressi",
     translate: "Traduttore", packing: "Valigia", notes: "Note", saved: "Salvati",
-    emergency: "Emergenze", money: "Contanti", documents: "Documenti"
+    emergency: "Emergenze", money: "Contanti", documents: "Documenti", settings: "Impostazioni"
   };
   const MENU_TITLES = { discover: "Scopri", tools: "Utilità" };
   const NAV_GROUPS = {
@@ -2291,7 +2294,7 @@
     // "Fotografa e traduci" è salito nella barra: davanti a un menu si usa in
     // piedi, non si va a cercarlo in un menu. Al suo posto scende Progressi,
     // che è un riepilogo da fine giornata.
-    tools: ["phrases", "emergency", "progress", "money", "packing", "documents", "notes", "saved"]
+    tools: ["phrases", "emergency", "progress", "money", "packing", "documents", "notes", "saved", "settings"]
   };
 
   function viewTitle(view) {
@@ -2374,6 +2377,9 @@
     });
     document.querySelectorAll("[data-nav-menu]").forEach(function (button) {
       button.classList.toggle("is-active", (NAV_GROUPS[button.dataset.navMenu] || []).includes(view));
+    });
+    document.querySelectorAll(".header-settings").forEach(function (button) {
+      button.classList.toggle("is-active", view === "settings" || view === "packing");
     });
     const navDialog = document.getElementById("navMenuDialog");
     if (navDialog && navDialog.open) navDialog.close();
@@ -2538,7 +2544,7 @@
     if (item.sourceUrl && !(item.sources && item.sources.length)) actionLinks.push('<a class="secondary-action" href="' + escapeHTML(item.sourceUrl) + '" target="_blank" rel="noopener">' + escapeHTML(item.sourceTitle || "Fonte utile") + ' ↗</a>');
     actionLinks.push('<button class="secondary-action detail-done-button" type="button" data-action="done" data-id="' + item.id + '">' + (state.done.has(item.id) ? "✓ " + completionLabels(item)[0] : completionLabels(item)[1]) + '</button>');
     actions = '<div class="hero-actions">' + actionLinks.join("") + '</div>';
-    const feedbackLink = '<p class="feedback-link-wrap"><button class="feedback-link" type="button" data-action="feedback" data-id="' + item.id + '">Segnala su ' + feedbackItemPhrase(item) + '</button></p>';
+    const feedbackLink = '<p class="feedback-link-wrap"><button class="feedback-link" type="button" data-action="feedback" data-id="' + item.id + '"><span aria-hidden="true">✉</span> Segnala un errore</button></p>';
     if (item.type === "history") {
       hero = '<div class="history-detail-hero" aria-hidden="true"><span>' + escapeHTML(item.kanji) + '</span><small>' + escapeHTML(cityName(item.city)) + '</small></div>';
     } else {
@@ -3686,92 +3692,69 @@
     // apertura della schermata (VIEW_RENDERERS).
   }
 
-  // ---- Pronta per il viaggio ----------------------------------------------
+  // ---- Dati offline (piano + resilienza) ----------------------------------
 
-  function renderReadyStatus(text, tone) {
-    const box = document.getElementById("readyStatus");
-    box.textContent = text;
-    box.dataset.tone = tone || "";
+  function paintOfflineTierFallback(root) {
+    const tierList = root.querySelector("#offlineTierList");
+    if (!tierList || tierList.children.length) return;
+    const levels = [
+      ["minimo", "Minimo", "Guide e storie. Foto e mappa chiedono rete."],
+      ["medio", "Medio", "Anche le foto delle schede. Mappa ancora online."],
+      ["ampio", "Ampio", "Foto + mappe a dettaglio strada intorno a ogni tappa."],
+      ["max", "Massimo", "Foto + mappa del Giappone a dettaglio strada. Solo Wi‑Fi."]
+    ];
+    tierList.innerHTML = levels.map(function (row, index) {
+      return '<label class="offline-tier-option">'
+        + '<input type="radio" name="offline-tier" value="' + row[0] + '"' + (index === 0 ? " checked" : "") + " disabled>"
+        + '<span class="offline-tier-copy"><strong>' + row[1] + "</strong>"
+        + "<small>" + row[2] + "</small></span></label>";
+    }).join("");
   }
 
-  function setupReadyPanel() {
-    const refresh = document.getElementById("readyRefreshButton");
-    const tiles = document.getElementById("readyTilesButton");
-    const tilesStatus = document.getElementById("readyTilesStatus");
-
-    async function check() {
-      if (!("caches" in window)) {
-        renderReadyStatus("Questo browser non tiene una copia offline: la guida funzionerà solo con rete.", "warn");
-        return;
+  function setupOfflinePackPanel() {
+    const root = document.querySelector(".offline-pack-panel");
+    if (!root) return;
+    const statusEl = root.querySelector("#offlinePackStatus");
+    // Se offline-pack.js non è caricato (Pages down, precache incompleto, errore
+    // di script) la fieldset resta vuota e lo status HTML resta "Controllo in
+    // corso…" per sempre: sembra una rotella bloccata. Meglio dirlo chiaro e
+    // dipingere comunque i quattro piani (disabilitati) così la UI non è vuota.
+    if (!window.TABI_OFFLINE_PACK || typeof window.TABI_OFFLINE_PACK.setupUI !== "function") {
+      paintOfflineTierFallback(root);
+      if (statusEl) {
+        statusEl.textContent = "Modulo offline non disponibile. Ricarica la guida quando hai rete.";
+        statusEl.dataset.tone = "warn";
       }
-      const names = await caches.keys();
-      const shell = names.find(function (name) { return name.indexOf("tabi-japan") === 0; });
-      if (!shell) {
-        renderReadyStatus("Copia offline non ancora creata. Tocca “Completa il download”.", "warn");
-        return;
-      }
-      const entries = await (await caches.open(shell)).keys();
-      const tileCache = names.find(function (name) { return name.indexOf("tabi-tiles") === 0; });
-      const tileCount = tileCache ? (await (await caches.open(tileCache)).keys()).length : 0;
-      renderReadyStatus("Guida, frasi, mappe delle tappe e schede sono sul telefono: " + entries.length
-        + " file salvati e " + tileCount + " riquadri di mappa. Senza rete resta fuori solo il caricamento di foto nuove.", "ok");
+      return;
     }
-
-    refresh.addEventListener("click", async function () {
-      refresh.disabled = true;
-      renderReadyStatus("Scarico quello che manca…", "");
-      localStorage.removeItem("tabi-cache-ready");
-      const registration = await navigator.serviceWorker.ready.catch(function () { return null; });
-      if (registration && registration.active) {
-        registration.active.postMessage({ type: "tabi:reconcile", signature: registration.active.scriptURL });
-        setTimeout(function () { refresh.disabled = false; check(); }, 2500);
-      } else {
-        refresh.disabled = false;
-        renderReadyStatus("Copia offline non disponibile in questo browser.", "warn");
+    try {
+      window.TABI_OFFLINE_PACK.setupUI(root);
+    } catch (err) {
+      paintOfflineTierFallback(root);
+      if (statusEl) {
+        statusEl.textContent = "Impossibile preparare i piani offline. Ricarica la guida.";
+        statusEl.dataset.tone = "warn";
       }
-    });
-
-    // Pre-carica i riquadri di mappa attorno alle tappe: senza rete il resto del
-    // Giappone resterà grigio, ma le città del viaggio no.
-    tiles.addEventListener("click", async function () {
-      if (!navigator.onLine) { tilesStatus.textContent = "Serve la rete: riprova quando sei connesso."; return; }
-      tiles.disabled = true;
-      const zooms = [11, 13, 14];
-      const jobs = [];
-      data.cities.forEach(function (city) {
-        zooms.forEach(function (zoom) {
-          const scale = Math.pow(2, zoom);
-          const x = Math.floor(((city.lng + 180) / 360) * scale);
-          const latRad = city.lat * Math.PI / 180;
-          const y = Math.floor((1 - Math.log(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI) / 2 * scale);
-          for (let dx = -1; dx <= 1; dx += 1) {
-            for (let dy = -1; dy <= 1; dy += 1) {
-              jobs.push("https://tile.openstreetmap.org/" + zoom + "/" + (x + dx) + "/" + (y + dy) + ".png");
-            }
-          }
-        });
+      return;
+    }
+    document.querySelectorAll(".offline-pack-dialog-close").forEach(function (button) {
+      button.addEventListener("click", function () {
+        const dialog = document.getElementById("offlinePackDialog");
+        if (dialog && dialog.open) dialog.close();
       });
-      let loaded = 0;
-      // Una richiesta alla volta con una pausa: le tile OSM sono un servizio
-      // gratuito e non vanno martellate.
-      for (const url of jobs) {
-        try {
-          // In CORS la risposta è leggibile e il service worker può salvarla
-          // nella cache delle tile: con no-cors si "scaricava" senza salvare
-          // niente, e il conteggio finale era una bugia.
-          const response = await fetch(url, { mode: "cors" });
-          if (response.ok) loaded += 1;
-        } catch (_) { /* si prosegue */ }
-        tilesStatus.textContent = "Scarico le mappe: " + loaded + " di " + jobs.length + "…";
-        await new Promise(function (resolve) { setTimeout(resolve, 90); });
-      }
-      tilesStatus.textContent = "Mappe delle tappe salvate (" + loaded + " riquadri). Zoom molto ravvicinati richiedono comunque la rete.";
-      tiles.disabled = false;
-      check();
     });
-
-    check();
   }
+
+  function scrollToOfflineTarget(id) {
+    if (!id) return;
+    window.setTimeout(function () {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth", block: "start" });
+    }, 0);
+  }
+
+  // ---- Pronta per il viaggio (legacy rimosso) -----------------------------
 
   // Il file scambiato fra i telefoni contiene due elenchi di id e nient'altro:
   // niente nomi, niente gruppo. Chi lo riceve unisce i preferiti e le cose fatte
@@ -4184,7 +4167,8 @@
     "tabi-favorites", "tabi-done", "tabi-hidden-v1", "tabi-itineraries-v1", "tabi-itinerary-active-v1",
     "tabi-current-city", "tabi-notes-v1", "tabi-packing", "tabi-packing-qty-v1", "tabi-local-profile",
     "tabi-nav-hidden", "tabi-weather", "tabi-jpy-rate", "tabi-jpy-rate-auto", "tabi-image-cache-v6",
-    "tabi-facilities-v4", "tabi-cache-ready", "tabi-merchants-start-hidden"
+    "tabi-facilities-v4", "tabi-cache-ready", "tabi-merchants-start-hidden",
+    "tabi-offline-tier", "tabi-offline-job"
   ];
 
   // Un solo tasto per rimettere l'app come appena installata: serve a chi ha
@@ -4212,6 +4196,7 @@
         const panel = nav.closest("[data-nav-panel]");
         rememberMenuOrigin(view, panel && panel.dataset.navPanel);
         switchView(view);
+        if (nav.dataset.scrollTo) scrollToOfflineTarget(nav.dataset.scrollTo);
         return;
       }
       const resetAll = event.target.closest("[data-reset-all]");
@@ -4564,9 +4549,16 @@
       const offline = navigator.onLine === false;
       banner.hidden = !offline;
       document.body.classList.toggle("is-offline", offline);
+      if (offline && window.TABI_OFFLINE_PACK) {
+        const text = window.TABI_OFFLINE_PACK.tierBannerText();
+        if (text) banner.textContent = text;
+      }
     }
     window.addEventListener("online", sync);
     window.addEventListener("offline", sync);
+    if (window.TABI_OFFLINE_PACK) {
+      window.TABI_OFFLINE_PACK.onTierChange(sync);
+    }
     sync();
   }
 
@@ -4595,7 +4587,7 @@
     setupNearby();
     setupPacking();
     setupNotes();
-    setupReadyPanel();
+    setupOfflinePackPanel();
     setupItineraries();
     // Le griglie non si disegnano più qui: ci pensa switchView alla prima
     // apertura di ogni schermata. Vale anche per i Progressi, che partono

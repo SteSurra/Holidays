@@ -898,6 +898,7 @@ button.ocr-destination:disabled { opacity: .4; cursor: default; }
 
 .packing-intro h1 { color: var(--gold); }
 .notes-intro h1 { color: var(--moss); }
+.settings-intro h1 { color: var(--ink); }
 .translate-intro h1 { color: var(--red); }
 .cross-link-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem; margin-bottom: 3rem; }
 .cross-link-row .cross-link { margin: 0; }
@@ -911,6 +912,30 @@ button.ocr-destination:disabled { opacity: .4; cursor: default; }
 .ready-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .7rem; }
 .ready-actions button { min-height: var(--tap); border: 1px solid var(--line); border-radius: 999px; padding: .6rem 1rem; color: var(--ink); background: var(--paper); cursor: pointer; font-size: .78rem; font-weight: 800; }
 .ready-actions button:disabled { opacity: .5; cursor: default; }
+
+.offline-pack-body { display: grid; gap: .75rem; }
+.offline-tier-list, .offline-zoom-list { border: 0; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.offline-tier-option, .offline-zoom-option { display: flex; gap: .65rem; align-items: flex-start; padding: .55rem .65rem; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); cursor: pointer; }
+.offline-tier-option input, .offline-zoom-option input { margin-top: .2rem; accent-color: var(--moss); }
+.offline-tier-copy { display: grid; gap: .15rem; }
+.offline-tier-copy strong, .offline-zoom-option strong { font-size: .86rem; }
+.offline-tier-copy small { color: var(--muted); font-size: .76rem; line-height: 1.45; }
+.offline-storage { margin: 0; }
+.offline-pack-progress { width: 100%; height: .45rem; }
+/* Stessi token di .dialog-body: .primary-action nudo è crema fissa da hero
+   e su dialog bianco (o in tema scuro con --ink chiaro) il testo sparisce. */
+.offline-pack-dialog-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.offline-pack-dialog-actions .primary-action {
+  flex: 1 1 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  text-decoration: none;
+  color: var(--paper);
+  border-color: var(--ink);
+  background: var(--ink);
+}
 
 .packing-bar { display: grid; gap: .6rem; margin: 1.5rem 0 2rem; padding: 1.2rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
 .packing-bar strong { font: 600 2.4rem/1 "Noto Serif JP", serif; }
@@ -1076,9 +1101,6 @@ body:has(.bottom-nav.is-collapsed) main { padding-bottom: 52px; }
 .nav-menu-reset { width: 100%; min-height: var(--tap); display: flex; gap: .7rem; align-items: center; margin-top: .8rem; padding: .9rem 1rem; border: 1px solid color-mix(in srgb, var(--red) 50%, transparent); border-radius: 14px; color: var(--red); background: transparent; text-align: left; cursor: pointer; font: 800 1.05rem "DM Sans", sans-serif; }
 .nav-menu-reset span { display: grid; font-size: .88rem; }
 .nav-menu-reset small { color: var(--muted); font-size: .74rem; font-weight: 500; }
-.nav-menu-feedback { width: 100%; min-height: var(--tap); display: flex; gap: .7rem; align-items: center; margin-top: .8rem; padding: .9rem 1rem; border: 1px solid var(--line); border-radius: 14px; color: var(--ink); background: var(--paper); text-align: left; cursor: pointer; font: 800 1.05rem "DM Sans", sans-serif; }
-.nav-menu-feedback span { display: grid; font-size: .88rem; }
-.nav-menu-feedback small { color: var(--muted); font-size: .74rem; font-weight: 500; }
 .feedback-dialog { width: min(420px, calc(100% - 20px)); padding: 1.3rem 1.3rem 1.5rem; border: 0; border-radius: 24px; color: var(--ink); background: var(--white); box-shadow: 0 30px 100px rgba(0,0,0,.32); }
 .feedback-dialog::backdrop { background: rgba(20,25,23,.66); backdrop-filter: blur(5px); }
 .feedback-dialog h2 { margin: .2rem 2.5rem 1.1rem 0; font: 600 clamp(1.6rem, 5vw, 2.2rem)/1.1 "Noto Serif JP", serif; }
@@ -1086,7 +1108,7 @@ body:has(.bottom-nav.is-collapsed) main { padding-bottom: 52px; }
 .feedback-choices { display: grid; gap: .65rem; }
 .feedback-choices button { min-height: var(--tap); border: 1px solid var(--line); border-radius: 14px; padding: .9rem 1rem; color: var(--ink); background: var(--paper); text-align: left; cursor: pointer; font: 700 1rem "DM Sans", sans-serif; }
 .feedback-link-wrap { margin: 1rem 0 0; text-align: center; }
-.feedback-link { min-height: var(--tap); padding: .35rem .5rem; border: 0; color: var(--muted); background: transparent; cursor: pointer; font: 600 .78rem "DM Sans", sans-serif; text-decoration: underline; text-underline-offset: .18em; }
+.feedback-link { min-height: var(--tap); padding: .35rem .5rem; border: 0; color: var(--muted); background: transparent; cursor: pointer; font: 600 .78rem "DM Sans", sans-serif; display: inline-flex; align-items: center; gap: .35rem; }
 .feedback-link:hover, .feedback-link:focus-visible { color: var(--ink); }
 /* La copia di sicurezza sta accanto al pericolo da cui protegge: sopra il
    tasto rosso, nello stesso pannello che esiste anche ad app appena nata. */
@@ -1283,5 +1305,6 @@ body:has(.bottom-nav.is-collapsed) main { padding-bottom: 52px; }
   .bottom-nav, .bottom-nav.is-collapsed .nav-grip { background: rgba(29, 37, 34, .97); }
 }
 
-/* Il bottone del tema nell'intestazione: cicla sistema → chiaro → scuro. */
-.header-theme { width: var(--tap); min-height: var(--tap); border: 1px solid var(--line); border-radius: 50%; color: var(--ink); background: transparent; cursor: pointer; font-size: 1rem; line-height: 1; }
+/* Tema e impostazioni nell'intestazione: stessi tasti tondi. */
+.header-theme, .header-settings, .header-feedback { width: var(--tap); min-height: var(--tap); border: 1px solid var(--line); border-radius: 50%; color: var(--ink); background: transparent; cursor: pointer; font-size: 1rem; line-height: 1; display: inline-grid; place-items: center; }
+.header-settings.is-active { border-color: var(--moss); color: var(--moss); }

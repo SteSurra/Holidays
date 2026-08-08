@@ -875,7 +875,8 @@
       bounceAtZoomLimits:false,
       preferCanvas:true
     });
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    let baseOfflineLayer = null;
+    const baseOsmLayer = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom:18,
       // Con CORS la risposta non è "opaque" e il service worker può salvarla:
       // senza questo attributo nessuna tile finiva mai nella cache offline.
@@ -885,6 +886,32 @@
       errorTileUrl:"data:image/svg+xml;charset=utf-8," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256"><rect width="256" height="256" fill="#ece7dc"/></svg>'),
       attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
+
+    async function applyOfflineBasemap() {
+      if (!window.TABI_OFFLINE_PACK || !window.protomapsL) return;
+      const blobUrl = await window.TABI_OFFLINE_PACK.getMapBlobUrl();
+      if (!blobUrl) {
+        if (baseOfflineLayer && map.hasLayer(baseOfflineLayer)) {
+          map.removeLayer(baseOfflineLayer);
+          baseOfflineLayer = null;
+        }
+        if (baseOsmLayer && !map.hasLayer(baseOsmLayer)) baseOsmLayer.addTo(map);
+        return;
+      }
+      if (baseOsmLayer && map.hasLayer(baseOsmLayer)) map.removeLayer(baseOsmLayer);
+      if (baseOfflineLayer && map.hasLayer(baseOfflineLayer)) map.removeLayer(baseOfflineLayer);
+      baseOfflineLayer = window.protomapsL.leafletLayer({
+        url: blobUrl,
+        lang: "it",
+        flavor: "light"
+      });
+      baseOfflineLayer.addTo(map);
+    }
+
+    applyOfflineBasemap();
+    if (window.TABI_OFFLINE_PACK) {
+      window.TABI_OFFLINE_PACK.onTierChange(function () { applyOfflineBasemap(); });
+    }
 
     const coordinates = window.JAPAN_DATA.cities.map(function (city) {
       const icon = L.divIcon({ className:"route-marker", html:String(city.order), iconSize:[34, 34] });

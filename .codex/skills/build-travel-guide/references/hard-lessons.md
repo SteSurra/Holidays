@@ -44,6 +44,48 @@ lesson, append it here in the same commit — this file is the skill's memory.
   prefetch means one session of panning evicts the cities saved on purpose.
 - **An errorTileUrl beats a broken-image icon.** Offline, missing tiles should
   render as neutral paper, not as a grid of broken images under floating pins.
+- **A partial offline job is not the active tier.** `tabi-offline-tier` stores
+  only a verified-complete plan; `tabi-offline-job` may stay `partial` until the
+  user taps Riprendi. Never toast “pronto” from a progress counter — verify
+  Cache Storage photo counts and OPFS map bytes against the manifest.
+- **Map packs need versioned URLs and byte checks.** Do not hotlink ephemeral
+  planet builds for user downloads; ship `offline-pack-manifest.js` with `url`
+  + `bytes`, verify after download, delete corrupt OPFS files.
+- **Photo pack skips per item; abort only below the ratio.** Missing Commons
+  files become SVG fallbacks offline; fail the job only when fewer than 95% of
+  curated photos cache.
+- **Offline tiers live in Packing (Valigia), with Settings as a deep-link.**
+  Readers expect Minimo/Medio/Ampio/Massimo with MB explanations next to the
+  pre-trip checklist; a Settings-only panel made them ask where the plans went.
+  Keep the full tier selector in packing; Impostazioni may deep-link there.
+- **Hide map zoom options whose manifest `url` is null.** Do not offer Max z15
+  (or any pack) until the release asset exists — show only published zooms.
+- **Never leave “Controllo in corso…” as the permanent offline status.** The
+  HTML placeholder must be replaced on boot. If `TABI_OFFLINE_PACK` is missing
+  (script 404 while Pages is down, precache hole, parse error) or `setupUI`
+  throws, paint the four tiers (disabled if needed) and write a warn status —
+  an empty fieldset plus the placeholder reads as a stuck spinner.
+- **`setupUI` must always paint the four tier radios on first call.** Size
+  labels can be empty if measurements are missing; the radios themselves must
+  still appear so the panel never looks blank.
+- **Preserve draft selection across tier re-renders; open confirm on change.**
+  If `change` rebuilds the radio HTML from `getActiveTier()` alone, the new
+  choice is wiped before actions render — “Scarica piano” never appears and
+  download never starts. Keep a `draftKey` for the user’s pending choice,
+  paint checked state from that, and on radio/zoom change to a different tier
+  than active immediately `openConfirm(selectedTarget())` so Continua →
+  download is one gesture path.
+- **Never put bare `.primary-action` on a light dialog.** The global class is
+  hero cream (`#f1eee5`) with `color: var(--ink)`. On a `.feedback-dialog`
+  (paper/white surface) Continua becomes a white pill; in dark theme `--ink`
+  lightens and the label vanishes. Scope dialog CTAs like `.dialog-body`:
+  ink background / paper text for primary (same token pair as itinerary and
+  documents toolbars).
+- **Confirm dialogs: one affirmative CTA plus the X, not a second Annulla.**
+  When dismiss already exists as the dialog close control, a labeled Cancel
+  duplicates the same exit and crowds the one-thumb confirm. Keep Continua
+  (or equivalent) and the × only; leave the draft selection so the panel
+  CTA can still start the download after dismiss.
 
 ## Storage
 
@@ -413,9 +455,11 @@ lesson, append it here in the same commit — this file is the skill's memory.
 - **Assemble the developer address at runtime.** `check-public-content.mjs`
   rejects literal email strings in tracked files; `["user", "domain.tld"].join("@")`
   keeps the inbox out of the public repo while still enabling mailto links.
-- **Label the affordance, don't icon it alone.** "Segnala" with text beats a
-  bug glyph for travelers; contextual copy ("Segnala su questa storia") belongs
-  in the detail sheet, not on every card or in the header.
+- **Segnala in header, errore in scheda.** A global ✉ in the site header opens
+  app-level feedback (problem or idea) from any view; Impostazioni stays on the
+  adjacent ⚙ only — neither duplicates Utilità. Inside an item detail sheet, use
+  the same ✉ glyph with fixed copy **Segnala un errore**; item context still
+  rides in the mailto body via `data-id`, not in per-type link text.
 
 ## Story batch merge order
 

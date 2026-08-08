@@ -19,6 +19,9 @@ tickets/
 # Local editor/preview config, not part of the guide.
 .claude/
 
+# Scratch extracts / downloaded CLIs for offline pack sizing (can be multi-GB).
+tmp/
+
 # Story pipeline scratch (batches/ are source of truth and stay tracked)
 story-work/*BRIEF.md
 story-work/*-catalog.json
