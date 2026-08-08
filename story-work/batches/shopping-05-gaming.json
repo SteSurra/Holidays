@@ -1,0 +1,338 @@
+{
+  "meta": {
+    "batch": "shopping-05-gaming",
+    "note": "Phase 3 shopping deep stories for 9 gaming/character-goods catalog ids: Pokémon Center originals, Nintendo Store goods, Donguri/Ghibli, Chiikawa Land, Sanrio Japan-limited, premium gashapon, Gunpla Japan editions, retro games/consoles, Tamagotchi JP editions. Focus on official store lines, licensed vs knockoff, random capsules/prizes, and regional/voltage compatibility where relevant."
+  },
+  "schede": [
+    {
+      "id": "shop-all-pokemon-center",
+      "long": "I Pokémon Center sono i negozi ufficiali The Pokémon Company in Giappone: peluche, cancelleria, apparel, accessori TCG e collezioni stagionali con etichetta Pokémon Center Original o linee esclusive di sede. Non è un corner generico in un department store: il punto è la licenza diretta e i drop che spesso non compaiono — o arrivano dopo — nei cataloghi europei. In store valgono limiti per articolo e, nei giorni di afflusso, regole di coda o ticket. Prima di riempire il cestino, guarda il cartellino: «Original», nome della collezione e eventuale sede (Meg Tokyo, Shibuya, Osaka…). Un Pikachu senza etichetta giusta può essere merchandise ufficiale di altro canale, o semplicemente altro.",
+      "sections": [
+        {
+          "title": "Etichetta Original e collezioni di sede",
+          "body": "Cerca Pokémon Center Original / marchio del Center sul cartellino o sull'etichetta cucita. Le linee stagionali e i peluche «pose» dedicate ruotano in fretta. Confronta SKU e nome completo: due Pikachu simili possono essere collezioni diverse con prezzi e limiti diversi."
+        },
+        {
+          "title": "Limiti d'acquisto e afflusso",
+          "body": "I cartelli in store indicano quanti pezzi per persona su certi articoli. Il sito Pokémon Center Online e le pagine store ufficiali aggiornano aperture e avvisi; in vacanza conta più la regola del giorno che un rumor da social. Porta passaporto se punti al tax-free della struttura."
+        },
+        {
+          "title": "Cosa ha senso mettere in valigia",
+          "body": "Peluche medi e cancelleria viaggiano bene; i set grandi e i display fragili meno. Evita di comprare doppioni «perché magari finisce»: i limiti esistono proprio per quello. Un pezzo Original battuto bene vale più di tre soft toy senza storia di collezione."
+        },
+        {
+          "title": "Il peluche che ha vinto contro il budget volo",
+          "body": "Hai calcolato i chili con precisione da dogana. Poi un Eevee stagionale ha fatto un'offerta che la bilancia non poteva rifiutare. Pokémon Center non vende solo goods: vende rinegoziazioni improvvisate con il bagaglio.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Pokémon Center Official Website — store list",
+          "url": "https://shop.pokemon.co.jp/en/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "ポケモンセンターオンライン — shop ufficiale JP",
+          "url": "https://www.pokemoncenter-online.com/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "Explore around Akihabara — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/story/walks-and-tours/akihabara/index.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-nintendo-store",
+      "long": "Nintendo TOKYO, OSAKA, KYOTO (e le altre sedi ufficiali elencate da Nintendo) sono store gestiti dal brand: software, hardware e soprattutto merchandise con linee dedicate agli store — Mario, Zelda, Animal Crossing, Splatoon, Pikmin e altre serie. Non è un semplice scaffale di console in elettronica: l'interesse da viaggio sono i goods esclusivi o più ampi rispetto all'Europa e l'atmosfera del punto vendita. Nei weekend e festivi le sedi più affollate possono usare biglietti di ingresso a fascia: controlla la pagina ufficiale prima di programmare la coda. Compra dove l'itinerario ti porta già (Shibuya, Umeda, Kyoto) invece di attraversare il paese per un portachiavi.",
+      "sections": [
+        {
+          "title": "Goods da store, non solo scatole di console",
+          "body": "Peluche, apparel, cancelleria e piccoli oggetti con branding Nintendo Store / linee JP. Confronta con ciò che trovi in Europa: spesso cambiano colori, collaborazioni e disponibilità. Conserva scontrino e packaging se ti serve garanzia o cambio in Giappone."
+        },
+        {
+          "title": "Accesso e affollamento",
+          "body": "La pagina ufficiale Nintendo TOKYO/OSAKA/KYOTO spiega orari e, quando attivo, il sistema di numbered tickets nei giorni di punta. Non inventare orari a memoria: un festivo può trasformare «passo cinque minuti» in «torno dopo il ticket»."
+        },
+        {
+          "title": "Hardware e regione",
+          "body": "Le console e le schede di gioco vendute in store seguono le regole del mercato giapponese. Per software digitali e account, verifica regione e valuta del tuo Nintendo Account prima di regalarti una eShop card JP. I peluche, almeno, non hanno region lock."
+        },
+        {
+          "title": "Mario che gestisce la fila meglio di te",
+          "body": "La statua all'ingresso sorride. Tu tieni il ticket. Entrambi sapete chi comanda la giornata — e non sei tu.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Nintendo TOKYO/OSAKA/KYOTO/FUKUOKA — official store",
+          "url": "https://www.nintendo.com/jp/officialstore/index.html",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "Explore around Akihabara — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/story/walks-and-tours/akihabara/index.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-ghibli-goods",
+      "long": "Donguri Kyōwakoku (どんぐり共和国) è la catena di negozi ufficiali di character goods Studio Ghibli gestita con licenza: Totoro, Streghe, Spirited Away, Ponyo e gli altri film in peluche, figure piccole, stoviglie, tessili e cancelleria. Non ogni teiera con un Totoro stampato è ufficiale: contano marchio Donguri / Benelic, packaging e © Studio Ghibli. I negozi sono sparsi in stazioni, mall e città turistiche (incluso il storico punto di Kamakura); l'online «Soranoue» copre spedizioni domestiche. Scegli pezzi d'uso o piccoli oggetti: le ceramiche grandi e i display fragili richiedono imballo serio. Il Museo Ghibli ha logiche e shop proprie — non confonderlo con Donguri.",
+      "sections": [
+        {
+          "title": "Ufficiale contro «sembra Ghibli»",
+          "body": "Guarda etichetta, cartellino prezzo e copyright. Donguri Republic espone linee coordinate e packaging riconoscibili; i souvenir generici da bancarella usano somiglianze. Se il prezzo è sospetto e manca ogni marchio, è un altro prodotto."
+        },
+        {
+          "title": "Cosa comprare di portabile",
+          "body": "Portachiavi, piccoli peluche, asciugamani e pin viaggiano meglio di teapot e statue. Per ceramica chiedi shopper rinforzata e metti in stiva. Annota il nome del film/personaggio in giapponese se vuoi ritrovare il pezzo online dopo."
+        },
+        {
+          "title": "Negozi e atmosfera",
+          "body": "Il sito Benelic/Donguri elenca le filiali. L'arredo «bosco» fa parte dell'esperienza, ma l'acquisto resta merchandise: non serve il museo per portare a casa un Totoro ufficiale, serve un negozio licenziato."
+        },
+        {
+          "title": "Il Totoro che non lava i piatti",
+          "body": "Hai comprato la tazza perché «useri utile». Ora è troppo bella per il caffè e troppo ufficiale per il lavastoviglie aggressivo. Ghibli vende magia; la manutenzione resta tua.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "ジブリがいっぱい どんぐり共和国 — sito ufficiale",
+          "url": "https://benelic.com/donguri/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "どんぐり共和国そらのうえ店 — shop online",
+          "url": "https://www.donguri-sora.com/",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-chiikawa-land",
+      "long": "Chiikawa Land (ちいかわらんど) è lo shop ufficiale permanente dedicato all'universo Chiikawa: peluche, piccoli accessori, apparel e uscite stagionali con illustrazioni spesso pensate per il punto vendita. Le aperture e i pop-up si moltiplicano nelle grandi città; nei giorni di picco alcune sedi chiedono prenotazione o gestiscono l'ingresso. I drop esauriscono in fretta e i limiti per persona sono parte del rituale. Non è un corner casual in un toy store: è un circuito brand con comunicazioni proprie. Controlla la pagina store ufficiale per sede, orari e regole del giorno — le code non sono un bug, sono una feature non pubblicizzata sul peluche.",
+      "sections": [
+        {
+          "title": "Ufficiale, limiti e uscite lampo",
+          "body": "Cerca branding Chiikawa Land / Nagano (autore) e packaging ufficiale. I cartelli in cassa dicono quanti pezzi puoi prendere. Se un articolo è «online only» o già sold out in quella sede, non negoziare con lo scaffale vuoto."
+        },
+        {
+          "title": "Code e prenotazioni",
+          "body": "La lista delle sedi su chiikawa-info aggiorna aperture e link locali. Alcuni PARCO e flagship usano reservation per decongestionare. Arriva con piano B: un altro store della stessa città o un pezzo evergreen invece del sold-out del giorno."
+        },
+        {
+          "title": "Cosa metter in zaino",
+          "body": "Mini peluche e charm pesano poco; i box grandi meno. Evita di comprare «tutta la lineup» in un pomeriggio: le ristampe e le varianti stagionali torneranno in forme diverse, la valigia no."
+        },
+        {
+          "title": "Il personaggio piccolo e la coda grande",
+          "body": "Chiikawa è minimo. La fila davanti al negozio no. È l'unica creatura capace di trasformare «passo un secondo» in un seminario all'aperto sulla pazienza contemporanea.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "ちいかわらんど（常設店）— elenco ufficiale",
+          "url": "https://chiikawa-info.jp/ck_land.html",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "ちいかわらんど 原宿店 — pagina store",
+          "url": "https://chiikawa-info.jp/chiikawaland/harajuku/",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-sanrio-limited",
+      "long": "I Sanrio Gift Gate e gli store Sanrio in Giappone espongono colori, collaborazioni e personaggi del roster ampio — non solo Hello Kitty «classica» — spesso in edizioni che in Europa arrivano tardi, ridotte o per niente. L'etichetta Sanrio, il nome della collaborazione e il cartellino LIMITED o della campagna regionale contano più del rosa generico. Department store, Sanrio World e Gift Gate hanno mix diversi: un pezzo «Japan limited» va verificato sul tag, non sul feeling. Per il viaggio privilegia piccoli oggetti e collaborazioni davvero legate al mercato JP; evita di inseguire ogni variant come se fosse un set Pokémon completo.",
+      "sections": [
+        {
+          "title": "Limited, collaborazione, personaggio di nicchia",
+          "body": "Leggi fronte e retro del cartellino: nome personaggio, anno/campagna se indicati, © Sanrio. Le collab con food brand, fashion o città producono SKU corti. Se non c'è alcuna indicazione di esclusività, potrebbe essere catalogo regolare con packaging carino."
+        },
+        {
+          "title": "Gift Gate e altri canali",
+          "body": "Il localizzatore store Sanrio elenca Gift Gate e punti ufficiali. Puroland e Harmonyland sono un altro circuito (parchi); i goods da gift shop del parco non sempre coincidono con quelli da mall. Confronta prezzi tra sedi prima di pagare un markup da «unico pezzo rimasto» non verificato."
+        },
+        {
+          "title": "In valigia senza fondare un emporio rosa",
+          "body": "Astucci, asciugamani e mini figure viaggiano; set cucina e display grandi meno. Un personaggio secondario ben scelto racconta il viaggio meglio di dieci Kitty identiche."
+        },
+        {
+          "title": "Il personaggio che non conoscevi ieri",
+          "body": "Sei entrato per Hello Kitty. Esci spiegando la biografia di qualcuno uscito nel 1989 che ora ha tre portachiavi e il tuo rispetto. Sanrio colleziona fan come Kitty colleziona fiocchi.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Sanrio — sito ufficiale JP",
+          "url": "https://www.sanrio.co.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "Sanrio stores — localizzatore Gift Gate",
+          "url": "https://stores.sanrio.co.jp/",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-gashapon-premium",
+      "long": "Il gashapon premium — capsule più grandi, a volte da 500 yen in su, o linee «premium» Bandai — offre miniature dettagliate, oggetti quasi funzionali e riproduzioni assurde ma accurate. Nei GASHAPON Department Store e nei GASHAPON BANDAI OFFICIAL SHOP di Bandai Namco trovi pareti di macchine, display della serie completa e spesso un cambiamonete. Non è Ichiban Kuji: qui giri la manopola e il pezzo esce dalla capsula, con duplicati possibili. Guarda sempre il display frontale della serie (tutti i tipi) prima di investire. Porta monete o usa il changer: le macchine non negoziano con la carta di credito del tuo entusiasmo.",
+      "sections": [
+        {
+          "title": "Leggere il display prima della manopola",
+          "body": "Ogni macchina mostra foto o sample dei tipi nella serie e il prezzo. Conta i design: se te ne serve uno solo su otto, accetta il rischio o cerca vendite complete altrove. Le linee premium pesano e ingombrano di più delle capsule da 300 yen."
+        },
+        {
+          "title": "Department Store e Official Shop",
+          "body": "Ikebukuro, Akihabara e altre sedi Bandai Namco concentrano migliaia di macchine e aggiornano stock sul sito ufficiale per molte linee Bandai. GO TOKYO segnala anche sale capsule dedicate ad Akihabara: utile per densità, non per garanzia del tuo SKU."
+        },
+        {
+          "title": "Monete, capsule vuote e valigia",
+          "body": "Cambia banconote in monete sul posto. Svuota le capsule per risparmiare volume o tienine una come packaging. Imposta un budget in yen, non in «ancora una macchina»."
+        },
+        {
+          "title": "La capsula che contiene il tuo autocontrollo",
+          "body": "Teoricamente è un giocattolo da pochi centimetri. In pratica è un referendum continuo su quanto valgono le probabilità. Spoiler: la macchina vota sempre per un altro giro.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "GASHAPON Department Store — Bandai Namco Amusement",
+          "url": "https://bandainamco-am.co.jp/en/others/capsule-toy-store/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "GASHAPON BANDAI OFFICIAL SHOP",
+          "url": "https://bandainamco-am.co.jp/en/others/gashapon-bandai-officialshop/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "Explore around Akihabara — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/story/walks-and-tours/akihabara/index.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-gunpla",
+      "long": "Gunpla è il model kit plastico Gundam di BANDAI SPIRITS: gradi (Entry, HG, RG, MG, PG…), scale e colorazioni diverse, più edizioni limitate dei punti ufficiali come THE GUNDAM BASE. In Giappone trovi cataloghi profondi, clear version, metallizzati e kit «Base limited» che non restano a lungo in scaffale. Controlla grado, scala, dimensioni della scatola e se serve colla/vernice o è snap-fit. La valigia non è un hangar: un MG grande occupa quanto tre souvenir seri. Prima di inseguire ogni exclusive, verifica ingresso a ticket/lottery della Base nei giorni di punta e disponibilità reale del kit che vuoi.",
+      "sections": [
+        {
+          "title": "Grado, scala e edizione",
+          "body": "HG 1/144 è il compromesso comune; RG e MG alzano dettaglio e prezzo; PG è un progetto, non un impulse buy. Le edizioni Gundam Base limited si riconoscono da branding e packaging dedicati. Leggi la fascia di età e se servono tools oltre ai runner."
+        },
+        {
+          "title": "Gundam Base e hobby shop",
+          "body": "THE GUNDAM BASE TOKYO a DiverCity è il riferimento ufficiale; altre Base e negozi hobby coprono catalogo e ristampe. Controlla il sito per prodotti e avvisi di afflusso. Fuori dalla Base, confronta prezzo e condizione della scatola (ammaccature = pezzi a rischio)."
+        },
+        {
+          "title": "Trasporto e dogana mentale",
+          "body": "Tieni i kit in scatola originale, imbottiti. Non aprire i runner in hotel «per vedere»: rivendibilità e protezione calano subito. Se voli con poco peso, un HG o due battono un MG ambizioso."
+        },
+        {
+          "title": "Il mobile suit che ha invaso lo zaino",
+          "body": "Avevi detto «solo un High Grade». Ora lo zaino ha un'unità indipendente e tu stai calcolando se i runner contano come «souvenir culturali». Bandai ha già vinto la guerra.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "THE GUNDAM BASE — sito ufficiale",
+          "url": "https://www.gundam-base.net/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "BANDAI SPIRITS — prodotti hobby / Gunpla",
+          "url": "https://www.bandaispirits.co.jp/products/",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-retro-games",
+      "long": "Cartucce Famicom/Super Famicom, dischi Saturn/Dreamcast/PS, Game Boy e hardware usato riempiono Akihabara, Nipponbashi a Osaka e le catene Hard Off / Book Off / Super Potato. Il mercato giapponese ha cataloghi più profondi e prezzi spesso diversi dall'Europa, ma region lock, lingua, alimentazione 100 V e batterie SRAM sono vincoli reali. Prima di pagare: testa se possibile, apri il manuale, controlla pin della cartuccia, etichette non rifatte male e se il gioco è NTSC-J. Una console JP può richiedere step-down o restare un pezzo da collezione non collegato. Mandarake e i negozi retro specializzati aiutano sulla rarità; la compatibilità la verifichi tu.",
+      "sections": [
+        {
+          "title": "Regione, lingua e alimentazione",
+          "body": "Molte console classiche sono region-locked o usano formati disco diversi. I giochi in giapponese restano in giapponese. Alimentatori 100 V non sono «quasi 110»: a 230 V bruci trasformatori. Preferisci alimentatori locali verificati o usa la macchina solo in Giappone."
+        },
+        {
+          "title": "Stato di cartucce e dischi",
+          "body": "Pin ossidati, etichette rifatte, shell crepate, dischi graffiati: tutto abbassa valore e affidabilità. Chiedi di provare su kiosk se il negozio lo consente. Conserva scatola e manuale solo se completi e in condizioni coerenti con il prezzo."
+        },
+        {
+          "title": "Quartieri e catene utili",
+          "body": "GO TOKYO inquadra Akihabara come hub di game vintage e otaku shops; Osaka ha l'analogo a Nipponbashi. Hard Off varia per sede: una filiale è oro, un'altra è casuale. Confronta due negozi prima dei pezzi costosi."
+        },
+        {
+          "title": "La batteria interna che ricorda gli anni Novanta meglio di te",
+          "body": "Il save file è morto nel 2003. Tu lo scopri a casa. Il negozio aveva detto «as is». Era un'espressione tecnica per «prepara il saldatore o la nostalgia senza progressi».",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Explore around Akihabara — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/story/walks-and-tours/akihabara/index.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Nintendo — supporto console e regioni (riferimento brand)",
+          "url": "https://www.nintendo.com/jp/officialstore/index.html",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "ファミコン — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AA%E3%83%BC%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-tamagotchi",
+      "long": "Il Tamagotchi Bandai torna ciclicamente con shell colorate, collab e modelli (nano, Connection, Uni/Paradise e altri) che sul mercato giapponese compaiono prima o in varianti diverse. Si trova in toy store, Bic Camera, shop Bandai e corner ufficiali. Prima di scegliere: lingua dei menu, necessità di app/Bluetooth, tipo di batterie e se la shell «JP exclusive» cambia solo il colore o anche le funzioni. Non è un portachiavi muto: è un coinquilino digitale con fame e orari. Controlla la confezione sigillata e il modello esatto sul sito Tamagotchi / Bandai — nomi simili nascondono generazioni diverse.",
+      "sections": [
+        {
+          "title": "Modello, lingua e connettività",
+          "body": "Alcune generazioni parlano soprattutto con icone; altre hanno menu e funzioni online. Verifica se ti serve uno smartphone aggiornato e un account. Una collab Sanrio o anime può essere shell-limited: stesso firmware, colore diverso — o viceversa."
+        },
+        {
+          "title": "Batterie e confezione",
+          "body": "Controlla se le batterie sono incluse e di che tipo. Evita blister aperti senza test in negozio. Annota il nome commerciale completo: «Tamagotchi» da solo non identifica l'anno né la serie."
+        },
+        {
+          "title": "Dove cercarlo senza liste fantasiose",
+          "body": "Bandai elenca il character e punta al sito ufficiale Tamagotchi per news e canali. In città, i reparti toys delle catene elettroniche e i corner Bandai Namco sono il percorso naturale; confronta prezzo tra due store prima delle collab iper-richieste."
+        },
+        {
+          "title": "L'uovo che ha più impegni di te in vacanza",
+          "body": "Tu volevi un souvenir. Lui vuole mangiare mentre sei nel tempio. Negoziare con un pixel affamato è l'unico karaoke spirituale che Bandai ha reso portatile.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "たまごっち公式サイト",
+          "url": "https://tamagotchi-official.com/jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "たまごっちシリーズ — Bandai character page",
+          "url": "https://www.bandai.co.jp/character/tamagotchi.php",
+          "kind": "produttore"
+        }
+      ]
+    }
+  ]
+}

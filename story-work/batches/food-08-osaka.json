@@ -1,0 +1,648 @@
+{
+  "meta": {
+    "batch": "food-08-osaka",
+    "note": "Phase 2 Osaka food deep stories (16). Konamon + izakaya + pot dishes; Osaka okonomiyaki = mixed batter (not Hiroshima layers). Avoid rewriting history-osaka-kuidaore essay. Kobe beef card notes Hyogo branding while listed under Osaka guide stop. Sources: Osaka Info, MAFF, JNTO, brand pages."
+  },
+  "schede": [
+    {
+      "id": "food-osaka-takoyaki",
+      "long": "Il takoyaki è la sfera di farina che Osaka ha trasformato in gesto di strada: pastella al dashi versata in stampi rotondi, pezzo di polpo al centro, giro di spatola finché la palla non si chiude e si arrostisce. Sopra arrivano salsa dolce-salata, maionese, aonori e katsuobushi che «balla» col calore. Non è un antipasto elegante: è konamon da mangiare in piedi, vicino a Dotombori, a un yatai di quartiere o a un bancone di stazione. L'interno deve restare cremoso, non crudo di farina; il polpo elastico, non gomma secca. Si mangia caldo, spesso con lo stecchino, accettando che il primo morso bruci un po'. La differenza tra un chiosco serio e uno turistico si sente nella pastella: dashi presente, crosta sottile, pezzo di polpo vero. Se la sfera è solo salsa e maionese, state pagando il teatro, non il ripieno.",
+      "sections": [
+        {
+          "title": "Palla cremosa, non frittella",
+          "body": "Apritene una: il centro deve scivolare, non essere farina cruda né pane secco. Il polpo è un cubetto, non un'intera ventosa: se manca del tutto, non è takoyaki serio."
+        },
+        {
+          "title": "Dove ha senso fermarsi",
+          "body": "Yatai e banconi di quartiere battono spesso le catene sulla pastella. Guardate il ritmo della spatola: cuochi che girano senza sosta di solito hanno turnover alto e palle fresche."
+        },
+        {
+          "title": "Ordine e bruciatura",
+          "body": "Chiedete porzioni piccole se siete in giro: sei o otto pezzi bastano. Aspettate dieci secondi dopo la salsa; il vapore interno è più pericoloso della crosta."
+        },
+        {
+          "title": "Il katsuobushi che fa la danza",
+          "body": "Quei fiocchi che si muovono da soli non sono magia: sono calore e umidità. A Osaka li usano anche come prova che la palla è appena uscita dallo stampo — e come scusa per filmarla due volte.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "大阪の食文化 — Osaka Info",
+          "url": "https://osaka-info.jp/page/osaka-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Japanese gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-osaka-okonomiyaki",
+      "long": "L'okonomiyaki di Osaka è un pancake salato in cui cavolo, pastella e ingredienti scelti vengono mescolati insieme prima di finire sul teppan — non impilati a strati come a Hiroshima. Si versa un impasto unico: farina, uovo, dashi o acqua, cavolo a listarelle, e poi maiale, gamberi, mochi o ciò che volete («okonomi» = a piacere). Si cuoce su entrambi i lati, si copre di salsa, maionese, aonori e katsuobushi, e si taglia a spicchi con la spatola. In sala spesso cucinate voi o guardate il bancone: il gesto tipico è girare la frittella intera, non costruire piani. Per riconoscerlo al volo: se vedete noodle come materasso separato e una torre di cavolo, siete nello stile hiroshimese; se tutto è già amalgamato nella pastella, siete a Osaka. Si mangia caldo dal ferro, in coppia o da soli, come pasto completo di konamon — non come cronaca di ricostruzione urbana.",
+      "sections": [
+        {
+          "title": "Mescolato, non a piani",
+          "body": "La firma kansai è l'impasto unico: cavolo e proteine dentro la pastella. Se il cuoco costruisce strati e cuoce i noodle a parte, non state mangiando lo stile Osaka."
+        },
+        {
+          "title": "Come si ordina al teppan",
+          "body": "Scegliete base (maiale classico, misto mare, vegetariano) e eventuali extra. Molti locali lasciano girare a voi: aspettate che il bordo si stacchi prima di ribaltare, altrimenti spezzate la torta."
+        },
+        {
+          "title": "Salsa e ritmo di tavola",
+          "body": "La salsa okonomi va a velo, non a lago. Si taglia a pezzi e si mangia a turno dalla piastra; non serve aspettare che «arrivi il piatto freddo»."
+        },
+        {
+          "title": "La spatola come patente di guida",
+          "body": "A Osaka vi danno una spatola e un pezzo di ferro caldo e si fidano. Fallire il ribaltamento non è un crimine: è un rito di iniziazione fotografato dai vicini di tavolo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "大阪の食文化 — Osaka Info",
+          "url": "https://osaka-info.jp/page/osaka-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Japanese gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-osaka-kushikatsu",
+      "long": "Il kushikatsu di Osaka — soprattutto legato a Shinsekai e ai banconi di quartiere — è lo spiedino impanato e fritto: carne, verdure, uovo, formaggio, a volte frutti di mare, immersi in panatura fine e olio caldo. Si mangia in piedi o al bancone stretto, con una salsa comune in cui si intinge una sola volta: la regola «no double dipping» è scritta sui cartelli e presa sul serio. Non è un fritto da ristorante silenzioso; è un ritmo di pezzi piccoli, birra o highball, e lista di spiedini che si spunta mentre si mangia. La crosta deve essere sottile e asciutta, non unta; l'interno cotto senza diventare stoppa. Ordinate a pezzi, non un vassoio enorme: il piacere sta nella varietà e nella temperatura. Se la salsa è solo ketchup dolce e gli spiedini arrivano già freddi, siete nel tourist trap del souvenir fritto.",
+      "sections": [
+        {
+          "title": "Una immersione sola",
+          "body": "La salsa condivisa è parte del rito: una passata per spiedino. Se vi serve più salsa, chiedete una ciotolina a parte — molti locali la danno senza fare scenate."
+        },
+        {
+          "title": "Ordine da lista, non da fame cieca",
+          "body": "Iniziate con tre-cinque pezzi misti (manzo, cipolla, uovo, asparago) e rivalutate. I set «all you can eat» servono se siete un gruppo; da soli vincono i pezzi caldi appena usciti."
+        },
+        {
+          "title": "Contesto Shinsekai e oltre",
+          "body": "Shinsekai è l'immagine da cartolina, ma ci sono banconi seri anche altrove. Guardate l'olio: se è scuro e fermo da ore, meglio cambiare insegna."
+        },
+        {
+          "title": "Il cartello che vi giudica",
+          "body": "«No double dipping» non è un meme: è igiene da bancone affollato. Violare la regola a Osaka è come parlare al telefono a squarciagola in un onsen — tutti fingono di non vedervi, ma vi vedono.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "大阪の食文化 — Osaka Info",
+          "url": "https://osaka-info.jp/page/osaka-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Japanese gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-osaka-kitsune-udon",
+      "long": "Il kitsune udon è la ciotola di udon in brodo chiaro con sopra una grande fetta di aburaage — tofu fritto stufato dolce-salato — che Osaka tratta come classico da udon-ya e da stazione. Il nome richiama la volpe (kitsune), a cui la tradizione lega il tofu fritto come offerta; in pratica è un piatto di conforto: noodle spessi di grano, dashi leggero, e il pezzo di aburaage lucido che assorbe brodo e dolcezza. Si mangia caldo, senza fuss, spesso come pranzo veloce tra un treno e l'altro. I noodle devono restare elastici; l'aburaage non deve essere una spugna di zucchero né un pezzo secco. Se il brodo è scuro come ramen o i noodle sono già molli, il locale ha aspettato troppo. È il contrario dello street food spettacolare: poche parti, tutto riconoscibile, fame seria senza piastra.",
+      "sections": [
+        {
+          "title": "Aburaage come tetto della ciotola",
+          "body": "La fetta di tofu fritto deve essere ampia, morbida e lucida di stufato. Se è una briciola secca, non è il kitsune classico di Osaka."
+        },
+        {
+          "title": "Brodo chiaro, non teatro",
+          "body": "Il dashi resta leggero: katsuobushi e kombu, non chili. Assaggiate il brodo prima di aggiungere pepe o shichimi: spesso basta così."
+        },
+        {
+          "title": "Quando ordinarlo",
+          "body": "Pranzo di quartiere, udon-ya vicino alle stazioni, cena leggera dopo troppa farina fritta. Funziona anche come «reset» tra takoyaki e kushikatsu."
+        },
+        {
+          "title": "La volpe che mangia per voi",
+          "body": "Kitsune significa volpe, ma sul menu significa «tofu fritto grande». Nessuna volpe vera viene al tavolo — a differenza dei cervi di Nara, che almeno tentano.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "大阪の食文化 — Osaka Info",
+          "url": "https://osaka-info.jp/page/osaka-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Japanese gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-osaka-doteyaki",
+      "long": "Il doteyaki è tendine o stomaco di manzo (spesso gyū-suji) stufato a lungo in una salsa densa di miso — tipicamente miso bianco dolce — fino a diventare gelatinoso e lucido. È piatto da izakaya di Osaka: si ordina come ottoshi o come pezzo da birra, non come secondo da taglio. La cottura lenta scioglie il collagene; il miso dà dolcezza e profondità senza piccantezza. In bocca deve cedere senza sforzo e lasciare un retrogusto di soia fermentata, non di grasso crudo. Si trova nei locali di konamon e nei banconi di quartiere più che nei ristoranti da foto. Se arriva duro o con salsa bruciata, il fuoco ha vinto sulla pazienza. Accompagnatelo con riso o solo con una bevanda: è cibo di sera, di fame lenta, di Osaka che mangia anche le parti «povere» con orgoglio di cucina mercantile.",
+      "sections": [
+        {
+          "title": "Collagene, non bistecca",
+          "body": "Cercate pezzi traslucidi e teneri, non fibre secche. Il piacere è la gelatinosità: se masticate come uno stufato europeo di magro, non è doteyaki riuscito."
+        },
+        {
+          "title": "Miso come salsa, non come zuppa",
+          "body": "La base è densa e appiccicosa sul pezzo. Se nuota in un brodo chiaro, è un altro piatto. Il miso bianco tipico resta dolce-salato, non piccante."
+        },
+        {
+          "title": "Contesto izakaya",
+          "body": "Si ordina a inizio serata con birra, o a metà pasto tra fritti. Porzioni piccole: è intenso. Ideale dopo una giornata di cammino quando volete calore senza un'altra palla di farina."
+        },
+        {
+          "title": "Il tendine che fa carriera",
+          "body": "Parti che altrove finiscono in brodo qui diventano specialità da menù. Osaka: dove anche il collagene ha un agente pubblicitario.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "大阪の食文化 — Osaka Info",
+          "url": "https://osaka-info.jp/page/osaka-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Japanese gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-osaka-negiyaki",
+      "long": "Il negiyaki è il cugino più sottile e verde dell'okonomiyaki osakano: pastella leggera, pochissimo cavolo (o niente), e una quantità generosa di cipollotto tagliato a listarelle. Si cuoce sottile sul teppan, spesso si piega o si arrotola, e si condisce più spesso con salsa di soia o un velo di salsa leggera invece della copertura barocca di maionese e aonori. È konamon di quartiere, meno «cartolina» del takoyaki ma molto amato da chi vuole croccantezza e aroma di negi senza lo spessore della frittella mista. In bocca deve restare elastico e profumato di cipollotto, non pastoso. Se sembra un okonomiyaki pieno di cavolo con tre fili verdi sopra, non è negiyaki: è marketing. Ordinate quando avete già fatto il giro delle sfere e volete qualcosa di più secco e aromatico, magari con una birra.",
+      "sections": [
+        {
+          "title": "Verde prima del cavolo",
+          "body": "Il protagonista è il cipollotto: deve dominare visivamente. Se vedete una montagna di cavolo, state nello stile okonomiyaki standard, non nel negiyaki."
+        },
+        {
+          "title": "Sottile e piegato",
+          "body": "Spesso è più basso e si ripiega come una crespella. La crosta conta: deve frusciare un poco, non restare umida al centro come un pancake spesso."
+        },
+        {
+          "title": "Condimento sobrio",
+          "body": "Soia o salsa leggera bastano; maionese abbondante lo sposta verso l'okonomiyaki da foto. Chiedete la versione locale se il menu distingue i due."
+        },
+        {
+          "title": "L'okonomiyaki che è andato in palestra",
+          "body": "Stessa piastra, meno farina teatrale, più cipollotto. È il piatto che ordina chi vuole sembrare locale — e a volte lo è davvero.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "大阪の食文化 — Osaka Info",
+          "url": "https://osaka-info.jp/page/osaka-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Japanese gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-osaka-ikayaki",
+      "long": "L'ikayaki di Osaka non è solo calamaro alla griglia: è una crêpe salata pressata — pastella sottile con pezzi di calamaro — cotta tra due piastre o su ferro fino a diventare un disco dorato da street food. Si vende spesso in fogli o piegata, calda, con salsa o solo sale, e si mangia camminando. La texture conta: il calamaro deve restare elastico dentro una crosta sottile, non trasformarsi in gomma da cancellare. È un pezzo di konamon meno famoso del takoyaki all'estero, ma tipico dei festival e di certi banconi cittadini. Se il disco è solo pastella dolce con un filo di frutti di mare, state mangiando una versione da fiera generica. Cercate il profumo di mare e farina tostata insieme, e mangiatelo subito: raffreddato diventa cartone. Ideale come spuntino tra un mercato e il prossimo izakaya, non come pasto unico se avete fame da treno.",
+      "sections": [
+        {
+          "title": "Disco pressato, non spiedino",
+          "body": "Qui l'ikayaki è la crêpe di calamaro, non solo il tentacolo grigliato. Se vi danno solo pezzi alla brace senza pastella, è un altro piatto con lo stesso nome generico."
+        },
+        {
+          "title": "Calamaro che deve «saltare»",
+          "body": "In bocca serve resistenza elastica, non stoppa. Pezzi troppo piccoli e secchi segnalano materia di seconda o cottura eccessiva."
+        },
+        {
+          "title": "Quando comprarlo",
+          "body": "Yatai, festival, banconi di mercato. Mangiatelo caldo; non è un souvenir da zaino. Una porzione basta come ponte tra due pasti seri."
+        },
+        {
+          "title": "Il cugino meno fotografato del takoyaki",
+          "body": "Stessa famiglia di farina, meno katsuobushi da reel. Ideale per chi vuole street food senza sembrare una cartolina ambulante di Dotombori.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "大阪の食文化 — Osaka Info",
+          "url": "https://osaka-info.jp/page/osaka-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Japanese gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-osaka-butaman",
+      "long": "Il butaman è il grande panino al vapore ripieno di maiale e cipolla — nikuman/butaman — che a Osaka si compra caldo da forni a vapore, catene storiche e banconi di stazione. La pasta deve restare morbida e bianca, il ripieno succoso ma non acquoso, con pezzi di carne riconoscibili e dolcezza di cipolla. Si mangia in mano, spesso come spuntino o pranzo veloce, e il vapore sul viso fa parte dell'esperienza. Non è un dumpling piccolo da dim sum: è un panino sostanzioso, da uno o due pezzi. Attenzione alle versioni tenute sotto lampada per ore: la pasta si indurisce e il grasso si separa. I locali con turnover alto e cestini che fumano ancora sono la regola pratica. Ideale in giornata fredda o come conforto dopo troppa camminata; meno ideale se avete già tre takoyaki e uno kushikatsu nello stomaco — a meno che non stiate facendo ricerca sul campo.",
+      "sections": [
+        {
+          "title": "Pasta che respira",
+          "body": "La superficie deve essere liscia e umida di vapore, non giallastra o secca. Se la piega in cima è dura, il panino ha aspettato troppo."
+        },
+        {
+          "title": "Ripieno di maiale, non di aria",
+          "body": "Aprite: carne e cipolla devono riempire, con un filo di sugo. Ripieno grigio e secco = freezer o lampada. Meglio un pezzo caldo da forno a vapore che tre pezzi stanchi."
+        },
+        {
+          "title": "Dove e quando",
+          "body": "Banconi di stazione, catene di nikuman, forni di quartiere. Mattina tardi e sera funzionano; a metà pomeriggio controllate il turnover."
+        },
+        {
+          "title": "Il panino che vi fa appannare gli occhiali",
+          "body": "Il primo morso rilascia un fronte di vapore. Chi indossa occhiali impara in fretta la tecnica: inclinazione laterale, come per la zuppa di ramen.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "大阪の食文化 — Osaka Info",
+          "url": "https://osaka-info.jp/page/osaka-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Japanese gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-osaka-oshizushi",
+      "long": "L'oshizushi di Osaka è sushi pressato in una scatola di legno o stampo: riso acidulo e pesce — spesso cotto, marinato o glassato — compressi in blocchi netti che si tagliano a rettangoli. Non è nigiri modellato a mano al bancone; è una logica di forma e conservazione tipica del Kansai, legata a battèra e a pezzi da asporto. Il pesce può essere sgombro, anguilla, gambero o altri tagli trattati, non necessariamente crudo di giorno. Si mangia a temperatura ambiente o appena tiepido, a pezzi precisi, senza wasabi aggressivo se già integrato. La pressione deve tenere insieme riso e topping senza far diventare il tutto una poltiglia. È un modo di assaggiare Osaka oltre il konamon: più «sala e bentō» che yatai. Se il blocco si sbriciola o sa solo di aceto, la pressatura o il riso non sono a posto.",
+      "sections": [
+        {
+          "title": "Forma da stampo",
+          "body": "I pezzi sono rettangolari e netti. Se vi servono nigiri ovali, non è oshizushi. La pressione è parte del metodo, non un difetto di presentazione."
+        },
+        {
+          "title": "Pesce trattato, non solo crudo",
+          "body": "Marinature, cotture leggere e glassature sono tipiche. Non giudicatelo con lo stesso metro del sashimi di porto: qui contano aroma, acidità e compattezza."
+        },
+        {
+          "title": "Contesto bentō e sala",
+          "body": "Ristoranti di sushi kansai, negozi da asporto, pranzi ordinati. Funziona bene in viaggio: i blocchi viaggiano meglio del nigiri fragile."
+        },
+        {
+          "title": "Il sushi che ha fatto la palestra della pressa",
+          "body": "A Tokyo modellano; a Osaka comprimono. Stesso riso, filosofia da falegname: se non entra nello stampo, non è ancora pronto.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "大阪の食文化 — Osaka Info",
+          "url": "https://osaka-info.jp/page/osaka-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Japanese gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-osaka-horumon",
+      "long": "L'horumon-yaki è la griglia di frattaglie — intestino, stomaco, diaframma e altri tagli — marinate e cotte su ferro o brace, amatissima negli izakaya e nei yakiniku di Osaka. Il nome richiama l'idea di «ormone» / pezzi che danno energia, ma in tavola è soprattutto texture: croccante, elastico, gelatinoso, a seconda del pezzo. Si ordina a porzioni miste, si cuoce al tavolo o al bancone, e si mangia con sale, limone o tare leggera — non necessariamente annegato in salsa dolce. Un locale serio distingue i tagli sul menu; uno generico serve «horumon» unico e stop. Per il viaggiatore è il modo di entrare nella cucina di quartiere oltre il konamon: birra, pezzi caldi, chiacchiere. Se tutto sa solo di carbone e salsa, o se i pezzi sono duri come elastici, cambiate tavolo. Iniziate con tagli più delicati se non siete abituati, poi salite di intensità.",
+      "sections": [
+        {
+          "title": "Texture prima del nome",
+          "body": "Chiedete cosa c'è nel misto: stomaco, intestino, diaframma hanno bocche diverse. Un buon posto spiega senza fare lezione; un posto debole nasconde tutto sotto tare."
+        },
+        {
+          "title": "Cottura al momento",
+          "body": "Grigliare fino a che il pezzo cambia colore e diventa lucido, senza carbonizzare. Frattaglie troppo crude o troppo bruciate sono entrambi errori — solo più o meno evidenti."
+        },
+        {
+          "title": "Sale, limone, poco teatro",
+          "body": "Molti pezzi stanno meglio con sale e un filo di limone che con salsa pesante. Tenete la tare per i tagli magri se il locale la propone."
+        },
+        {
+          "title": "La cena che non finisce su una cartolina",
+          "body": "Nessun katsuobushi che balla, nessuna sfera perfetta: solo ferro, grasso e decisione. È il momento in cui Osaka smette di posare per i turisti e inizia a mangiare sul serio.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "大阪の食文化 — Osaka Info",
+          "url": "https://osaka-info.jp/page/osaka-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Japanese gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-osaka-tecchiri",
+      "long": "Il tecchiri è la pentola di fugu (pesce palla) con tofu e verdure in brodo leggero — specialità invernale del Kansai, da ordinare solo in locali autorizzati alla preparazione del fugu. Il nome onomatopeico richiama il suono delle pinne o delle bacchette contro la pentola; in tavola è un nabe condiviso: pezzi di pesce bianchi, tofu, negi, funghi, a volte chrysanthemum greens, e un brodo che si intensifica col cottura. Si mangia pescando dalla pentola, poi spesso chiudendo con riso o udon nel fondo. Non è street food e non è un piatto da improvvisare: la sicurezza del fugu dipende dalla licenza del cuoco. Per il viaggiatore conta scegliere un ristorante serio, accettare il prezzo più alto del konamon, e non pretendere «effetto shock» — il tecchiri buono è delicato, non teatrale. Se cercate solo il brivido del veleno, state nello stereotipo; se cercate il nabe di stagione, siete nel posto giusto.",
+      "sections": [
+        {
+          "title": "Solo locali autorizzati",
+          "body": "Il fugu richiede preparazione certificata. Non comprate «fugu» da bancarelle dubbie e non portate a casa pezzi grezzi. Il ristorante specializzato è la regola, non l'eccezione."
+        },
+        {
+          "title": "Brodo che cresce in tavola",
+          "body": "All'inizio è chiaro; col tempo prende dolcezza di pesce e verdure. Non annegalo di salsa: assaggiate il fondo prima di aggiungere ponzu o condimenti."
+        },
+        {
+          "title": "Stagione e chiusura",
+          "body": "Tipicamente inverno. Dopo i pezzi, chiedete se fanno zosui o udon nel brodo rimasto: è il modo corretto di finire il nabe senza spreco."
+        },
+        {
+          "title": "Il pesce famoso per quello che non dovete notare",
+          "body": "Se il tecchiri è fatto bene, non «sentite il veleno»: sentite un brodo pulito e un pesce delicato. Il brivido resta nel racconto ai amici, non nel piatto.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "大阪の食文化 — Osaka Info",
+          "url": "https://osaka-info.jp/page/osaka-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Japanese gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-osaka-udonsuki",
+      "long": "L'udon-suki è una pentola condivisa in cui udon, pesce, pollo, verdure e a volte tofu cuociono in un dashi ricco — specialità legata a Osaka e al Kansai, più «sala e famigli» del takoyaki da strada. Si porta al tavolo la pentola o si costruisce sul fornello: prima i pezzi che richiedono più tempo, poi i noodle che assorbono il brodo. Il dashi deve restare presente e aromatico; i noodle spessi di grano diventano il cuore del pasto, non un contorno. Non è sukiyaki di manzo zuccherato: è una logica di brodo e mare/terra insieme. Si mangia in gruppo, con ciotole individuali per pescare, e spesso si allunga il fondo con più dashi. Ideale in serata fresca quando volete un pasto completo senza girare tre yatai. Se i noodle finiscono molli e il brodo sa solo di sale, la cottura ha vinto sulla ricetta.",
+      "sections": [
+        {
+          "title": "Noodle come protagonista",
+          "body": "Gli udon devono restare elastici nel brodo. Si aggiungono quando il resto è quasi pronto, non all'inizio come se fossero verdura."
+        },
+        {
+          "title": "Dashi, non sugo dolce",
+          "body": "Aspettatevi umami di pesce e kombu, non la dolcezza da sukiyaki. Se il liquido è marrone caramellato, forse siete in un altro pentolame."
+        },
+        {
+          "title": "Tavolo da condividere",
+          "body": "Funziona in due o più. Portate pazienza: è un pasto a ondate. Chiedete il refill di brodo se il locale lo prevede — è parte del gesto."
+        },
+        {
+          "title": "Il sukiyaki che ha cambiato carriera",
+          "body": "Stessa idea di pentola, noodle al posto del teatro di manzo zuccherato. Ideale per chi vuole dire «abbiamo fatto nabe» senza prenotare un rito da anniversario.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "大阪の食文化 — Osaka Info",
+          "url": "https://osaka-info.jp/page/osaka-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Japanese gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-osaka-taiko-manju",
+      "long": "Il taiko manjū è un tortino tondo cotto su piastra — forma da tamburo (taiko) — con ripieno di anko o crema, tipico dei banconi di street dessert e dei festival di Osaka. La pastella si versa negli stampi rotondi, si chiude sul ripieno e si cuoce fino a doratura leggera: fuori soffice-crostata, dentro dolce di azuki o crema. Si mangia caldo, in mano, come pausa zuccherina tra un giro di konamon salato e il prossimo. Non è un wagashi da sala da tè silenziosa: è dolce da strada, veloce, riconoscibile dalla forma bombata. Se la crosta è bruciata e il ripieno gelido, lo stampo e il frigo non si sono parlati. Cercate forni o banconi con cottura a vista e prendete un pezzo alla volta: raffreddato perde il punto. Funziona anche come souvenir immediato da mangiare entro l'ora, non da mettere in valigia.",
+      "sections": [
+        {
+          "title": "Forma a tamburo",
+          "body": "Il nome viene dalla sagoma tonda e bombata. Se è un panino generico senza stampo, non è taiko manjū: è un altro manjū."
+        },
+        {
+          "title": "Anko o crema",
+          "body": "L'anko classico resta il più onesto; la crema è variante moderna. Assaggiate caldo: il contrasto pasta/ripieno sparisce quando il pezzo è freddo."
+        },
+        {
+          "title": "Street, non vetrina lunga",
+          "body": "Banconi di festival, chioschi, angoli di shopping street. Comprate quando lo vedete cuocere; non è un dolce da depachika da far riposare tre giorni."
+        },
+        {
+          "title": "Il tamburo che si mangia",
+          "body": "A Osaka anche i dolci hanno nomi da strumento. Nessuno si aspetta che suoni — ma se è caldo, il primo morso fa comunque «pom».",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "大阪の食文化 — Osaka Info",
+          "url": "https://osaka-info.jp/page/osaka-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Japanese gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-osaka-mixed-juice",
+      "long": "Il mixed juice di Osaka è un frullato denso nato nei kissaten: banana come base cremosa, agrumi e altra frutta, a volte latte o ghiaccio, frullati fino a una bevanda opaca e sostanziosa che si beve col bicchiere alto del caffè tradizionale. Non è uno smoothie da palestra né un succo chiaro da distributore: è un pezzo di cultura da caffè cittadino, legato a locali storici e a un'idea di colazione o pausa pomeridiana. La banana dà corpo; gli agrumi tengono il sapore; il risultato deve essere bevibile con cannuccia ma non liquido come un'aranciata. Si ordina al bancone di un kissaten, spesso insieme a toast o uova, e si beve lentamente. Se arriva trasparente o solo «succo misto» industriale, non è il mixed juice di cui parla Osaka. Per il viaggiatore è un modo di entrare nei caffè vecchio stile senza ordinare solo caffè filtrato.",
+      "sections": [
+        {
+          "title": "Banana come struttura",
+          "body": "Senza banana il bicchiere cade nel generico. La densità deve venire dalla frutta frullata, non solo da sciroppo e ghiaccio tritato."
+        },
+        {
+          "title": "Kissaten, non juice bar",
+          "body": "Cercate caffè tradizionali con menu di bevande frutta e posti a sedere. L'atmosfera di bancone e bicchieri alti fa parte del riconoscimento quanto il sapore."
+        },
+        {
+          "title": "Quando berlo",
+          "body": "Colazione tarda, pausa tra musei, pomeriggio prima della cena di fritti. È sostanzioso: non trattatelo come acqua aromatizzata."
+        },
+        {
+          "title": "Il frullato che ha un codice postale",
+          "body": "Altrove è «smoothie». A Osaka ha nome inglese e anima da kissaten. Ordinatelo per sembrare di quartiere — e perché la banana fa sempre il suo lavoro.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "大阪の食文化 — Osaka Info",
+          "url": "https://osaka-info.jp/page/osaka-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Japanese gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-osaka-kobe-beef",
+      "long": "Il Kobe beef in guida sotto la tappa di Osaka è wagyu Tajima certificato della prefettura di Hyōgo — marchio Kobe — spesso mangiato a Osaka in teppanyaki o steakhouses perché la città è il hub di cena del Kansai. Non è «manzo generico di Osaka»: è carne di bovini Tajima allevati e certificati sotto regole del Kobe Beef Marketing & Distribution Promotion Association, con marezzatura fine e porzioni piccole cotte sulla piastra. Si serve a fette o medaglioni, scaldati al punto giusto, con sale, wasabi o salse leggere — non annegati. Per il viaggiatore conta leggere il certificato o il nome del brand al tavolo, accettare il prezzo, e non confonderlo con ogni vetrina che scrive «Kobe» in neon. A Osaka lo trovate perché qui si cena e si prenota; l'origine resta Hyōgo/Kobe. Se la fetta è enorme, grezza e senza documentazione, state probabilmente pagando un nome, non una certificazione.",
+      "sections": [
+        {
+          "title": "Marchio Hyōgo, tavolo Osaka",
+          "body": "La guida lo elenca nella tappa Osaka perché è dove molti lo mangiano in viaggio; la carne certificata Kobe resta legata agli allevamenti Tajima di Hyōgo. Chiedete conferma del brand al ristorante."
+        },
+        {
+          "title": "Porzioni piccole, cottura precisa",
+          "body": "Il teppan cuoce in pochi minuti: rosato al centro se lo chiedete, mai carbonizzato. Sale e un filo di limone o wasabi bastano; salse pesanti nascondono la marezzatura."
+        },
+        {
+          "title": "Come evitare il neon vuoto",
+          "body": "Cercate menù che citino certificazione o ristoranti noti per wagyu. Diffidate di «Kobe lunch set» a prezzo improbabile con fette spesse da bisteccheria generica."
+        },
+        {
+          "title": "Il certificato più fotografato del Kansai",
+          "body": "A volte il foglio di autenticità finisce sul telefono prima della carne. Va bene: a quel prezzo anche la burocrazia merita un primo piano.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Kobe Beef — Official",
+          "url": "https://www.kobe-niku.jp/en/",
+          "kind": "consorzio"
+        },
+        {
+          "title": "大阪の食文化 — Osaka Info",
+          "url": "https://osaka-info.jp/page/osaka-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Japanese gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-osaka-wagyu-yakiniku",
+      "long": "Il wagyu yakiniku a Osaka è la griglia al tavolo di tagli di manzo giapponese marezzato: si confrontano parti (kalbi, loin, tongue, skirt), spessori e condimenti — sale, tare, a volte limone — mentre cuocete pezzo per pezzo. Non è lo stesso rito del Kobe beef certificato in teppanyaki: qui contano varietà, ritmo di cottura e scelta del locale, dal bancone di quartiere al yakiniku più curato. La marezzatura deve fondere senza diventare pozza di grasso; il magro deve restare succoso. Si ordina a pezzi, si condivide, si beve birra o soju/sake a seconda del tavolo. Per il viaggiatore è il modo più flessibile di assaggiare wagyu senza il singolo medaglione da cerimonia: potete mixare tagli e prezzi. Se tutto arriva già precotto o annegato in salsa dolce, il locale sta cucinando al posto del vostro giudizio — e spesso non a vostro favore.",
+      "sections": [
+        {
+          "title": "Tagli da confrontare",
+          "body": "Ordinate due o tre pezzi diversi invece di un solo «set wagyu». Kalbi, loin e tongue insegnano texture diverse meglio di una montagna unica."
+        },
+        {
+          "title": "Cottura vostra, non del cameriere",
+          "body": "Girate appena il colore cambia; non bruciate il grasso fino al fumo nero. Se il locale cucina tutto per voi senza chiedervi, perdete il punto del yakiniku."
+        },
+        {
+          "title": "Sale contro tare",
+          "body": "I tagli più marezzati spesso stanno meglio col sale; la tare dolce-salata serve ai pezzi più magri. Non immergete ogni fetta nella stessa ciotola per abitudine."
+        },
+        {
+          "title": "La cena in cui siete lo chef non pagato",
+          "body": "Pagate il manzo, cuocete voi, e se bruciate un pezzo è colpa vostra. Osaka chiama questo divertimento; i vostri polpastrelli lo chiamano formazione professionale.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "大阪の食文化 — Osaka Info",
+          "url": "https://osaka-info.jp/page/osaka-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Japanese gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    }
+  ]
+}

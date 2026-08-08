@@ -8,11 +8,15 @@ Required: stable `id`, display `name`, local-script name when applicable, region
 
 Required: stable `id`, city ID, name, local name, category, area, recognition-focused description, typical visit duration, practical tip, image-search query, and one or more reliable factual sources.
 
+Trailing field `admission` (required after research closeout for normal curated rows): verified access class only — `free`, `paid`, or `mixed`. Policy for Solo gratis: **Public-open** — official venue or city/tourism pages that describe open public access to the main visit without stating an entrance / 拝観料 / 入場料 requirement count as `free`. Never invent from tip prose, booking notes, or category defaults. Record yen nowhere: the guide exposes access class, not prices. Semantics: `free` means the main visit needs no ticket (voluntary offerings / goshuin aside); `paid` means a ticket or mandatory fee; `mixed` means a documented free main area and a documented paid sub-area. Omit while researching, on `guide-map-visit-*` synthetics (no persistable pipe row), and on an explicit integrity allowlist of no-venue generic activities — those may remain pending so filters never claim free/paid.
+
 Target enough meaningful places to cover the actual route deeply, usually eight to twenty per base city and fewer for day trips. Mix essential sights, temples, shrines, sculpture, architecture, neighborhoods, nature, markets, shopping anchors, and quieter discoveries. Put museums and participatory activities in Experiences. Every map visit must resolve to a full guide detail.
 
 ## Experience
 
 Required: stable `id`, city ID, name, local name, category, area, duration, booking or access note, description, image-search query, official source, and coordinates when tied to a fixed venue.
+
+Trailing field `admission`: same verified `free` | `paid` | `mixed` Public-open rules as Place. Do not derive it from booking text, tip regexes, or ticketed categories. After closeout, require it on every curated experience except `guide-map-visit-*` synthetics and the small no-venue allowlist in `check-guide-integrity.mjs`. Never store prices.
 
 Use categories for museums, immersive or theme attractions, workshops, performances, wellness, sports, active nature, food activities, and unusual local experiences. Move existing museum and activity IDs rather than replacing them so saved state survives. Give every mapped experience both Google Maps and an in-site marker deep link. Generic activities without a verified meeting point may omit the marker instead of publishing a misleading coordinate.
 

@@ -1,0 +1,488 @@
+{
+  "meta": {
+    "batch": "food-12-yoshoku-comfort",
+    "note": "Phase 2 national yoshoku and comfort staples (12). Curry, omurice, korokke, nikujaga, katsu-sando, yakisoba-pan. Sources: JNTO yoshoku/gastronomy, MAFF."
+  },
+  "schede": [
+    {
+      "id": "food-all-japanese-curry",
+      "long": "Il curry rice giapponese non è un curry indiano né un vindaloo: è yoshoku nato via flotta britannica, poi riscritto in cucina casalinga e da mensa. La salsa è densa, dolce-speziata, spesso addensata con roux a blocchi; dentro patate, carote, cipolle e manzo o maiale a pezzi. Si versa sul riso bianco, a volte con fukujinzuke o rakkyo a lato. Catene nazionali, mensa universitaria, hotel breakfast e ristoranti di quartiere lo trattano come infrastruttura: prezzo chiaro, porzione generosa, piccantezza moderata. Per chi cammina è il comfort food più prevedibile del paese — e proprio per questo utile. Capirlo evita di cercarci pepe nero aggressivo o ghee: qui vince la densità da cucchiaio e la dolcezza controllata che i bambini mangiano senza protesta.",
+      "sections": [
+        {
+          "title": "Roux, non pasta di spezie",
+          "body": "Il sapore tipico arriva da un roux cotto a lungo, non da una tempesta di chili. Se ti aspetti fuoco da street food thailandese, resterai confuso: il calore è un optional, non la firma."
+        },
+        {
+          "title": "Dove lo ordini senza teatro",
+          "body": "Catene di curry, teishoku, cafeteria di grandi magazzini. Versioni «gourmet» esistono, ma il formato nazionale resta piatto fondo, riso, salsa che non scappa."
+        },
+        {
+          "title": "Contorno che conta",
+          "body": "Fukujinzuke croccante e rakkyo acidulo tagliano la dolcezza. Se mancano, un filo di yogurt o uovo a volte compare — ma non è obbligatorio."
+        },
+        {
+          "title": "Il curry che ha fatto pace con la mensa",
+          "body": "Pochi piatti nazionali riescono a essere cena di famiglia, pranzo da ufficio e cibo da bambini senza cambiare nome. Il karēraisu è diplomazia in forma di roux.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Western-style Japanese food (yoshoku)",
+          "url": "https://www.japan.travel/en/ph/guide/yoshoku/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — The art of yoshoku",
+          "url": "https://www.japan.travel/en/au/experience/cuisine/the-art-of-yoshoku-six-popular-western-dishes-reinvented-in-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-all-katsu-curry",
+      "long": "Il katsu curry mette insieme due vittorie yoshoku: cotoletta di maiale impanata e curry denso sul riso. La cotoletta arriva a strisce sopra o a lato; la crosta deve restare udibile anche sotto la salsa, altrimenti hai solo un katsudon travestito. È piatto da fame seria, da pranzo dopo cammino o da sera in cui non vuoi scegliere tra fritto e speziato. Nelle catene e nei tonkatsu-ya è onnipresente; le versioni «premium» alzano la carne, non reinventano la geometria. Per il viaggiatore è utile perché parla due lingue: croccantezza occidentale e comfort da curry giapponese. Capirlo evita di mischiare tutto subito in pappa: lascia qualche striscia asciutta per il contrasto, poi bagna.",
+      "sections": [
+        {
+          "title": "Crosta sotto la salsa",
+          "body": "Ordina e mangia presto: più aspetti, più l'impanatura si arrende. Se arriva già affogata, cerca locali che tengono katsu e curry separati fino al tavolo."
+        },
+        {
+          "title": "Maiale come default",
+          "body": "Il tonkatsu è lo standard; pollo e varianti compaiono, ma il formato nazionale resta maiale spesso. Guarda lo spessore: troppo sottile e diventa snack, non piatto."
+        },
+        {
+          "title": "Quando ha senso",
+          "body": "Fame da treno saltato, freddo umido, voglia di un solo piatto che sazia. Meno ideale se cerchi leggerezza: è calorie oneste, non degustazione."
+        },
+        {
+          "title": "Due comfort food, un solo piatto",
+          "body": "È come se hamburger e lasagna avessero deciso di condividere l'appartamento e, miracolosamente, pagassero entrambi l'affitto.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — The art of yoshoku",
+          "url": "https://www.japan.travel/en/au/experience/cuisine/the-art-of-yoshoku-six-popular-western-dishes-reinvented-in-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Western-style Japanese food (yoshoku)",
+          "url": "https://www.japan.travel/en/ph/guide/yoshoku/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-omurice",
+      "long": "L'omurice è riso saltato — spesso al ketchup o al pollo — avvolto o coperto da una frittata morbida, poi verniciato ancora di ketchup o salsa demi-glace. Nasce nei kissaten e nei ristoranti yoshoku come piatto che sembra occidentale e sa di infanzia urbana giapponese. Le versioni «tornado» o soufflé mostrano teatro in cucina aperta; quelle di quartiere restano più semplici e altrettanto valide. Il punto non è la perfezione da video: è uovo cremoso che scivola sul riso senza seccarsi. Per chi vuole un pranzo caldo non fritto e non di noodle, è una scelta chiara. Capirlo evita di trattarlo come omelette europea con riso a parte: qui l'uovo è copertina, non contorno.",
+      "sections": [
+        {
+          "title": "Uovo come velo, non come omelette da hotel",
+          "body": "Deve restare lucido e appena rappreso. Se è marrone e gommoso, il locale ha cotto troppo; se è crudo liquido ovunque, hai una performance da social, non un pranzo."
+        },
+        {
+          "title": "Ketchup o demi-glace",
+          "body": "Il ketchup dolce è nostalgia da kissaten; la demi-glace scura avvicina l'omurice allo hayashi. Leggi il menu: non sono intercambiabili."
+        },
+        {
+          "title": "Contesto d'uso",
+          "body": "Ideale a pranzo in caffè yoshoku o catene specializzate. Meno adatto da asporto lungo: l'uovo continua a cuocere e diventa pelle."
+        },
+        {
+          "title": "Il ketchup che fa finta di essere francese",
+          "body": "Metà del paese lo mangia con un disegno a ketchup sulla frittata. È haute cuisine di quartiere, e nessuno si scusa.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Western-style Japanese food (yoshoku)",
+          "url": "https://www.japan.travel/en/ph/guide/yoshoku/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — The art of yoshoku",
+          "url": "https://www.japan.travel/en/au/experience/cuisine/the-art-of-yoshoku-six-popular-western-dishes-reinvented-in-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-napolitan",
+      "long": "Gli spaghetti Napolitan sono yoshoku da kissaten: pasta corta o lunga saltata con ketchup, cipolla, peperone verde, salsiccia o prosciutto, a volte funghi. Napoli non è stata consultata — e questo è il punto: è un piatto nato quando il ketchup era modernità da dopo-guerra e i caffè occidentali insegnavano un'Europa immaginata. La pasta resta spesso più morbida dello standard italiano; il sapore è dolce-acidulo, non di pomodoro San Marzano. Per il viaggiatore è lezione di storia del gusto più che di autenticità. Capirlo evita indignazione da purista: qui non stai correggendo un errore, stai assaggiando un documento culturale del Novecento giapponese.",
+      "sections": [
+        {
+          "title": "Ketchup come salsa ufficiale",
+          "body": "Se cerchi olio, aglio e pepe, sei nel ristorante sbagliato. Il Napolitan deve sapere di ketchup cotto e verdure saltate, non di ragù."
+        },
+        {
+          "title": "Dove ha senso",
+          "body": "Kissaten rétro, menu yoshoku, qualche cafeteria. Nei ristoranti italiani «seri» di solito non compare — e va bene così."
+        },
+        {
+          "title": "Texture da caffè",
+          "body": "Pasta più morbida del dente italiano è tipica, non necessariamente un difetto del cuoco. Se è pappa totale, però, cambia tavolo la volta dopo."
+        },
+        {
+          "title": "Scusa formale a Napoli",
+          "body": "Il nome è un biglietto da visita falso. Come chiamare «veneziana» una pizza all'ananas e poi offrirti il caffè con un sorriso.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Western-style Japanese food (yoshoku)",
+          "url": "https://www.japan.travel/en/ph/guide/yoshoku/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — The art of yoshoku",
+          "url": "https://www.japan.travel/en/au/experience/cuisine/the-art-of-yoshoku-six-popular-western-dishes-reinvented-in-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-hayashi-rice",
+      "long": "L'hayashi rice è riso bianco con uno stufato scuro di manzo e cipolle in salsa tipo demi-glace: meno speziato del curry, più vicino a un hashed beef adattato alla tavola giapponese. Compare nei menu yoshoku, nei kissaten e nei set di caffè; a volte con uovo o panna acida. La salsa deve essere lucida e densa, non acqua color marrone; la carne tenera, le cipolle dolci. Per chi vuole comfort occidentale senza il profilo speziato del karē, è la scelta parallela. Capirlo evita di ordinarlo pensando a un curry «senza pepe»: è un'altra famiglia di sapore — vino, soia, burro, tostatura — non una versione light.",
+      "sections": [
+        {
+          "title": "Demi-glace, non roux di curry",
+          "body": "Il colore scuro e il retrogusto di manzo arrostito sono la firma. Se sa di curry dolce, ti hanno servito il piatto sbagliato o un ibrido da menu turistico."
+        },
+        {
+          "title": "Quando ordinarlo",
+          "body": "Pranzo da yoshoku-ya, cena leggera rispetto a un katsu curry, voglia di salsa da pane immaginario senza panino."
+        },
+        {
+          "title": "Segnali di cura",
+          "body": "Cipolle traslucide, salsa che non si separa, riso caldo che assorbe senza diventare fanghiglia. Porzioni troppo liquide sono la trappola da mensa frettolosa."
+        },
+        {
+          "title": "Il cugino serio del curry",
+          "body": "Mentre il curry fa amicizia con tutti, l'hayashi resta in giacca scura al tavolo del kissaten e finge di aver studiato in Francia.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Western-style Japanese food (yoshoku)",
+          "url": "https://www.japan.travel/en/ph/guide/yoshoku/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — The art of yoshoku",
+          "url": "https://www.japan.travel/en/au/experience/cuisine/the-art-of-yoshoku-six-popular-western-dishes-reinvented-in-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-all-doria",
+      "long": "Il doria è un gratin yoshoku: riso in teglia con besciamella, formaggio gratinato e un condimento — pollo, frutti di mare, carne — cotto al forno fino alla crosta dorata. Nasce nei ristoranti occidentali giapponesi del Novecento e resta piatto da caffè e da sala yoshoku più che da izakaya. Non è risotto né lasagna: il riso resta in chicchi, la besciamella fa da salsa, il formaggio fa da coperchio. Per il viaggiatore è utile quando vuole qualcosa di forno e cremoso senza prenotare un francese. Capirlo evita di aspettarci pasta: se sul menu c'è «doria», sotto c'è riso — sempre.",
+      "sections": [
+        {
+          "title": "Crosta che parla",
+          "body": "Il formaggio deve avere macchie dorate, non solo un velo bianco pale. Se arriva senza gratin reale, è un risotto travestito."
+        },
+        {
+          "title": "Contesto da forno",
+          "body": "Ideale a pranzo in yoshoku o hotel cafeteria. Meno senso a mezzanotte in izakaya: appartiene al mondo del forno e del cucchiaio."
+        },
+        {
+          "title": "Varianti da leggere",
+          "body": "Seafood, chicken, spinach: cambiano il peso, non la struttura. Se è troppo liquido in fondo, la besciamella non ha tenuto."
+        },
+        {
+          "title": "Lasagna che ha scelto il riso",
+          "body": "Qualcuno ha guardato un gratin europeo e ha detto: «togliamo la pasta, mettiamo il gohan». E ha funzionato abbastanza da restare nei menu per generazioni.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Western-style Japanese food (yoshoku)",
+          "url": "https://www.japan.travel/en/ph/guide/yoshoku/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-all-hambagu",
+      "long": "L'hambagu è hamburger senza panino: un medaglione spesso di carne macinata, cotto al centro ancora rosa o ben cotto a richiesta, servito su piastra o piatto con salsa demi-glace, a volte daikon oroshi, burro o uovo. È yoshoku da famiglia e da catena specializzata, non fast food da street. La differenza con il burger occidentale è il rito: coltello e forchetta, riso a parte, salsa che si mescola. Per chi vuole proteine senza panino né fritto è una scelta quotidiana chiara. Capirlo evita di cercarci ketchup e panino: qui la «carne macinata nobile» è il piatto, non l'interno di un sandwich.",
+      "sections": [
+        {
+          "title": "Salsa e grado di cottura",
+          "body": "Chiedi rare/medium se il locale lo propone; molte catene cuociono più a fondo per sicurezza. La demi-glace deve essere lucida, non sciroppo generico."
+        },
+        {
+          "title": "Riso a fianco",
+          "body": "Il set tipico porta riso, zuppa e contorno. Usa la salsa sul riso senza vergogna: è parte del disegno yoshoku."
+        },
+        {
+          "title": "Quando ha senso",
+          "body": "Cena con bambini, pranzo da catena nazionale, voglia di carne senza barbecue. Meno ideale se cerchi wagyu a fette: è un altro registro."
+        },
+        {
+          "title": "Hamburger che ha perso il panino e ha guadagnato una carriera",
+          "body": "Senza bun diventa «piatto da ristorante». Con il bun sarebbe stato merenda. Il marketing del vasellame è una scienza esatta.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Western-style Japanese food (yoshoku)",
+          "url": "https://www.japan.travel/en/ph/guide/yoshoku/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — The art of yoshoku",
+          "url": "https://www.japan.travel/en/au/experience/cuisine/the-art-of-yoshoku-six-popular-western-dishes-reinvented-in-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-korokke",
+      "long": "Il korokke è la crocchetta yoshoku diventata street food da macelleria e da panificio: purea di patate con carne o verdure, impanata e fritta, a volte con salsa tonkatsu o solo sale. Si compra spesso caldo in un sacchetto di carta davanti al banco; esiste anche cream korokke di frutti di mare nei ristoranti. La crosta deve spezzarsi, l'interno restare soffice e caldo — se è unto e flaccido, ha aspettato troppo sotto il calore. Per chi cammina è spuntino economico e onesto, ponte tra cena europea immaginata e merenda da quartiere. Capirlo evita di trattarlo come nugget: è comfort di patata, non di pollo industriale.",
+      "sections": [
+        {
+          "title": "Fresco di friggitrice",
+          "body": "Meglio davanti alla macelleria o al forno che lo frigge sul posto. Al konbini sopravvive, ma perde il punto croccante."
+        },
+        {
+          "title": "Patata o crema",
+          "body": "Il korokke di patate è lo standard da strada; il cream korokke è più da tavolo. Non sono intercambiabili nel gusto né nella messiness."
+        },
+        {
+          "title": "Come si mangia in piedi",
+          "body": "Salsa a parte o un filo sopra; attenzione al primo morso: l'interno scotta. Non è un piatto da tempio silenzioso — l'odore di fritto annuncia."
+        },
+        {
+          "title": "La croquette che ha preso la cittadinanza",
+          "body": "Ha un nome francese, un'anima da mensa e un passaporto da sacchetto di carta. Pochi immigrati gastronomici si sono integrati così bene.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — The art of yoshoku",
+          "url": "https://www.japan.travel/en/au/experience/cuisine/the-art-of-yoshoku-six-popular-western-dishes-reinvented-in-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-all-menchi-katsu",
+      "long": "Il menchi-katsu è una polpetta piatta di carne macinata e cipolla, impanata e fritta fino a far uscire il succo al taglio. Si trova nelle macellerie, nei tonkatsu-ya e nei bento; è più «carne» del korokke di patate e più quotidiano del tonkatsu intero. La qualità si legge dal succo: se è secco, è stato tenuto troppo o macinato male; se cola al primo taglio, sei nel rito corretto. Per il viaggiatore è uno spuntino sostanzioso da banco caldo, spesso più onesto delle cotolette teatrali da vetrina. Capirlo evita di confonderlo con un hamburger fritto da fast food: qui conta la cipolla dolce e l'impanatura sottile, non il formaggio fuso.",
+      "sections": [
+        {
+          "title": "Succo come verdetto",
+          "body": "Taglia o morda e guarda: umidità al centro. Asciutto e grigio è delusione da vetrina calda troppo piena."
+        },
+        {
+          "title": "Macelleria vs ristorante",
+          "body": "Davanti al macellaio è street; nel set con riso e zuppa diventa pasto. Stessa anima, contesti diversi."
+        },
+        {
+          "title": "Salse",
+          "body": "Tonkatsu sauce o solo sale e pepe. Troppa salsa dolce nasconde la carne: meglio poco."
+        },
+        {
+          "title": "Polpetta con ambizioni di cotoletta",
+          "body": "È l'unico fritto che finge di essere elegante solo perché l'hanno appiattita. Funziona — come gli occhiali senza lenti.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Western-style Japanese food (yoshoku)",
+          "url": "https://www.japan.travel/en/ph/guide/yoshoku/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Dinner at a Japanese tavern",
+          "url": "https://www.japan.travel/en/guide/dinner-at-a-japanese-tavern/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-nikujaga",
+      "long": "Il nikujaga è stufato di manzo (o maiale), patate e cipolle in dashi dolce di soia e mirin: il piatto che molti giapponesi associano alla cucina di casa più che al ristorante gourmet. Compare negli izakaya come okazu da condividere, nei teishoku e nelle mense; la patata deve essere cotta ma non disfatta, la carne tenera, il brodo lucido e dolce-umami. Non è un nabe da tavolo né un curry: è un contorno-piatto che sa di pentola familiare. Per il viaggiatore è un modo di assaggiare il «gusto di casa» senza entrare in un'abitazione privata. Capirlo evita di aspettarci pepe e vino rosso da boeuf bourguignon: qui vince soia e zucchero equilibrati, non la tostatura francese.",
+      "sections": [
+        {
+          "title": "Patata al centro",
+          "body": "Se le patate sono croccanti crude o pappa totale, manca la mano. Devono assorbire brodo e restare a pezzi."
+        },
+        {
+          "title": "Izakaya e casa",
+          "body": "Negli izakaya è condiviso con birra o highball; nel teishoku accompagna riso. Entrambi validi: cambia il ritmo del pasto."
+        },
+        {
+          "title": "Dolcezza controllata",
+          "body": "Deve essere dolce ma non di caramella. Se sa solo di zucchero, chiedi un altro okazu la volta dopo."
+        },
+        {
+          "title": "Comfort food con licenza poetica",
+          "body": "È il piatto che nei drama fa piangere i protagonisti. Nella vita reale fa soprattutto tornare a casa — anche se sei a tre fermate dalla pensione.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Dinner at a Japanese tavern",
+          "url": "https://www.japan.travel/en/guide/dinner-at-a-japanese-tavern/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-katsu-sando",
+      "long": "Il katsu-sando è cotoletta di maiale tra due fette di shokupan senza crosta, con salsa tonkatsu e a volte cavolo. Vive nei konbini, nei bakery di stazione, nei tonkatsu-ya da asporto e nei bento da treno: è il panino che sa di viaggio e di notte tarda. La crosta deve restare presente sotto il pane morbido; il pane non deve essere un materasso umido. Per chi ha una mano libera e un Shinkansen da prendere è più pratico del set al tavolo. Capirlo evita di cercarci un club sandwich occidentale: qui il protagonista è il katsu, il pane è solo la valigia.",
+      "sections": [
+        {
+          "title": "Pane come valigia, non come star",
+          "body": "Shokupan alto, crosta tolta, spessore generoso. Se il pane domina e la cotoletta è sottile come un segnalibro, è un sandwich deluso."
+        },
+        {
+          "title": "Konbini vs specialisti",
+          "body": "Al konbini è affidabile e freddo-giusto; dai forni e tonkatsu-ya spesso arriva ancora tiepido. Per il treno lungo, meglio fresco di banco."
+        },
+        {
+          "title": "Mess e odore",
+          "body": "La salsa può colare: carta e tovagliolo non sono optional. Su un treno affollato apri con rispetto — l'odore di fritto viaggia più di te."
+        },
+        {
+          "title": "Cotoletta con biglietto ferroviario",
+          "body": "Altri paesi mettono il prosciutto nel panino da viaggio. Qui hanno messo una cotoletta intera e hanno detto: «buon percorso».",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — How to get the most out of konbini",
+          "url": "https://www.japan.travel/en/japan-magazine/2002_konbini/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — The art of yoshoku",
+          "url": "https://www.japan.travel/en/au/experience/cuisine/the-art-of-yoshoku-six-popular-western-dishes-reinvented-in-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-yakisoba-pan",
+      "long": "Lo yakisoba-pan è un panino morbido tipo hot dog riempito di noodle yakisoba, salsa scura, aonori, beni shoga e spesso maionese. È carboidrati che abbracciano carboidrati: nasce come spuntino da panificio e konbini, non come piatto da tavola. Si mangia in mano, tra un treno e l'altro, con l'ottimismo di chi ha deciso che pasta e pane insieme siano una strategia, non un errore. La qualità dipende dai noodle ancora saporiti e dal pane che non si sfalda. Per il viaggiatore è un'istantanea del comfort food da scaffale. Capirlo evita giudizi nutrizionali: qui si cerca utilità e nostalgia da festival, non equilibrio da dietista.",
+      "sections": [
+        {
+          "title": "Noodle prima del pane",
+          "body": "Se i noodle sono freddi e stopposi, il panino è solo architettura. Cerca versioni appena farcite al forno o al konbini con turnover alto."
+        },
+        {
+          "title": "Maionese e zenzero",
+          "body": "La maionese addolcisce; il beni shoga taglia. Senza uno dei due il morso è più piatto — non obbligatori, ma utili."
+        },
+        {
+          "title": "Contesto",
+          "body": "Spuntino, non cena formale. Perfetto dopo un museo o prima di un treno locale. Meno ideale da aprire in un ryokan silenzioso."
+        },
+        {
+          "title": "Doppio carboidrato senza rimorso",
+          "body": "È la prova che in Giappone puoi mettere i noodle nel pane e nessuno chiama un mediatore. L'Europa avrebbe bisogno di tre commissioni.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — How to get the most out of konbini",
+          "url": "https://www.japan.travel/en/japan-magazine/2002_konbini/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Western-style Japanese food (yoshoku)",
+          "url": "https://www.japan.travel/en/ph/guide/yoshoku/",
+          "kind": "ente turistico"
+        }
+      ]
+    }
+  ]
+}

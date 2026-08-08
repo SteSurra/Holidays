@@ -18,3 +18,10 @@ tickets/
 
 # Local editor/preview config, not part of the guide.
 .claude/
+
+# Story pipeline scratch (batches/ are source of truth and stay tracked)
+story-work/*BRIEF.md
+story-work/*-catalog.json
+story-work/STATUS.md
+story-work/ledger.md
+story-work/audits/

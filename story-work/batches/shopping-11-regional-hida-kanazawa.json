@@ -1,0 +1,368 @@
+{
+  "meta": {
+    "batch": "shopping-11-regional-hida-kanazawa",
+    "note": "Phase 3 shopping deep stories (9). Object-to-buy focus. Overlap watch: history-takayama-sarubobo / history-shirakawago-gassho / history-kanazawa-gold-leaf / history-kanazawa-kaga-yuzen — shopping stays on foil goods, scarves, ceramics, knots, miniatures; not craft chronicles. shop-kanazawa-gold-leaf-panel is a separate catalog id (not in this batch)."
+  },
+  "schede": [
+    {
+      "id": "shop-shirakawago-sarubobo",
+      "long": "Il sarubobo che compri a Shirakawa-go è una bambolina di tessuto senza volto, tipica del Hida: amuleto domestico prima ancora che mascotte da selfie. In vetrina ne trovi di rosso classico e di colori moderni con significati diversi (amore, studio, denaro, salute): l’acquisto utile è scegliere un pezzo cucito bene, non il più glitterato. Botteghe del villaggio e souvenir shop di Ogimachi li vendono accanto a ciondoli e versioni mini; i kit fai-da-te e i centri esperienza di Takayama sono un’altra faccia dello stesso oggetto. Non è un personaggio da merchandising con occhi ricamati: l’assenza di volto è proprio ciò che lo rende amuleto, non pupazzo. In valigia pesa quasi zero; in foto, invece, tende a rubare l’inquadratura al tetto gassho.",
+      "sections": [
+        {
+          "title": "Cosa stai portando a casa",
+          "body": "Tessuto imbottito, forma a «cucciolo di scimmia», niente tratti facciali. Controlla cuciture, ripieno compatto e cordino di appendere. Se è solo stampa su plastica, stai comprando altro."
+        },
+        {
+          "title": "Colori e significati da etichetta",
+          "body": "Il rosso resta il più comune; blu, rosa, giallo e varianti recenti spesso hanno schede con auguri diversi. Leggi il cartellino in negozio invece di inventare simbologie a orecchio."
+        },
+        {
+          "title": "Villaggio, bottega o kit",
+          "body": "A Shirakawa-go lo trovi nelle botteghe lungo i percorsi pedonali; a Takayama compaiono anche esperienze di cucito. Per il souvenir «già fatto» basta un pezzo locale ben cucito, non una collezione intera."
+        },
+        {
+          "title": "Il volto che non ha voglia di essere influencer",
+          "body": "Senza occhi e sorriso, il sarubobo rifiuta di diventare personaggio animato. È un vantaggio: non ti chiederà mai un seguito su tre stagioni.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Shirakawa-go Tourist Association",
+          "url": "https://shirakawa-go.gr.jp/en/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Hands-On Town Interaction Center — Hida Takayama",
+          "url": "https://www.hida.jp/english/touristattractions/takayamacity/historyandculture/4001626.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "さるぼぼ — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%95%E3%82%8B%E3%81%BC%E3%81%BC",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-shirakawago-gassho-craft",
+      "long": "La miniatura gassho-zukuri è il tetto a mani giunte ridotto a oggetto da scaffale: legno, carta o kit di assemblaggio che riproducono la silhouette delle case di Ogimachi. Serve come souvenir architettonico, non come lezione UNESCO in tasca. In villaggio le botteghe vendono modelli pronti e pezzi da costruire; la differenza tra un lavoro locale e una plastica da fabbrica si vede in giunti, paglia o copertura del tetto, proporzioni delle falde. Scegli la scala in base alla valigia: i modelli grandi sono fotogenici e fragili; i piccoli reggono meglio lo zaino. Non confonderlo con un magnete generico «Japan village»: qui conti materiale, provenienza dichiarata e se il pezzo è fatto per essere guardato o montato.",
+      "sections": [
+        {
+          "title": "Legno, carta o plastica da stazione",
+          "body": "Cerca venature, listelli e tetto leggibile; evita miniature tutte lucide senza peso. I kit in legno o carta raccontano meglio la forma del gassho di un calco industriale."
+        },
+        {
+          "title": "Scala da ripiano, non da museo",
+          "body": "Un pezzo da 10–15 cm sta in cabina; i modelli da vetrina chiedono imballo rigido. Se deve viaggiare, preferisci pezzi compatti o kit ancora da montare a casa."
+        },
+        {
+          "title": "Dove ha senso comprarlo",
+          "body": "Le botteghe di Ogimachi e i punti souvenir legati all’associazione turistica sono il contesto naturale. Chiedi se è produzione locale o import generico con etichetta «gassho»."
+        },
+        {
+          "title": "La casa che entra nello zaino senza pagare l’IMU",
+          "body": "Pochi immobili UNESCO accettano di ridursi a dieci centimetri e di non lamentarsi della neve finta. Approfittene: è l’unico tetto ripido che non ti chiede di spalare.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Shirakawa-go Tourist Association",
+          "url": "https://shirakawa-go.gr.jp/en/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "UNESCO — Historic Villages of Shirakawa-go and Gokayama",
+          "url": "https://whc.unesco.org/en/list/734/",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "合掌造り — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%90%88%E6%8E%8C%E9%80%A0%E3%82%8A",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-takayama-ichii-itto",
+      "long": "L’ichii itto-bori di Takayama è scultura in legno di tasso (ichii) lasciata senza vernice coprente: si comprano netsuke, animali, piccole figure e accessori in cui restano visibili i colpi di scalpello e il contrasto tra cuore rossastro e alburno chiaro. È un oggetto da tenere in mano, non un racconto sui carpentieri Hida. In Sanmachi e nelle botteghe specializzate (come quelle elencate da Hida.jp) confronti pezzi piccoli da viaggio e statue da ripiano. Controlla che sia un unico blocco intagliato, non assemblaggio dipinto; la patina e la lucentezza arrivano con gli anni, non con lo spray. Per la valigia vincono portachiavi, netsuke e animaletti tascabili: stessi gesti di scalpello, meno volume.",
+      "sections": [
+        {
+          "title": "Tasso nudo, non legno dipinto",
+          "body": "La firma dell’itto-bori è il legno naturale con tracce nette di scalpello. Se il pezzo è colorato a smalto pieno o stampato, stai guardando un’altra categoria."
+        },
+        {
+          "title": "Formati che viaggiano",
+          "body": "Netsuke, ciondoli e animali da 5–8 cm sono i pezzi più realistici da riportare. Le figure grandi meritano imballo dedicato e posto in stiva o spedizione."
+        },
+        {
+          "title": "Botteghe e mani al lavoro",
+          "body": "Hida.jp punta su intagliatori e shop dove si vede ancora il banco. Chiedi se il pezzo è dell’atelier o rivendita; due pezzi «uguali» non esistono davvero."
+        },
+        {
+          "title": "Lo scalpello come firma illegibile ma onesta",
+          "body": "Ogni segno di utensile è un autografo che non si può contraffare con un font. È l’unico souvenir che migliora se qualcuno ci passa sopra le dita per anni.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Traditional Crafts — Hida Takayama (Ichii-Ittōbori)",
+          "url": "https://www.hida.jp/english/localspeciality/shopping/4000194.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Tsuda Chokoku — Hida Takayama",
+          "url": "https://www.hida.jp/english/library/4001488/4001505/index.html",
+          "kind": "produttore"
+        },
+        {
+          "title": "一位一刀彫 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E4%B8%80%E4%BD%8D%E4%B8%80%E5%88%80%E5%BD%AB",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-takayama-hida-shunkei",
+      "long": "Lo Hida shunkei è lacca trasparente ambra o cremisi stesa sul legno in modo che la venatura resti protagonista: vassoi, scatole, ciotole e accessori leggeri che sembrano legno «illuminato», non plastica lucida. A Takayama lo cerchi in Sanmachi e nelle botteghe di lacca indicate dalle guide Hida. L’acquisto intelligente confronta spessore della lacca, regolarità della superficie e se il pezzo è da uso quotidiano o da vetrina. Con gli anni il tono si approfondisce: non è un difetto. Per il viaggio preferisci vassoi piccoli, scatole piatte o portagioie: stessi gesti di lacca, meno rischio di scheggiature rispetto a grandi piatti da portata.",
+      "sections": [
+        {
+          "title": "Ambra che lascia leggere il legno",
+          "body": "La lacca shunkei non deve nascondere le venature. Se il pezzo è opaco e uniforme come una vernice da mobile IKEA, non è lo stesso mestiere."
+        },
+        {
+          "title": "Uso da tavola o pezzo da mensola",
+          "body": "Chiedi se resiste a cibo asciutto, se teme immersioni prolungate e come pulirlo. Vassoi e scatole piccole sono i compromessi migliori tra bellezza e bagaglio."
+        },
+        {
+          "title": "Botteghe di lacca a Takayama",
+          "body": "Le pagine Hida sulle specialty locali elencano tipici shikkiten. Confronta due o tre pezzi simili: nessun esemplare è identico, e il prezzo segue mano e dimensioni."
+        },
+        {
+          "title": "La lacca che invecchia meglio di noi",
+          "body": "Mentre i tuoi jeans sbiadiscono nel verso sbagliato, lo shunkei spesso guadagna profondità. È l’unico acquisto che ti fa sembrare giovane per contrasto.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Traditional Crafts — Hida Takayama (Hida Shunkei)",
+          "url": "https://www.hida.jp/english/localspeciality/shopping/4000194.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "飛騨春慶 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E9%A3%9B%E9%A8%B7%E6%98%A5%E6%85%B6",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Hida Takayama Official Travel Guide",
+          "url": "https://www.hida.jp/english/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-kanazawa-gold-leaf",
+      "long": "A Kanazawa la foglia d’oro si compra come oggetto finito: piattini dorati, portacarte, cornici, cosmetici con lamina, piccoli accessori e set da regalo — non come saggio sulla battitura. Higashi Chaya e i flagship di produttori come Hakuichi o botteghe specializzate (Sakuda, Hakuza e simili) sono i punti tipici dove confrontare qualità di applicazione e spessore percepito. Preferisci pezzi in cui la lamina è stesa su supporto solido e protetta, non gadget «gold look» senza peso. Evita di sfregare la superficie con le dita: la foglia vera è sottile fino a sparire. Per la valigia contano imballo antiflessione e pezzi piatti; i laboratori «prova a dorare» sono esperienza a parte, utili se vuoi capire il gesto prima di spendere su un pezzo serio.",
+      "sections": [
+        {
+          "title": "Lamina su oggetto, non glitter da festa",
+          "body": "Cerca bordi netti, adesione uniforme e marchio o nome del produttore. Se il dorato si sfalda al primo tocco o sembra vernice spray, lascia stare."
+        },
+        {
+          "title": "Cosa porta bene il viaggio",
+          "body": "Piattini, sottobicchieri, piccoli pannelli e accessori piatti viaggiano meglio di sculture irregolari. Chiedi una scatola o un foglio protettivo: la lamina odia lo sfregamento nello zaino."
+        },
+        {
+          "title": "Shop specializzati vs souvenir generico",
+          "body": "Visit Kanazawa elenca l’oro tra i craft cittadini; i negozi di foglia spiegano spesso se il pezzo è edible-grade, cosmetico o decorativo. Tre categorie diverse, tre usi diversi."
+        },
+        {
+          "title": "L’unico metallo che scompare se lo accarezzi troppo",
+          "body": "Altri souvenir si usurano; la foglia d’oro può evaporare sotto il pollice entusiasta. È lusso con istruzioni da farfalla: ammirare sì, strofinare no.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Traditional Craft of Kanazawa — Visit Kanazawa",
+          "url": "https://visitkanazawa.jp/en/crafts",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Hakuichi — Kanazawa gold leaf",
+          "url": "https://enkanazawa.hakuichi.co.jp/",
+          "kind": "produttore"
+        },
+        {
+          "title": "金沢箔 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E9%87%91%E6%B2%A2%E7%AE%94",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-kanazawa-kaga-yuzen",
+      "long": "Il Kaga yuzen da portare a casa è soprattutto accessorio: foulard, sciarpe, ventagli decorativi, piccole arazzi e pezzi pronti venduti nei centri e nelle gallerie associate — non un kimono completo a meno che tu non abbia budget e valigia da collezionista. Cerchi seta con colori Kaga (indaco, cremisi, ocra, verde scuro, viola) e motivi naturalistici dipinti, spesso senza eccesso di foglia d’oro. Il Kaga Yuzen Kimono Center e le botteghe citate da Visit Kanazawa vendono pezzi piccoli e certificati; chiedi del marchio o del timbro di autenticità quando il prezzo sale. In valigia la seta vuole piega morbida e busta, non compressione sotto le scarpe. L’obiettivo è un rettangolo di tessuto firmato dalla scuola di Kaga, non un manifesto sulla storia della tintura.",
+      "sections": [
+        {
+          "title": "Foulard e pezzi tascabili",
+          "body": "Sciarpe, furoshiki decorativi, ventagli e mini-pannelli sono il modo realistico di «comprare yuzen». Il kimono intero è un altro progetto di vita (e di dogana emotiva)."
+        },
+        {
+          "title": "Timbro, nome atelier, materiale",
+          "body": "Sulla fascia alta chiedi certificazione o nome del tintore. Sulla fascia media confronta mano della seta e nitidezza dei contorni: la pasta di riso lascia campi di colore puliti, non sbavature casuali."
+        },
+        {
+          "title": "Dove comprarlo a Kanazawa",
+          "body": "Il Kimono Center e le gallerie/atelier in città mescolano mostra e vendita. Evita magliette stampate «yuzen style» vendute come se fossero tintura a mano."
+        },
+        {
+          "title": "La sciarpa che fa sembrare il kimono un abbonamento annuale",
+          "body": "Con un foulard otieni il 90% dell’effetto «ho toccato il Kaga yuzen» e il 10% del peso. Il kimono completo resta per chi ha già risolto dove appenderlo a casa.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Kaga Yuzen — official association site",
+          "url": "https://www.kagayuzen.or.jp/index_en/",
+          "kind": "associazione"
+        },
+        {
+          "title": "Traditional Craft of Kanazawa — Visit Kanazawa",
+          "url": "https://visitkanazawa.jp/en/crafts",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Kaga Yuzen — KOGEI JAPAN",
+          "url": "https://kogeijapan.com/locale/en_US/kagayuzen/",
+          "kind": "catalogo artigianato"
+        }
+      ]
+    },
+    {
+      "id": "shop-kanazawa-kutani",
+      "long": "La Kutani da acquistare è porcellana da tavola o da mensola: piattini, bicchieri, ciotole, piccoli vasi con overglaze saturo — verde, giallo, viola, blu, rosso — tipico della filiera di Ishikawa meridionale e dei punti vendita a Kanazawa. Non stai comprando un saggio sul feudo Maeda: stai scegliendo un pezzo firmato da forno o studio, tradizionale o contemporaneo. Confronta peso, nitidezza del disegno sopra smalto e se il pezzo è food-safe. Le ceramiche grosse chiedono imballo a bolle; i piattini e le tazzine sono il compromesso classico. Visit Kanazawa e i forni Kutani (anche a Kaga/Komatsu) aiutano a distinguere pezzi di linea da souvenir stampati «alla maniera di».",
+      "sections": [
+        {
+          "title": "Cinque colori sul bianco",
+          "body": "L’overglaze Kutani si riconosce per saturazione e contrasto sul corpo di porcellana. Pezzi solo beige senza smalto colorato possono essere belle ceramiche — ma non la Kutani che cerchi."
+        },
+        {
+          "title": "Firma di forno e uso in cucina",
+          "body": "Guarda marchio sul fondo, nome dello studio e indicazioni di lavaggio. Un piattino firmato vale spesso più di un vaso anonimo enorme."
+        },
+        {
+          "title": "Kanazawa vs Kaga production towns",
+          "body": "In città compri facilmente; nei forni a sud della prefettura vedi anche la linea produttiva. Entrambe le strade sono legittime se il pezzo dichiara provenienza."
+        },
+        {
+          "title": "La porcellana che urla in cinque canali",
+          "body": "Mentre altre ceramiche sussurrano «minimal», la Kutani alza il volume cromatico. È l’unico souvenir che compete con i tuoi vestiti colorati e di solito vince.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Traditional Craft of Kanazawa — Visit Kanazawa",
+          "url": "https://visitkanazawa.jp/en/crafts",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "九谷焼 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E4%B9%9D%E8%B0%B7%E7%84%BC",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "KANAZAWA ICHIGO ICHIE — crafts (Visit Kanazawa)",
+          "url": "https://visitkanazawa.jp/en/ichigo-ichie",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-kanazawa-mizuhiki",
+      "long": "Il mizuhiki di Kaga da shopping è il cordoncino di carta ritorto e indurito, annodato in forme augurali — gru, tartarughe, pino, bambù, pruno — spesso con fili oro e argento abbondanti rispetto ad altre scuole. Si compra come decorazione da regalo, piccolo ornamento da parete o oggetto da cerimonia, distinto dai gioielli indossabili (che hanno una scheda propria). Nei centri e nelle botteghe di Kanazawa confronti nodi tridimensionali e pezzi piatti da biglietto. Controlla tenuta dei nodi, finitura metallica e se il pezzo teme l’umidità. In valigia i piccoli nodi e le composizioni compatte vincono sui grandi pannelli da engi-mono.",
+      "sections": [
+        {
+          "title": "Nodo da regalo, non filo da maglia",
+          "body": "Il mizuhiki è carta trattata, non corda tessile. Cerca torsione regolare, colori tipici e forme simboliche leggibili; i pezzi Kaga amano spesso metallo foglia."
+        },
+        {
+          "title": "Engi vs pezzo da mensola",
+          "body": "Alcuni oggetti sono pensati per accompagnare un dono; altri sono sculture da esporre. Chiedi se si appende, si appoggia o si lega a una confezione."
+        },
+        {
+          "title": "Umidità e mani unte",
+          "body": "Acqua e grasso indeboliscono i nodi. Meglio una bustina e uno scaffale asciutto che un bagno di vapore in bagno dell’hotel."
+        },
+        {
+          "title": "L’unico filo che festeggia i matrimoni senza dover ballare",
+          "body": "Il mizuhiki partecipa alle cerimonie restando immobile e photogenico. Carriera da invitato ideale: presente, elegante, zero discorso da testimone.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Traditional Craft of Kanazawa — Kaga mizuhiki (Visit Kanazawa)",
+          "url": "https://visitkanazawa.jp/en/crafts",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "水引 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E6%B0%B4%E5%BC%95",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Visit Kanazawa — crafts overview",
+          "url": "https://visitkanazawa.jp/en/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-kanazawa-kaga-mizubiki-jewelry",
+      "long": "I gioielli in Kaga mizuhiki sono orecchini, spille, fermagli e ciondoli costruiti con gli stessi cordoncini di carta annodati, ma pensati per stare sul corpo: leggeri, colorati, spesso con dettagli oro/argento. Si cercano in centro e a Higashi Chaya presso atelier e shop craft, non nei banchetti di bigiotteria generica. Controlla chiusura metallica, protezione della carta (vernice o trattamento), lunghezza dei ganci e se il pezzo teme pioggia. A differenza del mizuhiki da confezione, qui conta comfort all’orecchio e stabilità del nodo sotto movimento. In valigia vanno in una scatolina piccola: schiacciarli sotto un libro è il modo più rapido di trasformare un nodo augurale in spaghetti.",
+      "sections": [
+        {
+          "title": "Indossabile, non da pacco regalo",
+          "body": "Orecchini e spille devono avere hardware solido e peso bilanciato. Se il cordoncino è solo appoggiato senza struttura, durerà quanto la prima ventata."
+        },
+        {
+          "title": "Acqua, parrucco, zaino",
+          "body": "Chiedi se è trattato contro umidità leggera. Evita doccia, pioggia battente e compressione: è carta elegante, non titanio."
+        },
+        {
+          "title": "Atelier vs bancarella",
+          "body": "Nei quartieri chaya e nei craft shop cittadini trovi pezzi firmati da laboratori locali. Confronta simmetria dei nodi e pulizia dei tagli dei fili."
+        },
+        {
+          "title": "Il regalo che pesa meno di un rimorso",
+          "body": "Pochi souvenir da orecchio combinano simbolismo nuziale e grammi da piuma. Ideale per chi vuole «artigianato di Kanazawa» senza aggiungere un secondo bagaglio.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Traditional Craft of Kanazawa — Kaga mizuhiki (Visit Kanazawa)",
+          "url": "https://visitkanazawa.jp/en/crafts",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Visit Kanazawa — activities / crafts",
+          "url": "https://visitkanazawa.jp/en/activities/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "水引 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E6%B0%B4%E5%BC%95",
+          "kind": "enciclopedia"
+        }
+      ]
+    }
+  ]
+}

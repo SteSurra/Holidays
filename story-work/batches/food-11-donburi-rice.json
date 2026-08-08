@@ -1,0 +1,358 @@
+{
+  "meta": {
+    "batch": "food-11-donburi-rice",
+    "note": "National rice bowls and everyday gohan formats (donburi, ochazuke, breakfast, inari). Walking-phone angles; chain logistics without brand worship."
+  },
+  "schede": [
+    {
+      "id": "food-all-gyudon",
+      "long": "Il gyudon è la ciotola che ha insegnato al pendolare giapponese a mangiare in dieci minuti senza sembrare in fuga. Fettine sottili di manzo e cipolla stufate in un brodo dolce-salato di soia, mirin e dashi finiscono su riso caldo; sopra, a richiesta, uovo crudo, zenzero rosso, shichimi. Le catene nazionali — banconi, ticket machine, posti stretti — lo hanno reso infrastruttura quanto il konbini: prezzo leggibile, porzioni standard, coda che scorre. Non è yakiniku né sukiyaki da tavolo: è meat-over-rice pensato per chi ha un treno e poca pazienza. La carne deve essere tenera e il brodo deve avere già bagnato i chicchi sotto; se vedi solo pezzi secchi su riso bianco, hai preso il turno sbagliato. Per il viaggiatore è la lezione più onesta sul comfort food urbano: niente teatro, massima efficienza, sapore che torna uguale a Osaka come a Sapporo.",
+      "sections": [
+        {
+          "title": "Ticket prima del tavolo",
+          "body": "Nelle catene si compra al distributore o allo schermo: scegli dimensione della ciotola, extra uovo o formaggio, poi consegni il scontrino. Non serve improvvisare italiano alla cassa."
+        },
+        {
+          "title": "Cosa deve fare il brodo",
+          "body": "Il liquido dolce-umami deve scendere nel riso. Se la ciotola è «asciutta» e la carne siede come un cappello, manca metà del piatto. Un filo di shichimi o beni shoga taglia la dolcezza."
+        },
+        {
+          "title": "Quando ha senso",
+          "body": "Pranzo tra due treni, cena tardi vicino alla stazione, fame da cammino senza voglia di prenotare. Meno ideale come «cena speciale»: qui vince la ripetibilità, non la sorpresa."
+        },
+        {
+          "title": "Il manzo democratico",
+          "body": "Pochi piatti nazionali riescono a far sembrare un pranzo da ufficio un gesto culturale. Il gyudon ci riesce perché nessuno finge che sia haute cuisine — e proprio per questo funziona.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Where to eat donburi in Japan",
+          "url": "https://www.japan.travel/en/blog/real-local-food-where-to-eat-donburi-in-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy overview",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-oyakodon",
+      "long": "L'oyakodon è un gioco di parole servito caldo: oya (genitore) e ko (figlio) perché pollo e uovo condividono la stessa ciotola. Il petto o la coscia a pezzi si cuociono con cipolla in dashi-soia-mirin; l'uovo si versa sopra e si fa rappprendere appena, lasciando zone ancora cremose. Poi tutto scivola sul riso. Non è una frittata né un curry: è un equilibrio tra brodo leggero e proteine morbide, tipico dei ristoranti di quartiere e delle sale mensa dei grandi magazzini. Il nome aiuta a ricordarlo, ma il gesto utile è un altro: mescolare leggermente così che l'uovo bagni i chicchi senza trasformare tutto in pappa. Per chi cammina è un pranzo caldo, non fritto, che sazia senza l'odore di olio del tonkatsu. Se l'uovo è cotto duro come un omelette da buffet, hai perso la firma del piatto.",
+      "sections": [
+        {
+          "title": "Uovo come salsa, non come omelette",
+          "body": "Deve restare lucido e appena rappreso. Se vedi un disco giallo compatto, chiedi versioni più «soft» la volta dopo o scegli un locale che lo annuncia come especialità."
+        },
+        {
+          "title": "Dashi sotto il nome simpatico",
+          "body": "Il brodo deve sapere di soia dolce e katsuobushi, non di acqua colorata. La cipolla traslucida è un buon segnale: ha lavorato nel liquido."
+        },
+        {
+          "title": "Contesto d'uso",
+          "body": "Ideale a pranzo in un donburi-ya o in un set teishoku. Meno adatto da asporto lungo: l'uovo continua a cuocere e diventa gomma."
+        },
+        {
+          "title": "Dramma familiare in ciotola",
+          "body": "È l'unico piatto in cui genitore e figlio finiscono nello stesso brodo e nessuno al tavolo trova la metafora inquietante. Il marketing linguistico giapponese vince ancora.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "MAFF — Oyako don (Japan Cuisine)",
+          "url": "https://www.maff.go.jp/e/policies/market/japan-cuisine/japan/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Donburi guide",
+          "url": "https://www.japan.travel/en/blog/real-local-food-where-to-eat-donburi-in-japan/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-katsudon",
+      "long": "Il katsudon prende il tonkatsu — cotoletta di maiale impanata — e lo riconsegna al mondo del donburi: strisce di katsu, cipolla e uovo in brodo dolce-salato sopra riso. La crosta si ammorbidisce, la carne resta succosa, l'uovo fa da collante. Non è «tonkatsu con riso a parte»: è un piatto diverso, più umido e più da cucchiaio-bacchette. Si trova nei tonkatsu-ya che offrono anche la versione don, nei ristoranti di stazione e nei teishoku. Per lo studente e per chi ha appena finito un esame esiste una leggenda semiseria sul «katsu» che suona come «vincere»: il piatto diventa portafortuna più che nutrizione. Per il viaggiatore conta di più la texture: se cerchi croccantezza pura ordina il set tonkatsu; se vuoi calore e salsa che scende nel riso, il katsudon è la scelta corretta.",
+      "sections": [
+        {
+          "title": "Due piatti, due missioni",
+          "body": "Tonkatsu al piatto vuole crosta secca e salsa a parte. Katsudon vuole crosta che beve brodo. Non giudicare l'uno con le regole dell'altro."
+        },
+        {
+          "title": "Segnali al banco",
+          "body": "Uovo ancora lucido, cipolla dolce, riso che non resta bianco sotto. Se il katsu è già molle da ore in vetrina, meglio un locale che lo frigge e lo assembla al momento."
+        },
+        {
+          "title": "Porzione e ritmo",
+          "body": "È pesante: spesso basta da solo. Accompagnalo con zuppa di miso e sottaceti, non con un secondo fritto «per assaggiare»."
+        },
+        {
+          "title": "Esami e superstizione fritta",
+          "body": "Mangiare katsu prima di un test è folklore nazionale: la linguistica fa da condimento. Funziona meglio dell'amuleto solo se hai anche studiato.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Donburi guide",
+          "url": "https://www.japan.travel/en/blog/real-local-food-where-to-eat-donburi-in-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — The art of yoshoku",
+          "url": "https://www.japan.travel/en/au/experience/cuisine/the-art-of-yoshoku-six-popular-western-dishes-reinvented-in-japan/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-tendon",
+      "long": "Il tendon è tempura che ha deciso di diventare pranzo completo: gamberi e verdure fritte posate su riso, con una salsa tentsuyu dolce-salata versata sopra o a parte. La crosta deve arrivare ancora viva; il riso sotto assorbe il liquido senza diventare pappa. Non è un assortimento di tempura da condividere al tavolo: è formato individuale, tipico dei tempura-ya veloci e dei menu teishoku. La gerarchia dei pezzi conta — un ebi grosso, melanzana, kabocha, shiso — e la salsa non deve annegare tutto in un brodo marrone. Per chi cammina è utile perché unisce fritto e carboidrato in una ciotola sola, senza dover gestire tre piatti. Se la tempura è flaccida e lucida di olio vecchio, il tendon tradisce subito: qui non c'è demi-glace che nasconda il problema.",
+      "sections": [
+        {
+          "title": "Salsa dosata, non piscina",
+          "body": "Il tentsuyu deve glassare, non allagare. Molti locali lo versano al momento: se preferisci croccantezza massima, chiedi la salsa a parte quando possibile."
+        },
+        {
+          "title": "Pezzi che parlano",
+          "body": "Gambero dritto e crosta fine sono un buon segnale. Verdure troppo grosse e pastella spessa spesso nascondono cottura frettolosa."
+        },
+        {
+          "title": "Orario utile",
+          "body": "Pranzo nei tempura-ya di quartiere o di stazione. A cena tardi il rischio di olio stanco cresce: meglio locali con coda di locali, non vetrine semivuote."
+        },
+        {
+          "title": "Il fritto che vuole educazione",
+          "body": "È l'unico pranzo in cui ti invitano a rovinare deliberatamente la croccantezza con la salsa — e se non lo fai sembri tu quello strano.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Donburi guide",
+          "url": "https://www.japan.travel/en/blog/real-local-food-where-to-eat-donburi-in-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy overview",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-unadon",
+      "long": "L'unadon è anguilla d'acqua dolce grigliata e laccata di tare dolce-salata, servita su riso in ciotola — cugina più informale dell'unaju in scatola lacca. La pelle deve avere note di carbone; la carne resta grassa e morbida; la salsa lucida senza diventare sciroppo da pancake. In estate il piatto si lega al folklore del «giorno del bue» e alla reputazione di cibo che dà stamina contro l'afa, ma si mangia tutto l'anno nei locali specializzati. Non è street food da spiedino: vuole seduta, prezzo più alto del gyudon, e spesso una coda. Per il viaggiatore la scelta utile è capire la differenza tra unagi e anago (mare, più delicata) e non aspettarsi un pesce «magro da dieta». Se l'anguilla è secca o solo dolce senza fumo, stai pagando la leggenda invece della griglia.",
+      "sections": [
+        {
+          "title": "Ciotola o scatola",
+          "body": "Unadon = ciotola; unaju = scatola. Stesso gesto di base, presentazione e spesso porzione diverse. Hitsumabushi (più tipico di Aichi) è un rito a tre fasi a parte."
+        },
+        {
+          "title": "Cosa ascoltare dal pezzo",
+          "body": "Profumo di brace, grasso che luccica, tare che non grida solo zucchero. Sansho a parte aiuta a tagliare la ricchezza."
+        },
+        {
+          "title": "Stagione e portafoglio",
+          "body": "Estate e folklore spingono la domanda; prezzo e qualità variano molto. Meglio un locale specializzato che un «unagi» generico da menu turistico lunghissimo."
+        },
+        {
+          "title": "Marketing del XVIII secolo",
+          "body": "Una leggenda da venditore di anguille ha convinto un paese intero che mangiare unagi in un giorno preciso batte l'afa. Pochi slogan sopravvivono così a lungo senza PowerPoint.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Donburi / una-don",
+          "url": "https://www.japan.travel/en/blog/real-local-food-where-to-eat-donburi-in-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Summer foods (unagi)",
+          "url": "https://www.japan.travel/en/sg/story/food-you-must-try-when-visiting-japan-summer/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-ochazuke",
+      "long": "L'ochazuke è riso su cui si versa tè verde caldo o dashi leggero, con toppings che sembrano piccoli: salmone, umeboshi, nori, wasabi, sesamo, tarako. Nasce come modo gentile di finire il riso o di chiudere una cena all'izakaya senza ordinare un altro fritto. Non è zuppa di riso da malato: è un gesto di comfort controllato, dove il liquido deve scaldare i chicchi senza annullarli. I kit in bustina da konbini e i versioni da ryokan raccontano due estremi — praticità e cura — ma l'idea resta la stessa. Per il viaggiatore è utile dopo un pasto abbondante o come cena leggera quando lo stomaco chiede tregua. Se ti versano un mare di acqua senza aroma, non è ochazuke: è riso bagnato. Il tè o il dashi devono avere carattere.",
+      "sections": [
+        {
+          "title": "Chiusura da izakaya",
+          "body": "Spesso arriva verso fine serata, quando il tavolo ha già visto yakitori e birra. Non è antipasto: è atterraggio morbido."
+        },
+        {
+          "title": "Topping che contano",
+          "body": "Umeboshi dà acidità, salmone affumicato o grigliato dà corpo, nori croccante dà aroma. Wasabi poca: si scioglie nel liquido e colpisce dopo."
+        },
+        {
+          "title": "Versione viaggio",
+          "body": "In hotel o konbini i kit istantanei funzionano; nei locali buoni il tè è appena fatto. Evita di farlo diventare una minestra: versa, assaggia, aggiungi."
+        },
+        {
+          "title": "Il tè che fa da secondo",
+          "body": "Altre cucine mettono il tè a fine pasto in tazza. Qui lo versano sul riso e lo promuovono a pietanza. Carriera verticale impressionante per una foglia.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Gastronomy overview",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Japanese food etiquette",
+          "url": "https://www.japan.travel/en/guide/japanese-food-etiquette/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-takikomi-gohan",
+      "long": "Il takikomi gohan è riso cotto insieme agli ingredienti — non mescolato dopo — in dashi, soia e mirin: funghi, takenoko, castagne, pollo, radici di stagione. Ogni chicco esce colorato e profumato; la pentola o il rice cooker fanno il lavoro lento. Non è pilaf europeo né risotto: è la grammatica washoku del «cuocere dentro» tipica di casa, ryokan e ristoranti di cucina casalinga. Le versioni stagionali cambiano più del menu fisso: primavera di germogli di bambù, autunno di matsutake o castagne, inverno di radici. Per chi viaggia è un segnale di cucina attenta quando compare nel set colazione o nel teishoku: dice che qualcuno ha pensato al calendario, non solo al fritto. Se il riso è bianco e i pezzi sono sparsi sopra come decorazione, non è takikomi: è riso con contorno.",
+      "sections": [
+        {
+          "title": "Stagione nel chicco",
+          "body": "Guarda colore e pezzi: funghi scuri, bambù chiaro, carote a stellina. Il profumo di dashi deve arrivare prima della soia aggressiva."
+        },
+        {
+          "title": "Dove lo incontri",
+          "body": "Colazioni ryokan, mensa di department store, ristoranti home-style, a volte ekiben regionali. Raro come street food da mano."
+        },
+        {
+          "title": "Differenza utile",
+          "body": "Maze gohan si mescola dopo la cottura; takikomi cuoce tutto insieme. Entrambi sono buoni, ma la texture e l'assorbimento del brodo cambiano."
+        },
+        {
+          "title": "Il rice cooker come drammaturgo",
+          "body": "Un elettrodomestico da bancone fa maturare l'intero atto unico mentre tu fai altro. Pochi spettacoli teatrali hanno una regia così silenziosa.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "MAFF — Takenoko-gohan / takikomi tradition",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/6393/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-all-tamago-kake-gohan",
+      "long": "Il tamago kake gohan — TKG per gli affezionati — è uovo crudo sbattuto sul riso caldo con un filo di salsa di soia: il calore cuoce appena il contatto, il resto resta setoso. In Giappone le uova da consumo crudo seguono filiere e controlli diversi da molti paesi europei; qui il gesto è quotidiano, da colazione casalinga più che da ristorante stellato. Si arricchisce con nori, cipollotto, furikake, a volte burro o brodo. Non è «uovo alla coque spezzato»: è emulsione povera e precisissima. Per il viaggiatore conta la fiducia nella filiera locale e il contesto — ryokan, kissaten mattutini, banconi che lo propongono esplicitamente. Se hai dubbi sulla sicurezza delle uova del tuo paese d'origine, non importare l'abitudine a casa alla cieca: il piatto è culturale quanto microbiologico.",
+      "sections": [
+        {
+          "title": "Gesto minimo",
+          "body": "Rompi l'uovo sul riso, mescola in fretta, aggiungi soia a gocce. Troppa soia lo trasforma in riso salato; troppo poco e resta piatto."
+        },
+        {
+          "title": "Contesto sicuro per il viaggio",
+          "body": "Ordinalo dove è previsto dal menu o dalla colazione dell'alloggio. Evita improvvisazioni con uova di origine dubbia comprate a caso."
+        },
+        {
+          "title": "Varianti da banco",
+          "body": "Furikake, mentaiko, olio di sesamo: accessori. La star resta l'uovo fresco e il riso appena cotto."
+        },
+        {
+          "title": "Colazione da laboratorio",
+          "body": "È l'unico piatto in cui la ricetta sembra uno scherzo da studentato e invece è un pilastro nazionale. Tre ingredienti, zero pentole, massimo orgoglio.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Breakfast options",
+          "url": "https://www.japan.travel/en/japan-magazine/breakfast-options-to-fit-your-travel-plans/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy overview",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-japanese-breakfast",
+      "long": "La colazione giapponese washoku non è un pancake con sciroppo: è un set piccolo e completo — riso, zuppa di miso, pesce grigliato o uovo, nori, sottaceti, a volte natto o un pezzo di omelette dashimaki. Arriva nei ryokan, in alcuni hotel business e nei kissaten che ancora servono «morning set» all'occidentale accanto a versioni più locali. L'idea è equilibrio e umami leggero, non picco di zucchero. Per chi arriva da colazioni solo caffè-cornetto può sembrare una cena in miniatura: è normale. Il vantaggio in viaggio è partire già sazi senza cercarsi un konbini dieci minuti dopo. Il rischio è sottovalutare il natto o i sottaceti e lasciarli: meglio assaggiare poco di tutto che ricostruire un brunch europeo sul vassoio.",
+      "sections": [
+        {
+          "title": "Grammatica del vassoio",
+          "body": "Riso al centro del rito, miso come caldo liquido, pesce o proteina, tsukemono per acidità. Non serve mangiare in un ordine sacro, ma ha senso alternare bocconi."
+        },
+        {
+          "title": "Dove ordinarla",
+          "body": "Ryokan e hotel che la includono; alcuni ristoranti la servono fino a tarda mattina. In città grandi il «morning» da caffè può essere toast e uova: leggi il menu."
+        },
+        {
+          "title": "Natto senza panico",
+          "body": "Se c'è, mescola bene la salsa e prova un boccone con riso. Non è obbligatorio amarlo; è obbligatorio non giudicarlo dall'odore a mezzo metro."
+        },
+        {
+          "title": "La cena camuffata da mattina",
+          "body": "Pesce, alga e zuppa alle otto sono il modo giapponese di dire che la giornata merita rispetto. Il croissant trema, ma sopravvive nei bakery accanto.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Breakfast options",
+          "url": "https://www.japan.travel/en/japan-magazine/breakfast-options-to-fit-your-travel-plans/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy overview",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-inarizushi",
+      "long": "L'inarizushi è un sacchetto di aburaage — tofu fritto — marinato dolce-salato e riempito di riso acidulo da sushi, a volte con sesamo o un filo di verdura. Si mangia freddo, con le mani, senza wasabi obbligatorio, e viaggia bene in un bento o in un pezzo da asporto vicino ai santuari Inari, dove la volpe messaggera è legata al tofu fritto come offerta preferita. Non è nigiri di pesce: è snack di tempio e di picnic, economico e ripetibile. La regione cambia la dolcezza della marinatura e la forma del sacchetto — più chiuso o più a barchetta — ma l'idea resta: carboidrato protetto da una «pelle» dolce. Per il viaggiatore è utile quando vuoi sushi senza fila al banco del pesce e senza crudo. Se l'aburaage è stopposo o il riso scialbo, è merce da scaffale stanco: meglio panetterie di sushi e negozi vicino ai santuari con ricambio alto.",
+      "sections": [
+        {
+          "title": "Mani e picnic",
+          "body": "Si mangia senza bacchette cerimoniali. Ideale per cammini verso un torii rosso o per un pranzo su una panchina di stazione."
+        },
+        {
+          "title": "Dolcezza della «pelle»",
+          "body": "L'aburaage deve essere morbido e lucido di marinade, non cartone fritto. Il riso dentro resta distinto: chicchi aciduli, non pappa."
+        },
+        {
+          "title": "Geografia soft",
+          "body": "Vicino ai santuari Inari è quasi un souvenir edibile; in città compare nei pack di sushi da supermercato. Le versioni artigianali valgono la piccola coda."
+        },
+        {
+          "title": "Il sushi preferito dalle volpi",
+          "body": "Quando la mitologia locale ti dice che le volpi adorano il tofu fritto, il mercato risponde riempiendolo di riso. Sinergia teologica-gastronomica impeccabile.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Toyokawa Inari (inari zushi context)",
+          "url": "https://www.japan.travel/en/spot/1216/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy overview",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    }
+  ]
+}

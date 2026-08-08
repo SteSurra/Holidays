@@ -1,0 +1,368 @@
+{
+  "meta": {
+    "batch": "food-07-nara",
+    "note": "Phase 2 Nara food deep stories (9). Dish culture; Visit Nara / MAFF / JNTO. Distinct from place logistics (park deer, temples)."
+  },
+  "schede": [
+    {
+      "id": "food-nara-kakinoha",
+      "long": "Il kakinoha-zushi è sushi pressato avvolto in foglia di cachi: un morso di riso acidulo e pesce (sgombro o salmone) che viaggia grazie ai tannini della foglia. Nato nelle zone di Yoshino e Gojō, dove il pesce salato arrivava dall'interno senza mare vicino, è diventato specialità di tutta Nara — da festa, da asporto, da bancone. Si apre togliendo la foglia (non si mangia) e si assaggia a temperatura ambiente: il profumo verde-amarelli della foglia resta sul pesce. Non è nigiri di città portuale; è un pacchetto da pellegrino e da matsuri, compatto e aromatico. Se il pesce è solo salato senza acidità, o la foglia è secca e senza odore, siete davanti a una versione stanca. I buoni pezzi tengono forma, lucentezza e un retrogusto di bosco.",
+      "sections": [
+        {
+          "title": "Foglia come custodia",
+          "body": "I tannini aiutano la conservazione e lasciano un aroma. La foglia si toglie prima di mangiare: è involucro, non verdura. Se manca del tutto, non è kakinoha."
+        },
+        {
+          "title": "Sgombro o salmone",
+          "body": "Lo sgombro è la voce storica; il salmone è più dolce e popolare oggi. Provate entrambi se il set lo permette: capite subito la differenza di grasso e acidità."
+        },
+        {
+          "title": "Quando e dove",
+          "body": "Negozi specializzati, stazioni, pranzi da asporto. Perfetto in giornata di templi: si mangia senza sala e senza fretta di sashimi ghiacciato."
+        },
+        {
+          "title": "Il sushi che si veste di albero",
+          "body": "Altri mettono l'alga. A Nara mettono una foglia di cachi e la chiamano pranzo. Packaging forestale ante litteram, con profumo incluso.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Flavors of Nara — Visit Nara",
+          "url": "https://www.visitnara.jp/lists-and-stories/story/flavors-of-nara-discover-the-regions-unique-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-nara-miwa-somen",
+      "long": "Il Miwa sōmen è il noodle sottilissimo legato all'acqua e alle officine intorno al monte Miwa, a Sakurai. Filo bianchissimo, sezione da capello, cotto in un attimo: d'estate si mangia freddo con tsuyu; d'inverno diventa nyūmen in brodo leggero con verdure di montagna. La tradizione locale lo presenta come uno dei sōmen più antichi del Giappone, portato e affinato quando il Kansai imparava i noodle dal continente. In bocca deve essere elastico e pulito, non pastoso; il brodo o la salsa non devono coprire il grano. Si trova in ristoranti specializzati e come souvenir in casse eleganti. Se i fili si spezzano in poltiglia, l'acqua bolliva troppo o la cottura è andata lunga. È un piatto di precisione, non di condimenti urlati.",
+      "sections": [
+        {
+          "title": "Freddo e caldo",
+          "body": "Estate: ciotola di ghiaccio, immersione rapida, salsa a parte. Inverno: nyūmen, brodo dashi, verdure. Stesso noodle, due personalità."
+        },
+        {
+          "title": "Acqua e filo",
+          "body": "La reputazione di Miwa passa dall'acqua soft e dalla lavorazione a mano o semi-artigianale. Cercate etichette che dichiarano Miwa / Sakurai, non un generico «sōmen»."
+        },
+        {
+          "title": "Come mangiarlo",
+          "body": "Non lasciatelo riposare nell'acqua di cottura. Scolato e raffreddato bene, o immerso nel brodo al momento. Un pezzo di yuzu o cipollotto basta."
+        },
+        {
+          "title": "Il noodle più sottile dell'argomento",
+          "body": "Se riuscite a raccoglierne uno solo con le bacchette senza farlo scappare, meritate un diploma. Il Miwa sōmen è uno sport olimpico camuffato da pranzo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Flavors of Nara — Visit Nara",
+          "url": "https://www.visitnara.jp/lists-and-stories/story/flavors-of-nara-discover-the-regions-unique-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Kansai / Nara travel",
+          "url": "https://www.japan.travel/en/destinations/kansai/nara/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-nara-chagayu",
+      "long": "Il chagayu è porridge di riso cotto nel tè — spesso hōjicha o banchetta tostata — invece che in acqua neutra. A Nara è colazione e cibo di tradizione monastica: aroma di tostatura, chicchi ancora distinti, sale leggero, a volte un contorno di tsukemono. Non è dolce da dessert e non è zuppa di miso: è una ciotola calda che sa di tè e di riso insieme. La versione locale tende a non essere troppo collosa: cottura relativamente rapida, texture da «chicco nel brodo». Si trova in ryokan, in alcuni ristoranti di cucina Yamato e nei periodi di feste legate ai templi. Se sa solo di acqua calda con una bustina, non è chagayu serio; se è un risotto al tè zuccherato, siete altrove. Ideale al mattino, prima dei cervi e delle sale enormi.",
+      "sections": [
+        {
+          "title": "Tè come liquido di cottura",
+          "body": "Il riso assorbe l'aroma tostato. Hōjicha dà note di nocciola; altre foglie cambiano il profilo. Sale minimo. Niente zucchero."
+        },
+        {
+          "title": "Colazione Yamato",
+          "body": "È il gesto mattutino della prefettura: leggero, caldo, sobrio. Accompagnate con sottaceti o un uovo, non con un secondo fritto."
+        },
+        {
+          "title": "Texture",
+          "body": "I chicchi devono riconoscersi. Se è una crema unica, è un altro porridge. Se è brodo senza riso, avete ricevuto un tè sbagliato."
+        },
+        {
+          "title": "Il tè che ha deciso di diventare minestra",
+          "body": "Altrove il tè sta nella tazza. A Nara finisce nella pentola del riso e vi saluta al risveglio. Multitasking religioso-agricolo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Flavors of Nara — Visit Nara",
+          "url": "https://www.visitnara.jp/lists-and-stories/story/flavors-of-nara-discover-the-regions-unique-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-nara-narazuke",
+      "long": "Il narazuke è verdura fermentata a lungo nelle fecce di sake (sake kasu): colore scuro, profumo alcolico-dolce, sapore intenso che divide la tavola. Cetriolo, zucca, anguria bianca e altre ortaggi passano mesi — a volte anni — in strati di kasu, diventando pezzi da tagliare sottili accanto al riso. Nasce nella cultura del sake di Nara e del Kansai antico: lo scarto della fermentazione diventa condimento nobile. Non è uno snack da street; è un contorno da negozio specializzato e da bentō tradizionale. Al primo assaggio può sembrare «troppo»: sale, alcol, umami. Poi, con il riso, diventa senso. Se è solo salato senza aroma di kasu, è un sottaceto qualunque. I barattoli piccoli sono amici del viaggiatore; quelli enormi sono amici del rimpianto in valigia.",
+      "sections": [
+        {
+          "title": "Kasu come ambiente",
+          "body": "Le fecce di sake danno colore e profumo. Il pezzo deve odorare di fermentazione nobile, non di aceto da supermarket. Tagliate sottile: è concentrato."
+        },
+        {
+          "title": "Con cosa si mangia",
+          "body": "Riso bianco, ochazuke, a volte formaggio per i più audaci. Non è da sola come antipasto europeo: vuole un carboidrato neutro."
+        },
+        {
+          "title": "Comprare",
+          "body": "Negozi storici e banconi di specialità. Chiedete quanto tempo di stagionatura e se contiene alcol residuo evidente. Conservazione al fresco dopo l'apertura."
+        },
+        {
+          "title": "Il sottaceto che ha bevuto sake",
+          "body": "Altre verdure fanno fermentazione sobria. Il narazuke ha frequentato una distilleria e se ne vanta ancora dopo due anni sotto kasu.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Flavors of Nara — Visit Nara",
+          "url": "https://www.visitnara.jp/lists-and-stories/story/flavors-of-nara-discover-the-regions-unique-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Nara",
+          "url": "https://www.japan.travel/en/destinations/kansai/nara/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-nara-kaki-sweets",
+      "long": "I dolci al cachi di Nara partono dal frutto che la prefettura coltiva e secca da secoli: hoshigaki, gelatine, wagashi a forma di cachi, manjū al ripieno di pasta di cachi. Non è un gusto «aggiunto in sciroppo»: è polpa e zucchero naturale del frutto, a volte con una nota astringente addomesticata dall'essiccazione. Si comprano in pasticcerie locali e nei negozi di specialità vicino alle stazioni; d'autunno il tema esplode, ma le versioni secche restano tutto l'anno. Un buon hoshigaki è carnoso, zuccherino, con pruina bianca di zuccheri in superficie; un wagashi riuscito sa di frutto, non solo di anko colorato. Ideali come souvenir leggeri o come pausa dolce dopo un pranzo salato di kakinoha. Evitate scatole giganti se non finite i pezzi in pochi giorni.",
+      "sections": [
+        {
+          "title": "Secco e fresco di laboratorio",
+          "body": "Hoshigaki da masticare lentamente; gelatine e manjū da tè pomeridiano. Sono famiglie diverse sotto lo stesso albero."
+        },
+        {
+          "title": "Astringenza educata",
+          "body": "Il cachi acerbo stringe; quello lavorato dolcifica. Se un dolce è solo zucchero senza frutto, è marketing arancione, non Nara."
+        },
+        {
+          "title": "Come usarli in viaggio",
+          "body": "Uno o due pezzi con tè verde. Ottimi sul treno. I secchi resistono meglio dei cremosi in valigia."
+        },
+        {
+          "title": "Il frutto che fa carriera nei wagashi",
+          "body": "Il cervo di Nara è famoso. Il cachi lavora in silenzio, si fa seccare e finisce in vetrina. Meno fotogenico, più zuccherino.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Flavors of Nara — Visit Nara",
+          "url": "https://www.visitnara.jp/lists-and-stories/story/flavors-of-nara-discover-the-regions-unique-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-nara-kuzu-mochi",
+      "long": "Il kuzu mochi di Nara — e del Kansai montano — usa l'amido di kudzu (kuzu) per una gelatina traslucida, elastica e fresca, servita con kinako e kuromitsu. Yoshino è nome che torna spesso per la qualità dell'amido; in città e nei villaggi troverete sale da tè che lo tagliano al momento. A differenza del warabi, il kuzu ha una masticazione più «setosa» e un retrogusto pulito; non deve essere gomma da ufficio. Si mangia freddo, in estate soprattutto, ma piace anche come chiusura leggera d'inverno in sala riscaldata. Se il pezzo è opaco e duro, l'amido è scarso o la cottura è andata male. Accompagnate con tè: il dolce è sobrio e vuole un amaro vicino.",
+      "sections": [
+        {
+          "title": "Amido di kudzu",
+          "body": "Il kuzu vero costa e si sente: lucentezza, elasticità, nessun sapore di plastica. Molte versioni usano mix; chiedete se è kuzu di Yoshino o simile."
+        },
+        {
+          "title": "Kinako e kuromitsu",
+          "body": "Come per altri gel di amido, la farina di soia e lo sciroppo nero completano. Non annegarlo: un filo basta."
+        },
+        {
+          "title": "Sala da tè",
+          "body": "Ordinate fresco. Non è souvenir da settimana in valigia. Ideale dopo somen o chagayu, quando volete dolce senza fritto."
+        },
+        {
+          "title": "La radice che trema nel piatto",
+          "body": "Il kudzu è una pianta invasiva in altri continenti. A Nara la trasformano in dessert elegante. Rivincita gastronomica della radice.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Flavors of Nara — Visit Nara",
+          "url": "https://www.visitnara.jp/lists-and-stories/story/flavors-of-nara-discover-the-regions-unique-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-nara-yomogi-mochi",
+      "long": "Lo yomogi mochi è mochi verde all'artemisia: l'erba si batte o si mescola nell'impasto di riso glutinoso, dando colore e un aroma erbaceo-camphorato inconfondibile. A Nara e nel Kansai compare nei chioschi vicino ai percorsi pedonali, spesso pestato al momento e riempito di anko. Si mangia caldo o tiepido, con le mani o con un foglio; il contrasto è erba amara-dolce e fagioli zuccherini. Non è matcha: se cercate tè, vi sbagliate di vegetale. Un pezzo buono profuma di prato prima ancora di sapere di zucchero; uno mediocre è solo mochi colorato di verde alimentare. Ideale come snack tra un tempio e l'altro, non come dessert da cena lunga. Se è duro come gomma, è vecchio o raffreddato male.",
+      "sections": [
+        {
+          "title": "Aroma di yomogi",
+          "body": "L'artemisia deve sentirsi. Se odora solo di zucchero, è travestimento. Il colore naturale è verde-oliva, non fluo."
+        },
+        {
+          "title": "Anko dentro",
+          "body": "Il ripieno dolce bilancia l'erba. Non è obbligatorio: esistono versioni semplici, ma l'anko è il classico da chiosco."
+        },
+        {
+          "title": "Street timing",
+          "body": "Compratelo quando lo pestano o lo cuociono. Il mochi ama l'attesa zero. Tè o acqua; niente caffè amaro sopra che lo uccide."
+        },
+        {
+          "title": "Il prato che si è fatto panino",
+          "body": "Yomogi è erba di margine stradale. Qui la battono nel riso e ve la vendono con un sorriso. Insalata evoluta, versione dolce.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Visit Nara — food stories",
+          "url": "https://www.visitnara.jp/lists-and-stories/story/flavors-of-nara-discover-the-regions-unique-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-nara-shika-manju",
+      "long": "I manjū di Nara a tema cervo sono panini al vapore o al forno decorati con corna, macchie o sagome di shika, ripieni di anko o creme dolci. Sono souvenir edibile e street snack: nascosti dalla fama dei cervi veri del parco, ma presenti nei chioschi intorno alle aree turistiche. La pasta deve essere soffice, il ripieno non eccessivamente zuccherino, la decorazione leggibile senza essere plastica. Non pretendono profondità storica da tempio: pretendono di essere carini e buoni in tre morsi. Scegliete pezzi appena cotti; quelli esposti da ore si seccano. Ideali per chi vuole un dolce fotografabile senza entrare in una sala da wagashi. Se il sapore è solo zucchero e colorante, lasciate perdere e tornate al kuzu.",
+      "sections": [
+        {
+          "title": "Forma e ripieno",
+          "body": "Cercate pasta morbida e anko onesto. La faccia da cervo è marketing; il ripieno decide se merita il morso."
+        },
+        {
+          "title": "Street e stazione",
+          "body": "Chioschi e negozi souvenir. Si mangia camminando. Non è un piatto da prenotazione."
+        },
+        {
+          "title": "Dosaggio turistico",
+          "body": "Uno basta. Tre sono troppi. Se volete regalare, scegliete confezioni sigillate della giornata, non pezzi aperti in vetrina."
+        },
+        {
+          "title": "Il cervo che non mangia i biscotti degli altri",
+          "body": "Al parco i cervi chiedono senbei. Voi mangiate un cervo di pasta ripieno di fagioli. Simmetria inquietante, ma dolce.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Visit Nara",
+          "url": "https://www.visitnara.jp/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Flavors of Nara — Visit Nara",
+          "url": "https://www.visitnara.jp/lists-and-stories/story/flavors-of-nara-discover-the-regions-unique-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-nara-asuka-nabe",
+      "long": "L'Asuka nabe è una pentola di pollo e verdure in brodo lattiginoso di latte e miso, legata alla memoria della regione di Asuka — culla di corti antiche — più che a un mare di frutti di mare. Il colore è chiaro, il sapore è dolce-umami, la sensazione è nabe invernale «da terra» e non da porto. Si cuoce a tavola o in cucina e si serve in ciotole: carne tenera, verdure che tengono il morso, a volte noodle o riso a chiudere. Non è sukiyaki e non è shabu di manzo: il latte ammorbidisce il miso e crea un profilo insolito per chi aspetta solo dashi di katsuobushi. Se il brodo è grezzo di latte crudo senza integrazione, sa di colazione sbagliata; se è bilanciato, è conforto. Ideale in sera fredda dopo una giornata sui siti archeologici.",
+      "sections": [
+        {
+          "title": "Latte e miso",
+          "body": "Il brodo deve essere vellutato, non separato. Il miso dà sale e profondità; il latte arrotonda. Pollo e verdure a radice sono il classico."
+        },
+        {
+          "title": "Nabe da condividere",
+          "body": "Si ordina in due o più. Non è uno street snack. Lasciate cuocere i pezzi senza mescolare come un risotto."
+        },
+        {
+          "title": "Chiusura",
+          "body": "Con il fondo si possono cuocere udon o riso. Chiedete se il locale lo propone: è la parte più onesta del nabe."
+        },
+        {
+          "title": "La corte antica che cena in bianco",
+          "body": "Asuka evoca templi e tombe. Poi arriva una pentola color panna e capite che anche l'antichità aveva freddo e voleva un brodo strano.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Visit Nara — food",
+          "url": "https://www.visitnara.jp/lists-and-stories/story/flavors-of-nara-discover-the-regions-unique-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Nara",
+          "url": "https://www.japan.travel/en/destinations/kansai/nara/",
+          "kind": "ente turistico"
+        }
+      ]
+    }
+  ]
+}

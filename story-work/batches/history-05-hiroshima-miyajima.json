@@ -1,0 +1,608 @@
+{
+  "meta": {
+    "batch": "history-05-hiroshima-miyajima",
+    "note": "Cultural-layer stories. Cross-checked against place-hiroshima-a-bomb-dome, place-hiroshima-castle, place-hiroshima-children-monument, place-hiroshima-peace-museum, place-hiroshima-peace-park, place-hiroshima-okonomimura, place-miyajima-itsukushima, place-miyajima-daishoin, place-miyajima-misen, place-miyajima-senjokaku, place-miyajima-omotesando, experience-miyajima-misen-trail, experience-hiroshima-carp-baseball — avoid paraphrase of site architecture, visitor logistics, and place-specific object lists."
+  },
+  "schede": [
+    {
+      "id": "history-hiroshima-castle-town",
+      "long": "Hiroshima non nasce come città di pellegrinaggio né come porto naturale profondo: nasce come scelta militare in un delta. Alla fine del Cinquecento il potere locale scese dalle fortezze di montagna e piantò un centro amministrativo sulle isole di sabbia dell'Ōta, dove i rami del fiume facevano già da fossati e da strade. Il nome stesso — «isola larga» — descrive una geografia prima ancora di una politica. Nei secoli successivi quel nucleo da castello si ispessì di quartieri mercantili, arsenali, scuole e, con la modernizzazione Meiji, di caserme e industrie legate al porto di Ujina. Capire Hiroshima prima della metà del Novecento significa quindi leggere una città-castello diventata nodo militare e produttivo, non soltanto un mastio da cartolina. I corsi d'acqua che ancora tagliano il centro non sono sfondo pittoresco: sono l'impronta di un impianto urbano nato per comandare un delta.",
+      "sections": [
+        {
+          "title": "Dal crinale al banco di sabbia",
+          "body": "Spostare il potere dal monte al delta significò darsi una capitale di pianura: più accessibile al commercio, più esposta, più capace di crescere. I fiumi fornivano difesa e trasporto insieme. La città-castello qui non è metafora: è un piano regolatore scritto con l'acqua."
+        },
+        {
+          "title": "Mercanti, soldati, fabbriche",
+          "body": "Sotto gli Asano e poi sotto lo Stato moderno, Hiroshima accumulò funzioni da centro regionale: magazzini, uffici, scuole, caserme. L'industrializzazione e il porto la resero anche un punto di partenza militare. Quella densità di usi spiega perché, nel linguaggio storico, si parli di città-castello e di città di guerra nello stesso respiro."
+        },
+        {
+          "title": "Cosa resta leggibile oggi",
+          "body": "Anche dopo la ricostruzione, i rami dell'Ōta continuano a orientare quartieri e attraversamenti. Chi cerca «la Hiroshima di prima» non trova un centro intatto: trova una trama di isole e ponti che sopravvive come scheletro. È la memoria urbana più dura da cancellare, perché è idrografia."
+        },
+        {
+          "title": "Quando il fossato è già lì",
+          "body": "Altre città scavavano fossati a suon di piccone. Qui bastava scegliere l'isola giusta e lasciare che il fiume facesse il resto. Ingegneria militare con budget naturale.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "広島城 — sito ufficiale",
+          "url": "https://hiroshimacastle.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "広島市のあゆみ — Città di Hiroshima",
+          "url": "https://www.city.hiroshima.lg.jp/site/hiroshima-history/",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "広島城 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%BA%83%E5%B3%B6%E5%9F%8E",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "history-hiroshima-reconstruction",
+      "long": "Dopo l'agosto del 1945 Hiroshima non doveva soltanto rialzare case: doveva decidere che tipo di città volesse diventare agli occhi del mondo. La scelta non fu automatica né unanime. Accanto alla necessità materiale di ripartire — acqua, cibo, trasporti, ospedali — emerse una decisione civile: presentarsi come città della pace e della memoria internazionale, non soltanto come luogo di rovina. Quella scelta ebbe strumenti giuridici e urbanistici, a cominciare dalla legge speciale che favorì la ricostruzione come «città della pace», e un linguaggio architettonico che trasformò il vuoto centrale in asse pubblico di ricordo. Non è una narrazione sentimentale: è politica dello spazio. Hiroshima ricostruì abitazioni e industrie, ma inventò anche un modo di abitare il ricordo senza nasconderlo sotto un centro commerciale qualsiasi.",
+      "sections": [
+        {
+          "title": "Pace come progetto civico",
+          "body": "Dichiararsi città della pace significò accettare un ruolo pubblico oltre i confini prefetturali: ospitare cerimonie, musei, visite scolastiche, diplomazia del disarmo. Fu una identità scelta e coltivata, non un titolo decorativo appiccicato dopo il fatto."
+        },
+        {
+          "title": "Ricostruire non significa cancellare",
+          "body": "Il dibattito locale incluse anche chi avrebbe preferito abbattere ogni traccia dolorosa. La linea che prevalse tenne insieme vita quotidiana e memoria visibile: abitare di nuovo il delta, e lasciare che certi segni restassero leggibili. È una tensione ancora viva, non un capitolo chiuso."
+        },
+        {
+          "title": "Un asse invece di un vuoto",
+          "body": "L'idea di collegare museo, cenotafio e cupola in una sola linea di sguardo trasformò un terreno distrutto in grammatica urbana. Non basta sapere che «c'è un parco»: importa che quel parco sia stato pensato come dichiarazione, non come aiuola di ripiego."
+        },
+        {
+          "title": "La città che firma con la memoria",
+          "body": "Molte città ricostruiscono e poi cambiano discorso. Hiroshima ha scelto di tenere il discorso in piazza, ogni anno, sotto lo stesso cielo. È un impegno di amministrazione pubblica più che uno slogan da brochure.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "広島平和記念資料館 — sito ufficiale",
+          "url": "https://hpmmuseum.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "広島平和記念公園 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%BA%83%E5%B3%B6%E5%B9%B3%E5%92%8C%E8%A8%98%E5%BF%B5%E5%85%AC%E5%9C%92",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Peace Tourism — Città di Hiroshima",
+          "url": "https://peace-tourism.com/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-hiroshima-origami-cranes",
+      "long": "La gru di carta non è nata a Hiroshima, ma è qui che è diventata un linguaggio pubblico. Nell'origami tradizionale la tsuru è già simbolo di longevità e buon auspicio; dopo la guerra, piegare mille gru si è intrecciato a una pratica collettiva di memoria e augurio di pace. Il gesto è semplice — un foglio, una sequenza di pieghe — e proprio per questo può viaggiare: scuole lontane, famiglie in visita, gruppi che spediscono ghirlande colorate. Non occorre inventare dialoghi o citazioni: basta osservare che un mestiere domestico della carta è stato adottato come forma civile di partecipazione al ricordo. La gru non spiega la bomba; offre un modo non verbale per stare vicino a chi non c'è più e a chi chiede che non si ripeta.",
+      "sections": [
+        {
+          "title": "Dal folio privato al rito condiviso",
+          "body": "Piegare gru può essere gioco, convalescenza, voto. A Hiroshima quel gesto privato è stato raccolto da una comunità che lo ha reso offerta pubblica: non un ornamento, ma un modo di lasciare qualcosa di fatto con le mani."
+        },
+        {
+          "title": "Un simbolo che si può insegnare",
+          "body": "A differenza di molti monumenti, la gru si impara in dieci minuti. Per questo le scuole di paesi lontanissimi possono partecipare senza conoscere il giapponese: la tecnica diventa ponte. La memoria viaggia come istruzione manuale."
+        },
+        {
+          "title": "Carta, colore, quantità",
+          "body": "Le ghirlande che si vedono vicino ai memoriali infantili non sono «bellezza» astratta: sono lavoro accumulato. Ogni pezzo conta perché è ripetizione paziente. Il messaggio sta nella quantità quanto nel disegno."
+        },
+        {
+          "title": "La diplomazia del foglio A4",
+          "body": "Pochi strumenti di politica internazionale entrano in una cartella scolastica. La gru sì: costa poco, pesa niente e riesce a far discutere di pace senza microfono. Raro caso in cui la cancelleria batte il comunicato stampa.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "原爆の子の像 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%8E%9F%E7%88%86%E3%81%AE%E5%AD%90%E3%81%AE%E5%83%8F",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "広島市 — Children's Peace Monument (Peace Tourism)",
+          "url": "https://peace-tourism.com/story/childrenspeacemonument.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "折り鶴 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E6%8A%98%E3%82%8A%E9%B6%B4",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "history-hiroshima-water-city",
+      "long": "Hiroshima è una città di isole prima ancora che di strade. Il delta dell'Ōta si apre a ventaglio verso il Mare Interno e divide il tessuto urbano in nastri di terra separati da corsi che cambiano nome e larghezza, ma non smettono di ordinare gli spostamenti. Ponti, argini, passeggiate fluviali e assi verdi non sono decorazione: sono l'intelaiatura quotidiana di chi vive qui. Dire «oltre il fiume» in molte città indica un altro quartiere; a Hiroshima può indicare cinque attraversamenti diversi. Capire questa morfologia aiuta a leggere anche la ricostruzione: si è ricostruito sopra una geografia che non si poteva spostare. L'acqua resta il fatto urbano più antico e più insistente.",
+      "sections": [
+        {
+          "title": "Un piano regolatore scritto dal fiume",
+          "body": "I rami del delta fissano dove si può costruire denso e dove serve spazio per esondazioni e traffico. Quartieri e tram seguono quei corridoi perché è lì che la terra è abitabile. La mappa mentale del residente è una rete di attraversamenti."
+        },
+        {
+          "title": "Ponti come luoghi, non solo attraversamenti",
+          "body": "In una città d'acqua il ponte è piazza lineare: ci si dà appuntamento, si guarda il flusso, si misura la distanza in «quanti ponti». Non è romanticismo fluviale: è modo pratico di orientarsi quando le isole si somigliano."
+        },
+        {
+          "title": "Verde lungo l'acqua",
+          "body": "Molti percorsi pedonali e ciclabili sfruttano le rive perché sono le fasce più continue della città. Dopo la ricostruzione, quei margini sono diventati anche spazio pubblico quotidiano: meno monumento, più passeggiata."
+        },
+        {
+          "title": "GPS vs delta",
+          "body": "Lo smartphone conosce le strade; i locali conoscono i rami. Chiedere indicazioni a Hiroshima significa spesso ricevere una risposta idrografica. È l'unica città in cui «segui il fiume» non è poesia ma istruzione operativa.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "ひろしま観光ナビ — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "太田川 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%A4%AA%E7%94%B0%E5%B7%9D",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "広島市 — sito ufficiale",
+          "url": "https://www.city.hiroshima.lg.jp/",
+          "kind": "ente pubblico"
+        }
+      ]
+    },
+    {
+      "id": "history-hiroshima-carp-castle",
+      "long": "Chiamare Hiroshima «città della carpa» non è solo folklore da souvenir: è un filo che lega toponimo, castello e identità sportiva. Il soprannome Rijō — castello delle carpe — circola da epoca moderna come lettura di un nome di luogo legato al carattere del pesce, e da lì la carpa è diventata emblema ripetuto su maglie, mascotte e insegne. Quando la città si diede una squadra di baseball professionistica, il simbolo era già disponibile: non servì inventare un animale da marketing. La carpa, nel folklore giapponese, è anche creatura che risale la corrente; a Hiroshima quella metafora ha trovato un uso civile e festivo, lontano dal linguaggio militare del castello originario. Oggi il rosso della maglia e il profilo del mastio convivono nella stessa immagine urbana.",
+      "sections": [
+        {
+          "title": "Un pesce che fa da stemma",
+          "body": "Prima dello sport c'era già il nome. La carpa offriva un'immagine facile da ripetere: fossati, acqua, fortuna. Il castello prestò il titolo; la città lo rese riconoscibile anche a chi non entra nel recinto."
+        },
+        {
+          "title": "Dal feudo al diamante",
+          "body": "Il baseball professionistico locale ha ereditato un emblema più antico della lega. Non è un caso di branding astratto: è continuità simbolica. Tifo e toponimo si rinforzano a vicenda ogni volta che lo stadio si riempie di rosso."
+        },
+        {
+          "title": "Corrente, resistenza, festa",
+          "body": "Nella cultura giapponese la carpa che sale la cascata parla di tenacia. A Hiroshima quella lettura si è sovrapposta a una storia di ripresa urbana, senza bisogno di trasformare ogni partita in allegoria. Basta che il simbolo resti familiare."
+        },
+        {
+          "title": "Il feudo che finisce in cappellino",
+          "body": "Pochi daimyō immaginavano che il loro fossato avrebbe ispirato un berretto da stadio. La storia feudale, a Hiroshima, ha scoperto il merchandising con secoli di ritardo e un successo imbarazzante.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "広島東洋カープ — sito ufficiale",
+          "url": "https://www.carp.co.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "広島城 — sito ufficiale",
+          "url": "https://hiroshimacastle.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "広島東洋カープ — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%BA%83%E5%B3%B6%E6%9D%B1%E6%B4%8B%E3%82%AB%E3%83%BC%E3%83%97",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "history-hiroshima-survivor-trams",
+      "long": "A Hiroshima la memoria non sta soltanto nei monumenti fermi: passa anche sui binari. La rete tranviaria, duramente colpita nell'agosto del 1945, riprese a muoversi entro pochi giorni in tratti riparabili, e alcuni veicoli danneggiati furono rimessi in servizio dopo riparazioni d'emergenza. Quei tram — chiamati hibaku densha, «tram esposti alla bomba» — non sono reliquie sotto vetro: alcuni circolano ancora, in orari ordinari o in corse speciali, mescolati ai mezzi nuovi. Portano passeggeri, non soltanto commemorazioni. Per questo sono diventati un segno concreto della ricostruzione: la città che torna a spostarsi, e che sceglie di non nascondere i veicoli che hanno attraversato quella rottura. Salire su uno di essi non richiede citazioni inventate; basta sapere che il mezzo pubblico può essere, qui, anche un archivio in movimento.",
+      "sections": [
+        {
+          "title": "Infrastruttura prima del simbolo",
+          "body": "Nei giorni successivi alla distruzione, far ripartire i tram significava ricucire spostamenti essenziali: viveri, lavoro, ricongiungimenti. Il valore commemorativo è venuto dopo. Prima c'era la necessità di far scorrere di nuovo la città."
+        },
+        {
+          "title": "Veicoli che non sono musei",
+          "body": "Conservare un tram in servizio è diverso dal metterlo in vetrina. Si usura, si ripara, cambia orario. Proprio questa ordinarietà rende potente il gesto: la memoria condivide il binario con chi va in ufficio."
+        },
+        {
+          "title": "Una rete che definisce il centro",
+          "body": "Ancora oggi i binari organizzano il cuore di Hiroshima più di molte arterie. Capire i tram significa capire come la città si muove e come ha scelto di restare leggibile a scala pedonale e tranviaria, non solo automobilistica."
+        },
+        {
+          "title": "Biglietto semplice, lezione inclusa",
+          "body": "Poche reti urbane offrono una corsa in cui il veicolo stesso è capitolo di storia contemporanea. A Hiroshima può capitare senza prenotare un tour: basta salire e non confondere il mezzo con una attrazione a tema.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "広島電鉄 — sito ufficiale",
+          "url": "https://www.hiroden.co.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "車両の紹介：単車 — Hiroshima Electric Railway",
+          "url": "https://www.hiroden.co.jp/train/train-list/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "Damage to the Streetcars — Hibaku Streetcar Project (RCC)",
+          "url": "https://rcc.jp/tram_en/history/history2.php",
+          "kind": "progetto educativo"
+        }
+      ]
+    },
+    {
+      "id": "history-hiroshima-okonomiyaki-rebuild",
+      "long": "L'okonomiyaki di Hiroshima non è soltanto una specialità regionale: è un cibo di ripresa. Nel dopoguerra, quando la città rialzava bancarelle e baracche, farina, cavolo e ciò che si trovava sulla piastra diventarono un pasto economico, caldo e condivisibile. La costruzione a strati — crêpe sottile, verdura abbondante, carne, noodles, uovo — si consolidò come stile locale distinto da quello di Osaka, dove gli ingredienti si mescolano nella pastella. Qui l'ordine di cottura racconta una cucina nata dalla necessità di saziare con poco e di lavorare sul ferro caldo in spazi stretti. Col tempo quel piatto da ricostruzione è diventato orgoglio urbano: non perché dimentichi la fame, ma perché la città ha scelto di portarne avanti il gesto quotidiano invece di nasconderlo come capitolo povero.",
+      "sections": [
+        {
+          "title": "Fame, farina, piastra",
+          "body": "La farina degli anni della ripresa era una delle materie più disponibili. Cuocerla sulla piastra permetteva di servire subito, senza forno né sala. L'okonomiyaki emerse come risposta pratica prima che come bandiera gastronomica."
+        },
+        {
+          "title": "Strati invece di mescolanza",
+          "body": "Separare gli ingredienti in livelli non è vezzo da chef: è un modo di cuocere il cavolo a vapore sotto la crêpe e di aggiungere i noodles come strato a parte. La differenza con Osaka si sente al morso e si vede nel gesto del cuoco che ribalta l'insieme."
+        },
+        {
+          "title": "Da cibo di emergenza a identità",
+          "body": "Quando una città riparte, i sapori che la tengono in piedi possono diventare simbolo. A Hiroshima l'okonomiyaki ha fatto quel passaggio senza smettere di essere pasto di tutti i giorni. La memoria qui passa anche dal teppan."
+        },
+        {
+          "title": "Architettura commestibile",
+          "body": "È l'unico monumento cittadino che si mangia con la spatola e che crolla solo se il ribaltamento va storto. In confronto, ricostruire in cemento sembra un problema minore.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "お好み焼き — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%8A%E5%A5%BD%E3%81%BF%E7%84%BC%E3%81%8D",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "ひろしま観光ナビ — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "お好み村 — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/explore/377/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-miyajima-sacred-island",
+      "long": "Miyajima — Itsukushima — non è soltanto un'isola con un santuario: nella logica rituale è stata trattata a lungo come corpo stesso del sacro. Da quella premessa discendono regole di purezza che oggi suonano severe e che per secoli hanno ordinato la vita quotidiana: nascita e morte dovevano restare lontane dalla terra divina, e il sangue era considerato contaminazione. Non si tratta di cronaca di un singolo editto, ma di un modo di abitare lo spazio. Costruire il santuario sull'acqua, tenere cimiteri sulla costa di fronte, regolare chi poteva restare e quando: tutto serve a dire che l'isola non è un pezzo di geografia disponibile. Anche quando le pratiche si sono ammorbidite nella modernità, l'idea di purezza continua a spiegare perché il paesaggio sacro e quello civile restano intrecciati in modo diverso che in una meta turistica qualsiasi.",
+      "sections": [
+        {
+          "title": "Isola come corpo, non come sfondo",
+          "body": "Se la terra è divina, ogni fondazione diventa un problema teologico. Avvicinarsi senza «calpestare» il sacro spinge a soluzioni rituali e architettoniche. Il visitatore che vede solo bellezza marina sta leggendo metà della frase."
+        },
+        {
+          "title": "Nascita, morte, confine",
+          "body": "Tenere parto e sepoltura fuori dall'isola preservava l'idea di un suolo non contaminato. I morti e le partorienti appartenevano alla costa opposta. La geografia del rito disegnava una mappa morale prima ancora di una mappa stradale."
+        },
+        {
+          "title": "Purezza che sopravvive al turismo",
+          "body": "Oggi traghetti e negozi riempiono l'approdo, ma l'idea di rispetto resta leggibile nei divieti, nei santuari e nel modo in cui i locali parlano dell'isola. Capire la purezza evita di trattare Miyajima come parco a tema con torii."
+        },
+        {
+          "title": "Il regolamento più poetico del Seto",
+          "body": "Poche destinazioni spiegano i propri divieti con una teologia dell'isola intera. Qui anche il cartello ha una genealogia sacra. Il risultato, per il viaggiatore educato, è un turismo che deve abbassare la voce.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "御由緒 — 厳島神社 (sito ufficiale)",
+          "url": "https://www.itsukushimajinja.jp/jp/history.html",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "宮島観光協会 — Associazione turistica di Miyajima",
+          "url": "https://www.miyajima.or.jp/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "厳島神社 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "history-miyajima-tides",
+      "long": "L'architettura di marea a Miyajima non è un trucco fotografico: è un principio. Se l'isola è sacra, il santuario può avanzare sul mare invece di scavare fondamenta pesanti sulla terra divina; e se il mare sale e scende, gli edifici devono accettare l'acqua come ospite periodico. Pali, piattaforme e corridoi non «galleggiano»: poggiano e si lasciano bagnare, scaricano la pressione, asciugano. Alta marea e bassa marea non cambiano solo lo sfondo della foto: cambiano la soglia fra camminare sul fondale e vedere il torii come soglia sospesa. Capire questo significa leggere un'idea costruttiva prima ancora di un monumento. Il tempo della visita è tempo astronomico quanto turistico.",
+      "sections": [
+        {
+          "title": "Costruire per essere allagati",
+          "body": "In molte architetture l'acqua è nemica. Qui è prevista. Le strutture sono pensate per restare leggibili quando il mare ritira e quando torna. Non è fragilità: è progetto che include il ciclo."
+        },
+        {
+          "title": "Due santuari nello stesso posto",
+          "body": "Con l'alta marea il complesso sembra un palazzo sull'acqua; con la bassa rivela il fondale e i piedi dei pali. Non sono due edifici: è lo stesso edificio letto a ore diverse. La marea fa da scenografia teologica."
+        },
+        {
+          "title": "Orario sacro, orario pratico",
+          "body": "Chi vuole il torii «nel mare» e chi vuole avvicinarsi a piedi consulta la stessa tavola delle maree. Il rito contemporaneo del visitatore è sincronizzarsi con un ritmo più antico dei traghetti."
+        },
+        {
+          "title": "L'app più teologica del viaggio",
+          "body": "A Miyajima la tabella delle maree batte qualsiasi guida illustrata. Si può discutere di kami per ore; poi si guarda l'orario dell'acqua e si decide tutto. Spiritualità con previsioni al centimetro.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "厳島神社 — sito ufficiale",
+          "url": "https://www.itsukushimajinja.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "大鳥居 — Associazione turistica di Miyajima",
+          "url": "https://www.miyajima.or.jp/sightseeing/ss_ootorii.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Itsukushima Shrine — UNESCO World Heritage Centre",
+          "url": "https://whc.unesco.org/en/list/776/",
+          "kind": "organizzazione internazionale"
+        }
+      ]
+    },
+    {
+      "id": "history-miyajima-shamoji",
+      "long": "Lo shamoji — la paletta di legno per servire il riso — a Miyajima è diventato oggetto di fortuna oltre che utensile. La tradizione locale lega la sua diffusione a un insegnamento monastico ispirato alla sagoma del biwa di Benzaiten: dal profilo dello strumento musicale a un mestolo che si può intagliare e vendere. Accanto al mito di forma c'è un gioco di parole: meshi o toru, «prendere il riso», può suonare vicino a idee di «prendere» vittoria o vantaggio, e così lo shamoji è passato da cucina a portafortuna di guerrieri, poi di tifosi e di chi cerca un regalo leggero. Non è cronaca di fabbrica: è il modo in cui un'isola senza grandi colture ha trasformato legno, pellegrinaggio e linguaggio in economia rituale. Il souvenir più fotografato resta, in fondo, un attrezzo da riso.",
+      "sections": [
+        {
+          "title": "Dal biwa al mestolo",
+          "body": "Benzaiten tiene un liuto; il liuto suggerisce una curva; la curva diventa utensile. Il passaggio è mitico, non da verbale notarile, ma spiega perché lo shamoji qui non è soltanto cucina: è silhouette divina resa maneggevole."
+        },
+        {
+          "title": "Parole che portano fortuna",
+          "body": "Il giapponese ama i portafortuna nati da assonanze. Se «prendere il riso» può evocarsi come prendere il successo, l'oggetto quotidiano si carica di augurio. Guerrieri e sportivi hanno trovato comodo un amuleto che sta anche in cucina."
+        },
+        {
+          "title": "Economia di pellegrinaggio",
+          "body": "Su un'isola dove coltivare era difficile, insegnare un mestiere vendibile ai visitatori era strategia di sopravvivenza. Lo shamoji lega culto, artigianato e viaggio in un solo gesto di legno."
+        },
+        {
+          "title": "L'arma bianca del pranzo",
+          "body": "Pochi portafortuna militari finiscono nel cassetto delle posate. Lo shamoji sì: minaccia il nemico in metafora e il riso in pratica. Carriera ecumenica rara per un mestolo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "宮島杓子 — Associazione turistica di Miyajima",
+          "url": "https://www.miyajima.or.jp/present/present_shamoji.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "宮島のスーパーヒーロー誓真さんってだれ？ — Miyajima Tourism",
+          "url": "https://www.miyajima.or.jp/new/blog/legend-seishin/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "杓子 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E5%AD%90",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "history-miyajima-daishoin",
+      "long": "Il Daishō-in racconta l'altra metà di Miyajima: non il santuario sull'acqua, ma la montagna che istruisce. Nella lettura tradizionale, il buddhismo Shingon e la pratica sul Misen completano il culto marittimo di Itsukushima; per secoli le due lingue sacre — kami e buddha — si intrecciarono nella gestione rituale dell'isola. Il tempio ai piedi della salita non è quindi un'attrazione «in più»: è il punto in cui l'ascensione spirituale comincia a diventare percorso. Sale, figure protettive, ruote di testo e cortili scalati dicono che qui si impara muovendosi verso l'alto. Anche dopo la separazione Meiji di kami e buddha, quel ruolo di complemento resta leggibile: il mare ha il torii, la montagna ha il chiostro che prepara alla vetta.",
+      "sections": [
+        {
+          "title": "Mare e monte, un solo culto spezzato",
+          "body": "Prima della modernità religiosa dello Stato, santuario e tempio collaboravano. Dopo, restarono vicini geograficamente e divisi amministrativamente. Capire il Daishō-in significa ricordare che Miyajima non fu mai soltanto shinto da cartolina."
+        },
+        {
+          "title": "Lo Shingon come grammatica della salita",
+          "body": "La tradizione lega il luogo a Kūkai e alla pratica esoterica. Non serve trasformarlo in biografia: basta sapere che il buddhismo di montagna qui è metodo, non ornamento. Si sale leggendo il corpo quanto i testi."
+        },
+        {
+          "title": "Figure che insegnano guardando",
+          "body": "Statue e ruote di preghiera lungo i gradini trasformano la rampa in pedagogia. Ogni pausa può essere un incontro con un volto o un gesto. Il tempio si capisce camminando di lato, non soltanto frontale."
+        },
+        {
+          "title": "Il fratello minore che conosce i sentieri",
+          "body": "La folla si ferma al mare; chi continua a salire trova il tempio che da secoli fa da vestibolo alla montagna. Meno flash, più scale: classica vittoria del chiostro sul pontile.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "大聖院 — Associazione turistica di Miyajima",
+          "url": "https://www.miyajima.or.jp/sightseeing/ss_daishoin.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "大聖院 (宮島) — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E8%81%96%E9%99%A2_(%E5%AE%AE%E5%B3%B6)",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "真言宗 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E7%9C%9F%E8%A8%80%E5%AE%97",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "history-miyajima-misen",
+      "long": "Il Misen è il cuore verticale di Miyajima: non il belvedere del postcard, ma la montagna trattata come asse sacro. Il nome richiama il Monte Sumeru della cosmologia buddhista, il pilastro attorno a cui si ordina il mondo; la tradizione locale vi lega ritiri e pratiche di Kōbō Daishi e un fuoco rituale custodito come presenza continua. Leggere il Misen come mito di centro significa capire perché l'isola non si esaurisce nel torii sull'acqua: il sacro sale, si addensa fra i massi, chiede fiato e silenzio. Le «meraviglie» associate alla vetta funzionano come linguaggio di senso — acqua che risponde alla marea, fiamma che non si spegne — più che come verbale scientifico. Dopo la salita il panorama sul Mare Interno è premio; il significato, però, sta nell'avere accettato la montagna come destinazione e non come sfondo.",
+      "sections": [
+        {
+          "title": "Un Sumeru locale",
+          "body": "Chiamare una collina costiera con il nome del monte cosmico è una dichiarazione: qui si può sperimentare un centro del mondo in scala umana. Non è geografia comparata; è modo di abitare la salita come percorso verso l'ordine."
+        },
+        {
+          "title": "Fuoco come continuità",
+          "body": "La tradizione del braciere che non si spegne parla di cura monastica più che di miracolo da dimostrare. Una fiamma mantenuta è un calendario: qualcuno deve alimentarla. Il mito diventa mestiere."
+        },
+        {
+          "title": "Massi, bosco, soglia",
+          "body": "Iwakura e foresta dicono che la montagna era sacra prima dei nomi sanscriti. Il visitatore che cerca soltanto il panorama salta lo strato in cui rocce e alberi sono già altari."
+        },
+        {
+          "title": "Misticismo con dislivello",
+          "body": "Il panorama in vetta è mistico; il fiatone resta rigorosamente laico e democratico. Nessuna cosmologia buddhista esenta le ginocchia dai gradini di pietra.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "弥山 — Associazione turistica di Miyajima",
+          "url": "https://www.miyajima.or.jp/sightseeing/ss_misen.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "弥山 (広島県) — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%BC%A5%E5%B1%B1_(%E5%BA%83%E5%B3%B6%E7%9C%8C)",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Hatsukaichi — informazioni sul Misen",
+          "url": "https://www.city.hatsukaichi.hiroshima.jp/soshiki/26/52152.html",
+          "kind": "ente pubblico"
+        }
+      ]
+    },
+    {
+      "id": "history-miyajima-senjokaku",
+      "long": "Il Senjōkaku è la lezione più chiara di Miyajima sull'incompiuto come forma. Toyotomi Hideyoshi volle una grande sala per la recita di sutra in suffragio dei caduti delle sue campagne; la morte del committente fermò i lavori e lasciò una struttura senza la chiusura prevista. Quello che resta — ampia, aperta, percorsa dal vento — non è un fallimento da scusare: è un tipo diverso di monumento. L'assenza di pareti fa entrare mare e foglie; l'assenza di «finitura» fa vedere la committenza del potere come progetto interrompibile. In epoca moderna l'edificio ha anche cambiato lettura rituale, ospitando la memoria divinizzata del fondatore. L'incompiutezza, qui, non è aneddoto da cantiere: è il senso stesso del luogo.",
+      "sections": [
+        {
+          "title": "Suffragio in scala da generale",
+          "body": "Una sala per mille rotoli parla di guerra e di debito verso i morti. Hideyoshi costruiva legittimità anche con il rito. Fermarsi a metà lascia quel programma sospeso, leggibile proprio perché non è stato chiuso."
+        },
+        {
+          "title": "Quando manca il muro, resta il paesaggio",
+          "body": "Senza pareti l'edificio diventa porticato verso il mare e gli alberi. L'incompiuto accidentale produce un'esperienza che un progetto «finito» forse avrebbe negato. Il vuoto lavora."
+        },
+        {
+          "title": "Il committente entrato nell'opera",
+          "body": "Venerare Hideyoshi dentro la sala che non terminò ribalta il rapporto artefice-edificio. Il potere resta presente come presenza rituale, non solo come nome su una targa di cantiere."
+        },
+        {
+          "title": "Consolazione per chi ha cassetti aperti",
+          "body": "Un cantiere fermo da secoli che attira pellegrini è la miglior terapia per chi ha una mensola Ikea ancora da montare. Qui l'incompiuto ha fatto carriera internazionale.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "千畳閣 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%8D%83%E7%95%B3%E9%96%A3",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "厳島神社 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "宮島観光協会 — Associazione turistica di Miyajima",
+          "url": "https://www.miyajima.or.jp/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-miyajima-island-deer",
+      "long": "I cervi di Miyajima non sono mascotte del santuario né animali da petting: sono selvatici abitanti di un'isola sacra abitata da umani. La convivenza è antica e fragile. A differenza del parco urbano di Nara, qui non esiste una tradizione consolidata di vendita di biscotti rituali per nutrirli; anzi, le indicazioni locali insistono sul non dar loro cibo. Carta, mappe, biglietti e involucri diventano bersagli perché odorano di sale e di mani. Capire i cervi di Miyajima significa accettare un patto di distanza: si osservano, non si addestrano; si proteggono le proprie cose; si ricorda che un animale in un sito UNESCO resta un animale. La «carineria» della foto non cancella la responsabilità del visitatore.",
+      "sections": [
+        {
+          "title": "Selvatici, non staff del tempio",
+          "body": "Il cervo può avvicinarsi per curiosità o per abitudine alla presenza umana, non per recitare un ruolo sacro a comando. Trattarlo come performer rovina l'incontro e abitua comportamenti dannosi."
+        },
+        {
+          "title": "Cibo umano, problema umano",
+          "body": "Nutrire i cervi crea dipendenza, litigi e rifiuti. Le regole locali mirano a proteggere sia gli animali sia il paesaggio. La disciplina del visitatore è parte della tutela dell'isola."
+        },
+        {
+          "title": "Carta e mappe come esche",
+          "body": "Un foglio sudato in mano è più interessante di un panorama. Mettere via biglietti e guide non è paranoia: è etichetta pratica. Il cervo che mastica carta non sta consultando l'itinerario."
+        },
+        {
+          "title": "L'ufficio informazioni a quattro zampe",
+          "body": "Se un cervo vi toglie la mappa, non sta proponendo un percorso alternativo: sta chiudendo la pratica. Riacquistate umiltà e, se serve, una nuova stampa al pontile.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "宮島観光協会 — indicazioni ai visitatori",
+          "url": "https://www.miyajima.or.jp/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Itsukushima Shrine — UNESCO World Heritage Centre",
+          "url": "https://whc.unesco.org/en/list/776/",
+          "kind": "organizzazione internazionale"
+        },
+        {
+          "title": "宮島 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%AE%AE%E5%B3%B6",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "history-miyajima-benzaiten",
+      "long": "Benzaiten a Miyajima è un filo mitico che lega acqua, musica e fortuna. Arrivata nel mondo giapponese attraverso il buddhismo come forma di Sarasvatī, dea della parola e dei flussi, ha finito per abitare isole e santuari legati al mare. Il suo attributo più riconoscibile è il biwa, il liuto a forma di pera: strumento e corpo di dea insieme. Su Miyajima quel profilo ha incontrato l'artigianato dello shamoji: la tradizione racconta che dalla sagoma del biwa si sia ricavata la paletta del riso, trasformando un'icona divina in oggetto quotidiano. Non è cronaca da archivio; è modo di spiegare perché musica, acqua e cucina condividano qui la stessa curva. Benzaiten non «compete» con le dee di Itsukushima: aggiunge uno strato di prosperità sonora a un'isola già pensata come corpo sacro.",
+      "sections": [
+        {
+          "title": "Una dea dei flussi",
+          "body": "Acqua che scorre, parole che scorrono, melodie che scorrono: Benzaiten governa ciò che non sta fermo. Su un'isola di mare e maree, la sua presenza ha senso teologico prima che turistico."
+        },
+        {
+          "title": "Il biwa come firma",
+          "body": "Lo strumento non è accessorio. Nella iconografia, il liuto dice che la fortuna passa anche dalla voce e dalla musica. Chi cerca soltanto «dea della ricchezza» perde la metà musicale del mito."
+        },
+        {
+          "title": "Dalla sagoma divina all'utensile",
+          "body": "Il passaggio biwa–shamoji è un mito di trasposizione: ciò che si venera come forma può insegnarsi come mestiere. L'isola guadagna un prodotto; la dea guadagna una presenza nelle cucine."
+        },
+        {
+          "title": "Sarasvatī con destinazione souvenir",
+          "body": "Una dea indiana arrivata con i sutra finisce a ispirare il pezzo di legno più regalato dell'approdo. Pochi percorsi teologici hanno un finale così concreto nel cassetto delle posate.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "弁才天 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%BC%81%E6%89%8D%E5%A4%A9",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "宮島杓子 — Associazione turistica di Miyajima",
+          "url": "https://www.miyajima.or.jp/present/present_shamoji.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "宮島のスーパーヒーロー誓真さんってだれ？ — Miyajima Tourism",
+          "url": "https://www.miyajima.or.jp/new/blog/legend-seishin/",
+          "kind": "ente turistico"
+        }
+      ]
+    }
+  ]
+}

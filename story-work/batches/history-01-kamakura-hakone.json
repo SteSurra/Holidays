@@ -1,0 +1,380 @@
+{
+  "meta": {
+    "batch": "history-01-kamakura-hakone",
+    "note": "Cultural-layer stories. Cross-checked against place-kamakura-tsurugaoka, place-kamakura-kencho-ji, place-hakone-hakone-shrine, place-hakone-checkpoint-hakone, place-hakone-owakudani, experience-kamakura-zazen-engaku-ji — avoid paraphrase of site architecture and visitor logistics."
+  },
+  "schede": [
+    {
+      "id": "history-kamakura-tsurugaoka",
+      "long": "Hachiman non è un kami generico di guerra: è l'imperatore Ōjin divinizzato, con la madre Jingū e la paredra Hime-gami, e per i Minamoto era il tutore di clan prima ancora che di stato. Quando Yoritomo scelse Kamakura, trasferire quel culto al centro della nuova città significò dichiarare che il governo dei guerrieri aveva un cielo proprio, distinto dalla corte di Kyoto ma modellato sul suo linguaggio sacro. Tsurugaoka divenne il luogo in cui il bakufu celebrava investiture, riti di anno nuovo e dimostrazioni di lealtà; i vassalli non andavano solo a pregare, andavano a farsi vedere. La fama guerriera del santuario sopravvisse alla caduta dei Minamoto e degli Hōjō: i Tokugawa, che si dicevano discendenti dei Genji, continuarono a trattare Kamakura come terra ancestrale e a rifinanziare gli edifici. Capire Hachiman qui significa capire perché una capitale militare aveva bisogno di un dio che sembrasse insieme imperiale e marziale.",
+      "sections": [
+        {
+          "title": "Un dio di corte al servizio dei samurai",
+          "body": "Il culto arriva da Iwashimizu, vicino a Kyoto, dove Hachiman era già protettore dei Minamoto. Portarlo a Kamakura non inventò una religione nuova: spostò il centro di gravità. Il guerriero che vinceva in provincia poteva ancora parlare la lingua divina della capitale, e questo rendeva il bakufu leggibile anche a chi restava fedele all'imperatore."
+        },
+        {
+          "title": "Rituale pubblico, non solo fede privata",
+          "body": "Le cronache medieavali registrano yabusame, offerte e visite ufficiali dello shogun. Il piazzale funzionava come teatro politico: chi saliva le scale partecipava a una gerarchia visibile. Per questo l'assassinio di Sanetomo sul sagrato colpì tanto: non uccise solo un uomo, interruppe una linea di potere nel luogo stesso che ne garantiva la sacralità."
+        },
+        {
+          "title": "Dopo i Minamoto, ancora un simbolo",
+          "body": "Caduto il governo di Kamakura, il santuario non diventò museo. I successivi regimi guerrieri lo usarono come prova di continuità con i Genji. La ricostruzione Tokugawa dell'Ottocento non era nostalgia turistica: era manutenzione di un mito di legittimità che Edo voleva ancora poter toccare."
+        },
+        {
+          "title": "Come distinguerlo da un tempio buddhista",
+          "body": "Torii, lavabo, assenza di incenso buddhista e di statue del Buddha nel percorso principale segnalano lo shinto istituzionale moderno. Fino al 1868 il complesso era però ibrido, con monaci e padiglioni buddhisti: la «purezza» shinto che vedete è anche il risultato di una pulizia Meiji, non solo di un'origine remota."
+        },
+        {
+          "title": "Il dio dei samurai oggi fa la coda con i turisti",
+          "body": "Hachiman proteggeva eserciti e shogun; adesso protegge soprattutto chi cerca il varco giusto nella folla per la foto delle scale. Il cambio di clientela è totale, il curriculum del kami resta impressionante.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "鶴岡八幡宮 — sito ufficiale", "url": "https://www.hachimangu.or.jp/", "kind": "sito ufficiale"},
+        {"title": "鶴岡八幡宮 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E9%B6%B4%E5%B2%A1%E5%85%AB%E5%B9%A1%E5%AE%AE", "kind": "enciclopedia"},
+        {"title": "Tsurugaoka Hachimangu — Japan Tourism Agency database", "url": "https://www.mlit.go.jp/tagengo-db/en/R2-01218.html", "kind": "ente pubblico"}
+      ]
+    },
+    {
+      "id": "history-kamakura-five-mountains",
+      "long": "Le «Cinque Montagne» non sono cime da scalare: sono una classifica. Nel Giappone medioevale gozan indica i templi zen Rinzai messi in gerarchia dal potere guerriero sul modello delle istituzioni Chan della Cina Song. A Kamakura l'ordine consolidato mette in cima Kenchō-ji, poi Engaku-ji, Jufuku-ji, Jōchi-ji e Jōmyō-ji; a Kyoto esisteva un elenco parallelo, e per un periodo Nanzen-ji stette addirittura sopra entrambi. Serviva a promuovere lo Zen, certo, ma anche a usarlo: i monasteri formavano monaci capaci di leggere il cinese, ricevere ambasciate e far circolare norme. Gli Hōjō iniziarono la rete; gli Ashikaga la sistematizzarono nel Trecento. Camminare fra questi cinque recinti non è quindi una caccia ai «più belli»: è seguire i nodi di un'amministrazione spirituale che parlava la lingua del continente e obbediva, in ultima istanza, ai guerrieri.",
+      "sections": [
+        {
+          "title": "Una importazione con ufficio politico",
+          "body": "Il sistema delle Cinque Montagne e Dieci Monasteri nasce in Cina come rete di templi riconosciuti dallo stato. A Kamakura i reggenti lo adottarono perché lo Zen continentale offriva disciplina, prestigio e personale istruito. Il ranking non misurava santità astratta: misurava vicinanza al bakufu."
+        },
+        {
+          "title": "Perché Kenchō-ji sta primo e Engaku-ji secondo",
+          "body": "Kenchō-ji, fondato nel 1253 sotto Hōjō Tokiyori con Rankei Dōryū, fu il primo grande monastero di addestramento zen «puro» sul modello Song. Engaku-ji, voluto da Hōjō Tokimune nel 1282 dopo le invasioni mongole, consolidò il ruolo commemorativo e diplomatico del Gozan. Gli altri tre completano la scala senza cancellare questa gerarchia di fondazione."
+        },
+        {
+          "title": "Kyoto e Kamakura, due liste per un solo sistema",
+          "body": "Quando il potere si spostò verso ovest sotto gli Ashikaga, Kyoto ottenne le sue cinque montagne. La competizione fra le due liste mostra che il Gozan era un linguaggio di stato più che una geografia sacra fissa: si poteva essere «montagna» per decreto, non solo per antichità."
+        },
+        {
+          "title": "Cosa resta da leggere sul posto",
+          "body": "Asse dei padiglioni, campane, sale di predica e legami con maestri cinesi sono i segni concreti di quella rete. Non serve visitare tutti e cinque in un giorno: basta sapere che la quiete del chiostro fu anche un canale di governo."
+        },
+        {
+          "title": "La classifica che i turisti ignorano",
+          "body": "Oggi si sceglie il tempio per il bambù, il treno o lo zazen del sabato. Nel Trecento si sceglieva per il posto in graduatoria. È rassicurante scoprire che anche i monaci avevano una serie A.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "建長寺 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E5%BB%BA%E9%95%B7%E5%AF%BA", "kind": "enciclopedia"},
+        {"title": "Five Temples (Gozan) — Nichiren Buddhism Library", "url": "https://www.nichirenlibrary.org/en/dic/Content/F/97", "kind": "dizionario specialistico"},
+        {"title": "円覚寺 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E5%86%86%E8%A6%9A%E5%AF%BA", "kind": "enciclopedia"}
+      ]
+    },
+    {
+      "id": "history-kamakura-kamakura-bori",
+      "long": "La kamakura-bori non nasce come souvenir da vetrina: nasce come risposta artigiana a un oggetto straniero. Con lo Zen arrivarono dalla Cina Song lacche intagliate a strati, tsuishu e tsuikoku, ammirate nei monasteri ma difficili da riprodurre così come erano. I buddhisti intagliatori di Kamakura fecero diversamente: scolpirono prima il legno — spesso katsura o ginkgo — e poi lo ricoprirono di lacca, ottenendo rilievo e profondità con mezzi locali. Dai mobili e arredi di tempio si passò, nei secoli, a utensili da tè e infine a vassoi e scatole quotidiane, soprattutto quando il Meiji ridusse il lavoro religioso e botteghe come quelle dei Gotō e dei Mitsuhashi spostarono la tecnica verso la vita civile. Nel 1979 il ministero dell'industria la riconobbe come artigianato tradizionale. Quello che cercate in città non è un'idea astratta di «lacca giapponese»: è un gesto preciso, intaglio più vernice, nato all'ombra dei monasteri Gozan.",
+      "sections": [
+        {
+          "title": "Perché si intaglia il legno e non solo la lacca",
+          "body": "La lacca cinese a strati spessi si scolpiva dopo aver accumulato il materiale. A Kamakura si invertì il procedimento: prima la forma nel legno, poi la finitura. Il risultato tiene i segni dello scalpello in vista, perché il rilievo è strutturale e non soltanto pittorico."
+        },
+        {
+          "title": "Dal monastero al bancone di casa",
+          "body": "Tavoli, altari e contenitori d'incenso furono il primo pubblico. Con la cerimonia del tè arrivarono scatole e porta-incenso; in epoca Edo e soprattutto Meiji la domanda si allargò a piatti e vassoi. La crisi dei buddhisti intagliatori dopo la separazione kami-buddha accelerò quella conversione al quotidiano."
+        },
+        {
+          "title": "Come riconoscerla in negozio",
+          "body": "Cercate motivi vegetali o geometrici con solchi netti, superficie laccata che lascia leggere le incisioni, spesso contrasti fra rosso e nero. Le botteghe legate alla cooperativa tradizionale e il Kamakura-bori Kaikan aiutano a distinguere pezzi di filiera locale da imitazioni generiche."
+        },
+        {
+          "title": "Una tecnica lunga otto secoli, una certificazione recente",
+          "body": "Il gesto è medioevale; il marchio di «tradizionale» è del Novecento avanzato. Serve a ricordare che l'etichetta istituzionale arriva dopo la pratica, non prima: gli artigiani scolpivano già quando nessuno compilava moduli di tutela."
+        },
+        {
+          "title": "Lo scalpello che rifiuta il ritocco",
+          "body": "In molti mestieri i segni dell'attrezzo si levigano via. Qui lasciarli è parte del lusso. Finalmente un difetto di fabbrica che costa di più se è fatto bene.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "伝統的工芸品「鎌倉彫」 — Comune di Kamakura", "url": "https://www.city.kamakura.kanagawa.jp/shoukou/kamakurabori.html", "kind": "ente pubblico"},
+        {"title": "Kamakurabori — KOGEI JAPAN", "url": "https://kogeijapan.com/locale/en_US/kamakurabori/", "kind": "catalogo artigianato"},
+        {"title": "鎌倉彫会館 — storia del mestiere", "url": "https://kamakuraborikaikan.jp/museum1/history/", "kind": "museo / associazione"}
+      ]
+    },
+    {
+      "id": "history-hakone-gongen",
+      "long": "Prima che la legge Meiji obbligasse a scegliere, Hakone parlava due lingue sacre insieme. Gongen significa «manifestazione provvisoria»: un kami di montagna letto come apparizione locale di buddha e bodhisattva. L'Hakone Sanshō Gongen teneva in un solo culto tre figure — nella lettura sincretica legate a Monju, Miroku e Kannon — e il complesso univa santuario e tempio (Kongō-in / Tōfuku-ji) sotto la pratica dello shugendō. I samurai di Kamakura ci andavano in pellegrinaggio ai «due luoghi» con Izusan; Yoritomo e poi i Tokugawa finanziarono il sito perché proteggere il valico era proteggere la strada del potere. Nel 1868 la separazione di kami e buddha chiuse la metà monastica e il nome pubblico diventò Hakone Jinja. Il mito del Gongen non è cronaca geologica del lago: è la grammatica con cui per secoli si è spiegato perché quella montagna comandava rispetto.",
+      "sections": [
+        {
+          "title": "Cosa vuol dire davvero «Gongen»",
+          "body": "Non è un soprannome turistico. Nella dottrina del sincretismo, il buddha «originale» (honji) si mostra in Giappone come kami locale (suijaku). Chiamare Hakone «Gongen» significava dire che la montagna era leggibile sia dallo shinto sia dal buddhismo esoterico, senza dover scegliere in corridoio."
+        },
+        {
+          "title": "Pellegrinaggio di stato sul valico",
+          "body": "Il bakufu di Kamakura istituzionalizzò la visita a Hakone e Izusan. Non bastava vincere battaglie: bisognava mostrare che i passi fra le province avevano tutori riconosciuti. Il Gongen era geografia sacralizzata al servizio della sicurezza stradale."
+        },
+        {
+          "title": "Quando la legge spezzò il nome",
+          "body": "Con il shinbutsu bunri il tempio annesso fu smantellato e il culto dovette presentarsi come santuario shinto. Oggi le tre divinità si presentano con nomi della mitologia imperiale; la memoria del Gongen resta nei documenti, nei rotoli e nel modo in cui i locali raccontano ancora il posto."
+        },
+        {
+          "title": "Mito del drago, senso del luogo",
+          "body": "La tradizione di Mangan che placa il serpente a nove teste del lago appartiene a questo strato narrativo: spiega il pericolo dell'acqua e della montagna come forza da convertire in protezione. Va letto come mito di fondazione, non come verbale di polizia medievale."
+        },
+        {
+          "title": "Un dio che ha dovuto rifare la carta d'identità",
+          "body": "Per mille anni si chiamava Gongen e andava bene a tutti; poi lo Stato chiese un cognome soltanto. Hakone obbedì, ma in valigia tiene ancora il vecchio passaporto.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "箱根神社 — 由緒 (sito ufficiale)", "url": "https://hakonejinja.or.jp/hakone/", "kind": "sito ufficiale"},
+        {"title": "箱根神社 — Associazione turistica di Hakone", "url": "https://www.hakone.or.jp/554", "kind": "ente turistico"},
+        {"title": "箱根神社 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E7%AE%B1%E6%A0%B9%E7%A5%9E%E7%A4%BE", "kind": "enciclopedia"}
+      ]
+    },
+    {
+      "id": "history-hakone-sekisho-heritage",
+      "long": "Il sekisho di Hakone è la versione in legno di una paranoia di stato. Sul Tōkaidō, fra Edo e Kyoto, lo shogunato Tokugawa mise un filtro dove la geografia già stringeva: si controllavano soprattutto le armi in entrata verso la capitale e le donne dei daimyo in uscita, ostaggi di fatto della fedeltà feudale. Il detto iri-deppo ni de-onna — «fucili che entrano, donne che escono» — riassumeva la procedura meglio di qualsiasi dépliant. Non era l'unico posto di blocco del paese, ma restò fra i più severi, e la sua memoria oggi si visita in una ricostruzione aperta nel 2007, basata su un rendiconto di riparazione del 1865 riemerso negli anni Ottanta. La scheda culturale non riguarda quanti yen costi il biglietto: riguarda il fatto che per due secoli e mezzo viaggiare in Giappone significava attraversare una burocrazia armata.",
+      "sections": [
+        {
+          "title": "Una dogana politica, non commerciale",
+          "body": "Il punto non era tassare le merci come in una frontiera moderna. Era impedire che Edo si riempisse di armi e si svuotasse di ostaggi aristocratici. Il corridoio fra lago e montagna rendeva il controllo fisicamente credibile."
+        },
+        {
+          "title": "Chi poteva passare, e quando",
+          "body": "Servivano documenti e luce diurna. Di notte le porte restavano chiuse; le ispettrici esaminavano le donne con una attenzione che oggi sembra invasiva e allora era sicurezza nazionale. Il viaggio «libero» lungo la Tokaido era, in pratica, un viaggio autorizzato."
+        },
+        {
+          "title": "Perché la ricostruzione conta come patrimonio",
+          "body": "Senza il registro del 1865 e gli scavi successivi, resterebbe solo un toponimo. Aver rimontato edifici e mestieri con tecniche d'epoca trasforma la barriera in aula didattica: si vede la scala umana del controllo Tokugawa, non soltanto se ne legge."
+        },
+        {
+          "title": "Dal posto di blocco al paesaggio turistico",
+          "body": "Chiuso dal governo Meiji, il sekisho divenne memoria e poi attrazione. Il lago e il Fuji sullo sfondo addolciscono quello che fu un dispositivo di paura amministrativa. Vale la pena tenere entrambe le letture nello stesso sguardo."
+        },
+        {
+          "title": "Il controllo bagagli dell'epoca Edo",
+          "body": "Oggi all'aeroporto vi chiedono i liquidi; allora vi chiedevano le mogli dei signori. Diverso il tono di voce, simile l'idea che lo Stato abbia diritto di aprire la vostra vita sul ciglio della strada.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "箱根関所 — sito ufficiale", "url": "https://hakonesekisyo.jp/", "kind": "sito ufficiale"},
+        {"title": "箱根関所・資料館 — Associazione turistica di Hakone", "url": "https://www.hakone.or.jp/676", "kind": "ente turistico"},
+        {"title": "箱根関所 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E7%AE%B1%E6%A0%B9%E9%96%A2%E6%89%80", "kind": "enciclopedia"}
+      ]
+    },
+    {
+      "id": "history-hakone-black-eggs",
+      "long": "Le kuro-tamago di Ōwakudani sono un pezzo di folklore termale diventato industria leggera del viaggio. Si fanno bollire uova di gallina nelle acque e nei vapori della valle solforosa finché il guscio annerisce; si vendono calde, spesso a gruppi di quattro, con la promessa popolare che ognuna allunghi la vita di sette anni. La scienza ha discusso a lungo sul pigmento — per decenni si parlò di solfuro di ferro, poi di altre chimiche del guscio — ma per chi compra il sacchetto il punto non è il laboratorio: è partecipare a un rito di valle che trasforma puzza di zolfo in souvenir commestibile. Il nome antico della conca, Ōjigoku, «grande inferno», ricorda che prima del turismo di massa questo paesaggio si raccontava come soglia pericolosa. L'uovo nero tiene insieme paura domestica del vulcano e voglia di portarsi a casa una prova di essere stati lì.",
+      "sections": [
+        {
+          "title": "Sette anni, una slogan che funziona",
+          "body": "La longevità promessa non è un claim medico e non va presa come tale. È una battuta propiziatoria da stazione termale, dello stesso famigliare delle acque «che fanno bene» senza specificare a che cosa. Funziona perché è facile da ripetere in coda."
+        },
+        {
+          "title": "Dal grande inferno al bancone snack",
+          "body": "Finché la valle si chiamava inferno, l'uovo nero era quasi un trofeo: avevi mangiato qualcosa cotto alle porte dell'aldilà. Il ribattezzamento Meiji e l'arrivo della funivia hanno spostato il tono verso l'attrazione familiare, senza cancellare l'odore che vi resta sui vestiti."
+        },
+        {
+          "title": "Cosa rappresenta culturalmente",
+          "body": "In Giappone le terme vendono spesso un cibo-firma legato all'acqua locale. A Ōwakudani la firma è l'uovo perché l'unica cucina possibile vicino alle fumarole è quella che usa il calore geotermico come forno. È geologia trasformata in merenda."
+        },
+        {
+          "title": "Se il cratere è chiuso, il mito resta",
+          "body": "I livelli di allerta vulcanica possono interrompere l'accesso alle vasche. La scheda culturale sopravvive lo stesso: l'uovo nero è ormai parte dell'immaginario di Hakone anche quando quel giorno non si può comprare."
+        },
+        {
+          "title": "L'unico souvenir che vi segue nell'ascensore",
+          "body": "Altri regali pesano in valigia. Questo pesa nell'olfatto del vagone. È l'unico prodotto tipico che fa conoscere il vostro itinerario anche a chi non vi ha chiesto niente.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "大涌谷くろたまご館 — sito ufficiale", "url": "https://www.owakudani.com/", "kind": "sito ufficiale"},
+        {"title": "大涌谷 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E6%B6%8C%E8%B0%B7", "kind": "enciclopedia"},
+        {"title": "大涌谷 — Hakone Navi", "url": "https://www.hakonenavi.jp/hakone-navi/spot/nature/owakudani", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "history-kamakura-shogunate",
+      "long": "Nel 1185, dopo Genpei, il potere militare smise di essere solo una forza al servizio della corte e cominciò a costruire uffici propri. Kamakura, scelta da Minamoto no Yoritomo, offriva colline, passi stretti e distanza da Kyoto: una capitale difendibile per chi voleva governare i vassalli senza vivere sotto gli occhi dell'imperatore. Il bakufu mise in piedi organismi come il Samurai-dokoro e il Mandokoro, e con gli Hōjō reggenti affinò una macchina capace di giudicare terre, sanzionare tradimenti e tenere i legami feudalicome archivi. Non fu un impero uniforme: molte province restavano mediate da famiglie locali. Fu però il precedente che ogni governo guerriero successivo dovette citare. Quando si cammina oggi fra templi e santuari, si sta attraversando il primo esperimento riuscito di stato samurai, non soltanto una spiaggia con un Buddha.",
+      "sections": [
+        {
+          "title": "Perché proprio Kamakura",
+          "body": "Oltre alla geografia, contava la memoria Minamoto: Hachiman era già stato portato qui nell'XI secolo. Fondare il bakufu su terra «di famiglia» dava al nuovo ordine un'aria di ritorno, non di usurazione improvvisata."
+        },
+        {
+          "title": "Dai Minamoto agli Hōjō",
+          "body": "La linea diretta di Yoritomo si spense presto; i reggenti Hōjō tennero il potere reale per generazioni, governando in nome di shogun spesso simbolici. È una lezione politica: il titolo e il comando non coincidono sempre, nemmeno fra samurai."
+        },
+        {
+          "title": "Cosa lasciò al resto del Giappone",
+          "body": "Modelli di diritto militare, reti di templi zen, pellegrinaggi di stato e l'idea che si potesse avere una capitale parallela a quella imperiale. Kyoto restò corte; Kamakura dimostrò che la guerra poteva fare amministrazione."
+        },
+        {
+          "title": "Come si legge nella città odierna",
+          "body": "L'asse verso il mare, i grandi monasteri Gozan e il santuario tutore non sono attrazioni sparse: sono i pezzi ancora in piedi di un progetto urbano-militare. Il resto va immaginato: palazzi di legno, uffici, case di vassalli."
+        },
+        {
+          "title": "La startup dello shogunato",
+          "body": "Aprire una capitale nuova distante dalla sede storica del potere: nel Dodicesimo secolo era un'idea audace. Oggi si chiamerebbe delocalizzare il quartier generale; allora si chiamava bakufu, e funzionò per circa centocinquant'anni.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "鎌倉幕府 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E9%8E%8C%E5%80%89%E5%B9%95%E5%BA%9C", "kind": "enciclopedia"},
+        {"title": "Kamakura — Japan Guide (contesto storico)", "url": "https://www.japan-guide.com/e/e3100.html", "kind": "guida di riferimento"},
+        {"title": "鶴岡八幡宮 — sito ufficiale", "url": "https://www.hachimangu.or.jp/", "kind": "sito ufficiale"}
+      ]
+    },
+    {
+      "id": "history-kamakura-zen",
+      "long": "Lo Zen non arrivò a Kamakura come moda estetica di giardini asciutti: arrivò come disciplina importata, utile a una classe che doveva governare e combattere. I reggenti Hōjō invitarono maestri cinesi, fondarono monasteri di addestramento e legarono la pratica della meditazione a un'etica di controllo, chiarezza e lealtà. Rankei Dōryū a Kenchō-ji e Mugaku Sogen a Engaku-ji non erano decoratori di chiostri; erano figure istituzionali in un momento in cui le ambasciate mongole rendevano il continente insieme modello e minaccia. Lo Zen di Kamakura produsse anche cultura materiale — lacche, architetture a asse cinese, etichetta monastica — che filtrò nella vita dei vassalli. Ridurlo a «minimalismo» è un anacronismo da catalogo: per i samurai del Duecento era una tecnologia mentale e politica, non uno stile di arredo.",
+      "sections": [
+        {
+          "title": "Perché i guerrieri lo vollero",
+          "body": "Lo Zen Rinzai offriva una pratica intensa, una gerarchia chiara e un prestigio continentale. Ai reggenti serviva formare élite capaci di stare sedute ferme e di leggere documenti cinesi: due competenze più rare di quanto sembri."
+        },
+        {
+          "title": "Maestri stranieri, sospetti locali",
+          "body": "Accogliere abati Song significava anche gestirne la vulnerabilità politica. In tempo di pressione mongola, un cinese al vertice di un grande monastero poteva finire accusato di spionaggio e poi riabilitato: la dipendenza culturale aveva un prezzo."
+        },
+        {
+          "title": "Dal monastero al gusto dei laici",
+          "body": "Tè, calligrafia, intaglio e modo di disporre gli edifici uscirono dal recinto. Il «gusto zen» dei secoli successivi nasce da questa contaminazione, non da un manifesto scritto per i turisti."
+        },
+        {
+          "title": "Cosa non è",
+          "body": "Non è l'unica anima di Kamakura — restano Hachiman, la Pure Land del Grande Buddha, lo shugendō dei monti — e non è silenzio garantito. È una corrente che il bakufu scelse di finanziare perché gli tornava utile."
+        },
+        {
+          "title": "La mindfulness con i vassalli armati",
+          "body": "Oggi lo zen si vende come pausa dallo stress. A Kamakura era anche un modo per restare lucidi mentre si gestiva un paese con la spada sul tavolo. Stesso cuscino, diverso ufficio risorse umane.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "建長寺 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E5%BB%BA%E9%95%B7%E5%AF%BA", "kind": "enciclopedia"},
+        {"title": "鎌倉の禅寺 — contesto Gozan", "url": "https://ja.wikipedia.org/wiki/%E4%BA%94%E5%B1%B1", "kind": "enciclopedia"},
+        {"title": "円覚寺 — sito / materiali storici via Wikipedia", "url": "https://ja.wikipedia.org/wiki/%E5%86%86%E8%A6%9A%E5%AF%BA", "kind": "enciclopedia"}
+      ]
+    },
+    {
+      "id": "history-kamakura-great-buddha",
+      "long": "Il Grande Buddha di Kamakura è un Amida, non uno Shaka generico, e la sua fama nasce da una contraddizione: doveva stare al coperto e da secoli sta sotto la pioggia. La tradizione lega la fusione al Duecento e a una spinta di pietà Pure Land in una città altrimenti segnata dallo Zen dei reggenti; poi tifoni e probabilmente un maremoto portarono via il padiglione, lasciando il bronzo all'aperto. Quella nudità diventò identità: la statua sopravvisse come corpo tecnico — pezzi assemblati, interno visitabile — e come icona di resistenza agli elementi. La scheda culturale non ripete il biglietto d'ingresso: chiede perché una capitale zen abbia finito per farsi riconoscere nel mondo da un Amida scoperto, più fotogenico dei chiostri che la governavano davvero.",
+      "sections": [
+        {
+          "title": "Amida in una città di Rinzai",
+          "body": "Kamakura non fu monopolio zen. La Pure Land rispondeva a un bisogno di salvezza più largo, anche popolare. Il colosso di Hase mostra quella pluralità: il bakufu poteva finanziare monasteri Song e la città poteva comunque erigere un Amida enorme."
+        },
+        {
+          "title": "Il tetto che non tornò",
+          "body": "Le fonti e la tradizione convergono sul fatto che l'edificio di protezione andò distrutto e non fu ripristinato in modo durevole. L'esposizione divenne la norma, e con essa un diverso rapporto con vento, sale e luce."
+        },
+        {
+          "title": "Un corpo da leggere come fabbrica",
+          "body": "Entrare nell'interno — quando è consentito — ribalta l'aura: si vedono giunti, spessori, soluzioni di fonderia. Il sacro si mostra come lavoro metallurgico del XIII secolo, non solo come volto sereno da cartolina."
+        },
+        {
+          "title": "Da icona locale a simbolo esportato",
+          "body": "Fotografia, guide estere e souvenir hanno spostato il Daibutsu dal ruolo liturgico a quello di emblema di Kamakura. Capita alle statue di successo: finiscono per rappresentare un'intera città anche per chi non sa che Buddha sia."
+        },
+        {
+          "title": "Il Buddha che ha scelto l'abbonamento meteo",
+          "body": "Altri colossi restano in salone climatizzato. Questo ha deciso di fare la vita da spiaggia: stesso bronzo, più carattere, zero scuse quando piove.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "高徳院 — Wikipedia giapponese (Kamakura Daibutsu)", "url": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%BE%B3%E9%99%A2_(%E9%8E%8C%E5%80%89%E5%B8%82)", "kind": "enciclopedia"},
+        {"title": "Kamakura Great Buddha — Japan Guide", "url": "https://www.japan-guide.com/e/e3100.html", "kind": "guida di riferimento"},
+        {"title": "鎌倉大仏 — KOGEI / turismo Kanagawa context", "url": "https://www.kanagawa-kankou.or.jp/", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "history-hakone-tokaido",
+      "long": "La Tōkaidō non era soltanto una strada panoramica fra Edo e Kyoto: era l'arteria lungo cui lo shogunato misurava obbedienza, velocità delle notizie e movimento delle persone. Hakone, col lago da un lato e i dirupi dall'altro, era il punto in cui quella arteria poteva essere stretta fra due dita. Stazioni di posta, porte di controllo e pellegrinaggi ai Gongen rendevano il valico una sequenza di prove — documentali, fisiche, rituali — più che una gita. Hiroshige e le guide di viaggio dell'Ottocento ne fissarono l'immagine pittoresca; l'esperienza storica era più severa: salite, sudore, controlli e il rischio di essere rispediti indietro. Capire Hakone sulla Tokaido significa capire come il paesaggio «bello» fosse anche infrastruttura di potere.",
+      "sections": [
+        {
+          "title": "Le cinquantatre stazioni come sistema",
+          "body": "La numerazione delle shukuba organizzava pernottamenti, corrieri e corvée. Hakone non era una cartolina isolata: era un nodo obbligato di una rete che rendeva Edo raggiungibile e vigilabile."
+        },
+        {
+          "title": "Salita, paura e prestigio",
+          "body": "Attraversare il passo aveva fama di prova. Chi tornava poteva raccontarlo; chi viaggiava per dovere — messi, pellegrini, scorte di daimyo — lo subiva come costo del mestiere. Il paesaggio entrava nei diari perché faceva fatica."
+        },
+        {
+          "title": "Dal corridoio militare al brand turistico",
+          "body": "Treni, funivie e autobus hanno spezzato la monotonia del cammino, ma il marchio «Tokaido» resta. Molti visitatori percorrono tratti di selciato cercando l'emozione dell'antica strada senza incontrarne la burocrazia: è un privilegio moderno."
+        },
+        {
+          "title": "Cosa guardare oltre la foto del lago",
+          "body": "Pendenze, muri di contenimento, allineamenti verso il sekisho e i santuari di valico raccontano la strada come macchina. Il Fuji sullo sfondo è vero; non era il motivo per cui lo shogunato spendeva qui."
+        },
+        {
+          "title": "L'autostrada con i sandali",
+          "body": "Oggi la stessa tratta si fa in pullman con aria condizionata. Nel Seicento era una scalata controllata da funzionari. Progresso significa, fra le altre cose, sudare di meno per gli stessi chilometri.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "東海道 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E6%9D%B1%E6%B5%B7%E9%81%93", "kind": "enciclopedia"},
+        {"title": "箱根 — Associazione turistica (Tokaido / sekisho)", "url": "https://www.hakone.or.jp/", "kind": "ente turistico"},
+        {"title": "箱根関所 — sito ufficiale", "url": "https://hakonesekisyo.jp/", "kind": "sito ufficiale"}
+      ]
+    },
+    {
+      "id": "history-hakone-onsen",
+      "long": "A Hakone l'acqua calda non è un extra da hotel: è la ragione per cui la gente attraversava il valico anche quando non doveva. Le sorgenti, legate al vulcanismo della caldera, hanno nutrito per secoli una cultura dell'onsen fatta di locande, etichetta di bagno e fiducia quasi medica nel calore. Il rito è semplice e non negoziabile: ci si lava prima, si entra nudi, il piccolo asciugamano non finisce in acqua. Quello che cambia da un'epoca all'altra è l'infrastruttura — da ryokan di pellegrinaggio a resort di gruppo ferroviario — non l'idea che il corpo stanco del viaggio meriti una vasca condivisa. Capire l'onsen di Hakone serve a non trattarlo come piscina con vista: è un pezzo di vita sociale giapponese concentrato in una valle che puzza di minerali e promette sonno.",
+      "sections": [
+        {
+          "title": "Acqua di vulcano, regole di villaggio",
+          "body": "Ogni zona ha temperature, minerali e storie diverse, ma la grammatica del bagno è comune. Violare l'etichetta non è eccentricità: è mancare di rispetto a chi condivide la vasca e a chi gestisce l'acqua come bene fragile."
+        },
+        {
+          "title": "Dal pellegrino al week-end di Tokyo",
+          "body": "I fedeli dei Gongen e i viaggiatori della Tokaido trovavano qui riposo obbligato. Dal Novecento treni e compagnie private hanno trasformato quella sosta in industria dell'ospitalità, senza cancellare la dipendenza dalla geologia."
+        },
+        {
+          "title": "Quando l'acqua è «prodotta»",
+          "body": "Non tutte le terme di Hakone sgorgano sotto l'albergo. In alcune località il calore vulcanico viene condotto e miscelato a valle: un fatto industriale che non invalida l'esperienza, ma invita a non mitizzare ogni rubinetto come sorgente vergine."
+        },
+        {
+          "title": "Cosa portare a casa come idea",
+          "body": "Non il sapone in vasca, non la foto del soffitto di legno: l'idea che il riposo sia pubblico, silenzioso e regolato. È una forma di civiltà termale più che una pampering list."
+        },
+        {
+          "title": "La spa in cui il costume è il problema",
+          "body": "In Europa si discute il costume in piscina; qui il costume è il malinteso. La libertà del bagno giapponese comincia togliendo proprio quello che altrove vi farebbe sentire a posto.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "箱根温泉 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E7%AE%B1%E6%A0%B9%E6%B8%A9%E6%B3%89", "kind": "enciclopedia"},
+        {"title": "Hakone tourism — onsen culture", "url": "https://www.hakone.or.jp/", "kind": "ente turistico"},
+        {"title": "JNTO — Onsen etiquette overview", "url": "https://www.japan.travel/en/guide/onsen/", "kind": "ente turistico nazionale"}
+      ]
+    },
+    {
+      "id": "history-hakone-yosegi",
+      "long": "Lo yosegi-zaiku di Hakone è un'ebanisteria che dipinge senza pigmenti. Si scelgono essenze diverse — colore, venatura, durezza — si incollano in blocchi che formano motivi geometrici, poi si segitano in fogli sottili da applicare su scatole, vassoi e soprattutto sulle himitsu-bako, le «scatole segrete» che si aprono solo con una sequenza di scorrimenti. La tecnica sfrutta i boschi del massiccio e una tradizione di intaglio legata alle vie dei pellegrini e dei viaggiatori della Tokaido, che volevano oggetti belli e trasportabili. Non è mosaico di pietra né intarsio pittorico: è geometria vegetale. Capirlo aiuta a guardare le vetrine di Hakone-Yumoto con un criterio: non «souvenir di legno», ma prova di quanti alberi servano a fare un disegno che sembra stampato.",
+      "sections": [
+        {
+          "title": "Il colore viene dall'albero, non dal barattolo",
+          "body": "Giallo, bianco, bruno, verdastro: sono specie diverse messe a contatto. L'artigiano compone un blocco come si compone un tessuto, poi lo affetta. Se il motivo è uniforme, il lavoro di selezione è riuscito."
+        },
+        {
+          "title": "La scatola che rifiuta la fretta",
+          "body": "L'himitsu-bako è il pezzo celebre perché trasforma la geometria in meccanismo. Ogni scorrimento è una mossa; sbagliare sequenza significa restare fuori. È un giocattolo serio nato da precisione di falegnameria."
+        },
+        {
+          "title": "Hakone come luogo, non come marchio generico",
+          "body": "Si trovano imitazioni altrove, ma la filiera storica è legata a questa montagna e alle sue essenze. Botteghe e musei locali mostrano blocchi grezzi e fasi di taglio: vale più di qualsiasi etichetta «traditional style» senza laboratorio dietro."
+        },
+        {
+          "title": "Cosa c'entra con il viaggio",
+          "body": "Un oggetto yosegi racconta la stessa economia del valico che vendeva riposo termale e amuleti: dove passa gente stanca, nasce artigianato da portare via. La differenza è che qui il paesaggio entra nel pezzo come tavolozza."
+        },
+        {
+          "title": "Il puzzle che odia le istruzioni stampate",
+          "body": "Molte scatole segrete non alleggano un libretto chiaro. È una filosofia di design: se dovete leggere il manuale, forse non eravate destinati a quel pan di stelle di legno.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "寄木細工 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E5%AF%84%E6%9C%A8%E7%B4%B0%E5%B7%A5", "kind": "enciclopedia"},
+        {"title": "Hakone craft — Associazione turistica di Hakone", "url": "https://www.hakone.or.jp/", "kind": "ente turistico"},
+        {"title": "Yosegi-zaiku — KOGEI JAPAN", "url": "https://kogeijapan.com/locale/en_US/yosegizaiku/", "kind": "catalogo artigianato"}
+      ]
+    }
+  ]
+}

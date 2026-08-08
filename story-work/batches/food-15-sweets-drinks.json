@@ -1,0 +1,968 @@
+{
+  "meta": {
+    "batch": "food-15-sweets-drinks",
+    "note": "Phase 2 national sweets and drinks (24). Wagashi/bakery, kissaten, tea, sake/whisky/highball/chuhai. Sources: JNTO gastronomy/tea/sake/whisky, MAFF."
+  },
+  "schede": [
+    {
+      "id": "food-all-anpan",
+      "long": "L'anpan è il panino soffice ripieno di anko — pasta dolce di azuki — che ha insegnato al Giappone moderno a mettere i wagashi dentro il pane. Nasce nell'era Meiji come incontro tra panificazione occidentale e dolcezza di fagiolo; oggi sta in panetterie, konbini e souvenir. La crosta può essere liscia o cosparsa di semi di papavero o sesamo; il ripieno va dal tsubuan granuloso allo koshian liscio. Per chi cammina è una merenda che non cola come una brioche cremosa e parla subito di Giappone. Capirlo evita di aspettarci cioccolato: se apri e trovi fagiolo dolce, sei nel rito corretto, non in un errore di etichetta.",
+      "sections": [
+        {
+          "title": "Anko come ripieno ufficiale",
+          "body": "Tsubuan ha pezzi di fagiolo; koshian è vellutato. Entrambi validi. Se il ripieno è scarso e il pane secco, cambia forno."
+        },
+        {
+          "title": "Dove cercarlo",
+          "body": "Panetterie di quartiere battono spesso il konbini per freschezza. Al konbini resta utile di notte e in stazione."
+        },
+        {
+          "title": "Merenda, non dessert da cerimonia",
+          "body": "Si mangia in mano, con tè o caffè. Non è wagashi da tatami — è ponte tra panificio e tradizione dolce."
+        },
+        {
+          "title": "Il fagiolo che ha conquistato il panino",
+          "body": "Altri paesi nascondono la crema pasticcera. Qui hanno messo gli azuki al centro e hanno costruito intorno un'icona nazionale.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Wagashi: a delectable art form",
+          "url": "https://www.japan.travel/en/sg/story/wagashi-delectable-art-form-learn-craft-traditional-japanese-con/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Sweets to treasure",
+          "url": "https://www.japan.travel/en/gastronomy/article-sweets-to-treasure/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-curry-pan",
+      "long": "Il curry-pan è pane ripieno di curry giapponese denso, spesso impanato e fritto, a volte al forno. Si compra caldo in panetteria o al konbini; al morso esce vapore speziato-dolce, non brodo. È lo yoshoku diventato spuntino da mano: stessa famiglia del karēraisu, formato da viaggio. La crosta fritta deve restare croccante; il ripieno non deve essere acqua. Per chi vuole curry senza piatto e bacchette è la soluzione più diretta. Capirlo evita di trattarlo come empanada generica: il profilo è curry da roux giapponese, non chili messicano.",
+      "sections": [
+        {
+          "title": "Fritto di default",
+          "body": "La versione impanata è lo standard da panificio. Al forno è più leggera ma diversa. Guarda l'etichetta o la vetrina."
+        },
+        {
+          "title": "Calore interno",
+          "body": "Il primo morso scotta. Apri un attimo o mordi di lato — stessa regola del nikuman, diverso ripieno."
+        },
+        {
+          "title": "Quando ha senso",
+          "body": "Spuntino tra treni, merenda salata, fame da cammino. Meno ideale come unico pasto se hai davanti un tempio lungo: è denso e unto."
+        },
+        {
+          "title": "Curry con la valigia di pane",
+          "body": "Hanno preso la cena nazionale e l'hanno fatta entrare in un panino fritto. È efficientismo gastronomico livello Shinkansen.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — The art of yoshoku",
+          "url": "https://www.japan.travel/en/au/experience/cuisine/the-art-of-yoshoku-six-popular-western-dishes-reinvented-in-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — How to get the most out of konbini",
+          "url": "https://www.japan.travel/en/japan-magazine/2002_konbini/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-dorayaki",
+      "long": "Il dorayaki è due dischi morbidi tipo pancake che racchiudono anko: dolce da wagashi-ya, stazione e konbini, famoso anche per la pop culture. La pastella deve essere umida e dorata, il ripieno generoso senza uscire da tutti i lati. Non è un pancake da brunch americano: è uno snack da tè, da treno, da regalo in confezione. Per il viaggiatore è il modo più semplice di incontrare l'anko senza affrontare un'intera cerimonia. Capirlo evita di cercarci sciroppo d'acero: qui la dolcezza è fagiolo e zucchero nella pasta, non topping da catena.",
+      "sections": [
+        {
+          "title": "Spessore e freschezza",
+          "body": "Dischi troppo secchi sono da scaffale anziano. Il buono cede sotto i denti e profuma di uovo-zucchero."
+        },
+        {
+          "title": "Anko al centro",
+          "body": "Se il ripieno è una virgola, è marketing povero. Deve esserci resistenza dolce al morso."
+        },
+        {
+          "title": "Contesto",
+          "body": "Merenda, omiyage, accompagnamento al tè. Meno senso come dessert dopo un kaiseki pesante — è già un pasto piccolo."
+        },
+        {
+          "title": "Il panino dei pancake che rifiuta il brunch",
+          "body": "Sembra pronto per i mirtilli. Invece arriva l'anko e ti ricorda che sei in Giappone, non in un loft di Brooklyn.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Wagashi: a delectable art form",
+          "url": "https://www.japan.travel/en/sg/story/wagashi-delectable-art-form-learn-craft-traditional-japanese-con/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Sweets to treasure",
+          "url": "https://www.japan.travel/en/gastronomy/article-sweets-to-treasure/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-daifuku",
+      "long": "Il daifuku è mochi tenero che avvolge anko, crema o frutta — l'ichigo daifuku con fragola intera è la variante più fotografata. Si compra in pasticcerie wagashi e nei banconi dei grandi magazzini; va mangiato fresco perché il mochi indurisce. La polvere di amido fuori non è un difetto: evita che si attacchi. Per chi vuole un dolce «giapponese» riconoscibile in due bocconi, è più chiaro di molti namagashi elaborati. Capirlo evita di masticaerlo come gomma da chewing: si spezza con i denti con calma, senza tirare fili eterni in pubblico.",
+      "sections": [
+        {
+          "title": "Freschezza o niente",
+          "body": "Mochi duro è ieri. Compra e mangia lo stesso giorno, soprattutto in estate."
+        },
+        {
+          "title": "Ichigo e oltre",
+          "body": "La fragola aggiunge acidità utile. Crema e matcha sono varianti moderne; l'anko resta il classico."
+        },
+        {
+          "title": "Come gestirlo in mano",
+          "body": "Carta e pazienza. È appiccicoso per natura: non è maleducazione tua, è fisica del riso glutinoso."
+        },
+        {
+          "title": "Neve di amido obbligatoria",
+          "body": "Sembri infarinato di proposito. È l'unico dolce che ti fa uscire dalla pasticceria come un fornaio part-time.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Wagashi: a delectable art form",
+          "url": "https://www.japan.travel/en/sg/story/wagashi-delectable-art-form-learn-craft-traditional-japanese-con/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Sweets to treasure",
+          "url": "https://www.japan.travel/en/gastronomy/article-sweets-to-treasure/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — The definitive Japanese tea experience",
+          "url": "https://www.japan.travel/en/gastronomy/article-the-definitive-japanese-tea-experience/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-dango",
+      "long": "Il dango è palline di farina di riso infilate su stecco: mitarashi glassato dolce-salato, anko sopra, o versioni tostate. Vive nei sentieri dei templi, nelle fiere e nei chioschi vicino ai santuari — è street sweet più che pasticceria da vetrina. La texture è elastica e masticabile; la glassa mitarashi sa di soia zuccherata cotta. Per chi cammina tra torii è lo spuntino giusto: una mano, poco peso, sapore chiaro. Capirlo evita di trattarlo come marshmallow: è cereale, non aria zuccherina.",
+      "sections": [
+        {
+          "title": "Mitarashi vs anko",
+          "body": "Mitarashi è lucido e tostato-dolce; anko è più denso e da fagiolo. Scegli in base alla sete di dolcezza, non al colore Instagram."
+        },
+        {
+          "title": "Stecco da cammino",
+          "body": "Ideale tra un tempio e l'altro. Meno elegante su un treno affollato: la glassa cola."
+        },
+        {
+          "title": "Texture",
+          "body": "Deve resistere al morso senza essere cemento. Se sbriciola come pan di Spagna, non è dango tipico."
+        },
+        {
+          "title": "Tre palline, una filosofia",
+          "body": "Pochi snack riducono la felicità a una skewered geometry così onesta. È minimalismo che si può mordere.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Wagashi: a delectable art form",
+          "url": "https://www.japan.travel/en/sg/story/wagashi-delectable-art-form-learn-craft-traditional-japanese-con/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Sweets to treasure",
+          "url": "https://www.japan.travel/en/gastronomy/article-sweets-to-treasure/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-castella",
+      "long": "Il castella è pan di Spagna umido di uova, zucchero e mizuame (sciroppo), arrivato con i contatti iberici a Nagasaki e poi diventato dolce nazionale da confezione e da tè. La fetta è alta, dorata, elastica; non è una genoise secca da pasticceria francese. Si compra a Nagasaki come omiyage e ovunque in versioni da supermarket. Per il viaggiatore è un dolce da treno che sopravvive meglio di una crema delicata. Capirlo evita di aspettarci glassa e burro di arachidi: qui vince l'uovo e lo sciroppo, non la farcitura.",
+      "sections": [
+        {
+          "title": "Umidità come firma",
+          "body": "Se è secco e sbriciola subito, è stato stoccato male. Il buono fila leggermente e profuma di uovo."
+        },
+        {
+          "title": "Omiyage e quotidiano",
+          "body": "Le scatole da Nagasaki sono regalo; le fette da konbini sono merenda. Stessa famiglia, rituali diversi."
+        },
+        {
+          "title": "Con cosa si abbina",
+          "body": "Tè verde, hōjicha, caffè leggero. Troppo espresso amaro lo appiattisce."
+        },
+        {
+          "title": "Il pan di Spagna con passaporto di Nagasaki",
+          "body": "Ha fatto più chilometri culturali di molti samurai immaginari. E ancora si vende a fette ordinate come mattoncini.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Sweets to treasure",
+          "url": "https://www.japan.travel/en/gastronomy/article-sweets-to-treasure/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Wagashi: a delectable art form",
+          "url": "https://www.japan.travel/en/sg/story/wagashi-delectable-art-form-learn-craft-traditional-japanese-con/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-purin",
+      "long": "Il purin è budino al caramello setoso — da kissaten in coppetta di vetro a vaschetta da konbini — più compatto di tanti flan europei e spesso più dolce. Si capovolge o si mangia dal contenitore; il caramello deve essere amaro-dolce, non solo sciroppo. Per chi vuole un dessert immediato dopo un pasto salato è ovunque, a ogni fascia di prezzo. Capirlo evita di snobbarlo come «budino da mensa»: in Giappone è un formato culturale, dal caffè rétro al premium a uova ricche.",
+      "sections": [
+        {
+          "title": "Caramello che conta",
+          "body": "Deve avere un filo di amaro. Se è solo zucchero biondo, manca profondità."
+        },
+        {
+          "title": "Kissaten vs konbini",
+          "body": "Al caffè spesso è appena fatto e più delicato; al konbini è affidabile e freddo. Entrambi legittimi per usi diversi."
+        },
+        {
+          "title": "Quando ordinarlo",
+          "body": "Fine pasto leggero, pausa dolce, voglia di qualcosa di freddo senza ghiaccio rasato."
+        },
+        {
+          "title": "Il flan che ha trovato lavoro fisso",
+          "body": "Mentre altri dessert vanno e vengono dalle mode, il purin resta impiegato pubblico del frigorifero nazionale.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — How to get the most out of konbini",
+          "url": "https://www.japan.travel/en/japan-magazine/2002_konbini/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Sweets to treasure",
+          "url": "https://www.japan.travel/en/gastronomy/article-sweets-to-treasure/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-kakigori",
+      "long": "Il kakigori è ghiaccio rasato finissimo — quasi neve — con sciroppi, latte condensato, anko, matcha, frutta o creme. Non è granita grossolana: la lama deve produrre fiocchi che si sciolgono subito. Si trova in caffè estivi, chioschi e specialisti tutto l'anno nelle città grandi. Per il caldo umido è più utile di un gelato pesante: idrata e rinfresca senza chiedere un tavolo lungo. Capirlo evita di giudicarlo dal colore fluo dello sciroppo: la qualità sta nella rasatura e nel bilanciamento dolce, non nel neon.",
+      "sections": [
+        {
+          "title": "Neve, non ghiaccioli",
+          "body": "Se i pezzi sono grossi e duri, è granita scarsa. Il kakigori buono si mangia col cucchiaio come nube."
+        },
+        {
+          "title": "Condimenti",
+          "body": "Matcha e azuki sono il registro «giapponese»; melone e fragola quello da estate da chiosco. Latte condensato lega tutto."
+        },
+        {
+          "title": "Stagione e coda",
+          "body": "In estate le file sono parte del prezzo. Fuori stagione nei locali specializzati può essere migliore — meno fretta, più cura."
+        },
+        {
+          "title": "Sciroppo fluo, dignità intatta",
+          "body": "Puoi mangiare una montagna verde-chiaro e restare una persona seria. Il Giappone lo dimostra ogni luglio.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Sweets to treasure",
+          "url": "https://www.japan.travel/en/gastronomy/article-sweets-to-treasure/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Wagashi: a delectable art form",
+          "url": "https://www.japan.travel/en/sg/story/wagashi-delectable-art-form-learn-craft-traditional-japanese-con/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-fruit-sando",
+      "long": "Il fruit sando è shokupan senza crosta con panna montata e frutta a pezzi disposta perché la sezione al taglio sia geometrica: fragole, kiwi, mango, uva. Vive nei konbini premium, nei bakery e nei depachika. Non è un tramezzino salato: è dessert da mano, fresco, fotografico senza sforzo. La frutta deve essere matura e la panna non acquosa; il pane alto fa da cornice. Per il viaggiatore è una merenda da stazione più elegante di una snack bag. Capirlo evita di cercarci burro salato: qui vince la pasticceria da panino.",
+      "sections": [
+        {
+          "title": "Sezione come prova",
+          "body": "Se al taglio la frutta è sparsa a caso, è frettoloso. I migliori sembrano vetrine in sezione."
+        },
+        {
+          "title": "Freddo e trasporto",
+          "body": "Va tenuto fresco. Nel zaino al sole diventa panna triste. Mangialo entro poche ore."
+        },
+        {
+          "title": "Quando sceglierlo",
+          "body": "Merenda, picnic da parco, dolce dopo un pranzo salato leggero. Meno ideale come colazione unica se hai una camminata lunga: è soft, non carburante."
+        },
+        {
+          "title": "Geometria della fragola",
+          "body": "Qualcuno ha deciso che la frutta nel panino deve superare un esame di architettura. E ha ragione: senza sezione bella, è solo panna.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — How to get the most out of konbini",
+          "url": "https://www.japan.travel/en/japan-magazine/2002_konbini/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Sweets to treasure",
+          "url": "https://www.japan.travel/en/gastronomy/article-sweets-to-treasure/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-souffle-pancakes",
+      "long": "I pancake soufflé sono torri alte e tremolanti di pastella montata, cotte lentamente in anelli perché restino aria e umidità. Arrivano in caffè specializzati con code possibili; sopra burro, sciroppo, frutta o panna. Non sono pancake americani piatti: il piacere è il collasso lento sotto la forchetta. Per chi vuole un brunch-dolce da città è un'esperienza più che un carburante da cammino. Capirlo evita di ordinarli di fretta tra due treni: vogliono tavolo, attesa e foto — poi si sgonfiano comunque, ed è il punto.",
+      "sections": [
+        {
+          "title": "Tremore come qualità",
+          "body": "Se non trema, è solo pancake alto. Il soufflé buono vibra al tavolo."
+        },
+        {
+          "title": "Code e orari",
+          "body": "Vai fuori rush o prenota se possibile. A mezzogiorno nei weekend l'attesa può costare più del piatto."
+        },
+        {
+          "title": "Dolcezza",
+          "body": "Sciroppo a parte: assaggia prima. Spesso la pastella è già zuccherata; annegarli è facile."
+        },
+        {
+          "title": "Dessert che fa theatre",
+          "body": "È l'unico dolce che ti chiede di applaudire la fisica prima di mangiare. Poi diventa panetto — e va bene così.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Sweets to treasure",
+          "url": "https://www.japan.travel/en/gastronomy/article-sweets-to-treasure/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Western-style Japanese food (yoshoku)",
+          "url": "https://www.japan.travel/en/ph/guide/yoshoku/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-japanese-cheesecake",
+      "long": "Il cheesecake giapponese — spesso soufflé o cotton cheesecake — è più arioso e meno denso di quello newyorkese: uova montate, formaggio fresco, cottura che lo fa sobbalzare. Si compra a fette in pasticcerie e catene; alcune versioni sono quasi da nuvoletta, altre più umide. Per chi vuole un dolce al formaggio senza pesantezza da bakery americana, è la scelta tipica da città. Capirlo evita delusione da «manca il body»: la leggerezza è la firma, non un difetto di cottura.",
+      "sections": [
+        {
+          "title": "Aria vs densità",
+          "body": "Se cerchi densità da NY cheesecake, ordina altro. Qui conta il soffio e la crosta appena dorata."
+        },
+        {
+          "title": "Dove comprarlo",
+          "body": "Pasticcerie specializzate e depachika. Le versioni da supermarket variano: guarda la data e la tenuta della forma."
+        },
+        {
+          "title": "Abbinamenti",
+          "body": "Tè, caffè leggero, a volte salsa di frutti di bosco. Troppo cioccolato fondente lo appesantisce senza bisogno."
+        },
+        {
+          "title": "Formaggio che ha fatto yoga",
+          "body": "Stessa famiglia del cheesecake, ma ha lasciato andare le tensioni. Il risultato trema e non si scusa.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Sweets to treasure",
+          "url": "https://www.japan.travel/en/gastronomy/article-sweets-to-treasure/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Wagashi: a delectable art form",
+          "url": "https://www.japan.travel/en/sg/story/wagashi-delectable-art-form-learn-craft-traditional-japanese-con/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-shokupan-toast",
+      "long": "Lo shokupan toast celebra il pane in cassetta alto e filante: fette spesse tostate con burro, zucchero, miele, anko o uovo. Nei kissaten arriva come «morning set»; nei bakery specializzati il pane stesso è il prodotto. Non è toast europeo sottile: lo spessore e la mollica elastica sono metà del piacere. Per il viaggiatore è colazione e merenda affidabili, meno sticky di un fruit sando. Capirlo evita di giudicarlo «solo pane»: in Giappone lo shokupan è cultura da forno, non supporto neutro.",
+      "sections": [
+        {
+          "title": "Spessore obbligatorio",
+          "body": "Fette da due-tre centimetri sono tipiche nei caffè toast. Sottili come crackers perdono il senso."
+        },
+        {
+          "title": "Burro e oltre",
+          "body": "Burro semplice è classico; anko-butter e miele sono varianti. L'uovo sopra lo avvicina a un pasto."
+        },
+        {
+          "title": "Morning set",
+          "body": "Nei kissaten spesso costa poco e include caffè. È uno dei migliori rapporti qualità-prezzo del viaggio urbano."
+        },
+        {
+          "title": "Pane che vuole il ruolo da protagonista",
+          "body": "In altri paesi il toast è una scusa per le uova. Qui le uova a volte sono una scusa per il pane.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Breakfast options",
+          "url": "https://www.japan.travel/en/japan-magazine/breakfast-options-to-fit-your-travel-plans/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Western-style Japanese food (yoshoku)",
+          "url": "https://www.japan.travel/en/ph/guide/yoshoku/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-cream-soda",
+      "long": "La cream soda da kissaten è soda al melone (verde) con pallina di gelato alla vaniglia e ciliegina: icona rétro dei caffè del Novecento, ancora in menu come dichiarazione di nostalgia. Non è un cocktail e non è «healthy»: è teatro di bicchiere alto, ghiaccio e colore. Per chi vuole una pausa dolce e fotografica tra un tempio e un museo è più interessante di una cola anonima. Capirlo evita di cercarci alcol: è soft drink da tavolino, da sorseggiare mentre il gelato cede lentamente.",
+      "sections": [
+        {
+          "title": "Verde come default",
+          "body": "Il melone soda è lo standard visivo. Altre varianti esistono, ma se vuoi il gesto rétro chiedi cream soda classica."
+        },
+        {
+          "title": "Gelato che si scioglie",
+          "body": "Bevi e mangia a cucchiaio: il punto è l'incontro soda-gelato, non tenere la pallina intatta per la foto eternamente."
+        },
+        {
+          "title": "Contesto kissaten",
+          "body": "Ha più senso al tavolo di un caffè che di corsa in stazione. Il rito è sedersi."
+        },
+        {
+          "title": "Semaforo liquido",
+          "body": "È l'unica bevanda che ti fa sembrare un cartone animato degli anni Settanta — e nei kissaten è un complimento.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Western-style Japanese food (yoshoku)",
+          "url": "https://www.japan.travel/en/ph/guide/yoshoku/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Breakfast options",
+          "url": "https://www.japan.travel/en/japan-magazine/breakfast-options-to-fit-your-travel-plans/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-matcha",
+      "long": "Il matcha è tè verde in polvere setacciato e frullato con acqua calda (non bollente estrema): colore intenso, schiuma fine, amaro-umami che non è la bevanda zuccherata da catena. In cerimonia e in sala da tè si beve puro; altrove diventa latte, gelato, dolci. Per capire il Giappone del tè serve almeno un bicchiere o una ciotola «vero» matcha, non solo un frappé. Capirlo evita di giudicare il tè dal latte al matcha del food court: sono parenti lontani, non gemelli.",
+      "sections": [
+        {
+          "title": "Puro prima del latte",
+          "body": "Assaggia almeno una volta usucha o koicha in contesto da tè. Poi i dolci al matcha avranno senso — e i limiti."
+        },
+        {
+          "title": "Temperatura e schiuma",
+          "body": "Acqua troppo bollente brucia l'aroma. La schiuma fine è segnale di buona frullatura con chasen."
+        },
+        {
+          "title": "Con wagashi",
+          "body": "Il dolce si mangia prima o a fianco per bilanciare l'amaro. Non è un optional da influencer: è disegno del gusto."
+        },
+        {
+          "title": "Verde che non chiede scusa",
+          "body": "È erbaceo, a volte austero, e rifiuta di essere milkshake. Per questo i milkshake al matcha esistono: per consolare chi aveva paura.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — The definitive Japanese tea experience",
+          "url": "https://www.japan.travel/en/gastronomy/article-the-definitive-japanese-tea-experience/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Wagashi: a delectable art form",
+          "url": "https://www.japan.travel/en/sg/story/wagashi-delectable-art-form-learn-craft-traditional-japanese-con/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-mugicha",
+      "long": "Il mugicha è infuso di orzo tostato, di solito freddo in estate: colore ambrato, aroma di cereale, zero caffeina. Arriva gratis in molti ristoranti con il pasto, in bottiglia al konbini e in borraccia da famiglia. Non è tè verde: è la bevanda quotidiana che idrata senza nervosismo. Per il viaggiatore sotto il caldo umido è più utile di quanto sembri «banale». Capirlo evita di rifiutarlo pensando sia tè vecchio: è orzo, ed è una scelta intenzionale.",
+      "sections": [
+        {
+          "title": "Freddo di default d'estate",
+          "body": "In caraffa sul tavolo è segnale di stagione. Bevilò senza aspettarti dolcezza: è secco e tostato."
+        },
+        {
+          "title": "Senza caffeina",
+          "body": "Utile la sera e per chi limita il tè verde. Non sostituisce il caffè nel gusto — sostituisce l'acqua un po' annoiata."
+        },
+        {
+          "title": "Konbini e ristorante",
+          "body": "Bottiglie ovunque; nei locali spesso è la caraffa «acqua» aromatica. Chiedi se vuoi tè verde invece."
+        },
+        {
+          "title": "L'orzo che fa da aria condizionata",
+          "body": "Non fa figo nei post. Fa sopravvivere ad agosto. A volte è la stessa cosa.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Breakfast options",
+          "url": "https://www.japan.travel/en/japan-magazine/breakfast-options-to-fit-your-travel-plans/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-all-umeshu",
+      "long": "L'umeshu è liquore di ume macerata in alcol e zucchero: dolce-acidulo, profumato di albicocca-prugna, servito liscio, con ghiaccio, soda o on the rocks. Negli izakaya è l'ingresso più gentile agli alcolici giapponesi per chi non ama il sake secco. Esistono versioni artigianali e da supermarket; il frutto a volte resta nel bicchiere. Per il viaggiatore è aperitivo e digestivo versatile. Capirlo evita di berlo come shot: è da sorseggiare, e il grado alcolico enganna perché il dolce copre.",
+      "sections": [
+        {
+          "title": "Con ghiaccio o soda",
+          "body": "On the rocks concentra; con soda allunga e rinfresca. Liscio è per chi vuole il frutto pieno."
+        },
+        {
+          "title": "Dolcezza che inganna",
+          "body": "Sembra merenda, alcolizza come un liquore. Conta i bicchieri, soprattutto con jet lag."
+        },
+        {
+          "title": "Dove ordinarlo",
+          "body": "Izakaya, bar di stazione, alcuni ryokan. Ottimo con fritti e snack salati."
+        },
+        {
+          "title": "Prugna sotto copertura",
+          "body": "È il liquore che ti convince di stare bevendo sciroppo sofisticato. Poi ti alzi e la stanza è leggermente in diagonale.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Sake and beyond",
+          "url": "https://www.japan.travel/en/ca/sake-and-beyond/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Dinner at a Japanese tavern",
+          "url": "https://www.japan.travel/en/guide/dinner-at-a-japanese-tavern/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-highball",
+      "long": "Il Japanese highball è whisky e soda molto freddi, spesso costruiti con precisione da bar e izakaya: ghiaccio duro, bollicine vive, whisky in proporzione leggera. È pensato per accompagnare yakitori e fritti senza stancare il palato — più sessione lunga che degustazione da snifter. Per chi vuole whisky senza peso da whisky neat è la forma quotidiana nazionale. Capirlo evita di trattarlo come long drink generico da disco: qui conta il freddo e la pulizia, non il succo di frutta.",
+      "sections": [
+        {
+          "title": "Freddo come ingrediente",
+          "body": "Se arriva tiepido, è fallito. Il ghiaccio deve durare; la soda non deve essere piatta."
+        },
+        {
+          "title": "Con il cibo",
+          "body": "Perfetto con sale, carbone e fritto. Meno senso come unico «assaggio whisky» se vuoi capire l'etichetta — per quello chiedi neat o tasting."
+        },
+        {
+          "title": "Ordine semplice",
+          "body": "«Highball» basta. Se vuoi un whisky specifico, indicalo; altrimenti il house è il rito."
+        },
+        {
+          "title": "Whisky in modalità marathon",
+          "body": "Hanno inventato il modo di bere distillato per tre ore di yakitori senza dover scrivere un saggio su ogni sorso.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Sake and beyond",
+          "url": "https://www.japan.travel/en/ca/sake-and-beyond/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Sake, craft beers, and gastronomy tourism",
+          "url": "https://www.japan.travel/en/experiences-in-japan/article-6/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Dinner at a Japanese tavern",
+          "url": "https://www.japan.travel/en/guide/dinner-at-a-japanese-tavern/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-chuhai",
+      "long": "Il chūhai (shōchū highball) è distillato — spesso shochu o base neutra — con soda e aroma: limone, pompelmo, ume, yuzu, edizioni stagionali in lattina da konbini. Negli izakaya si beve fresco e lungo; nelle lattine è lo spuntino alcolico da stazione. È più leggero nel profilo di molti cocktail zuccherati occidentali, ma il grado varia: leggi l'etichetta. Per il viaggiatore è il modo più semplice di entrare nel rito alcolico quotidiano senza studiare sake. Capirlo evita di confonderlo con una birra: è fizzy, aromatico, diverso.",
+      "sections": [
+        {
+          "title": "Limonata che non è limonata",
+          "body": "Il lemon chu-hai è lo standard. Se è troppo dolce, prova pompelmo o soda-only più secca."
+        },
+        {
+          "title": "Lattina vs bancone",
+          "body": "La lattina è praticità; al bancone puoi regolare ghiaccio e intensità. Stesso nome, rituali diversi."
+        },
+        {
+          "title": "Con cosa sta",
+          "body": "Karaage, edamame, grill. Meno ideale con kaiseki delicato."
+        },
+        {
+          "title": "Aroma da frigo di stazione",
+          "body": "È l'unico cocktail di massa che puoi comprare accanto a un onigiri e fingere che sia un piano culinario.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Dinner at a Japanese tavern",
+          "url": "https://www.japan.travel/en/guide/dinner-at-a-japanese-tavern/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — How to get the most out of konbini",
+          "url": "https://www.japan.travel/en/japan-magazine/2002_konbini/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Sake and beyond",
+          "url": "https://www.japan.travel/en/ca/sake-and-beyond/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-sake-tasting",
+      "long": "La degustazione di sake (kikizake / nomikurabe) mette a confronto due o tre stili — junmai, ginjo, daiginjo, mago di riso e acqua diversi — in bicchieri piccoli o masu. Serve a capire quanto il sake sia ampio: fruttato, secco, umami, caldo o freddo. Si fa in sakagura, bar specializzati e alcuni izakaya; non serve essere esperti, serve assaggiare in ordine dal più delicato al più intenso. Per il viaggiatore è più utile di un unico bicchiere casuale. Capirlo evita di giudicare «il sake» da una sola bottiglia calda da supermarket: quella è una stanza di un edificio più grande.",
+      "sections": [
+        {
+          "title": "Ordine di assaggio",
+          "body": "Dal più aromatico-leggero al più robusto, o come propone il locale. Non partire dal più alcolico e potente."
+        },
+        {
+          "title": "Temperatura",
+          "body": "Freddo non è sempre «migliore». Alcuni junmai preferiscono tiepido. Chiedi: è parte della degustazione."
+        },
+        {
+          "title": "Cibo a lato",
+          "body": "Pochi snack salati aiutano. Evita profumi forti che cancellano il naso del ginjo."
+        },
+        {
+          "title": "Tre bicchieri, zero tesi di laurea",
+          "body": "Puoi imparare più in venti minuti di nomikurabe che in tre articoli letti in aereo. Il corpo studia meglio degli occhi.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Sake and beyond",
+          "url": "https://www.japan.travel/en/ca/sake-and-beyond/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Sake, craft beers, and gastronomy tourism",
+          "url": "https://www.japan.travel/en/experiences-in-japan/article-6/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-amazake",
+      "long": "L'amazake è bevanda dolce di riso fermentato: calda d'inverno nei templi e nei festival, fredda in bottiglia; alcune versioni da koji sono quasi senza alcol, altre da sake kasu ne contengono. Sa di riso dolce e crema leggera; non è latte né frullato. Per chi vuole un calore dolce dopo il freddo di un santuario è un rito più che una moda. Capirlo evita di berlo pensando sia alcol da festa: controlla l'etichetta se guidi o se lo offri a bambini.",
+      "sections": [
+        {
+          "title": "Due famiglie",
+          "body": "Koji amazake spesso low/no alcohol; da kasu può avere alcol. Se conta, leggi o chiedi."
+        },
+        {
+          "title": "Tempio e inverno",
+          "body": "Nei chioschi dei santuari d'inverno è il contesto perfetto. In estate in bottiglia è merenda liquida."
+        },
+        {
+          "title": "Dolcezza",
+          "body": "È zuccherino naturalmente. Se è troppo, chiedi una versione più leggera o diluita — alcuni locali la tagliano."
+        },
+        {
+          "title": "Dessert che si beve in giacca invernale",
+          "body": "Sembra una merenda dell'infanzia servita accanto a un torii. Pochi abbinamenti sono così stranamente giusti.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Sake and beyond",
+          "url": "https://www.japan.travel/en/ca/sake-and-beyond/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Wagashi: a delectable art form",
+          "url": "https://www.japan.travel/en/sg/story/wagashi-delectable-art-form-learn-craft-traditional-japanese-con/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-hojicha",
+      "long": "L'hōjicha è tè verde tostato: foglie e a volte gambi passati al calore fino a diventare ambrati, aroma di legno e cacao leggero, amaro basso, caffeina tipicamente ridotta. Si beve caldo dopo cena, freddo in estate, e compare nei gelati e nei latte. Per chi trova il sencha troppo erbaceo è la porta più gentile. Capirlo evita di confonderlo con tè nero: è ancora Camellia sinensis verde, solo tostata.",
+      "sections": [
+        {
+          "title": "Tostatura, non ossidazione",
+          "body": "Il colore scuro viene dal fuoco, non da un black tea. L'aroma deve essere pulito, non di bruciato da cenere."
+        },
+        {
+          "title": "Sera e bambini",
+          "body": "Spesso scelto la sera proprio per la caffeina bassa. Nei ristoranti può arrivare al posto del tè verde chiaro."
+        },
+        {
+          "title": "Latte e dolci",
+          "body": "Hojicha latte e soft serve sono ovunque. Assaggia anche l'infuso semplice: svela la base."
+        },
+        {
+          "title": "Tè che sa di caminetto educato",
+          "body": "Meno zen da cartolina del matcha, più salotto. A volte il salotto è esattamente quello che serve dopo dieci templi.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — The definitive Japanese tea experience",
+          "url": "https://www.japan.travel/en/gastronomy/article-the-definitive-japanese-tea-experience/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-all-genmaicha",
+      "long": "Il genmaicha mescola tè verde e riso tostato/soffiato: profumo di cereale, corpo leggero, storicamente bevanda quotidiana economica che oggi è semplicemente amata. Il riso dà note di popcorn; il tè tiene l'amaro basso. Si trova in bustine, in locali e come base di latte. Per il viaggiatore è un tè «da tutto il giorno» più permissivo del gyokuro. Capirlo evita di pensare che i chicchi siano un difetto nel filtro: sono l'ingredienti, non un errore di produzione.",
+      "sections": [
+        {
+          "title": "Popcorn nel tè",
+          "body": "L'aroma tostato è voluto. Se manca, è genmaicha stanco o troppo poco riso."
+        },
+        {
+          "title": "Quotidiano, non cerimonia",
+          "body": "Raro nella tea ceremony formale; comune a casa e in ristorante. Perfetto tra un museo e l'altro."
+        },
+        {
+          "title": "Bustina vs foglia",
+          "body": "Anche le bustine decenti funzionano in viaggio. Le foglie buone valgono se sei fermo in un locale del tè."
+        },
+        {
+          "title": "Il tè con i cereali della colazione",
+          "body": "È come se qualcuno avesse versato il popcorn nel sencha e avesse scoperto la pace interiore a basso costo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — The definitive Japanese tea experience",
+          "url": "https://www.japan.travel/en/gastronomy/article-the-definitive-japanese-tea-experience/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-all-japanese-whisky",
+      "long": "Il whisky giapponese nasce su modelli scozzesi e cresce con acqua, clima e botti locali: single malt e blend, da distillerie visitabili e da etichette ormai globali. Al bancone può costare; in highball il whisky di base è spesso la scelta più onesta. Per capire il paese dei distillati conviene un sorso neat o un tasting, non solo il long drink. Capirlo evita di inseguire solo bottiglie introvabili da collezione: il piacere quotidiano sta spesso nel bicchiere ben fatto, non nel trofeo.",
+      "sections": [
+        {
+          "title": "Neat vs highball",
+          "body": "Neat o con goccia d'acqua per capire l'etichetta; highball per mangiare a lungo. Sono due usi, non una gerarchia morale."
+        },
+        {
+          "title": "Distillerie",
+          "body": "Visite e tasting compaiono nelle guide JNTO (Yoichi, Miyagikyo, Hakushu e altre). Prenota: i flussi cambiano."
+        },
+        {
+          "title": "Prezzo e rarità",
+          "body": "Le icone rare sono care e a volte assenti. Chiedi consigli al bartender su cosa è aperto e buono oggi."
+        },
+        {
+          "title": "Scozia con accento umido",
+          "body": "Hanno studiato l'originale e poi hanno aggiunto nebbia, foresta e pazienza. Il risultato fa litigare i collezionisti — ottimo segno.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Sake and beyond",
+          "url": "https://www.japan.travel/en/ca/sake-and-beyond/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Sake, craft beers, and gastronomy tourism",
+          "url": "https://www.japan.travel/en/experiences-in-japan/article-6/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-imagawayaki",
+      "long": "L'imagawayaki è un disco spesso di pastella cotto in stampi rotondi di metallo, ripieno di anko o crema, servito caldo da chiosco. Cambia nome quasi ovunque — obanyaki, kaiten'yaki e altri — ma la geometria resta: due gusci uniti, ripieno al centro, crosta leggermente croccante. È street sweet da fiera e da strada commerciale, non dolce da cerimonia. Per chi cammina è calore da mano e anko senza bisogno di stecco. Capirlo evita di confonderlo col taiyaki: qui non c'è pesce stilizzato, solo cerchio onesto.",
+      "sections": [
+        {
+          "title": "Caldo di stampo",
+          "body": "Meglio appena uscito: fuori asciutto-dorato, dentro morbido. Freddo diventa gomma zuccherina."
+        },
+        {
+          "title": "Anko di default",
+          "body": "Crema pasticcera e cioccolato sono varianti. L'anko resta il test del chiosco."
+        },
+        {
+          "title": "Nomi locali",
+          "body": "Non litigare sul nome con il venditore. Se è rotondo, caldo e ripieno, sei nel territorio giusto."
+        },
+        {
+          "title": "Il taiyaki che ha perso le pinne",
+          "body": "Stessa famiglia emotiva, meno cosplay ittico. A volte la forma più semplice vince la coda dei turisti.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Wagashi: a delectable art form",
+          "url": "https://www.japan.travel/en/sg/story/wagashi-delectable-art-form-learn-craft-traditional-japanese-con/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Sweets to treasure",
+          "url": "https://www.japan.travel/en/gastronomy/article-sweets-to-treasure/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    }
+  ]
+}

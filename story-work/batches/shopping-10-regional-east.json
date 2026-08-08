@@ -1,0 +1,408 @@
+{
+  "meta": {
+    "batch": "shopping-10-regional-east",
+    "note": "Phase 3 shopping deep stories for 10 eastern-route regional craft/pop catalog ids (Tokyo–Kamakura–Hakone–Matsumoto–Nagano). Anti-paraphrase: shop-hakone-yosegi = himitsu-bako / certified purchase object, not forest-mosaic history essay; shop-kamakura-kamakura-bori = tray/box to buy, not monastery-to-Meiji chronicle. Sources: craft associations, GO TOKYO, Hakone, Visit Matsumoto, Go Nagano, Kamakura."
+  },
+  "schede": [
+    {
+      "id": "shop-tokyo-edo-kiriko",
+      "long": "L'Edo Kiriko che mettete in valigia è vetro colorato o trasparente inciso a mola con motivi geometrici — asanoha, nanako, yarai — che lasciano trasparenze a contrasto. Non comprate «un bicchiere carino di Asakusa»: cercate il marchio e la filiera del Edo Kiriko Cooperative Association, titolare del marchio registrato e gestore dello showroom a Koto con pezzi di combinazione e artigiani iscritti. Il vetro è artigianato tradizionale designato; la tradizionale 証紙 (tradizionale shōshi) segnala pezzi ispezionati come traditional craft. Bicchieri old-fashioned, ochoko e piccoli vasi sono il formato realistico da viaggio; le ciotole grandi pesano e si scheggiano. Avvolgete ogni pezzo singolarmente, usate calzini solo come ultima risorsa e mettetelo in stiva imbottito: il cabin luggage pieno di lenti a contatto non perdona un tumbler. Se il prezzo è da souvenir e la pretesa da «Edo Kiriko handmade abroad», fermatevi: l'associazione avverte esplicitamente sulle imitazioni.",
+      "sections": [
+        {
+          "title": "Marchio, sigillo, showroom di filiera",
+          "body": "«Edo Kiriko» è marchio del cooperativa. Lo showroom ufficiale espone centinaia di pezzi di soci e catalogo; le botteghe di Sumida e Asakusa legate ad artigiani noti sono l'alternativa sul campo. Cercate documentazione di traditional craft / 伝統証紙 quando il prezzo sale nella fascia alta. Un bicchiere senza storia di laboratorio è solo vetro tagliato — può essere bello, ma non pagatelo come certificato."
+        },
+        {
+          "title": "Motivi, colore, spessore del taglio",
+          "body": "I tagli devono essere netti e regolari; il colore del vetro (rosso, blu, verde, nero) resta nelle zone non incise. Ruotate il pezzo contro la luce del negozio: i motivi devono «accendersi». Evitate bordi scheggiati già in vetrina e basi instabili. Per uso quotidiano chiedete se il pezzo è lavabile a mano e se teme sbalzi termici estremi."
+        },
+        {
+          "title": "Come portarlo a casa intero",
+          "body": "Un ochoko o un rock glass piccolo batte il vaso scenografico. Chiedete scatola e materiale da imballo al negozio; molti showroom sono abituati ai regali. Dichiarate vetro fragile in stiva e non mettetelo contro bottiglie di saké. Se dubitate della resistenza, comprate due pezzi piccoli invece di uno «da cerimonia» che non userete mai."
+        },
+        {
+          "title": "Il bicchiere che giudica il vostro tap water",
+          "body": "A Tokyo, sotto i LED del negozio, l'acqua del rubinetto sembra champagne. A casa, sotto il neon della cucina, rivela la verità sul vostro filtro. L'Edo Kiriko non mentisce: eleva o espone. Scegliete di conseguenza il liquido, non solo il vetro.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Edo Kiriko Cooperative Association — official",
+          "url": "https://www.edokiriko.or.jp/",
+          "kind": "associazione"
+        },
+        {
+          "title": "EDO KIRIKO — English introduction",
+          "url": "https://www.edokiriko.or.jp/info/foreignlang-edokiriko-english/",
+          "kind": "associazione"
+        },
+        {
+          "title": "Traditional craft designation & trademark — Edo Kiriko",
+          "url": "https://www.edokiriko.or.jp/info/%e4%bc%9d%e7%b5%b1%e5%b7%a5%e8%8a%b8%e6%8c%87%e5%ae%9a%e3%82%84%e5%95%86%e6%a8%99/",
+          "kind": "associazione"
+        }
+      ]
+    },
+    {
+      "id": "shop-tokyo-ukiyoe",
+      "long": "Comprare un'ukiyo-e a Tokyo significa scegliere consapevolmente tra quattro oggetti diversi che spesso condividono lo stesso soggetto famoso. Originale d'epoca (o foglio antico autentico) sta nelle gallerie specializzate e nei circuiti da collezionisti, con prezzi e perizie fuori dalla logica del souvenir. Edizione contemporanea o ristampa da matrice tradizionale — come quelle dell'Adachi Institute — usa ancora intaglio e stampa a mano su washi, ma non è un foglio del XIX secolo. Reprint da museo (Sumida Hokusai Museum shop e simili) e riproduzioni decorative da poster shop chiudono la scala verso il basso. Jimbocho, i museum shop e gli showroom di hanga sono i posti giusti per fare domande precise: epoca dichiarata, tecnica, stato del foglio, margini, restauri. Non accettate «vero Hokusai» a prezzo da magnete; accettate invece una bellissima ristampa dichiarata, se è quello che volete appendere.",
+      "sections": [
+        {
+          "title": "Epoca, tecnica, dichiarazione del venditore",
+          "body": "Prima frase utile: «È un foglio d'epoca, una ristampa a mano, o una riproduzione?» Se la risposta è vaga, uscite. Per le ristampe Adachi e laboratori simili, chiedete il titolo dell'opera e se i blocchi sono intagliati per quella edizione. Per i fogli antichi, senza expertise non improvvisate: usate gallerie serie o lasciate stare."
+        },
+        {
+          "title": "Cosa guardare sul foglio",
+          "body": "Carta, pigmenti, usura dei bordi, eventuale backing, odore di muffa, strappi riparati. Una riproduzione offset ha superficie troppo uniforme e spesso formato poster. Una stampa a mano mostra stratificazione del colore e texture della washi. Misurate lo zaino: un ōban intero richiede cartellina rigida, non un piegamento «tanto poi si stira»."
+        },
+        {
+          "title": "Mejiro, Sumida, Jimbocho",
+          "body": "Lo showroom Adachi a Mejiro è trasparente sulle riproduzioni e sulle opere contemporanee. Il Sumida Hokusai Museum shop vende merchandise e riproduzioni legate all'artista del quartiere. Jimbocho resta il quartiere di librerie e stampe per chi sa già cosa cerca. GO TOKYO aiuta a inquadrare musei e zone; la qualità del pezzo la decide la conversazione al banco."
+        },
+        {
+          "title": "L'onda che avete già sul telefono",
+          "body": "Tutti fotografano la Great Wave. Pochi ammettono di volere proprio quella. Va bene: compratene una ristampa onesta e liberatevi dalla vergogna del cliché. Il cliché diventa problema solo quando fingete di aver scoperto un artista sconosciuto di nome «Hokusai».",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "The Adachi Institute of Woodcut Prints",
+          "url": "https://www.adachi-hanga.com/en/",
+          "kind": "produttore"
+        },
+        {
+          "title": "THE SUMIDA HOKUSAI MUSEUM",
+          "url": "https://hokusai-museum.jp/",
+          "kind": "museo"
+        },
+        {
+          "title": "GO TOKYO — Attractions",
+          "url": "https://www.gotokyo.org/en/see-and-do/attractions/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-tokyo-anime",
+      "long": "Il merchandise anime e manga a Tokyo è un ecosistema, non un banchetto: Akihabara, Ikebukuro (Animate e dintorni), Nakano Broadway e i second-hand come Mandarake coprono nuovo ufficiale, bonus negozio, figure, artbook, cel e usato da collezione. L'oggetto da comprare va scelto per licenza e condizione: soft vinyl o PVC con marchio del produttore, artbook con ISBN e editore, blind box ancora sigillati, pezzi usati con boxtouch dichiarato. Distinguete goods ufficiali, edizioni con tokuten di catena, prize items da lotteria, e bootleg senza copyright leggibile. Controllate pellicole protettive, parti mancanti e — per l'usato — giallore e odore di magazzino. Stabilite un volume massimo in litri di zaino prima di entrare: Nakano non negozia con chi «guarda soltanto». Un clear file e una small figure battono spesso, per felicità per chilo, la statue che richiede un secondo bagaglio.",
+      "sections": [
+        {
+          "title": "Ufficiale, bonus, prize, bootleg",
+          "body": "Marchio del personaggio + produttore (Good Smile, Banpresto, Bandai Spirits, ecc.) e prezzo allineato al mercato sono segnali di ufficialità. I tokuten Animate o Jump Shop sono bonus di periodo: chiedete se sono ancora inclusi. I prize item nascono da lotterie e possono arrivare usati. Il bootleg costa poco e delude al primo confronto sotto luce bianca."
+        },
+        {
+          "title": "Usato senza rimorsi (troppi)",
+          "body": "Da Mandarake e simili leggete le condizioni sulla bustina o sul cartellino: box, istruzioni, parti. Per i cel e i pezzi da collezione alta, senza esperienza non improvvisate perizie da aste. Per il viaggio, preferite pezzi già protetti in blister o scatola rispetto a sagome nude che si graffiano tra loro."
+        },
+        {
+          "title": "Quartieri, non pellegrinaggi infiniti",
+          "body": "Scegliete un asse già in itinerario: Akihabara per densità, Ikebukuro per Animate e ragazze/ragazzi culture, Nakano per il labirinto second-hand. Non serve fare tutti e tre lo stesso giorno. GO TOKYO e le mappe delle catene ufficiali bastano; le liste «100 must-buy» online servono soprattutto a svuotare il portafoglio."
+        },
+        {
+          "title": "La figura che occupa più spazio del vostro senso del limite",
+          "body": "Esiste una legge fisica non pubblicata: il volume delle scale figure cresce in proporzione alla frase «è l'ultima». Confutatela con un metro a nastro. La scienza vi odierà, la valigia vi amerà.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "GO TOKYO — Akihabara area",
+          "url": "https://www.gotokyo.org/en/destinations/northern-tokyo/akihabara/index.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Mandarake — official",
+          "url": "https://www.mandarake.co.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "Animate — official",
+          "url": "https://www.animate.co.jp/",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "shop-tokyo-food-samples",
+      "long": "Il sampuru di Kappabashi è cibo finto in resina o cera: la stessa famiglia di oggetti che i ristoranti mettono in vetrina, venduta ai visitatori come portachiavi, magneti, sushi singoli o piatti interi iperrealistici. Ganso Shokuhin Sample-ya e i negozi specializzati della «Kitchen Town» sono il punto di riferimento: vedete la merce, a volte workshop in cera, e portate via un pezzo che pesa poco o un pezzo che pesa come un pranzo vero. Per lo shopping conta la scala: il portachiavi di tempura viaggia; il ramen completo in ciotola richiede imballo e perdona poco gli urti. Controllate ganci, bolle d'aria nella resina e se le parti sono incollate o solo appoggiate. Non è cibo: non va dichiarato come alimento in dogana, ma va protetto come oggetto fragile. Un pezzo piccolo e perfetto batte il banchetto intero «per fare scena in cucina» che poi vive in soffitta.",
+      "sections": [
+        {
+          "title": "Scala souvenir contro vetrina da ristorante",
+          "body": "I negozi distinguono novelty da portare via e riproduzioni da display professionale. Chiedete cosa è pensato per il turismo: magneti, keychains, small plates. I pezzi grandi da menù completo costano e viaggiano come sculture. Se il realismo è il punto, guardate le luci della vetrina: il grasso falso deve sembrare grasso, non plastica opaca."
+        },
+        {
+          "title": "Resina, cera, parti staccabili",
+          "body": "Molti souvenir moderni sono in resina; i workshop usano spesso cera. Verificate che uova, fette di nori e panature siano fissate. Evitate di lasciare il pezzo al sole del cruscotto: anche il falso sushi ha diritti termici. In valigia, carta velina tra le sporgenze."
+        },
+        {
+          "title": "Kappabashi come filiera, non come meme",
+          "body": "La strada serve i ristoranti da generazioni; i sample shop per il pubblico sono l'evoluzione commerciale di quel mestiere. Ganso indica esplicitamente il legame con Kappabashi. Comprare lì ha più senso che in un generico souvenir corner di stazione, dove il realismo scende e il markup sale."
+        },
+        {
+          "title": "Il pranzo che non scade mai (e non sazia mai)",
+          "body": "È l'unico pasto giapponese contro cui la fame è impotente. Ideale per chi vuole fotografare cibo senza dover fingere di averlo ordinato. Gli amici a casa chiederanno se è vero; voi risponderete «più vero della mia dieta».",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Ganso Shokuhin Sample-ya — Kappabashi Store",
+          "url": "https://www.ganso-sample.com/en/shop/kappabashi/",
+          "kind": "produttore"
+        },
+        {
+          "title": "Kappabashi Official — English",
+          "url": "https://www.kappabashi.or.jp/en/",
+          "kind": "associazione"
+        },
+        {
+          "title": "GO TOKYO — Attractions",
+          "url": "https://www.gotokyo.org/en/see-and-do/attractions/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-kamakura-kamakura-bori",
+      "long": "La kamakura-bori da portare a casa è un oggetto d'uso o da scaffale: vassoio, piattino, scatola, porta-incenso — legno intagliato e poi laccato, con rilievi che restano leggibili sotto lo strato di lacca. A Komachi e Hase le botteghe legate alla cooperativa e il Kamakura-bori Kaikan (museo + shop) sono il circuito per vedere pezzi di filiera locale invece di «lacquer style» generico. Per l'acquisto contano forma, peso e profondità dell'intaglio: un piccolo vassoio o una scatola bassa viaggiano meglio di un grande paniere da cerimonia. Cercate marchio di laboratorio o associazione e chiedete cura della lacca (niente lavastoviglie, attenzione all'acqua stagnante). Il pezzo giusto mostra solchi netti e una superficie che invita al tatto senza sembrare plastica stampata. Non state comprando un saggio sui monasteri Gozan: state scegliendo un utensile o un contenitore che regga ancora dopo il volo di ritorno.",
+      "sections": [
+        {
+          "title": "Vassoio, scatola, piccolo piano",
+          "body": "Misurate lo zaino e la mensola di casa prima dell'innamoramento. I formati bassi e rettangolari si imballano; le forme molto sagomate richiedono angolari. Un piattino da tè o un portaoggetti batte spesso, per uso reale, il pezzo da sola esposizione che non toccate mai."
+        },
+        {
+          "title": "Intaglio sotto lacca, non sticker lucido",
+          "body": "Passate lo sguardo radente: i motivi vegetali o geometrici devono avere profondità. La lacca può essere rosso/nero classico o varianti più chiare; l'importante è che non nasconda un rilievo inesistente. Confrontate un pezzo di bottega cooperativa con un'imitazione da souvenir street: la differenza si vede nei solchi e nel peso."
+        },
+        {
+          "title": "Kaikan, cooperative, botteghe di quartiere",
+          "body": "Il Kamakura-bori Kaikan unisce museo e vendita; le liste di botteghe della cooperativa aiutano a evitare banchetti anonimi. Chiedete istruzioni di pulizia e se il pezzo teme la luce diretta prolungata. Per il viaggio, avvolgete in tessuto morbido e tenete lontano da bottiglie che condensano."
+        },
+        {
+          "title": "La lacca che ricorda ogni briciola",
+          "body": "Superficie lucida, coscienza sporca: sul vassoio nero ogni briciola di senbei diventa un'installazione. È un incentivo alla pulizia più efficace di qualsiasi app di produttività. Il design giapponese vince ancora una volta sul vostro ottimismo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "鎌倉彫会館 — official",
+          "url": "https://kamakuraborikaikan.jp/",
+          "kind": "associazione"
+        },
+        {
+          "title": "伝統的工芸品「鎌倉彫」— Comune di Kamakura",
+          "url": "https://www.city.kamakura.kanagawa.jp/shoukou/kamakurabori.html",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "Kamakurabori — KOGEI JAPAN",
+          "url": "https://kogeijapan.com/locale/en_US/kamakurabori/",
+          "kind": "catalogo artigianato"
+        }
+      ]
+    },
+    {
+      "id": "shop-kamakura-shonan-glass",
+      "long": "Il vetro Shonan lungo la costa di Kamakura è piccolo oggettistica da studio — bicchieri, piatti fuse, pendenti, pezzi soffiati o fused — ispirata a luce di mare, sabbia e orizzonte, non a un marchio nazionale unico. A differenza dell'Edo Kiriko, qui non cercate un sigillo ministeriale unico: cercate studi che dichiarano produzione locale, come le gallerie-atelier di Shichirigahama e i laboratori di stained glass / blown glass segnalati dalle guide Enoshima–Kamakura. Preferite pezzi firmati o con biglietto dell'artigiano, spessore coerente e bordi levigati. I formati da viaggio sono portacandele bassi, piattini e gioielli in vetro; le lampade grandi restano un sogno da spedizione. Chiedete se il pezzo è soffiato, fuso in forno o assemblato a tiffany: tre tecniche, tre fragilità. Proteggete dagli urti laterali più che dal peso: il vetro costiero odia i vicini di valigia metallici.",
+      "sections": [
+        {
+          "title": "Studio locale contro vetro «seaside» generico",
+          "body": "Un atelier con forno o banco di lavoro in vista batte il banchetto di souvenir senza nome. Chiedete dove è stato fatto il pezzo: «Shonan» sul cartellino senza laboratorio dietro è marketing geografico. Feel SHONAN e le guide Enoden elencano studi visitabili; prenotate se fanno anche esperienza, ma per lo shopping basta la galleria."
+        },
+        {
+          "title": "Luce, bolle, bordi",
+          "body": "Le bolle possono essere un difetto o una scelta estetica: chiedete. I bordi devono essere levigati al tatto. I colori ispirati al mare spesso giocano su acquamarina, ambra e trasparenze; se il pezzo è verniciato in superficie invece che colorato in pasta, trattatelo con più delicatezza ai graffi."
+        },
+        {
+          "title": "Imballo da costa umida",
+          "body": "Chiedete scatola e carta; avvolgete ogni pezzo separato. Non lasciate il vetro in auto al sole dopo Shichirigahama: shock termico e voi non siete assicuratori. In stiva, al centro del bagaglio, lontano da trekking poles e power bank."
+        },
+        {
+          "title": "Il bicchiere che sa di vacanza anche a novembre",
+          "body": "A casa, riempito di acqua del rubinetto lombardo, continuerà a suggerire che fuori c'è la spiaggia. È un'allucinazione benigna. Tenerlo sul comodino costa meno di un bilocale a Kamakura e delude di meno ai controlli di realtà.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JONAS GLASS VISION — Enoshima Kamakura Navi",
+          "url": "https://enokama.jp/spot/2894/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Kamakura Stained Glass — Feel SHONAN",
+          "url": "https://www.feelshonan.jp/en/sightseeing/2930",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Jonas Glass Vision — gallery & studio",
+          "url": "https://www.jonasglass.com/gallerystudio.html",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-hakone-yosegi",
+      "long": "Lo yosegi di Hakone da comprare è soprattutto un oggetto meccanico o d'uso: himitsu-bako (scatola segreta a scorrimenti), piccolo cassetto, vassoio, sottobicchiere — superficie a mosaico di essenze naturali, non dipinta. Il pezzo da negozio si sceglie per certificazione di filiera Hakone/Odawara, numero di mosse della scatola e precisione degli scorrimenti, non per un saggio sui boschi del massiccio. Hakone Yosegi-zaiku è craft tradizionale designato; cercate botteghe e hall (Hatajuku e dintorni) dove si vedono fogli di marquetry e si prova l'apertura. Per l'himitsu-bako chiedete quante mosse servono (ne esistono versioni da poche a molte decine), se includono diagramma o dimostrazione, e se il meccanismo è fluido senza forzare. Evitate imitazioni con vene stampate o colorate a pennarello: i colori devono venire dal legno. In valigia, bloccate gli scorrimenti con un elastico leggero o tenete la scatola chiusa nella sua confezione: un'apertura accidentale in stiva è un film muto di cui siete l'unica platea.",
+      "sections": [
+        {
+          "title": "Himitsu-bako come prodotto, non come metafora",
+          "body": "Scegliete la difficoltà che userete davvero: 4–10 mosse per regalo giocoso; livelli alti se amate i puzzle. Fatevi mostrare l'apertura una volta e ripetete. Controllate angoli, allineamento dei pannelli e assenza di colla in eccesso. Una scatola che «si apre quasi» è un oggetto frustrante, non un mistero poetico."
+        },
+        {
+          "title": "Certificazione e legno vero",
+          "body": "Preferite rivenditori di Hakone-Yumoto, Hatajuku e Odawara legati alla tradizione locale e al riconoscimento di traditional craft. Il motivo deve essere continuo sugli spigoli; vene identiche ripetute come carta da parati sospettano stampa. KOGEI JAPAN e le pagine Hakone spiegano la filiera: usatele per orientare il negozio, poi giudicate il pezzo in mano."
+        },
+        {
+          "title": "Formati che perdono meno pezzi",
+          "body": "Oltre alle secret box, vassoi bassi e small boxes semplici viaggiano bene. Chiedete se il pezzo teme umidità eccessiva e come lucidarlo. Non usate oli da cucina improvvisati. Per il volo, la scatola originale o una scatola di cartone interna batte il rotolo di calzini come unica protezione."
+        },
+        {
+          "title": "La scatola che vi rende guardiani del segreto altrui",
+          "body": "Metterci dentro un anello è classico. Metterci dentro le ricevute del konbini è onesto. L'himitsu-bako non giudica il contenuto — giudica solo chi prova ad aprirla al tavolo di Natale senza aver ascoltato la dimostrazione del negozio.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Yosegi Zaiku — Hakone Japan",
+          "url": "https://hakone-japan.com/plan-your-trip/stories/cultural-experiences/yosegi-zaiku-hakone-marquetry/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Hakone Yosegi Zaiku — KOGEI JAPAN",
+          "url": "https://kogeijapan.com/locale/en_US/hakoneyosegizaiku/",
+          "kind": "catalogo artigianato"
+        },
+        {
+          "title": "Hakone Tourist Association",
+          "url": "https://www.hakone.or.jp/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-matsumoto-mingei",
+      "long": "Gli oggetti Matsumoto Mingei da viaggio non sono il divano del catalogo: sono vassoi, piccoli mobili bassi, pezzi da tavola e accessori in legno scuro con incastri e finitura del movimento mingei locale — la stessa famiglia della Matsumoto Mingei Furniture che Visit Matsumoto e Go Nagano segnalano lungo Nakamachi. Il Chuo Mingei Showroom espone centinaia di pezzi di arredo e anche utensili e tessili «di mano seria» raccolti con criterio folk-craft. Per il bagaglio cercate vassoi, vassoi-portata, small chests bassi, utensili da cucina in legno: la bellezza sta nella funzione e nella patina futura, non nella firma d'artista da galleria. Controllate stabilità degli incastri, uniformità della finitura e peso reale. Un vassoio ben fatto batte un «mobile souvenir» di compensato scuro. Chiedete cura del legno (olii, umidità) e misure precise: Nakamachi spedisce a volte, ma il pezzo piccolo in mano è il souvenir che userete.",
+      "sections": [
+        {
+          "title": "Funzione prima della foto",
+          "body": "Il mingei locale di Matsumoto nasce come bellezza d'uso. Scegliete oggetti che entreranno in cucina o in ingresso: vassoio, sgabello basso solo se avete spazio, scatole. Se non sapete dove metterlo a casa, non è un affare — è un futuro ingombro con buona coscienza culturale."
+        },
+        {
+          "title": "Legno, incastro, finitura",
+          "body": "Guardate i giunti e il verso delle venature; la finitura scura non deve appiccicare né scrostarsi ai bordi. Confrontate pezzi di showroom ufficiale con imitazioni da souvenir generico: peso, odore di legno e precisione delle unioni raccontano la differenza più di qualsiasi slogan «folk»."
+        },
+        {
+          "title": "Nakamachi e lo showroom centrale",
+          "body": "Visit Matsumoto indica il Folk Art Furniture Showroom in centro; Go Nagano inquadra Matsumoto come città del craft. Entrate con misure del vano bagagli e uscite con un pezzo solo. Se vi innamorate di un mobile grande, chiedete spedizione — non forzate la fisica dell'aereo."
+        },
+        {
+          "title": "Il vassoio che eleva anche le mandorle del discount",
+          "body": "Posate sopra snack mediocri: sembreranno curati. È l'effetto mingei applicato al merchandising domestico. Yanagi forse non l'aveva previsto; il vostro aperitivo sì.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Matsumoto Folk Art Furniture Showroom — Visit Matsumoto",
+          "url": "https://visitmatsumoto.com/en/spot/detail_1201.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Craft Town Matsumoto — Go Nagano",
+          "url": "https://www.go-nagano.net/en/trip-idea/id16294",
+          "kind": "ente turistico"
+        },
+{
+        "title": "松本民芸家具 — Japanese Wikipedia",
+        "url": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E6%9C%AC%E6%B0%91%E8%8A%B8%E5%AE%B6%E5%85%B7",
+        "kind": "enciclopedia"
+      }
+      ]
+    },
+    {
+      "id": "shop-matsumoto-temari",
+      "long": "La Matsumoto temari è una sfera ricamata a mano con fili di seta o cotone in motivi geometrici colorati — oggi soprattutto oggetto da regalo e da interni, non più solo giocattolo infantile. Go Nagano e Visit Matsumoto la segnalano tra i folk craft della città; negozi storici come Takagi e botteghe di Nakamachi (anche workshop) sono i punti tipici dove vederne molte insieme. Per l'acquisto guardate regolarità delle fasce, tensione del filo, chiusura del motivo al «polo» della sfera e provenienza dichiarata. Una temari fatta bene ha pattern simmetrici senza nodi grossolani in vista; una pezzo frettoloso mostra fili allentati e colori che «saltano» il disegno. I diametri piccoli viaggiano in una scatola da scarpe o nella confezione del negozio; evitate di schiacciarle sotto i libri. Se fate il workshop, il pezzo sarà vostro e imperfetto in modo onesto — dichiaratelo con orgoglio, non come «edizione limitata dell'umiltà».",
+      "sections": [
+        {
+          "title": "Geometria del filo, non palla colorata",
+          "body": "Ruotate la sfera: i motivi devono chiudersi con logica. Chiedete se i fili sono seta, cotone o misti e se esiste un significato tradizionale dei colori nella variante locale. Per regalo, un diametro medio è più leggibile di una mini-sfera dove il pattern sparisce."
+        },
+        {
+          "title": "Botteghe, stazione, laboratorio",
+          "body": "Takagi ha punti in centro e legami storici con la temari come souvenir cittadino; Suguri e altre botteghe offrono workshop su prenotazione via Visit Matsumoto. Comprare già fatta è legittimo quanto farla: contate il tempo del viaggio. Evitate pezzi senza metadati in un banchetto generico di stazione fuori città."
+        },
+        {
+          "title": "Trasporto senza schiacciare i meridiani",
+          "body": "La temari teme la compressione più degli urti. Tenetela in scatola o in una cupola improvvisata di vestiti morbidi. Non appendetela al trolley come un charm: il ricamo non è un portachiavi da battaglia."
+        },
+        {
+          "title": "La sfera che rifiuta di rotolare via dai problemi",
+          "body": "Tecnicamente rotola; moralmente resta sul mobile a giudicare la polvere. È un souvenir stanziale. Perfetto per chi vuole un pezzo di Matsumoto che non richieda batterie, app o scuse.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Matsumoto Temari Handballs — Go Nagano",
+          "url": "https://db.go-nagano.net/en/topics_detail6/id=16572",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Takagi — Visit Matsumoto",
+          "url": "https://visitmatsumoto.com/en/spot/souvenir-soba-takagi/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Matsumoto Temari Workshop — Visit Matsumoto",
+          "url": "https://visitmatsumoto.com/en/plan/detail_5074.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-nagano-togakushi-bamboo",
+      "long": "Il bambù di Togakushi da mettere in valigia è un oggetto intrecciato in nemagaridake locale: zaru per soba, piccoli cesti, vassoi forati, scolapasta — pezzi da cucina con geometria aperta e peso piuma. L'associazione turistica di Togakushi e Go Nagano raccontano la takezaiku di montagna; il Togakushi Bamboo Works Center mostra, vende e a volte fa dimostrazioni (stagione tipicamente tarda primavera–autunno). Per l'acquisto preferite zaru e piccoli cestini firmati dalla filiera locale rispetto a bambù generico da 100 yen shop. Controllate uniformità delle stecche, assenza di schegge, elasticità dell'intreccio e odore di bambù pulito, non di muffa. I pezzi bassi e tondi si impilano; proteggeteli dagli schiacciamenti laterali. A casa lo zaru serve ancora per soba e verdure; è souvenir che guadagna senso ogni volta che scola acqua, non solo quando raccontate la montagna.",
+      "sections": [
+        {
+          "title": "Zaru e cestini che lavorano ancora",
+          "body": "Scegliete diametri che entrino nei vostri armadi e lavandini. Uno zaru medio è il formato più utile; i cesti decorativi alti viaggiano peggio. Chiedete se il pezzo teme lavastoviglie (di solito sì: mano e asciugatura). Il bambù di Togakushi è craft riconosciuto a livello prefettizio: il punto vendita locale è parte del valore."
+        },
+        {
+          "title": "Stecche, intreccio, stagione del centro",
+          "body": "Le stecche esterne del nemagaridake devono risultare flessibili e regolari. Diffidate di intrecci allentati o di vernici plastiche che chiudono il materiale. Verificate orari stagionali del Bamboo Works Center prima di salire: fuori stagione la vendita si sposta su altri punti segnalati dall'associazione."
+        },
+        {
+          "title": "Salita a Togakushi con obiettivo chiaro",
+          "body": "Se siete già sulla via dei santuari, il centro craft è una sosta naturale. Se dovete fare una puntata solo per il cesto, valutate peso e tempo bus da Nagano. Un pezzo piccolo e autentico giustifica la salita; cinque pezzi impulsivi giustificano solo un secondo trolley."
+        },
+        {
+          "title": "Lo scolapasta con pedigree spirituale",
+          "body": "Scolare i noodles in un zaru di montagna sacra non li rende illuminati — ma li rende più fotografabili. È il massimo che la cucina domestica possa chiedere al buddhismo di montagna senza iscriversi a un tempio.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Takezaiku: Togakushi’s Traditional Bamboo Craft — Togakushi Tourism",
+          "url": "https://togakushi-21.jp/en/story/5242/",
+          "kind": "ente turistico"
+        },
+{
+        "title": "Togakushi area — Go Nagano",
+        "url": "https://www.go-nagano.net/en/destination/togakushi",
+        "kind": "ente turistico"
+      },
+        {
+          "title": "Craft workshops in Nagano — Go Nagano",
+          "url": "https://www.go-nagano.net/en/trip-idea/craft-workshops-and-experiences-in-nagano",
+          "kind": "ente turistico"
+        }
+      ]
+    }
+  ]
+}

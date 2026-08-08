@@ -1,0 +1,588 @@
+{
+  "meta": {
+    "batch": "food-05-shirakawago-takayama",
+    "note": "Phase 2 FOOD deep stories for Shirakawa-go (7) + Takayama (9). Shared dishes gohei-mochi and hoba-miso are village-vs-Sanmachi specific — not copy-paste of Shinshu cards. Sources: MAFF Gifu/Hida, Hida.jp, Shirakawa Village, JNTO."
+  },
+  "schede": [
+    {
+      "id": "food-shirakawago-hoba-miso",
+      "long": "L’hoba-miso a Shirakawa-go è miso, cipollotto e funghi cotti su foglia di magnolia secca, spesso nel contesto di minshuku, pranzo di villaggio o set locale sotto i tetti gassho. Il MAFF lo lega alla Hida forestale: i boscaioli usavano le foglie come piatto per arrostire il miso; in autunno si raccolgono le foglie imbrunite per l’inverno. Qui non sei al tavolo da ristorante di Sanmachi con konro da show: sei in un villaggio-patrimonio dove il piatto arriva come calore domestico, aroma di foglia e fermentato, da spalmare sul riso mentre fuori possono esserci neve o umidità di valle. La foglia non si mangia; il miso sì, a pezzetti, appena bolle e profuma. Se ti aspetti manzo Hida in abbondanza, quello è variante da città turistica: a Shirakawa conta prima la foglia e il miso di casa.",
+      "sections": [
+        {
+          "title": "Foglia come tegame di valle",
+          "body": "La magnolia isola, profuma e non brucia subito grazie all’umidità del miso. A Shirakawa è ancora gesto da focolare, non solo staging da menù."
+        },
+        {
+          "title": "Cosa mettere sulla hoba",
+          "body": "Base: miso, cipollotto, shiitake. Aggiunte di carne esistono, ma nel villaggio il piatto resta leggibile anche nella versione vegetale."
+        },
+        {
+          "title": "Come si mangia senza pasticciare",
+          "body": "Si preleva il miso caldo e si unisce al riso. La foglia resta sul braciere-tavolo: è contenitore, non involtino."
+        },
+        {
+          "title": "Il barbecue che usa una foglia al posto della padella",
+          "body": "Design forestale ante litteram: zero pentole da lavare, massimo aroma. I boscaioli di Hida avevano già risolto il picnic secoli prima dei social.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "MAFF — Hoba Miso",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/3056/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "MAFF — Gifu area story (hoba)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1416/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Shirakawa-go",
+          "url": "https://www.japan.travel/en/spot/2031/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-shirakawago-hida-skewer",
+      "long": "Lo spiedino di manzo Hida a Shirakawa-go è street food da percorso tra le gassho: cubetti marezzati grigliati al momento, venduti da stallini e take-away lungo le vie del villaggio. Non è il sushi di manzo di Takayama né una bistecca da sala: è un morso caldo tra un museo all’aperto e il mirador, pensato per visitatori che hanno poche ore e molta coda. La marezzatura Hida si legge nel grasso che luccica appena tocca la brace; il sale basta, a volte una salsa leggera. Mangialo subito: raffreddato il grasso si solidifica e il pezzo perde grazia. Nel villaggio i posti seduti a pranzo finiscono presto; lo spiedino è la strategia intelligente di chi vuole carne locale senza aspettare un tavolo. Controlla che sia cotto al momento, non tenuto in vetrina tiepida.",
+      "sections": [
+        {
+          "title": "Brace da sentiero, non da steakhouses",
+          "body": "Qui il manzo Hida è formato spiedino perché il villaggio vive di flussi diurni. È logistica turistica e sapore insieme."
+        },
+        {
+          "title": "Cosa guardare sul fuoco",
+          "body": "Cubetti con venature bianche, cottura al momento, odore di grasso che sfrigola. Se sembra solo «carne su stecco» grigia, passa oltre."
+        },
+        {
+          "title": "Orari da day-trip",
+          "body": "Molti banchetti seguono l’orario dei bus turistici. Tardi nel pomeriggio l’offerta si assottiglia: meglio a metà giornata."
+        },
+        {
+          "title": "La strategia anti-coda dei tetti inclinati",
+          "body": "Mentre altri attendono il set da minshuku, tu hai già lo spiedino e una foto con gassho sullo sfondo. Vittoria tattica con salsa sulle dita.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "HIDA TAKAYAMA — Local Food (Hida beef context)",
+          "url": "https://www.hida.jp/english/localspeciality/food/4000215.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Shirakawa-go",
+          "url": "https://www.japan.travel/en/spot/2031/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-shirakawago-gohei-mochi",
+      "long": "Il gohei-mochi a Shirakawa-go è riso schiacciato glassato di miso e noci, bordi caramellati, venduto come snack da villaggio tra dango shop e take-away sotto i tetti di paglia. Non è lo stecco da valle Kiso/Matsumoto né il pezzo da mercato di Sanmachi: qui il ritmo è quello del day-trip UNESCO — si compra camminando tra gassho, spesso insieme a tochimochi o gelati stagionali. Il MAFF colloca il gohei nella fascia montana Chubu (Hida inclusa), con salse e forme variabili; a Shirakawa conta la glassa tostata e il calore immediato, più che la pedanteria sulla silhouette waraji. L’aroma di miso grigliato si mescola a legna e umidità di valle. Mangialo prima di salire al mirador: in cima, con vento, raffredda in fretta.",
+      "sections": [
+        {
+          "title": "Snack da patrimonio, non da post town",
+          "body": "A differenza della Nakasendo, qui lo stecco vive nel flusso dei visitatori del villaggio. Stessa famiglia di ricetta, altro teatro urbano."
+        },
+        {
+          "title": "Glassatura e bordo bruciato buono",
+          "body": "Cerchi punti caramellati e miso che abbia preso fuoco dolcemente. Riso solo tiepido senza crosta è mezza ricetta."
+        },
+        {
+          "title": "Abbinamento di percorso",
+          "body": "Funziona come pausa tra Ogimachi e i punti panoramici. È street food di valle stretta, non dessert da sala tè."
+        },
+        {
+          "title": "Il mochi che compete con la cartolina",
+          "body": "Tutti fotografano i tetti; pochi ammettono che lo stecco di miso è durato più a lungo nella memoria gustativa. Shirakawa perdona entrambi i peccati.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "MAFF — Gohei-mochi",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/448/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Shirakawa-go",
+          "url": "https://www.japan.travel/en/spot/2031/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Gifu regional story",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1416/index.html",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-shirakawago-tochimochi",
+      "long": "Il tochi mochi a Shirakawa-go è mochi con castagne d’ippocastano (tochi) trattate a lungo per togliere l’amaro: lavoro di giorni, gusto rustico, leggermente amarognolo, tipico di vallate fredde con acqua limpida. Nel villaggio resta specialità da negozio familiare più che da catena; a volte si abbina a tè o a un dolce che ne smorza l’asprezza. Non è kuri mochi di castagna dolce comune: il tochi richiede decapaggio e risciacqui, altrimenti resta imangiabile. Per questo è raro e legato a saperi locali. Se ti aspetti solo zucchero e morbidezza da wagashi urbana, resterai sorpreso: qui conta il carattere di montagna. Chiedi porzione piccola; è intenso. Idealmente si assaggia sul posto, non come souvenir dimenticato in valigia per una settimana.",
+      "sections": [
+        {
+          "title": "Perché serve la pazienza",
+          "body": "L’ippocastano amaro va reso edibile con trattamenti ripetuti. Il prezzo e la rarità raccontano quel lavoro, non un markup da museo."
+        },
+        {
+          "title": "Amaro buono, non difetto",
+          "body": "Il retrogusto rustico è la firma. Se fosse solo dolce neutro, non sarebbe tochi."
+        },
+        {
+          "title": "Negozio di villaggio",
+          "body": "Cerca botteghe che lo fanno in loco. A Shirakawa è memoria alimentare, non gadget da duty-free."
+        },
+        {
+          "title": "Il dolce che ha bisogno di un disclaimer",
+          "body": "«È un po’ amaro» non è scusa del fornaio: è il trailer onesto del film. Chi vuole solo zucchero ha già il mitarashi altrove.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Shirakawa-go",
+          "url": "https://www.japan.travel/en/spot/2031/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Shirakawa Village — official site",
+          "url": "https://www.vill.shirakawa.lg.jp/2684.htm",
+          "kind": "ente pubblico"
+        }
+      ]
+    },
+    {
+      "id": "food-shirakawago-iwana",
+      "long": "L’iwana alla brace a Shirakawa-go è salmerino di torrente infilzato intero e grigliato con sale: pesce di montagna, ossa comprese nella presentazione, pelle croccante, carne delicata. Nel villaggio e nei locali di valle compare come prova che la cucina gassho non è solo miso e manzo turistico: c’è anche acqua fredda e pesca di torrente. Si mangia con le mani o con attenzione alle lische; il sale deve bastare, senza salse che coprono il sapore pulito. Se il pesce odora di «fritto di fiera» o è ricoperto di salsa dolce, non è il gesto giusto. Ideale a pranzo quando vuoi qualcosa di più strutturato di uno spiedino. La stagione e la disponibilità variano: è specialità di territorio, non item da menu globale sempre uguale.",
+      "sections": [
+        {
+          "title": "Intero sulla brace",
+          "body": "La forma infilzata non è scenografia: permette cottura uniforme e pelle tostata. Il sale è il condimento principale."
+        },
+        {
+          "title": "Sapore di torrente",
+          "body": "Aspettati carne fine, poco grassa, aroma pulito. Non confrontarlo con salmone oceanico: è un altro registro."
+        },
+        {
+          "title": "Quando ha senso ordinarlo",
+          "body": "Nei set di pranzo locali o come secondo di valle. Se hai già tre spiedini di manzo, l’iwana ribilancia la giornata."
+        },
+        {
+          "title": "Il pesce che ti ricorda che sei lontano dal mare",
+          "body": "Eppure sa di acqua viva. Shirakawa dimostra che «di montagna» non è sinonimo di «solo carne e miso» — a patto di accettare qualche lisca.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Shirakawa-go",
+          "url": "https://www.japan.travel/en/spot/2031/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Gifu regional cuisines (river / mountain foods)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1416/index.html",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-shirakawago-doburoku",
+      "long": "Il doburoku a Shirakawa-go è sake rustico non filtrato, bianco e cremoso, legato al Doburoku Matsuri di ottobre e alle licenze speciali dei santuari del villaggio. JNTO e il sito comunale spiegano che la produzione domestica è altrove vietata, mentre qui i santuari possono produrre per usi rituali: durante la festa si offre agli dei del raccolto e si condivide con i partecipanti. Fuori festival lo trovi in versioni commerciali o legate a negozi locali, sempre riconoscibile per torbidità e dolcezza. Non è nigori elegante da enoteca: è più denso, più «di casa», più vicino al rito che alla degustazione a punti. Assaggia con rispetto per il contesto sacro-festivo; non è shot da bar. Se sei a Ogimachi a metà ottobre, il calendario del festival conta più di qualsiasi guida gastronomica.",
+      "sections": [
+        {
+          "title": "Licenza di santuario, non hobby da garage",
+          "body": "La storia legale conta: dopo i divieti moderni sulla produzione domestica, i santuari di Shirakawa mantennero un regime speciale per il rito."
+        },
+        {
+          "title": "Come riconoscerlo nel bicchiere",
+          "body": "Bianco torbido, corpo cremoso, dolcezza evidente. Se è limpido come un ginjo, non stai bevendo doburoku."
+        },
+        {
+          "title": "Festival e resto dell’anno",
+          "body": "A ottobre è esperienza collettiva; negli altri mesi cerca bottiglie e locali che lo dichiarano. Il senso pieno resta legato alla festa."
+        },
+        {
+          "title": "Il cloud sake della valle",
+          "body": "Sembra yogurt di riso deciso a diventare festa. Una ciotola dopo la danza del leone e capisci perché il villaggio se lo tiene stretto.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Shirakawa Village — Doburoku Festival",
+          "url": "https://www.vill.shirakawa.lg.jp/2684.htm",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "JNTO — Shirakawa-go (doburoku)",
+          "url": "https://www.japan.travel/en/spot/2031/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-shirakawago-sansai-soba",
+      "long": "La sansai soba a Shirakawa-go è soba calda con felci e verdure selvatiche di montagna: piatto di stagione (soprattutto primavera) che racconta il satoyama intorno ai tetti gassho. Non è solo «soba con verdure»: i sansai — warabi, zenmai, fukinoto e affini — portano amaro leggero, resina, freschezza di sottobosco. Nel villaggio i pranzi seduti sono limitati; quando la trovi in un set locale, è il modo più chiaro di mangiare il paesaggio oltre la cartolina. La pasta può essere hida/montagna, il brodo sobrio, il topping stagionale. Fuori stagione i «sansai» possono essere conservati o ridotti: chiedi cosa è fresco. Per chi arriva saturo di manzo allo spiedino, è il correttivo vegetale necessario.",
+      "sections": [
+        {
+          "title": "Stagione del sottobosco",
+          "body": "La primavera è la finestra vera. In altri mesi la ciotola può restare buona, ma perde il senso di raccolta."
+        },
+        {
+          "title": "Amaro come coordinata",
+          "body": "I sansai non devono sapere di spinaci generici. Se manca il carattere erbaceo, è solo soba con verdura."
+        },
+        {
+          "title": "Pranzo di villaggio",
+          "body": "Utile quando vuoi sederti e rallentare tra una gassho e l’altra. È piatto da tavolo, non da stecco."
+        },
+        {
+          "title": "La minestra che fa da guida escursionistica",
+          "body": "Ogni felce nel brodo è un spoiler di ciò che cresce dietro il villaggio. Mangiare qui è un briefing botanico caldo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "HIDA TAKAYAMA — Local Food / mountain flavors",
+          "url": "https://www.hida.jp/english/localspeciality/food/4000215.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Shirakawa-go",
+          "url": "https://www.japan.travel/en/spot/2031/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-takayama-hida-sushi",
+      "long": "L’Hida beef sushi a Takayama è manzo Hida scottato su riso, spesso su una cialda commestibile o in pezzo nigiri da banchetto lungo Sanmachi e i mercati mattutini. Non è sushi di porto: è la traduzione urbana del manzo marezzato in formato street, pensata per file turistiche e morsi rapidi. La scottatura deve appena velare il grasso senza cuocere tutto a stecco; il riso resta acido-leggero per tagliare. Hida.jp e l’offerta locale insistono sul manzo come firma regionale: qui la incontri in forma «da passeggio», non solo in steakhouses. Mangialo subito dopo la preparazione; il grasso raffreddato cambia bocca. Se la cialda c’è, serve da base croccante e da anti-pasticcio: non è gadget obbligatorio in ogni bancarella.",
+      "sections": [
+        {
+          "title": "Scottatura lampo",
+          "body": "Il pezzo buono resta rosato dentro. Se è grigio fino al centro, hai un panino di manzo cotto, non Hida sushi."
+        },
+        {
+          "title": "Sanmachi e mercati",
+          "body": "Il formato street vive nelle vie storiche e nei morning market. È pensato per code e mani occupate dalla mappa."
+        },
+        {
+          "title": "Riso che bilancia il grasso",
+          "body": "L’acidità del shari non è dettaglio: senza di essa la marezzatura stanca al terzo pezzo."
+        },
+        {
+          "title": "Il nigiri di montagna che fa litigare i puristi del porto",
+          "body": "«Ma il sushi è pesce!» — sì, e Takayama risponde con il manzo sullo stecco della modernità turistica. I puristi possono fare lo stesso con un’altra coda.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "HIDA TAKAYAMA — Local Food",
+          "url": "https://www.hida.jp/english/localspeciality/food/4000215.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Takayama / Hida",
+          "url": "https://www.japan.travel/en/destinations/chubu/gifu/takayama/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-takayama-hoba-miso",
+      "long": "L’hoba-miso a Takayama è miso tostato su foglia di magnolia, spesso sul piccolo braciere da tavolo detto Hida konro, da mescolare al riso appena pronto. Hida.jp lo presenta come firma regionale: cipollotto, shiitake, a volte manzo Hida sopra il miso. Rispetto a Shirakawa-go, qui il gesto è più da ristorante e da sala: foglia, fuoco basso, aroma che riempie il tavolo mentre fuori scorrono le vie di Sanmachi. Il MAFF ricorda origini da legnaioli e inverni in cui cibo e misti si scongelavano sulla foglia. A Takayama puoi trovarlo anche come prodotto «Made by Hida Takayama» da riportare a casa, ma l’esperienza vera è vederlo bollicare davanti a te. Non mangiare la foglia; non spegnere il konro con fretta da menu turistico: il punto è il tempo corto in cui miso e magnolia si parlano.",
+      "sections": [
+        {
+          "title": "Konro da tavolo",
+          "body": "A Takayama il teatro è il braciere personale. L’aroma arriva prima del primo boccone: è parte della ricetta."
+        },
+        {
+          "title": "Variante con manzo Hida",
+          "body": "Fettine sopra il miso sono comuni in città. Restano un’aggiunta: se manca il miso ben tostato, il manzo da solo non salva il piatto."
+        },
+        {
+          "title": "Riso come destinazione",
+          "body": "Si usa come condimento caldo, non come stecchino. Il riso bianco è la tela; la foglia è il forno usa-e-getta elegante."
+        },
+        {
+          "title": "La fonduta di miso dei falegnami",
+          "body": "Mentre altrove si fa la raclette, Hida arrostisce pasta di soia su una foglia. Stesso istinto sociale, meno formaggio, più poesia forestale.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "HIDA TAKAYAMA — Hōba Miso",
+          "url": "https://www.hida.jp/english/localspeciality/food/4000215.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Hoba Miso",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/3056/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Japan Tourism Agency — Grilled Hoba Miso",
+          "url": "https://www.mlit.go.jp/tagengo-db/en/R2-00715.html",
+          "kind": "ente pubblico"
+        }
+      ]
+    },
+    {
+      "id": "food-takayama-takayama-ramen",
+      "long": "Il Takayama ramen è ciotola di noodle sottili e ondulati in brodo chiaro di pollo, pesce secco e soia: i locali lo chiamano spesso chuka soba o semplicemente «soba», non «ramen» da cartellone nazionale. Hida.jp sottolinea un dettaglio tecnico: base e brodo vengono bolliti insieme, invece di mescolare il kaeshi solo in ciotola. Il risultato è un sapore stabile, piuttosto leggero di giorno, che i residenti della città trattano come cibo quotidiano — persino a Capodanno in chiave locale. Condimenti tipici: chashu, menma, cipollotto dolce di Hida. Non cercare tonkotsu opaco o colli di chili: qui vince la limpidezza. Ideale a pranzo tra Sanmachi e stazione; molte botteghe storiche preferiscono ancora l’insegna «chuka soba».",
+      "sections": [
+        {
+          "title": "Perché «soba» sul lampione",
+          "body": "Per i locali è chuka soba. Se cerchi solo la parola ramen, rischi di filtrare via le insegne giuste."
+        },
+        {
+          "title": "Brodo cotto con la base",
+          "body": "La pratica di bollire insieme stock e stagionatura dà continuità di gusto. È la firma di metodo, non un segreto di spezie rare."
+        },
+        {
+          "title": "Noodle sottili, porzione da quotidiano",
+          "body": "Non è mazesoba da challenge. È ciotola da pranzo ripetibile: torna utile il secondo giorno a Takayama."
+        },
+        {
+          "title": "Il ramen che rifiuta di chiamarsi ramen",
+          "body": "Identità di città: più lo chiami con il nome da Guida Nazionale, più i locali alzano un sopracciglio. Di’ chuka soba e entra meglio.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "HIDA TAKAYAMA — Takayama Ramen",
+          "url": "https://www.hida.jp/english/localspeciality/food/4000215.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Takayama",
+          "url": "https://www.japan.travel/en/destinations/chubu/gifu/takayama/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-takayama-mitarashi",
+      "long": "I mitarashi dango di Hida a Takayama sono palline di riso grigliate con salsa di soia, spesso meno dolci e più «tostate» della versione da santuario di Kyoto. Nelle vie di Sanmachi escono dalla brace con odore di legna e glassa lucida; si mangiano in mano tra un sakagura e un negozio di legno. La differenza locale sta nel rapporto soia/zucchero e nella cottura: qui la griglia marca di più, il dolce resta di supporto. Non sono dessert da vetrina refrigerata: sono street food caldo. Se la salsa è solo zucchero scuro senza sapore di soia, stai mangiando un’altra cosa. Prendili quando fumano ancora; dopo dieci minuti al vento di valle diventano gommosi.",
+      "sections": [
+        {
+          "title": "Meno Kyoto, più brace",
+          "body": "Aspettati profilo più tostato e salsa meno caramellosa da tè. Takayama parla soia grigliata, non solo glassa da fila turistica."
+        },
+        {
+          "title": "Stecco da Sanmachi",
+          "body": "Vive nelle bancarelle del centro storico. È pausa tra sake e manzo, non cerimonia da tempio."
+        },
+        {
+          "title": "Calore obbligatorio",
+          "body": "La magia è il contrasto crosta/calore/salsa. Freddi, restano solo palline zuccherate: compra quando li vedi cuocere."
+        },
+        {
+          "title": "Il dango che fa da diplomazia tra i tavoli di manzo",
+          "body": "Dopo due spiedini Hida serve un digiuno simbolico. Il mitarashi finge di essere digiuno e ti rimette in coda al sakagura.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "HIDA TAKAYAMA — Local Food",
+          "url": "https://www.hida.jp/english/localspeciality/food/4000215.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Takayama",
+          "url": "https://www.japan.travel/en/destinations/chubu/gifu/takayama/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-takayama-tsukemono-steak",
+      "long": "Il tsukemono steak a Takayama è verdure in salamoia saltate sulla piastra — spesso con uovo — fino a prendere colore e un bordo quasi «di carne» nel nome scherzoso. È piatto da izakaya e cucina locale che ribalta l’idea del pickle freddo: il tsukemono viene riscaldato, caramellato leggermente, reso contorno-protagonista. Utile quando hai già esagerato con il manzo e vuoi sale, acidità e grasso dell’uovo senza un’altra bistecca. Non è bistecca vegetale da marketing internazionale: è trucco di cucina hida per far parlare i sottaceti al fuoco. Se le verdure restano soltanto scaldate senza prendere la piastra, manca il punto. Ideale a cena con sake locale.",
+      "sections": [
+        {
+          "title": "Pickle che va in padella",
+          "body": "Sale e fermentazione incontrano il Maillard leggero della piastra. Cambia texture e aroma rispetto al tsukemono freddo."
+        },
+        {
+          "title": "Uovo come legame",
+          "body": "Quando c’è, unisce i pezzi e aggiunge grasso. Non è omelette: è collante dorato."
+        },
+        {
+          "title": "Perché «steak» nel nome",
+          "body": "È ironia da menu, non frode. Ordinalo sapendo di trovare verdure, non un taglio di manzo travestito."
+        },
+        {
+          "title": "La bistecca per chi ha già battuto il manzo Hida",
+          "body": "Un modo elegante per dire al fegato: stasera tocca ai sottaceti. Il nome «steak» è solo per tenerti motivato.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "HIDA TAKAYAMA — Local Food",
+          "url": "https://www.hida.jp/english/localspeciality/food/4000215.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-takayama-hida-croquette",
+      "long": "La crocchetta di manzo Hida a Takayama è street food caldo di patate con piccoli pezzi di manzo marezzato, fritta al momento lungo mercati e vie pedonali. Non pretende di essere haute cuisine: pretende di essere croccante fuori, morbida dentro, con pezzi di Hida riconoscibili e non solo «aroma di carne». Si mangia in piedi, spesso appena uscita dall’olio, con attenzione al primo morso bollente. È la versione democratica del manzo locale: costa meno di una cena a sushi di Hida, rende l’idea della marezzatura in formato da passeggio. Se la farcitura è solo purè anonimo, non vale la coda; se i pezzi di manzo ci sono, capisci perché Takayama mette «Hida» anche sulle crocchette.",
+      "sections": [
+        {
+          "title": "Patata come veicolo, manzo come prova",
+          "body": "Il purè deve restare cremoso; i pezzetti di carne devono comparire, non solo nel nome sull’insegna."
+        },
+        {
+          "title": "Frittura al momento",
+          "body": "Compra quando la vedi uscire. La crocchetta tenuta in vetrina diventa un’altra categoria di rimpianto."
+        },
+        {
+          "title": "Mercato e Sanmachi",
+          "body": "Habitat naturale: morning market e banchetti del centro. Ideale tra un sake tasting e il prossimo spiedino."
+        },
+        {
+          "title": "Il manzo Hida per chi ha ancora la mappa in una mano",
+          "body": "Non serve prenotazione, non serve coltello. Solo rispetto per il lava-caldo e un tovagliolo strategico.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "HIDA TAKAYAMA — Local Food",
+          "url": "https://www.hida.jp/english/localspeciality/food/4000215.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Takayama",
+          "url": "https://www.japan.travel/en/destinations/chubu/gifu/takayama/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-takayama-gohei-mochi",
+      "long": "Il gohei-mochi a Takayama è riso pestato su stecco con salsa locale di miso e noci, tipico dei mercati e delle bancarelle di Sanmachi più che delle valli Kiso di Shinshu. Stessa famiglia MAFF del gohei chubu, altro contesto: qui lo spiedino convive con manzo Hida, mitarashi e sake, in una città-mercato dove lo street food è circuito continuo. La glassa tende al miso dolce-sapido tostato; la forma può variare, ma conta la crosta e il calore. Non è il pezzo «da post town» di Narai né lo snack UNESCO di Shirakawa: è merenda da flânerie tra magazzini di mercanti e forni. Prendilo tra un assaggio di sakagura e l’altro — il miso grigliato e il sake alpino si capiscono al volo.",
+      "sections": [
+        {
+          "title": "Mercato di città, non stallino di passo",
+          "body": "A Takayama il gohei vive nel tessuto commerciale storico. Lo sfondo sono vetrine di legno e code di manzo, non solo bosco."
+        },
+        {
+          "title": "Salsa hida sul riso",
+          "body": "Miso e noci devono tostarsi. Se la glassa scivola via senza attaccarsi, la superficie del riso non è stata lavorata bene."
+        },
+        {
+          "title": "Nel giro dello street food",
+          "body": "Si inserisce tra crocchette, dango e sushi di manzo. Utile come pezzo «di cereale» in una giornata altrimenti carnivora."
+        },
+        {
+          "title": "Lo stecco mediatore tra sake e manzo",
+          "body": "Diplomatico calorico: non offende i bevitori, non sfida i puristi del Hida, e comunque sporca le mani di miso. Perfetto.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "MAFF — Gohei-mochi (Chubu / Hida range)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/448/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "HIDA TAKAYAMA — Local Food",
+          "url": "https://www.hida.jp/english/localspeciality/food/4000215.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Gohei-mochi (broader notes)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/3039/index.html",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-takayama-hoba-zushi",
+      "long": "L’hoba-zushi a Takayama è riso sushi e ingredienti stagionali avvolti in foglia di magnolia: cibo da lavoro agricolo e di montagna diventato specialità da tavola. Il MAFF lo descrive come pratica della Gifu: la foglia ha proprietà antibatteriche, permette di mangiare senza sporcarsi le mani e protegge il riso nell’umidità calda. A differenza dell’hoba-miso (miso cotto sulla foglia), qui la hoba è involucro di sushi pressato o composto, spesso con verdure o ingredienti di stagione. A Takayama lo cerchi in ristoranti e botteghe di cucina locale, non necessariamente come street food. L’aroma della foglia resta sul riso; non sempre si mangia l’involucro. È il capitolo «portatile» della stessa botanica che anima il konro da tavolo.",
+      "sections": [
+        {
+          "title": "Involucro, non tegame",
+          "body": "Qui la foglia chiude il sushi; nell’hoba-miso la foglia cuoce il condimento. Stesso albero, due mestieri."
+        },
+        {
+          "title": "Perché esisteva prima del frigo",
+          "body": "Antibatterico, pratico, senza bisogno di bastoncini. Era lunchbox di chi lavorava campi e boschi."
+        },
+        {
+          "title": "Stagionalità del ripieno",
+          "body": "Verdure e guarnizioni cambiano. Chiedi la composizione del giorno invece di aspettarti un nigiri fisso."
+        },
+        {
+          "title": "Il sushi che si scarta come un regalo di sottobosco",
+          "body": "Scartare la magnolia ha la stessa soddisfazione di scartare una caramella — salvo che qui profuma di foresta e fermento di riso.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "MAFF — Gifu area story (hoba sushi)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1416/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "HIDA TAKAYAMA — Local Food",
+          "url": "https://www.hida.jp/english/localspeciality/food/4000215.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-takayama-local-sake",
+      "long": "Il sake di Hida a Takayama è bevanda di acqua alpina, assaggiabile nei sakagura e nei locali di Sanmachi dove le cantine aprono degustazioni e vendita diretta. L’acqua di montagna e gli inverni freddi guidano stili spesso puliti e netti; troverai junmai, ginjo e versioni locali da bere fresche con manzo, hoba-miso o solo con un otoshi. Non serve diventare sommelier: chiedi assaggi piccoli e dichiara se preferisci secco o aromatico. Le vie storiche concentrano più birrifici a piedi; è uno dei motivi per dormire in città invece di fare solo day-trip. Porta via solo ciò che puoi trasportare in verticale e al fresco: il sake buono odia il bagagliaio caldo. Abbinalo al cibo locale senza inseguire etichette da classifica.",
+      "sections": [
+        {
+          "title": "Acqua come tesi",
+          "body": "Le cantine insistono sull’acqua alpina perché si sente: profilo pulito, meno pesantezza. Partici da lì nella scelta."
+        },
+        {
+          "title": "Sanmachi a piedi",
+          "body": "Più sakagura in pochi isolati. Meglio tre assaggi consapevoli che una bottiglia impulsiva vuota a metà pomeriggio."
+        },
+        {
+          "title": "Cibo di accompagnamento",
+          "body": "Hoba-miso, manzo, sottaceti. Il sake di Hida è pensato per tavoli di montagna, non solo per calici da meditazione."
+        },
+        {
+          "title": "La cantina che ti fa dimenticare l’orario del bus",
+          "body": "Si entra «solo per guardare» e si esce con una bottiglia e un piano B sulla cena. Takayama è esperta in questi colpi di stato liquidi.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "HIDA TAKAYAMA — Local Food / sake culture",
+          "url": "https://www.hida.jp/english/localspeciality/food/4000215.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Takayama",
+          "url": "https://www.japan.travel/en/destinations/chubu/gifu/takayama/",
+          "kind": "ente turistico"
+        }
+      ]
+    }
+  ]
+}

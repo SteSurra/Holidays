@@ -1,0 +1,608 @@
+{
+  "meta": {
+    "batch": "food-01-tokyo",
+    "note": "Phase 2 food deep stories for all 15 Tokyo catalog ids. Cross-checked against place/experience cards that mention yakitori (Kokugikan basement), taiyaki (Nakamise / Yasukuni approach), tempura momiji (Miyajima trail), and Fukagawa place history — focus on eating recognition, not site architecture or visitor logistics. No food-tokyo-* entries existed yet in story-data.js."
+  },
+  "schede": [
+    {
+      "id": "food-tokyo-edomae-sushi",
+      "long": "Edomae non significa «pesce crudo a Tokyo»: significa un sistema di lavorazione nato quando la baia di Edo forniva il pescato e i yatai dovevano servire in piedi, in fretta, senza frigoriferi. Il nigiri che oggi immaginiamo — riso tiepido, fettina sopra, un dito di wasabi — è il risultato di tecniche di conservazione e di sapore: marinatura in soia (zuke), cottura, vapore, pressatura in kombu, aceto su pesci grassi come il kohada. Il riso si temperava spesso con aceto rosso di saké, più scuro e meno dolce di quello chiaro moderno. Capire l'edomae serve a non confondere un omakase contemporaneo con uno street food storico: la forma è la stessa, la logica del topping è ancora quella di far durare e far cantare il pesce della baia.",
+      "sections": [
+        {
+          "title": "Dalla baia al banco",
+          "body": "«Edomae» indicava prima il pesce pescato davanti a Edo, poi lo stile di cucina che lo trattava. Tonno e sgombro non arrivavano sempre freschissimi: la soia e l'aceto non erano solo condimento, erano tempo guadagnato. Oggi la baia produce meno, ma le mani del cuoco ripetono ancora quelle gesti."
+        },
+        {
+          "title": "Cosa chiedere se non sai i nomi",
+          "body": "Un percorso edomae tipico mescola crudo, marinato e cotto: maguro zuke, kohada, anago con tsume, gambero lessato, tamago. Non è obbligatorio sapere tutto: basta dire omakase o scegliere pezzi «classici» e lasciare che il ritmo del banco detti la sequenza."
+        },
+        {
+          "title": "Ginza, mercato, standing",
+          "body": "GO TOKYO punta su Ginza e sull'orbita di Tsukiji Outer Market / Toyosu per il pesce. Lo standing bar e il kaiten non sono «meno edomae»: sono discendenti diretti del yatai. Conta la preparazione del pezzo, non il prezzo del tavolo."
+        },
+        {
+          "title": "Il frigorifero ha rovinato (e salvato) la leggenda",
+          "body": "Senza ghiaccio inventarono il genio del zuke; con il ghiaccio inventarono il mito del «crudo puro». Entrambi hanno ragione a modo loro: l'edomae è l'arte di rendere il pesce mangiabile al momento giusto, non un dogma sulla temperatura.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Nigiri zushi — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/1121/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Tokyo area story — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1272/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Discover Edomae Sushi — GO TOKYO Gourmet",
+          "url": "https://www.gourmet.gotokyo.org/article/25.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-tokyo-monjayaki",
+      "long": "Il monjayaki non è un okonomiyaki fallito: è una pastella volutamente liquida, cotta e mangiata sulla stessa piastra, a cucchiaiate di spatola. A Tsukishima la Nishinaka-dori è diventata «Monja Street»: decine di locali, molti iscritti a un consorzio di promozione, che servono cavolo, frutti di mare, mochi, formaggio e qualunque combinazione il menu elenca. La leggenda etimologica parla di bambini del dopoguerra che scrivevano caratteri (moji) con l'impasto sulla teppan — da mojiyaki a monja. Che sia cronaca o folklore di quartiere, il gesto resta: si grattugia il bordo croccante, si spinge l'impasto verso il centro caldo, si mangia a piccoli tocchi senza aspettare una «fetta» solida.",
+      "sections": [
+        {
+          "title": "Perché sembra una pozzanghera",
+          "body": "Farina sciolta in molta acqua, cavolo tritato fine, condimenti: il risultato non si taglia a spicchi. Si mangia con la spatola piccola, premendo i bordi contro la piastra per caramellarli. Se aspetti la consistenza del pancake di Osaka, ordinerai la cosa sbagliata."
+        },
+        {
+          "title": "Tsukishima come destinazione",
+          "body": "GO TOKYO lo elenca tra le specialità «only in Tokyo». Non serve prenotare un tavolo stellato: basta scegliere un locale della strada, accettare il fumo della piastra e condividere il fuoco con i vicini di banco. È cibo di gruppo, non di vetrina."
+        },
+        {
+          "title": "Dal dagashiya all'adulto",
+          "body": "Il MAFF ricorda la fase da snack infantile e la trasformazione postbellica in piatto da adulti quando le botteghe di caramelle sparirono. Oggi il monja è nostalgia di quartiere venduta a chi non c'era: funziona lo stesso, se si rispetta la tecnica della spatola."
+        },
+        {
+          "title": "Okonomiyaki con i nervi a pezzi",
+          "body": "Stessa famiglia del konamon, stessa piastra, missione opposta: uno vuole tenersi in piedi, l'altro vuole scivolare. A Tokyo la differenza si misura in viscosità, non in orgoglio regionale — anche se Osaka, ovviamente, dissentirà.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Monja yaki — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/1131/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Food & Drink in Tokyo — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/see-and-do/drinking-and-dining/index.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "もんじゃ焼き — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E3%82%82%E3%82%93%E3%81%98%E3%82%83%E7%84%BC%E3%81%8D",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "food-tokyo-tempura",
+      "long": "La tempura di Edo non è la pasta fritta del Kansai: è pesce e verdura passati in pastella leggera e immersi in olio — storicamente di sesamo — fino a una crosta dorata che deve restare sottile. Nata come cibo da yatai, si mangiava in piedi con un bastoncino e un pezzo di daikon per drenare l'olio. Il MAFF e la narrazione regionale di Tokyo la collegano alla stessa cultura di strada che ha prodotto sushi e soba: un pasto veloce per una città frettolosa. Oggi il ventaglio va dal counter omakase di Ginza al teishoku di quartiere a Kanda o Asakusa. Il criterio utile camminando è semplice: pastella che non fa «biscotto», olio che non puzza di riuso, pezzi fritti uno a uno, non tenuti sotto lampada.",
+      "sections": [
+        {
+          "title": "Edo contro Kamigata",
+          "body": "A Kyoto e Osaka «tempura» poteva indicare paste di pesce fritte; a Edo prevale l'ingrediente intero in pastella. Sesamo e crosta sottile sono la firma storica. Quando il pezzo esce marrone scuro e pesante, stai mangiando altro — magari buono, ma non il modello shitamachi."
+        },
+        {
+          "title": "Come si mangia al banco",
+          "body": "Sale fino o tentsuyu con daikon grattugiato: due scuole, entrambe legittime. Al counter si mangia caldo, pezzo per pezzo, senza aspettare che arrivi l'intero set. Il gambero e la verdura di stagione dicono più del marchio sulla noren."
+        },
+        {
+          "title": "Dove cercarla senza mappa stellata",
+          "body": "GO TOKYO indica Kanda, Nihonbashi e Asakusa per locali di famiglia con tempura e soba. Il tendon (tempura sul riso) è la versione da pranzo; il corso al banco è la lezione di frittura. Entrambi insegnano la stessa pasta, a ritmi diversi."
+        },
+        {
+          "title": "L'eredità portoghese che ha preso la cittadinanza",
+          "body": "I fritti iberici del Cinquecento hanno lasciato il nome; Edo ha lasciato il carattere. Pochi immigrati culinari hanno ottenuto tanto successo anagrafico: oggi la tempura figura tra i piatti «giapponesi» senza bisogno di passaporto.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Tempura — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/2438/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Tokyo area story — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1272/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Food & Drink in Tokyo — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/see-and-do/drinking-and-dining/index.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-tokyo-edo-soba",
+      "long": "A Edo la soba vinse sull'udon: i noodle di grano saraceno si adattavano al ritmo della città, ai yatai notturni e a un brodo più salato di quello occidentale. Il MAFF ricorda il passaggio dal grano saraceno come farina o impasto alle tagliatelle, e i menu tardo-Edo — mori fredda, kake calda, tempura-soba, kamo-nanban — che ancora leggete sulle insegne. Le tre linee storiche Sunaba, Sarashina e Yabu descrivono spessori e colori diversi di pasta, non solo marchi. Mangiare «edo soba» oggi significa spesso scegliere tra zaru/mori con tsuyu concentrato e kake in brodo, in locali di Kanda o Nihonbashi dove lo slurping non è maleducazione ma tecnica per aromatizzare.",
+      "sections": [
+        {
+          "title": "Fredda, calda, o entrambe",
+          "body": "Mori e zaru arrivano fredde con salsa a parte: si intinge, non si annega. Kake e nanban arrivano nel brodo. In estate la fredda è la scelta da strada; in inverno il brodo salato di Edo ha ancora senso. Molti locali permettono di ordinare un secondo giro di pasta nello stesso tsuyu."
+        },
+        {
+          "title": "Il carattere dei tre cognomi",
+          "body": "Sunaba tende al bianco sottile, Sarashina al trasparente elegante, Yabu al verdastro del tegumento del grano saraceno e a un brodo più deciso. Non è una classifica Michelin: è una mappa di preferenze shitamachi che i menu moderni ancora citano."
+        },
+        {
+          "title": "Quartieri utili",
+          "body": "GO TOKYO segnala Kanda, Nihonbashi e Asakusa per soba di famiglia. Il pranzo di soba è veloce: si mangia, si paga, si torna in strada. Se cercate la versione da tempio a Chofu (Jindai-ji), è un'altra geografia tokyoita — montagna e pellegrinaggio, non solo yatai."
+        },
+        {
+          "title": "Udon a ovest, soba a est — e la pazienza a zero",
+          "body": "Il detto «udon a ovest, soba a est» è una caricatura utile: Edo voleva noodle che si cucinassero e si mangiasero in fretta. La soba non ha reso i tokyoiti pazienti; ha solo trovato un formato compatibile con la loro fretta.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Soba — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/6156/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Food & Drink in Tokyo — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/see-and-do/drinking-and-dining/index.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Exploring Edo food culture — GO TOKYO Gourmet",
+          "url": "https://www.gourmet.gotokyo.org/article/82.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-tokyo-unagi",
+      "long": "Prima ancora del sushi, «edomae» parlava di anguilla: quella pescata vicino alla foce del Sumida, aperta, infilzata, scottata, cotta a vapore e poi laccata sulla brace con tare di soia, zucchero e mirin. È lo stile Kanto — apertura dal dorso, passaggio in vapore — diverso dal Kansai che apre dal ventre e griglia senza steam. Il kabayaki si mangia su riso (unadon, unaju) o da solo; la tradizione del Doyō no ushi, il giorno del Bue d'estate, spinge ancora code e prezzi. Camminando a Tokyo, un locale di unagi serio annuncia carbone, tare scura lucida e carne che si sfibra senza seccarsi. Non è street food da mano: è un piatto da seduta, spesso caro, con una geografia storica che parte dalla baia e arriva ai forni di quartiere.",
+      "sections": [
+        {
+          "title": "Kanto vs Kansai sulla stessa anguilla",
+          "body": "A Tokyo aspettatevi la sequenza white-grill → vapore → glaze. Il vapore toglie grasso e ammorbidisce; la seconda cottura riporta profumo di fumo. Se la pelle è molle e la salsa acquosa, il locale ha risparmiato sul fuoco."
+        },
+        {
+          "title": "Unaju, unadon, hitsumabushi",
+          "body": "Unaju è la scatola laccata; unadon la ciotola. Hitsumabushi (più nagoyano) propone porzioni successive con condimenti e tè/dashi: a Tokyo compare spesso come variante da menu. L'essenza resta il pezzo laccato, non il formato del contenitore."
+        },
+        {
+          "title": "Estate, superstizione, marketing",
+          "body": "Il legame con la fatica estiva è antico; la spinta commerciale del giorno del Bue è celebrata e discussa da secoli. Utile al viaggiatore: in quei giorni i prezzi salgono e le file anche. Fuori stagione si mangia meglio e si spende meno ansia."
+        },
+        {
+          "title": "Quando «edomae» era solo un'anguilla",
+          "body": "Oggi edomae evoca sushi da cartolina. Storicamente era un'anguilla della baia che sapeva di città. Il marketing ha cambiato mascotte; il forno a carbone, quando è serio, no.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Unagi no Kabayaki — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/6616/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Tokyo area story — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1272/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "鰻のかば焼き 東京都 — うちの郷土料理 (MAFF JP)",
+          "url": "https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/34_24_tokyo.html",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-tokyo-fukagawa-meshi",
+      "long": "Fukagawa-meshi è il pranzo veloce dei pescatori della vecchia baia: vongole asari e cipollotto cotti in fretta con miso, brodo versato sul riso — oppure riso cotto insieme alle vongole. Il MAFF distingue bukkake e takikomi, più la variante in pentola senza riso. Fukagawa-ura era un banco di sabbia ricco di molluschi; con bonifiche e inquinamento la pesca locale sparì, e il piatto rischiò di diventare solo memoria. Il ritorno è turistico e civico: musei di quartiere, ristoranti e un consiglio di promozione hanno rimesso la ciotola nei menu. GO TOKYO lo elenca tra le specialità difficili da trovare altrove: andate a Fukagawa o Koto se volete il contesto, non solo il gusto di vongola e miso.",
+      "sections": [
+        {
+          "title": "Due modi sulla stessa ciotola",
+          "body": "Bukkake: zuppa di vongole e negi versata sul riso. Takikomi: tutto cotto insieme. Entrambi puntano sull'umami del mollusco fresco e sul verde del cipollotto tagliato grosso. Se le vongole sanno di latta, il locale ha barato sulla materia prima."
+        },
+        {
+          "title": "Piatto di pescatori, non di corte",
+          "body": "Nasce come pasto rapido a bordo, non come kaiseki. Per questo resta sostanzioso e poco scenografico: riso, mare, miso. La raffinatezza sta nella freschezza dell'asari, non nella mise en place."
+        },
+        {
+          "title": "Perché è tornato",
+          "body": "Senza banchi di pesca locali, il piatto sopravvive grazie a ristoranti che lo trattano come patrimonio di quartiere. Vale la pena cercarlo vicino ai musei Edo di Fukagawa: lì la ciotola spiega la geografia meglio di una targa."
+        },
+        {
+          "title": "Il fast food prima del konbini",
+          "body": "Riso + zuppa in un colpo solo: i pescatori avevano risolto il take-away secoli prima delle vaschette di plastica. Tokyo ha solo impiegato un po' a ricordarsene.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Fukagawa meshi — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/1105/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Food & Drink in Tokyo — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/see-and-do/drinking-and-dining/index.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Tokyo area story — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1272/index.html",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-tokyo-chanko",
+      "long": "Chanko-nabe è la pentola dei wrestler: carne o pesce, verdure, tofu, brodo di pollo o dashi, condito a soia o miso a seconda della scuderia. Il MAFF lo colloca nell'era Meiji come cibo per costruire corpo, e ricorda un tabù simbolico — evitare ingredienti a quattro zampe in certi contesti, perché «cadere a quattro zampe» è perdere. A Ryogoku, intorno al Kokugikan, ex rikishi gestiscono locali che vendono la stessa logica della heya: tanta roba in un solo nabe, da condividere. GO TOKYO lo indica come specialità da cercare lì. Per il viaggiatore non è obbligatorio essere enormi: è obbligatorio arrivare affamati e accettare che il fondo della pentola diventi minestra di noodle o riso.",
+      "sections": [
+        {
+          "title": "Cosa c'è nella pentola",
+          "body": "Non esiste una ricetta unica: pollo è classico, ma compaiono maiale, pesce e verdure di stagione. Il brodo deve restare bevibile anche dopo un'ora di cottura. Se è solo «yose-nabe» generico senza legame sumo, il locale lo dirà — e il MAFF distingue i due nomi."
+        },
+        {
+          "title": "Ryogoku come geografia del piatto",
+          "body": "Si mangia chanko dove si respira sumo: strade intorno all'arena, foto di wrestler alle pareti, porzioni pensate per due stomaci sportivi. Prenotare nei giorni di torneo è saggio; fuori stagione si mangia più tranquilli."
+        },
+        {
+          "title": "Ordine di battaglia a tavola",
+          "body": "Si cuoce al centro, si pesca dal brodo, si finisce spesso con udon o riso nel fondo. Non è etichetta da kaiseki: è condivisione rumorosa. Portate un amico o accettate gli avanzi con dignità."
+        },
+        {
+          "title": "La dieta degli atleti che non dimagrisce nessuno",
+          "body": "Il chanko serve a fare massa, non a fare meditazione. Ordinatelo se volete capire il sumo dallo stomaco; se cercate una cena leggera, la città offre soba a tre isolati di distanza.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Chanko Nabe — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/7274/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Food & Drink in Tokyo — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/see-and-do/drinking-and-dining/index.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "ちゃんこ鍋 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%A1%E3%82%83%E3%82%93%E3%81%93%E9%8D%8B",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "food-tokyo-ningyoyaki",
+      "long": "Il ningyo-yaki è un dolcetto di farina, uova e zucchero cotto in stampi di ferro, spesso ripieno di anko, nato nel quartiere di Ningyocho — la «città delle bambole» legata a teatri e burattini. La bottega Itakuraya racconta la genesi Meiji: farina e uova diventate accessibili, ispirazione dai manju a campana di Osaka, forme di bambola e poi dei Sette Dei della Fortuna. Incendi e spostamenti hanno portato molti forni verso Asakusa, dove gli stampi hanno preso pagode, lanterne e colombe del Sensō-ji: la gente ha continuato a chiamarli ningyo-yaki anche quando non erano più bambole. Si comprano caldi lungo Nakamise o a Ningyocho, si mangiano in due bocconi, si regalano in scatola. Non è wagashi da cerimonia: è souvenir edibile di shitamachi.",
+      "sections": [
+        {
+          "title": "Dal nome del quartiere allo stampo",
+          "body": "Ningyocho spiega il nome meglio di qualsiasi brochure: il dolce nasce come gioco di toponimo. A Asakusa gli stampi «di luogo celebre» hanno vinto sul mercato turistico, ma la logica resta quella del forno a due valve e dell'anko al centro."
+        },
+        {
+          "title": "Come sceglierlo in coda",
+          "body": "Preferite i pezzi appena sfornati: la crosta deve cedere senza essere stopposa. Varianti al matcha o senza anko esistono; il classico è azuki. Se la scatola è fredda da ore, è solo souvenir — ancora buono, meno rivelatore."
+        },
+        {
+          "title": "Ningyocho oppure Asakusa",
+          "body": "Ningyocho per la storia di bottega; Asakusa per densità e forme da tempio. Entrambe le zone sono legittime. Itakuraya e i forni lungo l'approccio al Sensō-ji coprono i due poli senza bisogno di una classifica."
+        },
+        {
+          "title": "Bambole che si mangiano senza sensi di colpa",
+          "body": "Pochi quartieri hanno risolto il branding con tanta efficacia: battezzi il dolce come il vicolo, e cent'anni dopo i turisti ancora chiedono «quello a forma di…». Il marketing territoriale ante litteram, versione anko.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "人形焼本舗板倉屋 — storia ufficiale",
+          "url": "https://itakuraya.com/history/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "人形焼 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E5%BD%A2%E7%84%BC",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Food & Drink in Tokyo — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/see-and-do/drinking-and-dining/index.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-tokyo-anmitsu",
+      "long": "L'anmitsu è una coppa fredda di shitamachi elegante: cubetti di gelatina di agar (kanten), frutta, anko e spesso ghiaccio o mochi, il tutto bagnato di kuromitsu — sciroppo nero di zucchero non raffinato. Nasce come evoluzione del mitsumame, il tris di legumi e agar in brodo dolce; l'aggiunta generosa di pasta di azuki e la presentazione da sala da tè lo hanno reso il dessert da riposo dopo una camminata in Ginza o Asakusa. Non è street food da mano: si mangia seduti, con cucchiaino, in kissaten e wagashi-ya. Per il viaggiatore è la pausa zuccherina più «tokyoita» tra un tempio e un department store: fresco, poco grasso, molto visivo. Se il kuromitsu manca o è solo zucchero bianco, state bevendo un'altra era.",
+      "sections": [
+        {
+          "title": "La grammatica della coppa",
+          "body": "Kanten a cubetti, frutta a pezzi, anko in una porzione generosa, kuromitsu versato al tavolo o già sul fondo. A volte c'è gelato o shiratama. L'equilibrio è agar neutro + dolcezza scura dello sciroppo: se tutto è solo zucchero, manca il carattere."
+        },
+        {
+          "title": "Dove ha senso ordinarlo",
+          "body": "Sale da tè, kissaten rétro, piano wagashi dei depachika. Ginza e i quartieri di passeggio sono il habitat naturale. Non cercatelo nel yatai di stazione: vuole un tavolo e cinque minuti di quiete."
+        },
+        {
+          "title": "Mitsumame, anmitsu, cream anmitsu",
+          "body": "Mitsumame è il fratello senza (o con meno) anko; cream anmitsu aggiunge gelato o panna in chiave Showa. Partite dal classico se volete capire il profilo: agar, azuki, kuromitsu. Poi digressione a piacere."
+        },
+        {
+          "title": "Il dessert che sembra un acquario",
+          "body": "Cubetti trasparenti, frutta a galleggiare, sciroppo nero come fondale: l'anmitsu è l'unico dolce in cui si può fingere di studiare biologia marina mentre si fa merenda. Tokyo approva.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "あんみつ — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%82%E3%82%93%E3%81%BF%E3%81%A4",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "みつまめ — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%BF%E3%81%A4%E3%81%BE%E3%82%81",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Food & Drink in Tokyo — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/see-and-do/drinking-and-dining/index.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-tokyo-taiyaki",
+      "long": "Il taiyaki è imagawayaki cambiato di forma: stessa pasta, stesso anko, stampo a orata perché il tai è pesce di fortuna e di cerimonia, troppo caro per tutti i giorni. La narrazione di bottega più citata punta a Naniwaya a Tokyo all'inizio del Novecento — Highlighting Japan (governo) raccoglie la voce della famiglia Kanbe: un sen a pezzo, orata accessibile al popolo. Da allora il pesce di pastella ha invaso festivi, stazioni e viali di tempio. A Tokyo si discute ancora se il ripieno debba arrivare fino alla coda; i puristi dicono di sì, i pigri mordono comunque la testa. Si mangia caldo, in piedi, accettando di bruciarsi la lingua per la crosta appena uscita dalla piastra.",
+      "sections": [
+        {
+          "title": "Perché proprio un'orata",
+          "body": "Il tai è auspicio di festività e matrimonio; renderlo snack democratico era un'idea commerciale geniale. La forma non è solo carina: spiega il successo rispetto ad altre sagome sperimentate (tartarughe, dirigibili) che non hanno lasciato eredi di massa."
+        },
+        {
+          "title": "Testa, coda, ripieni nuovi",
+          "body": "Anko classico, custard, cioccolato, formaggio: il mercato ha aperto. Per capire il piatto storico, partite dall'azuki. Controllate se la coda è piena — dettaglio da intenditori e da litigi affettuosi in coda."
+        },
+        {
+          "title": "Azabu, tempio, stazione",
+          "body": "Naniwaya ad Azabu-Jūban è il pellegrinaggio per chi vuole la storia di bottega; i banchi vicino ai templi e nelle stazioni sono la versione quotidiana. Stesso gesto di morso, contesti diversi. Meglio caldo che fotografato."
+        },
+        {
+          "title": "Il pesce che non sa di pesce",
+          "body": "Si chiama orata, sa di frittella, contiene fagioli. È la creatura marina più rassicurante del Giappone: zero spine, zero mare, massimo folklore. I bambini la capiscono al volo; gli adulti fingono di mangiarla per nostalgia.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Taiyaki — Highlighting Japan (gov-online)",
+          "url": "https://www.gov-online.go.jp/eng/publicity/book/hlj/html/202305/202305_08_en.html",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "たい焼き — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%9F%E3%81%84%E7%84%BC%E3%81%8D",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Food & Drink in Tokyo — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/see-and-do/drinking-and-dining/index.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-tokyo-yakitori",
+      "long": "Lo yakitori di Tokyo è cultura da binario e da izakaya: spiedini di pollo — petto, coscia, cartilagine, fegato, cuore, pelle — grigliati su carbone binchōtan, conditi con sale (shio) o tare dolce-salata. JNTO lo descrive come snack da birra o pasto intero, dal standing sotto le rotaie di Yūrakuchō e Shinbashi fino ai counter di Ginza. Si ordina pezzo per pezzo, spesso dicendo shio o tare per ciascun taglio; le verdure (negi, shiitake, pepe) allungano il giro. Non cercate una «ricetta unica di Edo»: cercate il fumo, la fila di spiedi sulla griglia e il ritmo del cuoco che gira senza bruciare. È il pasto dopo ufficio più leggibile della città — e uno dei più fotografati, anche se il sapore sta nel carbone, non nella neon.",
+      "sections": [
+        {
+          "title": "Shio oppure tare",
+          "body": "Sale lascia parlare il pezzo; tare aggiunge glassa e dolcezza. Tagli grassi e interiora spesso stanno meglio con sale; petto e tsukune amano la salsa. Se il locale non chiede, ha già deciso per voi — obbedite."
+        },
+        {
+          "title": "Sotto i binari e oltre",
+          "body": "Yūrakuchō, Shinbashi, Omoide Yokocho: fumo, lanterne, birra. Ginza e specialisti offrono corsi e vini. Stesso spiedo, due economie. JNTO elenca anche catene e zone meno ovvie: utili quando le yokocho sono piene."
+        },
+        {
+          "title": "Come ordinare senza blocco",
+          "body": "Partite da momo (coscia), negima (pollo e cipollotto), tsukune (polpetta). Poi avventura: kawa (pelle), nankotsu (cartilagine), reba (fegato). Un highball o una birra non sono obbligatori, ma spiegano il formato a spiedini."
+        },
+        {
+          "title": "Anatomia del pollo a pagamento rateale",
+          "body": "Pochi ristoranti vi vendono un animale intero a rate di duecento yen. Lo yakitori sì: ogni spiedo è una lezione di macelleria. Alla fine conoscete il pollo meglio di quanto aveste pianificato.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Yakitori — Travel Japan (JNTO)",
+          "url": "https://www.japan.travel/en/guide/yakitori-a-guide-to-chicken-skewers/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Food & Drink in Tokyo — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/see-and-do/drinking-and-dining/index.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Gourmet yakitori — JAPAN by Japan (JNTO)",
+          "url": "https://www.japan.travel/en/sg/story/gourmet-yakitori/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-tokyo-shoyu-ramen",
+      "long": "Il ramen «di Tokyo» che JNTO e le guide locali chiamano classico è shoyu: brodo limpido o ambrato di pollo e/o maiale, spesso con dashi, aromatizzato dalla salsa di soia, noodle un po' ondulati, chashu, menma, cipollotto e nori. Nasce dall'adattamento di piatti di noodle cinesi nella capitale del primo Novecento e diventa il default contro cui si misurano miso, shio e tonkotsu arrivati da altre regioni. GO TOKYO indica Shinjuku (Otakibashi-dori), Ikebukuro, Takadanobaba e la Ramen Street sotto Tokyo Station come zone dense. Si mangia in fretta, spesso al bancone, senza teatralizzare: la coda fuori è un segnale, non una garanzia assoluta. Se il brodo è bianco e denso, siete nel territorio tonkotsu — ottimo, ma un'altra città in ciotola.",
+      "sections": [
+        {
+          "title": "Cosa rende «tokyo» un shoyu",
+          "body": "Soia in evidenza, brodo relativamente chiaro, noodle con morso, guarnizioni sobrie. L'uovo marinato e il grasso di maiale in superficie sono variabili di bottega. Non cercate il bianco opaco del Kyushu: qui conta la limpidità saporita."
+        },
+        {
+          "title": "Come sopravvivere alla coda",
+          "body": "Biglietto al distributore o ordine al banco, acqua gratuita, silenzio relativo. Si mangia e si lascia il posto. Aggiungere spezie e aglio è permesso quando il tavolo li offre — non è un insulto allo chef, è personalizzazione da pendolare."
+        },
+        {
+          "title": "Mappe utili, non sacre",
+          "body": "Shinjuku ovest e la Ramen Street di Tokyo Station concentrano scelte. Ogni quartiere ha il suo locale «di casa». Usate le zone per orientamento; poi seguite l'olfatto e la lunghezza della fila delle tredici."
+        },
+        {
+          "title": "Il brodo che fa da passaporto interno",
+          "body": "A Tokyo potete mangiare Sapporo, Hakata e Kitakata senza cambiare prefettura. Lo shoyu locale resta il documento d'identità: gli altri sono visti turistici nella stessa ciotola-città.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Ramen — Travel Japan (JNTO)",
+          "url": "https://www.japan.travel/en/guide/ramen/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "5 Ramen Towns — Travel Japan (JNTO)",
+          "url": "https://www.japan.travel/en/us/blog/5-ramen-towns-you-must-visit/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Food & Drink in Tokyo — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/see-and-do/drinking-and-dining/index.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-tokyo-tonkatsu",
+      "long": "Il tonkatsu è yōshoku nato a Ginza: al Rengatei, sul finire dell'Ottocento, la cotoletta occidentale fu fritta in pentola come la tempura, con panko fresco e maiale al posto del vitello, poi accompagnata da cavolo julienne e salsa worcesterish. Highlighting Japan e la scheda ufficiale Ginza del locale raccontano quell'adattamento Meiji. Da lì il piatto è diventato pranzo nazionale: hire magra o rōsu più grassa, riso, zuppa di miso, senape karashi, salsa tonkatsu scura. A Tokyo i specialist shop affettano la cotoletta a strisce e riempiono il cavolo senza limiti. Crosta dorata chiara, carne succosa, olio pulito: tre segnali che contano più dell'insegna vintage.",
+      "sections": [
+        {
+          "title": "Hire, rōsu, cavolo infinito",
+          "body": "Hire è filetto, più magro; rōsu è lonza, più sapore. Il cavolo non è garniture: è contrasto croccante e riposo dal fritto. La salsa si mette a piacere; la senape a parte. Non tagliate tutto in anticipo se volete tenere la crosta viva."
+        },
+        {
+          "title": "Yōshoku, non «cotoletta sbagliata»",
+          "body": "Nacque per rendere la cucina occidentale mangiabile ai giapponesi di Meiji, non per copiare Milano. Panko e frittura profonda sono scelte tecniche, non errori. Capirlo evita delusioni da confronto europeo."
+        },
+        {
+          "title": "Pranzo da specialista",
+          "body": "I tonkatsu-ya di quartiere servono set fissi a prezzo chiaro. File lunghe a Meguro o Omotesando sono famose; utili anche i locali meno celebrati vicino alle stazioni. Il teishoku di mezzogiorno è il formato più onesto."
+        },
+        {
+          "title": "La mancanza di personale inventò un'icona",
+          "body": "Senza abbastanza cuochi per le verdure castello francesi, arrivò il cavolo a julienne. Poche penurie di staff hanno avuto un impatto estetico così duraturo sul pranzo nazionale.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "The Roots of Tonkatsu — Highlighting Japan (gov-online)",
+          "url": "https://www.gov-online.go.jp/eng/publicity/book/hlj/html/201810/201810_08_en.html",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "RENGATEI — Ginza Official",
+          "url": "https://www.ginza.jp/en/shop/894",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "とんかつ — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%A8%E3%82%93%E3%81%8B%E3%81%A4",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "food-tokyo-tamagoyaki",
+      "long": "Il tamagoyaki di Tokyo — soprattutto nello stile dolce da shitamachi e da mercato — è uovo battuto arrotolato a strati in padella rettangolare, spesso con zucchero e mirin, a volte con dashi. Il MAFF lo distingue dal dashimaki del Kansai, più umido di brodo e meno dorato. A Tsukiji Outer Market botteghe storiche lo vendono a stecco o a fetta, tiepido, come spuntino tra un bancone di pesce e l'altro. Compare anche come neta del sushi edomae: il pezzo «di chiusura» che misura la mano del cuoco. Per il viaggiatore è uno dei rari dolci-salati da mangiare camminando senza salsa che gocciola: basta non credere che tutte le omelette arrotolate siano uguali.",
+      "sections": [
+        {
+          "title": "Dolce di Edo, succoso di Kyoto",
+          "body": "A Kanto aspettatevi una nota zuccherina e una superficie leggermente colorata. Il dashimaki occidentale è un'altra scuola: più umido, da intingere nel daikon. Se vi aspettate la versione Kyoto a Tokyo, leggete il menu."
+        },
+        {
+          "title": "Mercato e stecco",
+          "body": "Tsukiji Outer Market resta il teatro più chiaro: forni specializzati, pezzi caldi, assaggio immediato. Serve come spuntino, non come colazione completa — a meno che non ne compriate mezzo panetto."
+        },
+        {
+          "title": "Nel percorso del sushi",
+          "body": "In molti omakase il tamago arriva verso la fine. Deve essere soffice, cotto a strati, non rubbery. È un test discreto: se delude, il resto del banco andava già valutato con attenzione."
+        },
+        {
+          "title": "L'omelette che fa carriera da neta",
+          "body": "In Europa l'uovo chiude la colazione; a Tokyo può chiudere un omakase da centinaia di euro. Poca proteina ha salito altrettanti gradini sociali senza cambiare ingredienti base.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Tamagoyaki — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/3533/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Food & Drink in Tokyo — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/see-and-do/drinking-and-dining/index.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Nigiri zushi — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/1121/index.html",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-tokyo-dojo-nabe",
+      "long": "Il dojo-nabe (spesso scritto dozeu sui noren di Asakusa) è pentola di cobiti d'acqua dolce: interi in brodo (marunabe) oppure aperti e stufati con bardana, a volte chiusi con uovo come nel yanagawa-nabe. Il MAFF lo colloca tra i piatti di forza della Edo che non mangiava carne a quattro zampe, e ricorda botteghe di Komagata e Asakusa — Komagata Dozeu e altre — che hanno tenuto vivo il gusto. GO TOKYO lo elenca tra le specialità solo-tokyo da cercare ad Asakusa, con cipollotto e spezie. Per il visitatore è cibo curioso più che icona da social: pesce piccolo, lische gestibili, brodo dolce-salato, atmosfera di locale storico. Si va per capire lo shitamachi, non per battere un record di «must».",
+      "sections": [
+        {
+          "title": "Marunabe, nuki, yanagawa",
+          "body": "Marunabe: cobite interi. Nuki: aperti e senza lisca centrale, spesso con gobo. Yanagawa: con uovo che lega. Chiedete quale versione serve il locale; il sapore cambia più di quanto il nome generico «dojo» suggerisca."
+        },
+        {
+          "title": "Asakusa e Komagata",
+          "body": "La geografia è stretta: pochi isolati, insegne antiche, clientela mista di curiosi e abituali. Non è un piatto da ogni izakaya. Se volete il contesto, cenate lì dopo un giro al tempio, non forzatelo in un food court."
+        },
+        {
+          "title": "Come affrontarlo a tavola",
+          "body": "Si mangia dal nabe condiviso, con cipollotto e shichimi a piacere. Le lische dei pezzi piccoli si gestiscono con pazienza; non è unagi disossato. Il brodo finale vale il riso o un sorso da solo."
+        },
+        {
+          "title": "Il pesce che si scrive in tre lettere per scaramanzia",
+          "body": "Komagata Dozeu racconta di aver accorciato il nome dopo un incendio perché quattro caratteri portavano sfortuna. A Tokyo anche l'ortografia del pranzo può essere un amuleto.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Yanagawa nabe / Dojo jiru — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/1145/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Food & Drink in Tokyo — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/see-and-do/drinking-and-dining/index.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "どじょう鍋 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%A9%E3%81%98%E3%82%87%E3%81%86%E9%8D%8B",
+          "kind": "enciclopedia"
+        }
+      ]
+    }
+  ]
+}

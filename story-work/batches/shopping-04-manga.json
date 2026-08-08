@@ -1,0 +1,348 @@
+{
+  "meta": {
+    "batch": "shopping-04-manga",
+    "note": "Phase 3 shopping deep stories for 9 manga/pop-print catalog ids: tankōbon with obi, weekly magazines, artbooks, clear files, acrylic stands, Animate tokuten, Jump Shop goods, Ichiban Kuji prizes, and manga drawing tools. Focus on licensed vs used, store bonuses, and random/prize formats — not anime sightseeing logistics."
+  },
+  "schede": [
+    {
+      "id": "shop-all-japan-tankobon",
+      "long": "Il tankōbon giapponese è il volume «da scaffale» della serie: formato Jump Comics o equivalente, carta e tipografia pensate per il mercato interno, spesso con sovraccoperta e fascetta obi ancora attaccata. Comprarlo in Giappone non è solo «avere il manga in originale»: è scegliere tra nuovo di libreria, usato di Book Off/Mandarake e edizioni speciali di anniversario. L'obi porta promozioni, frasi e a volte barcode o coupon legati al periodo di uscita; per molti collezionisti conta quanto la copertina. In libreria il volume è pulito e completo; nell'usato si negozia giallo della carta, pieghe, mancanza di fascetta e presenza di inserti. Non è un souvenir generico: è un oggetto tipografico con regole di mercato proprie.",
+      "sections": [
+        {
+          "title": "Nuovo, usato e cosa conta davvero",
+          "body": "Nuovo: cerca ISBN, marchio dell'editore (Shueisha, Kodansha, Shogakukan…) e fascetta integra. Usato: Book Off e Mandarake catalogano per titolo e stato; un volume senza obi può costare meno ma perde il pezzo «di vetrina». Prima edizione e ristampa si leggono dal colophon interno, non dalla copertina da sola."
+        },
+        {
+          "title": "Obi, inserti e piccoli bonus",
+          "body": "La fascetta non è packaging da buttare: a volte include serial code, adesivo o rimando a campagne. Alcuni volumi escono con postcard o booklet solo nella prima tiratura. Se collezioni, fotografa obi e colophon prima di togliere la plastica — e non confondere un reprint con una limited store edition."
+        },
+        {
+          "title": "Librerie, Animate e scaffali second-hand",
+          "body": "Le grandi librerie e Animate tengono il fresco di uscita; Mandarake e Book Off coprono cataloghi profondi e titoli fuori stampa. GO TOKYO descrive Akihabara come hub di manga e merchandise: utile per densità di negozi, non come garanzia che il tuo volume sia in scaffale."
+        },
+        {
+          "title": "L'obi che vive più a lungo della trama",
+          "body": "In Italia la fascetta finisce nel cestino entro dieci minuti; in Giappone può sopravvivere al volume stesso nel mercato dell'usato. È l'unico pezzo di carta che giudica il tuo personaggio preferito più duramente di un forum.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JUMP COMICS — sito ufficiale Shueisha / Weekly Shōnen Jump",
+          "url": "https://www.shonenjump.com/j/",
+          "kind": "editore"
+        },
+        {
+          "title": "Explore around Akihabara — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/story/walks-and-tours/akihabara/index.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "単行本 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%8D%98%E8%A1%8C%E6%9C%AC",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-manga-magazine",
+      "long": "La rivista settimanale manga — Weekly Shōnen Jump in testa, ma anche Magazine, Sunday e le altre — è un mattone di carta leggera: centinaia di pagine, annunci, cartoline promozionali e il numero di serie stampato in copertina. Si compra al konbini, in edicola o in libreria il giorno di uscita; dopo pochi giorni finisce in ribasso o nello scaffale «già letto». Non è fatta per sopravvivere a uno zaino pieno: la carta si piega, gli angoli si sfaldano, gli inserti si perdono. Il valore da viaggio è temporale: porti a casa la copertina e i capitoli della settimana in cui eri in Giappone, non un'edizione da museo. Confrontala sempre con il tankōbon: la rivista è il «live», il volume è l'archivio.",
+      "sections": [
+        {
+          "title": "Cosa c'è dentro oltre i capitoli",
+          "body": "Oltre alle serie serializzate trovi color pages, sondaggi, anteprime e a volte adesivi o cartoline fissate con colla. Controlla la data del numero e il prezzo in copertina: le edizioni speciali possono costare di più e pesare di più. Il sito ufficiale Jump aggiorna il numero corrente e i contenuti della settimana."
+        },
+        {
+          "title": "Konbini contro libreria",
+          "body": "Al convenience store prendi il fresco del giorno, spesso in cima allo scaffale magazine. In libreria trovi anche numeri recenti e a volte fascicoli «GIGA» o speciali. Se vuoi solo la copertina memorabile, scegli un numero e fermati: accumulare settimanali è un hobby logistico, non un souvenir leggero."
+        },
+        {
+          "title": "Portarlo a casa senza trasformarlo in origami",
+          "body": "Mettilo piatto in una cartellina o tra due libri rigidi; evita di arrotolarlo. Non aspettarti che sopravviva a pioggia e metro affollata come un paperback europeo. Per lettura lunga, il tankōbon resta più pratico; la rivista è il pezzo da foto e da memoria di viaggio."
+        },
+        {
+          "title": "Il mattone settimanale che giudica la tua schiena",
+          "body": "Pesa poco per pagina e moltissimo per orgoglio: dopo tre numeri in zaino capisci perché i giapponesi leggono in piedi sul treno e poi abbandonano la rivista come un ombrello rotto.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "今号のジャンプ情報 — Weekly Shōnen Jump ufficiale",
+          "url": "https://www.shonenjump.com/j/weeklyshonenjump/",
+          "kind": "editore"
+        },
+        {
+          "title": "Explore around Akihabara — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/story/walks-and-tours/akihabara/index.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-manga-artbook",
+      "long": "L'artbook ufficiale di un manga o di un anime è un volume illustrato autorizzato dall'editore o dallo studio: tavole a colori, bozzetti, a volte interviste e commenti dell'autore. Si distingue dalle guide economiche, dai mook generici e dai libri «unofficial» per editore, ISBN, marchio © e spesso per prezzo. In Giappone le grandi librerie e Animate tengono le uscite recenti; le edizioni esauste finiscono nell'usato a prezzi variabili. Prima di pagare, apri l'indice o la quarta di copertina: alcuni «artbook» sono soprattutto setting guide con poco colore, altri sono gallerie dense. Non confonderli con i clear file o i poster sciolti: qui stai comprando un libro, con peso da valigia e valore da scaffale.",
+      "sections": [
+        {
+          "title": "Ufficiale, mook e sospetti da bancarella",
+          "body": "Cerca il nome dell'editore (Shueisha, Kadokawa, Aniplex Books…), il copyright della serie e un ISBN. I mook economici possono essere utili ma non sono l'artbook «da collezione». Evita volumi senza dati di pubblicazione chiari o con scansioni stampate male: la differenza si vede già sfogliando due pagine."
+        },
+        {
+          "title": "Cosa leggere sull'etichetta interna",
+          "body": "Colophon, anno di edizione e «first print» contano se collezioni. Alcune uscite includono poster pieghevoli o dust jacket speciali solo nella prima stampa. Annota titolo giapponese completo: le traduzioni italiane dei nomi delle raccolte spesso non coincidono con lo scaffale."
+        },
+        {
+          "title": "Animate, librerie e usato",
+          "body": "Animate e le catene di libri coprono il nuovo; Mandarake e Book Off recuperano titoli esauriti. Confronta condizioni della sovraccoperta e presenza del poster. Un artbook piegato in valigia senza protezione diventa un ricordo costoso e stropicciato."
+        },
+        {
+          "title": "L'intervista che non capisci ma mostri ugualmente",
+          "body": "Metà del fascino è sfogliare tavole; l'altra metà è fingere di aver letto l'intervista in giapponese mentre gli ospiti ammirano solo il personaggio in copertina. Funziona comunque.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "animate Online Shop — libreria e goods ufficiali",
+          "url": "https://www.animate-onlineshop.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "JUMP COMICS / Shōnen Jump — Shueisha",
+          "url": "https://www.shonenjump.com/j/",
+          "kind": "editore"
+        },
+        {
+          "title": "Explore around Akihabara — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/story/walks-and-tours/akihabara/index.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-clear-files",
+      "long": "Il clear file è la cartellina A4 trasparente con stampa a piena pagina: illustrazione di evento, campagna Animate, museo, Jump Shop o convenience store. Costa poco, pesa poco e si moltiplica più in fretta di un personaggio secondario. In Giappone è merchandising «da ingresso»: spesso esclusivo di un fair, di un negozio o di un periodo. Non è un prodotto random come un gashapon, ma le varianti sono tantissime e le ristampe non sono garantite. Serve a proteggere documenti e a esporre un'illustrazione ufficiale senza comprare un poster tubolare. Il rischio reale non è la qualità — è tornare con una risma di plastica e zero piano per usarla.",
+      "sections": [
+        {
+          "title": "Licenza e illustrazione esclusiva",
+          "body": "Guarda © della serie e marchio del negozio o dell'evento. Un clear file «Animate fair» o Jump Shop non è lo stesso disegno della versione generica da drugstore. Se è in blister, controlla graffi sulla stampa e angoli piegati prima di pagare."
+        },
+        {
+          "title": "Dove spunta e perché costa poco",
+          "body": "Animate, Jump Shop, musei, stazioni e a volte konbini: il prezzo basso è parte del modello. Alcuni arrivano come tokuten (bonus acquisto) e non si vendono singoli. Chiedi se è in vendita libera o legato a una soglia di spesa."
+        },
+        {
+          "title": "Come riportarli interi",
+          "body": "Impilali in una cartellina rigida o tra due libri; non arrotolarli con i poster. In valigia la plastica prende pieghe permanenti se schiacciata sotto scarpe. Uno o due pezzi memorabili battono dieci file «perché costava quasi niente»."
+        },
+        {
+          "title": "La collezione che inizia con «uno solo»",
+          "body": "Il primo clear file è innocente. Il quinto richiede una teoria dell'archiviazione. Il dodicesimo dimostra che A4 è l'unità di misura ufficiale del rimorso da souvenir.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "animate Online Shop — goods e campagne",
+          "url": "https://www.animate-onlineshop.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "JUMP SHOP — negozio ufficiale Shueisha",
+          "url": "https://jumpshop-benelic.com/",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-acrylic-stands",
+      "long": "L'acrylic stand (アクリルスタンド) è una sagoma in acrilico con base, pensata da esporre sulla scrivania. Nel merchandising giapponese è ovunque: Animate, Jump Shop, negozi ufficiali di serie, a volte in set «blind» o in lotteria. Conta la licenza stampata sul blister o sul cartoncino, la qualità del print e se il pezzo è singolo scelto o casuale. Molti arrivano con pellicola protettiva su entrambi i lati: toglierla è parte del rituale, ma verifica graffi prima. Non è un gashapon, però con le box misteriose la logica del rischio è simile. Per il viaggio: fragile agli urti, leggero, e facile da sovrastimare in quantità.",
+      "sections": [
+        {
+          "title": "Scelto, set o sorpresa",
+          "body": "Alcuni stand si comprano «open»: vedi il personaggio. Altri sono in bustine o box dove paghi la serie e speri. Leggi il cartello del display: elenco completo dei tipi, probabilità se indicate, e se i pezzi «secret» esistono davvero in quel lotto."
+        },
+        {
+          "title": "Marchio ufficiale e dettagli da controllare",
+          "body": "Cerca © della IP e nome del produttore/negozio. Confronta spessore dell'acrilico e nitidezza della stampa con i campioni in vetrina. Evita pezzi già aperti senza motivo o senza base in confezione."
+        },
+        {
+          "title": "In valigia senza trasformarli in vetro rotto",
+          "body": "Tieni la pellicola fino a casa, avvolgi in un foulard o tra vestiti morbidi, evita pressione laterale sulla sagoma sottile. Un stand grande occupa meno di una figure ma si scheggia prima se messo male."
+        },
+        {
+          "title": "Il coinquilino trasparente della scrivania",
+          "body": "Promette di stare «solo sul bordo del monitor» e entro una settimana ha fondato una colonia. L'acrilico non mangia, ma consuma spazio morale più in fretta di un peluche.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JUMP SHOP — merchandise ufficiale Shueisha",
+          "url": "https://jumpshop-benelic.com/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "animate Online Shop — character goods",
+          "url": "https://www.animate-onlineshop.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "Explore around Akihabara — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/story/walks-and-tours/akihabara/index.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-animate-bonus",
+      "long": "Il tokuten Animate è un bonus di catena: cartolina, bromide, clear file, booklet o piccolo gadget legato all'acquisto di un manga, CD, Blu-ray o goods durante una campagna. Non è incluso «per magia» in ogni copia dello stesso titolo: dipende da negozio, periodo, soglia di spesa e disponibilità. In Giappone Animate è uno dei punti di riferimento per uscite con exclusive store; l'e-commerce e i flagship fisici possono avere regole diverse. Prima di pagare, chiedi esplicitamente se il bonus è ancora in stock e se serve lo scontrino di quella promozione. La copertina del volume non garantisce il tokuten: lo garantisce il cartello della fair e il pezzo materiale che ti consegnano alla cassa.",
+      "sections": [
+        {
+          "title": "Tokuten non è first-press",
+          "body": "Il first-press dell'editore (shokai gentei) è una cosa; il bonus Animate è un'altra, spesso più piccolo e legato alla catena. Puoi avere entrambi, uno solo, o nessuno se arrivi a campagna finita. Leggi il foglio promozionale sullo scaffale: titolo del bonus, condizioni e date della fair."
+        },
+        {
+          "title": "Cosa chiedere in cassa",
+          "body": "«Animate tokuten mada arimasu ka?» — è ancora disponibile? — e se il tuo articolo è tra i prodotti target. A volte il bonus si dà solo sopra una cifra o solo su certi SKU. Conserva lo scontrino finché non hai verificato il contenuto della busta."
+        },
+        {
+          "title": "Online shop e negozio fisico",
+          "body": "L'Animate Online Shop descrive campagne e exclusive; in store la disponibilità è locale e può esaurirsi prima. Non dare per scontato che il flagship di Akihabara o Ikebukuro abbia ancora il pezzo visto online la settimana prima."
+        },
+        {
+          "title": "La cartolina che decide l'acquisto del Blu-ray",
+          "body": "Hai giurato di non comprare l'home video. Poi hai visto il tokuten. Ora possiedi tre dischi che non riprodurrai mai e una bromide che giustifica, a tuo dire, l'intera vacanza.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "animate Online Shop — exclusive e campagne",
+          "url": "https://www.animate-onlineshop.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "Explore around Akihabara — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/story/walks-and-tours/akihabara/index.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-jump-shop",
+      "long": "JUMP SHOP è il negozio ufficiale legato alle opere Shueisha / Weekly Shōnen Jump: merchandise con illustrazioni originali, goods stagionali, apparel, piccoli oggetti e a volte comics. Non è un anime shop generico: il punto è la licenza e le linee pensate per il brand Jump. Trovi sedi in hub turistici (Tokyo Station Character Street, Tokyo Dome City, Solamachi e altre città). Gli articoli «store limited» o di campagna ruotano; il personaggio più famoso può essere esaurito mentre un side character ha tre ripiani. Confronta sempre il marchio ufficiale e il © Shueisha: fuori dal circuito Jump Shop esistono infinite imitazioni e goods di altre licenze anime sullo stesso volto.",
+      "sections": [
+        {
+          "title": "Cosa rende «Jump» un oggetto",
+          "body": "Packaging e cartellini citano JUMP SHOP / Shueisha; molte linee usano artwork non riciclati dalle anime goods generiche. Snack e piccoli souvenir convivono con acrilici e apparel: scegli per uso reale, non solo per logo."
+        },
+        {
+          "title": "Sedi e rotazione scaffale",
+          "body": "Il sito ufficiale elenca i negozi e segnala punti tax-free. Stock e edizioni cambiano per sede e stagione: un pezzo visto online può non essere in quella filiale. Accetta l'esaurito come ipotesi di base, non come incidente."
+        },
+        {
+          "title": "App punti e limiti pratici",
+          "body": "Alcune sedi partecipano all'app punti del circuito; online e certe filiali speciali possono restare fuori. Per il viaggio contano più peso, fragilità e autenticità del pezzo che il programma fedeltà."
+        },
+        {
+          "title": "Il side character che ha vinto lo scaffale",
+          "body": "Sei entrato per il protagonista. Esci con tre portachiavi del personaggio che compare tre pannelli a capitolo. Jump Shop non giudica le tue priorità narrative — le rifornisce.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JUMP SHOP — sito ufficiale",
+          "url": "https://jumpshop-benelic.com/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "JUMP SHOP — elenco negozi",
+          "url": "https://jumpshop-benelic.com/pages/shop",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "Explore around Akihabara — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/story/walks-and-tours/akihabara/index.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-ichiban-kuji",
+      "long": "Ichiban Kuji (一番くじ) è la lotteria a premi di BANDAI SPIRITS: paghi un biglietto, estrai una lettera (A, B, C…) e ricevi sempre un premio fisico — non esistono «biglietti perdenti», ma i pezzi top sono pochi e i minori sono tanti. Si trova in konbini, bookstore, hobby shop e nei negozi ufficiali dedicati. Prima di giocare, leggi il display: foto dei premi, quantità rimanenti se esposte, prezzo per estrazione e presenza del Last One. È merchandise ufficiale a rischio matematico: ideale se ti basta «un» oggetto della serie, pericoloso se insegui solo il premio A. Stabilisci un tetto di tentativi prima di toccare il barattolo dei biglietti.",
+      "sections": [
+        {
+          "title": "Come funziona il barattolo",
+          "body": "Ogni estrazione costa lo stesso; il premio dipende dalla lettera. A spesso è la figure o il pezzo grande, le lettere basse sono towel, rubber strap, mini goods. Il Last One va a chi estrae l'ultimo biglietto del lotto in quel punto vendita — non è un secondo A garantito ovunque allo stesso modo: leggi le regole del kuji specifico."
+        },
+        {
+          "title": "Premi rimasti e negozi utili",
+          "body": "Molti store mostrano cosa è già uscito. Se restano solo premi minori e ti serviva la figure, fermati. Il sito Ichiban Kuji Club elenca linee e info ufficiali; in città i konbini e gli official shop Bandai concentrano i lotti attivi."
+        },
+        {
+          "title": "Valigia e aspettative",
+          "body": "Una figure A non entra nel bagaglio a mano come un keyholder. Misura scatola e fragilità prima del secondo tentativo. Ricorda: «niente perdenti» significa «sempre un oggetto», non «sempre quello che volevi»."
+        },
+        {
+          "title": "La towel che ha vinto contro la tua forza di volontà",
+          "body": "Hai detto «solo una volta». Ora possiedi due asciugamani del personaggio B e una teoria elaborata su come il prossimo biglietto «debba» essere A. La statistica non è un fan service.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "一番くじ倶楽部 — BANDAI SPIRITS",
+          "url": "https://1kuji.com/",
+          "kind": "produttore"
+        },
+        {
+          "title": "Ichiban Kuji — pagina story BANDAI SPIRITS",
+          "url": "https://www.bandaispirits.co.jp/story/002/",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-manga-drawing-tools",
+      "long": "Retini screentone, pennini G-pen e maru-pen, inchiostri, righelli e carta millimetrata manga sono gli strumenti del disegno a mano ancora venduti in Giappone in varietà che le cartolerie europee raramente eguagliano. Si trovano in negozi hobby e art-supply come le grandi sedi di materiale artistico a Tokyo (Sekaido e simili), oltre che in reparti 画材 di Animate o catene specializzate. Non serve montare uno studio completo in valigia: pochi pennini compatibili con il tuo portapenne, un blister di retini e un blocco di carta manga bastano per capire se il flusso ti piace. Controlla sempre la compatibilità del pennino con il calamaio/penholder e se i retini sono adesivi da tagliare o fogli trasferibili della marca che cerchi.",
+      "sections": [
+        {
+          "title": "Pennini, carta e retini senza eccedere",
+          "body": "G-pen e maru-pen sono i classici per ink; la carta manga ha spesso riquadri e grammatura dedicata. I retini IC o Deleter variano per densità di punti e pattern: scegline due o tre tipi, non un catalogo. Se disegni soprattutto digitale, un set piccolo è un souvenir tecnico, non un obbligo."
+        },
+        {
+          "title": "Cosa verificare sulla confezione",
+          "body": "Misura del pennino, marca del portapenne, data/lotto se presente, e se il retino è «screen tone» classico. Evita blister aperti o piegati: la polvere e le pieghe rovinano i pattern. Chiedi in negozio un pennino di ricambio dello stesso codice, non «qualcosa di simile»."
+        },
+        {
+          "title": "Negozi utili, non liste inventate",
+          "body": "Le guide di Akihabara e i grandi art store tokyoiti sono il punto di partenza naturale; Animate ha anche reparti materials. Non serve un indirizzo per ogni marca: conta trovare scaffali マンガ画材 e personale che riconosca G-pen a vista."
+        },
+        {
+          "title": "Il retino che giudica la tua pazienza",
+          "body": "Tagliare screentone dritto è più difficile che inventare un power-up. Dopo il terzo pezzo storto capisci perché tanti autori sono emigrati sul tablet — e perché i retini restano irresistibili in blister.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "animate Online Shop — reparto 画材 / art supplies",
+          "url": "https://www.animate-onlineshop.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "Explore around Akihabara — GO TOKYO",
+          "url": "https://www.gotokyo.org/en/story/walks-and-tours/akihabara/index.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "スクリーントーン — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%88%E3%83%BC%E3%83%B3",
+          "kind": "enciclopedia"
+        }
+      ]
+    }
+  ]
+}

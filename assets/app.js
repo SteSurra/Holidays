@@ -21,6 +21,7 @@
   // La cache v4 conteneva le scelte della vecchia ricerca live (gate sul nome
   // italiano): 650 voci potenzialmente sbagliate da non lasciare in giro.
   try { localStorage.removeItem("tabi-image-cache-v4"); } catch (_) {}
+  try { localStorage.removeItem("tabi-image-cache-v5"); } catch (_) {}
   const state = {
     favorites: new Set(readJSON("tabi-favorites", [])),
     done: new Set(readJSON("tabi-done", [])),
@@ -29,7 +30,7 @@
     // sparire in silenzio. La guida mostra tutte le possibilità; è l'utente a
     // decidere cosa nascondere.
     hidden: new Set(readJSON("tabi-hidden-v1", [])),
-    imageCache: readJSON("tabi-image-cache-v5", {}),
+    imageCache: readJSON("tabi-image-cache-v6", {}),
     position: null,
     currentView: "",
     previousView: "",
@@ -44,8 +45,8 @@
     // tasto indietro per riportare al menu invece che alla pagina sottostante.
     menuOrigin: {},
     filters: {
-      place: { search: "", city: "all", category: "all", nearby: false },
-      experience: { search: "", city: "all", category: "all", setting: "all", nearby: false },
+      place: { search: "", city: "all", category: "all", admission: "all", nearby: false },
+      experience: { search: "", city: "all", category: "all", setting: "all", admission: "all", nearby: false },
       food: { search: "", city: "all", category: "all", local: false },
       shop: { search: "", city: "all", category: "all" },
       merchant: { search: "", city: "all", category: "all", odd: false },
@@ -69,7 +70,7 @@
   // "cache pronta". NON va nell'URL di registrazione del service worker: un
   // URL che cambia a ogni rilascio forza una reinstallazione del worker in
   // più — e il toast di aggiornamento arrivava due volte di fila.
-  const RELEASE = "20260807e";
+  const RELEASE = "20260807n";
 
   function readJSON(key, fallback) {
     try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch (_) { return fallback; }
@@ -83,11 +84,11 @@
     try { localStorage.setItem(key, value); return true; }
     catch (_) {
       try {
-        localStorage.removeItem("tabi-image-cache-v5");
+        localStorage.removeItem("tabi-image-cache-v6");
         state.imageCache = {};
         // Se a sfondare la quota era proprio la cache immagini, riscriverla
         // intera rifarebbe il danno: riparte vuota.
-        localStorage.setItem(key, key === "tabi-image-cache-v5" ? "{}" : value);
+        localStorage.setItem(key, key === "tabi-image-cache-v6" ? "{}" : value);
         return true;
       } catch (_) { return false; }
     }
@@ -193,6 +194,16 @@
     }).join("");
   }
 
+  // Accesso verificato da fonte ufficiale: free|paid|mixed. Mai yen sulle schede.
+  // Le voci senza admission restano fuori dai filtri Gratis / A pagamento.
+  const ADMISSION_FILTER_LABELS = { free: "Solo gratis", paid: "Solo a pagamento" };
+  const ADMISSION_CARD_LABELS = { free: "Gratis", paid: "A pagamento", mixed: "Gratis + a pagamento" };
+
+  function admissionTag(item) {
+    const label = ADMISSION_CARD_LABELS[item.admission];
+    return label ? '<span class="tag">' + escapeHTML(label) + '</span>' : "";
+  }
+
   function setupFilters() {
     setHTML("placeCity", cityOptions(false));
     setHTML("experienceCity", cityOptions(false));
@@ -200,8 +211,10 @@
     setHTML("shopCity", cityOptions(true));
     setHTML("historyCity", cityOptions(false));
     setHTML("placeCategory", categoryOptions(data.labels.placeCategories, "Tutte le categorie"));
+    setHTML("placeAdmission", categoryOptions(ADMISSION_FILTER_LABELS, "Tutti gli accessi"));
     setHTML("experienceCategory", categoryOptions(data.labels.experienceCategories, "Tutte le attività"));
     setHTML("experienceSetting", categoryOptions(data.labels.experienceSettings, "Ovunque"));
+    setHTML("experienceAdmission", categoryOptions(ADMISSION_FILTER_LABELS, "Tutti gli accessi"));
     setHTML("foodCategory", categoryOptions(data.labels.foodCategories, "Tutte le portate"));
     setHTML("shopCategory", categoryOptions(data.labels.shopCategories, "Tutte le categorie"));
     setHTML("merchantCity", cityOptions(false));
@@ -211,10 +224,12 @@
     bindFilter("placeSearch", "place", "search", "input");
     bindFilter("placeCity", "place", "city", "change");
     bindFilter("placeCategory", "place", "category", "change");
+    bindFilter("placeAdmission", "place", "admission", "change");
     bindFilter("experienceSearch", "experience", "search", "input");
     bindFilter("experienceCity", "experience", "city", "change");
     bindFilter("experienceCategory", "experience", "category", "change");
     bindFilter("experienceSetting", "experience", "setting", "change");
+    bindFilter("experienceAdmission", "experience", "admission", "change");
     bindFilter("foodSearch", "food", "search", "input");
     bindFilter("foodCity", "food", "city", "change");
     bindFilter("foodCategory", "food", "category", "change");
@@ -293,7 +308,9 @@
   function updateFilterToggle(group) {
     const filters = state.filters[group];
     const count = (filters.city !== "all" ? 1 : 0) + (filters.category !== "all" ? 1 : 0)
-      + (filters.setting && filters.setting !== "all" ? 1 : 0) + (filters.local ? 1 : 0) + (filters.nearby ? 1 : 0) + (filters.odd ? 1 : 0);
+      + (filters.setting && filters.setting !== "all" ? 1 : 0)
+      + (filters.admission && filters.admission !== "all" ? 1 : 0)
+      + (filters.local ? 1 : 0) + (filters.nearby ? 1 : 0) + (filters.odd ? 1 : 0);
     const button = document.querySelector('[data-filter-toggle="' + group + '"]');
     if (!button) return;
     button.querySelector("span").textContent = count;
@@ -304,6 +321,8 @@
     const filters = state.filters[group];
     filters.city = "all";
     filters.category = "all";
+    if (Object.prototype.hasOwnProperty.call(filters, "setting")) filters.setting = "all";
+    if (Object.prototype.hasOwnProperty.call(filters, "admission")) filters.admission = "all";
     if (Object.prototype.hasOwnProperty.call(filters, "local")) filters.local = false;
     if (Object.prototype.hasOwnProperty.call(filters, "odd")) {
       filters.odd = false;
@@ -316,8 +335,8 @@
       if (nearby) nearby.checked = false;
     }
     const ids = {
-      place: ["placeCity", "placeCategory"],
-      experience: ["experienceCity", "experienceCategory", "experienceSetting"],
+      place: ["placeCity", "placeCategory", "placeAdmission"],
+      experience: ["experienceCity", "experienceCategory", "experienceSetting", "experienceAdmission"],
       food: ["foodCity", "foodCategory"],
       shop: ["shopCity", "shopCategory"],
       merchant: ["merchantCity", "merchantCategory"],
@@ -364,6 +383,10 @@
       || (filters.city === "all-japan" && item.city === "all")
       || item.city === filters.city
       || (["shop", "food"].includes(item.type) && item.city === "all" && filters.city !== "all-japan");
+    const admissionFilter = filters.admission;
+    const admissionMatch = !admissionFilter || admissionFilter === "all"
+      || item.admission === admissionFilter
+      || item.admission === "mixed";
     return (!filters.search || haystack.includes(normalizeQuery(filters.search)))
       && cityMatch
       // Un centro commerciale sta anche fra i vestiti: `extraCategories` lo fa
@@ -371,6 +394,8 @@
       && (filters.category === "all" || item.category === filters.category
         || (item.extraCategories || []).indexOf(filters.category) !== -1)
       && (!filters.setting || filters.setting === "all" || item.setting === filters.setting || item.setting === "misto")
+      // Solo schede con admission verificato: senza valore non entrano in gratis/pagamento.
+      && admissionMatch
       && (!filters.local || item.local)
       && (!filters.odd || item.odd);
   }
@@ -422,6 +447,102 @@
 
   function typeLabel(item) {
     return { place:"Luogo", experience:"Attività", food:"Cibo", shop:"Acquisto", merchant:"Negoziante", history:"Storia" }[item.type] || item.type;
+  }
+
+  function feedbackItemPhrase(item) {
+    return {
+      place: "questo luogo",
+      experience: "questa attività",
+      food: "questo piatto",
+      shop: "questo acquisto",
+      merchant: "questo negoziante",
+      history: "questa storia"
+    }[item.type] || "questo contenuto";
+  }
+
+  let pendingFeedbackContext = null;
+
+  function developerEmail() {
+    return ["stefano.suraci1", "gmail.com"].join("@");
+  }
+
+  function feedbackSubjectTag(kind) {
+    return kind === "problem" ? "Problema" : "Idea";
+  }
+
+  function feedbackPrompt(kind) {
+    return kind === "problem"
+      ? "Scrivi qui sotto cosa non va:\n\n\n"
+      : "Scrivi qui sotto cosa vorresti:\n\n\n";
+  }
+
+  function buildFeedbackSubject(kind, context) {
+    const tag = feedbackSubjectTag(kind);
+    if (context.scope === "item") {
+      return "[Tabi] " + tag + " · " + typeLabel({ type: context.type }) + " · " + context.name + " · " + context.id;
+    }
+    return "[Tabi] " + tag + " · App · " + viewTitle(context.view || "overview");
+  }
+
+  function buildFeedbackBody(kind, context) {
+    const view = context.scope === "item" ? (state.currentView || "overview") : (context.view || state.currentView || "overview");
+    let intro = "";
+    if (context.scope === "item") {
+      intro = "Contesto: " + typeLabel({ type: context.type }) + " · " + context.name + " (" + context.id + ")";
+    } else {
+      intro = "Contesto: App · " + viewTitle(view);
+    }
+    return intro + "\nVista: " + view + " · Tabi " + RELEASE + "\n\n" + feedbackPrompt(kind);
+  }
+
+  function feedbackDraft(kind, context) {
+    const email = developerEmail();
+    const subject = buildFeedbackSubject(kind, context);
+    const body = buildFeedbackBody(kind, context);
+    return { email: email, subject: subject, body: body, mailto: "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body), text: "A: " + email + "\nOggetto: " + subject + "\n\n" + body };
+  }
+
+  function feedbackContextLabel(context) {
+    if (context.scope === "item") {
+      return typeLabel({ type: context.type }) + " · " + context.name;
+    }
+    const view = context.view || state.currentView || "overview";
+    return "App · " + viewTitle(view);
+  }
+
+  function openFeedbackChooser(context) {
+    pendingFeedbackContext = context;
+    const navDialog = document.getElementById("navMenuDialog");
+    if (navDialog && navDialog.open) navDialog.close();
+    const contextNote = document.getElementById("feedbackContext");
+    if (contextNote) contextNote.textContent = feedbackContextLabel(context);
+    const dialog = document.getElementById("feedbackDialog");
+    if (dialog) dialog.showModal();
+  }
+
+  function sendFeedback(kind) {
+    if (!pendingFeedbackContext) return;
+    const context = pendingFeedbackContext;
+    const draft = feedbackDraft(kind, context);
+    pendingFeedbackContext = null;
+    const dialog = document.getElementById("feedbackDialog");
+    if (dialog && dialog.open) dialog.close();
+    // Il toast vive fuori dal top layer: con il dettaglio ancora aperto resta
+    // sotto e il fallback «Copia bozza» non si vede.
+    const detailDialog = document.getElementById("detailDialog");
+    if (detailDialog && detailDialog.open) detailDialog.close();
+    window.location.href = draft.mailto;
+    showToast("Se la posta non si apre", "Copia bozza", function () {
+      if (!navigator.clipboard || !navigator.clipboard.writeText) {
+        showToast("Copia non disponibile su questo browser");
+        return;
+      }
+      navigator.clipboard.writeText(draft.text).then(function () {
+        showToast("Bozza copiata");
+      }).catch(function () {
+        showToast("Copia non riuscita");
+      });
+    });
   }
 
   function footer(item) {
@@ -483,6 +604,7 @@
 
   function sellsTickets(item) {
     if (item.type !== "experience") return false;
+    if (item.admission === "free") return false;
     const text = normalize([item.booking, item.description, item.tip].filter(Boolean).join(" "));
     if (FREE_ENTRY.test(text)) return false;
     return TICKETED_CATEGORIES.has(item.category) || TICKET_WORDS.test(text);
@@ -550,7 +672,7 @@
       + '<div class="card-body"><div class="card-kicker"><span>' + escapeHTML(data.labels.placeCategories[item.category]) + escapeHTML(distanceLabel(item)) + '</span><span>' + escapeHTML(item.duration) + '</span></div>'
       + '<h3>' + escapeHTML(item.name) + '<span class="jp-name">' + escapeHTML(item.jp) + '</span></h3>'
       + '<p class="card-description">' + escapeHTML(item.description) + '</p>'
-      + '<div class="tag-row"><span class="tag">' + escapeHTML(item.area) + '</span><span class="tag">' + escapeHTML(item.tip) + '</span></div>'
+      + '<div class="tag-row"><span class="tag">' + escapeHTML(item.area) + '</span>' + admissionTag(item) + '<span class="tag">' + escapeHTML(item.tip) + '</span></div>'
       + footer(item) + '</div></article>';
   }
 
@@ -574,7 +696,7 @@
       + '<div class="card-body"><div class="card-kicker"><span>' + escapeHTML(data.labels.experienceCategories[item.category]) + escapeHTML(distanceLabel(item)) + '</span><span>' + escapeHTML(item.duration) + '</span></div>'
       + '<h3>' + escapeHTML(item.name) + '<span class="jp-name">' + escapeHTML(item.jp) + '</span></h3>'
       + '<p class="card-description">' + escapeHTML(item.description) + '</p>'
-      + '<div class="tag-row"><span class="tag">' + escapeHTML(item.area) + '</span><span class="tag">' + escapeHTML(item.booking || item.tip) + '</span></div>'
+      + '<div class="tag-row"><span class="tag">' + escapeHTML(item.area) + '</span>' + admissionTag(item) + '<span class="tag">' + escapeHTML(item.booking || item.tip) + '</span></div>'
       + footer(item) + '</div></article>';
   }
 
@@ -626,13 +748,164 @@
     });
   }
 
+  // Prime frasi utili come teaser: le schede deep hanno un long narrativo;
+  // senza story si usa explanation. Niente ellissi artificiali a metà parola.
+  function storyTeaser(text, maxSentences) {
+    const clean = String(text || "").replace(/\s+/g, " ").trim();
+    if (!clean) return "";
+    const parts = clean.match(/[^.!?…]+[.!?…]+(?:\s|$)|[^.!?…]+$/g) || [clean];
+    return parts.slice(0, maxSentences).join("").trim();
+  }
+
   function historyCard(item) {
+    const teaser = storyTeaser(item.explanation, 1);
     return '<article class="history-card' + (state.done.has(item.id) ? " is-done" : "") + '" data-card-id="' + item.id + '" data-kanji="' + escapeHTML(item.kanji) + '">'
       + actionButtons(item) + '<span class="done-badge">✓ ' + escapeHTML(completionLabels(item)[0]) + '</span>'
       + '<div><div class="card-kicker"><span>' + escapeHTML(cityName(item.city)) + '</span><span>' + escapeHTML(data.labels.historyCategories[item.category]) + '</span></div>'
-      + '<h2>' + escapeHTML(item.title) + '</h2><p>' + escapeHTML(item.explanation) + '</p></div>'
-      + '<div><p class="anecdote"><strong>Da ricordare:</strong> ' + escapeHTML(item.anecdote) + '</p>'
+      + '<h2>' + escapeHTML(item.title) + '</h2><p class="history-teaser">' + escapeHTML(teaser) + '</p></div>'
+      + '<div><blockquote class="anecdote"><span class="anecdote-label">Da ricordare</span>' + escapeHTML(item.anecdote) + '</blockquote>'
       + footer(item) + '</div></article>';
+  }
+
+  // Ponti history → luoghi/attività: mappa curata dove l'overlap è ovvio, più
+  // un fallback per slug condivisi nella stessa città. Niente grafo completo.
+  const HISTORY_RELATED = {
+    "history-tokyo-shitamachi": ["place-tokyo-yanaka", "place-tokyo-sensoji", "place-tokyo-ueno-park"],
+    "history-tokyo-shrine-temple": ["place-tokyo-sensoji", "place-tokyo-meiji"],
+    "history-tokyo-edo-city": ["experience-tokyo-edo-open-air", "place-tokyo-higashi-gyoen"],
+    "history-kamakura-great-buddha": ["place-kamakura-great-buddha"],
+    "history-kamakura-tsurugaoka": ["place-kamakura-tsurugaoka"],
+    "history-kamakura-five-mountains": ["place-kamakura-kencho-ji"],
+    "history-kamakura-zen": ["place-kamakura-kencho-ji"],
+    "history-hakone-sekisho-heritage": ["place-hakone-checkpoint-hakone"],
+    "history-hakone-tokaido": ["place-hakone-checkpoint-hakone", "place-hakone-hakone-shrine"],
+    "history-hakone-gongen": ["place-hakone-hakone-shrine"],
+    "history-hakone-black-eggs": ["place-hakone-owakudani"],
+    "history-hakone-onsen": ["place-hakone-owakudani"],
+    "history-matsumoto-original-castle": ["place-matsumoto-castle"],
+    "history-matsumoto-crow-castle": ["place-matsumoto-castle"],
+    "history-matsumoto-kura": ["place-matsumoto-nakamachi"],
+    "history-matsumoto-kusama": ["experience-matsumoto-city-art-museum"],
+    "history-nagano-zenkoji": ["place-nagano-zenkoji"],
+    "history-nagano-togakushi": ["place-nagano-togakushi"],
+    "history-kanazawa-six-attributes": ["place-kanazawa-kenrokuen"],
+    "history-kanazawa-chaya": ["place-kanazawa-higashi", "place-kanazawa-nishi-chaya"],
+    "history-kanazawa-gold-leaf": ["place-kanazawa-higashi", "experience-kanazawa-gold-leaf-workshop"],
+    "history-kanazawa-ninjadera": ["place-kanazawa-myoryuji"],
+    "history-kanazawa-samurai-walls": ["place-kanazawa-nagamachi"],
+    "history-kanazawa-maeda": ["place-kanazawa-castle", "place-kanazawa-kenrokuen"],
+    "history-shirakawago-gassho": ["place-shirakawago-wada-house", "place-shirakawago-ogimachi"],
+    "history-shirakawago-attic": ["place-shirakawago-wada-house"],
+    "history-shirakawago-doburoku-festival": ["place-shirakawago-santuario-shirakawa-hachiman"],
+    "history-takayama-jinya-office": ["place-takayama-jinya"],
+    "history-takayama-shogun-land": ["place-takayama-jinya"],
+    "history-takayama-festival-floats": ["place-takayama-sakurayama-hachimangu"],
+    "history-takayama-hida-carpenters": ["place-takayama-casa-yoshijima"],
+    "history-takayama-morning-markets": ["place-takayama-miyagawa"],
+    "history-kyoto-fushimi-torii": ["place-kyoto-fushimi"],
+    "history-kyoto-inari-kitsune": ["place-kyoto-fushimi"],
+    "history-kyoto-gion-etiquette": ["place-kyoto-gion"],
+    "history-kyoto-gion-matsuri": ["place-kyoto-gion", "place-kyoto-yasaka"],
+    "history-kyoto-zen-gardens": ["place-kyoto-ryoanji", "place-kyoto-ginkakuji", "place-kyoto-kinkakuji"],
+    "history-kyoto-temple-buildings": ["place-kyoto-kiyomizu", "place-kyoto-kinkakuji"],
+    "history-kyoto-machiya": ["place-kyoto-gion"],
+    "history-kyoto-capital": ["place-kyoto-imperial-palace"],
+    "history-nara-great-buddha": ["place-nara-todaiji"],
+    "history-nara-first-capital": ["place-nara-todaiji", "place-nara-piana-palazzo-heijo"],
+    "history-nara-deer": ["place-nara-nara-park", "place-nara-kasuga"],
+    "history-nara-deer-etiquette": ["place-nara-nara-park"],
+    "history-nara-kasuga-lanterns": ["place-nara-kasuga"],
+    "history-nara-naramachi": ["place-nara-naramachi", "place-nara-gango-ji"],
+    "history-osaka-castle-power": ["place-osaka-castle"],
+    "history-osaka-merchant-city": ["place-osaka-dotonbori", "place-osaka-kuromon"],
+    "history-osaka-kuidaore": ["place-osaka-dotonbori", "place-osaka-kuromon"],
+    "history-osaka-bunraku": ["experience-osaka-bunraku-theatre"],
+    "history-osaka-hozenji-moss": ["place-osaka-hozenji", "place-osaka-hozenji-yokocho"],
+    "history-osaka-billiken": ["place-osaka-billiken", "place-osaka-shinsekai"],
+    "history-hiroshima-reconstruction": ["place-hiroshima-peace-park", "place-hiroshima-peace-museum", "place-hiroshima-children-monument"],
+    "history-hiroshima-origami-cranes": ["place-hiroshima-children-monument", "place-hiroshima-peace-park"],
+    "history-hiroshima-carp-castle": ["place-hiroshima-castle"],
+    "history-hiroshima-castle-town": ["place-hiroshima-castle"],
+    "history-miyajima-sacred-island": ["place-miyajima-itsukushima"],
+    "history-miyajima-tides": ["place-miyajima-itsukushima"],
+    "history-miyajima-daishoin": ["place-miyajima-daishoin"],
+    "history-miyajima-misen": ["experience-miyajima-ropeway"],
+    "history-miyajima-benzaiten": ["place-miyajima-itsukushima"],
+    "history-miyajima-island-deer": ["place-miyajima-itsukushima", "place-miyajima-omotesando"]
+  };
+
+  function relatedPlacesForHistory(item) {
+    const mapped = (HISTORY_RELATED[item.id] || []).map(function (id) { return itemById[id]; }).filter(Boolean);
+    if (mapped.length) return mapped.slice(0, 3);
+    const tokens = String(item.slug || "").split("-").filter(function (token) { return token.length >= 5; });
+    if (!tokens.length) return [];
+    const pool = [].concat(data.places || [], data.experiences || []).filter(function (candidate) {
+      return candidate.city === item.city;
+    });
+    const hits = [];
+    pool.forEach(function (candidate) {
+      if (hits.length >= 3) return;
+      if (tokens.some(function (token) { return candidate.slug.indexOf(token) !== -1; })) hits.push(candidate);
+    });
+    return hits;
+  }
+
+  function historyRelatedHTML(item) {
+    const related = relatedPlacesForHistory(item);
+    if (!related.length) return "";
+    return '<section class="history-related"><p class="eyebrow">Da vedere</p><h3>Dove tocca il viaggio</h3><div class="history-related-list">'
+      + related.map(function (entry) {
+        return '<button type="button" data-action="details" data-id="' + escapeHTML(entry.id) + '">'
+          + '<span>' + escapeHTML(entry.name) + '</span>'
+          + '<small>' + escapeHTML(typeLabel(entry)) + ' · ' + escapeHTML(cityName(entry.city)) + '</small></button>';
+      }).join("")
+      + '</div></section>';
+  }
+
+  function historyChapterCity() {
+    const filterCity = state.filters.history.city;
+    if (filterCity && filterCity !== "all" && cityById[filterCity]) return filterCity;
+    const trip = localStorage.getItem("tabi-current-city") || "";
+    if (trip && cityById[trip]) return trip;
+    return data.cities[0] ? data.cities[0].id : "";
+  }
+
+  let lastHistoryChapterCity = "";
+
+  function softIn(element) {
+    if (!element || reducedMotion()) return;
+    element.classList.remove("is-soft-in");
+    // Forza il reflow così la stessa animazione riparte al cambio tappa.
+    void element.offsetWidth;
+    element.classList.add("is-soft-in");
+  }
+
+  function renderHistoryChapter(filteredItems) {
+    const el = document.getElementById("historyChapter");
+    if (!el) return;
+    const city = historyChapterCity();
+    if (!city) {
+      el.hidden = true;
+      el.innerHTML = "";
+      return;
+    }
+    let item = filteredItems.find(function (entry) { return entry.city === city; });
+    if (!item) item = data.history.find(function (entry) { return entry.city === city; });
+    if (!item) {
+      el.hidden = true;
+      el.innerHTML = "";
+      return;
+    }
+    const teaser = storyTeaser(item.longDescription || item.explanation, 2);
+    el.hidden = false;
+    el.innerHTML = '<p class="eyebrow">In questa tappa</p>'
+      + '<div class="history-chapter-body" data-kanji="' + escapeHTML(item.kanji) + '">'
+      + '<div class="history-chapter-copy">'
+      + '<p class="history-chapter-city">' + escapeHTML(cityName(city)) + ' · ' + escapeHTML(data.labels.historyCategories[item.category]) + '</p>'
+      + '<h2>' + escapeHTML(item.title) + '</h2>'
+      + '<p class="history-chapter-teaser">' + escapeHTML(teaser) + '</p>'
+      + '<button class="primary-action" type="button" data-action="details" data-id="' + escapeHTML(item.id) + '">Apri</button>'
+      + '</div></div>';
   }
 
   function renderPlaces() {
@@ -662,7 +935,18 @@
 
   function renderHistory() {
     const items = data.history.filter(function (item) { return matches(item, state.filters.history); });
+    const chapterCity = historyChapterCity();
+    const cityChanged = chapterCity !== lastHistoryChapterCity;
+    renderHistoryChapter(items);
+    lastHistoryChapterCity = chapterCity;
     renderCards("historyGrid", "historyMeta", "historyEmpty", items, historyCard, "storie e contesti");
+    document.querySelectorAll("#historyCategoryRail .category-chip").forEach(function (button) {
+      button.classList.toggle("is-active", button.dataset.historyCategory === state.filters.history.category);
+    });
+    if (cityChanged) {
+      softIn(document.getElementById("historyChapter"));
+      softIn(document.getElementById("historyGrid"));
+    }
   }
 
   function phrasebookPhrases() {
@@ -1478,6 +1762,10 @@
     document.getElementById("merchantCategoryRail").innerHTML = trades.map(function (entry) {
       return '<button class="category-chip ' + (entry[0] === "all" ? "is-active" : "") + '" type="button" data-merchant-category="' + entry[0] + '">' + escapeHTML(entry[1]) + '</button>';
     }).join("");
+    const historyTopics = [["all", "Tutti gli argomenti"]].concat(Object.entries(data.labels.historyCategories));
+    document.getElementById("historyCategoryRail").innerHTML = historyTopics.map(function (entry) {
+      return '<button class="category-chip ' + (entry[0] === "all" ? "is-active" : "") + '" type="button" data-history-category="' + entry[0] + '">' + escapeHTML(entry[1]) + '</button>';
+    }).join("");
     const note = document.getElementById("merchantSourceNote");
     // Un terzo delle botteghe non sta su OpenStreetMap con il proprio nome:
     // senza un indirizzo verificato non diventano un punto e la loro scheda non
@@ -1967,7 +2255,7 @@
       state.imageCache[item.id] = result;
       const keys = Object.keys(state.imageCache);
       if (keys.length > 650) delete state.imageCache[keys[0]];
-      safeSetItem("tabi-image-cache-v5", JSON.stringify(state.imageCache));
+      safeSetItem("tabi-image-cache-v6", JSON.stringify(state.imageCache));
       return result;
     } catch (_) {
       return "";
@@ -2202,10 +2490,14 @@
   // salvati: scritta una volta sola, le due non possono raccontare cose diverse.
   function detailCellsFor(item) {
     if (item.type === "place") {
-      return detailCells([["Categoria", data.labels.placeCategories[item.category]], ["Zona", item.area], ["Tempo", item.duration], ["Quando", item.tip]]);
+      const cells = [["Categoria", data.labels.placeCategories[item.category]], ["Zona", item.area], ["Tempo", item.duration], ["Quando", item.tip]];
+      if (ADMISSION_CARD_LABELS[item.admission]) cells.push(["Accesso", ADMISSION_CARD_LABELS[item.admission]]);
+      return detailCells(cells);
     }
     if (item.type === "experience") {
-      return detailCells([["Tipo", data.labels.experienceCategories[item.category]], ["Zona", item.area], ["Tempo", item.duration], ["Da organizzare", item.booking || item.tip]]);
+      const cells = [["Tipo", data.labels.experienceCategories[item.category]], ["Zona", item.area], ["Tempo", item.duration], ["Da organizzare", item.booking || item.tip]];
+      if (ADMISSION_CARD_LABELS[item.admission]) cells.push(["Accesso", ADMISSION_CARD_LABELS[item.admission]]);
+      return detailCells(cells);
     }
     if (item.type === "food") {
       return detailCells([["Portata", data.labels.foodCategories[item.category]], ["Contesto", item.context], ["Quanto ci convince", item.rating >= 4.6 ? "La nostra scelta" : item.rating >= 4.3 ? "Da provare" : "Se capita"], ["Selezione", item.local ? "Scoperta locale" : "Grande classico"]]);
@@ -2246,34 +2538,42 @@
     if (item.sourceUrl && !(item.sources && item.sources.length)) actionLinks.push('<a class="secondary-action" href="' + escapeHTML(item.sourceUrl) + '" target="_blank" rel="noopener">' + escapeHTML(item.sourceTitle || "Fonte utile") + ' ↗</a>');
     actionLinks.push('<button class="secondary-action detail-done-button" type="button" data-action="done" data-id="' + item.id + '">' + (state.done.has(item.id) ? "✓ " + completionLabels(item)[0] : completionLabels(item)[1]) + '</button>');
     actions = '<div class="hero-actions">' + actionLinks.join("") + '</div>';
+    const feedbackLink = '<p class="feedback-link-wrap"><button class="feedback-link" type="button" data-action="feedback" data-id="' + item.id + '">Segnala su ' + feedbackItemPhrase(item) + '</button></p>';
     if (item.type === "history") {
       hero = '<div class="history-detail-hero" aria-hidden="true"><span>' + escapeHTML(item.kanji) + '</span><small>' + escapeHTML(cityName(item.city)) + '</small></div>';
     } else {
       hero = '<img class="dialog-hero" src="' + escapeHTML(imageUrl || fallbackByType[item.type] || fallbackByType.place) + '" alt="' + escapeHTML(item.name) + '" referrerpolicy="no-referrer">';
       if (imageCredit && imageSourceUrl) hero += '<a class="photo-credit" href="' + escapeHTML(imageSourceUrl) + '" target="_blank" rel="noopener">Foto: ' + escapeHTML(imageCredit) + ' ↗</a>';
     }
+    const readerFlow = item.type === "history";
     const sections = (item.guideSections || []).map(function (section, index) {
       return '<section class="guide-section' + (index === 0 ? ' guide-section-lead' : '') + (section.fun ? ' guide-section-fun' : '') + '"><span>' + String(index + 1).padStart(2, "0") + '</span><div><h3>' + escapeHTML(section.title) + '</h3><p>' + escapeHTML(section.body) + '</p></div></section>';
     }).join("");
     const booking = bookingHTML(item);
     const glossary = glossaryHTML(item);
+    const related = readerFlow ? historyRelatedHTML(item) : "";
     const sources = (item.sources || []).length ? '<section class="detail-sources"><p class="eyebrow">Per approfondire e verificare</p><h3>Fonti della guida</h3><div>' + item.sources.map(function (source) {
       return '<a href="' + escapeHTML(source.url) + '" target="_blank" rel="noopener"><strong>' + escapeHTML(source.title) + '</strong><span>' + escapeHTML(source.kind || "fonte") + ' ↗</span></a>';
     }).join("") + '</div></section>' : "";
     document.getElementById("dialogContent").innerHTML =
       hero
-      + '<div class="dialog-body"><p class="eyebrow">' + escapeHTML(cityName(item.city)) + '</p>'
+      + '<div class="dialog-body' + (readerFlow ? ' is-history-reader' : '') + '"><p class="eyebrow">' + escapeHTML(cityName(item.city)) + (readerFlow ? ' · ' + escapeHTML(data.labels.historyCategories[item.category]) : '') + '</p>'
       + '<h2>' + escapeHTML(item.name) + ' <span class="jp-name">' + escapeHTML(item.jp) + '</span></h2>'
       + '<p class="guide-intro">' + escapeHTML(item.longDescription || item.description) + '</p>' + details
-      + (sections ? '<div class="guide-sections">' + sections + '</div>' : '') + glossary + booking + sources
-      + actions + '</div>';
+      + (sections ? '<div class="guide-sections' + (readerFlow ? ' is-reader' : '') + '">' + sections + '</div>' : '')
+      + related + glossary + booking + sources
+      + actions + feedbackLink + '</div>';
     const detailDialog = document.getElementById("detailDialog");
     detailDialog.dataset.itemId = id;
-    detailDialog.showModal();
+    detailDialog.classList.toggle("is-history", readerFlow);
+    // Da «Da vedere» si apre un altro dettaglio a dialog già aperto:
+    // showModal() di nuovo lancerebbe InvalidStateError.
+    if (!detailDialog.open) detailDialog.showModal();
     // Il dialog è lo stesso elemento per ogni scheda: senza questo, aprendo un
     // luogo dopo averne letto un altro fino in fondo, si atterrava a metà
     // pagina — sul secondo posto, ma con lo scorrimento del primo.
     detailDialog.scrollTop = 0;
+    softIn(detailDialog);
     const dialogHero = detailDialog.querySelector(".dialog-hero");
     if (dialogHero) dialogHero.addEventListener("error", function () {
       const credit = detailDialog.querySelector(".photo-credit");
@@ -3883,7 +4183,7 @@
   const STORAGE_KEYS = [
     "tabi-favorites", "tabi-done", "tabi-hidden-v1", "tabi-itineraries-v1", "tabi-itinerary-active-v1",
     "tabi-current-city", "tabi-notes-v1", "tabi-packing", "tabi-packing-qty-v1", "tabi-local-profile",
-    "tabi-nav-hidden", "tabi-weather", "tabi-jpy-rate", "tabi-jpy-rate-auto", "tabi-image-cache-v5",
+    "tabi-nav-hidden", "tabi-weather", "tabi-jpy-rate", "tabi-jpy-rate-auto", "tabi-image-cache-v6",
     "tabi-facilities-v4", "tabi-cache-ready", "tabi-merchants-start-hidden"
   ];
 
@@ -3917,6 +4217,28 @@
       const resetAll = event.target.closest("[data-reset-all]");
       if (resetAll) {
         resetEverything();
+        return;
+      }
+      const feedbackOpen = event.target.closest('[data-action="feedback"]');
+      if (feedbackOpen) {
+        if (feedbackOpen.dataset.id) {
+          const item = itemById[feedbackOpen.dataset.id];
+          if (!item) return;
+          openFeedbackChooser({
+            scope: "item",
+            id: item.id,
+            type: item.type,
+            name: item.name || item.title,
+            city: item.city
+          });
+        } else {
+          openFeedbackChooser({ scope: "view", view: state.currentView || "overview" });
+        }
+        return;
+      }
+      const feedbackKind = event.target.closest("[data-feedback-kind]");
+      if (feedbackKind) {
+        sendFeedback(feedbackKind.dataset.feedbackKind);
         return;
       }
       const resetProgress = event.target.closest("[data-reset-progress]");
@@ -4082,6 +4404,15 @@
         updateFilterToggle("merchant");
         return;
       }
+      const historyChip = event.target.closest("[data-history-category]");
+      if (historyChip) {
+        state.filters.history.category = historyChip.dataset.historyCategory;
+        document.getElementById("historyCategory").value = historyChip.dataset.historyCategory;
+        resetPaging("historyGrid");
+        renderHistory();
+        updateFilterToggle("history");
+        return;
+      }
       const phraseChip = event.target.closest("[data-phrase-category]");
       if (phraseChip) {
         state.filters.phrase.category = phraseChip.dataset.phraseCategory;
@@ -4112,7 +4443,7 @@
       if (history.length > 1) history.back();
       else switchView(state.previousView || "overview");
     });
-    document.querySelectorAll(".detail-dialog, .speech-dialog").forEach(function (element) {
+    document.querySelectorAll(".detail-dialog, .speech-dialog, .feedback-dialog").forEach(function (element) {
       element.querySelector(".dialog-close").addEventListener("click", function () { element.close(); });
       element.addEventListener("click", function (event) { if (event.target === element) element.close(); });
     });

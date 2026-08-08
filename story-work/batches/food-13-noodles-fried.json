@@ -1,0 +1,518 @@
+{
+  "meta": {
+    "batch": "food-13-noodles-fried",
+    "note": "Phase 2 national noodles/fried/izakaya staples (13). Everyday eating angle; avoid Tokyo shoyu-ramen / tonkatsu paraphrase. Sources: JNTO ramen + izakaya, MAFF, Sendai/Nagoya tourism as secondary."
+  },
+  "schede": [
+    {
+      "id": "food-all-tsukemen",
+      "long": "Il tsukemen separa ciò che il ramen tiene insieme: noodle da una parte, salsa concentrata dall'altra. Si intinge boccone per boccone, si lascia sgocciolare un attimo, e solo allora si porta alla bocca — così il sapore resta denso senza diluirsi in un brodo da sorbire. Nato come variante di ramen-ya urbane e oggi presente in tutto il paese, è il piatto di chi vuole più intensità e meno volume liquido. I noodle sono spesso più spessi e elastici del ramen classico; la salsa può essere shoyu, tonkotsu, pesce o miso, a volte con un «soup wari» finale: brodo caldo versato nella ciotola residua per trasformarla in zuppa. Per chi cammina e ha fame a metà pomeriggio è un pasto completo da bancone, non un antipasto. Capirlo evita di trattarlo come «ramen senza brodo»: è una tecnica di assaggio, non una mancanza.",
+      "sections": [
+        {
+          "title": "Intingere, non affogare",
+          "body": "Immergi solo la metà del mazzo: troppa salsa appiattisce il contrasto. Se i noodle sono freddi o a temperatura ambiente e la salsa bollente, il contrasto è voluto — non chiedere di scaldarli «come un ramen normale»."
+        },
+        {
+          "title": "Il finale soup wari",
+          "body": "Molti locali offrono di diluire il fondo con brodo caldo. Accetta se vuoi chiudere senza sprechi; rifiuta se preferisci l'ultima intensità pura. Non è un upgrade a pagamento ovunque: a volte è un gesto di cortesia."
+        },
+        {
+          "title": "Quando ha senso ordinarlo",
+          "body": "Ideale quando fuori fa caldo e un brodo pieno pesa, o quando vuoi un pranzo più «masticato» e meno sorbito. Nelle catene nazionali compare accanto al ramen; nei locali specializzati può essere l'unico piatto del menu."
+        },
+        {
+          "title": "Due ciotole, una diplomazia",
+          "body": "Hai ordinato due recipienti e ti ritrovi a negoziare con te stesso quanto salsa merita ogni boccone. È l'unico primo che ti obbliga a fare micro-politica con le bacchette.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — A Guide to Ramen in Japan",
+          "url": "https://www.japan.travel/en/guide/a-guide-to-ramen-in-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Ramen guide",
+          "url": "https://www.japan.travel/en/guide/ramen/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-all-abura-soba",
+      "long": "L'abura soba è ramen senza brodo: noodle, tare, olio aromatico e topping da mescolare con decisione fino a quando ogni filo luccica. Non è un errore di servizio né un tsukemen dimenticato — è un formato nato nelle ramen-ya che volevano intensità e velocità, oggi comune nelle città e nelle catene giovani. In tavola arrivano spesso aceto, rayu e pepe da dosare da soli; il gesto conta quanto la ricetta. Il sapore è più diretto del ramen in ciotola: soia, grasso, aglio, a volte maiale macinato o menma, senza il cuscino del brodo. Per il viaggiatore è utile quando fa caldo o quando si vuole un pranzo che non appanni gli occhiali. Capirlo evita di chiedere «il brodo a parte»: qui il brodo non c'è di proposito.",
+      "sections": [
+        {
+          "title": "Mescola prima di giudicare",
+          "body": "I condimenti stanno sul fondo. Se assaggi senza mescolare, giudichi solo l'olio in superficie. Due o tre giri energici con le bacchette sono parte della ricetta, non maleducazione."
+        },
+        {
+          "title": "Kit personale sul tavolo",
+          "body": "Aceto alleggerisce, rayu scalda, pepe nera chiude. Parti leggero: si aggiunge, non si toglie. Alcuni locali danno anche aglio fresco da grattugiare — un segnale che il piatto vuole personalizzazione."
+        },
+        {
+          "title": "Contesto d'uso",
+          "body": "Pranzo veloce da bancone, cena leggera prima di un treno, o spuntino notturno meno pesante di un tonkotsu. Meno adatto a chi cerca comfort caldo invernale in tazza."
+        },
+        {
+          "title": "Il ramen che ti fa fare sport",
+          "body": "È l'unico piatto di noodle in cui il cameriere sembra valutarti sulla qualità del mescolamento. Braccio debole, sapore a strati: la fisica non perdona.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — A Guide to Ramen in Japan",
+          "url": "https://www.japan.travel/en/guide/a-guide-to-ramen-in-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-curry-udon",
+      "long": "Il curry udon è il punto in cui il comfort del curry giapponese incontra la masticazione degli udon spessi. Il brodo non è la salsa densa del curry-rice: è più liquido, spesso legato con dashi e roux, abbastanza corposo da avvolgere i fili senza diventare stufato. Si trova in udon-ya, catene nazionali, izakaya e mense di stazione — un piatto di tutti i giorni, non una specialità da pellegrinaggio. In inverno scalda senza il peso di una ciotola di riso; in estate compare comunque, perché il curry qui è stagione mentale più che meteorologica. A volte arriva con manzo sottile o tempura sopra: utili, non obbligatori. Per chi conosce già il curry-rice, questo è il gemello da cucchiaio e bacchette insieme. Capirlo evita di aspettarlo piccante come un curry indiano: qui vince dolcezza, umami e spessore.",
+      "sections": [
+        {
+          "title": "Brodo, non salsa da riso",
+          "body": "Se è troppo denso da «montare» sul pane, non è il formato classico. Deve scorrere tra gli udon. Il colore ambrato-scuro e il profumo di dashi sotto le spezie sono segnali buoni."
+        },
+        {
+          "title": "Dove ordinarlo senza teatro",
+          "body": "Udon-ya di quartiere e catene di stazione sono l'ecosistema naturale. Nei kaiseki non cercarlo; nei kissaten a volte compare come yoshoku liquido. Ideale dopo una giornata di cammino quando il ramen sembra troppa decisione."
+        },
+        {
+          "title": "Abbinamenti tipici",
+          "body": "Una tempura di gambero o un pezzo di chikuwa fritto sopra aggiungono croccantezza. Il riso a parte è raro: qui i carboidrati sono già i noodle."
+        },
+        {
+          "title": "Curry con il permesso di sorbire",
+          "body": "È la dimostrazione che il Giappone ha preso il curry e gli ha insegnato a nuotare. L'India non ha firmato il verbale, ma il cucchiaio sì.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Local street food & budget restaurants",
+          "url": "https://www.japan.travel/en/gastronomy/local-street-food-favorites-budget-restaurant-japan/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-yakisoba",
+      "long": "Lo yakisoba è noodle saltati sulla piastra con cavolo, pezzi di carne o calamari, salsa scura dolce-salata, aonori e beni shoga rosa. Nonostante il nome, non è soba di grano saraceno: usa noodle tipo ramen alcalini, nati per la street e i matsuri. Si mangia in fiera, al festival scolastico, nei food court e nelle teglie dei konbini; l'odore di salsa che caramella è il segnale acustico-olfattivo dell'estate giapponese urbana. La piastra deve lasciare qualche filo leggermente tostato; se tutto è molle e uniforme, è stato tenuto al caldo troppo a lungo. Per il viaggio a piedi è un pasto in vaschetta con forchettina di legno, spesso più pratico del ramen da bancone. Capirlo evita di cercarlo nei soba-ya eleganti: il suo tempio è la piastra rumorosa, non il tatami.",
+      "sections": [
+        {
+          "title": "Segnali dalla teglia",
+          "body": "Cavolo ancora croccante, salsa lucida non nera da bruciato, zenzero rosso a lato. L'aonori deve profumare di mare secco, non di polvere stantia sullo scaffale."
+        },
+        {
+          "title": "Matsuri e tutti i giorni",
+          "body": "Al festival è teatro e fumo; al konbini o al food court è infrastruttura. Stessa idea, contesto diverso: uno si mangia camminando tra le bancarelle, l'altro seduti dieci minuti tra un treno e l'altro."
+        },
+        {
+          "title": "Trappola da porzione",
+          "body": "Le porzioni da fiera sembrano gestibili e poi no. Se hai già preso un takoyaki «per assaggiare», lo yakisoba intero può essere un secondo pranzo involontario."
+        },
+        {
+          "title": "Il false advertising più amato del paese",
+          "body": "Si chiama soba, contiene noodle di frumento, e nessuno protesta. È come chiamare «insalata» una cotoletta e ottenere comunque una fila.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Local street food & budget restaurants",
+          "url": "https://www.japan.travel/en/gastronomy/local-street-food-favorites-budget-restaurant-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Izakaya Dining Guide",
+          "url": "https://www.japan.travel/en/guide/dinner-at-a-japanese-tavern/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-all-gyoza",
+      "long": "Il gyoza giapponese è un raviolo a mezzaluna dalla pelle sottile: ripieno di maiale, cavolo, nira, aglio e zenzero, rosolato sul fondo e cotto al vapore sopra fino a formare la tipica crosta. Arriva in fila sull'asse di legno, con salsa di soia, aceto e rayu da mescolare a piacere. È il contorno quasi obbligatorio delle ramen-ya e un pilastro degli izakaya: si ordina per condividere, non come piatto unico da cerimonia. La versione «yaki» è la più comune; esistono anche boiled e deep-fried, ma il gesto nazionale è quello della crosta dorata che si stacca con un suono leggero. Per chi cammina, sei pezzi e una birra sono spesso più utili di un secondo elaborato. Capirlo evita di trattarlo come dumpling generico: qui conta il contrasto crosta/pelle e l'aglio che resta educato, non aggressivo.",
+      "sections": [
+        {
+          "title": "Crosta prima del ripieno",
+          "body": "Il fondo deve essere ambrato e continuo, non a chiazze grezze. Se la pelle è spessa come pasta fresca europea, è un altro piatto. Il ripieno buono resta succoso senza allagare il piatto."
+        },
+        {
+          "title": "Salsa fai-da-te",
+          "body": "Soia + aceto + filo di olio al peperoncino. Parti leggero sull'aglio già presente nel ripieno. Intingere tutta la mezzaluna cancella la crosta: basta un bordo."
+        },
+        {
+          "title": "Ramen-ya o izakaya",
+          "body": "Accanto al ramen è il classico «ancora un po' di fame». In izakaya arriva tra edamame e karaage, pensato per la birra. Nelle città di provincia a volte è la star del locale, non il comprimario."
+        },
+        {
+          "title": "La mezzaluna della peer pressure",
+          "body": "Nessuno ordina tre gyoza. Se ne arrivano sei e siete in due, inizia la trattativa silenziosa su chi prende l'ultimo — diplomazia più seria del G7.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Izakaya Dining Guide",
+          "url": "https://www.japan.travel/en/guide/dinner-at-a-japanese-tavern/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — A Guide to Ramen in Japan",
+          "url": "https://www.japan.travel/en/guide/a-guide-to-ramen-in-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Local street food & budget restaurants",
+          "url": "https://www.japan.travel/en/gastronomy/local-street-food-favorites-budget-restaurant-japan/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-karaage",
+      "long": "Il karaage è boccone di pollo marinato in soia, zenzero e aglio, infarinato in modo leggero e fritto fino a crosta irregolare e carne succosa. Non è «fried chicken» americano: la marinatura è più corta e aromatica, la crosta meno panata e più sottile. Si trova ovunque — izakaya, bentō, konbini, mense, festival — ed è uno dei piatti più democratici del paese. Si mangia con limone o maionese, a volte con pepe; la qualità si giudica dal succo che esce al primo morso, non dalla grandezza del pezzo. Per il viaggiatore è il secondo più affidabile quando il menu è solo in giapponese: la foto del pollo dorato è universale. Capirlo evita di confonderlo con il tebasaki (ali intere laccate) o con il pollo da cassa del konbini: stesso spirito, formati diversi.",
+      "sections": [
+        {
+          "title": "Succo, non solo crosta",
+          "body": "Un pezzo bello fuori e stopposo dentro è fallito. Meglio un boccone piccolo e umido. Se l'olio puzza, il locale ha tenuto la friggitrice troppo a lungo: cambia indirizzo."
+        },
+        {
+          "title": "Dove ordinarlo",
+          "body": "In izakaya arriva come condivisione con birra o highball. Nel bentō è proteina da viaggio. Al festival è vaschetta da mano. Il contesto cambia il ritmo, non l'idea."
+        },
+        {
+          "title": "Etichetta minima",
+          "body": "Con le mani è accettato in molti posti informali; altrimenti bastoncini. Non tuffare il pezzo intero nella salsa comune se siete in gruppo: spezza e intingi la tua metà."
+        },
+        {
+          "title": "Il limone che fa da critico gastronomico",
+          "body": "Uno spruzzo di limone e improvvisamente tutti fingono di aver sempre saputo che mancava l'acidità. Il karaage tollera i nerd del condimento meglio di quanto ammetta.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Izakaya Dining Guide",
+          "url": "https://www.japan.travel/en/guide/dinner-at-a-japanese-tavern/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Entertainment and Nightlife",
+          "url": "https://www.japan.travel/en/guide/night-life/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-all-tonkotsu-ramen",
+      "long": "Il tonkotsu ramen è brodo di ossa di maiale bollite a lungo fino a diventare bianco, opaco e ricco, con noodle sottili e cottura del pane che si chiede al bancone: katamen, futsumen, yawamen. Associato storicamente a Kyushu e a Hakata, oggi è un linguaggio nazionale — catene, locali indipendenti e angoli di stazione lo servono da Hokkaido a Okinawa. Non è il shoyu limpido da quotidiano urbano: è più grasso, più profumato di collagene, spesso con beni shoga, nori, chashu e uovo. Si mangia in fretta, da seduti al bancone, senza trasformare il locale in salotto. Per chi viaggia è utile sapere che «tonkotsu» indica la base ossea, non una città obbligatoria sul biglietto. Capirlo evita di cercarlo solo come souvenir di Fukuoka: è comfort food esportato in tutto l'arcipelago.",
+      "sections": [
+        {
+          "title": "Bianco come firma",
+          "body": "Il brodo deve essere lattiginoso, non trasparente. Se è chiaro e leggero, stai bevendo un altro stile. Il profumo è intenso: normale, non «andato a male»."
+        },
+        {
+          "title": "Ordine della cottura",
+          "body": "Molti banconi chiedono quanto cotto vuoi il noodle. Se non sai, futsu (normale) è sicuro. Katamen resta più elastico e regge meglio il brodo denso."
+        },
+        {
+          "title": "Ritmo da ramen-ya",
+          "body": "Si mangia e si lascia il posto. Non è maleducazione: è flusso. Se c'è fila, il tavolo non è un ufficio. Un gyoza a lato va bene; il meeting di un'ora no."
+        },
+        {
+          "title": "Il brodo che ti segue in ascensore",
+          "body": "Ore dopo, i vestiti ricordano ancora il maiale bollito. È l'unico souvenir olfattivo incluso nel prezzo — non serve comprarlo al duty-free.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — A Guide to Ramen in Japan",
+          "url": "https://www.japan.travel/en/guide/a-guide-to-ramen-in-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Ramen guide",
+          "url": "https://www.japan.travel/en/guide/ramen/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — 5 Ramen Towns You Must Visit",
+          "url": "https://www.japan.travel/en/us/blog/5-ramen-towns-you-must-visit/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-miso-ramen",
+      "long": "Il miso ramen allarga il brodo con pasta di soia fermentata: più corposo e rotondo del shoyu, spesso con note dolci e tostate. Il riferimento famoso è Sapporo e il freddo di Hokkaido — mais, burro, germogli saltati — ma il formato viaggia: nelle città del resto del Giappone lo trovi come scelta stabile accanto a shoyu e shio, non solo come souvenir del nord. I noodle tendono a essere più robusti per reggere il peso del condimento. Per chi ha già mangiato ramen «chiari», il miso è il gradino successivo di densità senza arrivare al collagene del tonkotsu. Si ordina quando fuori morde il vento o quando vuoi un pranzo che sazia in una ciotola sola. Capirlo evita di ridurlo a «ramen con burro»: il burro è un accento regionale, il miso è la struttura.",
+      "sections": [
+        {
+          "title": "Miso come struttura, non topping",
+          "body": "Deve legarsi al brodo, non galleggiare a grumi. Il colore va dall'ambrato al bruno; l'aroma è di fermentazione e tostatura, non solo di sale."
+        },
+        {
+          "title": "Lettura dei topping",
+          "body": "Mais e burro tipicamente nordici; germogli e carne macinata saltata sono comuni ovunque. Se vedi solo cipollotto e nori, resta miso — solo più sobrio."
+        },
+        {
+          "title": "Quando sceglierlo",
+          "body": "Freddo, fame da cammino, o voglia di qualcosa di più «stufato» del shoyu. In estate esiste comunque, ma pesa di più: porzioni intere dopo un tempio al sole possono addormentarti sul treno."
+        },
+        {
+          "title": "Il burro come plot twist",
+          "body": "Mettere una noce di burro sul ramen sembra un errore da turista finché non lo fai. Poi capisci perché Hokkaido non chiede scusa a nessuno.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — A Guide to Ramen in Japan",
+          "url": "https://www.japan.travel/en/guide/a-guide-to-ramen-in-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Ramen guide",
+          "url": "https://www.japan.travel/en/guide/ramen/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-all-hiyashi-chuka",
+      "long": "Lo hiyashi chuka è il ramen dell'estate: noodle freddi allineati in ciotola con striscioline di frittata, prosciutto o petto di pollo, cetriolo, pomodoro, a volte menma, e una salsa acidula a base di aceto, soia e sesamo. Compare nei menu quando il caldo diventa argomento nazionale e scompare quando torna il brodo. Non è un'insalata mascherata: i noodle restano elastici e la salsa va mescolata, non lasciata sul fondo. Si trova in ramen-ya, shokudo e catene di quartiere — un segnale stagionale più affidabile del meteo dell'app. Per chi cammina a luglio è la scelta più ragionevole tra i primi caldi. Capirlo evita di chiederlo a gennaio: molti locali semplicemente non lo preparano fuori stagione.",
+      "sections": [
+        {
+          "title": "Calendario sul menu",
+          "body": "Se lo vedi scritto, l'estate è ufficialmente aperta in cucina. Se manca, non insistare: magari torni al ramen caldo o all'abura soba."
+        },
+        {
+          "title": "Mescola i colori",
+          "body": "Uovo, verdure e carne sono disposti a raggiera per essere visti prima che mangiati. Dopo la foto (veloce), mescola: la salsa deve toccare ogni filo."
+        },
+        {
+          "title": "Salse e varianti",
+          "body": "C'è chi preferisce sesamo cremoso e chi aceto più tagliente. Chiedi se puoi avere la salsa a parte solo se sei incerto: di solito arriva già dosata."
+        },
+        {
+          "title": "Il piatto che fa da climatizzatore",
+          "body": "Mentre fuori l'asfalto frigge, tu mangi noodle freddi e pretendi di aver fatto una scelta spirituale. In realtà hai solo scelto il menù con il ventilatore incluso.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — A Guide to Ramen in Japan",
+          "url": "https://www.japan.travel/en/guide/a-guide-to-ramen-in-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-tebasaki",
+      "long": "Il tebasaki è ala di pollo fritta, spesso due volte, poi laccata con salsa dolce-salata e finita di pepe: si mangia con le mani, ossa comprese nel calcolo. Nato come firma di Nagoya — oggi raccontato anche dal brand Nagoya Meshi — si è diffuso negli izakaya di tutto il paese come ordine da birra. Non è karaage a pezzi: qui l'ala resta intera, la crosta più sottile, la salsa appiccicosa, il pepe a volte generoso. Arriva a piatti da tre o cinque pezzi; il ritmo giusto è uno alla volta, non una torre da foto. Per il viaggiatore nazionale è lo spuntino serale più onesto: poco teatro, tanto digito unto. Capirlo evita di chiedersi se sia «solo chicken wing»: la glassatura e il pepe sono il punto, non il fast food generico.",
+      "sections": [
+        {
+          "title": "Mani, non bacchette da cerimonia",
+          "body": "È cibo da dita. Tieni i tovaglioli vicini. Se il pepe fa starnutire, stai mangiando nella tradizione corretta di certi locali nagoyani esportati."
+        },
+        {
+          "title": "Da Nagoya al resto del paese",
+          "body": "In Aichi è identità; altrove è voce di menu izakaya. Cerca la glassatura lucida e il pepe, non solo «ali fritte». Le catene nate a Nagoya hanno reso il gesto riconoscibile ovunque."
+        },
+        {
+          "title": "Abbinamento naturale",
+          "body": "Birra chiara o highball. Ordina un piatto per due e valuta prima del secondo: saziano più di quanto sembri. Edamame a lato ripulisce il palato tra un'ala e l'altra."
+        },
+        {
+          "title": "Il pepe come social network",
+          "body": "Dopo tre ali starnutisci in sincronia con il tavolo accanto. È networking involontario, sponsorizzato dal pepe nero.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Nagoya Meshi — official site",
+          "url": "https://en.nagoya-meshi.jp/",
+          "kind": "consorzio"
+        },
+        {
+          "title": "JNTO — Izakaya Dining Guide",
+          "url": "https://www.japan.travel/en/guide/dinner-at-a-japanese-tavern/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Aichi Now — Tebasaki Summit",
+          "url": "https://aichinow.pref.aichi.jp/en/events/detail/2191/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-tsukune",
+      "long": "Lo tsukune è polpetta di pollo macinato sullo spiedo: a volte liscia, a volte con cartilagine per il morso, laccata con tare dolce-salata sulla brace. Nei yakitori-ya e izakaya arriva spesso con un tuorlo crudo a lato in cui intingere — un gesto che vale più della foto. Non è un hamburger in miniatura: deve restare umido dentro e caramellato fuori, senza seccarsi come polpetta da mensa. Si ordina pezzo per pezzo insieme ad altre spiedate; è il momento «morbido» tra ali, cuore e negima. Per chi non vuole frattaglie al primo yakitori, lo tsukune è l'ingresso diplomatico. Capirlo evita di chiedere ketchup: il tare e il tuorlo fanno già da salsa.",
+      "sections": [
+        {
+          "title": "Tuorlo come condimento",
+          "body": "Se arriva il tuorlo, intingi lo spiedo a metà cottura del morso, non affogare tutto. In Giappone le uova da consumo crudo seguono standard locali; se sei incerto, mangia lo tsukune solo con tare."
+        },
+        {
+          "title": "Texture e pepe",
+          "body": "Chiedi se preferisci «con cartilagine» o liscia dove il menu lo consente. Un filo di shichimi o pepe sul pezzo caldo chiude bene senza coprire il fumo."
+        },
+        {
+          "title": "Posto in sequenza",
+          "body": "Meglio a metà serata yakitori, non come unico ordine: lo spiedo vive di contrasto con pezzi più tostati. Accompagna con birra o sake secco, non con bibite dolci che spengono il tare."
+        },
+        {
+          "title": "La polpetta con l'ufficio stampa",
+          "body": "È l'unico spiedino che arriva con un uovo di accompagnamento come se fosse un plus business class. Il pollo macinato ha relazioni pubbliche migliori del suo curriculum.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Yakitori guide",
+          "url": "https://www.japan.travel/en/guide/yakitori-a-guide-to-chicken-skewers/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Izakaya Dining Guide",
+          "url": "https://www.japan.travel/en/guide/dinner-at-a-japanese-tavern/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-gyutan",
+      "long": "Il gyutan è lingua di manzo tagliata spessa, maturata e grigliata al carbone fino a bordo tostato e centro ancora succoso. La forma completa nata a Sendai — lingua, riso all'orzo, zuppa di coda, sottaceti — è diventata un set riconoscibile anche fuori dal Tohoku: catene e specialisti lo propongono nelle grandi città come pranzo o cena dedicata, non solo come souvenir di viaggio. La lingua non deve sapere di fegato: se è amara o stopposa, la cottura o il taglio hanno fallito. Si mangia a fettine, spesso con sola sale o una salsa leggera, lasciando che il carbone parli. Per chi si muove in treno, il set è un pasto completo più chiaro di un izakaya a caso. Capirlo evita di ridurlo a «odd cut»: è una specialità di città che ha imparato a viaggiare.",
+      "sections": [
+        {
+          "title": "Il set, non solo la fetta",
+          "body": "Mugimeshi (riso-orzo), zuppa di coda e tsukemono non sono contorni decorativi: bilanciano il grasso e il sale. Ordinare solo la lingua ha senso all'izakaya; al pranzo dedicato il set racconta il piatto."
+        },
+        {
+          "title": "Da Sendai al menu nazionale",
+          "body": "A Sendai è identità urbana; altrove cerca locali specializzati o set dichiarati. La fetta spessa alla brace è il segnale: le versioni sottili tipo yakiniku sono un altro registro."
+        },
+        {
+          "title": "Come assaggiarlo",
+          "body": "Primo morso al naturale, poi sale. Se la salsa è forte, usala poco. La zuppa di coda a fine pasto ripulisce meglio di una bevanda dolce."
+        },
+        {
+          "title": "Lingua che fa turismo",
+          "body": "Pochi tagli anatomici hanno un ufficio del turismo dedicato. Il gyutan sì: dimostrazione che con la brace giusta anche la lingua impara a fare marketing.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Discover SENDAI — Grilled Beef Tongue",
+          "url": "https://discoversendai.travel/eat/grilled-beef-tongue/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Discover SENDAI — Trying Beef Tongue",
+          "url": "https://discoversendai.travel/must-do/trying-beef-tongue/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-motsunabe",
+      "long": "Il motsunabe è pentola di trippa di manzo (motsu) con cavolo, aglio, cipollotto e peperoncino, in brodo di soia o miso, cotta al tavolo fino a quando il fondo diventa il vero premio. Associato a Fukuoka e al Kyushu, oggi riempie izakaya e nabe-ya in molte città come cena condivisa invernale. La trippa ben pulita non deve puzzare: deve essere tenera e dolce, avvolta dal brodo. Si mangia in più tempi — verdure e motsu prima, poi noodles o riso champon nel fondo — e il gesto del «shime» finale è parte del rito nazionale del nabe. Per chi viaggia in gruppo è più sociale del ramen da bancone: una pentola, più bacchette, una sola decisione sul brodo. Capirlo evita di trattarlo come «solo frattaglie»: è un sistema di cottura e di chiusura del pasto.",
+      "sections": [
+        {
+          "title": "Brodo soia o miso",
+          "body": "Soia più diretta e aglio in evidenza; miso più rotondo. Il peperoncino non è obbligatorio a livelli eroici: si aggiunge. Se l'odore è aggressivo di stalla, cambia locale — la pulizia del motsu è tutto."
+        },
+        {
+          "title": "Il finale shime",
+          "body": "Quando restano i liquidi, si chiedono noodle o riso da cuocere nel fondo. Non è un extra da snobbare: è il capitolo per cui molti ordinano la pentola."
+        },
+        {
+          "title": "Contesto e stagione",
+          "body": "Serate fredde, izakaya rumorosi, gruppi. Di giorno d'agosto esiste ma pesa. Porta pazienza: il nabe vuole tempo di bollore, non asporto da marciapiede."
+        },
+        {
+          "title": "La trippa che chiude in bellezza",
+          "body": "Si passa la serata a dire «ancora un po' di brodo» e si finisce con una ciotola di noodle che sembra un secondo ristorante nello stesso tavolo. Efficiente, e un po' subdolo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Izakaya Dining Guide",
+          "url": "https://www.japan.travel/en/guide/dinner-at-a-japanese-tavern/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    }
+  ]
+}

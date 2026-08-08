@@ -1,0 +1,408 @@
+{
+  "meta": {
+    "batch": "food-04-kanazawa",
+    "note": "Phase 2 food deep stories for all 10 Kanazawa catalog rows. Cross-checked against history-kanazawa-gold-leaf, place-kanazawa-omicho, experience-kanazawa-gold-leaf-workshop — food cards focus on eating recognition and market/restaurant use, not craft chronicles or market founding history."
+  },
+  "schede": [
+    {
+      "id": "food-kanazawa-kaisendon",
+      "long": "Il kaisen-don di Kanazawa non è un generico «chirashi da turisti»: è il modo più diretto di leggere cosa il Mar del Giappone ha scaricato quella mattina sulle bancarelle di Ōmichō. Sopra il riso bianco, o leggermente acetato, finiscono pezzi di pesce e crostacei scelti al momento — amaebi dolci, tonnetto grasso, ricciola, a volte uni o uova di pesce — disposti a cupola più che a strato. L'utile pratico è semplice: ordini al bancone o al tavolino sopra il mercato, mangi caldo il riso e freddo il crudo, e torni in città senza prenotare un kaiseki. La qualità si giudica dalla lucentezza della carne e dalla varietà stagionale, non dal numero di pezzi fotografati. In inverno il don può diventare quasi un manifesto del freddo Hokuriku; in estate resta un pranzo leggero ma denso di mare.",
+      "sections": [
+        {
+          "title": "Cosa punta il bastoncino",
+          "body": "Guarda i tagli che brillano senza acqua in superficie e i gamberi ancora traslucidi. Un don buono sa di mare pulito e di riso ancora tiepido; se il pesce opaco o il riso freddo dominano, è souvenir più che pranzo."
+        },
+        {
+          "title": "Mercato prima, ristorante dopo",
+          "body": "A Ōmichō molti posti cucinano ciò che hanno in vetrina. Chiedere «oggi cosa è meglio?» è più utile della foto del menu. Alcuni offrono porzioni mezza-giornata ideali tra Kenrokuen e il castello."
+        },
+        {
+          "title": "Stagione sul piatto, non sullo slogan",
+          "body": "Inverno = buri e granchio quando ci sono; primavera ed estate = gamberi dolci e pesci bianchi. Il catalogo cambia: chi cerca sempre lo stesso topping ha sbagliato città."
+        },
+        {
+          "title": "Il don che giudica il tuo timing",
+          "body": "Arrivare a mercato quando i cuochi hanno ancora la scelta del banco è metà del sapore. Arrivare a chiusura è un'altra storia, letteralmente.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "The Cuisine of Kanazawa — VISIT KANAZAWA",
+          "url": "https://visitkanazawa.jp/en/trip-ideas/detail_239.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Ishikawa — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1053/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Kanazawa Seafood — City of Kanazawa",
+          "url": "https://kanazawa-uminosachi.jp/en/",
+          "kind": "ente pubblico"
+        }
+      ]
+    },
+    {
+      "id": "food-kanazawa-jibuni",
+      "long": "Lo jibuni è lo stufato che Kanazawa usa per presentarsi da città daimyō anche a tavola: fette di anatra o pollo infarinate, cotte in un brodo dashi addensato con verdure di stagione e pezzi di sudare-fu, il glutine di frumento a listarelle tipico della zona. La farina non è panatura croccante: in cottura scioglie e dà al liquido quella seta leggera che lo distingue da uno nikomi generico. Si mangia in ristoranti kappo e in trattorie di quartiere, spesso con un punto di wasabi sul bordo che spezza il dolce-salato. Non è street food: è piatto da ciotola larga, da mangiare piano, tipico della cucina kaga che privilegia brodi puliti e ingredienti locali. Chi lo ordina d'estate lo trova comunque; chi lo ordina d'autunno o d'inverno ne sente meglio la logica di stagione.",
+      "sections": [
+        {
+          "title": "La seta nel mestolo",
+          "body": "Se il brodo è acquoso e la carne galleggia senza colla, non è jibuni. Deve avvolgere il cucchiaio. Il fu assorbe sapore; le verdure restano a pezzi riconoscibili, non a purea."
+        },
+        {
+          "title": "Wasabi come interruttore",
+          "body": "Il pizzico verde non è decorazione: spezza la dolcezza del dashi. Si mescola a piacere; chi lo ignora mangia un altro piatto."
+        },
+        {
+          "title": "Anatra o pollo, stessa grammatica",
+          "body": "L'anatra è la versione più ricca; il pollo è quella quotidiana. Entrambe restano jibuni se la farina e il fu fanno il loro lavoro. Nei menu turistici compare spesso come «piatto tipico di Kanazawa» — ed è una delle poche volte in cui lo slogan coincide con il piatto."
+        },
+        {
+          "title": "Il nome che fa «jibu-jibu»",
+          "body": "Una delle etimologie locali lo lega al suono del bollore. Anche se la filologia resta aperta, almeno la pentola conferma l'onomatopea.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Jibuni — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/490/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "じぶ煮 石川県 — うちの郷土料理 (MAFF)",
+          "url": "https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/jibuni_ishikawa.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "The Cuisine of Kanazawa — VISIT KANAZAWA",
+          "url": "https://visitkanazawa.jp/en/trip-ideas/detail_239.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-kanazawa-nodoguro",
+      "long": "Il nodoguro — blackthroat seaperch, «gola nera» — è il pesce di lusso del Mar del Giappone che a Kanazawa si tratta quasi come un taglio di manzo: grasso marbling bianco che si scioglie alla griglia, carne dolce e densa, prezzo che sale con la taglia. Si ordina intero saltayaki, in sashimi, o a pezzi nel don; la prova del nove è la pelle croccante e il grasso che unge le labbra senza pesantezza. Non è un pesce da «assaggio obbligatorio» a basso costo: meglio una porzione piccola e buona che una mezza dozzina di pezzi mediocri. Nei menu di Ōmichō e dei kappo del centro compare con nome chiaro; se manca dalla lista del giorno, spesso significa che la barca non ne ha portato abbastanza — e quella è un'informazione più utile di qualsiasi stellina.",
+      "sections": [
+        {
+          "title": "Griglia prima di selfie",
+          "body": "Alla brace il grasso cola e profuma; crudo resta burroso. Se dopo due bocconi sembra secco, era troppo piccolo o troppo cotto. Il nome sul menu è già un filtro di prezzo."
+        },
+        {
+          "title": "Quanto costa il silenzio a tavola",
+          "body": "Un esemplare intero in un buon locale può superare facilmente i cinquemila yen. Condividere è normale; pretendere un «assaggio economico» di nodoguro è un oxymoron locale."
+        },
+        {
+          "title": "Mare di fronte, non di catalogo",
+          "body": "Kanazawa lo vende fresco perché il Hokuriku lo pesca. Fuori stagione o fuori regione il nome resta, la densità del grasso no. Qui ha senso perché arriva vicino."
+        },
+        {
+          "title": "La gola nera e l'ego chiaro",
+          "body": "Si chiama così per una macchia scura in gola. I camerieri non lo spiegano sempre; i conti, invece, sì.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "The Cuisine of Kanazawa — VISIT KANAZAWA",
+          "url": "https://visitkanazawa.jp/en/trip-ideas/detail_239.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Kanazawa Seafood — City of Kanazawa",
+          "url": "https://kanazawa-uminosachi.jp/en/",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "Ishikawa — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1053/index.html",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-kanazawa-gold-ice",
+      "long": "Il soft cream con foglia d'oro intera è il dessert più fotografato di Kanazawa, e per una volta la foto non mente sul prodotto: sopra un cono o una coppetta di vaniglia (a volte matcha o latte) poggia una lamina edibile che copre quasi tutta la superficie. Non cambia il gusto — la foglia è così sottile da sparire in bocca — ma cambia il rituale: si mangia sapendo di avere in mano il mestiere per cui la città è famosa, ridotto a un gesto da street food. Si compra nelle botteghe di kinpaku vicino a Kenrokuen, Higashi Chaya e nei punti souvenir del centro; costa più di un soft cream normale e si mangia subito, perché la lamina non ama vento e umidità. Non è un dolce della tradizione del tè: è un souvenir da passeggio nato quando l'artigianato ha accettato di finire anche sul gelato.",
+      "sections": [
+        {
+          "title": "Foglia intera, non briciole",
+          "body": "La versione «da cartolina» ha una lamina che copre il soft cream come un cappello. Se vedi solo scintillii sparsi, è un'altra esperienza — ancora edibile, meno scenografica."
+        },
+        {
+          "title": "Dove ha senso comprarlo",
+          "body": "Botteghe di foglia d'oro e caffè collegati ai laboratori lo trattano come prodotto di casa. Un chiosco generico in stazione può offrirne uno più debole: controlla che la lamina sia larga e appena posata."
+        },
+        {
+          "title": "Gusto zero, gesto pieno",
+          "body": "Non cercare un sapore metallico. Cerca la temperatura del soft cream e la certezza di aver mangiato oro alimentare senza che resti nulla tra i denti — se resta, stavi masticando altro."
+        },
+        {
+          "title": "Il vento come critico gastronomico",
+          "body": "Un refolo e la foglia vola via dal cono. A Kanazawa anche il dessert ha bisogno di riparo, come un ombrello al contrario.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "The Cuisine of Kanazawa — VISIT KANAZAWA",
+          "url": "https://visitkanazawa.jp/en/trip-ideas/detail_239.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Kanazawa Gold Leaf Crafting — Travel Japan (JNTO)",
+          "url": "https://www.japan.travel/en/japans-local-treasures/kanazawa-gold-leaf-craft/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Hakuichi — gold leaf craft (Kanazawa)",
+          "url": "https://enkanazawa.hakuichi.co.jp/",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "food-kanazawa-hanton",
+      "long": "L'hanton rice è lo yōshoku locale che i turisti confondono con un omurice e chi vive a Kanazawa riconosce a colpo d'occhio: riso burroso spesso al ketchup, sopra una frittata sottile, poi pesce bianco e/o gamberi fritti, ketchup e una generosa salsa tartara. Non è un piatto da kaiseki né da mercato: nasce nei ristoranti western del centro (Katamachi e dintorni) come pasto unico abbondante, pensato per chi vuole sapori «occidentali» filtrati dal gusto giapponese degli anni Sessanta. L'origine raccontata in città parla di un cuoco ispirato a un piatto visto in Ungheria e adattato con tonno o pesce fritto — da «Han» e «ton» nasce il nome — ma ciò che conta al bancone è la stratificazione: il fritto deve restare croccante sopra l'uovo, la tartara deve unire acidità e grasso. Porzioni da pranzo serio; difficile finirlo e restare leggeri per un secondo giro di wagashi.",
+      "sections": [
+        {
+          "title": "Non è omurice travestito",
+          "body": "Nell'omurice l'uovo avvolge il riso; qui l'uovo è un tetto sottile e il fritto sta sopra tutto. Se manca la tartara, manca metà del carattere. Il ketchup non è optional da bambino: è parte della salsa di lavoro."
+        },
+        {
+          "title": "Dove cercarlo",
+          "body": "Ristoranti yōshoku e qualche grill storico del centro. Raro nei menu di Ōmichō. Se il locale propone varianti con pollo o verdure, restano hanton finché restano uovo, fritto e tartara."
+        },
+        {
+          "title": "Porzione da pomeriggio vuoto",
+          "body": "È un piatto che riempie. Meglio a pranzo tra due visite, non come spuntino prima di una cena kaiseki. Acqua o tè al tè freddo; birra se siete in modalità conforto."
+        },
+        {
+          "title": "Geografia nel nome",
+          "body": "Ungheria e francese «thon» nello stesso piatto: Kanazawa ha inventato un passaporto alimentare senza lasciare il quartiere.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "The Cuisine of Kanazawa — VISIT KANAZAWA",
+          "url": "https://visitkanazawa.jp/en/trip-ideas/detail_239.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Ishikawa — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1053/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Travel Japan — gastronomy hub (JNTO)",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-kanazawa-kaburazushi",
+      "long": "Il kabura-zushi è il «sushi» invernale di Kaga che non assomiglia a un nigiri: fette di rapa salata e ammorbidita che stringono un pezzo di ricciola (buri), il tutto fermentato con koji di riso fino a un gusto acidulo, dolce e marino insieme. Si vende da fine autunno a gennaio nei reparti alimentari, nei mercati e come regalo di fine anno; a tavola arriva a temperatura ambiente, a fette, senza wasabi obbligatorio. Per chi conosce solo il sushi di bancone è uno shock educato: la rapa domina la trama, il pesce è già «cotto» dalla fermentazione, il koji lascia un retrogusto da sakè dolce. Non è street food e non si mangia tutto l'anno: è un segnale di stagione e di casa, il piatto che molti locali dicono di non potersi perdere a Capodanno. A Kanazawa ha senso provarlo fresco, non in confezione da stazione mesi dopo.",
+      "sections": [
+        {
+          "title": "Rapa che fa da pane",
+          "body": "Lo strato bianco croccante-morbido è la struttura; il buri al centro è il ripieno. Se la rapa è molle e acida al punto giusto, la fermentazione ha lavorato. Se sa solo di sale, era troppo giovane o troppo fredda."
+        },
+        {
+          "title": "Finestra invernale",
+          "body": "Compare quando arriva il buri freddo del Noto e le rape di Kaga. Fuori stagione i supers lo tolgono o lo tengono in versione debole: meglio chiedere «shinmai» o la data di preparazione."
+        },
+        {
+          "title": "Come si mangia senza etichetta",
+          "body": "A pezzi, spesso così com'è. Sake o tè verde stanno bene; soia aggressiva lo copre. È più vicino a un sottaceto nobile che a uno sushi da conveyor."
+        },
+        {
+          "title": "Il Capodanno che sa di orto",
+          "body": "C'è chi a Kanazawa dice che senza kabura-zushi l'anno non parte. Altrove si aspetta la mezzanotte; qui si aspetta anche la rapa.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "かぶらずし 石川県 — うちの郷土料理 (MAFF)",
+          "url": "https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/kaburazushi_ishikawa.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "The Cuisine of Kanazawa — VISIT KANAZAWA",
+          "url": "https://visitkanazawa.jp/en/trip-ideas/detail_239.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Ishikawa — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1053/index.html",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-kanazawa-oden",
+      "long": "L'oden di Kanazawa si mangia tutto l'anno, non solo sotto la neve: brodo dashi chiaro, dolce-umami grazie anche alla soia locale di tipo Ono, e ingredienti che non trovi nel konbini di Tokyo — kurumabu a ruota che assorbe il liquido, bai-gai (lumache di mare elastiche), in inverno il kani-men (guscio di granchio femmina farcito). Si sceglie pezzo per pezzo al banco dell'izakaya o dell'oden-ya, si riceve nella ciotola con senape e a volte miso. Il punto non è «riempire la pentola»: è costruire un assaggio del territorio nel brodo. Rispetto all'oden scuro e denso di altre regioni, qui il liquido resta leggibile e si beve quasi come una zuppa. Ideale a cena dopo il mercato, con un o-choko di sakè caldo.",
+      "sections": [
+        {
+          "title": "Ingredienti da puntare col dito",
+          "body": "Kurumabu, bai-gai e — in stagione — kani-men sono le firme. Se nel pentolone vedi solo daikon e uovo, è oden generico in città di oden specialista."
+        },
+        {
+          "title": "Brodo da bere, non da scartare",
+          "body": "Chiaro, dolce, mai marrone da stufato. La soia di Ono e il kombu fanno il lavoro sottile. La senape a lato è per chi vuole contrasto, non per mascherare."
+        },
+        {
+          "title": "Tutto l'anno, non solo gennaio",
+          "body": "Visit Kanazawa lo presenta come comfort food cittadino senza stagione chiusa. In estate resta un pasto caldo leggero; in inverno diventa rituale con sakè."
+        },
+        {
+          "title": "La ruota di glutine come spugna VIP",
+          "body": "Il kurumabu sembra un giocattolo da bagno e lavora come una spugna di brodo. Pochi ingredienti hanno un design così onesto.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Kanazawa Oden — Kanazawa Seafood",
+          "url": "https://kanazawa-uminosachi.jp/en/kanazawa-oden/",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "A thorough explanation of Kanazawa oden — VISIT KANAZAWA",
+          "url": "https://visitkanazawa.jp/en/videos/detail_487.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "The Cuisine of Kanazawa — VISIT KANAZAWA",
+          "url": "https://visitkanazawa.jp/en/trip-ideas/detail_239.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-kanazawa-iwagaki",
+      "long": "L'iwagaki è l'ostrica di roccia estiva del Mar del Giappone: guscio spesso, carne grande, sapore più minerale e carnoso dell'ostrica invernale di allevamento che si associa ad altre coste. A Kanazawa e sulla costa di Ishikawa appare nei mesi caldi al mercato e nei ristoranti di mare, spesso cruda con limone o ponzu, a volte grigliata. Non confonderla con le ostriche di Hiroshima: stagione, habitat e boccone sono altri. Qui il punto è la taglia e la densità — un pezzo può bastare come antipasto serio. Si compra dove c'è catena del freddo evidente e personale che apre al momento; in piena estate è uno dei motivi per cui Ōmichō non è solo un mercato «invernale» di granchio.",
+      "sections": [
+        {
+          "title": "Estate sul guscio",
+          "body": "L'iwagaki è tipicamente estiva. Se te la propongono a gennaio con lo stesso nome, chiedi conferma: potresti avere davanti un'altra ostrica con etichetta generica."
+        },
+        {
+          "title": "Minerale, non solo salso",
+          "body": "Il boccone è spesso più «carne di mare» che acqua di marea. Limone o ponzu bastano; salse pesanti lo coprono. Una o due pezzi da assaggio valgono più di un piatto affollato."
+        },
+        {
+          "title": "Mercato e igiene visibile",
+          "body": "Preferisci banchi che aprono davanti a te e tengono il ghiaccio. L'iwagaki grande richiede freschezza, non romanticismo da spiaggia."
+        },
+        {
+          "title": "L'ostrica che fa concorrenza al gelato",
+          "body": "A Kanazawa d'estate si fotografa l'oro sul soft cream e si mangia la roccia dal mare. Stesso sole, due lussi diversi.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Kanazawa Seafood — City of Kanazawa",
+          "url": "https://kanazawa-uminosachi.jp/en/",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "The Cuisine of Kanazawa — VISIT KANAZAWA",
+          "url": "https://visitkanazawa.jp/en/trip-ideas/detail_239.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Ishikawa — Traditional Foods (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/dento_syoku/area/isikawa.html",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-kanazawa-kaga-wagashi",
+      "long": "I wagashi di Kaga sono dolci da cerimonia del tè e da regalo raffinato: forme stagionali, pasta di fagioli liscia o granulosa, gelatine di agar, castella e namagashi che cambiano colore con i mesi. Kanazawa ha una densità insolita di botteghe storiche perché la cultura del tè e la committenza Maeda hanno tenuto viva la domanda di dolci «da vedere prima di mangiare». Non sono souvenir da stazione con foglia d'acero stampata: sono pezzi singoli, spesso in scatola da tre o cinque, da abbinare a un matcha amaro. Si comprano nelle pasticcerie del centro e nei quartieri teahouse; alcuni laboratori mostrano la stagione in vetrina meglio di qualsiasi calendario. Per il viaggiatore il gesto utile è chiedere il namagashi del mese e mangiarlo il giorno stesso — il fresco è parte della ricetta.",
+      "sections": [
+        {
+          "title": "Stagione in vetrina",
+          "body": "Fiori di prugno, foglie d'autunno, neve zuccherina: la forma racconta il mese. Se tutte le scatole sembrano uguali tutto l'anno, sei in un negozio souvenir, non in una bottega di wagashi."
+        },
+        {
+          "title": "Tè amaro, dolce corto",
+          "body": "Il matcha non è optional da influencer: taglia la dolcezza del fagioli. Un wagashi da soli può risultare pesante; con il tè diventa proporzionato."
+        },
+        {
+          "title": "Fresco contro confezione lunga",
+          "body": "I namagashi vanno consumati presto. Le versioni secche da viaggio esistono e servono, ma sono un altro prodotto. Chiedi la shelf life prima di metterli in valigia a luglio."
+        },
+        {
+          "title": "Il dolce che giudica il tuo calendario",
+          "body": "Ordinare un wagashi «di sakura» a novembre è il modo più elegante per rivelare di non aver guardato la vetrina.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "The Cuisine of Kanazawa — VISIT KANAZAWA",
+          "url": "https://visitkanazawa.jp/en/trip-ideas/detail_239.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Ishikawa — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1053/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Travel Japan — gastronomy hub (JNTO)",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-kanazawa-kaga-yasai",
+      "long": "Le Kaga yasai sono varietà orticole tradizionali certificate della pianura di Kaga — non un generico «orto locale», ma un elenco di cultivar con nome, stagione e usi in cucina. In tavola compaiono come zucca uchiuri, radice di loto, rape, melanzane e altre verdure che i ristoranti kaga trattano come ingredienti di prestigio, non come contorno anonimo. Per il viaggiatore il segnale è il menu che le nomina esplicitamente (「加賀野菜」) o il banco del mercato che le etichetta a parte. Il gusto cambia per varietà: alcune sono più dolci, altre più fibrose e adatte allo stufato o alla cottura al vapore. Non si «collezionano» tutte in un pranzo; si riconosce quando un piatto di stagione è costruito su una di queste e non su verdura da supermercato nazionale.",
+      "sections": [
+        {
+          "title": "Etichetta che conta",
+          "body": "Cerca la dicitura Kaga yasai o il nome della cultivar. Senza nome è solo verdura buona. Con il nome sai di mangiare una linea agricola protetta dall'identità locale."
+        },
+        {
+          "title": "Nello jibuni e oltre",
+          "body": "Molti stufati e piatti di stagione di Kanazawa le usano come struttura, non come decorazione. Un tempura di Kaga yasai o un pezzo di loto al dashi sono modi diretti di assaggiarle."
+        },
+        {
+          "title": "Mercato come museo vivo",
+          "body": "A Ōmichō le forme strane (zucche allungate, radici nodose) non sono scarti: sono spesso le tradizionali. Chiedere al venditore la cottura tipica evita di trattarle come cetrioli qualunque."
+        },
+        {
+          "title": "L'orto con il marchio del feudo",
+          "body": "Poche città trasformano le verdure in brand da menu. A Kanazawa anche la zucca ha bisogno di biglietto da visita.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Ishikawa — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1053/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "The Cuisine of Kanazawa — VISIT KANAZAWA",
+          "url": "https://visitkanazawa.jp/en/trip-ideas/detail_239.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Ishikawa — Traditional Foods (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/dento_syoku/area/isikawa.html",
+          "kind": "ministero"
+        }
+      ]
+    }
+  ]
+}

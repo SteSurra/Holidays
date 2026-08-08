@@ -266,9 +266,44 @@ lesson, append it here in the same commit — this file is the skill's memory.
   instead of falling back to search; and when curation replaces a live-search
   cache, bump the cache key — 650 stale wrong choices otherwise survive on
   every returning device.
+- **Shopping cards sell objects, not storefronts.** A Commons hit for
+  "Pokémon Center" or "Jump Shop" often returns the building or a display
+  aisle — readable as a place, useless as a product photo. For merch rows
+  without an official press image, `null` in `image-overrides.json` beats a
+  curated storefront; grep filenames for `head office`, `store`, `facade`,
+  `entrance`, and wrong-country words before shipping.
 
 ## Writing the guide with agents
 
+- **A research ledger date can fail the public-content gate.** The repository
+  bans exact ISO `YYYY-MM-DD` everywhere tracked files can appear, including
+  workbench notes under `story-work/`. Store retrieval timing as `YYYY-MM` or
+  prose months in ledgers; keep day precision only outside the repo if needed.
+- **Story corpora need a merge build, not hand-edits of the ship file.**
+  `assets/story-data.js` is generated from `story-work/batches/**/*.json` plus
+  a seed of existing cards. Compute and validate the full merge in memory,
+  refuse to write if the corpus shrinks, then write once — or a failed batch
+  wipes hundreds of handwritten place stories.
+- **Coverage gates arm per domain when that domain hits 100%.** Soft-warn on
+  any domain still open while another is being authored; once a domain is
+  complete, put it in `STORY_COVERAGE_HARD` so a new catalog row without a
+  story fails CI instead of shipping a templated card. Food (212) and
+  shopping (124) both joined the hard set after their handwritten passes.
+- **Story sources must be HTTPS, not merely “a real URL”.** `build-stories`
+  rejects any `http://` source even when the card already has two valid
+  HTTPS cites — a manufacturer homepage that still redirects from plain HTTP
+  will fail the whole merge. Normalize to `https://` or swap in a tourism /
+  association / encyclopedia HTTPS page before writing the batch.
+- **Food (and shopping) deep stories must invent section titles.** `enrichFood`
+  / `enrichShopping` ship fixed template headings ("Come riconoscerlo", "Che
+  sapore aspettarsi", …). A handwritten story that reuses those titles looks
+  "done" in the data file and still reads like the template on the phone.
+  Custom narrative titles are part of the contract, not decoration.
+- **Parallel batch writers need one inventory pass before merge.** City agents
+  can finish "their" file and still leave a sibling city at zero. Reconcile
+  `story-status --missing --domain=…` against every batch on disk before
+  running `build-stories.mjs`; the merge path is single, the gap check is not
+  optional.
 - **An exact-match uniqueness check licenses the repetition it cannot see.**
   The integrity script refuses two cards that share a whole sentence, and
   every card passed it — while a third of the guide closed on the same joke
@@ -333,6 +368,27 @@ lesson, append it here in the same commit — this file is the skill's memory.
   is no reliable way to feature-detect an installed app from the web — the
   fallback is the design, not an apology.
 
+## Reader tabs (history / stories)
+
+- **A chapter intro beats a cold grid.** For anthologies (history/stories),
+  put one featured piece for the current stop above the cards — large kanji,
+  title, two-sentence teaser from `long`/`explanation`, CTA into detail —
+  so the tab reads as a book, not another filterable catalogue.
+- **Category spine in addition to selects.** Thumb-height horizontal chips
+  for subject filters matter more than a second `<select>` buried behind
+  "Filtri"; keep the select for parity and sync both ways.
+- **Anecdotes are marginalia, not twin cards.** Style "Da ricordare" as an
+  italic pull-quote with a thin gold rule, never another gray box that looks
+  like the description block above it.
+- **Related places v1 is a curated map, not a graph.** A small
+  `historyId → [place|experience ids]` table plus same-city slug overlap
+  covers the obvious bridges (Togakushi, Fushimi, Itsukushima) without
+  inventing a full knowledge graph; omit the section when nothing matches.
+- **Detail as vertical reading flow.** History detail keeps the kanji hero
+  and `guide-intro`, then stacks sections in a single column with light
+  numbering — drop the 2-column card grid that works for place practicalities
+  but fights long cultural prose on a phone.
+
 ## User documents
 
 - **Fixed trip categories beat free folders.** At a ticket gate nobody
@@ -343,3 +399,67 @@ lesson, append it here in the same commit — this file is the skill's memory.
 - **Say where the data lives, in the interface.** "Everything stays on this
   device: nothing is uploaded" in the footer is the difference between a
   feature people use for real documents and one they do not trust.
+- **Collapse rows when the label is already enough.** A document list shows
+  the file name on every row; start collapsed like saved favourites and load
+  thumbnails and object URLs only on first expand — a wall of previews is
+  noise at the gate.
+
+## Developer feedback
+
+- **mailto beats a backend for a static guide.** A two-step sheet (problem vs
+  idea) that opens the user's mail client with subject and body prefilled
+  captures item context without a server, analytics SDK, or extra form fields.
+  Offer a clipboard fallback toast: some phones have no default mail app.
+- **Assemble the developer address at runtime.** `check-public-content.mjs`
+  rejects literal email strings in tracked files; `["user", "domain.tld"].join("@")`
+  keeps the inbox out of the public repo while still enabling mailto links.
+- **Label the affordance, don't icon it alone.** "Segnala" with text beats a
+  bug glyph for travelers; contextual copy ("Segnala su questa storia") belongs
+  in the detail sheet, not on every card or in the header.
+
+## Story batch merge order
+
+- **Later sorted path wins for the same story id.** `build-stories.mjs` walks
+  `story-work/batches/` in lexicographic path order and overlays each id; a
+  newer fix batch named `zz-…` loses to an older `zz-…-strict` if the strict
+  name sorts after. Prefix late overlays `zzz-` / `zzzz-` (or date-stamp past
+  siblings) when they must beat prior paraphrase batches, then re-grep the
+  mould after build — three food fun titles came back until the moulds file
+  was renamed; a later non-food fun-title pass needed `zzzz-` to sit after
+  `zzz-paraphrase-moulds`.
+- **Fun-title moulds span domains.** Clearing `Il/La/Lo X che…` on food leaves
+  the same factory on place/experience/history/shopping; inventory by domain
+  and break article + relative `che` with item-specific labels, not a second
+  shared syntax.
+
+## Access facts (free / paid / mixed)
+
+- **Access is a researched structured field, not prose derivation.** Tip,
+  booking copy, FREE_ENTRY-style regexes, and category defaults
+  ("temples are paid", "parks are free") are not evidence. Publish
+  `admission: free|paid|mixed` only after an official venue or municipal /
+  national tourism page confirms the main visit; leave the field unset while
+  pending so gratis/pagamento filters never claim certainty. Never store yen
+  or price bands on the card — only the access class. Mixed sites
+  (free precinct + paid garden/museum) need the `mixed` value, not a guess
+  toward free or paid.
+- **Public-open beats explicit-Free-only for Solo gratis UX.** When an
+  official venue or city/tourism page (GO TOKYO, JNTO, municipal) describes
+  open public access to the main visit area and does not state an entrance /
+  拝観料 / 入場料 requirement, classify `free`. Do not leave forever-pending
+  just because the page never prints the word “Free”. Use `mixed` when the
+  same place has a documented paid sub-area; leave `guide-map-visit-*`
+  synthetics pending until promoted to a persistable row.
+- **Experience admission is the last column, after optional `sourceKey` and
+  `setting`.** Appending `free|paid|mixed` directly after `lat|lng` on a
+  short experience row writes the class into `sourceKey`, so the parser
+  never sees `admission` and the card stays pending. Match verified Kyoto
+  rows: `lat|lng|||admission` (empty sourceKey + empty setting) or
+  `lat|lng||outdoor|admission` when setting is set. Re-check live
+  `item.admission` after edits — a trailing token in the pipe is not enough.
+- **Closeout requires admission except a tiny structural allowlist.** After
+  city batches finish, integrity must fail on any non-allowlisted place /
+  experience missing `free|paid|mixed`. Keep pending only for
+  `guide-map-visit-*` synthetics and curated no-venue generics without a
+  single official admission page — never invent classes for those just to
+  clear the counter.

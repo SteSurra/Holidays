@@ -1,0 +1,603 @@
+{
+  "meta": {
+    "batch": "shopping-03-beauty",
+    "note": "Phase 3 shopping deep stories for 17 nationwide beauty catalog ids (skincare, makeup, hair, Kyoto craft cosmetics). Angles: drugstore formula variants, shade codes, refill packs, film vs waterproof removal — no medical claims, no enrichShopping template titles. Sources prefer manufacturer pages (Rohto, Ishizawa, LuLuLun, Canmake, Isehan, UZU, FineToday, &honey, Kose Softymo, Shiseido Anessa, Yojiya, Ueba Eso, ReFa/MTG)."
+  },
+  "schede": [
+    {
+      "id": "shop-all-hada-labo",
+      "long": "Hada Labo Gokujyun è la lozione «acqua» che nei drugstore giapponesi occupa intere campate: flaconi bianchi o azzurri, nome 肌ラボ 極潤 stampato grande, e spesso una ricarica soft pack accanto al flacone rigido. Rohto la presenta come linea idratante a base di acidi ialuronici, con versioni Lotion (standard), Light, emulsion e cream — stessi scaffali, texture diverse. In viaggio conta meno il colore della confezione e più il nome completo sull'etichetta: Light è più fluida, la lozione classica ha un filo di viscosità, l'emulsion e la cream chiudono la routine. Il formato refill riduce plastica e peso in valigia se già avete il flacone a casa; altrimenti il 170 ml con tappo è più sicuro da buttare nello zaino senza serbatoio vuoto.",
+      "sections": [
+        {
+          "title": "Lotion, Light o cream: quale flacone",
+          "body": "Sullo scaffale convivono 極潤ヒアルロン液, la variante ライトタイプ, l'emulsion e la cream. Non sono «più o meno forti» in senso clinico: cambiano densità e uso nella routine. Se volete qualcosa che si stende come acqua, partite da Lotion o Light; se cercate un finish più ricco a fine giornata, emulsion o cream. Controllate anche Premium o altre sotto-linee: packaging simile, formula diversa."
+        },
+        {
+          "title": "Ricarica soft pack e peso in zaino",
+          "body": "Rohto vende spesso la lozione anche in つめかえ用 da 170 ml. Utile se a casa tenete già il flacone pompabile; in viaggio il soft pack rischia di bucarsi se non lo riponete in una busta. Molti drugstore e Don Quijote espongono flacone e refill uno accanto all'altro: confrontate il codice prodotto, non solo il prezzo."
+        },
+        {
+          "title": "Shelf talker e testo piccolo",
+          "body": "Le etichette giapponesi elencano texture e avvertenze in caratteri piccoli. Non serve tradurre tutto: basta leggere se è 化粧水, 乳液 o クリーム e se c'è つめかえ. Evitate di scegliere solo perché il cartoncino promozionale è rosa o blu."
+        },
+        {
+          "title": "La lozione che sembra acqua ma riempie metà della beauty bag",
+          "body": "Portarne tre varianti «per sicurezza» è il classico errore da drugstore: a casa scoprirete che usate sempre la stessa. Una bottiglia, magari con refill se avete già il contenitore, batte qualsiasi collezione cromatica di etichette.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "肌ラボ®極潤® — Rohto Pharmaceutical",
+          "url": "https://jp.rohto.com/hadalabo/promo/gokujyun/",
+          "kind": "produttore"
+        },
+        {
+          "title": "肌ラボ 極潤ヒアルロン液 — Rohto product page",
+          "url": "https://jp.rohto.com/hadalabo/gokujun-lotion",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-melano-cc",
+      "long": "Melano CC Essence è il tubetto arancione-giallo che nei drugstore giapponesi sta spesso vicino alle linee «brightening» di Rohto: formato piccolo, beccuccio a goccia, etichetta メラノCC 美容液. Sul mercato domestico convivono la essence standard, una Premium più densa e una linea Men con packaging distinto — stessi scaffali, testi e texture diversi. Non è un farmaco da importare come cura: è un cosmetico / quasi-farmaco da banco con istruzioni di uso locale. In viaggio serve leggere quale variante avete in mano, fare una prova su una zona piccola se la pelle è reattiva, e chiudere bene il tappo: il tubetto è pensato per dosare poco prodotto per volta, non per vivere schiacciato in fondo allo zaino senza protezione.",
+      "sections": [
+        {
+          "title": "Standard, Premium o Men",
+          "body": "Rohto pubblica FAQ che distinguono la essence classica, la Premium e la versione Men: cambiano texture e composizione dichiarata sull'etichetta. In negozio confrontate il nome completo, non solo il logo arancione. Se trovate kit o travel size, verificate millilitri e data di scadenza stampata sulla piega del tubo."
+        },
+        {
+          "title": "Tubetto a goccia e dosaggio",
+          "body": "Il beccuccio permette di depositare poche gocce dopo la lozione o a spot. Non spremete il tubo a metà viaggio «per far posto»: perdete prodotto e rischiate perdite. Una bustina zip e il tappo ben avvitato bastano per il bagaglio a mano entro i limiti liquidi."
+        },
+        {
+          "title": "Cosa non promettere all'etichetta",
+          "body": "I claim da banco giapponesi parlano di uso cosmetico quotidiano, non di diagnosi. Portatelo come essenza della routine che già conoscete o volete provare con cautela, non come soluzione miracolosa da valigia. Se la pelle protesta, interrompere è più utile di qualsiasi tip da blog."
+        },
+        {
+          "title": "Arancione come un evidenziatore, ma più costoso da sostituire in aeroporto",
+          "body": "Il tubo è piccolo e ottimistico: sembra indistruttibile finché non lo schiacciate sotto una bottiglia di Anessa. Una tasca laterale dedicata salva più vitamina C immaginaria di qualunque «tecnica di packing».",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "メラノCC 美容液 — Rohto Pharmaceutical",
+          "url": "https://jp.rohto.com/melanocc/promotion/essence",
+          "kind": "produttore"
+        },
+        {
+          "title": "Differenze tra varianti Melano CC essence — Rohto FAQ",
+          "url": "https://qa.rohto.com/faqs/6979aa0808534a8081e6801d/",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-rice-mask",
+      "long": "Keana Nadeshiko お米のマスク (Ishizawa Laboratory) è il pacco multiplo con il volto illustrato e il richiamo al riso: dieci fogli spessi impregnati di siero, spesso in evidenza da Matsukiyo, Welcia, Loft e Hands. La linea «okome» include anche scrub e altri formati; la maschera in foglio è quella da scorta leggera. Controllate sempre il numero di pezzi e che la busta non sia gonfia o mal chiusa: un pacco da viaggio si apre e si richiude male se lo trattate come un sacchetto di snack. Non è un trattamento clinico sui pori: è un foglio cosmetico da pochi minuti, utile se volete qualcosa di tipicamente drugstore-giapponese senza impegnare mezzo chilo di barattoli.",
+      "sections": [
+        {
+          "title": "Pacco da 10 e chiusura della busta",
+          "body": "Il formato tipico è 10枚入り. Dopo il primo foglio richiudete bene la zip o la linguetta: i fogli restanti si seccano in valigia se restano a contatto con l'aria. Se comprate due pacchi «perché costano poco», pesano comunque: meglio uno usato e uno di scorta chiuso."
+        },
+        {
+          "title": "Volto illustrato e altre linee okome",
+          "body": "Il packaging con la ragazza e i chicchi di riso è il segnale più immediato, ma Ishizawa ha scrub, lotion e pack in barattolo nella stessa famiglia. Confrontate お米のマスク con お米のパック: uno è foglio, l'altro è pasta. Loft a volte espone set anniversario con gadget: divertenti, non obbligatori."
+        },
+        {
+          "title": "Quando usarla in viaggio",
+          "body": "Cinque minuti dopo la detersione, foglio aderente, siero residuo tamponato — istruzioni da etichetta, non da miracle routine. In hotel con aria condizionata secca ha più senso che sotto lo zaino sudato a mezzogiorno."
+        },
+        {
+          "title": "Il riso che non si mangia ma occupa lo stesso posto degli onigiri",
+          "body": "Dieci maschere sembrano leggere finché non le infilate nella stessa tasca dei souvenir di cartone. Una busta piatta contro il bordo della valigia batte qualsiasi torre di pacchi «per le amiche» che poi non partirete.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "毛穴撫子 お米のマスク — Ishizawa Laboratory",
+          "url": "https://www.ishizawa-lab.co.jp/keananadeshiko/product/keana_skincare/mask.html",
+          "kind": "produttore"
+        },
+        {
+          "title": "毛穴撫子 お米シリーズ — Ishizawa Laboratory",
+          "url": "https://www.ishizawa-lab.co.jp/keana_skincare/",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-lululun",
+      "long": "LuLuLun «旅するルルルン» è la linea regionale di maschere in foglio: ingredienti e profumi legati a zone (Kyoto, Tokyo, Hakone, Hokkaido e altre), vendute soprattutto in stazioni, aeroporti, souvenir shop e alcuni variety store — non come catalogo online nazionale permanente. Il brand ufficiale spiega che le edizioni locali si trovano sul territorio e che l'e-commerce ufficiale non le sostituisce. Per il viaggio ha senso prendere la variante della tappa in cui siete, leggere ingredienti e allergeni sulla busta, e non accumulare otto regioni «per completare la collezione». Il formato multiplo è ingombrante: un pacco per città basta come souvenir di texture e profumo, non come inventario geografico.",
+      "sections": [
+        {
+          "title": "Edizione regionale, non solo packaging carino",
+          "body": "Ogni 旅するルルルン dichiara un richiamo locale (tè, riso, fiori, agrumi a seconda della zona). Confrontate il nome della regione stampato in grande con la mappa del vostro itinerario. Una busta «Tokyo» comprata a Osaka può esistere in alcuni punti multi-regione, ma il punto del prodotto è l'incontro sul posto."
+        },
+        {
+          "title": "Dove compare senza lista magica di negozi",
+          "body": "LuLuLun indica stazioni, aeroporti, hotel e shop locali; la disponibilità cambia. Usate la ricerca negozi del sito ufficiale se volete un'idea, poi accettate che lo scaffale sia vuoto. Meglio una regione trovata che tre ordini online fuori catalogo."
+        },
+        {
+          "title": "Ingredienti prima del souvenir photo",
+          "body": "Profumo e claim di «bellezza locale» non sostituiscono la lettura della lista. Se avete pelle reattiva, una maschera nuova in hotel dopo una giornata di sole e vento è il momento sbagliato per sperimentare."
+        },
+        {
+          "title": "Completare tutte le prefetture è un DLC che pesa in stiva",
+          "body": "Il brand vi invita a «viaggiare» tra le edizioni; la valigia vi invita a fermarvi. Una busta della città in cui avete davvero camminato batte qualsiasi set arcobaleno comprato all'ultimo gate.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "旅するルルルンシリーズ — LuLuLun official",
+          "url": "https://lululun.com/lp?u=tabisuru",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "地域限定製品はインターネットで購入はできますか？ — LuLuLun FAQ",
+          "url": "https://lululun.com/faq/0032/",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-canmake-uv",
+      "long": "Canmake Mermaid Skin Gel UV è il gel solare da drugstore che molti usano anche come base leggera: barattolino, SPF50+ PA++++ sulle etichette giapponesi, texture che si «rompe» in acqua sulla pelle. Sul sito ufficiale convivono tonalità Clear e varianti correttive (bianco, cica/mint, viola e altre a seconda della stagione): confezioni quasi gemelle, finish diversi. Confrontate il numero colore, non solo la sirena sul coperchio. Se lo usate da solo, Canmake indica che in molti casi si rimuove con detergente/sapone; se sopra mettete make-up, seguite la vostra doppia detersione abituale. In valigia il barattolo è più stabile di un flacone pompa, ma il coperchio va stretto e il gel non ama i 40 °C del bagagliaio del bus.",
+      "sections": [
+        {
+          "title": "Clear contro tonalità correttive",
+          "body": "01 Clear è trasparente; altre numerazioni aggiungono un velo di colore o correzione. In negozio aprite il tester se c'è, o confrontate lo swatch sulla mano: sotto la luce del drugstore il mint sembra diverso da quello che vedrete al sole di Kamakura."
+        },
+        {
+          "title": "SPF, PA e uso viso-corpo",
+          "body": "L'etichetta giapponese riporta SPF e PA; la quantità conta più del marketing. Stendete uno strato uniforme su viso e zone esposte; dopo sudore o asciugamano, riapplicate. Non è un fondotinta: se cercate copertura, serve altro prodotto sopra."
+        },
+        {
+          "title": "Come toglierlo a fine giornata",
+          "body": "Da solo, spesso basta il detergente abituale; con make-up sopra, un olio o balsamo di cleansing seguito dal detergente è la via più prevedibile. Leggete le istruzioni della variante che avete comprato: edizioni diverse possono avere note diverse."
+        },
+        {
+          "title": "La sirena che promette fresco e poi si scioglie nello zaino caldo",
+          "body": "Il gel ama le temperature da beauty fridge mentale, non il sedile del shinkansen al sole. Una tasca interna lontano dalla bottiglia d'acqua tiepida evita di scoprire un «mermaid soup» all'arrivo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "マーメイドスキンジェルUV — CANMAKE official",
+          "url": "https://www.canmake.com/item/detail/mermaid-skin-gel-uv/",
+          "kind": "produttore"
+        },
+        {
+          "title": "CANMAKE — brand site",
+          "url": "https://www.canmake.com/",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-canmake-cheek",
+      "long": "Canmake Cream Cheek è il blush in crema-gel da 2,2 g circa che sta in un palmo: pack compatto, numerazione colore evidente, spesso adesivo LIMITED sulle edizioni stagionali. Oltre alle tinte classiche esistono Clear type e Pearl type con finish diversi — stesso nome famiglia, texture e uso leggermente diversi. In drugstore e variety store i tester permettono di vedere il salto tra numero e pelle reale: la luce neon mente. Non inseguite ogni limited come un set completo; scegliete una o due tonalità che sopravvivono alla foto in luce naturale fuori dal negozio. In valigia il pack è piccolo, ma se si apre sporca tutto: una bustina e il click del coperchio chiuso evitano tragedie rosa sullo yukata piegato.",
+      "sections": [
+        {
+          "title": "Numeri colore, Clear e Pearl",
+          "body": "Il sito Canmake elenca Cream Cheek, Clear type e Pearl type. Controllate il codice (es. 05, CL01, P01) e se c'è glitter o finish trasparente. LIMITED è un'edizione, non una qualità superiore automatica: serve solo se il colore vi piace davvero."
+        },
+        {
+          "title": "Prova sul dorso della mano, poi alla luce della strada",
+          "body": "Il metodo ufficiale suggerisce punti di prodotto sulla guancia e sfumatura con le dita. In negozio fate lo stesso sul dorso, poi uscite un attimo dalla luce fredda degli scaffali. Quello che sembrava «nude» sotto il neon può diventare aragosta a Shibuya."
+        },
+        {
+          "title": "Pack da viaggio e contaminazioni",
+          "body": "Il vasetto è ideale per il beauty pouch, ma crema e caldo ammorbidiscono il prodotto. Non lasciatelo aperto sul lavandino dell'hotel: polvere e umidità non sono un primer gratis."
+        },
+        {
+          "title": "Limited come carte Pokémon, ma le guance non hanno album da riempire",
+          "body": "L'adesivo LIMITED attiva il riflesso da collezionista. Ricordate che nessuno controllerà se avete completato la Pokédex delle guance: una tinta che usate batte cinque che fotografate e dimenticate.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "クリームチーク — CANMAKE official",
+          "url": "https://www.canmake.com/item/detail/cream-cheek/",
+          "kind": "produttore"
+        },
+        {
+          "title": "クリームチーク(クリアタイプ) — CANMAKE official",
+          "url": "https://www.canmake.com/item/detail/cream-cheek-clear-type/",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-heroine-mascara",
+      "long": "Heroine Make (Isehan / KISSME) è la famiglia di mascara da drugstore dove la differenza che conta è la modalità di tenuta e di rimozione: linee Super Waterproof (WP) molto resistenti a sudore e acqua, e linee Advanced Film che formano un film da ammorbidire con acqua tiepida prima del detergente. Il sito ufficiale elenca Long & Curl, Volume, Micro e basi curl keep: nomi simili, scopi diversi. Comprare «il mascara Heroine» senza leggere WP o Film è il modo più rapido per scoprire a mezzanotte che vi serve un remover che non avete. Se scegliete Super WP, mettete in carrello anche il remover dedicato della stessa marca; se scegliete Film, seguite le istruzioni di acqua tiepida — non strappate a secco.",
+      "sections": [
+        {
+          "title": "Film oppure Super Waterproof",
+          "body": "Advanced Film punta a tenuta con rimozione assistita da acqua tiepida e detergente; Super WP punta a resistenza più aggressiva e chiede spesso un demaquillante specifico. Leggete la fascia colore/testo sulla confezione: WP e Film non sono intercambiabili solo perché c'è scritto ヒロインメイク."
+        },
+        {
+          "title": "Long, Volume, Micro: cosa cambia sul pennello",
+          "body": "Long & Curl allunga, Volume ispessisce, Micro lavora su ciglia corte o angoli. Non è obbligatorio prendere anche la base curl keep, ma se lo fate verificate che sia compatibile WP/non-WP con il mascara scelto."
+        },
+        {
+          "title": "Remover nello stesso scontrino",
+          "body": "Isehan vende care/remover nella stessa sezione. In viaggio è più utile un mini remover giusto che un secondo mascara «di scorta». Occhi stanchi + struccante sbagliato = fine giornata peggiore del mascara sbavato."
+        },
+        {
+          "title": "Il mascara che sopravvive al sudore ma non alla vostra pazienza alle 23",
+          "body": "Super WP è fedele fino al tradimento: resta mentre voi negoziate con un cotton fioc. Film è più diplomatico con l'acqua tiepida. Scegliete in base a quanto amate le trattative notturne, non solo al claim «tutto il giorno».",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "マスカラ | ヒロインメイク — Isehan",
+          "url": "https://www.isehan.co.jp/heroine/product/mascara/",
+          "kind": "produttore"
+        },
+        {
+          "title": "ロング＆カールマスカラ アドバンストフィルム — Heroine Make",
+          "url": "https://www.isehan.co.jp/heroine/product/mascara/longcurlmascaraadvancedfilm/",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-uzu-liner",
+      "long": "UZU Eye Opening Liner (UZU BY FLOWFUSHI) è l'eyeliner liquido dal flacone ottagonale e dalla gamma colori ampia — neri, marroni, grigi e tinte moda — spesso più facile da trovare in Giappone da Loft, Plaza e department store che nel vostro drugstore di quartiere in Italia. Il brand insiste sul pennello fine, sulla tenuta tipo film e sulla rimozione con acqua tiepida secondo le istruzioni di prodotto, senza dye aggressivi nella narrazione ufficiale. In negozio usate il tester sulla mano per spessore del tratto e vero colore: il tappo non sempre racconta la verità del liquido. Edizioni stagionali e metallizzate compaiono e spariscono; non confuse un limited con il Brown Black da tutti i giorni. In valigia tenete il pennello in basso (o come indica la confezione) per non seccare la punta.",
+      "sections": [
+        {
+          "title": "Colore del liquido, non del tappo",
+          "body": "Brown Black, Black, Gray e le tinte moda hanno finish diversi. Swatch sul dorso della mano, aspettate che asciughi, confrontate con la luce del negozio. Se cercate un tratto da ufficio, partite dai neutri; i limited colorati sono per chi sa già di volerli fotografare."
+        },
+        {
+          "title": "Film, acqua tiepida e make-up sopra",
+          "body": "UZU comunica una tenuta resistente a umidità e sebo con rimozione agevolata da acqua tiepida. Se sopra caricate ombretto in polvere, pulite la punta del pennello del liner come da FAQ brand: i residui cambiano il tratto del giorno dopo."
+        },
+        {
+          "title": "Loft, Plaza, store ufficiali",
+          "body": "La distribuzione passa da variety store e corner beauty; i colori esauriti sono normali. Se un tono manca, non pagate un rivenditore online gonfiato lo stesso pomeriggio: spesso ricompare in un'altra filiale della stessa catena."
+        },
+        {
+          "title": "L'ottagono che sembra una matita da design e si comporta da diva",
+          "body": "Il flacone sta in piedi da solo ed è fotogenico; la punta preferisce non vivere a testa in giù sotto le chiavi dell'hotel. Una tasca rigida del beauty pouch evita che l'eyeliner «apra gli occhi» sul fondo dello zaino.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "UZU EYE OPENING LINER — UZU BY FLOWFUSHI",
+          "url": "https://www.uzu.team/pages/eyeopeningline",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "EYE OPENING LINER Brown Black — UZU store",
+          "url": "https://www.uzu.team/products/eyeopeningliner_brownblack",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-fino-mask",
+      "long": "Fino Premium Touch Hair Mask (FineToday) è il barattolo rosso da circa 230 g che nei drugstore giapponesi sembra un magnete: texture ricca, profumo floreale riconoscibile, spesso una ricarica enorme accanto al vasetto. È un trattamento da risciacquo per capelli, non un leave-in. Una sola confezione basta per un viaggio e oltre; la refill da 700 g ha senso solo se a casa finite tubi a ritmo industriale e volete il barattolo vuoto da riempire. In valigia il vetro/plastica piena pesa: mettetela in stiva o accettate di sacrificare un paio di souvenir. Non confondetela con gli hair oil della stessa linea Premium Touch: stesso mondo olfattivo, gesti diversi.",
+      "sections": [
+        {
+          "title": "Barattolo 230 g contro refill gigante",
+          "body": "FineToday vende maschera e つめかえ. Il barattolo serve per usarla subito; la ricarica riduce plastica a casa ma è un mattone in zaino. In drugstore confrontate il prezzo al grammo senza farvi ipnotizzare dal «3個分» stampato in grande."
+        },
+        {
+          "title": "Come si usa senza inventare tempi da spa",
+          "body": "Dopo lo shampoo, si applica sui capelli umidi sulle lunghezze, si fa penetrare e si risciacqua — seguite l'etichetta per tempi di posa. Non è necessario dormircisi sopra in hotel: il lavandino piccolo già complica abbastanza."
+        },
+        {
+          "title": "Olio Fino e maschera Fino",
+          "body": "Sullo stesso scaffale compaiono hair oil leave-in della famiglia Premium Touch. Se volete solo il barattolo rosso da doccia, leggete ヘアマスク / ヘアトリートメント e ignorate i flaconi contagocce."
+        },
+        {
+          "title": "Il barattolo rosso che conquista più spazio del vostro character pouch",
+          "body": "Fino ha convertito più valigie di quanto ammettano gli influencer. Una confezione. Non una filiale. Il drugstore resterà lì anche al ritorno — il peso del bagaglio no.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "ヘアマスク｜fino — FineToday",
+          "url": "https://brand.finetoday.com/jp/fino/mask/",
+          "kind": "produttore"
+        },
+        {
+          "title": "フィーノ プレミアムタッチ 濃厚美容液ヘアマスク — FineToday ONLINE SHOP",
+          "url": "https://onlineshop.finetoday.com/products/fino-05",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-tsubaki-mask",
+      "long": "Tsubaki Premium Repair Mask (FineToday) è l'altro barattolo rosso-dorato che compete con Fino sullo stesso corridoio: famiglia ツバキ, profumo di camelia più «profumeria», claim di trattamento intensivo da risciacquo. Esistono shampoo e conditioner Premium Moist / Volume / EX nella stessa estetica: se volete la maschera, leggete リペアマスク / ヘアパック sull'etichetta, non il fiore stampato sul frontale. Il formato tipico è intorno ai 180 g con ricarica separata. Come Fino, pesa; come Fino, una confezione basta. Non mescolate le aspettative: è cosmetico per capelli, non una promessa medica su cuoio capelluto o patologie.",
+      "sections": [
+        {
+          "title": "Maschera, non solo «qualcosa di rosso Tsubaki»",
+          "body": "La linea include shampoo, conditioner e maschera EX. Il barattolo di trattamento ha indicazioni d'uso diverse dal flacone quotidiano. Se lo scaffale è un muro rosso, girate la confezione e cercate la parola マスク o ヘアパック."
+        },
+        {
+          "title": "Ricarica e peso",
+          "body": "FineToday propone anche つめかえ. Utile a casa; in viaggio preferite il barattolo già pronto. Tenetelo chiuso in una busta: il profumo intenso profuma anche i vestiti vicini, non sempre per scelta."
+        },
+        {
+          "title": "Fino o Tsubaki sullo stesso scontrino?",
+          "body": "Molti comprano entrambi «per confrontare». In hotel confronterete soprattutto quale tappo avete aperto. Sceglietene uno per il viaggio; l'altro può aspettare un secondo drugstore se davvero vi manca."
+        },
+        {
+          "title": "Due barattoli rossi entrano in un foto, non in un cabin bag",
+          "body": "Fino e Tsubaki posano bene insieme sugli scaffali; nella valigia diventano una coppia gelosa di ogni centimetro. Uno solo. L'altro lo saluterete con un inchino rispettoso e andate verso la cassa.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "プレミアムEX リペアマスク｜TSUBAKI — FineToday",
+          "url": "https://brand.finetoday.com/jp/tsubaki/mask/",
+          "kind": "produttore"
+        },
+        {
+          "title": "商品ラインナップ｜TSUBAKI — FineToday",
+          "url": "https://brand.finetoday.com/jp/tsubaki/products/",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-and-honey",
+      "long": "&honey Hair Oil è la famiglia di oli leave-in nei flaconi sfaccettati colorati (Deep Moist, Moist Shine, EX Deep Moist e altre linee): stesso gesto — poche gocce su lunghezze umide o asciutte — finish e profumo diversi. Il sito ufficiale spinge a scegliere in base a tipo di capello e risultato desiderato, non al colore del vetro che fotografa meglio. In drugstore e Loft le varianti stanno spesso affiancate: leggete 3.0 e il nome della linea. Il dosatore va protetto: un olio che perde nello zaino profuma di rosa tutto il guardaroba. Esistono ricariche per alcune versioni; in viaggio il flacone da 100 ml è già generoso.",
+      "sections": [
+        {
+          "title": "Deep Moist, Shine, EX: finish diversi",
+          "body": "Deep Moist punta a morbidezza e controllo; Moist Shine a lucentezza; EX a una sensazione più avvolgente. Non sono «dosaggi medicinali»: sono texture e fragranze. Se i capelli sono fini, partite da meno prodotto di quanto suggerisca l'entusiasmo da tester."
+        },
+        {
+          "title": "Dosatore e bagaglio",
+          "body": "Chiudete il dropper, magari con nastro o bustina, e tenete il flacone in verticale se potete. 100 ml rientra nei liquidi a mano se lo mettete nel clear bag; altrimenti in stiva con il resto della beauty."
+        },
+        {
+          "title": "Non è Fino in altro vestito",
+          "body": "&honey è leave-in; Fino mask è da risciacquo. Possono coesistere in una routine, ma comprarne tre oli «perché il vetro è bello» ripete l'errore dei due barattoli rossi."
+        },
+        {
+          "title": "Il miele che non si mangia ma appiccica lo stesso se perde",
+          "body": "Una goccia sul passaporto è un souvenir che nessuna dogana apprezza. Il flacone sfaccettato merita una tasca propria, non un free climbing tra le chiavi.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "製品ラインナップ｜&honey — Deep Moist hair oil",
+          "url": "https://www.and-honey.com/deep/product/",
+          "kind": "produttore"
+        },
+        {
+          "title": "&honey（アンドハニー）公式サイト",
+          "url": "https://www.and-honey.com/",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-softymo-oil",
+      "long": "Kose Softymo Cleansing Oil è l'olio detergente da drugstore venduto in flaconi grandi e, soprattutto, in ricariche economiche: Speedy (anche su mani umide, risciacquo con acqua), Deep e White sono le famiglie più comuni sullo scaffale Softymo. Non sono farmaci; sono cleansing oil con istruzioni diverse stampate sul retro. La ricarica pesa meno del flacone pompabile e riduce plastica, ma a casa vi serve un contenitore compatibile — in viaggio molti prendono solo la pump da usare in hotel. Controllate se la variante è «senza secondo lavaggio» o richiede comunque il detergente: Speedy e Deep non si comportano uguale. Matsukiyo e Welcia le tengono spesso a livello occhi, con shelf talker aggressivi sul prezzo.",
+      "sections": [
+        {
+          "title": "Speedy, Deep, White",
+          "body": "Speedy punta a velocità e uso anche con mani umide; Deep a una sensazione di detergenza più intensa; White ha un posizionamento «brightening» da etichetta cosmetica. Leggete il nome completo e le istruzioni di risciacquo, non solo il prezzo a litro."
+        },
+        {
+          "title": "Refill contro flacone pump",
+          "body": "Maison KOSÉ e i drugstore vendono つめかえ da 210 o 420 ml. Ideale se avete già la pump Softymo a casa. In hotel senza flacone, il pump da viaggio è più pratico della busta che schizza."
+        },
+        {
+          "title": "Make-up waterproof e olio",
+          "body": "Un olio da drugstore gestisce fondotinta e sunscreen quotidiani; mascara Super WP possono chiedere comunque un passo dedicato. Massaggiate a secco o secondo etichetta, poi risciacquate bene: residui oleosi + asciugamano dell'hotel = alone lucido involontario."
+        },
+        {
+          "title": "La ricarica da 420 ml che vi fa sentire preparati fino al 2040",
+          "body": "Compra refill giganti solo se avete già il tempio della pump a casa. Altrimenti tornerete con una busta che sembra una hot-water bottle e zero contenitore in cui versarla.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "ソフティモ クレンジングオイル・リキッド — Kose Softymo",
+          "url": "https://kose-softymo.com/cleansingoil/",
+          "kind": "produttore"
+        },
+        {
+          "title": "ソフティモ スピーディ クレンジングオイル — Maison KOSÉ",
+          "url": "https://maison.kose.co.jp/site/softymo/g/gWMHF/",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-anessa",
+      "long": "Anessa Perfect UV Skin Care Milk (Shiseido) è il latte solare dal flacone dorato che nei drugstore e department store giapponesi segnala «protezione alta, finish setoso»: SPF50+ PA++++ sulle etichette tipiche, versioni Milk, Mild, gel o spray nello stesso mondo Anessa. Non sceglietelo solo perché luccica: leggete se è ミルク, ジェル o マイルド, la resistenza all'acqua dichiarata e se è indicato per viso/corpo. Shiseido spiega quantità e riapplicazione; in viaggio sudato serve più prodotto di quanto sembri dal pompaggio timido. Il flacone da 60 ml è gestibile nel clear bag; i formati travel compaiono in aeroporto a prezzi diversi. Toglietelo a fine giornata con detergente adeguato — molti Anessa si rimuovono con sapone secondo etichetta, ma con make-up sopra usate la vostra doppia detersione.",
+      "sections": [
+        {
+          "title": "Milk, Mild e altre texture",
+          "body": "Perfect UV Skin Care Milk NA è il latte «classico» dorato; Mild milk è pensato per pelli che vogliono una formula diversa; esistono anche gel e spray. Confrontate il nome completo e le icone UV waterproof sul retro."
+        },
+        {
+          "title": "Quanto stendere davvero",
+          "body": "Le istruzioni Shiseido insistono sulla quantità sufficiente e sulla riapplicazione dopo sudore o asciugamano. Un velo invisibile «per non luccicare» protegge meno di quanto pensi il flacone dorato."
+        },
+        {
+          "title": "Drugstore contro duty free",
+          "body": "In città confrontate prezzo e formato; in aeroporto verificate che sia la stessa linea (NA / versione corrente) e non una vecchia edicola di scorta. Il dorato da solo non autentica il contenuto."
+        },
+        {
+          "title": "Il flacone d'oro che non è un lingotto ma costa come un capriccio",
+          "body": "Luccica nella beauty bag e fotografa bene sulle scale di un tempio. Poi vi ricordate che serve a essere risteso dopo il sudore, non a fare da amuleto chiuso nello zaino «perché è pieno sole ma non voglio lucido».",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "パーフェクトUV スキンケアミルク NA — Shiseido Anessa",
+          "url": "https://www.shiseido.co.jp/anessa/products/suncare/men-perfect-uv-sm/",
+          "kind": "produttore"
+        },
+        {
+          "title": "アネッサ パーフェクトUV スキンケアミルク NA — Shiseido Online Store",
+          "url": "https://www.shiseido.co.jp/sw/onlinestore/products/H16501.html",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-yojiya-paper",
+      "long": "Yojiya Aburatorigami è la cartina assorbente di Kyoto con il volto iconico stampato sul booklet: nata come carta speciale da foil-beating adattata al sebo, diventata souvenir e strumento da borsetta. I punti ufficiali Yojiya (e lo shop online del brand) vendono multipack da 20 fogli a booklet, formati HAKO, BATON e edizioni stagionali. Compra nei canali ufficiali se vi importa il pack «giusto»; le imitazioni da souvenir generico esistono. Si usa appoggiando il foglio e premendo, non strofinando come una salvietta. Occupano pochissimo spazio: il rischio è accumulare cinque edizioni illustrate perché il volto di Yojiya è irresistibile in vetrina a Gion.",
+      "sections": [
+        {
+          "title": "Booklet classico e formati moderni",
+          "body": "Il 5冊組 da venti fogli è il classico regalo; HAKO e BATON cambiano il modo di estrarre i fogli. Per il viaggio il booklet piatto vince. Controllate che la confezione sia sigillata e riporti il marchio Yojiya."
+        },
+        {
+          "title": "Negozio ufficiale, non solo «qualcosa con una faccia»",
+          "body": "Yojiya ha store a Kyoto e corner in grandi stazioni; il gruppo pubblica storia e shop ufficiali. Un pack senza branding chiaro a un prezzo strano merita un secondo sguardo."
+        },
+        {
+          "title": "Uso: premere, non lucidare",
+          "body": "Il foglio va posato su fronte, naso, mento e premuto. Strofinare smonta il make-up che volevate salvare. Dopo, un po' di cipria se serve — la cartina non sostituisce la base."
+        },
+        {
+          "title": "Il volto di Yojiya che vi giudica mentre comprate il quinto pack",
+          "body": "Quell'illustrazione ha convertito più turisti della matcha latte. Un multipack basta per il viaggio e i regali; il resto è collezionismo di sorrisi stampati.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "あぶらとり紙 5冊組 — Yojiya Cosme online",
+          "url": "https://www.yojiyacosme.com/c/skincare/gd1137",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "よーじやグループの歴史 — Yojiya Group",
+          "url": "https://www.yojiya.co.jp/history",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-kyoto-nails",
+      "long": "Ueba Eso 胡粉ネイル porta gli smalti a base di pigmento gofun (guscio di ostrica/scallop lavorato come bianco da pittura tradizionale) fuori dalla bottega di pigmenti di Kyoto: colori con nomi di tinte giapponesi, finish che il brand descrive come ad asciugatura piuttosto rapida e odore meno aggressivo di molti smalti solvente classici. Si comprano nella sede/shop ufficiale e in selected beauty shop di Kyoto, non come scorta anonima da discount. Controllate tempi di asciugatura sulla confezione, se serve top coat, e le regole bagaglio per liquidi: lo smalto va nel clear bag o in stiva secondo le norme del vostro vettore. Non è un trattamento unghie clinico: è colore da indossare, ispirato alla palette da pittura della casa fondata nel Settecento.",
+      "sections": [
+        {
+          "title": "Gofun e nomi colore",
+          "body": "Ueba Eso spiega il gofun come bianco storico da nihonga riusato nello smalto. I nomi (suo, benikaba, miyakonezu…) aiutano a scegliere una tinta da ricordo, non un generico nude. Le limited museo/hotel esistono: verificate il canale di vendita."
+        },
+        {
+          "title": "Asciugatura e bagaglio liquidi",
+          "body": "Anche se «rapido», non chiudete la mano in tasca dopo trenta secondi ottimistici. In aeroporto rispettate il limite 100 ml e il clear bag; un flacone di smalto conta come liquido, non come souvenir magico."
+        },
+        {
+          "title": "Bottega pigmenti, non solo corner beauty",
+          "body": "La casa è un produttore di colori da pittura; lo smalto è il ponte verso un pubblico più ampio. Comprare lì o dallo shop ufficiale riduce il rischio di stock dubbi con etichette fotocopiate."
+        },
+        {
+          "title": "Lo smalto che sembra un acquerello e poi stampa il sedile del taxi",
+          "body": "I nomi poetici non asciugano più in fretta sotto pressione turistica. Aspettate. O accettate un'opera d'arte involontaria sulla fodera del taxi di Kyoto — che però non potrete appendere in salotto.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "胡粉ネイル — Ueba Eso official shop",
+          "url": "https://www.gofun-nail.com/pages/gofun-nail",
+          "kind": "produttore"
+        },
+        {
+          "title": "上羽絵惣 — company site",
+          "url": "https://www.ueba.co.jp/",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-refa-brush",
+      "long": "ReFa Heart Brush (MTG) è la spazzola compatta a forma di cuore con cover di protezione: colori standard e collaborazioni/edizioni regalo che in Giappone riempiono vetrine di department store e corner ufficiali. Il brand elenca materiali, peso e avvertenze (niente immersione prolungata, cura con panno umido). Per il viaggio conta confrontare il prezzo ufficiale e il codice colore: le rivendite «limited» gonfiate online raramente valgono la differenza rispetto allo store. Mini e varianti Scalp/Ray esistono nella famiglia Heart: se volete la classica, verificate il nome Heart Brush senza suffissi. Occupano poco spazio; la cover evita che i pin si stortino sotto il caricabatterie.",
+      "sections": [
+        {
+          "title": "Colore ufficiale contro limited da vetrina",
+          "body": "Rose gold, silver, champagne e matte compaiono sul listino MTG; edizioni locali e gift box girano nei department store. Fotografate il codice prodotto e confrontatelo con lo shop ufficiale prima di pagare un sovrapprezzo da reseller."
+        },
+        {
+          "title": "Heart, Mini, Scalp: quale forma",
+          "body": "Heart Brush è il modello compatto iconico; Mini riduce ancora; altre linee cambiano pin e uso dichiarato. Per un souvenir portatile la Heart con cover è di solito la scelta più chiara."
+        },
+        {
+          "title": "Cura e bagaglio",
+          "body": "Non lasciatela in acqua in bagno. Asciugate i pin se si bagnano. In valigia la cover è parte del prodotto, non un optional da lasciare al cashier per «risparmiare spazio»."
+        },
+        {
+          "title": "Il cuore che spazzola i capelli e spezza quelli del budget",
+          "body": "È piccolo, carino e pericolosamente regalo-abile. Un pezzo a prezzo ufficiale batte tre cuori «limited» comprati in panico da duty-free perché brillavano tutti insieme.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "リファハートブラシ — MTG Online Shop",
+          "url": "https://www.mtgec.jp/shop/g/g5385720301/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "ReFa HEART — brand line",
+          "url": "https://www.refa.net/brand_line/refa_heart/",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-shiseido-paper",
+      "long": "Le cartine Shiseido (あぶらとり紙) sono il pack compatto da drugstore e department store: formati pull-pop, pass-case, versioni «anche sudore» o film, quantità da 70 a 150 fogli a seconda del codice. Costano poco, pesano quasi zero e funzionano come souvenir utile, non come trattamento. Shiseido pubblica anche guide d'uso: premere, non strusciare. Confrontate il numero prodotto e il conteggio fogli prima di prendere tre scatole identiche con packaging leggermente diverso. In estate umida giapponese hanno più senso pratico di metà dei gadget beauty che finiscono intatti in fondo al cassetto a casa.",
+      "sections": [
+        {
+          "title": "Formati: pull-pop, film, «sudore»",
+          "body": "Online store Shiseido elenca cartine classiche, versioni che assorbono anche sudore e film microforati. Per la borsetta da viaggio il pull-pop o il pass-case sottili sono i più gestibili. Controllate pezzi per confezione: 90 e 150 non costano uguale al foglio."
+        },
+        {
+          "title": "Uso da etichetta, non da ASMR aggressivo",
+          "body": "Una pressione leggera su T-zone basta. Strofinare toglie make-up e pazienza. Se dopo siete ancora lucidi, serve cipria o un blotting più fresco, non dieci fogli sulla stessa zona."
+        },
+        {
+          "title": "Drugstore e department store",
+          "body": "Si trovano ovunque ci sia un corridoio beauty Shiseido. Non serve una missione a Ginza: il valore è avere un pack nuovo e chiuso, non il sacchetto firmato del flagship."
+        },
+        {
+          "title": "Il souvenir che costa meno di un caffè e giudica la vostra fronte a Nara",
+          "body": "Mentre gli altri tornano con figurine, voi tornate con fogli che assorbono il panico da umidità. Poco glamour in foto di gruppo; molto glamour quando il naso smette di brillare come un torii bagnato.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "くすみのもとになる皮脂もスッキリあぶらとり紙 — Shiseido Online Store",
+          "url": "https://www.shiseido.co.jp/sw/onlinestore/products/083901.html",
+          "kind": "produttore"
+        },
+        {
+          "title": "あぶらとり紙の正しい使い方 — Shiseido Beauty Journey",
+          "url": "https://www.shiseido.co.jp/sw/beautyinfo/sp/DB006726/",
+          "kind": "sito ufficiale"
+        }
+      ]
+    }
+  ]
+}

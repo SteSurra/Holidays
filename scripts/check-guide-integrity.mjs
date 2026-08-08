@@ -99,6 +99,47 @@ for (const item of data.experiences) {
   if (!item.sourceUrl) failures.push(`${item.id}: missing experience source`);
 }
 
+// Closeout: every curated place/experience needs free|paid|mixed except an
+// explicit allowlist of no-venue generics and all guide-map-visit-* synthetics
+// (those cannot persist admission until promoted to a real pipe row / venue).
+const ADMISSION_OK = new Set(["free", "paid", "mixed"]);
+const ADMISSION_PENDING_ALLOWLIST = new Set([
+  "experience-tokyo-karaoke",
+  "experience-tokyo-kintsugi-workshop",
+  "experience-tokyo-street-kart",
+  "experience-kyoto-tea-ceremony",
+  "experience-kyoto-yuzen-workshop",
+  "experience-kyoto-fushimi-sake",
+  "experience-kyoto-kiyomizu-pottery",
+  "experience-hiroshima-kyudo",
+  "experience-miyajima-momiji-workshop"
+]);
+let missingAdmission = 0;
+let allowlistedPendingAdmission = 0;
+for (const item of [...data.places, ...data.experiences]) {
+  if (item.admission == null || item.admission === "") {
+    missingAdmission += 1;
+    const allowlisted =
+      item.id.startsWith("guide-map-visit-") || ADMISSION_PENDING_ALLOWLIST.has(item.id);
+    if (allowlisted) {
+      allowlistedPendingAdmission += 1;
+      continue;
+    }
+    failures.push(
+      `${item.id}: missing admission (required free|paid|mixed after closeout; only guide-map-visit-* and the no-venue allowlist may stay pending)`
+    );
+    continue;
+  }
+  if (!ADMISSION_OK.has(item.admission)) {
+    failures.push(`${item.id}: invalid admission "${item.admission}" (use free|paid|mixed)`);
+  }
+  if (item.id.startsWith("guide-map-visit-") || ADMISSION_PENDING_ALLOWLIST.has(item.id)) {
+    failures.push(
+      `${item.id}: has admission but is on the pending allowlist — drop it from ADMISSION_PENDING_ALLOWLIST (or stop inventing admission on synthetics)`
+    );
+  }
+}
+
 for (const item of [].concat(data.places, data.mapPlaces, data.experiences, data.foods, data.shopping, data.history)) {
   if (!item.longDescription || item.longDescription.length < 140) failures.push(`${item.id}: detail description is too short`);
   if (!Array.isArray(item.sources) || !item.sources.length) failures.push(`${item.id}: missing factual sources`);
@@ -219,6 +260,38 @@ for (const id of storyIds) {
     const owner = sentenceOwner.get(clean);
     if (owner && owner !== id) failures.push(`story ${id}: shares a whole sentence with ${owner} — the written cards must not repeat each other`);
     else sentenceOwner.set(clean, id);
+  }
+}
+
+// Per-domain story coverage. A domain that is already complete (places,
+// experiences) must stay complete. Domains still being authored (history,
+// food, shopping) report progress but do not fail CI until they hit 100% —
+// flip the gate by moving the domain into STORY_COVERAGE_HARD once a full
+// handwritten pass lands. Soft progress is always printed so gaps stay visible.
+const storyCoverageCatalogs = {
+  place: [].concat(data.places, data.mapPlaces || []),
+  experience: data.experiences,
+  history: data.history,
+  food: data.foods,
+  shopping: data.shopping
+};
+// Hard from day one for domains already at 100%. When history / food /
+// shopping finish their handwritten pass, add the domain name here so a new
+// catalog row without a story fails CI instead of shipping a templated card.
+const STORY_COVERAGE_HARD = new Set(["place", "experience", "history", "food", "shopping"]);
+for (const [domain, catalog] of Object.entries(storyCoverageCatalogs)) {
+  const missing = catalog.filter((item) => !stories[item.id]).map((item) => item.id);
+  const covered = catalog.length - missing.length;
+  const pct = catalog.length ? Math.round((100 * covered) / catalog.length) : 100;
+  if (missing.length === 0) {
+    console.log(`story coverage ${domain}: ${covered}/${catalog.length} (complete)`);
+    continue;
+  }
+  const summary = `story coverage ${domain}: ${covered}/${catalog.length} (${pct}%) — missing ${missing.length}`;
+  if (STORY_COVERAGE_HARD.has(domain)) {
+    failures.push(`${summary}. First gaps: ${missing.slice(0, 8).join(", ")}`);
+  } else {
+    console.log(`${summary} (soft — add "${domain}" to STORY_COVERAGE_HARD when the pass is done)`);
   }
 }
 
@@ -394,4 +467,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Guide-integrity check passed: ${mapPoints.filter((point) => point.type === "visit").length} map points, ${data.places.length + data.mapPlaces.length} places, ${data.experiences.length} experiences, ${data.foods.length} foods, ${data.shopping.length} purchases, ${data.history.length} stories, ${merchants.length} merchants, ${data.phrases.length} phrases.`);
+console.log(`Guide-integrity check passed: ${mapPoints.filter((point) => point.type === "visit").length} map points, ${data.places.length + data.mapPlaces.length} places, ${data.experiences.length} experiences, ${data.foods.length} foods, ${data.shopping.length} purchases, ${data.history.length} stories, ${merchants.length} merchants, ${data.phrases.length} phrases. Admission pending (allowlisted): ${allowlistedPendingAdmission}/${data.places.length + data.experiences.length} places+experiences (${missingAdmission} unset total).`);

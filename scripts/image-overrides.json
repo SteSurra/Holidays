@@ -151,9 +151,9 @@
     "credit": "Hiroshi Yoshida · pubblico dominio · Wikimedia Commons"
   },
   "shop-all-tenugui": {
-    "file": "Toshimana dancing with a tenugui.jpg",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toshimana_dancing_with_a_tenugui.jpg",
-    "credit": "ZacharyOakes · CC BY-SA 2.0 · Wikimedia Commons"
+    "file": "Tenugui.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tenugui.jpg",
+    "credit": "Wikimedia Commons"
   },
   "shop-matsumoto-temari": {
     "file": "Japanese Temari ball flanked by a maneki neko (01) (50532211976).jpg",
@@ -175,7 +175,11 @@
   "shop-nara-nara-ink": null,
   "shop-nara-ittobori": null,
   "shop-takayama-ichii-itto": null,
-  "shop-miyajima-rice-scoop": null,
+  "shop-miyajima-rice-scoop": {
+    "file": "Shakushi.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shakushi.jpg",
+    "credit": "Wikimedia Commons"
+  },
   "shop-kanazawa-mizuhiki": null,
   "merchant-tokyo-loft-shibuya": null,
   "merchant-tokyo-mizuho": null,
@@ -261,5 +265,108 @@
   },
   "merchant-kyoto-pokemon-kyoto": null,
   "merchant-tokyo-pokemon-mega": null,
-  "merchant-tokyo-bic-shinjuku": null
+  "merchant-tokyo-bic-shinjuku": null,
+  "shop-kyoto-kyoto-knives": {
+    "file": "Gyuto, yanagiba, santoku, and nakiri.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gyuto%2C_yanagiba%2C_santoku%2C_and_nakiri.jpg",
+    "credit": "Benlisquare · CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  "shop-all-gunpla": {
+    "file": "Gunpla model sprues.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunpla_model_sprues.jpg",
+    "credit": "Gravislizard · CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  "shop-all-pokemon-center": {
+    "file": "Mega Tokyo Pokémon Center wares 3.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mega_Tokyo_Pok%C3%A9mon_Center_wares_3.jpg",
+    "credit": "Maplestrip · CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  "shop-all-regional-kitkat": {
+    "file": "Japanese kit Kat varieties.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Japanese_kit_Kat_varieties.jpg",
+    "credit": "Wikimedia Commons"
+  },
+  "shop-osaka-konamon-sauce": {
+    "file": "オタフクソース お好みソース 市販.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E3%82%AA%E3%82%BF%E3%83%95%E3%82%AF%E3%82%BD%E3%83%BC%E3%82%B9_%E3%81%8A%E5%A5%BD%E3%81%BF%E3%82%BD%E3%83%BC%E3%82%B9_%E5%B8%82%E8%B2%A9.jpg",
+    "credit": "Wikimedia Commons"
+  },
+  "shop-takayama-local-sake": {
+    "file": "Japanese sake bottles and glasses.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Japanese_sake_bottles_and_glasses.jpg",
+    "credit": "Wikimedia Commons"
+  },
+  "shop-all-dashi": {
+    "file": "Katsuobushi block.JPG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Katsuobushi_block.JPG",
+    "credit": "Wikimedia Commons"
+  },
+  "shop-all-hobonichi": null,
+  "shop-all-hhkb-jis": {
+    "file": "Happy Hacking Keyboard Professional 2.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Happy_Hacking_Keyboard_Professional_2.jpg",
+    "credit": "Wikimedia Commons"
+  },
+  "shop-all-japan-tankobon": {
+    "file": "Comparison of Tankōbon and Bunkobon.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Comparison_of_Tank%C5%8Dbon_and_Bunkobon.jpg",
+    "credit": "Wikimedia Commons"
+  },
+  "shop-kyoto-nishijin": {
+    "file": "Fukuro obi.JPG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fukuro_obi.JPG",
+    "credit": "Ichiro Wada · CC BY-SA 3.0 · Wikimedia Commons"
+  },
+  "shop-kyoto-wagasa": {
+    "file": "Big Wagasa Umbrella at Furukawabashi.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Big_Wagasa_Umbrella_at_Furukawabashi.jpg",
+    "credit": "Wikimedia Commons"
+  },
+  "shop-hiroshima-hiroshima-lemon": null,
+  "shop-all-usb-gadgets": null,
+  "shop-all-nintendo-store": null,
+  "shop-all-nail-clippers": null,
+  "shop-all-animate-bonus": null,
+  "shop-all-jump-shop": null,
+  "shop-all-sousou": null,
+  "shop-shirakawago-gassho-craft": null,
+  "shop-tokyo-anime": null,
+  "shop-kanazawa-kaga-yuzen": null,
+  "shop-nara-akahada-yaki": null,
+  "shop-kyoto-uji-matcha": null,
+  "shop-kanazawa-gold-leaf-panel": null,
+  "shop-tokyo-artist-postcard-print": null,
+  "shop-nara-ittobori-relief": null,
+  "shop-all-uzu-liner": null,
+  "shop-all-yojiya-paper": null,
+  "shop-all-kyoto-nails": null,
+  "shop-all-refa-brush": null,
+  "shop-all-shiseido-paper": null,
+  "shop-all-clear-files": null,
+  "shop-all-acrylic-stands": null,
+  "shop-all-ichiban-kuji": null,
+  "shop-all-manga-drawing-tools": null,
+  "shop-all-ghibli-goods": null,
+  "shop-all-chiikawa-land": null,
+  "shop-all-sanrio-limited": null,
+  "shop-all-gashapon-premium": null,
+  "shop-all-nanoe-dryer": null,
+  "shop-all-travelers-tokyo": null,
+  "shop-all-jetstream-limited": null,
+  "shop-all-frixion-colors": null,
+  "shop-all-sailor-ink": null,
+  "shop-all-kokuyo-campus": null,
+  "shop-all-midori-clips": null,
+  "shop-all-porter-yoshida": null,
+  "shop-all-sansho": null,
+  "shop-all-kaikado-caddy": null,
+  "shop-all-shoyeido-incense": null,
+  "shop-osaka-naniwa-tinware": null,
+  "shop-kanazawa-kaga-mizubiki-jewelry": null,
+  "shop-kamakura-shonan-glass": null,
+  "shop-matsumoto-mingei": null,
+  "shop-nagano-togakushi-bamboo": null,
+  "shop-takayama-hida-shunkei": null,
+  "shop-nara-kaya-cloth": null,
+  "shop-hiroshima-carp-goods": null
 }

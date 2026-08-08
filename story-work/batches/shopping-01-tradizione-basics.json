@@ -1,0 +1,293 @@
+{
+  "meta": {
+    "batch": "shopping-01-tradizione-basics",
+    "note": "Phase 3 shopping deep stories for 8 nationwide tradition/basics catalog ids: goshuincho, omamori, tenugui, furoshiki, incense, hanko, gachapon, eki-stamp. Focus on buyable objects and recognition cues (seller type, material, edition), not temple architecture chronicles or food recipes. Omamori/goshuin stay at juyosho/shamusho; textiles lean on chusen craft designation; incense uses historic Kyoto makers as exemplars without forcing one brand; hanko framed as souvenir seal not legal jitsuin; gachapon vs Bandai GASHAPON naming; eki stamp covers ink pad books plus EKITAG digital layer."
+  },
+  "schede": [
+    {
+      "id": "shop-all-goshuincho",
+      "long": "Il goshuincho non è un taccuino da turismo: è l'album a fisarmonica (orihon) pensato solo per raccogliere i goshuin, i sigilli rossi e le calligrafie che santuari e templi rilasciano dopo la preghiera. JNTO lo descrive come memento legato alla visita religiosa, non come stamp-rally da selfie. Si compra al banco degli omamori o in cartoleria, spesso con copertina illustrata del luogo; da lì in poi le pagine restano sacre al gesto del monaco o del sacerdote. Capire la differenza tra «souvenir» e «registro di visita» evita di usarlo come diario e di chiedere un goshuin senza aver prima reso omaggio.",
+      "sections": [
+        {
+          "title": "Fisarmonica, non blocco note",
+          "body": "Le pagine piegate a orihon si aprono a striscia; il formato tipico è compatto (circa undici per sedici centimetri). Copertine lacca, tessuto o carta stampata segnalano il sito di vendita. Un quaderno a spirale qualunque non è accettabile: molti uffici rifiutano supporti «da ufficio»."
+        },
+        {
+          "title": "Al banco dopo la preghiera",
+          "body": "Si cerca l'ufficio goshuinjo / juyosho vicino agli omamori. Si prega prima, si consegna il libro aperto sulla pagina desiderata, si lascia un'offerta (spesso poche centinaia di yen). A volte ricevi un foglio già stampato da incollare: resta goshuin, non è un «meno autentico»."
+        },
+        {
+          "title": "Copertina del primo santuario",
+          "body": "Comprarlo nel primo tempio o santuario dell'itinerario lega il viaggio a un oggetto unico. Evita di mescolare goshuin e appunti di viaggio nello stesso volume: è il modo più semplice per non offendere chi lo scrive a mano."
+        },
+        {
+          "title": "Il diario che non vuole le tue liste della spesa",
+          "body": "Se ti viene voglia di annotare orari dei treni a lato della calligrafia, compra un secondo taccuino. Il goshuincho ha già un lavoro a tempo pieno: collezionare inchiostro rosso e nero, non i tuoi reminder WhatsApp.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Collecting Goshuin—Shrine and Temple Stamps — Travel Japan (JNTO)",
+          "url": "https://www.japan.travel/en/blog/collecting-goshuin-shrine-and-temple-stamps/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "御朱印 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%BE%A1%E6%9C%B1%E5%8D%B0",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-omamori",
+      "long": "L'omamori è un amuleto in bustina di broccato che ricevi al juyosho di santuari e templi: dentro c'è un testo o un oggetto sacro, fuori un'etichetta che indica la protezione (viaggio, studio, salute, relazioni). Non è un gadget generico da souvenir shop: l'oggetto nasce come offerta votiva legata a quel luogo. Le guide ufficiali e i cartelli multilinguistici (come quelli di Meiji Jingu) ripetono la regola pratica: non aprire la bustina. Scegliere un omamori significa scegliere un contesto — kami o buddha del sito — non un colore carino sullo scaffale del duty-free.",
+      "sections": [
+        {
+          "title": "Bustina chiusa, etichetta leggibile",
+          "body": "Cerca la scritta del tipo di protezione e il nome del santuario o del tempio sul retro. Materiali tipici: tessuto broccato, cordoncino, a volte legno o metallo. Se la bustina è già aperta o «svuotata» da un rivenditore, non è l'omamori del juyosho."
+        },
+        {
+          "title": "Dal juyosho, non dal gadget corner",
+          "body": "Si riceve dopo (o insieme a) un'offerta al bancone ufficiale del sito. Grandi santuari espongono file di bustine per categoria; i piccoli possono avere poche varianti. Portalo in borsa o attaccato allo zaino; non è un portachiavi da smontare."
+        },
+        {
+          "title": "Un anno, poi il ritorno",
+          "body": "La prassi comune è sostituirlo dopo circa un anno e riportare il vecchio allo stesso tipo di luogo (santuario a santuario, tempio a tempio) per l'otakiage. In viaggio, scegline uno legato al posto visitato invece di accumularne dieci «per sicurezza»."
+        },
+        {
+          "title": "Il sacchetto che non è un Kinder Surprise",
+          "body": "Aprire l'omamori «per vedere cosa c'è dentro» è il modo più rapido per trasformare un gesto votivo in un pezzo di carta delusa. La magia, per chi ci crede, sta nel non guardare — e nel non spiegare ai compagni di viaggio che «tanto è plastica».",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Juyosho, Amulet Office — Japan Tourism Agency / Meiji Jingu text",
+          "url": "https://www.mlit.go.jp/tagengo-db/en/H30-00532.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Collecting Goshuin—Shrine and Temple Stamps — Travel Japan (JNTO)",
+          "url": "https://www.japan.travel/en/blog/collecting-goshuin-shrine-and-temple-stamps/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "お守り — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%8A%E5%AE%88%E3%82%8A",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-tenugui",
+      "long": "Il tenugui è un rettangolo di cotone sottile, lungo circa novanta centimetri, con bordi non orlati: si asciuga in fretta, si arrotola in poco spazio e funziona da asciugamano, fascia, tovagliolo o arazzo da parete. La tecnica che interessa chi compra è spesso il chusen (注染): tintura a stencil su entrambi i lati, riconosciuta tra i mestieri tradizionali (Naniwa Honzome, Tokyo Honzome Chusen). In bottega o museo cerchi colore che penetra il filo, non solo stampa superficiale. È un oggetto quotidiano diventato souvenir leggero — utile in valigia quanto sul bancone del sento.",
+      "sections": [
+        {
+          "title": "Cotone, bordo vivo, doppia faccia",
+          "body": "I bordi sfilacciati sono tradizionali, non un difetto. Nel chusen il motivo si vede davanti e dietro con sfumature morbide; le stampe economiche restano piatte su un solo lato. Lunghezza e grammi del tessuto cambiano da marca a marca: tocca e confronta."
+        },
+        {
+          "title": "Botteghe di tintura e scaffali museo",
+          "body": "Specialisti di Asakusa, Osaka e altre zone di produzione espongono file di motivi stagionali. Musei e craft shop spesso vendono pezzi legati a mostre. Department store e variety store hanno linee più grafiche: utili, ma leggi se è «本染め» / chusen o solo print."
+        },
+        {
+          "title": "Uso da viaggio, non da collezione infinita",
+          "body": "Uno o due pezzi bastano per asciugarsi le mani, coprire una borraccia o fare da involto leggero. Lavalo; col tempo si ammorbidisce. Evita di trattarlo come seta: è nato per sudore e acqua, non per la vetrina intoccabile."
+        },
+        {
+          "title": "L'asciugamano che rifiuta l'orlo",
+          "body": "Se cerchi la cucitura perfetta da hotel europeo, stai comprando l'oggetto sbagliato. Il tenugui è orgogliosamente sfilacciato: è il suo modo di dire che asciuga e poi sparisce in tasca, senza fare il dramma del terry cloth.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "NANIWA Hon Zome (Dyeing) — Traditional Crafts Aoyama Square",
+          "url": "https://kougeihin.jp/en/craft/02100/",
+          "kind": "associazione"
+        },
+        {
+          "title": "Tokyo Honzome Chusen — Traditional Crafts Aoyama Square",
+          "url": "https://kougeihin.jp/en/craft/tokyo-honzome-chusen/",
+          "kind": "associazione"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-furoshiki",
+      "long": "Il furoshiki è un quadrato di stoffa — cotone, rayon, seta o misto — usato per avvolgere regali, bentō, bottiglie o la spesa senza carta da pacco monouso. Il Ministero dell'Ambiente lo ha riproposto come simbolo di riuso («mottainai furoshiki»), ma in negozio resta un oggetto tattile: misura (spesso quarantacinque, settanta o novanta centimetri), peso del tessuto e stampa decidono se ti serve per un libro o per una bottiglia di saké. Nei department store e nelle botteghe tessili trovi nodi dimostrati al banco: chiedi di vedere otsukai-zutsumi o bin-zutsumi invece di indovinare da un tutorial offline.",
+      "sections": [
+        {
+          "title": "Quadrato con un compito",
+          "body": "Controlla la misura stampata sull'etichetta e il materiale: cotone lavabile per uso quotidiano, seta o rasi più formali per regalo. Angoli e orli devono essere regolari; una stampa bilaterale aiuta quando il nodo lascia vedere entrambi i lati."
+        },
+        {
+          "title": "Department store e bancarella del nodo",
+          "body": "Grand magazzini, Loft/Hands e negozi di wrapping espongono spesso un pannello con i nodi base. Non inventare elenchi di shop: punta a chi dimostra il piegamento sul posto. Un furoshiki da viaggio piccolo pesa poco e sostituisce sacchetti di plastica per souvenir fragili."
+        },
+        {
+          "title": "In valigia come imballaggio riusabile",
+          "body": "Avvolgi ceramiche o barattoli: il tessuto ammortizza e diventa regalo a destinazione. Evita di comprarne dieci «perché sono belli»: tre misure diverse risolvono quasi tutti i pacchi del viaggio."
+        },
+        {
+          "title": "La carta da regalo che ha studiato judo",
+          "body": "Il furoshiki non si strappa, non finisce nel cestino dell'albergo e, se il nodo è giusto, tiene anche una bottiglia in equilibrio precario. È packaging con cintura nera — e senza nastro adesivo che si attacca ai capelli.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "How to use \"Furoshiki\" — Ministry of the Environment",
+          "url": "https://www.env.go.jp/en/focus/attach/060403-5.html",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "Mottainai Furoshiki — Ministry of the Environment",
+          "url": "https://www.env.go.jp/recycle/info/furoshiki/",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-incense",
+      "long": "L'incenso giapponese da portare a casa è spesso senko senza anima di bambù: bastoncini di legni, erbe e resine che bruciano in modo più uniforme e lasciano meno fumo «da barbecue». Kyoto resta il riferimento culturale (koh-do, botteghe storiche come Shoyeido dal Settecento), ma scaffali seri esistono anche a Tokyo e Osaka. In negozio conti profilo aromatico, formato (campione, scatola giornaliera, premium) e accessori: bruciatore, cenere, pinzetta. L'acquisto intelligente parte da un assaggio corto, non da una scatola da cerimonia che non saprai dove riporre.",
+      "sections": [
+        {
+          "title": "Bastoncino, non stecchino di bamboo",
+          "body": "Molte linee quotidiane sono senza anima: si spezzano nettamente e bruciano fino in fondo. Leggi note di sandalo, agar, erbe o fiori sull'etichetta; le serie «low smoke» aiutano in appartamenti piccoli. Evita confezioni aperte o spezzate nello scaffale."
+        },
+        {
+          "title": "Botteghe storiche e angoli specialty",
+          "body": "I flagship di produttori a Kyoto (e filiali a Tokyo) permettono di annusare e confrontare. Department store e temple-adjacent shops vendono linee turistiche più dolci. Chiedi se serve un supporto specifico: non tutti i bastoncini stanno in un portaincenso da viaggio."
+        },
+        {
+          "title": "Campioni prima del formato grande",
+          "body": "Le scatole assortimento pesano poco e riducono il rischio di portare a casa un aroma che odii dopo tre bastoncini. In aereo tieni i liquidi/gel separati; l'incenso solido di solito viaggia in stiva o cabina senza drammi, ma proteggi le scatole da schiacciamenti."
+        },
+        {
+          "title": "Il souvenir che profuma anche i calzini",
+          "body": "Metti la scatola nello stesso taschino dei calzini sudati e scoprirai che l'agarwood è diplomatico ma non magico. Doppia bustina: il tuo futuro armadio ti ringrazierà più di qualsiasi etichetta «premium».",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "SHOYEIDO INCENSE CO. — sito ufficiale",
+          "url": "https://www.shoyeido.co.jp/english/",
+          "kind": "produttore"
+        },
+        {
+          "title": "Company Overview — Shoyeido",
+          "url": "https://www.shoyeido.co.jp/english/aboutus/overview.html",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-hanko",
+      "long": "Lo hanko (o inkan) da viaggio è un timbro personalizzato con nome in romaji, katakana o kanji scelti per suono/significato: si fa incidere in negozi specializzati in un'ora o poco più, su legno, resina o materiali più nobili, con astuccio e talvolta tampone. Per un turista è un souvenir di identità grafica, non un jitsuin registrato in comune per aprire conti bancari. I negozi orientati ai visitatori spiegano dual hanko (kanji + alphabet) e limiti di lettere: utile sapere cosa stai comprando prima di firmare con l'entusiasmo del «sigillo samurai».",
+      "sections": [
+        {
+          "title": "Incisione, diametro, materiale",
+          "body": "Controlla diametro (spesso intorno ai 12–18 mm per uso personale leggero), stile del carattere e se il nome è solo alphabet o dual. Il legno akane è comune e leggero; materiali premium alzano prezzo e tempi. L'astuccio fa parte del pacchetto: senza, il timbro si graffia in valigia."
+        },
+        {
+          "title": "Negozi di sigilli, non bancarelle casual",
+          "body": "Cerca hankoya con vetrina di manici e catalogo font; alcuni punti a Tokyo lavorano in inglese e consegnano in giornata. Evita bancarelle che stampano solo adesivi: lo hanko è un pezzo inciso, non un sticker rotondo."
+        },
+        {
+          "title": "Souvenir, non documento legale",
+          "body": "Dichiara al negozio che serve come ricordo: non ti servirà registrarlo. Non usarlo per documenti importanti all'estero aspettandoti valore legale giapponese. Porta un piccolo tampone se vuoi usarlo su cartoline; l'inchiostro rosso macchia."
+        },
+        {
+          "title": "La firma che non apre il conto in banca",
+          "body": "Tornerai a casa convinto di poter firmare mutui con il tuo «dragon seal». La banca italiana, purtroppo, preferisce ancora la penna BIC. Usa lo hanko su letterine e sketchbook: lì comanda ancora lui.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Hanko Land Tokyo — custom name stamps",
+          "url": "https://hankoland.com/e.html",
+          "kind": "negozio ufficiale"
+        },
+        {
+          "title": "印鑑 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%8D%B0%E9%91%91",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-gachapon",
+      "long": "Il gachapon (o gashapon) è la capsula di plastica che esce da una macchinetta a manovella: dentro mini figure, gadget assurdi, riproduzioni di cibo o merch di serie. Bandai ha registrato GASHAPON come brand e gestisce negozi ufficiali densi di «facce» (macchine); altrove trovi operatori misti in stazioni e sale giochi. L'oggetto da portare a casa è la capsula e il pezzo dentro — non la macchinetta. Prima di girare, leggi prezzo, serie sul display e se serve moneta esatta: il budget piccolo è parte del design del prodotto.",
+      "sections": [
+        {
+          "title": "Capsula, display, prezzo sulla fascia",
+          "body": "Ogni macchina mostra la lineup completa: confronta pezzi «rare» e comuni. Prezzi tipici da poche centinaia di yen in su per linee premium. La capsula vuota a volte si riusa; il pezzo può arrivare con blister o viti minuscole — tieni il sacchetto."
+        },
+        {
+          "title": "Official shop contro angolo stazione",
+          "body": "I Gashapon Bandai Official Shop concentrano novità Bandai e stock aggiornato. Stazioni, department store e arcade mescolano brand. Non serve una lista di indirizzi: basta entrare dove vedi pareti di macchine e un cambio monete."
+        },
+        {
+          "title": "Budget e peso in valigia",
+          "body": "Fissa un tetto in yen prima della prima manovella. Le capsule sprecano volume: svuotale e tieni solo i pezzi in una bustina. Evita di inseguire «il completo» di una serie da dodici se hai già lo zaino pieno di tè."
+        },
+        {
+          "title": "La lotteria onesta che vince sempre la plastica",
+          "body": "A differenza delle slot, qui perdi sempre i cento yen e vinci sempre un oggetto. È il capitalismo più trasparente del quartiere — e per questo più pericoloso delle figurine Panini.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "GASHAPON BANDAI OFFICIAL SHOP — Bandai Namco Amusement",
+          "url": "https://bandainamco-am.co.jp/en/others/gashapon-bandai-officialshop/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "GASHAPON—“Turning” Entertainment into a Market Driver — Bandai Namco Holdings",
+          "url": "https://www.bandainamco.co.jp/en/ir/library/feature05_01_2024.html",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-eki-stamp",
+      "long": "L'eki stamp è il timbro gratuito delle stazioni ferroviarie: disegno della linea, del luogo o di un personaggio locale, da impressione su un taccuino portato da te. Non si compra il «diritto» al timbro; si compra (o si improvvisa) il supporto di carta abbastanza spessa da non spappolarsi sull'inchiostro. Accanto al rituale analogico, JR East Marketing promuove EKITAG, app per raccogliere stamp digitali via NFC in stazioni aderenti. In viaggio puoi fare entrambe le cose: inchiostro sul taccuino, backup sullo smartphone.",
+      "sections": [
+        {
+          "title": "Taccuino e pad d'inchiostro",
+          "body": "Carta non troppo sottile; alcuni usano album dedicati venduti in cartolerie di stazione. Il timbro sta spesso fuori dai tornelli, al Midori-no-Madoguchi o vicino all'uscita: se non lo vedi, chiedi «eki sutampu». Prova prima su un foglio se l'inchiostro è scarso."
+        },
+        {
+          "title": "Stazioni grandi, stazioni piccole",
+          "body": "Tokyo e nodi JR hanno più di un design; le linee locali offrono motivi più strani. Non inventare orari: il pad può essere asciutto o il timbro in riparazione. EKITAG (ekitag.jp) copre un numero crescente di operatori — utile quando il pad fisico manca."
+        },
+        {
+          "title": "Gratis, ma la carta costa",
+          "body": "Il souvenir vero è il taccuino pieno, non un gadget venduto come «official stamp kit» gonfiato. Porta il tuo inchiostro solo se del colore giusto; non rovinare i pad pubblici con ricariche fai-da-te."
+        },
+        {
+          "title": "Il collezionismo che odia i PDF",
+          "body": "Puoi fotografare ogni pagina e viverla nello smartphone, ma il piacere resta la macchia irregolare dell'inchiostro del 1987 sul tuo polpastrello. EKITAG è comodo; la carta è il trofeo che puzzola ancora di stazione.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "EKITAG — digital station stamp app (jeki)",
+          "url": "https://www.ekitag.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "駅スタンプ — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E9%A7%85%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97",
+          "kind": "enciclopedia"
+        }
+      ]
+    }
+  ]
+}

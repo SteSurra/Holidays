@@ -114,7 +114,17 @@
     return record.name.toLowerCase().indexOf(filterText) !== -1;
   }
 
-  function cardHTML(record, url) {
+  function categoryLabel(id) {
+    const match = CATEGORIES.find(function (category) { return category.id === id; });
+    return match ? match.label : "Altro";
+  }
+
+  function rowMeta(record) {
+    const kind = /^image\//.test(record.type) ? formatBytes(record.size) : "PDF";
+    return categoryLabel(record.category) + " · " + kind;
+  }
+
+  function documentPanelHTML(record, url) {
     const isImage = /^image\//.test(record.type);
     const preview = isImage
       ? '<button class="document-thumb" type="button" data-document-open="' + escapeHTML(record.id) + '" aria-label="Apri a schermo pieno: ' + escapeHTML(record.name) + '"><img src="' + url + '" alt=""></button>'
@@ -122,14 +132,39 @@
     const options = CATEGORIES.map(function (category) {
       return '<option value="' + category.id + '"' + (record.category === category.id ? " selected" : "") + '>' + category.label + '</option>';
     }).join("");
-    return '<article class="document-card" data-document="' + escapeHTML(record.id) + '">'
+    return '<div class="document-card">'
       + preview
       + '<div class="document-fields">'
       + '<input class="document-name" type="text" value="' + escapeHTML(record.name) + '" data-document-name="' + escapeHTML(record.id) + '" aria-label="Nome del documento">'
       + '<label class="document-category"><span class="visually-hidden">Categoria</span><select data-document-category="' + escapeHTML(record.id) + '">' + options + '</select></label>'
-      + '<div class="document-foot"><small>' + escapeHTML(formatBytes(record.size)) + '</small>'
-      + '<button type="button" class="document-delete" data-document-delete="' + escapeHTML(record.id) + '">Elimina</button></div>'
-      + '</div></article>';
+      + '<div class="document-foot"><small>' + escapeHTML(formatBytes(record.size)) + '</small></div>'
+      + '</div></div>';
+  }
+
+  function rowHTML(record) {
+    return '<article class="document-row" data-document="' + escapeHTML(record.id) + '">'
+      + '<button class="document-open" type="button" data-document-toggle="' + escapeHTML(record.id) + '" aria-expanded="false">'
+      + '<span><b>' + escapeHTML(record.name) + '</b><small>' + escapeHTML(rowMeta(record)) + '</small></span>'
+      + '<i aria-hidden="true">▾</i></button>'
+      + '<button type="button" class="document-delete" data-document-delete="' + escapeHTML(record.id) + '" aria-label="Elimina ' + escapeHTML(record.name) + '">×</button>'
+      + '<div class="document-panel" hidden></div></article>';
+  }
+
+  function toggleDocumentRow(id, button) {
+    const row = button.closest(".document-row");
+    const panel = row && row.querySelector(".document-panel");
+    const record = findRecord(id);
+    if (!panel || !record) return;
+    const open = panel.hidden;
+    if (open && !panel.dataset.ready) {
+      const url = URL.createObjectURL(record.blob);
+      objectUrls.push(url);
+      panel.innerHTML = documentPanelHTML(record, url);
+      panel.dataset.ready = "true";
+    }
+    panel.hidden = !open;
+    row.classList.toggle("is-open", open);
+    button.setAttribute("aria-expanded", String(open));
   }
 
   function render() {
@@ -143,14 +178,10 @@
     groupsBox.innerHTML = CATEGORIES.map(function (category) {
       const items = visible.filter(function (record) { return record.category === category.id; });
       if (!items.length) return "";
-      const cards = items.map(function (record) {
-        const url = URL.createObjectURL(record.blob);
-        objectUrls.push(url);
-        return cardHTML(record, url);
-      }).join("");
+      const rows = items.map(function (record) { return rowHTML(record); }).join("");
       return '<section class="document-group"><div class="packing-group-head"><h2>' + category.label + '</h2><span>' + items.length + '</span></div>'
         + (category.hint ? '<p class="packing-group-note">' + escapeHTML(category.hint) + '</p>' : "")
-        + '<div class="document-grid">' + cards + '</div></section>';
+        + '<div class="document-list">' + rows + '</div></section>';
     }).join("");
     byId("documentsEmpty").hidden = records.length !== 0;
     const status = byId("documentsStatus");
@@ -251,6 +282,9 @@
       const record = findRecord(field.dataset.documentName);
       if (!record) return;
       record.name = field.value.trim() || "Documento";
+      const row = field.closest(".document-row");
+      const title = row && row.querySelector(".document-open b");
+      if (title) title.textContent = record.name;
       clearTimeout(nameTimer);
       nameTimer = setTimeout(function () { saveRecord(record); }, 400);
     });
@@ -263,6 +297,8 @@
       saveRecord(record).then(render);
     });
     groups.addEventListener("click", function (event) {
+      const toggle = event.target.closest("[data-document-toggle]");
+      if (toggle) return void toggleDocumentRow(toggle.dataset.documentToggle, toggle);
       const open = event.target.closest("[data-document-open]");
       if (open) return void openViewer(open.dataset.documentOpen);
       const remove = event.target.closest("[data-document-delete]");

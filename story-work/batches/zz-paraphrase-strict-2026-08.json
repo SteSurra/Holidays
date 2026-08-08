@@ -1,0 +1,1868 @@
+{
+  "meta": {
+    "note": "Strict paraphrase/mould fix overlay after reader audit 2026-08. Later path wins in build-stories merge.",
+    "count": 44
+  },
+  "schede": [
+    {
+      "id": "experience-shirakawago-shiroyama-walk",
+      "long": "La salita a Shiroyama non serve a rivisitare il castello di Ogimachi: serve a cambiare altezza. Dal fondovalle i tetti gasshō si leggono di fianco, uno dopo l'altro; dalla terrazza a est del villaggio compaiono allineati come una pianta, con il fiume Shō e i campi a tenere i posti. Il sentiero nel bosco parte dal margine nord e si fa in una ventina di minuti; in alternativa la navetta comunale evita la pendenza a chi preferisce risparmiare le gambe per il paese. Arrivando, si attraversano terrapieni e un taglio di fossato senza doverne fare archeologia: il punto è la luce sulle falde e il modo in cui la neve e il vento hanno imposto la geometria del villaggio. Si sale per vedere come Ogimachi funziona dall'alto, non per ripetere la storia del Sengoku che sta già sul piazzale delle rovine.",
+      "sections": [
+        {
+          "title": "Perché i tetti guardano solo a est e a ovest",
+          "body": "I colmi delle case gasshō sono allineati nord-sud, così le due grandi falde ricevono il sole a specchio: sciolgono la neve e asciugano la paglia allo stesso ritmo. Lo stesso allineamento offre il lato stretto al vento incanalato nella valle e ventila il sottotetto dove un tempo stavano i bachi da seta. Da quassù quella regola diventa leggibile in un colpo d'occhio — cinquantanove tetti che obbediscono alla stessa geometria."
+        },
+        {
+          "title": "Mattina alle spalle, pomeriggio in controluce",
+          "body": "La terrazza sta a est del villaggio e lo guarda verso ovest: la luce buona arriva alle spalle al mattino. Nel pomeriggio i tetti vanno in controluce e la neve brucia l'esposizione. Vale più di molti filtri: scegliere l'ora cambia il villaggio più di uno zoom."
+        },
+        {
+          "title": "Sentiero, navetta, niente auto sul piazzale",
+          "body": "Il comune chiede di non salire in auto privata e di non parcheggiare al sito. A piedi dal margine nord bastano venti minuti scarsi; la navetta costa poche centinaia di yen e scarica vicino alla terrazza. Il panorama è pubblico: la terrazza privata poco più a monte non è il punto di cui si parla."
+        },
+        {
+          "title": "La salita che raddrizza i tetti",
+          "body": "Dal basso Shirakawa-go è una sequenza di falde. Dopo lo sforzo breve, diventa una pianta. È l'effetto speciale del villaggio che non richiede biglietto — solo polmoni e un po' di pazienza sulla pendenza.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "荻町城 — Wikipedia (giapponese)",
+          "url": "https://ja.wikipedia.org/wiki/%E8%8D%BB%E7%94%BA%E5%9F%8E",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "白川郷・五箇山の合掌造り集落 — Wikipedia (giapponese)",
+          "url": "https://ja.wikipedia.org/wiki/%E7%99%BD%E5%B7%9D%E9%83%B7%E3%83%BB%E4%BA%94%E7%AE%87%E5%B1%B1%E3%81%AE%E5%90%88%E6%8E%8C%E9%80%A0%E3%82%8A%E9%9B%86%E8%90%BD",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "白川村 — Wikipedia (giapponese)",
+          "url": "https://ja.wikipedia.org/wiki/%E7%99%BD%E5%B7%9D%E6%9D%91",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "白川郷観光協会 (sito ufficiale, navetta per il belvedere)",
+          "url": "https://shirakawa-go.gr.jp/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-kanazawa-gold-leaf",
+      "long": "Kanazawa produce la quasi totalità della foglia d'oro giapponese non per magia cittadina, ma per un intreccio di licenze storiche, umidità favorevole alla battitura, acqua adatta ai processi e una rete di botteghe che ha saputo industrializzare senza perdere del tutto la mano. La lamina è metallo ridotto a spessore quasi immateriale: si lavora con pinze, tele di bamboo e gesti misurati. Culturalmente l'oro di Kaga ha rivestito templi, lacche e carta; la stessa tecnica oggi serve anche oggetti d'uso e confezioni festive. Quel che resta della lezione storica è un'economia di precisione: il lusso non è massa ma sottilità, e il primato cittadino si misura in micron più che in tonnellate.",
+      "sections": [
+        {
+          "title": "Perché proprio qui",
+          "body": "Clima umido, saperi accumulati e domanda del feudo Maeda crearono le condizioni. Le licenze di lavorazione consolidarono un primato che la modernità ha poi trasformato in cluster industriale-artigiano."
+        },
+        {
+          "title": "Sottile fino a sparire",
+          "body": "La misura della foglia si conta in micron. Non si «dipinge» d'oro: si fa aderire una pelle di metallo che rifiuta correzioni grossolane. L'errore non si lima: si ricomincia."
+        },
+        {
+          "title": "Dal feudo Maeda al cluster artigiano",
+          "body": "La domanda del feudo consolidò licenze e saperi; la modernità trasformò quel privilegio in un distretto di produttori e fornitori. Il salto non cancella la mano: sposta soltanto dove finisce la lamina — altare, lacca, carta o oggetto da regalo."
+        },
+        {
+          "title": "Il prezzo si conta a fogli, non a chili",
+          "body": "In bottega si parla di dimensioni di foglio e di caratura percepita, non di lingotti. È lusso che si acquista quasi a peso di aria — e proprio per questo il mestiere resta ossessionato dalla precisione.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "金沢箔 — contesto artigianale",
+          "url": "https://www.kanazawa-kankoukyoukai.or.jp/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "金沢箔 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E9%87%91%E6%B2%A2%E7%AE%94",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Hakuichi — gold leaf craft",
+          "url": "https://enkanazawa.hakuichi.co.jp/",
+          "kind": "produttore / bottega"
+        }
+      ]
+    },
+    {
+      "id": "experience-kanazawa-gold-leaf-workshop",
+      "long": "Al secondo piano di Kanazawa Bikazari Asano, nel quartiere Higashi Chaya, Hakuichi trasforma una lavorazione che normalmente non perdona correnti d’aria in una sequenza controllabile. Si sceglie il supporto e si compone il motivo con sagome adesive; l’istruttore stende il mordente, poi la foglia viene posata sull’area preparata, protetta con una finitura e infine liberata dalle mascherature. Il punto non è «dipingere d’oro»: la lamina non si tira col pennello e non si può correggere come un colore. Bisogna farla aderire senza pieghe, toccandola il meno possibile. Hakuichi propone anche, nella sede Hakukokan, una prova di trasferimento con pinze e telaio di bambù, gli strumenti usati per spostare e rifilare la foglia; A Higashiyama la sessione occupa in genere fra mezz’ora e un’ora e la prenotazione è consigliata: è il retro pratico di ciò che le vetrine del quartiere mostrano già finito.",
+      "sections": [
+        {
+          "title": "La maschera lavora al contrario",
+          "body": "Nel programma di Bikazari Asano le sagome adesive non disegnano l’oro: proteggono porzioni del supporto mentre il mordente e la foglia coprono il resto. Dopo la finitura le sagome vengono tolte e il motivo compare per contrasto. È una piccola lezione di decorazione negativa, non un semplice adesivo dorato."
+        },
+        {
+          "title": "Il mordente lo stende l’istruttore",
+          "body": "Nel corso base la colla non è lasciata all’improvvisazione del visitatore. Lo staff prepara la superficie, poi mostra come far aderire la lamina fino a coprire il campo scelto; solo dopo arriva lo strato protettivo. La divisione dei gesti consente di provare la fragilità della foglia senza sacrificare il pezzo al primo angolo sollevato."
+        },
+        {
+          "title": "Una bottega sopra la bottega",
+          "body": "Il laboratorio è al piano superiore di Bikazari Asano, in una strada laterale dietro l’asse principale di Higashi Chaya. Al piano terra si vendono accessori e vasellame di giovani artigiani locali: prima si vede come una superficie riceve il metallo, poi si può confrontare il proprio risultato con oggetti progettati per il mestiere."
+        },
+        {
+          "title": "Le sagome che decidono il disegno",
+          "body": "Nel corso base le mascherine adesive fanno più lavoro del pennello: proteggono, poi spariscono, e il motivo compare per sottrazione. Si esce con un pezzo finito e con la sensazione di aver collaborato con lo scotch più esigente della città.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Experience — HAKUICHI",
+          "url": "https://enkanazawa.hakuichi.co.jp/experience/",
+          "kind": "operatore ufficiale"
+        },
+        {
+          "title": "Gold Leaf Craft Experience in Higashi Chaya District — Visit Kanazawa",
+          "url": "https://visitkanazawa.jp/en/activities/detail_1688.html",
+          "kind": "ente turistico ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "food-kanazawa-gold-ice",
+      "long": "Il soft cream con foglia d'oro intera è il dessert più fotografato di Kanazawa, e per una volta la foto non mente sul prodotto: sopra un cono o una coppetta di vaniglia (a volte matcha o latte) poggia una lamina edibile che copre quasi tutta la superficie. Non cambia il gusto — la foglia è così sottile da sparire in bocca — ma cambia il rituale: si mangia sapendo di avere in mano il mestiere per cui la città è famosa, ridotto a un gesto da street food. Si compra nelle botteghe di kinpaku vicino a Kenrokuen, Higashi Chaya e nei punti souvenir del centro; costa più di un soft cream normale e si mangia subito, perché la lamina non ama vento e umidità. Non è un dolce della tradizione del tè: è un souvenir da passeggio nato quando l'artigianato ha accettato di finire anche sul gelato.",
+      "sections": [
+        {
+          "title": "Foglia intera, non briciole",
+          "body": "La versione «da cartolina» ha una lamina che copre il soft cream come un cappello. Se vedi solo scintillii sparsi, è un'altra esperienza — ancora edibile, meno scenografica."
+        },
+        {
+          "title": "Dove ha senso comprarlo",
+          "body": "Botteghe di foglia d'oro e caffè collegati ai laboratori lo trattano come prodotto di casa. Un chiosco generico in stazione può offrirne uno più debole: controlla che la lamina sia larga e appena posata."
+        },
+        {
+          "title": "Gusto zero, gesto pieno",
+          "body": "Non cercare un sapore metallico. Cerca la temperatura del soft cream e la certezza di aver mangiato oro alimentare senza che resti nulla tra i denti — se resta, stavi masticando altro."
+        },
+        {
+          "title": "Il soft cream che non aspetta la foto perfetta",
+          "body": "Tra il posare la lamina e il primo leccata ci sono pochi secondi utili. Chi insegue l'inquadratura ideale finisce spesso con una vaniglia nuda e una foglia già piegata sul tovagliolo — souvenir involontario della fretta.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "The Cuisine of Kanazawa — VISIT KANAZAWA",
+          "url": "https://visitkanazawa.jp/en/trip-ideas/detail_239.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Kanazawa Gold Leaf Crafting — Travel Japan (JNTO)",
+          "url": "https://www.japan.travel/en/japans-local-treasures/kanazawa-gold-leaf-craft/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Hakuichi — gold leaf craft (Kanazawa)",
+          "url": "https://enkanazawa.hakuichi.co.jp/",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "history-hakone-black-eggs",
+      "long": "Le kuro-tamago di Ōwakudani sono un pezzo di folklore termale diventato industria leggera del viaggio. Si fanno bollire uova di gallina nelle acque e nei vapori della valle solforosa finché il guscio annerisce; si vendono calde, spesso a gruppi di quattro, con la promessa popolare che ognuna allunghi la vita di sette anni. La scienza ha discusso a lungo sul pigmento — per decenni si parlò di solfuro di ferro, poi di altre chimiche del guscio — ma per chi compra il sacchetto il punto non è il laboratorio: è partecipare a un rito di valle che trasforma puzza di zolfo in souvenir commestibile. Il nome antico della conca, Ōjigoku, «grande inferno», ricorda che prima del turismo di massa questo paesaggio si raccontava come soglia pericolosa. L'uovo nero tiene insieme paura domestica del vulcano e voglia di portarsi a casa una prova di essere stati lì.",
+      "sections": [
+        {
+          "title": "Sette anni, una slogan che funziona",
+          "body": "La longevità promessa non è un claim medico e non va presa come tale. È una battuta propiziatoria da stazione termale, dello stesso famigliare delle acque «che fanno bene» senza specificare a che cosa. Funziona perché è facile da ripetere in coda."
+        },
+        {
+          "title": "Dal grande inferno al bancone snack",
+          "body": "Finché la valle si chiamava inferno, l'uovo nero era quasi un trofeo: avevi mangiato qualcosa cotto alle porte dell'aldilà. Il ribattezzamento Meiji e l'arrivo della funivia hanno spostato il tono verso l'attrazione familiare, senza cancellare l'odore che vi resta sui vestiti."
+        },
+        {
+          "title": "Cosa rappresenta culturalmente",
+          "body": "In Giappone le terme vendono spesso un cibo-firma legato all'acqua locale. A Ōwakudani la firma è l'uovo perché l'unica cucina possibile vicino alle fumarole è quella che usa il calore geotermico come forno. È geologia trasformata in merenda."
+        },
+        {
+          "title": "Se il cratere è chiuso, il mito resta",
+          "body": "I livelli di allerta vulcanica possono interrompere l'accesso alle vasche. L'immaginario resta lo stesso: l'uovo nero appartiene a Hakone anche nei giorni in cui il bancone resta chiuso."
+        },
+        {
+          "title": "Sette anni in offerta multipack",
+          "body": "La promessa di longevità si vende a pacchetti da quattro. È aritmetica termale: più uova nello stesso sacchetto, più anni da raccontare a cena — nessuno chiede lo scontrino medico.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "大涌谷くろたまご館 — sito ufficiale",
+          "url": "https://www.owakudani.com/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "大涌谷 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E6%B6%8C%E8%B0%B7",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "大涌谷 — Hakone Navi",
+          "url": "https://www.hakonenavi.jp/hakone-navi/spot/nature/owakudani",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-hakone-kuro-tamago",
+      "long": "A Ōwakudani la kuro-tamago si mangia come snack di valico: comprate il sacchetto al Kurotamago House, cercate un punto riparato dal vento, e fate i conti con guscio nero e odore di zolfo sulle dita. All'esterno l'uovo sembra carbonizzato; dentro — una volta sbucciato — è un uovo sodo normale, bianco e tuorlo cotto, a volte con un leggero retrogusto minerale. Il sito ufficiale spiega la cottura nelle acque termali e la vendita tipica a gruppi di quattro: non è un menù à la carte, è un pacchetto. In coda restare sul lato indicato, avere contanti pronti se richiesti, e non aprire il sacchetto sopra la merce altrui: lo zolfo si attacca a mani, sciarpe e fotocamere. Se la valle o il sentiero sono chiusi per allerta, non insistete per «l'uovo autentico» da un venditore improvvisato altrove: l'esperienza snack è legata a questo bancone. Mangiatene uno sul posto; gli altri reggono il viaggio in funivia meglio di quanto regga il vostro olfatto in hotel.",
+      "sections": [
+        {
+          "title": "Nero fuori, sodo dentro",
+          "body": "Il colore nero è del guscio; l'albume non è nero. Se vi aspettate un tuorlo «vulcanico», resterete delusi in modo sano: è un uovo sodo. Sbucciatelo con pazienza: il guscio può sporcare le mani più di un uovo normale."
+        },
+        {
+          "title": "Coda e pacchetto da quattro",
+          "body": "Si compra tipicamente il set, non il pezzo singolo. Tenete lo zaino chiuso mentre pagate, uscite dalla fila prima di sbucciare, e non lasciate gusci sul piazzale: ci sono cestini. In giornate di vento lo zolfo arriva comunque; non è un difetto del pezzo che avete preso."
+        },
+        {
+          "title": "Come si mangia da viaggiatori",
+          "body": "Sale se c'è, altrimenti natura. Non è un secondo: è una merenda calda fra funivia e foto. Se l'odore vi dà fastidio, mangiatene mezzo e chiudete il sacchetto: nessuno vi obbliga al kit completo in un solo fiato."
+        },
+        {
+          "title": "Il guscio che ti tinge le unghie",
+          "body": "Sbucciare al vento è uno sport: il nero del guscio finisce sotto le unghie prima che il tuorlo arrivi alla bocca. Portate un fazzoletto, o accettate di scendere dalla ropeway con mani da carbonaio elegante.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "大涌谷くろたまご館 — sito ufficiale",
+          "url": "https://www.owakudani.com/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "Kurotamago House — Hakone Navi",
+          "url": "https://www.hakonenavi.jp/international/en/spot/73",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "箱根町観光協会 — hakone.or.jp",
+          "url": "https://www.hakone.or.jp/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-tonkotsu-ramen",
+      "long": "Il tonkotsu ramen è brodo di ossa di maiale bollite a lungo fino a diventare bianco, opaco e ricco, con noodle sottili e cottura del pane che si chiede al bancone: katamen, futsumen, yawamen. Associato storicamente a Kyushu e a Hakata, oggi è un linguaggio nazionale — catene, locali indipendenti e angoli di stazione lo servono da Hokkaido a Okinawa. Non è il shoyu limpido da quotidiano urbano: è più grasso, più profumato di collagene, spesso con beni shoga, nori, chashu e uovo. Si mangia in fretta, da seduti al bancone, senza trasformare il locale in salotto. Per chi viaggia è utile sapere che «tonkotsu» indica la base ossea, non una città obbligatoria sul biglietto. Oggi lo trovate da Hokkaido a Okinawa: comfort food esportato, non souvenir obbligatorio di Fukuoka.",
+      "sections": [
+        {
+          "title": "Bianco come firma",
+          "body": "Il brodo deve essere lattiginoso, non trasparente. Se è chiaro e leggero, stai bevendo un altro stile. Il profumo è intenso: normale, non «andato a male»."
+        },
+        {
+          "title": "Ordine della cottura",
+          "body": "Molti banconi chiedono quanto cotto vuoi il noodle. Se non sai, futsu (normale) è sicuro. Katamen resta più elastico e regge meglio il brodo denso."
+        },
+        {
+          "title": "Ritmo da ramen-ya",
+          "body": "Si mangia e si lascia il posto. Non è maleducazione: è flusso. Se c'è fila, il tavolo non è un ufficio. Un gyoza a lato va bene; il meeting di un'ora no."
+        },
+        {
+          "title": "Il tovagliolo che arrende le armi",
+          "body": "Dopo il chashu e il brodo bianco, il tovagliolo di carta alza bandiera bianca. Non è maleducazione: è fisica dei lipidi. Molti locali tengono i fazzoletti proprio per questo armistizio.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — A Guide to Ramen in Japan",
+          "url": "https://www.japan.travel/en/guide/a-guide-to-ramen-in-japan/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Ramen guide",
+          "url": "https://www.japan.travel/en/guide/ramen/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — 5 Ramen Towns You Must Visit",
+          "url": "https://www.japan.travel/en/us/blog/5-ramen-towns-you-must-visit/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-shirakawago-sarubobo",
+      "long": "Il sarubobo che compri a Shirakawa-go è una bambolina di tessuto senza volto, tipica del Hida: amuleto domestico prima ancora che mascotte da selfie. In vetrina ne trovi di rosso classico e di colori moderni con significati diversi (amore, studio, denaro, salute): l’acquisto utile è scegliere un pezzo cucito bene, non il più glitterato. Botteghe del villaggio e souvenir shop di Ogimachi li vendono accanto a ciondoli e versioni mini; i kit fai-da-te e i centri esperienza di Takayama sono un’altra faccia dello stesso oggetto. Non è un personaggio da merchandising con occhi ricamati: l’assenza di volto è proprio ciò che lo rende amuleto, non pupazzo. In valigia pesa quasi zero; in foto, invece, tende a rubare l’inquadratura al tetto gassho.",
+      "sections": [
+        {
+          "title": "Cosa stai portando a casa",
+          "body": "Tessuto imbottito, forma a «cucciolo di scimmia», niente tratti facciali. Controlla cuciture, ripieno compatto e cordino di appendere. Se è solo stampa su plastica, stai comprando altro."
+        },
+        {
+          "title": "Colori e significati da etichetta",
+          "body": "Il rosso resta il più comune; blu, rosa, giallo e varianti recenti spesso hanno schede con auguri diversi. Leggi il cartellino in negozio invece di inventare simbologie a orecchio."
+        },
+        {
+          "title": "Villaggio, bottega o kit",
+          "body": "A Shirakawa-go lo trovi nelle botteghe lungo i percorsi pedonali; a Takayama compaiono anche esperienze di cucito. Per il souvenir «già fatto» basta un pezzo locale ben cucito, non una collezione intera."
+        },
+        {
+          "title": "Il pupazzo che ruba il tetto in foto",
+          "body": "Inquadrate il gasshō, alzate il telefono — e il sarubobo finisce in primo piano come se avesse firmato un contratto di esclusiva. In valigia pesa quasi zero; nel rullino, invece, occupa metà degli scatti «paesaggio».",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Shirakawa-go Tourist Association",
+          "url": "https://shirakawa-go.gr.jp/en/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Hands-On Town Interaction Center — Hida Takayama",
+          "url": "https://www.hida.jp/english/touristattractions/takayamacity/historyandculture/4001626.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "さるぼぼ — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%95%E3%82%8B%E3%81%BC%E3%81%BC",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "history-takayama-sarubobo",
+      "long": "Sarubobo, «piccolo di scimmia», è una bambola di tessuto senza volto legata a pratiche di augurio familiare nel Hida: fertilità, salute dei figli, buon matrimonio, protezione domestica. L’assenza di tratti facciali non è incompletezza: è dispositivo. Chi guarda può proiettare emozioni diverse, e la bambola resta aperta come amuleto invece di fissarsi in un’espressione unica. Nata da mani femminili in ambito domestico, è diventata segno urbano di Takayama senza perdere del tutto la funzione apotropaica. Resta un oggetto di cura affettiva che il mercato ha reso visibile, nato da una grammatica del desiderio familiare più antica della vetrina.",
+      "sections": [
+        {
+          "title": "Perché senza volto",
+          "body": "Un volto cucito fisserebbe un’emozione; un non-volto le ospita tutte. L’amuleto resta disponibile alle paure e alle speranze di chi lo tiene."
+        },
+        {
+          "title": "Mani di madri, rete di auguri",
+          "body": "Come molti oggetti di protezione domestica, circolava dentro relazioni femminili prima di diventare souvenir. Il passaggio al banco non cancella del tutto quella genealogia."
+        },
+        {
+          "title": "Scimmia come segno propizio",
+          "body": "Nel folklore locale la scimmia può allontanare il male o favorire nascite. Il nome «cucciolo» tiene insieme tenerezza e tutela."
+        },
+        {
+          "title": "L'amuleto che lascia spazio alle speranze",
+          "body": "Senza occhi ricamati, nessuno vi impone un'espressione da collezionare. La bambola resta aperta: ci mettete voi la paura o l'augurio del momento, e lei non corregge il tiro.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "さるぼぼ — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%95%E3%82%8B%E3%81%BC%E3%81%BC",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "高山市 — souvenir culturali",
+          "url": "https://www.city.takayama.lg.jp/",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "JNTO — Takayama",
+          "url": "https://www.japan.travel/en/destinations/chubu/gifu/takayama-and-around/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-nara-akahada-yaki",
+      "long": "L’akahada-yaki da portare via è una ciotola, una tazza o un piccolo vaso di ceramica dai toni caldi — impasto rosato, smalti lattei o verdognoli, spesso con motivi Nara-e. Si compra presso fornaci attive tra Nara e Yamatokōriyama e nei punti craft in città, scegliendo pezzi d'uso o da mensola con marchio di forno leggibile. Cerca firma del forno sul fondo e confronta pezzi d’uso (tè, saké, quotidiano) con pezzi puramente ornamentali. La prefettura elenca la filiera; botteghe come Oshio Shozan documentano il forno. In valigia vincono yunomi e piattini: stesso suolo cotto, meno volume. Evita di confonderlo con generica «ceramica cervo» stampata per turisti.",
+      "sections": [
+        {
+          "title": "Pezzo firmato, non magnete cervo",
+          "body": "Marchio di fornace, peso e smalto caldo contano più del motivo superficiale. Un bicchiere anonimo con cervo stampato non è automaticamente akahada."
+        },
+        {
+          "title": "Uso da tè o da mensola",
+          "body": "Chiedi se è food-safe e come lavarlo. I pezzi da cerimonia e quelli da tavola quotidiana hanno spessori e finiture diverse."
+        },
+        {
+          "title": "Fornaci e craft shop",
+          "body": "Le pagine della prefettura e i forni aperti al pubblico sono la strada più chiara. In Naramachi trovi anche rivendite: chiedi provenienza del pezzo specifico."
+        },
+        {
+          "title": "Il fondo della tazza come biglietto da visita",
+          "body": "Capovolgete il pezzo prima di pagare: firma di fornace e piede ben finito dicono più del cervo stampato sul bordo. A Nara il souvenir serio si legge dal basso.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "赤膚焼 — Prefettura di Nara",
+          "url": "https://www.pref.nara.lg.jp/n100/akahadayaki.html",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "About us — Akahadayaki Oshio Shozan",
+          "url": "https://www.akahadayaki.com/aboutus_en.html",
+          "kind": "produttore"
+        },
+        {
+          "title": "Visit Nara — see and do",
+          "url": "https://www.visitnara.jp/see-and-do/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-nara-akahada",
+      "long": "L'akahada-yaki è la ceramica con cui Nara tocca se stessa senza passare dai cervi. Sulle colline a ovest della conca, dove l'argilla locale ha a lungo alimentato fornaci per templi e uso quotidiano, la tradizione ricorda già i tè e i fūro voluti sotto Toyotomi Hidenaga; il nome e il carattere distintivi si consolidano però quando il dominio di Kōriyama, con i Yanagisawa, sostiene i forni e quando artigiani come Okuda Mokuhaku legano l'impasto rosato-latteo ai Nara-e — scene e motivi legati alla città antica. Contata fra i forni amati dalla scuola Enshū, l'akahada resta un mestiere vivo in poche fornaci certificate, fra Nara e Yamatokōriyama. Sul pezzo si cerca lo smalto caldo, la mano sul tè o sulla ciotola, e una memoria tattile della prefettura che non si esaurisce nei grandi tetti fotografati.",
+      "sections": [
+        {
+          "title": "Argilla di collina, non souvenir generico",
+          "body": "Il nome richiama la «pelle rossa» dell'impasto. Non è una categoria astratta di «ceramica giapponese»: è un suolo specifico e una filiera locale che ha servito altari, fuochi da tè e tavole."
+        },
+        {
+          "title": "Dal tè dei Toyotomi al forno di dominio",
+          "body": "La memoria Momoyama lega i primi sviluppi alla domanda di utensili da cerimonia. Il rilancio Edo sotto i Yanagisawa trasforma quella pratica in identità di feudo: il forno diventa politica culturale, non solo bottega."
+        },
+        {
+          "title": "Nara-e sullo smalto",
+          "body": "I motivi dipinti che raccontano templi, cervi, leggende locali spostano l'akahada dal solo tè verso una narrazione visiva della città. Mokuhaku e i suoi eredi resero riconoscibile il pezzo anche lontano dalla fornace."
+        },
+        {
+          "title": "Come riconoscerla oggi",
+          "body": "Cercate toni caldi, smalti lattei o verdognoli, firme di forno e, nei pezzi tipici, decorazioni legate a Nara. Le fornaci ancora attive e le pagine della prefettura aiutano a distinguere la filiera da imitazioni vaghe."
+        },
+        {
+          "title": "Enshū senza bisogno del biglietto da tempio",
+          "body": "Contata fra i forni amati dalla scuola Enshū, l'akahada porta in tavola una genealogia da cerimonia del tè anche quando finisce come yunomi quotidiano. Nara, per una volta, si spiega a sorsi invece che a selfie con i cervi.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "赤膚焼 — Prefettura di Nara",
+          "url": "https://www.pref.nara.lg.jp/n100/akahadayaki.html",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "赤膚焼 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E8%B5%A4%E8%86%9A%E7%84%BC",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "About us — 赤膚焼窯元 大塩昭山",
+          "url": "https://www.akahadayaki.com/aboutus_en.html",
+          "kind": "fornace / craft"
+        }
+      ]
+    },
+    {
+      "id": "shop-kanazawa-gold-leaf",
+      "long": "A Kanazawa la foglia d’oro si compra come oggetto finito: piattini dorati, portacarte, cornici, cosmetici con lamina, piccoli accessori e set da regalo con lamina applicata su supporto solido. Higashi Chaya e i flagship di produttori come Hakuichi o botteghe specializzate (Sakuda, Hakuza e simili) sono i punti tipici dove confrontare qualità di applicazione e spessore percepito. Preferisci pezzi in cui la lamina è stesa su supporto solido e protetta, non gadget «gold look» senza peso. Evita di sfregare la superficie con le dita: la foglia vera è sottile fino a sparire. Per la valigia contano imballo antiflessione e pezzi piatti; i laboratori «prova a dorare» sono esperienza a parte, utili se vuoi capire il gesto prima di spendere su un pezzo serio.",
+      "sections": [
+        {
+          "title": "Lamina su oggetto, non glitter da festa",
+          "body": "Cerca bordi netti, adesione uniforme e marchio o nome del produttore. Se il dorato si sfalda al primo tocco o sembra vernice spray, lascia stare."
+        },
+        {
+          "title": "Cosa porta bene il viaggio",
+          "body": "Piattini, sottobicchieri, piccoli pannelli e accessori piatti viaggiano meglio di sculture irregolari. Chiedi una scatola o un foglio protettivo: la lamina odia lo sfregamento nello zaino."
+        },
+        {
+          "title": "Shop specializzati vs souvenir generico",
+          "body": "Visit Kanazawa elenca l’oro tra i craft cittadini; i negozi di foglia spiegano spesso se il pezzo è edible-grade, cosmetico o decorativo. Tre categorie diverse, tre usi diversi."
+        },
+        {
+          "title": "L’unico metallo che scompare se lo accarezzi troppo",
+          "body": "Altri souvenir si usurano; la foglia d’oro può evaporare sotto il pollice entusiasta. È lusso con istruzioni da farfalla: ammirare sì, strofinare no.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Traditional Craft of Kanazawa — Visit Kanazawa",
+          "url": "https://visitkanazawa.jp/en/crafts",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Hakuichi — Kanazawa gold leaf",
+          "url": "https://enkanazawa.hakuichi.co.jp/",
+          "kind": "produttore"
+        },
+        {
+          "title": "金沢箔 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E9%87%91%E6%B2%A2%E7%AE%94",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-kanazawa-gold-leaf-panel",
+      "long": "Il pannello con foglia d'oro di Kanazawa è l'oggetto da comprare quando volete portare a casa la kinpaku senza trasformarvi in rivenditori di lamine: un supporto piccolo — legno, carta, acrilico, vetro — su cui foglia d'oro o argento è applicata a mano o in atelier, con motivi astratti, stemmi, paesaggi o superfici lisce che giocano con la luce. È un pezzo finito con verso e recto, spessore, protezione e istruzioni di manutenzione — pensato per appendere o appoggiare, non per rimanere in busta. Visit Kanazawa elenca atelier e negozi (Imai Kinpaku, Sakuda, Hakuichi e altri) dove si vedono pannelli pronti e, spesso, esperienze di applicazione. Distinguete pannello d'atelier con foglia vera e finitura dichiarata, edizione decorativa seriale con foglia genuina ma design ripetuto, e gadget dorati a spray che brillano come promesse elettorali. Chiedete supporto, caratura o tipo di lamina, se c'è vernice di protezione e come pulirlo: un panno umido aggressivo può fare più danni di un volo in stiva.",
+      "sections": [
+        {
+          "title": "Cosa state portando a casa, millimetro per millimetro",
+          "body": "Il valore sta nel pezzo finito: supporto stabile, applicazione uniforme, eventuali incisioni o motivi, e una finitura che non si sfoglia al primo contatto con lo zaino. Un pannello piccolo da parete o da ripiano batte le «scaglie sfuse» da foto Instagram, che in valigia diventano glitter filosofici."
+        },
+        {
+          "title": "Foglia vera, effetto oro, spray da festa",
+          "body": "Gli atelier di Kanazawa spiegano di solito se usano foglia d'oro genuina e come è fissata. Diffidate di superfici troppo spesse e plastose vendute come kinpaku senza nome di laboratorio. Se il prezzo è da portachiavi e la pretesa da museo, state comprando scintillio, non foglia."
+        },
+        {
+          "title": "Atelier e museum shop in città",
+          "body": "Higashi Chaya e i punti segnalati da Visit Kanazawa sono il circuito naturale: vedete pannelli, cornici e oggetti d'uso con foglia. Preferite chi indica manutenzione (niente abrasivi, attenzione all'umidità). Per il viaggio, scegliete un formato che entri piatto tra i vestiti o in una scatola di cartone del negozio — molti la forniscono se la chiedete."
+        },
+        {
+          "title": "L'oro che fotografa malissimo e vive benissimo",
+          "body": "In foto il pannello diventa una macchia bianca; dal vivo fa la luce della stanza. Compensazione cosmica: i vostri follower non capiranno, gli ospiti sì. È l'unico souvenir che migliora spegnendo il flash.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Imai Kinpaku Main Store — Visit Kanazawa",
+          "url": "https://visitkanazawa.jp/en/shops/detail_10015.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Gold leaf workshop — Visit Kanazawa",
+          "url": "https://visitkanazawa.jp/en/activities/detail_1263.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Hakuichi — Kanazawa gold leaf craft",
+          "url": "https://enkanazawa.hakuichi.co.jp/",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-hakone-yosegi",
+      "long": "Lo yosegi di Hakone da comprare è soprattutto un oggetto meccanico o d'uso: himitsu-bako (scatola segreta a scorrimenti), piccolo cassetto, vassoio, sottobicchiere — superficie a mosaico di essenze naturali, non dipinta. Il pezzo da negozio si sceglie per certificazione di filiera Hakone/Odawara, numero di mosse della scatola e precisione degli scorrimenti — legno vero, meccanica fluida, motivo continuo sugli spigoli. Hakone Yosegi-zaiku è craft tradizionale designato; cercate botteghe e hall (Hatajuku e dintorni) dove si vedono fogli di marquetry e si prova l'apertura. Per l'himitsu-bako chiedete quante mosse servono (ne esistono versioni da poche a molte decine), se includono diagramma o dimostrazione, e se il meccanismo è fluido senza forzare. Evitate imitazioni con vene stampate o colorate a pennarello: i colori devono venire dal legno. In valigia, bloccate gli scorrimenti con un elastico leggero o tenete la scatola chiusa nella sua confezione: un'apertura accidentale in stiva è un film muto di cui siete l'unica platea.",
+      "sections": [
+        {
+          "title": "Himitsu-bako: quante mosse userete davvero",
+          "body": "Scegliete la difficoltà che userete davvero: 4–10 mosse per regalo giocoso; livelli alti se amate i puzzle. Fatevi mostrare l'apertura una volta e ripetete. Controllate angoli, allineamento dei pannelli e assenza di colla in eccesso. Una scatola che «si apre quasi» è soltanto frustrante: meglio meno mosse e un meccanismo fluido."
+        },
+        {
+          "title": "Certificazione e legno vero",
+          "body": "Preferite rivenditori di Hakone-Yumoto, Hatajuku e Odawara legati alla tradizione locale e al riconoscimento di traditional craft. Il motivo deve essere continuo sugli spigoli; vene identiche ripetute come carta da parati sospettano stampa. KOGEI JAPAN e le pagine Hakone spiegano la filiera: usatele per orientare il negozio, poi giudicate il pezzo in mano."
+        },
+        {
+          "title": "Formati che perdono meno pezzi",
+          "body": "Oltre alle secret box, vassoi bassi e small boxes semplici viaggiano bene. Chiedete se il pezzo teme umidità eccessiva e come lucidarlo. Non usate oli da cucina improvvisati. Per il volo, la scatola originale o una scatola di cartone interna batte il rotolo di calzini come unica protezione."
+        },
+        {
+          "title": "La scatola che vi rende guardiani del segreto altrui",
+          "body": "Metterci dentro un anello è classico. Metterci dentro le ricevute del konbini è onesto. L'himitsu-bako non giudica il contenuto — giudica solo chi prova ad aprirla al tavolo di Natale senza aver ascoltato la dimostrazione del negozio.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Yosegi Zaiku — Hakone Japan",
+          "url": "https://hakone-japan.com/plan-your-trip/stories/cultural-experiences/yosegi-zaiku-hakone-marquetry/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Hakone Yosegi Zaiku — KOGEI JAPAN",
+          "url": "https://kogeijapan.com/locale/en_US/hakoneyosegizaiku/",
+          "kind": "catalogo artigianato"
+        },
+        {
+          "title": "Hakone Tourist Association",
+          "url": "https://www.hakone.or.jp/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-kanazawa-kaga-yuzen",
+      "long": "Il Kaga yuzen da portare a casa è soprattutto accessorio: foulard, sciarpe, ventagli decorativi, piccole arazzi e pezzi pronti venduti nei centri e nelle gallerie associate — non un kimono completo a meno che tu non abbia budget e valigia da collezionista. Cerchi seta con colori Kaga (indaco, cremisi, ocra, verde scuro, viola) e motivi naturalistici dipinti, spesso senza eccesso di foglia d’oro. Il Kaga Yuzen Kimono Center e le botteghe citate da Visit Kanazawa vendono pezzi piccoli e certificati; chiedi del marchio o del timbro di autenticità quando il prezzo sale. In valigia la seta vuole piega morbida e busta, non compressione sotto le scarpe. L’obiettivo è un rettangolo di tessuto firmato dalla scuola di Kaga,.",
+      "sections": [
+        {
+          "title": "Foulard e pezzi tascabili",
+          "body": "Sciarpe, furoshiki decorativi, ventagli e mini-pannelli sono il modo realistico di «comprare yuzen». Il kimono intero è un altro progetto di vita (e di dogana emotiva)."
+        },
+        {
+          "title": "Timbro, nome atelier, materiale",
+          "body": "Sulla fascia alta chiedi certificazione o nome del tintore. Sulla fascia media confronta mano della seta e nitidezza dei contorni: la pasta di riso lascia campi di colore puliti, non sbavature casuali."
+        },
+        {
+          "title": "Dove comprarlo a Kanazawa",
+          "body": "Il Kimono Center e le gallerie/atelier in città mescolano mostra e vendita. Evita magliette stampate «yuzen style» vendute come se fossero tintura a mano."
+        },
+        {
+          "title": "La sciarpa che fa sembrare il kimono un abbonamento annuale",
+          "body": "Con un foulard otieni il 90% dell’effetto «ho toccato il Kaga yuzen» e il 10% del peso. Il kimono completo resta per chi ha già risolto dove appenderlo a casa.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Kaga Yuzen — official association site",
+          "url": "https://www.kagayuzen.or.jp/index_en/",
+          "kind": "associazione"
+        },
+        {
+          "title": "Traditional Craft of Kanazawa — Visit Kanazawa",
+          "url": "https://visitkanazawa.jp/en/crafts",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Kaga Yuzen — KOGEI JAPAN",
+          "url": "https://kogeijapan.com/locale/en_US/kagayuzen/",
+          "kind": "catalogo artigianato"
+        }
+      ]
+    },
+    {
+      "id": "shop-kyoto-nishijin",
+      "long": "Il Nishijin-ori da shopping è tessuto figurato già trasformato in oggetto portabile: astucci, cravatte, piccole borse, sottobicchieri, pezzi di obi riciclati o accessori da Nishijin Textile Center e botteghe del quartiere nord. I fili sono tinti prima della tessitura; sul pezzo finito cerchi densità del disegno, lucentezza della seta e marchio di filiera quando il prezzo sale. Gli astucci e i portamonete offrono il miglior rapporto «tocco Nishijin / spazio in valigia». Evita magliette stampate con motivo «stile obi»: la differenza si sente al tatto. Kyoto.travel e l’associazione di industria spiegano perché il nome Nishijin non è un generico sinonimo di «seta di Kyoto».",
+      "sections": [
+        {
+          "title": "Accessorio, non rotolo da kimono",
+          "body": "Astucci, pouch, cravatte e piccoli tessili pronti sono l’acquisto tipico del viaggiatore. L’obi intero è un progetto di peso, prezzo e uso."
+        },
+        {
+          "title": "Tatto contro stampa",
+          "body": "Il vero tessuto figurato ha rilievo e profondità tra i fili. Una foto di motivo su cotone stampato non diventa Nishijin perché il cartello lo dice forte."
+        },
+        {
+          "title": "Center e botteghe a nord",
+          "body": "Il Nishijin Textile Center e i laboratori/musei del distretto mescolano mostra e vendita. Confronta finiture e cuciture degli accessori, non solo il pattern."
+        },
+        {
+          "title": "L’obi che ha deciso di diventare portamonete",
+          "body": "Dopo secoli a stringere kimono, pezzi di tessuto Nishijin accettano carriere laterali in zip e fodere. Riconversione professionale ammirevole.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "About Nishijin Textile — Nishijin Textile Industry Association",
+          "url": "https://nishijin.or.jp/eng/whats-nishijin1/",
+          "kind": "associazione"
+        },
+        {
+          "title": "Kyoto’s Historical Textile District (Kyoto.travel)",
+          "url": "https://kyoto.travel/en/travel-inspiration/kyotos-historical-textile-district/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Nishijin Textile Center — JNTO",
+          "url": "https://www.japan.travel/en/spot/1164/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-miyajima-rice-scoop",
+      "long": "Lo shamoji di Miyajima è un mestolo da riso in legno — spesso con possibilità di incisione di nome o data — venduto lungo Omotesando e nei punti legati all’associazione turistica dell’isola. L'acquisto è l'utensile o il portafortuna fisico: legno, forma a paletta, eventuale incisione del nome fatta in loco. Scegli dimensione da cucina reale o versione mini da souvenir; chiedi se l’incisione si fa in loco e quanto tempo serve. Controlla finitura del legno e se è pensato per uso alimentare. In valigia è piatto e leggero: avvolgilo perché i bordi sottili si scheggiano. Un mestolo inciso batte dieci magneti del torii.",
+      "sections": [
+        {
+          "title": "Misura da riso o mini da borsa",
+          "body": "Lo shamoji grande serve in cucina; le versioni piccole e i ciondoli sono regali. Decidi prima se deve toccare il riso davvero."
+        },
+        {
+          "title": "Incisione sul posto",
+          "body": "Molte botteghe di Omotesando offrono scrittura di nomi. Chiedi caratteri, tempi di coda e se il legno è già finito o va trattato dopo."
+        },
+        {
+          "title": "Uso alimentare e cura",
+          "body": "Se cucinerai, evita vernici dubbie e segui il lavaggio consigliato. Se è solo portafortuna da muro, puoi scegliere pezzi più decorativi."
+        },
+        {
+          "title": "Il mestolo che promette vittoria e porzioni uguali",
+          "body": "Pochi oggetti uniscono metafore di successo e equità a tavola. Ideale per chi vuole fortuna senza dover spiegare un amuleto astratto a cena.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Miyajima shamoji — Miyajima Tourist Association",
+          "url": "https://www.miyajima.or.jp/present/present_shamoji.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Miyajima Tourist Association — English",
+          "url": "https://www.miyajima.or.jp/english/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "しゃもじ — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%97%E3%82%83%E3%82%82%E3%81%98",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-shirakawago-gassho-craft",
+      "long": "La miniatura gassho-zukuri è il tetto a mani giunte ridotto a oggetto da scaffale: legno, carta o kit di assemblaggio che riproducono la silhouette delle case di Ogimachi. Serve come souvenir architettonico: silhouette delle falde, materiali leggibili, scala che entri in valigia. In villaggio le botteghe vendono modelli pronti e pezzi da costruire; la differenza tra un lavoro locale e una plastica da fabbrica si vede in giunti, paglia o copertura del tetto, proporzioni delle falde. Scegli la scala in base alla valigia: i modelli grandi sono fotogenici e fragili; i piccoli reggono meglio lo zaino. Non confonderlo con un magnete generico «Japan village»: qui conti materiale, provenienza dichiarata e se il pezzo è fatto per essere guardato o montato.",
+      "sections": [
+        {
+          "title": "Legno, carta o plastica da stazione",
+          "body": "Cerca venature, listelli e tetto leggibile; evita miniature tutte lucide senza peso. I kit in legno o carta raccontano meglio la forma del gassho di un calco industriale."
+        },
+        {
+          "title": "Scala da ripiano, non da museo",
+          "body": "Un pezzo da 10–15 cm sta in cabina; i modelli da vetrina chiedono imballo rigido. Se deve viaggiare, preferisci pezzi compatti o kit ancora da montare a casa."
+        },
+        {
+          "title": "Dove ha senso comprarlo",
+          "body": "Le botteghe di Ogimachi e i punti souvenir legati all’associazione turistica sono il contesto naturale. Chiedi se è produzione locale o import generico con etichetta «gassho»."
+        },
+        {
+          "title": "La casa che entra nello zaino senza pagare l’IMU",
+          "body": "Pochi immobili UNESCO accettano di ridursi a dieci centimetri e di non lamentarsi della neve finta. Approfittene: è l’unico tetto ripido che non ti chiede di spalare.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Shirakawa-go Tourist Association",
+          "url": "https://shirakawa-go.gr.jp/en/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "UNESCO — Historic Villages of Shirakawa-go and Gokayama",
+          "url": "https://whc.unesco.org/en/list/734/",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "合掌造り — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%90%88%E6%8E%8C%E9%80%A0%E3%82%8A",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-hiroshima-carp-goods",
+      "long": "I Carp goods di Hiroshima sono merchandise della squadra di baseball Hiroshima Toyo Carp: cappellini rossi, maglie, mascotte, asciugamani e gadget venduti in centro, in stazione e nei punti ufficiali. L'oggetto da comprare è il pezzo rosso riconoscibile — di solito il cappellino ufficiale della stagione o un gadget con licenza Carp. Controlla taglia, licenza ufficiale e se è edizione stagione o vintage da second-hand. In valigia il cappello si schiaccia: meglio riempirlo di calzini. È souvenir pop urbano, leggero da spiegare («è la squadra») e difficilissimo da confondere con artigianato tradizionale.",
+      "sections": [
+        {
+          "title": "Cappellino, maglia, piccolo gadget",
+          "body": "Il cappello è il pezzo più portabile e fotografico. Maglie chiedono taglia giusta; i keyholder risolvono regali multipli."
+        },
+        {
+          "title": "Ufficiale vs rosso generico",
+          "body": "Cerca marchio Carp / licenziatari ufficiali. Un cappello rosso qualsiasi non diventa souvenir di Hiroshima per ottimismo."
+        },
+        {
+          "title": "Stazione, centro, giorno di partita",
+          "body": "Shop in centro e corner in stazione bastano per cappello e portachiavi. Vicino allo stadio, nei giorni di partita, l'offerta si allarga a maglie e edizioni stagione — e le code si allungano di conseguenza. Per un volo il giorno dopo, meglio il punto stazione: stesso rosso, meno folla da tifo."
+        },
+        {
+          "title": "Il rosso che unisce tifosi e turisti senza richiedere regole del baseball",
+          "body": "Puoi non sapere cosa sia un strike e indossare comunque il cappellino con dignità. A Hiroshima il colore fa già metà del lavoro sociale.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Hiroshima Toyo Carp — official",
+          "url": "https://www.carp.co.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "Dive Hiroshima — official guide",
+          "url": "https://dive-hiroshima.com/en/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "広島東洋カープ — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%BA%83%E5%B3%B6%E6%9D%B1%E6%B4%8B%E3%82%AB%E3%83%BC%E3%83%97",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-kanazawa-mizuhiki",
+      "long": "Il mizuhiki di Kaga da shopping è il cordoncino di carta ritorto e indurito, annodato in forme augurali — gru, tartarughe, pino, bambù, pruno — spesso con fili oro e argento abbondanti rispetto ad altre scuole. Si compra come decorazione da regalo, piccolo ornamento da parete o oggetto da cerimonia, distinto dai gioielli indossabili. Nei centri e nelle botteghe di Kanazawa confronti nodi tridimensionali e pezzi piatti da biglietto. Controlla tenuta dei nodi, finitura metallica e se il pezzo teme l’umidità. In valigia i piccoli nodi e le composizioni compatte vincono sui grandi pannelli da engi-mono.",
+      "sections": [
+        {
+          "title": "Nodo da regalo, non filo da maglia",
+          "body": "Il mizuhiki è carta trattata, non corda tessile. Cerca torsione regolare, colori tipici e forme simboliche leggibili; i pezzi Kaga amano spesso metallo foglia."
+        },
+        {
+          "title": "Engi vs pezzo da mensola",
+          "body": "Alcuni oggetti sono pensati per accompagnare un dono; altri sono sculture da esporre. Chiedi se si appende, si appoggia o si lega a una confezione."
+        },
+        {
+          "title": "Umidità e mani unte",
+          "body": "Acqua e grasso indeboliscono i nodi. Meglio una bustina e uno scaffale asciutto che un bagno di vapore in bagno dell’hotel."
+        },
+        {
+          "title": "L’unico filo che festeggia i matrimoni senza dover ballare",
+          "body": "Il mizuhiki partecipa alle cerimonie restando immobile e photogenico. Carriera da invitato ideale: presente, elegante, zero discorso da testimone.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Traditional Craft of Kanazawa — Kaga mizuhiki (Visit Kanazawa)",
+          "url": "https://visitkanazawa.jp/en/crafts",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "水引 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E6%B0%B4%E5%BC%95",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Visit Kanazawa — crafts overview",
+          "url": "https://visitkanazawa.jp/en/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-nara-ittobori-relief",
+      "long": "Il piccolo rilievo ittobori di Nara è legno scolpito a tagli netti — spesso tavoletta, bassorilievo o figura bassa — dove i piani dello scalpello restano leggibili come facce di un cristallo. A differenza della scultura a tutto tondo da vetrina, il rilievo viaggia meglio: meno sporgenze, più facile da proteggere piatto. Naramachi, il Nara Craft Museum e i negozi di specialità locali (Kite Mite Nara Shop e botteghe affiliate) sono i circuiti tipici. Distinguete pezzo d'atelier con tracce di scalpello coerenti e firma o marchio del laboratorio, edizione seriale artigianale (stesso soggetto ripetuto a mano), e riproduzioni in resina o legno stampato che imitano il «taglio» senza averlo. Visit Nara e le guide artigiane locali insistono sulla filiera della città: cervi, figure legate a Kasuga, motivi stagionali. Le tracce dello strumento devono sembrare intenzionali, non casuali o levigate via da una macchina che ha avuto fretta.",
+      "sections": [
+        {
+          "title": "Piani, spigoli, colore",
+          "body": "L'ittobori classico ama facce larghe e spigoli vivi; il colore, se c'è, segue i piani senza nasconderli. Passate il pollice (con permesso) lungo un bordo: deve esserci una sequenza di tagli, non una superficie di plastica goffrata. Un rilievo troppo liscio «tipo souvenir» spesso non è scolpito, è stampato."
+        },
+        {
+          "title": "Tavoletta contro statuina",
+          "body": "Per il bagaglio preferite bassorilievi e piccole placche a figure a tutto tondo con corna o bastoni. Chiedete essenza del legno e se la vernice è solo protettiva. Evitate pezzi con parti staccabili non fissate: in stiva diventano un puzzle senza istruzioni."
+        },
+        {
+          "title": "Naramachi e punti di vendita ufficiali",
+          "body": "Il Nara Craft Museum mostra e intermedia mestieri locali incluso l'ittobori; i negozi di craft della prefettura raccolgono più laboratori sotto lo stesso tetto. Preferite chi sa nominare l'artigiano o il laboratorio rispetto a un banchetto generico «deer wood art». Un pezzo piccolo e firmato batte tre imitazioni grandi."
+        },
+        {
+          "title": "Il cervo che vive di luce radente",
+          "body": "Sotto il neon piatto del negozio il rilievo sembra timido; di fianco a una vetrina, i piani dello scalpello si accendono come facce di un cristallo. È scultura che chiede un angolo, non un flash.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Nakagawa Masashichi Souvenirs — Visit Nara",
+          "url": "https://www.visitnara.jp/venues/S01064/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "畑村奈良一刀彫研究所",
+          "url": "https://naraittobori.com/",
+          "kind": "produttore"
+        },
+        {
+          "title": "Visit Nara — See and do",
+          "url": "https://www.visitnara.jp/see-and-do/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-takayama-ichii-itto",
+      "long": "L’ichii itto-bori di Takayama è scultura in legno di tasso (ichii) lasciata senza vernice coprente: si comprano netsuke, animali, piccole figure e accessori in cui restano visibili i colpi di scalpello e il contrasto tra cuore rossastro e alburno chiaro. È un oggetto da tenere in mano, non un racconto sui carpentieri Hida. In Sanmachi e nelle botteghe specializzate (come quelle elencate da Hida.jp) confronti pezzi piccoli da viaggio e statue da ripiano. Controlla che sia un unico blocco intagliato, non assemblaggio dipinto; la patina e la lucentezza arrivano con gli anni, non con lo spray. Per la valigia vincono portachiavi, netsuke e animaletti tascabili: stessi gesti di scalpello, meno volume.",
+      "sections": [
+        {
+          "title": "Tasso nudo, non legno dipinto",
+          "body": "La firma dell’itto-bori è il legno naturale con tracce nette di scalpello. Se il pezzo è colorato a smalto pieno o stampato, stai guardando un’altra categoria."
+        },
+        {
+          "title": "Formati che viaggiano",
+          "body": "Netsuke, ciondoli e animali da 5–8 cm sono i pezzi più realistici da riportare. Le figure grandi meritano imballo dedicato e posto in stiva o spedizione."
+        },
+        {
+          "title": "Botteghe e mani al lavoro",
+          "body": "Hida.jp punta su intagliatori e shop dove si vede ancora il banco. Chiedi se il pezzo è dell’atelier o rivendita; due pezzi «uguali» non esistono davvero."
+        },
+        {
+          "title": "Il tasso che si lucida con le mani",
+          "body": "Lasciato senza vernice coprente, l'ichii raccoglie oli e tempo: cuore rossastro e alburno chiaro si scaldano a forza di tasche e mensole. Il pezzo migliore fra dieci anni sarà quello che avete toccato di più.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Traditional Crafts — Hida Takayama (Ichii-Ittōbori)",
+          "url": "https://www.hida.jp/english/localspeciality/shopping/4000194.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Tsuda Chokoku — Hida Takayama",
+          "url": "https://www.hida.jp/english/library/4001488/4001505/index.html",
+          "kind": "produttore"
+        },
+        {
+          "title": "一位一刀彫 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E4%B8%80%E4%BD%8D%E4%B8%80%E5%88%80%E5%BD%AB",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "food-hiroshima-momiji",
+      "long": "Il momiji manju «da Hiroshima città» è soprattutto souvenir e dolce da depachika: tortina a foglia d'acero in confezione da viaggio, pasta tipo castella, ripieni che vanno dall'anko classico a crema, matcha, cioccolato, formaggio. Si compra in stazione, nei grandi magazzini e nelle catene locali (non solo sull'isola), spesso già freddo e pensato per resistere in valigia. Il morso è morbido-spugnoso, dolce controllato, più «regalo da riportare» che street food bollente. A differenza della versione appena sfornata lungo Omotesando, qui conti sulla varietà di gusti in scatola e sulla riconoscibilità della foglia stampata. Utile come chiusura di un pranzo in centro o come scorta per il Shinkansen: non sostituisce l'assaggio caldo sull'isola, ma copre il bisogno di portare Hiroshima nello zaino.",
+      "sections": [
+        {
+          "title": "Scatola da binario",
+          "body": "In stazione e in depachika trovi assorted pack con gusti misti. Ideale da regalo. Controlla la data e se vuoi anko tradizionale o creme moderne: le etichette lo dicono chiaro."
+        },
+        {
+          "title": "Foglia da forno, non da olio",
+          "body": "Il momiji «da città» è il manju cotto nello stampo, superficie uniforme, senza pastella fritta. Se è infilzato e dorato di fritto, stai guardando l'age-momiji — un altro prodotto."
+        },
+        {
+          "title": "Città come vetrina nazionale",
+          "body": "Hiroshima ha reso il dolce un'icona da ripiano souvenir. La qualità varia per marca: meglio assaggiarne uno sfuso prima di comprare la scatola da venti."
+        },
+        {
+          "title": "Il Shinkansen come forno di prova",
+          "body": "Aprirne uno sul treno è il test ufficiale: se dopo Hiroshima Station sa ancora di castella e non di cartone, hai scelto bene.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "広島みやげの王道「もみじ饅頭」 — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/feature/souvenir-momiji/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Delicious Hiroshima — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/en/course/delicious-hiroshima/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Travel Japan — gastronomy hub (JNTO)",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-osaka-okonomiyaki",
+      "long": "L'okonomiyaki di Osaka è un pancake salato in cui cavolo, pastella e ingredienti scelti vengono mescolati insieme prima di finire sul teppan — non impilati a strati come a Hiroshima. Si versa un impasto unico: farina, uovo, dashi o acqua, cavolo a listarelle, e poi maiale, gamberi, mochi o ciò che volete («okonomi» = a piacere). Si cuoce su entrambi i lati, si copre di salsa, maionese, aonori e katsuobushi, e si taglia a spicchi con la spatola. In sala spesso cucinate voi o guardate il bancone: il gesto tipico è girare la frittella intera, non costruire piani. Per riconoscerlo al volo: se vedete noodle come materasso separato e una torre di cavolo, siete nello stile hiroshimese; se tutto è già amalgamato nella pastella, siete a Osaka. Si mangia caldo dal ferro, in coppia o da soli, come pasto completo di konamon: spatola, salsa a velo, turno di morsi dalla piastra.",
+      "sections": [
+        {
+          "title": "Mescolato, non a piani",
+          "body": "La firma kansai è l'impasto unico: cavolo e proteine dentro la pastella. Se il cuoco costruisce strati e cuoce i noodle a parte, non state mangiando lo stile Osaka."
+        },
+        {
+          "title": "Come si ordina al teppan",
+          "body": "Scegliete base (maiale classico, misto mare, vegetariano) e eventuali extra. Molti locali lasciano girare a voi: aspettate che il bordo si stacchi prima di ribaltare, altrimenti spezzate la torta."
+        },
+        {
+          "title": "Salsa e ritmo di tavola",
+          "body": "La salsa okonomi va a velo, non a lago. Si taglia a pezzi e si mangia a turno dalla piastra; non serve aspettare che «arrivi il piatto freddo»."
+        },
+        {
+          "title": "La spatola come patente di guida",
+          "body": "A Osaka vi danno una spatola e un pezzo di ferro caldo e si fidano. Fallire il ribaltamento non è un crimine: è un rito di iniziazione fotografato dai vicini di tavolo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "大阪の食文化 — Osaka Info",
+          "url": "https://osaka-info.jp/page/osaka-cuisine/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Japanese gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-hiroshima-hiroshima-okonomi",
+      "long": "Ordinare un okonomiyaki a Hiroshima significa chiedere un piatto a piani, non una frittella mescolata. Sul teppan compare prima una crespella sottile di farina; sopra si accumulano cavolo a listarelle in quantità generosa, germogli, tenkasu se previsti, fette di maiale; i noodles (soba o udon) cuociono a parte sulla stessa piastra e finiscono come strato portante; in chiusura arriva l'uovo e la copertura di salsa. Non si rimescola mai in padella: si mangia a strati con la spatola piccola, direttamente dal ferro o dal piatto caldo. Al bancone puoi chiedere soba o udon, più o meno cavolo, gamberi o formaggio come extra; la differenza «Hiroshima vs Osaka» si vede già mentre cucinano, prima ancora del primo boccone. La salsa scura e densa — Otafuku in molti locali, Mitsuwa in altri — non è solo condimento: è il segnale olfattivo e visivo che stai mangiando lo stile cittadino, appiccicosa sul bordo della spatola.",
+      "sections": [
+        {
+          "title": "Leggere i piani sul ferro",
+          "body": "Se gli ingredienti finiscono dentro l'impasto, sei nello stile kansai. Se restano impilati e i noodles fanno da materasso, sei a Hiroshima. Guarda la spatola del cuoco: costruisce, non mescola."
+        },
+        {
+          "title": "Come si ordina senza bluffare",
+          "body": "Soba o udon è la prima biforcazione; poi proteine e pepe. Molti posti cuociono davanti a te: indica il livello di cottura dell'uovo se te lo chiedono. Si mangia a pezzi dalla piastra; non aspettare che «si raffreddi nel piatto» se te lo servono sul teppan."
+        },
+        {
+          "title": "Salsa scura sul bordo della spatola",
+          "body": "La salsa densa e scura resta sul bordo della spatola e sul primo strato dell'uovo: è parte del morso, non un optional da tavolo. Se vi serve un nome, leggete la bottiglia sul bancone — ma l'ordine utile resta soba o udon, più o meno cavolo, uovo più o meno cotto."
+        },
+        {
+          "title": "La spatola è posata ufficiale",
+          "body": "Qui le posate occidentali sono un piano B. Chi insiste con forchetta e coltello combatte la geologia a strati del piatto — e di solito perde.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Delicious Hiroshima — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/en/course/delicious-hiroshima/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Hiroshima's best gourmet — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/en/feature/ichioshi/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Food and Sake of Hiroshima — Hiroshima Prefecture",
+          "url": "https://www.pref.hiroshima.lg.jp/site/hiroshima-summit-en/food.html",
+          "kind": "ente pubblico"
+        }
+      ]
+    },
+    {
+      "id": "history-kanazawa-kaga-yuzen",
+      "long": "Il Kaga yuzen è una scuola di tintura a riserva che ha reso Kanazawa leggibile sui kimono: motivi naturalistici, sfumature controllate, osservazione del vegetale fino al dettaglio «imperfetto» — foglie morsicate, ombre irregolari — piuttosto che idealizzazione decorativa. La pasta di riso delimita i campi di colore; i pennelli costruiscono profondità; il lavaggio finale cancella i segni guida. Rispetto ad altri yuzen, la tradizione di Kaga privilegia spesso la pittura tintoria rispetto a ricamo e foglia d’oro: scelta stilistica, non povertà, in una città che dell’oro ha fatto emblema. È realismo botanico applicato alla seta, nato dal dialogo tra saperi locali di tintura e apporti di disegnatori arrivati da Kyoto in epoca Edo.",
+      "sections": [
+        {
+          "title": "Naturalismo contro ornamento astratto",
+          "body": "Il fiore non è solo schema: vuole sembrare osservato. Per questo una foglia «rovinata» può essere più ambiziosa di una simmetria perfetta: dimostra controllo del pennello e dell’occhio."
+        },
+        {
+          "title": "Pasta di riso, vapore, lavaggio",
+          "body": "La tecnica è una sequenza chimico-manuale. Ogni passaggio serve a impedire che i colori si invadano e a fissare ciò che deve restare dopo l’acqua."
+        },
+        {
+          "title": "Perché l’oro resta spesso fuori",
+          "body": "In una città della foglia d’oro, rinunciare all’oro sul kimono tradizionale è dichiarazione di metodo: il prestigio sta nella tintura, non nell’aggiunta metallica."
+        },
+        {
+          "title": "Il bel difetto in seta",
+          "body": "Nel Kaga yuzen il morso sulla foglia può essere prova di maestria. È una delle rare discipline in cui «troppo perfetto» rischia di sembrare meno osservato del vero.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "加賀友禅 — KOGEI / associazioni",
+          "url": "https://kogeijapan.com/locale/en_US/kagayuzen/",
+          "kind": "catalogo artigianato"
+        },
+        {
+          "title": "加賀友禅 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%8F%8B%E7%A6%85",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Visit Kanazawa — Kaga Yuzen",
+          "url": "https://visitkanazawa.jp/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "experience-kanazawa-kaga-yuzen-workshop",
+      "long": "Nel laboratorio di Akaneya Archive Gallery, in una machiya di Satomi-chō a pochi minuti dal museo d’arte contemporanea, si lavora su un oggetto piccolo che si può completare durante la visita, non su un kimono. Il formato usa matrici sovrapponibili, ma rimanda a una filiera molto più lunga: nel Kaga-yuzen a mano il disegno viene tracciato con succo di aobana, destinato a sparire nell’acqua; una sottile barriera di pasta di riso impedisce ai coloranti di invadersi; seguono pennelli, vapore, tintura del fondo e lavaggio. La tradizione non nasce tutta in un giorno. L’associazione di categoria la fa risalire alle tinture locali di circa cinquecento anni fa e data al 1712 l’arrivo a Kanazawa di Miyazaki Yūzensai, disegnatore di ventagli che lavorò presso la tintoria Tarodaya e consolidò l’uso della pasta di riserva. Akaneya riduce quella complessità a una prova leggibile: fa capire come si costruisce un motivo per campiture senza fingere di comprimere un apprendistato in novanta minuti.",
+      "sections": [
+        {
+          "title": "Il blu che deve scomparire",
+          "body": "Nel procedimento manuale il primo disegno sul tessuto usa l’aobana, il succo blu della commelina. Serve a guidare la pasta di riso e i pennelli, ma il lavaggio finale lo cancella. È una traccia di lavoro deliberatamente provvisoria: ciò che tiene insieme il motivo durante la lavorazione non deve comparire sul kimono concluso."
+        },
+        {
+          "title": "L’ombra comincia dal contorno",
+          "body": "Il riconoscimento più utile è il soto-bokashi: il colore è più intenso sul margine della forma e si alleggerisce verso il centro. Con i cinque toni di base — indaco, cremisi, ocra, verde scuro e viola antico — costruisce fiori e foglie realistici, comprese le piccole morsicature d’insetto che evitano una natura troppo perfetta."
+        },
+        {
+          "title": "Yūzensai arrivò a storia iniziata",
+          "body": "Miyazaki Yūzensai non inventò il Kaga-yuzen dal nulla. Quando giunse da Kyoto nel 1712, Kanazawa possedeva già secoli di tintura umezome e dal Seicento elaborava stoffe figurate note come Kaga okuni-zome. Il suo contributo fu innestare disegni nuovi e una tecnica più matura della pasta di riserva su una tradizione locale preesistente."
+        },
+        {
+          "title": "Il blu che deve sparire prima della foto",
+          "body": "L'aobana guida pasta e pennelli, poi il lavaggio lo cancella. Finché è lì sembra un errore di stampa; quando sparisce, capite che era solo l'impalcatura del motivo. Pochi souvenir insegnano a fidarsi di un colore destinato a non restare.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "History and Features of Kaga-Yuzen Dyeing — Kaga Yuzen Promotion Association",
+          "url": "https://www.kagayuzen.or.jp/know_en/",
+          "kind": "associazione di categoria"
+        },
+        {
+          "title": "Kaga Yuzen experience at Akaneya Archive Gallery — Visit Kanazawa",
+          "url": "https://visitkanazawa.jp/en/activities/detail_659.html",
+          "kind": "ente turistico ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "history-hakone-sekisho-heritage",
+      "long": "Il sekisho di Hakone è la versione in legno di una paranoia di stato. Sul Tōkaidō, fra Edo e Kyoto, lo shogunato Tokugawa mise un filtro dove la geografia già stringeva: si controllavano soprattutto le armi in entrata verso la capitale e le donne dei daimyo in uscita, ostaggi di fatto della fedeltà feudale. Il detto iri-deppo ni de-onna — «fucili che entrano, donne che escono» — riassumeva la procedura meglio di qualsiasi dépliant. Non era l'unico posto di blocco del paese, ma restò fra i più severi, e la sua memoria oggi si visita in una ricostruzione aperta nel 2007, basata su un rendiconto di riparazione del 1865 riemerso negli anni Ottanta. Per due secoli e mezzo viaggiare in Giappone lungo questa strettoia significava attraversare una burocrazia armata, non soltanto ammirare il lago.",
+      "sections": [
+        {
+          "title": "Una dogana politica, non commerciale",
+          "body": "Il punto non era tassare le merci come in una frontiera moderna. Era impedire che Edo si riempisse di armi e si svuotasse di ostaggi aristocratici. Il corridoio fra lago e montagna rendeva il controllo fisicamente credibile."
+        },
+        {
+          "title": "Chi poteva passare, e quando",
+          "body": "Servivano documenti e luce diurna. Di notte le porte restavano chiuse; le ispettrici esaminavano le donne con una attenzione che oggi sembra invasiva e allora era sicurezza nazionale. Il viaggio «libero» lungo la Tokaido era, in pratica, un viaggio autorizzato."
+        },
+        {
+          "title": "Perché la ricostruzione conta come patrimonio",
+          "body": "Senza il registro del 1865 e gli scavi successivi, resterebbe solo un toponimo. Aver rimontato edifici e mestieri con tecniche d'epoca trasforma la barriera in aula didattica: si vede la scala umana del controllo Tokugawa, non soltanto se ne legge."
+        },
+        {
+          "title": "Dal posto di blocco al paesaggio turistico",
+          "body": "Chiuso dal governo Meiji, il sekisho divenne memoria e poi attrazione. Il lago e il Fuji sullo sfondo addolciscono quello che fu un dispositivo di paura amministrativa. Vale la pena tenere entrambe le letture nello stesso sguardo."
+        },
+        {
+          "title": "Il controllo bagagli dell'epoca Edo",
+          "body": "Oggi all'aeroporto vi chiedono i liquidi; allora vi chiedevano le mogli dei signori. Diverso il tono di voce, simile l'idea che lo Stato abbia diritto di aprire la vostra vita sul ciglio della strada.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "箱根関所 — sito ufficiale",
+          "url": "https://hakonesekisyo.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "箱根関所・資料館 — Associazione turistica di Hakone",
+          "url": "https://www.hakone.or.jp/676",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "箱根関所 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E7%AE%B1%E6%A0%B9%E9%96%A2%E6%89%80",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "history-osaka-hozenji-moss",
+      "long": "Il muschio del Fudō di Hōzen-ji non è botanica monumentale: è teologia accumulata a mestolate. In un vicolo di Namba, a un passo dal rumore, una figura iraconda del buddhismo esoterico riceve acqua versata da chi chiede protezione, chiarezza o semplicemente un gesto che sembri utile. Ogni offerta bagna la pietra; l'umidità nutre il verde; il verde diventa volto. Non serve un edificio grandioso: serve ripetizione. Il Fudō «vestito» di muschio racconta una città che preferisce la praticità del rito alla purezza da museo — e che accetta che il sacro cresca sopra il desiderio umano come una pellicola viva. Conta meno lo spessore del verde quanto il fatto che le mani dei passanti abbiano riscritto l'icona a mestolate d'acqua.",
+      "sections": [
+        {
+          "title": "Fudō, non una mascotte gentile",
+          "body": "Fudō Myōō è il re immobile che taglia le illusioni con la spada e tiene il laccio per catturare le forze ostili. Bagnarlo non è un gesto tenero: è avvicinarsi a una figura che promette disciplina e protezione dura, non coccole."
+        },
+        {
+          "title": "L'offerta che diventa materia",
+          "body": "In molti templi l'acqua purifica e sparisce. Qui lascia un residuo visibile. Il muschio è la prova fisica che migliaia di richieste sono passate sullo stesso corpo: una contabilità vegetale della fede urbana."
+        },
+        {
+          "title": "Sacro senza biglietteria",
+          "body": "Il fatto che il culto stia stretto fra cucine e lanterne non lo rende meno serio. Osaka ha spesso messo il divino dove vive la gente, non dietro cancelli. Hōzen-ji è l'estrema sintesi di quella abitudine."
+        },
+        {
+          "title": "Verde come tempo",
+          "body": "Il muschio non «abbellisce» in senso estetico da giardino zen. Segna durata. Più è fitto, più il luogo ha retto al passaggio. È un orologio umido appeso al volto di un dio."
+        },
+        {
+          "title": "L'unico guardaroba che cresce da solo",
+          "body": "Altre divinità cambiano kimono rituali. Questa si fa cucire il vestito dall'acqua dei visitatori e dal tempo. Un stilista ecologico, un po' severo, che non manda mai il conto in boutique.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "法善寺 — Municipio di Osaka, Chūō",
+          "url": "https://www.city.osaka.lg.jp/chuo/page/0000641943.html",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "法善寺 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E6%B3%95%E5%96%84%E5%AF%BA",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "法善寺横丁 — Osaka Info",
+          "url": "https://osaka-info.jp/spot/hozenji-yokocho/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-tokyo-gotokuji-cats",
+      "long": "Il maneki-neko — il gatto che invita con la zampa — è un oggetto di cultura urbana prima ancora di essere souvenir di un singolo tempio. Nella tradizione popolare del Kantō, un felino alza l'arto per richiamare persone, clienti o buona occasione; botteghe e case lo espongono come segno di accoglienza e prosperità. Più luoghi a Tokyo e dintorni avanzano racconti di origine — Gotokuji a Setagaya è il più visitato dai viaggiatori, ma non è l'unico a rivendicare la paternità — e nessuno chiude la questione con un verbale d'archivio. Quel che conta è il tipo: un animaletto domestico trasformato in messaggero di fortuna, prodotto in serie e riposto come ex voto quando il desiderio si avvera. Le file di ceramiche bianche non sono «il culto del gatto» in senso stretto: sono un linguaggio commerciale e votivo che la città ha reso leggibile a chiunque.",
+      "sections": [
+        {
+          "title": "Invitare persone, non soltanto monete",
+          "body": "In molte spiegazioni tradizionali la zampa alzata chiama l'ospite o l'occasione, non stacca banconote dal cielo. Il denaro arriva, se arriva, come conseguenza del legame. È una teologia da negozio: prima il passaggio, poi il bilancio."
+        },
+        {
+          "title": "Zampa destra, zampa sinistra, storie diverse",
+          "body": "Varianti regionali e da vetrina assegnano significati diversi alle due zampe — clienti, denaro, entrambi. Non esiste un codice unico nazionale scolpito nella pietra; esiste una famiglia di usi. Meglio leggere il pezzo che avete davanti che ripetere una regola da bar."
+        },
+        {
+          "title": "Tradizione contro cronaca",
+          "body": "I racconti del gatto che salva un signore dal temporale appartengono al folklore di tempio e quartiere. Vanno etichettati come tradizione, non come verbale meteorologico del Seicento. La forza del mito sta nella ripetizione, non nella prova forense."
+        },
+        {
+          "title": "Ex voto in ceramica",
+          "body": "Il gesto tipico è portare a casa la statuetta con un intento e, in alcuni circuiti, riportarla quando l'intento si è compiuto. L'accumulo di gatti diventa così archivio di ringraziamenti più che magazzino di richieste. È religione materiale a scala da scaffale."
+        },
+        {
+          "title": "Assemblea generale senza presidente",
+          "body": "Centinaia di ceramiche allineate sembrano in riunione permanente: niente ordine del giorno, niente verbalizzante, soltanto zampe alzate in segno di proposta. Se votassero sul bilancio della fortuna, passerebbe all'unanimità.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "招福猫児について — Gōtoku-ji (sito ufficiale)",
+          "url": "https://gotokuji.jp/manekineko/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "招き猫 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E6%8B%9B%E3%81%8D%E7%8C%AB",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "豪徳寺 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E8%B1%AA%E5%BE%B3%E5%AF%BA",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "history-kamakura-great-buddha",
+      "long": "Il Grande Buddha di Kamakura è un Amida, non uno Shaka generico, e la sua fama nasce da una contraddizione: doveva stare al coperto e da secoli sta sotto la pioggia. La tradizione lega la fusione al Duecento e a una spinta di pietà Pure Land in una città altrimenti segnata dallo Zen dei reggenti; poi tifoni e probabilmente un maremoto portarono via il padiglione, lasciando il bronzo all'aperto. Quella nudità diventò identità: la statua sopravvisse come corpo tecnico — pezzi assemblati, interno visitabile — e come icona di resistenza agli elementi. La domanda utile è perché una capitale zen abbia finito per farsi riconoscere nel mondo da un Amida scoperto, più fotogenico dei chiostri che la governavano davvero.",
+      "sections": [
+        {
+          "title": "Amida in una città di Rinzai",
+          "body": "Kamakura non fu monopolio zen. La Pure Land rispondeva a un bisogno di salvezza più largo, anche popolare. Il colosso di Hase mostra quella pluralità: il bakufu poteva finanziare monasteri Song e la città poteva comunque erigere un Amida enorme."
+        },
+        {
+          "title": "Il tetto che non tornò",
+          "body": "Le fonti e la tradizione convergono sul fatto che l'edificio di protezione andò distrutto e non fu ripristinato in modo durevole. L'esposizione divenne la norma, e con essa un diverso rapporto con vento, sale e luce."
+        },
+        {
+          "title": "Un corpo da leggere come fabbrica",
+          "body": "Entrare nell'interno — quando è consentito — ribalta l'aura: si vedono giunti, spessori, soluzioni di fonderia. Il sacro si mostra come lavoro metallurgico del XIII secolo, non solo come volto sereno da cartolina."
+        },
+        {
+          "title": "Da icona locale a simbolo esportato",
+          "body": "Fotografia, guide estere e souvenir hanno spostato il Daibutsu dal ruolo liturgico a quello di emblema di Kamakura. Capita alle statue di successo: finiscono per rappresentare un'intera città anche per chi non sa che Buddha sia."
+        },
+        {
+          "title": "Il Buddha che ha scelto l'abbonamento meteo",
+          "body": "Altri colossi restano in salone climatizzato. Questo ha deciso di fare la vita da spiaggia: stesso bronzo, più carattere, zero scuse quando piove.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "高徳院 — Wikipedia giapponese (Kamakura Daibutsu)",
+          "url": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%BE%B3%E9%99%A2_(%E9%8E%8C%E5%80%89%E5%B8%82)",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Kamakura Great Buddha — Japan Guide",
+          "url": "https://www.japan-guide.com/e/e3100.html",
+          "kind": "guida di riferimento"
+        },
+        {
+          "title": "鎌倉大仏 — KOGEI / turismo Kanagawa context",
+          "url": "https://www.kanagawa-kankou.or.jp/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-tokyo-hachiko",
+      "long": "Hachikō è diventato simbolo nazionale non soltanto perché un Akita aspettava alla stazione: perché i giornali, la radio e poi il cinema trasformarono un cane di quartiere in parabola pubblica della lealtà. Nato a Ōdate nel 1923 e legato al professor Ueno Hidesaburō dell'università imperiale, continuò a presentarsi a Shibuya dopo la morte improvvisa del padrone nel 1925; la notizia, rilanciata dalla stampa negli anni Trenta, lo rese celebrità vivente. La prima statua di bronzo, opera di Andō Teru, fu inaugurata nel 1934 con Hachikō presente; nel 1944 il metallo fu requisto per lo sforzo bellico; nel 1948 il figlio dello scultore, Andō Takeshi, ne fece la seconda versione ancora oggi al centro degli appuntamenti. Quel che resta da leggere è come una città moderna costruisca un mito etico intorno a un animale, e come quel mito sopravviva a guerra, fusione e code di selfie.",
+      "sections": [
+        {
+          "title": "Dalla banchina al rotocalco",
+          "body": "L'attesa quotidiana esisteva prima della fama; la fama nasce quando la stampa la racconta come virtù collettiva. In un Giappone che parlava di fedeltà e dovere, il cane offriva un'immagine comprensibile a tutti, senza partito. Hachikō divenne pedagogia pubblica a quattro zampe."
+        },
+        {
+          "title": "Due statue, una sola leggenda",
+          "body": "La prima bronzo sparì nella raccolta dei metalli del 1944; la seconda, del 1948, riprese il posto come gesto di ripresa civile. L'uscita della stazione porta ancora il suo nome. Il monumento che fotografate è già un erede, non l'originale degli anni Trenta."
+        },
+        {
+          "title": "Ōdate e il museo della razza",
+          "body": "La città natale in Akita rivendica la filiera dell'Akita-inu e conserva memoria parallela. Il mito non è solo «di Shibuya»: è una storia nord-est che Tokyo ha reso icona globale. Separare luogo della nascita e luogo dell'attesa aiuta a non ridurlo a souvenir di stazione."
+        },
+        {
+          "title": "Lealtà come brand urbano",
+          "body": "Oggi l'incontro sotto la statua è logistics di folla. Lo strato culturale resta: una metropoli che sceglie come eroe un cane che non ha mai firmato un contratto. Vale più di molte campagne di city branding perché la trama è semplice e verificabile nei suoi fatti essenziali."
+        },
+        {
+          "title": "Il monumento alla puntualità, circondato da ritardi",
+          "body": "Hachikō aspettò per anni. Noi mandiamo «sto arrivando» dal sottopassaggio. L'ironia è involontaria e perfetta.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "ハチ公について知りたい — Biblioteca di Shibuya",
+          "url": "https://www.lib.city.shibuya.tokyo.jp/shibuya/about-shibuya/hachiko/",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "いまのハチ公は2代目ってホント？ — JACAR",
+          "url": "https://www.jacar.go.jp/exhibition/glossary/tochikiko-henten/qa/qa26.html",
+          "kind": "archivio di stato"
+        },
+        {
+          "title": "Odate, home of the faithful dog Hachi — Comune di Ōdate",
+          "url": "https://www.city.odate.lg.jp/city/kankou/highlight/animal/p4808/en",
+          "kind": "ente pubblico"
+        }
+      ]
+    },
+    {
+      "id": "history-kyoto-zen-gardens",
+      "long": "Un giardino zen a Kyoto — soprattutto il karesansui di ghiaia e rocce — non si «risolve» come un rebus a risposta unica. Rocce, rastrellature, muschio, muri e il punto di vista dalla veranda costruiscono relazioni: pieno e vuoto, vicino e lontano, ciò che si vede e ciò che resta nascosto. A Ryōan-ji, esempio canonicamente citato, quindici pietre su ghiaia bianca sono disposte in modo che da un solo angolo della veranda non se ne colgano tutte: l'incompletezza entra nel dispositivo. Il creatore spesso resta anonimo o discusso; conta meno della praticadi sedersi, rallentare e lasciar lavorare lo sguardo. Chi dopo cinque minuti non raggiunge l'illuminazione ha comunque visto un'opera di composizione estrema. Si impara a guardare la cornice architettonica insieme alle pietre, non soltanto un mucchio di rocce fotogeniche.",
+      "sections": [
+        {
+          "title": "Ghiaia come mare, roccia come isola — e oltre",
+          "body": "Le letture metaforiche abbondano e nessuna è obbligatoria. Il rastrello non è decorazione da giardiniere: è manutenzione che rinnova linee e silenzio. Osservare il gesto del monaco o del giardiniere, quando capita, vale quanto cercare il significato nascosto."
+        },
+        {
+          "title": "Il punto di vista è parte dell'opera",
+          "body": "Questi giardini si guardano da seduti sulla veranda o da stazioni prescritte, non passeggiando in mezzo. La cornice del padiglione taglia il campo visivo come una montatura. Spostarsi di un metro cambia l'equilibrio: non è un difetto, è il meccanismo."
+        },
+        {
+          "title": "Vuoto che lavora",
+          "body": "Lo spazio non occupato dalle rocce non è «mancanza di budget». Nel linguaggio estetico legato allo Zen, il vuoto sostiene la tensione fra gli elementi. Riempirlo con spiegazioni frettolose è il modo più sicuro di non vederlo."
+        },
+        {
+          "title": "Anonimo, citato, imitato",
+          "body": "Il karesansui di Kyoto è diventato modello globale di «giardino giapponese», spesso semplificato in pietre da cortile aziendale. Tornare alle verande dei templi Rinzai ricorda che l'originale è monastico, lento e legato a una scuola, non a un catalogo di arredo."
+        },
+        {
+          "title": "Nessun test a fine visita",
+          "body": "Se non avete raggiunto il satori entro l'orario di chiusura, nessuno vi consegnerà una valutazione insufficiente. Potete comunque uscire avendo visto un rettangolo di ghiaia più rigoroso di molte tesi di dottorato.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "龍安寺 — sito ufficiale",
+          "url": "https://www.ryoanji.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "Historic Monuments of Ancient Kyoto — UNESCO",
+          "url": "https://whc.unesco.org/en/list/688/",
+          "kind": "patrimonio"
+        },
+        {
+          "title": "枯山水 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E6%9E%AF%E5%B1%B1%E6%B0%B4",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "history-nara-deer",
+      "long": "I cervi di Nara, nella lettura mitica, non sono fauna da cartolina: sono messaggeri. La tradizione legata a Kasuga racconta che Takemikazuchi giunse dal Kashima in groppa a un cervo bianco; da allora il branco della piana fu trattato come veicolo del kami, non come selvaggina. Ucciderne uno, nei secoli del bakufu locale, poteva equivalere a un crimine contro l'ordine sacro della città-tempio. Il parco moderno e il titolo di monumento naturale arrivano dopo, come traduzioni istituzionali di un rispetto più antico. Come shinshi — messaggeri divini — tengono insieme teologia Fujiwara e paesaggio: gli animali che attraversano la strada sono, nel mito, ancora in servizio. L'inchino per il senbei è un'altra storia: qui conta il cielo che li ha assunti come messaggeri.",
+      "sections": [
+        {
+          "title": "Il kami che arriva a cavallo del cervo",
+          "body": "Il mito di fondazione di Kasuga non mette il cervo come mascotte: lo mette come cavalcatura sacra. Trasportare una divinità significa partecipare al suo potere. Da lì il salto logico, per i fedeli, fu proteggere l'intero branco."
+        },
+        {
+          "title": "Messaggeri, non proprietà",
+          "body": "Chiamarli shinshi implica che non appartengono a un proprietario privato. Appartengono a un ordine rituale. Anche quando oggi li gestisce un'associazione, l'idea di fondo resta: sono ospiti di un dio, non animali da zoo."
+        },
+        {
+          "title": "Sacralità e paura",
+          "body": "Le storie di punizioni per chi feriva un cervo mostrano quanto la protezione fosse seria. Il sacro, a Nara, aveva denti e corna: non era soltanto bellezza nel prato."
+        },
+        {
+          "title": "Dal mito al monumento naturale",
+          "body": "Lo stato moderno ha tradotto la tutela religiosa in categoria culturale. Non cancella il mito; lo affianca. Si può rispettare il cervo per legge e, nello stesso passo, ricordare perché la città lo rispettava prima delle leggi."
+        },
+        {
+          "title": "Angeli con le corna e zero aureola",
+          "body": "Altri luoghi hanno colombe e messaggeri alati. Nara ha scelto un quadrupede che chiede da mangiare. Il cielo, qui, ha un ufficio relazioni pubbliche molto concreto.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "奈良公園にはなぜ鹿がいる？ — Associazione turistica di Nara",
+          "url": "https://narashikanko.or.jp/feature/deer",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "保護の歴史 — 奈良の鹿愛護会",
+          "url": "https://naradeer.com/learning/hogonorekishi.html",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "春日大社 ご由緒 — sito ufficiale",
+          "url": "https://www.kasugataisha.or.jp/about/",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "history-nara-deer-etiquette",
+      "long": "I cervi di Nara, sul piano pratico, sono animali selvatici abituati agli umani — non mascotte, non attori, non «amici» automatici. L'associazione che li tutela e la prefettura ripetono le stesse regole perché gli incidenti esistono: morsi, calci, cariche, soprattutto quando qualcuno esita con il cibo o mostra buste e carta. Si offrono soltanto gli shika-senbei ufficiali, uno alla volta, e si smette appena finiscono; non si toccano i cerbiatti, non si insegue, non si finge di avere ancora un pezzo. L'inchino del cervo è un comportamento appreso per ottenere la galletta, non un rito che vi deve qualcosa. Si può rispettare il kami e, nello stesso pomeriggio, tenere la mappa lontana dal muso: cortesia pratica e mito del messaggero non coincidono.",
+      "sections": [
+        {
+          "title": "Selvatici, anche se fanno la coda",
+          "body": "L'abitudine alle persone non è domesticazione completa. Un cervo può inchinarsi e subito dopo spingere. Trattarli come cani da compagnia è l'errore che produce i video sbagliati e le medicazioni."
+        },
+        {
+          "title": "Solo senbei, e in fretta",
+          "body": "Gli altri cibi disturbano la dieta e creano aspettative pericolose. I senbei ufficiali sono pensati per loro; la fascetta di carta no. Consegnare in fretta riduce la tensione del branco intorno alle mani."
+        },
+        {
+          "title": "Quando non mostrano interesse",
+          "body": "Non tutti i cervi vogliono interagire. Insistere è invasione. In stagione di parti o di fregola il margine di pazienza degli animali si assottiglia: la regola diventa distanza, non souvenir."
+        },
+        {
+          "title": "Cosa non è l'inchino",
+          "body": "È una strategia per il cibo, insegnata dal contesto turistico. Interpretarlo come deferenza spirituale verso di voi confonde il mito del messaggero con un condizionamento da biscotto."
+        },
+        {
+          "title": "Il reparto riscossione crediti del parco",
+          "body": "L'inchino prima del senbei è adorabile; la testata quando il senbei tarda è contabilità. A Nara anche la fauna conosce i termini di pagamento anticipato.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "奈良公園のシカとの接し方 — Prefettura di Nara",
+          "url": "https://www3.pref.nara.jp/park/1232.htm",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "鹿による人身事故啓発 — 奈良の鹿愛護会",
+          "url": "https://naradeer.com/learning/keihatsu.html",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "奈良公園にはなぜ鹿がいる？ — Associazione turistica di Nara",
+          "url": "https://narashikanko.or.jp/feature/deer",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "place-nara-nara-park",
+      "long": "Non è un giardino ma un territorio: 502 ettari aperti al pubblico per decreto del Dajōkan il quattordici febbraio 1880, che diventano circa 660 contando i recinti di Tōdai-ji, Kōfuku-ji, Kasuga Taisha e del Museo Nazionale. Nessun cancello, tre beni del patrimonio mondiale e una foresta primaria dentro il perimetro. I cervi che lo attraversano non appartengono a nessuno: sono animali selvatici e dal 1957 portano il titolo di monumento naturale nazionale sotto il nome «Nara no Shika», il che sposta il danneggiarne uno dal registro delle multe comunali a quello dei beni culturali. Il rispetto moderno poggia su un titolo di monumento naturale e su secoli di tutela cittadina; il mito del cervo bianco di Takemikazuchi e le storie di pene severe per chi ne feriva uno stanno nella memoria teologica della città, non nel regolamento del prato.",
+      "sections": [
+        {
+          "title": "Trentotto capi, e poi di nuovo ottanta",
+          "body": "Nel 1871 il prefetto Shijō Takahira classificò i cervi come animali nocivi e ne autorizzò l'abbattimento a fucile. Nel 1873 li rinchiusero in un recinto di legno, più di settecento: entro novembre la fame ne aveva lasciati trentotto, e furono liberati solo per questo. Il divieto di caccia arrivò nel 1878, il parco nel 1880. Il bracconaggio di guerra li riportò a ottanta nel 1946; oggi il censimento dell'associazione ne conta 1.465, di cui 315 maschi."
+        },
+        {
+          "title": "Il taglio delle corna, cominciato nel 1672",
+          "body": "Fu il magistrato di Nara Mizoguchi Nobukatsu a istituirlo, e da allora si ripete in autunno dentro l'arena del Rokuen. Uomini detti seko spingono i maschi con bandiere rosse e lanciano sulle corna una croce di bambù legata a una fune; il cervo viene disteso su una stuoia, un officiante gli dà da bere e sega il palco, che in quella stagione non ha vasi né nervi. Le corna tagliate finiscono offerte davanti al dio."
+        },
+        {
+          "title": "Crusca di riso e niente zucchero",
+          "body": "I senbei per i cervi sono fatti di crusca e farina di riso senza dolcificanti, dieci pezzi per duecento yen, venduti sotto licenza con una quota del ricavato all'associazione che cura il branco. La fascetta di carta non è cibo. L'associazione avverte di consegnarli in fretta e uno alla volta: fingere di averne quando non se ne ha più agita l'animale, ed è il modo migliore per farsi caricare."
+        },
+        {
+          "title": "Nel 2026 le madri non sono state ricoverate",
+          "body": "I piccoli nascono da metà maggio a luglio, e di norma l'associazione ospita le femmine gravide nel Rokuen, dove a giugno si visitano madri e cerbiatti. Quest'anno il ricovero non è stato fatto e la visita non c'è: le femmine hanno partorito nel parco, il primo cerbiatto è stato avvistato ai primi di maggio, e una madre che difende il piccolo carica. In autunno tocca invece ai maschi in fregola."
+        },
+        {
+          "title": "L'unico esercizio che non abbassa la saracinesca",
+          "body": "Crusca di riso e niente zucchero: le gallette sono studiate per la salute del cervo, non per il suo entusiasmo. Lui le pretende comunque, e dal 2022 un distributore ne vende anche dopo che le venditrici hanno smontato il banco.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "保護の歴史 — 一般財団法人奈良の鹿愛護会",
+          "url": "https://naradeer.com/learning/hogonorekishi.html",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "鹿による人身事故啓発 — 奈良の鹿愛護会 (dati 2025 e avvertenze)",
+          "url": "https://naradeer.com/learning/keihatsu.html",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "鹿の角きり — 奈良の鹿愛護会",
+          "url": "https://naradeer.com/event/tsunokiri.html",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "子鹿公開 — 奈良の鹿愛護会",
+          "url": "https://naradeer.com/event/kojika.html",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "奈良公園にはなぜ鹿がいる？ — 奈良市観光協会",
+          "url": "https://narashikanko.or.jp/feature/deer",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "奈良公園 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%A5%88%E8%89%AF%E5%85%AC%E5%9C%92",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "place-nagano-togakushi",
+      "long": "Per mille anni non fu un santuario ma un monastero: Togakushi-san Kanjuin Kenkō-ji, uno dei grandi centri dello shugendō giapponese, organizzato in tre «in» — Okuin, Chūin, Hōkōin — che oggi si chiamano Okusha, Chūsha e Hōkōsha. La tradizione fa risalire l'apertura al 849, quando l'asceta Gakumon trovò il sito dell'Okusha; l'Hōkōsha data 949, il Chūsha 1087, l'Hinomiko-sha 1098. Il quinto, il Kuzuryū-sha addossato all'Okusha, è più vecchio di tutti e la sua fondazione è ignota: è il drago a nove teste dell'acqua e della pioggia, la divinità che stava qui prima e su cui è stato innestato il resto. Perché gli altri quattro kami vengono tutti dal mito della caverna celeste: la porta di roccia che Tajikarao spalancò per far uscire Amaterasu sarebbe volata fin quassù diventando il monte Togakushi, «nascondi-porta». Nel 1868 l'editto di separazione fra kami e buddha cancellò il Kenkō-ji nel giro di pochi mesi: i monaci tornarono laici e furono nominati sacerdoti shintō, le statue buddhiste presero la strada di valle.",
+      "sections": [
+        {
+          "title": "I cedri sono stati piantati apposta",
+          "body": "Il viale non è un bosco sopravvissuto, è un'operazione d'immagine: nel 1612 lo shogunato assegnò a Togakushi un feudo, e con quei mezzi la montagna si costruì l'aspetto che ci si aspetta da un grande luogo sacro. Lungo i cinquecento metri oltre il Zuishinmon i criptomeri superano i quattrocento anni e i duecento esemplari, e il tronco più grosso misura 227 centimetri di diametro. Monumento naturale prefettizio dal 1973."
+        },
+        {
+          "title": "Il Zuishinmon era una porta buddhista",
+          "body": "La porta rossa dal tetto di paglia, del 1710, è la costruzione più antica rimasta a Togakushi, e non è nata shintō: era il Niōmon, e nelle due nicchie stavano i guardiani muscolosi del buddhismo. Nel 1868 i Niō furono caricati e portati in un tempio di Nagano; al loro posto oggi ci sono due zuishin, guardie di corte in tenuta di corte. Stessa nicchia, altra religione."
+        },
+        {
+          "title": "Cinque tappe e come si incastrano",
+          "body": "Il giro si fa da valle a monte: Hōkōsha con i suoi duecentosettanta gradini di pietra, Hinomiko-sha — l'unico dei cinque rimasto sempre shintō, dedicato a Uzume, la dea che ballò davanti alla caverna — poi Chūsha con i tre criptomeri di ottocento anni, e infine i due chilometri di sterrato fino a Okusha e Kuzuryū-sha, con il Zuishinmon esattamente a metà."
+        },
+        {
+          "title": "Dopo Okusha, la fila delle soberie",
+          "body": "Gli shukubō dei pellegrini sono diventati locande e soberie sotto il Chūsha: a mezzogiorno la fila è parte del paesaggio. L'ordine tipico — matassine sul vassoio di bambù — si spiega al bancone; qui basta sapere che il pranzo del santuario è soba, non un menù da stazione."
+        },
+        {
+          "title": "L'oggetto smarrito",
+          "body": "Del monastero millenario restano tre santuari con nomi nuovi e una porta buddhista rimasta al suo posto. A reggere meglio il cambio di religione è stata la soba dei pellegrini: a mezzogiorno fa ancora fila.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "戸隠神社 — sito ufficiale, storia e cinque santuari",
+          "url": "https://www.togakushi-jinja.jp/about/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "戸隠神社 — sito ufficiale, il bosco dell'Okusha",
+          "url": "https://www.togakushi-jinja.jp/okusha/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "戸隠神社 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E6%88%B8%E9%9A%A0%E7%A5%9E%E7%A4%BE",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "戸隠神社 随神門 — ながの観光net (ente turistico di Nagano)",
+          "url": "https://www.nagano-cvb.or.jp/modules/sightseeing/page/380",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "experience-nagano-togakushi-trail",
+      "long": "A Togakushi non si «visita un santuario»: si cammina fra quote diverse. Dal grande torii verso l'Okusha sono circa due chilometri di sterrato, con lo Zuishinmon a metà come respiro obbligato; il circuito completo dei cinque santuari allunga la giornata a circa otto chilometri. Il tratto più bello per le gambe è spesso il Kannomichi fra Hōkōsha e Chūsha: mezz'ora di bosco fitto su un pezzo del vecchio Togakushi Kodō che saliva dal Zenkō-ji. I cedri del viale dell'Okusha non sono foresta primaria — furono piantati all'inizio del periodo Edo — ma oggi misurano l'umore della salita meglio di qualsiasi dépliant. Si cammina per sentire la distanza fra i kami sparsi sul fianco del monte; la cronologia del Kenkō-ji e del 1868 sta nelle pagine del luogo, non nei polmoni.",
+      "sections": [
+        {
+          "title": "Due chilometri, una porta, poi di nuovo salita",
+          "body": "Dal grande torii all'Okusha: circa un quarto d'ora fino allo Zuishinmon, altri venticinque minuti oltre. Usate la porta rossa come checkpoint — acqua, fiato, foto — non come meta. Il tratto dopo è più stretto e più «montagna»."
+        },
+        {
+          "title": "Kannomichi: il pezzo che vale la giornata",
+          "body": "Fra Hōkōsha e Chūsha il Kannomichi, la «via degli dèi», offre mezz'ora di bosco senza la pressione del viale fotografico. È il tratto in cui Togakushi smette di essere cartolina e diventa cammino: radici, ombra, pochi tornanti."
+        },
+        {
+          "title": "Cedri come metronomo, non come museo",
+          "body": "Oltre trecento criptomeri furono piantati in epoca Edo lungo il sentiero dell'Okusha; oggi un centinaio e ottanta circa fiancheggiano il tracciato. Contateli solo se vi aiuta il ritmo: servono a scandire i passi, non a fare l'appello botanico."
+        },
+        {
+          "title": "Terapia odontoiatrica in salita",
+          "body": "Il Kuzuryūsha, vicino all'Okusha, accetta da secoli richieste contro il mal di denti — offerte tipiche: pere. Dopo due chilometri di salita il dente scivola in basso nella classifica dei problemi: la guarigione, tecnicamente, funziona comunque.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "戸隠神社 — Wikipedia (giapponese): Kenkō-ji, i tre in, shinbutsu bunri, Zuishinmon/Niōmon, offerte di pere",
+          "url": "https://ja.wikipedia.org/wiki/戸隠神社",
+          "kind": "wikipedia"
+        },
+        {
+          "title": "Togakushi Shrine — Wikipedia (inglese): divinità dei cinque santuari, Kuzuryū e il mal di denti, monaco Gakumon",
+          "url": "https://en.wikipedia.org/wiki/Togakushi_Shrine",
+          "kind": "wikipedia"
+        },
+        {
+          "title": "戸隠古道 — 戸隠観光協会 (circuito di ~8 km, il Kannomichi, origini Kamakura)",
+          "url": "https://togakushi-21.jp/kodo/",
+          "kind": "tourism"
+        },
+        {
+          "title": "奥社参道のスギ並木 — Go NAGANO, sito ufficiale della prefettura (tempi di cammino, monumento naturale)",
+          "url": "https://db.go-nagano.net/topics_detail6/id=741",
+          "kind": "tourism"
+        }
+      ]
+    },
+    {
+      "id": "place-miyajima-itsukushima",
+      "long": "Il santuario data la propria fondazione al 593 e la attribuisce a Saeki Kuramoto, notabile dell'isola che nella versione ufficiale seguì un corvo mandato dalla divinità; il nome compare in un documento di corte solo all'inizio del IX secolo. La forma che si vede è però un'idea di Taira no Kiyomori, governatore della provincia di Aki, che nel 1168 rifece tutto in scala enorme portando qui lo shinden-zukuri, cioè la pianta di un palazzo aristocratico Heian: sale collegate da corridoi coperti attorno a uno specchio d'acqua. Solo che lo specchio d'acqua è il mare aperto, e sale e corridoi stanno su pali, perché costruire a terra sull'isola sacra era impensabile: le sale dovevano stare sull'acqua, su pali. Le tre titolari sono le dee di Munakata — Ichikishima-hime, Tagori-hime, Tagitsu-hime — signore delle rotte marittime. Sei edifici sono tesoro nazionale e quattordici bene culturale importante; l'UNESCO ha iscritto il complesso nel 1996. Un dato che vale più di molti consigli: il cancello apre alle sei e mezza del mattino, tutto l'anno.",
+      "sections": [
+        {
+          "title": "Sassi nel cappello, e niente ancoraggi",
+          "body": "Sedici metri e sessanta di altezza, una sessantina di tonnellate, nessun ancoraggio: il grande torii sta in piedi per solo peso proprio. I pilastri principali sono tronchi naturali di canfora, quelli di sostegno in cedro; nel fango sotto ciascuno è battuta una selva di pali di pino, tecnica detta senbongui, che compatta il fondale. La trave superiore è una scatola cava riempita di ciottoli grandi come un pugno, messi lì come zavorra. L'esemplare attuale è del 1875 ed è rimasto sotto ponteggio da giugno 2019 a dicembre 2022."
+        },
+        {
+          "title": "Quarantacinque campate a est, sessantadue a ovest",
+          "body": "Il corridoio orientale misura quarantacinque campate, l'occidentale sessantadue, e le assi del pavimento sono montate distanziate: servono a scaricare la pressione dell'acqua quando la marea preme da sotto. L'edificio non resiste all'allagamento, è progettato per essere allagato e poi asciugarsi. Sullo stesso principio poggia il palco del Nō, l'unico giapponese costruito sul mare, donato nel 1680 da Asano Tsunanaga; dopo il tifone del 1991 tre delle sue quattro colonne sono state sostituite."
+        },
+        {
+          "title": "Ottobre 1555: la battaglia, poi la costa di fronte",
+          "body": "Mōri Motonari sbarcò di notte sotto la tempesta con circa quattromila uomini e travolse l'esercito di Sue Harukata, che si uccise sulla spiaggia occidentale. I morti furono portati a Ōno, sulla costa di fronte, e seguirono giorni di lavaggi e riti: sull'isola il sangue della battaglia non poteva restare accanto alle sale sul mare. Il dettaglio teologico della purezza sta nella memoria dell'isola; qui conta la logistica di chi doveva ripulire un santuario appena usato come campo di sbarco."
+        },
+        {
+          "title": "Cosa è impacchettato mentre ci siete",
+          "body": "Il santuario pubblica una pagina di cantiere e conviene aprirla prima di partire, perché qui i ponteggi durano anni e non settimane. Il rinforzo strutturale del corridoio orientale è iniziato nell'aprile 2024 e si chiude a dicembre 2026; il restauro della pagoda a cinque piani va dal gennaio 2025 al novembre 2027; la riparazione del ponte lungo era in calendario fino al marzo 2026."
+        },
+        {
+          "title": "Quattro tonnellate o sette, ottavo o nono",
+          "body": "L'ente turistico dell'isola scrive che nella trave ci sono circa quattro tonnellate di ciottoli e che questo è il nono torii dai tempi di Kiyomori; l'enciclopedia giapponese dice sette tonnellate e ottavo. Il torii più fotografato del Giappone sta dunque in piedi grazie a una quantità di sassi su cui nessuno concorda, e non si sa nemmeno che numero di matricola porti.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "御由緒 — 厳島神社 (sito ufficiale)",
+          "url": "https://www.itsukushimajinja.jp/jp/history.html",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "工事状況及び計画 — 厳島神社 (sito ufficiale)",
+          "url": "https://www.itsukushimajinja.jp/jp/construction.html",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "拝観時間・拝観料 — 厳島神社 (sito ufficiale)",
+          "url": "https://www.itsukushimajinja.jp/jp/admission.html",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "大鳥居 — 一般社団法人宮島観光協会",
+          "url": "https://www.miyajima.or.jp/sightseeing/ss_ootorii.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "厳島神社 — Wikipedia (giapponese)",
+          "url": "https://ja.wikipedia.org/wiki/%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "厳島の戦い — Wikipedia (giapponese)",
+          "url": "https://ja.wikipedia.org/wiki/%E5%8E%B3%E5%B3%B6%E3%81%AE%E6%88%A6%E3%81%84",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "place-hiroshima-okonomimura",
+      "long": "Il palazzo si chiama Shintenchi Plaza ed è del 1992, ma la cosa che contiene comincia sull'asfalto. Verso il 1950 su Chūō-dōri si formò un grappolo di banchetti che cuocevano farina sulla piastra: è la radice di Okonomimura, e il nome glielo regalò lo scrittore Kida Minoru, che passando di lì disse che sembrava un villaggio dell'okonomiyaki. Nel 1957 i banchi si spostarono nelle due piazze di Shintenchi ed erano una cinquantina; nel 1965 la sistemazione a parco li sfrattò tutti, e nel dicembre dello stesso anno nacque l'associazione che porta ancora quel nome; nel 1967 quattordici di loro riaprirono in un prefabbricato a due piani. Il prefabbricato invecchiò male e chiuse nel novembre 1990. L'edificio attuale, sette piani di cemento armato, aprì nel gennaio 1992 con ventisette esercizi; oggi ne restano poco più di venti, su mille metri quadrati distribuiti fra il secondo e il quarto piano. Un mercato di strada diventato, alla lettera, un condominio.",
+      "sections": [
+        {
+          "title": "Cosa vedete dal corridoio interno",
+          "body": "Dal secondo al quarto piano si cammina fra vetrine di teppan e menù fotografici. Ogni locale ha la sua coda e la sua fila di spatole; scegliete per affollamento e posti liberi, non per la teoria degli strati — quella la capite quando il piatto arriva."
+        },
+        {
+          "title": "La soba ci finì sopra verso il 1955",
+          "body": "Okonomiyaki e yakisoba erano due voci di menù distinte. Il racconto che circola a Hiroshima colloca la fusione da Micchan, uno dei banchi storici: un cliente si fece mettere l'okonomiyaki sopra i noodles saltati, era buono, saziava e costava meno che ordinare due piatti. Verso il 1955 lo strato di soba o udon era diventato la norma, ed è oggi la firma dello stile cittadino."
+        },
+        {
+          "title": "Dal prefabbricato al condominio di piastre",
+          "body": "Il prefabbricato del 1967 invecchiò male e chiuse nel 1990; l'edificio attuale aprì nel 1992 con ventisette esercizi su più piani. Okonomimura non è un food court inventato ieri: è la forma verticale di un mercato di strada che ha rifiutato di sparire da Shintenchi."
+        },
+        {
+          "title": "Due palazzi, due salse",
+          "body": "A Hiroshima la salsa non è un accessorio ma un'industria, e i due edifici dell'okonomiyaki di Shintenchi stanno su fronti opposti: a Okonomimura la salsa riconosciuta dall'associazione è la Mitsuwa della Sun Foods, mentre il vicino Okonomi Kyōwakoku Hiroshima-mura ha adottato la Otafuku. Chi ci mangia spesso sa perfettamente da che parte sta."
+        },
+        {
+          "title": "Quattro traslochi, sempre a Shintenchi",
+          "body": "Kida Minoru passò di lì, disse che sembrava un villaggio dell'okonomiyaki e tirò dritto. Nessuno gli ha chiesto il permesso di usarla: la battuta è diventata insegna, poi ragione sociale di un palazzo intero.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "お好み村 — ひろしま観光ナビ (Dive! Hiroshima)",
+          "url": "https://dive-hiroshima.com/explore/377/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "お好み村 — Wikipedia (giapponese)",
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%8A%E5%A5%BD%E3%81%BF%E6%9D%91",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "お好み焼き — Wikipedia (giapponese)",
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%8A%E5%A5%BD%E3%81%BF%E7%84%BC%E3%81%8D",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "food-all-hojicha",
+      "long": "L'hōjicha è tè verde tostato: foglie e a volte gambi passati al calore fino a diventare ambrati, con aroma di legno, nocciola e un cacao leggero, amaro basso e caffeina tipicamente ridotta rispetto al sencha. Si beve caldo dopo cena, freddo in bottiglia d'estate, e compare in latte, gelati e soft cream quando serve un tè «bruno» senza passare al black tea. Per chi trova il sencha troppo erbaceo è la porta più gentile: stessa Camellia sinensis, altro trattamento termico. In viaggio lo riconoscete al colore dell'infuso e al profumo di tostatura pulita — se sa di cenere, la foglia è stata spinta troppo sul fuoco.",
+      "sections": [
+        {
+          "title": "Ambra da tostatura, non tè nero",
+          "body": "Il colore scuro viene dal fuoco, non da un black tea. L'aroma deve essere pulito, non di bruciato da cenere."
+        },
+        {
+          "title": "Sera e bambini",
+          "body": "Spesso scelto la sera proprio per la caffeina bassa. Nei ristoranti può arrivare al posto del tè verde chiaro."
+        },
+        {
+          "title": "Latte, soft serve, e l'infuso semplice",
+          "body": "Hojicha latte e soft serve sono ovunque nei caffè. Assaggiate anche l'infuso semplice in tazza: svela se la base è pulita o soltanto zuccherata. In konbini le bottiglie fredde sono la versione da stazione."
+        },
+        {
+          "title": "Il tè della cena senza rimorsi",
+          "body": "Dopo dieci templi e un ramen, il sencha può sembrare un altro compito. L'hōjicha arriva come salotto: meno cartolina zen, più digiuno dalla caffeina che non annuncia a trombe.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — The definitive Japanese tea experience",
+          "url": "https://www.japan.travel/en/gastronomy/article-the-definitive-japanese-tea-experience/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-all-amazake",
+      "long": "L'amazake è bevanda dolce di riso fermentato: calda d'inverno nei chioschi dei templi e nei festival, fredda in bottiglia nei konbini; alcune versioni da koji sono quasi senza alcol, altre da sake kasu ne contengono in percentuale da leggere sull'etichetta. Sa di riso dolce e crema leggera; non è latte, non è frullato, non è un cocktail da brindisi. Per chi esce da un santuario gelato è un rito di calore più che una moda da wellness. In viaggio la regola pratica è semplice: se guidate o lo offrite a bambini, chiedete o leggete se è la famiglia koji o quella da kasu.",
+      "sections": [
+        {
+          "title": "Koji o kasu: due dolcezze diverse",
+          "body": "Koji amazake è spesso low o no alcohol; da sake kasu può avere alcol. Se conta per guida o per i bambini, non indovinate dal colore: leggete o chiedete al chiosco."
+        },
+        {
+          "title": "Tempio e inverno",
+          "body": "Nei chioschi dei santuari d'inverno è il contesto perfetto. In estate in bottiglia è merenda liquida."
+        },
+        {
+          "title": "Dolcezza",
+          "body": "È zuccherino naturalmente. Se è troppo, chiedi una versione più leggera o diluita — alcuni locali la tagliano."
+        },
+        {
+          "title": "Merenda liquida sotto il torii",
+          "body": "Sembra una crema d'infanzia servita accanto a un cancello sacro. Pochi abbinamenti sono così stranamente giusti — e così utili quando le dita non sentono più il telefono.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Sake and beyond",
+          "url": "https://www.japan.travel/en/ca/sake-and-beyond/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Wagashi: a delectable art form",
+          "url": "https://www.japan.travel/en/sg/story/wagashi-delectable-art-form-learn-craft-traditional-japanese-con/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-tsubaki-mask",
+      "long": "Tsubaki Premium Repair Mask (FineToday) è l'altro barattolo rosso-dorato che compete con Fino sullo stesso corridoio: famiglia ツバキ, profumo di camelia più «profumeria», claim di trattamento intensivo da risciacquo. Esistono shampoo e conditioner Premium Moist / Volume / EX nella stessa estetica: se volete la maschera, leggete リペアマスク / ヘアパック sull'etichetta, non il fiore stampato sul frontale. Il formato tipico è intorno ai 180 g con ricarica separata. Come Fino, pesa; come Fino, una confezione basta. Non mescolate le aspettative: è cosmetico per capelli, non una promessa medica su cuoio capelluto o patologie.",
+      "sections": [
+        {
+          "title": "Maschera, non solo «qualcosa di rosso Tsubaki»",
+          "body": "La linea include shampoo, conditioner e maschera EX. Il barattolo di trattamento ha indicazioni d'uso diverse dal flacone quotidiano. Se lo scaffale è un muro rosso, girate la confezione e cercate la parola マスク o ヘアパック."
+        },
+        {
+          "title": "Ricarica e peso",
+          "body": "FineToday propone anche つめかえ. Utile a casa; in viaggio preferite il barattolo già pronto. Tenetelo chiuso in una busta: il profumo intenso profuma anche i vestiti vicini, non sempre per scelta."
+        },
+        {
+          "title": "Fino o Tsubaki sullo stesso scontrino?",
+          "body": "Molti comprano entrambi «per confrontare». In hotel confronterete soprattutto quale tappo avete aperto. Sceglietene uno per il viaggio; l'altro può aspettare un secondo drugstore se davvero vi manca."
+        },
+        {
+          "title": "Il profumo che colonizza l'armadio dell'hotel",
+          "body": "Aprite il barattolo in camera e la camelia occupa cassetti e asciugamani per ore. Utile come promemoria di aver comprato qualcosa; meno utile se condividete la stanza con nasini sensibili. Un giro di nastro sul tappo prima del bagaglio aiuta.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "プレミアムEX リペアマスク｜TSUBAKI — FineToday",
+          "url": "https://brand.finetoday.com/jp/tsubaki/mask/",
+          "kind": "produttore"
+        },
+        {
+          "title": "商品ラインナップ｜TSUBAKI — FineToday",
+          "url": "https://brand.finetoday.com/jp/tsubaki/products/",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "experience-nara-visitor-center-workshop",
+      "long": "Va saputo prima di partire: il posto non c'è più. La prefettura di Nara aveva inaugurato il Sarusawa Inn nel luglio 2015 sulla riva del laghetto Sarusawa come «struttura di scambio per turisti stranieri»: banco informazioni e sala viaggiatori al piano terra affidati a JTB West Japan, un konbini nell'interrato, camere ai piani alti dall'estate 2016, cambio valuta, deposito bagagli, e ogni giorno nella sala comune un programma di cultura giapponese — tè, calligrafia, ikebana, koto, origami, travestimenti da lottatore di sumō e da sacerdote shintō. Ha chiuso definitivamente il 31 marzo 2026. Il motivo lo aveva messo per iscritto una commissione di esperti pochi mesi prima: bilancio in perdita fin dall'apertura ed edificio ormai degradato, con l'indicazione di demolirlo e ricostruire altro. Quindi niente laboratori sul laghetto, e nemmeno l'insegna sopravvivrà. La buona notizia è che a Nara il piano B è più interessante dell'originale, perché qui l'artigianato non è una ricostruzione per visitatori: è un settore che lavora ancora.",
+      "sections": [
+        {
+          "title": "A chi chiedere adesso, e a che ora",
+          "body": "Il banco più comodo è dentro il terminal bus del parco di Nara: tutti i giorni dalle 7:30 alle 22, con personale che parla inglese. Poi c'è l'ufficio informazioni della prefettura davanti al museo del Tōdai-ji, e quello alla stazione Kintetsu Nara, dalle 9 alle 17. Un terzo punto si è trasferito dentro l'Okumura Kinenkan a partire da giugno 2026 e chiude il lunedì."
+        },
+        {
+          "title": "Il laboratorio che vale la deviazione: stringere l'inchiostro",
+          "body": "A cinque minuti a piedi a est della stazione JR, la bottega Kinkoen fa il «nigiri-zumi»: il titolare spiega materiali e storia, mostra una fase della lavorazione, poi vi mette in mano l'inchiostro ancora crudo e voi lo stringete. La stecca conserva le vostre impronte digitali e parte il giorno stesso dentro una scatola di paulonia. Circa un'ora, 3.300 yen per un adulto, prenotazione obbligatoria ma accettata anche in giornata."
+        },
+        {
+          "title": "Perché a Nara si stringe inchiostro e non altro",
+          "body": "L'inchiostro entrò in Giappone dalla piana di Asuka e la produzione giapponese cominciò dentro il Kōfuku-ji, per copiare i sutra. In epoca Edo a Nara c'erano una quarantina di botteghe di sumi; oggi in tutto il Paese ne restano meno di dieci, e nove decimi dell'inchiostro giapponese esce ancora da qui. Non è folklore ricostruito: è un mestiere superstite che vi lascia toccare il prodotto a metà lavorazione."
+        },
+        {
+          "title": "Il catalogo pubblico che quasi nessuno apre",
+          "body": "La prefettura tiene online un elenco di laboratori artigiani visitabili, filtrabile per materiale, zona e durata: pennelli da calligrafia, ventagli di Nara, intaglio ittōbori, tintura all'indaco nell'antica bottega dei tintori di Yamatokōriyama, ceramica akahada, carta washi. Prezzi e orari li aggiorna l'ufficio regionale, e quasi tutti chiedono una telefonata prima."
+        },
+        {
+          "title": "L'unico souvenir che continua a lavorare da solo",
+          "body": "La stecca d'inchiostro che avete stretto ci mette circa tre mesi ad asciugare e va tenuta al fresco. È l'unico ricordo di viaggio che si compra ancora bagnato, viaggia in valigia come un formaggio e diventa utilizzabile giusto quando del Giappone vi resta soltanto l'elenco delle cose che non avete fatto.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "奈良県 — 観光案内所（猿沢イン閉館の告知と代替窓口）",
+          "url": "https://www.pref.nara.lg.jp/n109/20873.html",
+          "kind": "official"
+        },
+        {
+          "title": "奈良新聞デジタル — 奈良市の「猿沢イン」閉館へ",
+          "url": "https://www.nara-np.co.jp/news/20250915212104.html",
+          "kind": "press"
+        },
+        {
+          "title": "関西ウォーカー — 外国人観光客交流施設「奈良県猿沢イン」がオープン",
+          "url": "https://www.walkerplus.com/article/62461/",
+          "kind": "press"
+        },
+        {
+          "title": "奈良県「工芸体験なら」— 錦光園（にぎり墨体験）",
+          "url": "https://www3.pref.nara.jp/kougei-taiken/1042.htm",
+          "kind": "official"
+        },
+        {
+          "title": "錦光園 — 奈良墨工房",
+          "url": "https://kinkoen.jp/",
+          "kind": "official"
+        }
+      ]
+    }
+  ]
+}

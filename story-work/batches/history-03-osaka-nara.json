@@ -1,0 +1,520 @@
+{
+  "meta": {
+    "batch": "history-03-osaka-nara",
+    "note": "Cultural-layer history. Cross-checked against place-osaka-castle, place-osaka-billiken, place-osaka-hozenji, place-osaka-dotonbori, place-nara-todaiji, place-nara-kasuga, place-nara-nara-park, place-nara-naramachi, place-nara-piana-palazzo-heijo, experience-osaka-bunraku-theatre, experience-nara-nara-park-walk — concept angles, not venue logistics."
+  },
+  "schede": [
+    {
+      "id": "history-osaka-merchant-city",
+      "long": "Osaka non diventò «cucina della nazione» per un gusto letterario: lo diventò perché il riso delle province, convertito in denaro, passava di qui. Nell'età Tokugawa i feudi spedivano il tributo ai magazzini di Nakanoshima; i mercanti lo compravano all'asta, emettevano cambiali sul cereale e, a un certo punto, cominciarono a contrattare anche il riso ancora da consegnare. Il mercato di Dōjima, riconosciuto dallo shogunato, diede a quella pratica regole, membri e una stanza di compensazione: un prezzo formato in città viaggiava per corrieri fino a Edo e oltre. I chōnin restavano formalmente sotto i samurai, ma tenevano in mano la liquidità del paese. Tenka no daidokoro non è quindi un slogan turistico: è la memoria di quando la bilancia del Giappone stava su un bancone di Osaka, e la cultura urbana — teatri, cibo, dialetto — crebbe da quella ricchezza pragmatica.",
+      "sections": [
+        {
+          "title": "Il riso che diventava carta",
+          "body": "Le cambiali di magazzino trasformavano un sacco fisico in un titolo negoziabile. Chi comprava non doveva sempre trasportare il cereale: poteva rivendere la promessa. Fu una lezione prematura di finanza, nata dalla necessità di far circolare tributi, non da un trattato europeo."
+        },
+        {
+          "title": "Dōjima come termometro del regno",
+          "body": "Quando lo shogunato autorizzò il mercato a libro, il prezzo di riferimento smise di essere soltanto locale. Un rialzo o un crollo qui spostava umori a centinaia di chilometri. Osaka misurava la febbre economica del Giappone prima ancora di essere capitale industriale."
+        },
+        {
+          "title": "Mercanti inferiori, città superiore",
+          "body": "Nella gerarchia ufficiale i chōnin stavano in basso; nella pratica finanziavano daimyō e dettavano mode. Da quella tensione nacque un orgoglio cittadino ironico, poco incline a inchinarsi e molto propenso a giudicare il mondo dal gusto e dal conto."
+        },
+        {
+          "title": "Cosa resta da capire camminando",
+          "body": "Canali, isole fluviali e toponimi legati ai magazzini non sono sfondo pittoresco: sono l'impronta di una logistica nazionale. La cucina famosa arriva dopo, come conseguenza di ingredienti che qui passavano e di clienti che sapevano pagarli."
+        },
+        {
+          "title": "Il futures ante litteram con il kimono",
+          "body": "A Chicago inventarono i futures e se ne vantarono per un secolo. A Dōjima li facevano già mentre qualcuno a Edo discuteva ancora di etichetta feudale. Osaka ha sempre avuto un senso pratico della storia.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {"title": "Dojima Rice Exchange — Japan Exchange Group", "url": "https://www.jpx.co.jp/dojima/en/", "kind": "ente di mercato"},
+        {"title": "The Birthplace of Futures Trading — Osaka Dojima Exchange", "url": "https://www.odex.co.jp/en/about/derivative/index.html", "kind": "sito ufficiale"},
+        {"title": "堂島米市場 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E5%A0%82%E5%B3%B6%E7%B1%B3%E5%B8%82%E5%A0%B4", "kind": "enciclopedia"}
+      ]
+    },
+    {
+      "id": "history-osaka-castle-power",
+      "long": "Il castello di Osaka, nella lettura culturale, non è un museo di pietre: è un manifesto di legittimità. Hideyoshi, salito dal nulla, aveva bisogno di un oggetto che dicesse «unificazione» senza doverlo ripetere a ogni riunione. Scegliere il sedime dell'Ishiyama Hongan-ji, appena piegato da Nobunaga, significava piantare il proprio potere sul terreno di chi aveva resistito più a lungo. I Tokugawa, dopo aver vinto, non si accontentarono di conquistare: seppellirono e ricostruirono, ridisegnando perimetro e scala perché nessuno potesse confondere il nuovo ordine con il vecchio. Le pietre enormi delle mura, spesso marchiate dai clan obbligati a fornirle, funzionavano come elenco di vassalli in granito. Capire Osaka-jō come dichiarazione significa guardare meno la torre ricostruita e più il messaggio: chi controlla questa collina pretende di controllare il racconto del paese.",
+      "sections": [
+        {
+          "title": "Unificazione scritta in fossati",
+          "body": "Hideyoshi usò il castello come prova visiva che la guerra civile stava chiudendosi. Non bastava vincere battaglie: bisognava offrire una capitale militare credibile, capace di ospitare corti, ostaggi e cerimonie. L'architettura diventava retorica di stato."
+        },
+        {
+          "title": "Sovrascrivere il nemico",
+          "body": "I Tokugawa non lasciarono intatto il simbolo Toyotomi. Ricostruire sopra significava cancellare la continuità emotiva del luogo e imporre una nuova memoria. Il castello «di Osaka» che si immagina oggi è già, in gran parte, il prodotto di quella riscrittura."
+        },
+        {
+          "title": "Pietre come firme feudali",
+          "body": "I blocchi giganti non erano solo ingegneria: erano corvée trasformata in paesaggio. Far portare una lastra impossibile era un modo per misurare obbedienza e risorse. Chi passava davanti al muro leggeva, senza libri, chi aveva contribuito al potere."
+        },
+        {
+          "title": "Dal campo di battaglia al mito civico",
+          "body": "Nel Novecento la torre rifatta con donazioni cittadine spostò di nuovo il significato: da fortezza di clan a emblema municipale. Il potere cambiò di secolo, ma il bisogno di un'immagine riconoscibile restò."
+        },
+        {
+          "title": "Il curriculum vitae in muratura",
+          "body": "Altri leader lasciano memorie e ritratti. Hideyoshi e i suoi successori lasciarono un curriculum in pietra, con note a margine scritte a colpi di cuneo. Difficile fare un colloquio di lavoro dopo aver visto quello.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {"title": "大阪城天守閣 — sito ufficiale del museo", "url": "https://www.osakacastle.net/", "kind": "sito ufficiale"},
+        {"title": "大坂城 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%9D%82%E5%9F%8E", "kind": "enciclopedia"},
+        {"title": "大阪城 — Osaka Info", "url": "https://osaka-info.jp/spot/osaka-castle/", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "history-osaka-kuidaore",
+      "long": "Kuidaore non è un menu: è un giudizio morale trasformato in vanto. L'espressione, spesso accoppiata al «kidaore» di Kyoto — rovinarsi per i vestiti — descrive una città che preferisce spendere sulla bocca piuttosto che sulla vetrina. Nasce in un contesto mercantile dove ingredienti di tutto il paese arrivavano già selezionati e dove mangiare bene era prova di competenza, non solo di appetito. Il konamon — okonomiyaki, takoyaki, farine lavorate in strada — non contraddice questo orgoglio: lo democratizza. La raffinatezza osakana non sta nel silenzio del ristorante stellato, sta nel sapere riconoscere un brodo, un pezzo di polpo, un'impasto fatto al momento. Kuidaore oggi suona festoso; in origine aveva anche il sapore di un monito ironico: attenzione, qui il gusto può fare più danni al portafoglio della seta di Nishijin.",
+      "sections": [
+        {
+          "title": "Kyoto si veste, Osaka mastica",
+          "body": "Il proverbio a due città è una sociologia abbreviata. Dove la corte e l'artigianato tessile educavano lo sguardo, qui i magazzini e i mercati educavano il palato. Non è superiorità: è specializzazione culturale."
+        },
+        {
+          "title": "Abbondanza come scuola di gusto",
+          "body": "Essere «cucina della nazione» significava vedere passare pesce, verdure e cereali prima che arrivassero altrove. I chōnin impararono a pretendere qualità perché la qualità era disponibile. Da lì il rifiuto, tipicamente osakano, del cibo soltanto scenografico."
+        },
+        {
+          "title": "Konamon: lusso popolare",
+          "body": "Le specialità di farina nacquero come pasti veloci e accessibili, non come haute cuisine. Ma la cura del dettaglio — crosta, ripieno, salsa — mostra lo stesso standard mercantile applicato al banchetto di strada. Kuidaore non esige tovaglia."
+        },
+        {
+          "title": "Dal monito al brand cittadino",
+          "body": "Quello che poteva sembrare spreco divenne identità. La città lo rivendica perché distingue Osaka da capitali più formali: qui il successo sociale si misura anche a tavola, a voce alta e senza troppe scuse."
+        },
+        {
+          "title": "Il fallimento più allegro del Giappone",
+          "body": "Altrove «rovinarsi» è tragedia. A Osaka è quasi un programma culturale. Se dovete scegliere un modo elegante per finire i soldi, qui vi offrono almeno il contorno giusto.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {"title": "京の着倒れ、大阪の食い倒れ — Kotobank / 世界大百科事典", "url": "https://kotobank.jp/word/%E4%BA%AC%E3%81%AE%E7%9D%80%E5%80%92%E3%82%8C%E5%A4%A7%E9%98%AA%E3%81%AE%E9%A3%9F%E3%81%84%E5%80%92%E3%82%8C-2236127", "kind": "dizionario"},
+        {"title": "食い倒れ — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E9%A3%9F%E3%81%84%E5%80%92%E3%82%8C", "kind": "enciclopedia"},
+        {"title": "大阪の食文化 — Osaka Info", "url": "https://osaka-info.jp/page/osaka-cuisine/", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "history-osaka-naniwa-port",
+      "long": "Prima del nome Osaka c'era Naniwa: una soglia d'acqua verso il continente. Nella piana dei fiumi, dove oggi si sovrappongono quartieri e binari, sorsero porti, magazzini e, a tratti, capitali temporanee. Da qui passavano ambasciate, monaci, tecniche e merci che collegavano l'arcipelago alla penisola coreana e alla Cina. Il mare non era sfondo: era infrastruttura. Anche quando il potere politico si spostò verso Nara e poi Kyoto, la logica del nodo fluviale restò — canali, ponti, barche — fino a plasmare la città mercantile. Il soprannome degli «ottocento ponti» non contava i manufatti uno per uno: confessava una geografia fatta di attraversamenti continui. Capire Naniwa significa capire perché Osaka pensa ancora in termini di flusso: gente, cibo, affari, spettacolo, tutto in movimento.",
+      "sections": [
+        {
+          "title": "Porta, non periferia",
+          "body": "Naniwa non era un villaggio di passaggio casuale. Era il punto in cui lo stato antico incontrava navi e missioni. Chi controllava questo approdo controllava una parte della diplomazia e del prestigio continentale."
+        },
+        {
+          "title": "Capitali che vanno e vengono",
+          "body": "Le reggie di Naniwa compaiono e spariscono nelle cronache, ma lasciano un'idea: questa piana poteva ospitare il centro. Quando la corte si trasferì altrove, l'acqua restò come vocazione economica più duratura del trono."
+        },
+        {
+          "title": "Dal porto al labirinto di canali",
+          "body": "L'età mercantile ereditò l'istinto idraulico. Scavare, collegare, costruire ponti non era ornamento: era come tenere aperti i corridoi di un magazzino nazionale. La modernità cementò molti corsi, ma la memoria resta nei nomi."
+        },
+        {
+          "title": "Cosa ascoltare nel toponimo",
+          "body": "«Naniwa» sopravvive in stazioni, squadre, etichette alimentari. Non è nostalgia da brochure: è la parola più antica con cui la città ricorda di essere nata bagnata, non murata."
+        },
+        {
+          "title": "Una metropoli con il curriculum da porto",
+          "body": "Altre città fingono di avere sempre avuto un centro monumentale. Osaka, più onesta, ammette di aver cominciato come scalo. Poi ha solo alzato il volume degli affari.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {"title": "難波宮 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E9%9B%A3%E6%B3%A2%E5%AE%AE", "kind": "enciclopedia"},
+        {"title": "大阪歴史博物館 — 難波宮発掘開始70周年", "url": "https://www.osakamushis.jp/news/2024/naniwanomiya70.html", "kind": "museo"},
+        {"title": "難波 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E9%9B%A3%E6%B3%A2", "kind": "enciclopedia"}
+      ]
+    },
+    {
+      "id": "history-osaka-bunraku",
+      "long": "Il bunraku, come idea culturale, è il teatro in cui Osaka dimostrò che i mercanti potevano finanziare tragedie più acute dei samurai. Il ningyō jōruri unisce tre mestieri — burattini manovrati a vista, narrazione cantata, shamisen — in un unico respiro; nessuno dei tre «accompagna» gli altri: si costringono a coincidere. Dōtonbori, nel Seicento e Settecento, non era solo neon ante litteram: era un distretto dove la cronaca cittadina diventava libretto in poche settimane, con amanti e fallimenti appena camuffati. Il nome «bunraku» arrivò tardi, da una compagnia; la sostanza osakana è precedente: un pubblico di chōnin capace di piangere per un pezzo di legno perché riconosceva lì i propri dilemmi di denaro, onore e desiderio. L'UNESCO ha certificato la forma; Osaka ne aveva già certificato l'utilità sociale secoli prima.",
+      "sections": [
+        {
+          "title": "Tre arti, un solo polso",
+          "body": "La marionetta non «recita» da sola: vive perché tre corpi umani accettano di sparire nel gesto. Il cantore fa tutte le voci; lo shamisen detta i respiri. È un patto collettivo contro l'illusione dell'attore unico."
+        },
+        {
+          "title": "Cronaca nera in kimono",
+          "body": "I doppi suicidi e i drammi di bottega funzionavano perché il pubblico li aveva appena letti o sentiti in città. Il teatro osakano non fuggiva la vita mercantile: la metteva in scena amplificata, finché il legno sembrava più vero del pettegolezzo."
+        },
+        {
+          "title": "Perché qui e non altrove",
+          "body": "Serviva un pubblico urbano denso, teatri concorrenti e denaro liquido. Kyoto aveva cortesia e nō; Osaka aveva botteghino e dialetto. Il bunraku maturo è figlio di quella densità commerciale."
+        },
+        {
+          "title": "Dal cognome al genere",
+          "body": "Che un nome di compagnia finisca per indicare un'arte intera dice quanto quella compagnia abbia monopolizzato l'immaginario. La parola oggi suona istituzionale; nasceva come insegna di impresario."
+        },
+        {
+          "title": "Pupazzi più emotivi dei parenti",
+          "body": "Si passa una serata a credere che tre adulti in nero stiano facendo piangere un pezzo di legno, e funziona. A Osaka anche i sentimenti vanno in appalto, purché il risultato sia convincente.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {"title": "文楽とは？ — 文楽協会", "url": "https://www.bunraku.or.jp/about/", "kind": "sito ufficiale"},
+        {"title": "ユネスコ無形文化遺産 文楽への誘い — Japan Arts Council", "url": "https://www2.ntj.jac.go.jp/unesco/bunraku/jp/", "kind": "ente nazionale"},
+        {"title": "人形浄瑠璃 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E5%BD%A2%E6%B5%84%E7%91%A0%E7%92%83", "kind": "enciclopedia"}
+      ]
+    },
+    {
+      "id": "history-osaka-hozenji-moss",
+      "long": "Il muschio del Fudō di Hōzen-ji non è botanica monumentale: è teologia accumulata a mestolate. In un vicolo di Namba, a un passo dal rumore, una figura iraconda del buddhismo esoterico riceve acqua versata da chi chiede protezione, chiarezza o semplicemente un gesto che sembri utile. Ogni offerta bagna la pietra; l'umidità nutre il verde; il verde diventa volto. Non serve un edificio grandioso: serve ripetizione. Il Fudō «vestito» di muschio racconta una città che preferisce la praticità del rito alla purezza da museo — e che accetta che il sacro cresca sopra il desiderio umano come una pellicola viva. La scheda culturale non misura quanti centimetri di verde ci siano: misura cosa significa lasciare che le mani dei passanti riscrivano l'icona.",
+      "sections": [
+        {
+          "title": "Fudō, non una mascotte gentile",
+          "body": "Fudō Myōō è il re immobile che taglia le illusioni con la spada e tiene il laccio per catturare le forze ostili. Bagnarlo non è un gesto tenero: è avvicinarsi a una figura che promette disciplina e protezione dura, non coccole."
+        },
+        {
+          "title": "L'offerta che diventa materia",
+          "body": "In molti templi l'acqua purifica e sparisce. Qui lascia un residuo visibile. Il muschio è la prova fisica che migliaia di richieste sono passate sullo stesso corpo: una contabilità vegetale della fede urbana."
+        },
+        {
+          "title": "Sacro senza biglietteria",
+          "body": "Il fatto che il culto stia stretto fra cucine e lanterne non lo rende meno serio. Osaka ha spesso messo il divino dove vive la gente, non dietro cancelli. Hōzen-ji è l'estrema sintesi di quella abitudine."
+        },
+        {
+          "title": "Verde come tempo",
+          "body": "Il muschio non «abbellisce» in senso estetico da giardino zen. Segna durata. Più è fitto, più il luogo ha retto al passaggio. È un orologio umido appeso al volto di un dio."
+        },
+        {
+          "title": "L'unico guardaroba che cresce da solo",
+          "body": "Altre divinità cambiano kimono rituali. Questa si fa cucire il vestito dall'acqua dei visitatori e dal tempo. Un stilista ecologico, un po' severo, che non manda mai il conto in boutique.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {"title": "法善寺 — Municipio di Osaka, Chūō", "url": "https://www.city.osaka.lg.jp/chuo/page/0000641943.html", "kind": "ente pubblico"},
+        {"title": "法善寺 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E6%B3%95%E5%96%84%E5%AF%BA", "kind": "enciclopedia"},
+        {"title": "法善寺横丁 — Osaka Info", "url": "https://osaka-info.jp/spot/hozenji-yokocho/", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "history-osaka-billiken",
+      "long": "Billiken è la prova che Osaka sa adottare un dio straniero senza chiedere il permesso alla teologia ufficiale. Nato negli Stati Uniti come figura portafortuna — «the god of things as they ought to be» — arrivò in città nel clima dei luna park e delle esposizioni, quando Shinsekai vendeva modernità a rate. Qui non restò gadget: gli si costruì uno spazio, si toccarono i piedi, si registrò un marchio, si tramandò un gesto. La fortuna osakana non ha bisogno di antenati mitici millenari; ha bisogno di efficacia e di contatto. Strofinare i piedi di una bambola americana diventata inquilina di quartiere è coerente con una città che giudica le idee dal risultato, non dal pedigree. Billiken non «spiega» Shinsekai: lo riassume — importazione, affetto popolare, usura lucida.",
+      "sections": [
+        {
+          "title": "Un dio brevettato, non rivelato",
+          "body": "A differenza dei kami di stirpe divina, Billiken nasce da disegno e deposito. La sua autorità non viene dal Kojiki: viene dal fatto che la gente ci crede abbastanza da tornare a toccarlo. Osaka ha sempre rispettato i risultati di mercato, anche in paradiso."
+        },
+        {
+          "title": "Shinsekai come incubatrice",
+          "body": "Il quartiere nato per sembrare «nuovo mondo» era il posto giusto per un portafortuna importato. Lì la modernità si consumava come spettacolo; Billiken offriva una fede compatibile con biglietti, torri e fritto in fila."
+        },
+        {
+          "title": "Il culto tattile",
+          "body": "La lucentezza dei piedi è teologia empirica: dove le mani passano, la fortuna si presume depositata. Non serve capire l'inglese del motto sul piedistallo. Serve il gesto, ripetuto fino a consumare il legno."
+        },
+        {
+          "title": "Fortuna senza nazionalismo",
+          "body": "Che una città giapponese promuova un'icona americana a simbolo locale dice qualcosa di anti-purista. Osaka integra ciò che funziona. Billiken è globalizzazione ante litteram con i piedi lucidi."
+        },
+        {
+          "title": "Immigrazione divina con visto turistico",
+          "body": "Altri dèi arrivano con sutra e corteggi. Billiken è arrivato quasi come souvenir e ha ottenuto la residenza permanente. Solo a Osaka un immigrato del 1908 finisce a fare il sindaco spirituale di un quartiere.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {"title": "ビリケンさん — sito ufficiale del marchio", "url": "https://www.billiken.jp/", "kind": "sito ufficiale"},
+        {"title": "ビリケン — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E3%83%93%E3%83%AA%E3%82%B1%E3%83%B3", "kind": "enciclopedia"},
+        {"title": "通天閣 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E9%80%9A%E5%A4%A9%E9%96%A3", "kind": "enciclopedia"}
+      ]
+    },
+    {
+      "id": "history-osaka-ebisu",
+      "long": "A Osaka la prosperità ha un indirizzo e una festa: Imamiya Ebisu e il Tōka Ebisu. Il santuario, legato per tradizione alla tutela occidentale del Shitennō-ji, venera Kotoshironushi — l'Ebisu dal tai e dalla canna — insieme ad altre divinità; nacque in una zona di costa e di mercati, dove il pesce fresco e lo scambio di merci chiedevano un tutore concreto. Con la crescita dei chōnin divenne il kami degli affari. Nei tre giorni di gennaio il grido «shōbai hanjō ja, sasa motte koi» riempie i viali: si ricevono i fukusasa, rami di bambù a cui si legano i kotakara — piccoli simboli di fortuna, dal libro mastro al martelletto, dal sacco di riso al tai. Non è folklore gentile: è un rito di liquidità spirituale in cui la città mercantile rinnova il contratto con la buona sorte, rumorosamente e in fila.",
+      "sections": [
+        {
+          "title": "Dal mare al bancone",
+          "body": "Ebisu porta i tratti del protettore della pesca; a Imamiya quella protezione si allargò ai mercati e poi al commercio in generale. Quando la costa si ritirò e la città avanzò, il kami restò, cambiando clientela senza perdere il tai in mano."
+        },
+        {
+          "title": "Tōka Ebisu come calendario degli affari",
+          "body": "I tre giorni di gennaio non sono una festa generica di Capodanno: sono l'apertura rituale dell'anno commerciale. Botteghe, mercati e famiglie vengono a prendere un pezzo di fortuna da appendere, non soltanto a fotografare."
+        },
+        {
+          "title": "Fukusasa e kotakara",
+          "body": "Il ramo di bambù vale per la vitalità che i giapponesi hanno sempre letto nella pianta sempreverde e nodosa. I «tesoretti» appesi — monete, registri, utensili simbolici — condensano i desideri di guadagno e di casa piena. Portare a casa il sasa significa portare a casa un contratto con l'augurio."
+        },
+        {
+          "title": "Le fuku-musume come volto della festa",
+          "body": "Le giovani che distribuiscono i rami non sono comparse: sono la mediazione umana del dono. Il rito ha bisogno di voci, sorrisi e code, perché a Osaka la fortuna si preferisce rumorosa e condivisa."
+        },
+        {
+          "title": "Il dio degli affari fa la fila come tutti",
+          "body": "Si va da Ebisu per prosperare, e si finisce comunque in coda. È la lezione più osakana possibile: anche la divinità del commercio rispetta l'ora di punta.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {"title": "今宮戎神社とは — sito ufficiale", "url": "https://www.imamiya-ebisu.jp/about/", "kind": "sito ufficiale"},
+        {"title": "十日戎 — sito ufficiale Imamiya Ebisu", "url": "https://www.imamiya-ebisu.jp/tokaebisu/", "kind": "sito ufficiale"},
+        {"title": "今宮戎神社 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E4%BB%8A%E5%AE%AE%E6%88%8E%E7%A5%9E%E7%A4%BE", "kind": "enciclopedia"}
+      ]
+    },
+    {
+      "id": "history-nara-first-capital",
+      "long": "Heijō-kyō non fu una città «bella da visitare»: fu un progetto di stato. Per gran parte dell'VIII secolo la corte stabilì qui una capitale a griglia, ispirata ai modelli continentali, con il palazzo a nord e un'amministrazione che voleva tassare, registrare e Buddhistizzare il territorio in un colpo solo. Nara divenne il laboratorio in cui il Giappone antico sperimentò di essere impero burocratico e regno del Dharma insieme. Templi colossali e uffici di legno crescevano sulla stessa pianta. Quando la corte se ne andò verso Nagaoka e poi Heian, non cancellò l'esperimento: lasciò una piana piena di fondamenta e di memorie istituzionali. Capire Nara come prima capitale stabile significa leggere i prati del palazzo e i grandi monasteri come pezzi dello stesso disegno — governo e salvezza, mappa e mito.",
+      "sections": [
+        {
+          "title": "Una griglia per governare",
+          "body": "La pianta a scacchiera non era estetica urbana: era strumento di controllo. Strade diritte, lotti misurati, palazzo in asse. Chi cammina oggi sui prati ricostruiti sta ancora dentro quella geometria di potere."
+        },
+        {
+          "title": "Buddhismo di stato, non solo fede",
+          "body": "I grandi templi di Nara ricevevano terre, manodopera e missioni politiche. Proteggere il paese con il Dharma era parte del mestiere dell'imperatore. La religione qui aveva bilanci e cantieri."
+        },
+        {
+          "title": "Perché la corte se ne andò",
+          "body": "Le ragioni furono molteplici — fazioni, costi, monaci troppo influenti, voglia di ricominciare. Il trasferimento non invalida Nara: prova anzi quanto fosse densa di poteri da ribilanciare."
+        },
+        {
+          "title": "Cosa rimane quando spariscono i palazzi",
+          "body": "Il legno decade; restano fossati, mokkan, toponimi e il peso simbolico di essere stati il centro. Nara moderna vive di quella eredità senza poterne ricostruire ogni tetto — e forse è meglio così: il vuoto fa pensare."
+        },
+        {
+          "title": "La capitale che ha inventato il trasferimento",
+          "body": "Oggi le aziende cambiano sede e chiamano consulting. Nell'VIII secolo spostavano l'intera corte. Nara fu il primo grande ufficio da cui qualcuno decise, dopo decenni, di dare le dimissioni collettive.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {"title": "国営平城宮跡歴史公園 — sito ufficiale", "url": "https://www.heijo-park.jp/", "kind": "sito ufficiale"},
+        {"title": "平城京 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E5%9F%8E%E4%BA%AC", "kind": "enciclopedia"},
+        {"title": "Historic Monuments of Ancient Nara — UNESCO", "url": "https://whc.unesco.org/en/list/870/", "kind": "patrimonio"}
+      ]
+    },
+    {
+      "id": "history-nara-great-buddha",
+      "long": "Il Grande Buddha di Tōdai-ji non nacque come attrazione: nacque come scudo cosmico. Nell'VIII secolo, fra epidemie, tensioni di corte e ambizione imperiale, Shōmu lanciò un progetto che legava la salvezza del regno alla costruzione di un Rushana colossale e di una rete di templi provinciali. Fondere bronzo su quella scala significava mobilitare miniere, monaci, corvée e retorica: il Buddha doveva «proteggere il paese» perché lo stato si era messo sotto la sua luce. La sala bruciò e fu ridotta; la statua fu rifatta; il significato restò — un'immagine nazionale prima ancora che esistesse la nazione moderna. Guardare il Daibutsu come idea significa vedere meno i metri del volto e più la scommessa: che un corpo di metallo potesse tenere insieme politica e Dharma.",
+      "sections": [
+        {
+          "title": "Protezione, non ornamento",
+          "body": "L'editto e le cronache parlano di pacificazione e di benefici per tutti gli esseri, ma il contesto è da crisi di governo. Il cantiere era una risposta religiosa a problemi che oggi chiameremmo sanitari, fiscali e di legittimità."
+        },
+        {
+          "title": "Un bilancio in rame e fede",
+          "body": "Le quantità di metallo e di lavoro raccontate dalle fonti mostrano quanto il progetto divorasse risorse. Non era un hobby di corte: era una scelta che obbligava province e aristocratici a partecipare, volenti o meno."
+        },
+        {
+          "title": "Rushana come sole del regno",
+          "body": "Il Buddha Vairocana illumina e comprende tutto. Metterlo al centro di Nara significava dire che l'ordine imperiale voleva riflettersi in un ordine cosmico. La statua era uno specchio politico dorato."
+        },
+        {
+          "title": "Distruzione e continuità",
+          "body": "Incendi e ricostruzioni non cancellano il mito: lo rinnovano. Ogni sala più piccola dell'originale ricorda che l'ambizione superò i boschi disponibili, ma il gesto di rifare il volto resta fede nazionale in forma di cantiere."
+        },
+        {
+          "title": "Il più costoso amuleto del paese",
+          "body": "Altri portano un omamori in tasca. Shōmu ne volle uno alto quasi quanto un palazzo. Inflazione spirituale, si dirà — ma almeno si vede da lontano.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {"title": "東大寺 大仏殿 — sito ufficiale", "url": "https://www.todaiji.or.jp/information/daibutsuden/", "kind": "sito ufficiale"},
+        {"title": "東大寺盧舎那仏像 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E6%9D%B1%E5%A4%A7%E5%AF%BA%E7%9B%A7%E8%88%8E%E9%82%A3%E4%BB%8F%E5%83%8F", "kind": "enciclopedia"},
+        {"title": "大仏さまの全て — Associazione turistica di Nara", "url": "https://narashikanko.or.jp/feature/daibutsu/", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "history-nara-deer",
+      "long": "I cervi di Nara, nella lettura mitica, non sono fauna da cartolina: sono messaggeri. La tradizione legata a Kasuga racconta che Takemikazuchi giunse dal Kashima in groppa a un cervo bianco; da allora il branco della piana fu trattato come veicolo del kami, non come selvaggina. Ucciderne uno, nei secoli del bakufu locale, poteva equivalere a un crimine contro l'ordine sacro della città-tempio. Il parco moderno e il titolo di monumento naturale arrivano dopo, come traduzioni istituzionali di un rispetto più antico. Capire i cervi come shinshi — messaggeri divini — significa tenere insieme teologia Fujiwara e paesaggio: gli animali che attraversano la strada sono, nel mito, ancora in servizio. L'inchino che fanno per il senbei è un'altra storia; questa scheda riguarda il cielo che li ha assunti.",
+      "sections": [
+        {
+          "title": "Il kami che arriva a cavallo del cervo",
+          "body": "Il mito di fondazione di Kasuga non mette il cervo come mascotte: lo mette come cavalcatura sacra. Trasportare una divinità significa partecipare al suo potere. Da lì il salto logico, per i fedeli, fu proteggere l'intero branco."
+        },
+        {
+          "title": "Messaggeri, non proprietà",
+          "body": "Chiamarli shinshi implica che non appartengono a un proprietario privato. Appartengono a un ordine rituale. Anche quando oggi li gestisce un'associazione, l'idea di fondo resta: sono ospiti di un dio, non animali da zoo."
+        },
+        {
+          "title": "Sacralità e paura",
+          "body": "Le storie di punizioni per chi feriva un cervo mostrano quanto la protezione fosse seria. Il sacro, a Nara, aveva denti e corna: non era soltanto bellezza nel prato."
+        },
+        {
+          "title": "Dal mito al monumento naturale",
+          "body": "Lo stato moderno ha tradotto la tutela religiosa in categoria culturale. Non cancella il mito; lo affianca. Si può rispettare il cervo per legge e, nello stesso passo, ricordare perché la città lo rispettava prima delle leggi."
+        },
+        {
+          "title": "Angeli con le corna e zero aureola",
+          "body": "Altri luoghi hanno colombe e messaggeri alati. Nara ha scelto un quadrupede che chiede da mangiare. Il cielo, qui, ha un ufficio relazioni pubbliche molto concreto.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {"title": "奈良公園にはなぜ鹿がいる？ — Associazione turistica di Nara", "url": "https://narashikanko.or.jp/feature/deer", "kind": "ente turistico"},
+        {"title": "保護の歴史 — 奈良の鹿愛護会", "url": "https://naradeer.com/learning/hogonorekishi.html", "kind": "ente pubblico"},
+        {"title": "春日大社 ご由緒 — sito ufficiale", "url": "https://www.kasugataisha.or.jp/about/", "kind": "sito ufficiale"}
+      ]
+    },
+    {
+      "id": "history-nara-kasuga-lanterns",
+      "long": "Le lanterne di Kasuga non illuminano soltanto: accumulano voti. Pietra lungo i viali, bronzo sotto i portici — migliaia di doni lasciati da aristocratici, samurai, corporazioni e famiglie comuni in secoli di pellegrinaggio. La ripetizione crea un paesaggio in cui il singolo oggetto sparisce nella serie, e proprio quella serie diventa il messaggio: il bosco sacro è abitato da preghiere solidificate. Accendere tutte le lanterne, come si faceva ogni sera in certi periodi Edo, trasformava il santuario in una via lattea a olio; oggi le grandi accensioni sono rare e quindi più solenni. Capire le lanterne come pratica significa smettere di contarle come arredo e iniziare a leggerle come archivio verticale di riconoscenza — ogni pezzo una firma verso Takemikazuchi e gli altri kami del complesso.",
+      "sections": [
+        {
+          "title": "Donare luce, comprare memoria",
+          "body": "Offrire una lanterna era un modo per restare presenti nel recinto anche dopo essere tornati a casa. Il bronzo e la pietra prolungano il nome del donatore nello spazio del dio. È mecenatismo rituale, non design."
+        },
+        {
+          "title": "La forza della ripetizione",
+          "body": "Una lanterna sola è un oggetto; tremila sono un ambiente. Kasuga insegna che il sacro può nascere dalla quantità ordinata, dalla stessa forma ripetuta finché il sentiero diventa liturgia."
+        },
+        {
+          "title": "Olio, bronzo, pietra",
+          "body": "Materiali diversi, stesso compito: tenere una fiamma o la sua promessa. La pietra lungo il viale guida i piedi; il bronzo sotto i tetti trema vicino alle divinità. Insieme scrivono un corridoio di attesa."
+        },
+        {
+          "title": "Quando si accendono davvero",
+          "body": "Le rare notti di Mantōrō restituiscono il senso originario: non fotografia al crepuscolo, ma comunità che riattiva il dono. Negli altri giorni le lanterne spente restano comunque leggibili come silenzio pieno."
+        },
+        {
+          "title": "L'illuminazione d'atmosfera ante litteram",
+          "body": "I locali di design scoprono periodicamente le lucine calde. Kasuga le usava a migliaia quando l'olio era budget, non moodboard. Il bosco aveva già il suo lighting designer: si chiamava fede.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {"title": "春日大社 ご由緒 — sito ufficiale", "url": "https://www.kasugataisha.or.jp/about/", "kind": "sito ufficiale"},
+        {"title": "春日大社 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E6%98%A5%E6%97%A5%E5%A4%A7%E7%A4%BE", "kind": "enciclopedia"},
+        {"title": "春日大社 — Associazione turistica di Nara", "url": "https://narashikanko.or.jp/spot/worldheritage/kasugataisha/", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "history-nara-shosoin",
+      "long": "Lo Shōsōin non è un museo nato per esporre: è un deposito diventato leggenda perché ha tenuto chiuso ciò che altri avrebbero disperso. Nato come magazzino del Tōdai-ji e legato alla donazione di oggetti di Shōmu da parte dell'imperatrice Kōmyō, custodì per secoli strumenti, tessuti, vetri, medicine, documenti — pezzi di vita di corte e di tempio, non soltanto «opere». Molti oggetti raccontano reti che dalla Persia e dall'Asia centrale arrivavano alla Tang e poi a Nara: per questo si parla di terminale orientale della Via della Seta. Il sigillo imperiale e le regole di apertura rarissima spiegarono la sopravvivenza meglio di qualsiasi vetrina. Capire lo Shōsōin come idea significa capire Nara come nodo mondiale dell'VIII secolo: una capitale che importava mondi e li metteva sotto chiave.",
+      "sections": [
+        {
+          "title": "Donare al Buddha i resti di un imperatore",
+          "body": "La logica della donazione non era collezionismo: era dedicazione. Gli oggetti cari a Shōmu passarono al Grande Buddha perché la memoria del sovrano trovasse riposo nel Dharma. Il tesoro nasce da un lutto di stato."
+        },
+        {
+          "title": "Via della Seta in una cassa di legno",
+          "body": "Vetri, motivi persiani, lacche e seta a disegni ibridi mostrano che Nara riceveva il mondo filtrato dalla Cina Tang. Lo Shōsōin è la prova materiale che l'«antico Giappone» era già un crocevia."
+        },
+        {
+          "title": "Chiudere per salvare",
+          "body": "A differenza degli scavi, questi pezzi non sono tornati dalla terra: sono rimasti in aria secca, dietro porte e sigilli. La rarità delle aperture fu politica di conservazione ante litteram."
+        },
+        {
+          "title": "Dal magazzino templare all'agenzia imperiale",
+          "body": "Il passaggio di giurisdizione in età moderna spostò la custodia, non il mito. Resta l'idea di un patrimonio troppo importante per essere trattato come esposizione quotidiana."
+        },
+        {
+          "title": "Il ripostiglio più snob del pianeta",
+          "body": "Quasi novemila oggetti e una politica del «non si tocca». Lo Shōsōin è l'antenato di tutte le soffitte chiuse a chiave — solo che qui dentro, invece delle scarpe vecchie, c'è la Via della Seta.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {"title": "宝物について — 正倉院 (Casa Imperiale)", "url": "https://shosoin.kunaicho.go.jp/about/treasure/", "kind": "sito ufficiale"},
+        {"title": "The Shosoin Repository — Imperial Household Agency", "url": "https://www.kunaicho.go.jp/en/learn/institution/shisetsu/kyoto/shosoin01.html", "kind": "ente pubblico"},
+        {"title": "正倉院 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E6%AD%A3%E5%80%89%E9%99%A2", "kind": "enciclopedia"}
+      ]
+    },
+    {
+      "id": "history-nara-naramachi",
+      "long": "Naramachi, come forma culturale, è la lezione di come una città mercantile possa nascere dentro le costole di un tempio. Sul sedime dell'antico Gangō-ji, quando il sostegno statale e le sale crollarono, case e botteghe infiltrarono il sacro finché il reticolo quotidiano prevalse. Le machiya a fronte stretto e corpo lungo — «letti d'anguilla» fiscali — raccontano tasse calcolate sulla facciata, lavoro e vita nello stesso tubo di legno, cortili di luce che tengono insieme magazzino e famiglia. Camminare qui non è soltanto nostalgia Edo: è vedere come Nara, dopo essere stata capitale, imparò a essere quartiere — denso, pragmatico, pieno di culti domestici e insegne basse. La scheda riguarda quella conversione da monastero a tessuto urbano, non l'elenco dei negozi.",
+      "sections": [
+        {
+          "title": "Quando il tempio diventa suolo edificabile",
+          "body": "La fine del grande complesso non lasciò un vuoto romantico: lasciò terreno. La gente costruì sopra e dentro le rovine. È una delle storie più oneste del Giappone urbano: il sacro decade, la necessità no."
+        },
+        {
+          "title": "La casa-tubo e la tassa sul fronte",
+          "body": "Facciate strette, profondità estrema: la forma risponde a un fisco che misurava la strada. Dietro il noren si snodano negozio, stanze, pozzi di luce, kura. L'umiltà esterna nasconde metri di vita."
+        },
+        {
+          "title": "Mercanti all'ombra dei monaci",
+          "body": "Anche quando Gangō-ji si ridusse, la zona restò impregnata di pratiche religiose locali — Kōshin, scimmie sostitute, piccoli altari. Naramachi non è laico: è sacro di vicinato, più minuto dei grandi templi del parco."
+        },
+        {
+          "title": "Una Nara senza cervi in primo piano",
+          "body": "Qui l'identità passa per legno, griglie e cortili, non per fauna. Serve a ricordare che la città storica non si esaurisce nel prato monumentale: ha anche un'economia di bottega e di corridoi stretti."
+        },
+        {
+          "title": "L'antenata del file compresso",
+          "body": "Poca facciata, tanta profondità: architettura che zippa la vita familiare in un corridoio. Prima di cloud e cloud storage, Naramachi aveva già ottimizzato lo spazio su disco.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {"title": "元興寺とならまち — Gangō-ji", "url": "https://gangoji-tera.or.jp/about/naramachi.html", "kind": "sito ufficiale"},
+        {"title": "ならまち格子の家 — Comune di Nara", "url": "https://www.city.nara.lg.jp/site/shisetsu/6242.html", "kind": "ente pubblico"},
+        {"title": "ならまち — Associazione turistica di Nara", "url": "https://narashikanko.or.jp/feature/naramachi/", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "history-nara-deer-etiquette",
+      "long": "I cervi di Nara, sul piano pratico, sono animali selvatici abituati agli umani — non mascotte, non attori, non «amici» automatici. L'associazione che li tutela e la prefettura ripetono le stesse regole perché gli incidenti esistono: morsi, calci, cariche, soprattutto quando qualcuno esita con il cibo o mostra buste e carta. Si offrono soltanto gli shika-senbei ufficiali, uno alla volta, e si smette appena finiscono; non si toccano i cerbiatti, non si insegue, non si finge di avere ancora un pezzo. L'inchino del cervo è un comportamento appreso per ottenere la galletta, non un rito che vi deve qualcosa. Questa scheda separa la cortesia necessaria dal mito del messaggero: si può rispettare il kami e, nello stesso pomeriggio, tenere la mappa lontana dal muso.",
+      "sections": [
+        {
+          "title": "Selvatici, anche se fanno la coda",
+          "body": "L'abitudine alle persone non è domesticazione completa. Un cervo può inchinarsi e subito dopo spingere. Trattarli come cani da compagnia è l'errore che produce i video sbagliati e le medicazioni."
+        },
+        {
+          "title": "Solo senbei, e in fretta",
+          "body": "Gli altri cibi disturbano la dieta e creano aspettative pericolose. I senbei ufficiali sono pensati per loro; la fascetta di carta no. Consegnare in fretta riduce la tensione del branco intorno alle mani."
+        },
+        {
+          "title": "Quando non mostrano interesse",
+          "body": "Non tutti i cervi vogliono interagire. Insistere è invasione. In stagione di parti o di fregola il margine di pazienza degli animali si assottiglia: la regola diventa distanza, non souvenir."
+        },
+        {
+          "title": "Cosa non è l'inchino",
+          "body": "È una strategia per il cibo, insegnata dal contesto turistico. Interpretarlo come deferenza spirituale verso di voi confonde il mito sacro della scheda «deer» con un condizionamento da biscotto."
+        },
+        {
+          "title": "Il reparto riscossione crediti del parco",
+          "body": "L'inchino prima del senbei è adorabile; la testata quando il senbei tarda è contabilità. A Nara anche la fauna conosce i termini di pagamento anticipato.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {"title": "奈良公園のシカとの接し方 — Prefettura di Nara", "url": "https://www3.pref.nara.jp/park/1232.htm", "kind": "ente pubblico"},
+        {"title": "鹿による人身事故啓発 — 奈良の鹿愛護会", "url": "https://naradeer.com/learning/keihatsu.html", "kind": "ente pubblico"},
+        {"title": "奈良公園にはなぜ鹿がいる？ — Associazione turistica di Nara", "url": "https://narashikanko.or.jp/feature/deer", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "history-nara-akahada",
+      "long": "L'akahada-yaki è la ceramica con cui Nara tocca se stessa senza passare dai cervi. Sulle colline a ovest della conca, dove l'argilla locale ha a lungo alimentato fornaci per templi e uso quotidiano, la tradizione ricorda già i tè e i fūro voluti sotto Toyotomi Hidenaga; il nome e il carattere distintivi si consolidano però quando il dominio di Kōriyama, con i Yanagisawa, sostiene i forni e quando artigiani come Okuda Mokuhaku legano l'impasto rosato-latteo ai Nara-e — scene e motivi legati alla città antica. Contata fra i forni amati dalla scuola Enshū, l'akahada resta un mestiere vivo in poche fornaci certificate, fra Nara e Yamatokōriyama. Capirla come craft significa cercare lo smalto caldo, la mano sul tè o sulla ciotola, e una memoria tattile della prefettura che non si fotografa soltanto nei grandi tetti.",
+      "sections": [
+        {
+          "title": "Argilla di collina, non souvenir generico",
+          "body": "Il nome richiama la «pelle rossa» dell'impasto. Non è una categoria astratta di «ceramica giapponese»: è un suolo specifico e una filiera locale che ha servito altari, fuochi da tè e tavole."
+        },
+        {
+          "title": "Dal tè dei Toyotomi al forno di dominio",
+          "body": "La memoria Momoyama lega i primi sviluppi alla domanda di utensili da cerimonia. Il rilancio Edo sotto i Yanagisawa trasforma quella pratica in identità di feudo: il forno diventa politica culturale, non solo bottega."
+        },
+        {
+          "title": "Nara-e sullo smalto",
+          "body": "I motivi dipinti che raccontano templi, cervi, leggende locali spostano l'akahada dal solo tè verso una narrazione visiva della città. Mokuhaku e i suoi eredi resero riconoscibile il pezzo anche lontano dalla fornace."
+        },
+        {
+          "title": "Come riconoscerla oggi",
+          "body": "Cercate toni caldi, smalti lattei o verdognoli, firme di forno e, nei pezzi tipici, decorazioni legate a Nara. Le fornaci ancora attive e le pagine della prefettura aiutano a distinguere la filiera da imitazioni vaghe."
+        },
+        {
+          "title": "Il souvenir che pesa poco e spiega molto",
+          "body": "Un bicchiere di akahada nello zaino vale più di dieci magliette col cervo: è pezzo di suolo cotto. Nara, per una volta, si lascia mettere in valigia senza chiedere senbei.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {"title": "赤膚焼 — Prefettura di Nara", "url": "https://www.pref.nara.lg.jp/n100/akahadayaki.html", "kind": "ente pubblico"},
+        {"title": "赤膚焼 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E8%B5%A4%E8%86%9A%E7%84%BC", "kind": "enciclopedia"},
+        {"title": "About us — 赤膚焼窯元 大塩昭山", "url": "https://www.akahadayaki.com/aboutus_en.html", "kind": "fornace / craft"}
+      ]
+    }
+  ]
+}

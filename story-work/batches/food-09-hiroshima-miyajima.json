@@ -1,0 +1,648 @@
+{
+  "meta": {
+    "batch": "food-09-hiroshima-miyajima",
+    "note": "Phase 2 food deep stories: 9 Hiroshima + 7 Miyajima. Anti-paraphrase vs history-hiroshima-okonomiyaki-rebuild, place-hiroshima-okonomimura, experience Otafuku/OKOSTA, experience-miyajima-momiji-workshop, place-miyajima-omotesando — okonomiyaki food card = layered recognition + ordering + sauce-as-cue; momiji variants kept distinct; anago Hiroshima vs Miyajima different city contexts; oysters city restaurant vs island grill."
+  },
+  "schede": [
+    {
+      "id": "food-hiroshima-hiroshima-okonomi",
+      "long": "Ordinare un okonomiyaki a Hiroshima significa chiedere un piatto a piani, non una frittella mescolata. Sul teppan compare prima una crespella sottile di farina; sopra si accumulano cavolo a listarelle in quantità generosa, germogli, tenkasu se previsti, fette di maiale; i noodles (soba o udon) cuociono a parte sulla stessa piastra e finiscono come strato portante; in chiusura arriva l'uovo e la copertura di salsa. Non si rimescola mai in padella: si mangia a strati con la spatola piccola, direttamente dal ferro o dal piatto caldo. Al bancone puoi chiedere soba o udon, più o meno cavolo, gamberi o formaggio come extra; la differenza «Hiroshima vs Osaka» si vede già mentre cucinano, prima ancora del primo boccone. La salsa scura e densa — Otafuku in molti locali, Mitsuwa in altri — non è solo condimento: è il segnale olfattivo e visivo che stai mangiando lo stile cittadino, appiccicosa sul bordo della spatola.",
+      "sections": [
+        {
+          "title": "Leggere i piani sul ferro",
+          "body": "Se gli ingredienti finiscono dentro l'impasto, sei nello stile kansai. Se restano impilati e i noodles fanno da materasso, sei a Hiroshima. Guarda la spatola del cuoco: costruisce, non mescola."
+        },
+        {
+          "title": "Come si ordina senza bluffare",
+          "body": "Soba o udon è la prima biforcazione; poi proteine e pepe. Molti posti cuociono davanti a te: indica il livello di cottura dell'uovo se te lo chiedono. Si mangia a pezzi dalla piastra; non aspettare che «si raffreddi nel piatto» se te lo servono sul teppan."
+        },
+        {
+          "title": "Salsa come bussola, non come mito",
+          "body": "Otafuku e Mitsuwa sono marche che i locali scelgono e che il palato riconosce dopo due visite. Usale come indizio di dove stai mangiando, non come lezione di storia industriale: stessa città, due firmamenti dolci-acidi sulla crosta."
+        },
+        {
+          "title": "La spatola è posata ufficiale",
+          "body": "Qui le posate occidentali sono un piano B. Chi insiste con forchetta e coltello combatte la geologia a strati del piatto — e di solito perde.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Delicious Hiroshima — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/en/course/delicious-hiroshima/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Hiroshima's best gourmet — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/en/feature/ichioshi/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Food and Sake of Hiroshima — Hiroshima Prefecture",
+          "url": "https://www.pref.hiroshima.lg.jp/site/hiroshima-summit-en/food.html",
+          "kind": "ente pubblico"
+        }
+      ]
+    },
+    {
+      "id": "food-hiroshima-anagomeshi",
+      "long": "L'anago-meshi in città di Hiroshima è un pranzo da ristorante o da ekiben urbano: grongo di mare (anago) aperto, grigliato e laccato con salsa dolce-salata, adagiato su riso già profumato dal brodo o dalla salsa di cottura. A differenza dell'unagi di fiume, l'anago è più leggero di grasso e più delicato; rispetto alla versione da isola, qui il contesto è il tessuto cittadino — quartieri vicino alla stazione, locali di pesce del centro, menù pranzo che lo trattano come speciale del giorno. Si mangia con hashi, a volte con una zuppa miso e tsukemono a lato; il pezzo di pesce deve restare umido e la lacca lucida, non bruciata. Per chi ha poche ore tra museo e treno è un modo di assaggiare il Seto senza salire sul traghetto: stesso mare, inquadratura urbana.",
+      "sections": [
+        {
+          "title": "Città, non molo",
+          "body": "A Hiroshima l'anago-meshi arriva in sala o in bentō da banco gourmet, non necessariamente tra i cervi e le griglie di Omotesando. Cerca menù pranzo con foto del riso laccato; evita i posti che lo tengono sotto lampada da ore."
+        },
+        {
+          "title": "Lacquer e vapore",
+          "body": "Il pesce va glassato, non seccato. Se la pelle è nera e amara, la griglia ha vinto. Il riso deve sapere di salsa, non solo di riso bianco con un filetto appoggiato sopra."
+        },
+        {
+          "title": "Anago contro unagi in tre secondi",
+          "body": "Stesso gesto kabayaki, mare diverso. L'anago del Seto è tipicamente più fine e meno untuoso: ideale a pranzo se non vuoi chiudere lo stomaco fino a sera."
+        },
+        {
+          "title": "Il bentō che fa concorrenza al treno",
+          "body": "Si può comprare vicino ai binari e mangiare dopo la partenza. Attenzione: il profumo di anguilla di mare convence l'intero vagone della tua scelta gastronomica.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Delicious Hiroshima — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/en/course/delicious-hiroshima/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Food and Sake of Hiroshima — Hiroshima Prefecture",
+          "url": "https://www.pref.hiroshima.lg.jp/site/hiroshima-summit-en/food.html",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "Travel Japan — gastronomy hub (JNTO)",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-hiroshima-oysters",
+      "long": "Hiroshima è il grande produttore nazionale di ostriche: in città le incontri crude su letto di ghiaccio, fritte in tempura o karaage, al vapore, in gratin e nei corsi dei ristoranti specializzati — non solo sulla griglia da passeggio. Il sapore tipico è carne piena rispetto al guscio, adatta a cotture diverse nello stesso pasto. La stagione fredda resta la più ricca, ma la filiera locale e le tecniche di depurazione rendono l'offerta ampia anche fuori dal picco invernale. Nei quartieri centrali e lungo i canali ci sono locali dedicati e «kaki-bune» dove il menu gira intorno al mollusco; al mercato coperto puoi comprare porzioni da asporto già cotte. Per il viaggiatore urbano il punto è la varietà di preparazione: un pranzo può essere un assaggio crudo più una frittura, senza salire sull'isola.",
+      "sections": [
+        {
+          "title": "Crudo, fritto, vapore: tre bocconi",
+          "body": "Crudo per il sapore pulito; fritto per la crosta; vapore o nabe per il succo. Ordinare un solo stile è lecito; assaggiarne due nello stesso locale è tipicamente hiroshimese."
+        },
+        {
+          "title": "Stagione e fiducia del banco",
+          "body": "L'inverno è il classico. Fuori stagione scegli posti specializzati con rotazione alta. Gusci aperti al momento e personale che spiega la provenienza battono le vaschette anonime."
+        },
+        {
+          "title": "Città del delta, non solo isola",
+          "body": "Le ostriche arrivano dalla baia e dai rafts del Seto; Hiroshima le serve in sala con birra, sakè o limone Setouchi. Non serve il traghetto per mangiarle bene — serve un locale che le tratti da piatto, non da gadget."
+        },
+        {
+          "title": "Il mollusco con quota di mercato",
+          "body": "Quando una prefettura produce la maggioranza nazionale di qualcosa, anche il turista distratto finisce per ordinarlo. Qui la statistica ha il gusto di mare.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "広島牡蠣完全ガイド — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/feature/kaki/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Food and Sake of Hiroshima — Hiroshima Prefecture",
+          "url": "https://www.pref.hiroshima.lg.jp/site/hiroshima-summit-en/food.html",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "Hiroshima's best gourmet — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/en/feature/ichioshi/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-hiroshima-momiji",
+      "long": "Il momiji manju «da Hiroshima città» è soprattutto souvenir e dolce da depachika: tortina a foglia d'acero in confezione da viaggio, pasta tipo castella, ripieni che vanno dall'anko classico a crema, matcha, cioccolato, formaggio. Si compra in stazione, nei grandi magazzini e nelle catene locali (non solo sull'isola), spesso già freddo e pensato per resistere in valigia. Il morso è morbido-spugnoso, dolce controllato, più «regalo da riportare» che street food bollente. A differenza della versione appena sfornata lungo Omotesando, qui conti sulla varietà di gusti in scatola e sulla riconoscibilità della foglia stampata. Utile come chiusura di un pranzo in centro o come scorta per il Shinkansen: non sostituisce l'assaggio caldo sull'isola, ma copre il bisogno di portare Hiroshima nello zaino.",
+      "sections": [
+        {
+          "title": "Scatola da binario",
+          "body": "In stazione e in depachika trovi assorted pack con gusti misti. Ideale da regalo. Controlla la data e se vuoi anko tradizionale o creme moderne: le etichette lo dicono chiaro."
+        },
+        {
+          "title": "Foglia da forno, non da olio",
+          "body": "Questa scheda è il manju cotto nello stampo, superficie uniforme, senza pastella fritta. Se è infilzato e dorato di fritto, stai guardando l'age-momiji — un altro prodotto."
+        },
+        {
+          "title": "Città come vetrina nazionale",
+          "body": "Hiroshima ha reso il dolce un'icona da ripiano souvenir. La qualità varia per marca: meglio assaggiarne uno sfuso prima di comprare la scatola da venti."
+        },
+        {
+          "title": "Il Shinkansen come forno di prova",
+          "body": "Aprirne uno sul treno è il test ufficiale: se dopo Hiroshima Station sa ancora di castella e non di cartone, hai scelto bene.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "広島みやげの王道「もみじ饅頭」 — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/feature/souvenir-momiji/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Delicious Hiroshima — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/en/course/delicious-hiroshima/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Travel Japan — gastronomy hub (JNTO)",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-hiroshima-tantanmen",
+      "long": "Lo shirunashi tantanmen di Hiroshima è un piatto di noodle «senza brodo»: in ciotola restano pasta, carne tritata, pasta di sesamo, olio al peperoncino e una quantità minima di condimento da mescolare fino a coprire ogni filo. Il sanshō e il pepe di Sichuan danno un pizzicore aromatico oltre al calore del chili; non è la zuppa di tantanmen che si trova altrove in Giappone. Si ordina spesso per livelli di piccantezza al biglietto automatico; il gesto giusto è mescolare a fondo prima del primo boccone, altrimenti il fondo resta una bomba e la cima è neutra. Nato come interpretazione locale di un'idea sichuanese e diventato B-gourmet cittadino negli anni Duemila, oggi è una delle «quattro vie» dei noodle di Hiroshima insieme a ramen, tsukemen e reimen. Ideale a pranzo quando l'okonomiyaki del giorno prima ha già riempito la quota farina.",
+      "sections": [
+        {
+          "title": "Mescola o pentiti",
+          "body": "Il sapore sta sul fondo. Girare con le bacchette non è teatro: è ricetta. Se lasci strati, mangi due piatti diversi nella stessa ciotola."
+        },
+        {
+          "title": "Scala del fuoco",
+          "body": "Molti locali numerano il piccante. Parti basso se non conosci il sanshō: il formicolio arriva in ritardo rispetto al chili. Uovo onsen o riso a lato aiutano a calibrare."
+        },
+        {
+          "title": "Secco, non in zuppa",
+          "body": "Se ti arriva una ciotola piena di brodo beige, non è lo shirunashi locale. Qui la pasta deve restare «vestita», non a nuoto."
+        },
+        {
+          "title": "Il pranzo che ti fa bere l'acqua del rubinetto",
+          "body": "Dopo il livello alto, anche il bicchiere dell'acqua del locale sembra un grand cru. Hiroshima forma sommelier per disidratazione.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Hiroshima Ramen Momiji — local noodles overview",
+          "url": "https://ramen-momiji.com/en/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "Delicious Hiroshima — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/en/course/delicious-hiroshima/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Hiroshima's best gourmet — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/en/feature/ichioshi/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-hiroshima-kone",
+      "long": "Il kone (コウネ) è un taglio di manzo della spalla — zona della punta del petto/spalla che altrove chiamano brisket — servito a Hiroshima in fette sottili, grigliate al bancone di yakiniku o di izakaya. Ha una fascia di grasso che in cottura diventa dolce e una parte di magro che resta masticabile; si mangia con sale, limone di Setouchi o salsa leggera, non necessariamente annegato nella tare. Fuori prefettura il nome è poco usato: qui invece è un ordine da «chi sa», un antipasto che fa bere birra e sakè. Non è wagyu da vetrina a ogni costo; è un pezzo di macelleria locale valorizzato dalla cucina di quartiere. Se sul menu vedi コウネ o «kōne», punta lì prima dei tagli più famosi: è uno dei segnali che il locale parla hiroshimese.",
+      "sections": [
+        {
+          "title": "Fetta sottile, fuoco vivo",
+          "body": "Deve arricciarsi sulla griglia e luccicare di grasso senza carbonizzarsi. Troppo spessa resta dura; troppo cotta perde la dolcezza. Limone a fine cottura apre il boccone."
+        },
+        {
+          "title": "Izakaya più che steakhouse",
+          "body": "Lo trovi come spiedino o piattino da condividere, non solo come set costoso. Ideale a metà serata tra okonomiyaki e ultima birra."
+        },
+        {
+          "title": "Parola locale sul menu",
+          "body": "Se traducono solo «brisket» senza コウネ, potresti avere un taglio simile ma non la cultura del piatto. Il nome katakana è parte dell'ordine."
+        },
+        {
+          "title": "Il taglio che fa la differenza da turista a «tsū»",
+          "body": "Dive Hiroshima lo mette tra i piatti che separano chi ha letto solo la guida espresso da chi ha chiesto consiglio al bancone. Una parola, un upgrade di credibilità.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "ひろくまと巡る、食で旅する広島 — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/feature/feature-114769/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "広島あたため旅 — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/feature/feature-35688/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Hiroshima's best gourmet — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/en/feature/ichioshi/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-hiroshima-lemon-sweets",
+      "long": "I dolci al limone di Setouchi sfruttano il primato di Hiroshima nella produzione nazionale di limoni: torte soffici, biscotti glassati, gelatine, cioccolatini e soft cream in cui agrume e scorza entrano senza antimuffa aggressiva tipica di alcuni importati — di qui l'insistenza locale sul poter usare anche la buccia. In città e in stazione trovi confezioni souvenir al profumo netto di limone, meno zuccherose dei manju classici e più «estive» anche in inverno. Non sostituiscono il momiji: occupano un altro scaffale, quello dell'agrume del Mare Interno. Per riconoscerli cerca la dicitura Setouchi o Hiroshima lemon e un aroma di scorza vera, non solo aroma industriale. Sono facili da portare a casa e utili come regalo a chi non ama l'anko.",
+      "sections": [
+        {
+          "title": "Scorza come ingrediente",
+          "body": "I migliori sanno di buccia e succo, non solo di sciroppo giallo. Una glassa opaca e un profumo netto al primo morso sono segnali buoni."
+        },
+        {
+          "title": "Souvenir parallelo al manju",
+          "body": "Stesso reparto stazione, altra identità. Ideale in combo: una scatola di momiji e una di limone per due palati diversi nello stesso ufficio al ritorno."
+        },
+        {
+          "title": "Dal nabe al dessert",
+          "body": "Il limone Setouchi entra anche in piatti salati; nei dolci ne ritrovi la stessa idea di freschezza. Non è un tema da estate turistica: è filiera agricola della prefettura."
+        },
+        {
+          "title": "L'agrume che fa concorrenza all'acero",
+          "body": "A Hiroshima anche i dessert litigano per il posto nello zaino. Foglia d'acero contro scorza gialla: derby dolce della valigia.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Setouchi Hiroshima lemon — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/en/feature/ichioshi/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Food and Sake of Hiroshima — Hiroshima Prefecture",
+          "url": "https://www.pref.hiroshima.lg.jp/site/hiroshima-summit-en/food.html",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "Travel Japan — gastronomy hub (JNTO)",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-hiroshima-hiroshima-tsukemen",
+      "long": "Lo Hiroshima tsukemen è un immersione di noodle — spesso freddi d'estate — in una salsa densa, rossastra, piccante e di sesamo, costruita su umami di pesciolini e dashi del Seto più chili, aceto e a volte nota agrumata. Non è il tsukemen di Tokyo dal brodo di osso marrone: qui il dip è più «rosso» e speziato, e le verdure croccanti in ciotola fanno da contrasto. Si mescola la pasta nella salsa a pezzi; si beve o si allunga il fondo con l'acqua di cottura solo se il locale lo prevede. Compare nei ramen-ya che mettono in fila le specialità cittadine (ramen, shirunashi, tsukemen). Per il viaggiatore è il piatto giusto quando vuole piccante e freschezza insieme, senza la piastra dell'okonomiyaki.",
+      "sections": [
+        {
+          "title": "Salsa rossa, non brodo marrone",
+          "body": "Il dip deve aderire ai noodle e pizzicare di sesamo e chili. Se è solo shoyu diluito, non è lo stile locale che cerchi. Le verdure fredde non sono guarnizione casuale: tagliano il grasso speziato."
+        },
+        {
+          "title": "Freddo d'estate, caldo a richiesta",
+          "body": "Molte versioni estive tengono i noodle freddi contro la salsa intensa. Fuori stagione chiedi la variante del giorno: alcuni locali ruotano limone Setouchi o contorni di ostrica fritta."
+        },
+        {
+          "title": "Come si tuffa",
+          "body": "Non lasciare i noodle a mollo fino a diventare molli. Immersione breve, boccone, ripetizione. Regolare il piccante col fondo della ciotola, non con salse extra a caso."
+        },
+        {
+          "title": "Il dip che macchia i tovaglioli",
+          "body": "Il rosso di sesamo e chili è un inchiostro ottimistico. Fotografa prima; i tovaglioli dopo raccontano la verità del pranzo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Hiroshima Ramen Momiji — Hiroshima tsukemen",
+          "url": "https://ramen-momiji.com/en/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "Delicious Hiroshima — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/en/course/delicious-hiroshima/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Hiroshima's best gourmet — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/en/feature/ichioshi/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-hiroshima-kaki-dotenabe",
+      "long": "Il kaki no dotenabe è la pentola invernale di Hiroshima in cui le ostriche cuociono con verdure dietro una «diga» di miso spalmata sulle pareti interne del nabe: da lì il nome dote, argine. Il miso si scioglie piano nel liquido, le ostriche rilasciano il loro succo, cavolo cinese, porri e funghi assorbono il tutto. Si mangia in compagnia, al centro del tavolo, tipicamente nei mesi freddi e nei locali di ostriche o di cucina locale. Non è street food e non è una zuppa già pronta: la scena è la diga di miso che cede. Per chi vuole le ostriche di Hiroshima oltre al crudo e al fritto, questa è la versione da sala calda, lenta, con riso o udon a chiudere il brodo.",
+      "sections": [
+        {
+          "title": "L'argine di miso",
+          "body": "Se il miso è già tutto sciolto all'arrivo, hai perso lo spettacolo. La diga deve essere visibile all'inizio; poi si rompe e dolcifica il liquido. Non mescolare come un risotto al primo secondo."
+        },
+        {
+          "title": "Ostriche al centro, non al bordo",
+          "body": "Si aggiungono quando il fondo è caldo, per non indurirle. Il boccone giusto resta gonfio. Verdure di stagione fanno da spugna: il brodo finale è mezzo piatto."
+        },
+        {
+          "title": "Inverno da tavolo basso",
+          "body": "È cibo da gruppo e da freddo. A luglio molti locali lo tolgono o lo riducono: chiedi la stagione. Birra leggera o sakè caldo stanno meglio di cocktail dolci."
+        },
+        {
+          "title": "Ingegneria idraulica in pentola",
+          "body": "Pochi piatti chiedono di costruire un argine prima di cena. A Hiroshima anche il miso fa l'ingegnere civile.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "広島牡蠣完全ガイド — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/feature/kaki/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "広島あたため旅 — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/feature/feature-35688/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Food and Sake of Hiroshima — Hiroshima Prefecture",
+          "url": "https://www.pref.hiroshima.lg.jp/site/hiroshima-summit-en/food.html",
+          "kind": "ente pubblico"
+        }
+      ]
+    },
+    {
+      "id": "food-miyajima-grilled-oysters",
+      "long": "Sull'isola le ostriche si mangiano soprattutto come yaki-gaki da passeggio: aperte sul fuoco dei banchetti lungo le vie verso il santuario, servite nel guscio con una forchettina, ancora sibilanti. Il contesto è lo street food di pellegrinaggio — filare, odore di brace, cervi che osservano — non la sala del nabe cittadino. La carne resta grossa e calda; si condisce con poco, a volte limone o salsa leggera. La stagione fredda riempie i banconi; in altri mesi l'offerta si assottiglia ma non sparisce ovunque. Si mangia in piedi, si buttano i gusci dove indicato, si prosegue verso il torii. È il modo più diretto di collegare il molo al mollusco senza prenotare un corso.",
+      "sections": [
+        {
+          "title": "Brace da Omotesando",
+          "body": "Cerca il banco con gusci aperti al momento e coda che si muove. Se le ostriche aspettano da troppo sotto la lampada, passa oltre. Una o due pezzi bastano come spuntino tra traghetto e santuario."
+        },
+        {
+          "title": "In piedi, nel guscio",
+          "body": "Non è un piatto da tavolo riservato. Forchettina, calore, eventualmente un pezzo di limone. Evita di camminare con il guscio tra i cervi affamati di carta e cibo."
+        },
+        {
+          "title": "Isola contro città",
+          "body": "A Hiroshima città domina la varietà di cotture in sala; a Miyajima vince la griglia da strada. Stesso mare, rituale diverso: qui conti il fumo e la velocità."
+        },
+        {
+          "title": "Il cervo come critico non richiesto",
+          "body": "Mangiare ostriche sotto lo sguardo di un cervo è un'esperienza di fine dining involontario. Non condividere: loro preferiscono i mappe di carta.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Oyster — Miyajima Tourist Association",
+          "url": "https://www.miyajima.or.jp/english/gourmet/gourmet_oyster.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Gourmet — Miyajima Tourist Association",
+          "url": "https://www.miyajima.or.jp/english/gourmet/gourmet.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "広島牡蠣完全ガイド — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/feature/kaki/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-miyajima-anagomeshi",
+      "long": "L'anago-meshi di Miyajima è il pranzo da isola: grongo pescato nel braccio di mare tra Hatsukaichi e Itsukushima, cotto e glassato, servito su riso spesso cotto o bagnato con il brodo del pesce, in ristoranti e case storiche a pochi passi dal molo e lungo le vie commerciali. Qui il piatto ha una densità da meta gastronomica del giorno sull'isola — code a pranzo, porzioni da satiety, atmosfera da pellegrinaggio che include la ciotola. Rispetto alla versione urbana di Hiroshima, conta il contesto: arrivi in traghetto, mangi prima o dopo il santuario, e il riso sa più marcatamente di anago perché la cucina isola lavora su quello come firma. Non è uno spuntino da passeggio: è un sedersi, anche breve, con zuppa a lato. Chi ha tempo per una sola «cosa seria» a tavola sull'isola spesso sceglie questa.",
+      "sections": [
+        {
+          "title": "Dal traghetto alla ciotola",
+          "body": "I locali noti stanno nel perimetro del molo e di Omotesando. A pranzo la coda è parte dell'esperienza; alcune case fanno anche bentō da asporto. Il riso deve essere profumato di pesce, non neutro."
+        },
+        {
+          "title": "Brodo nel chicco",
+          "body": "La differenza che cerchi rispetto a un semplice «unagi-don» generico è il riso impregnato. Se il filetto sta su riso bianco indifferente, è un'altra ricetta con lo stesso animale."
+        },
+        {
+          "title": "Isola, non stazione",
+          "body": "A Miyajima l'anago-meshi è destinazione; in città di Hiroshima è opzione tra altre. Qui ha senso dedicargli il pranzo centrale della visita, non l'ultima mezz'ora prima dell'ultimo ferry."
+        },
+        {
+          "title": "Il santuario aspetta, il grongo no",
+          "body": "Si può pregare dopo. Il pesce glassato appena uscito dalla cucina, invece, ha orari più stretti degli dei.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Anago-meshi — Miyajima Tourist Association",
+          "url": "https://www.miyajima.or.jp/english/gourmet/gourmet_anago.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Gourmet — Miyajima Tourist Association",
+          "url": "https://www.miyajima.or.jp/english/gourmet/gourmet.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Delicious Hiroshima — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/en/course/delicious-hiroshima/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-miyajima-momiji",
+      "long": "Sull'isola il momiji manju si mangia soprattutto appena uscito dallo stampo di ferro: pasta castella ancora tiepida, forma a foglia nitida, ripieno classico di anko o varianti del banco, venduto sfuso dalle pasticcerie di Omotesando. Non è la scatola da Shinkansen: è il morso caldo da passeggio, con odore di uovo e zucchero che esce dalla bottega. La superficie può essere più scura o più chiara a seconda di quanto lo stampo è stato girato; il centro resta umido. Si compra uno o due pezzi, si mangia prima che si raffreddi, eventualmente si porta una piccola scatola per dopo. Qui il valore è la freschezza di forno isola, non l'assortimento interminabile da grande magazzino urbano.",
+      "sections": [
+        {
+          "title": "Caldo di stampo",
+          "body": "Chiedi il appena fatto se c'è coda al forno. Tiepido batte freddo da vetrina. La foglia deve avere bordi definiti, non sbavati come un muffin qualunque."
+        },
+        {
+          "title": "Anko prima delle mode",
+          "body": "Il ripieno di fagioli resta la prova del laboratorio. Creme e cioccolato ci sono, ma sull'isola ha senso assaggiare prima il classico per capire la pasta."
+        },
+        {
+          "title": "Non è fritto, non è sfogliato",
+          "body": "Niente stecco pastellato (age) e niente laminazione da croissant: solo stampo a valve e pasta da castella. Se crunch o burro di pasticceria francese dominano, sei su un'altra scheda."
+        },
+        {
+          "title": "La foglia che sa di coda",
+          "body": "Il profumo dalla porta ti fa fare la fila anche se «non avevi fame». Miyajima inventa appetiti per evaporazione di vaniglia e uovo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "広島みやげの王道「もみじ饅頭」 — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/feature/souvenir-momiji/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Gourmet — Miyajima Tourist Association",
+          "url": "https://www.miyajima.or.jp/english/gourmet/gourmet.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "やまだ屋本店 — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/explore/1439/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-miyajima-age-momiji",
+      "long": "L'age-momiji è il momiji manju trasformato in street food fritto: il dolce finisce su uno stecco, viene passato in pastella e immerso nell'olio, uscito croccante fuori e morbido dentro, ancora bollente. Si vende lungo Omotesando come spuntino da passeggio, distinto dal manju di stampo perché cambia cottura, temperatura e gestualità — si mangia tenendo il stick, non dalla carta del forno a valve. La crosta di pastella sa di fiera; il ripieno interno resta quello del manju. Non sostituisce il classico: lo reinventa per chi vuole calore e crunch tra una foto al torii e la successiva. Meglio mangiarlo subito; raffreddato perde il contrasto che lo giustifica.",
+      "sections": [
+        {
+          "title": "Stecco e olio",
+          "body": "Se non c'è stecco e non c'è pastella dorata, non è age. Il suono al morso deve essere croccante; il vapore interno conferma che era fresco di fritto."
+        },
+        {
+          "title": "Street, non souvenir da valigia",
+          "body": "Si compra per mangiare a pochi metri dal banco. In borsa diventa molle. Per il regalo da stazione torna al manju in scatola."
+        },
+        {
+          "title": "Due dolci, due code",
+          "body": "Puoi fare il classico tiepido in una bottega e l'age in un'altra. Non sono «lo stesso con olio»: sono due esperienze. L'age vince quando hai freddo o vuoi qualcosa di più «snack»."
+        },
+        {
+          "title": "Il manju che ha imparato a fare il corndog",
+          "body": "Stessa foglia, diploma in fiera di paese. Pochi dolci accettano una riconversione così spregiudicata restando riconoscibili.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "広島みやげの王道「もみじ饅頭」 — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/feature/souvenir-momiji/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Gourmet — Miyajima Tourist Association",
+          "url": "https://www.miyajima.or.jp/english/gourmet/gourmet.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Delicious Hiroshima — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/en/course/delicious-hiroshima/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-miyajima-oyster-curry-pan",
+      "long": "L'oyster curry pan di Miyajima è un pane fritto ripieno di curry e pezzi di ostrica: crosta dorata da curry pan classico, interno speziato-dolce con bocconi di kaki. Si vende come street food sull'isola, spesso vicino ad altri fritti da passeggio, e tiene insieme due orgogli locali — ostrica e panificazione da snack — in un unico oggetto tenibile con una mano. Non è un bentō elegante né un nabe: è un morso caldo tra traghetto e torii, più pesante di un manju e più «pasto» di una sola ostrica grigliata. Si mangia subito per non perdere la croccantezza; il curry deve risultare umido senza bagnare tutta la crosta. Utile quando vuoi le ostriche ma hai già fatto la griglia e cerchi qualcosa di diverso.",
+      "sections": [
+        {
+          "title": "Pane, curry, mare",
+          "body": "Al morso cerca pezzi di ostrica riconoscibili, non solo sapore di frutti di mare astratto. La crosta deve restare friabile; se è flaccida, era da troppo tempo nella vetrina calda."
+        },
+        {
+          "title": "Spuntino da una mano",
+          "body": "Si cammina mentre si mangia, come per altri fritti dell'isola. Tovaglioli generosi: il curry non perdona le camicie chiare."
+        },
+        {
+          "title": "Tra griglia e dolce",
+          "body": "Sta a metà strada calorica tra yaki-gaki e momiji. Buona scelta a tarda mattina se salti il ristorante di anago ma vuoi comunque qualcosa di sostanzioso."
+        },
+        {
+          "title": "Il curry pan che ha fatto amicizia con la baia",
+          "body": "In teoria il curry pan basta a se stesso. A Miyajima gli hanno aggiunto un ospite di mare — e l'ospite ha rubato la scena.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Gourmet — Miyajima Tourist Association",
+          "url": "https://www.miyajima.or.jp/english/gourmet/gourmet.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Oyster — Miyajima Tourist Association",
+          "url": "https://www.miyajima.or.jp/english/gourmet/gourmet_oyster.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "広島牡蠣完全ガイド — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/feature/kaki/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-miyajima-nigiriten",
+      "long": "Il nigiri-ten è uno spiedino di pasta di pesce (surimi/tsumire) pressata a forma di nigiri, fritta o scottata, spesso con ripieni o topping come formaggio, polpo o altri pezzi di mare, venduto caldo nei banchetti di Miyajima. È street food salato da mano, più snack da passeggiata che piatto da tavola: si ordina al volo, si mangia prima che il formaggio filante o la crosta si raffreddino. La texture è elastica da kamaboko, non da pesce a filetto; il punto è il contrasto caldo-croccante/morbido. Utile come controbilanciamento salato dopo un age-momiji o mentre aspetti il traghetto di ritorno. Non confonderlo con un nigiri di sushi: qui «nigiri» descrive la forma schiacciata a mano, non il riso crudo.",
+      "sections": [
+        {
+          "title": "Forma da sushi, anima da fritto",
+          "body": "Niente riso crudo sotto. È pasta di pesce a ovale, infilzata. Se vedi chicchi di riso, hai ordinato altro. Il calore e il filante (se c'è formaggio) sono i segnali di freschezza."
+        },
+        {
+          "title": "Banco da passeggio",
+          "body": "Si compra lungo le vie commerciali dell'isola insieme ad altri spiedini. Ideale quando vuoi salato leggero senza sederti. Controlla gli allergeni: formaggio e frutti di mare convivono spesso."
+        },
+        {
+          "title": "Dopo il dolce, prima del ferry",
+          "body": "Funziona come reset salato. Due spiedini e un tè o una bibita bastano; non è un sostituto dell'anago-meshi se hai fame vera."
+        },
+        {
+          "title": "Il nigiri che ha paura del wasabi",
+          "body": "Si chiama nigiri ma rifiuta soia e wasabi da sushi-bar. È un impostore simpatico — e di solito filante.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Gourmet — Miyajima Tourist Association",
+          "url": "https://www.miyajima.or.jp/english/gourmet/gourmet.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Miyajima Tourist Association — home",
+          "url": "https://www.miyajima.or.jp/english/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Delicious Hiroshima — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/en/course/delicious-hiroshima/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-miyajima-momiji-croissant",
+      "long": "Il momiji croissant è una rilettura da panetteria: pasta sfogliata laminata a forma di foglia d'acero, ripieni stagionali o creme, cottura da forno europeo-giapponese più che da stampo castella. Si trova nelle bakery dell'isola o nei punti che mescolano souvenir e viennoiserie; al morso deve fare strati burrosi e croccanti, non spugna di manju. È quindi un terzo prodotto rispetto al momiji classico e all'age fritto: stessa silhouette «acero», tecnica completamente diversa. Si mangia a colazione sull'isola o come spuntino meno unto del fritto; i ripieni cambiano (crema, cioccolato, a volte anko) ma la laminazione resta il criterio di autenticità del formato. Se non senti le sfoglie, è solo un panino a foglia.",
+      "sections": [
+        {
+          "title": "Sfoglia, non castella",
+          "body": "Il test è uditivo e tattile: crunch a strati, burro, alveoli. La pasta da manju è un'altra famiglia. Stesso nome «momiji», altro laboratorio."
+        },
+        {
+          "title": "Bakery timing",
+          "body": "Meglio al mattino quando escono dal forno. Nel pomeriggio possono indurirsi. Non è pensato per stare ore in mano come lo stecco fritto."
+        },
+        {
+          "title": "Terza via dell'acero",
+          "body": "Classico = stampo; age = olio; croissant = laminazione. Ordinare i tre nello stesso giorno è un esperimento di anatomia comparata del souvenir — caloricamente ambizioso."
+        },
+        {
+          "title": "Parigi via Seto Inland Sea",
+          "body": "La foglia d'acero ha accettato il burro francese senza perdere il profilo da cartolina. Pochi vegetali immaginari hanno una carriera così internazionale.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "広島みやげの王道「もみじ饅頭」 — Dive! Hiroshima",
+          "url": "https://dive-hiroshima.com/feature/souvenir-momiji/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Gourmet — Miyajima Tourist Association",
+          "url": "https://www.miyajima.or.jp/english/gourmet/gourmet.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Travel Japan — gastronomy hub (JNTO)",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    }
+  ]
+}

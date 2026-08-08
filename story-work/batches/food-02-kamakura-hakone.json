@@ -1,0 +1,440 @@
+{
+  "meta": {
+    "batch": "food-02-kamakura-hakone",
+    "note": "Phase 2 FOOD deep stories for Kamakura + Hakone. Cross-checked against history-hakone-black-eggs (kuro-tamago must stay traveler/snack angle), experience-hakone-vecchia-tokaido-amazake (amazake = drink recognition, not Tokaido chronicle), history-hakone-yosegi (wagashi motif, not woodcraft), place-kamakura-kencho-ji fun note on kenchin (avoid tofu-drop retelling)."
+  },
+  "schede": [
+    {
+      "id": "food-kamakura-shirasu-don",
+      "long": "Lo shirasu-don è il modo più onesto di capire perché Kamakura mangia ancora il mare a pranzo: una ciotola di riso caldo, sopra una coltre di bianchetti piccoli come granelli di riso, e poco altro. Sulla costa Shonan lo shirasu è il prodotto che arriva dal porto di Koshigoe e da Sagami Bay in giornata; il MAFF lo indica come specialità regionale proprio perché si deteriora in fretta e quindi ha senso mangiarlo vicino al punto di sbarco. In pratica il donburi tipico usa spesso i kama-age, i bianchetti scottati in grossa pentola, che diventano opachi, dolci e appena salati. Non è un piatto «da chef»: è un piatto da orario. Arrivate presto, leggete se il menu distingue crudo e cotto, e non giudicate dalla quantità di topping: qui la qualità è trasparenza e freschezza, non altezza della montagna. Con un poco di soy, wasabi o un uovo a parte, il riso fa da tela; lo shirasu è il soggetto.",
+      "sections": [
+        {
+          "title": "Cotto di porto, non «di frigorifero»",
+          "body": "Il kama-age è lo shirasu bollito subito dopo la cattura: diventa bianco-avorio, si aggrega a ciuffetti e sa di mare leggero. Se il don lo vedete solo con pezzi secchi e scuri, state mangiando una versione da dispensa, utile ma diversa dal pranzo Shonan."
+        },
+        {
+          "title": "Dove ha senso ordinarlo",
+          "body": "I posti seri stanno vicino a Hase, Koshigoe o lungo l'Enoden, non necessariamente sul Komachi-dori più affollato. Controllate se il locale dichiara la provenienza o la disponibilità giornaliera: è un segnale migliore di qualsiasi fotografia del menu."
+        },
+        {
+          "title": "Come si mangia senza sbagliare gesto",
+          "body": "Mescolare tutto subito è lecito, ma prima assaggiate un cucchiaio di riso con solo shirasu: capite se serve soy o basta il sale naturale. Il wasabi, se c'è, va a puntini, non a strisce: lo shirasu è fragile di gusto."
+        },
+        {
+          "title": "Il donburi che giudica il vostro orologio",
+          "body": "Arrivare alle due del pomeriggio e pretendere lo stesso shirasu delle undici è come chiedere un caffè espresso a un thermos. Il piatto non è cattivo: siete voi fuori stagione di giornata.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "Kanagawa — Our Regional Cuisines (MAFF)", "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1316/index.html", "kind": "ministero"},
+        {"title": "鎌倉市の名産品 — 鎌倉市", "url": "https://www.city.kamakura.kanagawa.jp/rekibun-meisan.html", "kind": "ente turistico"},
+        {"title": "Kanagawa’s Local Flavours — JNTO", "url": "https://www.japan.travel/en/ca/cuisine/kanto/kanagawa/", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "food-kamakura-nama-shirasu",
+      "long": "Il nama-shirasu è lo stesso pesce del don cotto, ma in un registro diverso: traslucido, freddo, quasi gelatinoso, con un sapore di mare dolce che sparisce appena lo scaldate. Il MAFF sottolinea che il raw whitebait bowl esiste proprio perché lo shirasu si rovina in fretta: si mangia il giorno della pesca, o non si mangia. A Kamakura e sulla costa Shonan questo significa un calendario di fatto: se il mare è mosso, se i battelli non escono, se cade il periodo di sospensione invernale della pesca, il menu toglie la voce senza cerimonie. Non è un capriccio del cuoco. Per il viaggiatore la regola pratica è chiedere «nama?» prima di sedersi e accettare il kama-age come piano B onesto, non come consolazione. Sul piatto lo riconoscete dal colore: non bianco cotto, ma vetro opalino; in bocca non «pesce», ma un morso umido e salino che chiede soy leggera e riso tiepido, non panatura né salsa pesante.",
+      "sections": [
+        {
+          "title": "Traslucido o non è il giorno giusto",
+          "body": "Il nama fresco è lucido e quasi trasparente; se appare opaco, grigio o già addensato in blocchi, sospettate congelato o di ieri. Molti locali lo scrivono chiaramente quando manca: meglio una assenza dichiarata che un sostituto silenzioso."
+        },
+        {
+          "title": "Stagione, meteo, non «sempre in carta»",
+          "body": "La pesca Shonan gira soprattutto da primavera ad autunno; in inverno spesso c'è blocco. Anche in stagione un giorno di vento spegne l'offerta. Pianificate lo shirasu crudo come obiettivo flessibile, non come appuntamento fisso delle 13:00."
+        },
+        {
+          "title": "Piccola etichetta da banco",
+          "body": "Se lo ordinate come sashimi o topping, non lo lasciate scoperto al sole del tavolo esterno mentre fate foto: è un prodotto a orologio. Soy e ginger servono a sottolineare, non a mascherare; se vi serve salsa forte, forse non era il giorno del nama."
+        },
+        {
+          "title": "L'unico pesce che vi dice «no» con cortesia",
+          "body": "In molti posti il rifiuto arriva stampato: «本日なし». Non è maleducazione, è l'unico menu onesto della costa. Ringraziate e ordinate il cotto: avrete comunque mangiato Shonan.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "Kanagawa — Our Regional Cuisines (MAFF)", "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1316/index.html", "kind": "ministero"},
+        {"title": "鎌倉市の名産品 — 鎌倉市", "url": "https://www.city.kamakura.kanagawa.jp/rekibun-meisan.html", "kind": "ente turistico"},
+        {"title": "Kanagawa’s Local Flavours — JNTO", "url": "https://www.japan.travel/en/ca/cuisine/kanto/kanagawa/", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "food-kamakura-kamakura-yasai",
+      "long": "Le «verdure Kamakura» non sono una varietà botanica unica: sono un patto di prossimità. A nord della città, soprattutto intorno a Sekiya e Shirotoru, restano campi a «sette colori» — cetrioli, pomodori, spinaci, daikon, porri, rucola, basilico — coltivati in pochi ettari e venduti freschi. Il comune e la JA usano un marchio brand per segnalare quel raccolto locale: lo cercate su nastro, busta o cartello, non solo nella poesia del menu. In tavola le vedrete grigliate, in insalate curate, come contorno di un bentō o come protagonista di un pranzo vegetariano vicino ai templi. Il punto per chi cammina è questo: a Kamakura «locale» sulle verdure significa spesso raccolto a ciclo corto e varietà miste, non un singolo ortaggio iconico da souvenir. Se il piatto è colorato ma anonimo, chiedete se c'è davvero Kamakura yasai; se il locale lo dichiara, merita la scelta anche quando il secondo di pesce sembra più «da guida».",
+      "sections": [
+        {
+          "title": "Il marchio prima del colore",
+          "body": "Il brand mark comunale è il segnale più concreto: lo trovate anche al mercato Renbai e in alcuni supermarket. Un'insalata «di stagione» senza riferimento locale può essere ottima, ma non è la stessa cosa del raccolto di Kamakura."
+        },
+        {
+          "title": "Come arriva nel piatto del viaggiatore",
+          "body": "Nei ristoranti compare spesso come assortimento grigliato, ohitashi o contorno del giorno. Non aspettatevi un solo vegetale-firma: l'identità è la varietà e la freschezza, non un'etichetta da monocoltura."
+        },
+        {
+          "title": "Perché conta dopo un tempio",
+          "body": "Dopo ore di scale e torii, un piatto di verdure locali è il reset più sensato della città. Bilancia lo shirasu e i dolci di Komachi-dori senza trasformare il pranzo in un digiuno zen da cartolina."
+        },
+        {
+          "title": "L'ortaggio che fa turismo senza selfie",
+          "body": "Nessuno fa la coda per una foto di rucola. Eppure è proprio quando il menu scrive «鎌倉野菜» che Kamakura smette di essere solo Buddha e biscotti. Il glam è zero; il sapore di campo, no.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "鎌倉の農産物について — 鎌倉市", "url": "https://www.city.kamakura.kanagawa.jp/nousui/brand/brand.html", "kind": "ente turistico"},
+        {"title": "Kanagawa — Our Regional Cuisines (MAFF)", "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1316/index.html", "kind": "ministero"},
+        {"title": "Kanagawa’s Local Flavours — JNTO", "url": "https://www.japan.travel/en/ca/cuisine/kanto/kanagawa/", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "food-kamakura-kenchin-jiru",
+      "long": "Il kenchin-jiru è una zuppa che si riconosce a occhio: brodo chiaro o ambrato, tofu a pezzi, konnyaku, radici a dadini — daikon, carota, gobo, a volte taro e lotus — e verdura a foglia verso la fine. Il MAFF la lega a Kamakura e alla cucina vegetariana del Kenchō-ji, ma oggi la troverete anche in case, mense e ristoranti in tutto il Giappone: non è più solo «piatto del tempio». Per mangiarla da viaggiatori conta la tecnica, non la leggenda: le verdure si soffriggono prima in olio (spesso di sesamo) e poi si affogano nel dashi di kombu e shiitake. Quel passaggio dà un sapore tostato che una semplice bollitura non ha. Nella versione shojin non c'è brodo di pesce né carne; fuori dal contesto monastico qualcuno aggiunge pollo. Se cercate il gesto originale, chiedete se è shojin o se usa dashi animale. In bocca deve essere pieno di texture — tofu che sbriciola, konnyaku che rimbalza, radici dolci — non un minestrone uniforme.",
+      "sections": [
+        {
+          "title": "Soffritto prima, brodo dopo",
+          "body": "Se le verdure sembrano solo lessate e il brodo è piatto, manca il passaggio in padella. L'olio di sesamo e il tofu «strizzato» nel soffritto sono il segnale che state mangiando kenchin, non una zuppa di radici generica."
+        },
+        {
+          "title": "Shojin in carta, non solo in foto del tempio",
+          "body": "A Kamakura potete trovarlo in locali che dichiarano cucina vegetariana o in eventi del Kenchō-ji; nel quotidiano cittadino compare anche come comfort food. La presenza di katsuobushi o carne non «rovina» il piatto, ma cambia famiglia: sappiate quale state ordinando."
+        },
+        {
+          "title": "Quando ha senso nel percorso",
+          "body": "È il pranzo giusto dopo un mattino di monasteri: caldo, senza fritto, e abbastanza sostanzioso da riprendere le scale. In estate molti lo servono lo stesso: le radici restano di stagione più lunga di quanto immaginiate."
+        },
+        {
+          "title": "La zuppa che ha fatto carriera meglio dei monaci",
+          "body": "Nata in cucina di tempio, oggi è anche mensa scolastica e pentola di casa. Il viaggio dello shojin finisce nel thermos del salaryman: carriera ecclesiastica, in senso stretto, riuscita.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "Kenchin jiru — Our Regional Cuisines (MAFF)", "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/1056/index.html", "kind": "ministero"},
+        {"title": "Kanagawa — Our Regional Cuisines (MAFF)", "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1316/index.html", "kind": "ministero"},
+        {"title": "建長寺 — sito ufficiale", "url": "https://www.kenchoji.com/", "kind": "sito ufficiale"}
+      ]
+    },
+    {
+      "id": "food-kamakura-hato-sabure",
+      "long": "L'Hato Sabure è il souvenir che Kamakura vi mette in mano senza bisogno di spiegazioni: un biscotto al burro a forma di colomba, croccante, poco dolce, con il profilo della tortora stampato nella pasta. Lo fa Toshimaya dal periodo Meiji; il sito ufficiale racconta l'incontro fra burro stile francese (sablé) e il simbolo della colomba legato a Tsurugaoka Hachimangu. Per chi cammina, però, la scheda utile non è la genesi: è come riconoscerlo e quando comprarlo. La forma a uccello con l'occhio e l'ala è inconfondibile; il sapore è burro e farina, non glassa né cioccolato. Si vende in buste trasparenti e scatole lungo Komachi-dori e vicino alla stazione; le code al banco principale sono parte del rito, ma esistono anche punti meno saturi. Mangiatene uno caldo di giornata se potete: il burro si sente di più. Il resto va in valigia come omiyage — è uno dei pochi dolci locali che sopravvive al treno senza diventare una delusione.",
+      "sections": [
+        {
+          "title": "Burro in evidenza, zucchero in secondo piano",
+          "body": "Se vi sembra «poco dolce», è corretto: la ricetta storica punta sul burro, non sulla glassatura. La crosta deve spezzarsi netta; se è gommosa, è vecchia o umida."
+        },
+        {
+          "title": "Colomba da vetrina, non da tempio",
+          "body": "La forma cita Hachiman e le tortore del santuario, ma il biscotto si compra in pasticceria, non sull'altare. Usatelo come pausa su Komachi-dori o come regalo da stazione: è progettato per viaggiare."
+        },
+        {
+          "title": "Coda, scatola, pezzo sfuso",
+          "body": "La coda famosa è spesso per le confezioni regalo. Se volete solo assaggiare, chiedete pezzi singoli o formati piccoli: risparmiate tempo e capite se vi piace prima di riempire la valigia."
+        },
+        {
+          "title": "L'uccello che migra meglio dei turisti",
+          "body": "Voi sudate sulle scale del Daibutsu; lui sta fermo in una busta di plastica e arriva a Tokyo ancora intero. Di tutta Kamakura, è l'unico che ha capito il trasporto pubblico.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "鳩サブレー 豊島屋 — sito ufficiale", "url": "https://www.hato.co.jp/", "kind": "sito ufficiale"},
+        {"title": "鳩のつぶやき — 豊島屋 (storia del biscotto)", "url": "https://www.hato.co.jp/hato", "kind": "sito ufficiale"},
+        {"title": "鎌倉市の名産品 — 鎌倉市", "url": "https://www.city.kamakura.kanagawa.jp/rekibun-meisan.html", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "food-kamakura-daibutsu-yaki",
+      "long": "Il daibutsu-yaki è lo street sweet che traduce il Grande Buddha in stampo da bancarella: una pastella cotta in una piastra che riproduce il profilo del Daibutsu di Kōtoku-in, con ripieno — spesso anko, a volte crema o varianti stagionali. Non è un wagashi da cerimonia; è un morso da passeggio fra Hase e il tempio, caldo, dolce e immediatamente fotografabile. Per riconoscerlo guardate la forma: testa e spalle del Buddha in rilievo, non un generico dorayaki tondo. La crosta deve essere sottile e appena croccante fuori, morbida dentro; il ripieno non deve colare come una crêpe da fiera europea. Serve a chi ha già fatto la fila del Buddha e vuole un gesto leggero prima del treno, non a chi cerca alta pasticceria. Compralo vicino all'area Hase/Daibutsu, mangialo in piedi o su una panchina, e non aspettarti che «sappia di Buddha»: sa di pastella e fagioli dolci, con un'icona in superficie.",
+      "sections": [
+        {
+          "title": "Lo stampo è il messaggio",
+          "body": "Se il dolce è rotondo senza volto, non è daibutsu-yaki: è un altro yaki-gashi. Il rilievo del Grande Buddha sulla faccia superiore è il criterio zero, più della lista dei ripieni."
+        },
+        {
+          "title": "Quando ha senso nella giornata",
+          "body": "Ideale dopo la visita al Daibutsu o lungo l'Enoden a Hase: è merenda, non pranzo. Se avete ancora fame da shirasu, fate prima il salato; questo è il punto e virgola dolce."
+        },
+        {
+          "title": "Caldo di piastra, non da busta regalo",
+          "body": "Il pezzo appena sfornato batte quello raffreddato in vetrina. Se la bancarella ne ha uno «di pronto», prendete quello: la crosta calda è metà del piacere."
+        },
+        {
+          "title": "L'unico Buddha che potete mordere senza scandalo",
+          "body": "Dentro al tempio si osserva; fuori si mastica la sua silhouette allo zucchero. Teologia da street food: la compassione, a volte, ha forma di anko.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "鎌倉市の名産品 — 鎌倉市", "url": "https://www.city.kamakura.kanagawa.jp/rekibun-meisan.html", "kind": "ente turistico"},
+        {"title": "Kanagawa — Our Regional Cuisines (MAFF)", "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1316/index.html", "kind": "ministero"},
+        {"title": "Kamakura and around — JNTO", "url": "https://www.japan.travel/en/destinations/kanto/kanagawa/kamakura-and-around/", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "food-kamakura-murasaki-imo",
+      "long": "Il soft cream alla patata viola è il segnale cromatico di Komachi-dori e delle strade verso il mare: un cono o un bicchiere di gelato soft di un viola intenso, cremoso, con un retrogusto terroso-dolce tipico della murasaki-imo. Non è un gelato «alla frutta» e non è matcha: se il colore vira al lilla artificiale senza aroma di tubero, state mangiando colore più che materia. A Kamakura compare nei chioschi da passeggio, spesso accanto ad altri soft locali; serve a rinfrescarsi fra un tempio e l'altro senza sedersi a tavola. La texture deve essere aria e latte, non ghiaccio granuloso; il gusto è più vicino a una patata dolce arrostita che a un candy. È un dolce turistico onesto: lo scegliete con gli occhi, lo giudicate con la lingua in due cucchiai. Non pretende storia millenaria; pretende di essere buono mentre camminate.",
+      "sections": [
+        {
+          "title": "Viola da tubero, non da colorante solo",
+          "body": "La murasaki-imo vera lascia un aroma leggermente farinoso e una dolcezza calda. Se sa solo di zucchero e vaniglia tintura, il marketing ha vinto sulla patata."
+        },
+        {
+          "title": "Merenda da marciapiede",
+          "body": "Si mangia in piedi, spesso in coda corta. Attenzione al soft che cola: Kamakura d'estate è umida. Un bicchiere è più sicuro del cono se dovete riprendere foto e borsa."
+        },
+        {
+          "title": "Accostamenti utili",
+          "body": "Funziona dopo lo shirasu salato o come pausa fra Hato Sabure e un tè. Evitate di affiancarlo subito a un parfait al matcha: due dolci lattei di fila stancano il palato."
+        },
+        {
+          "title": "Il GPS dolce dei gruppi scolastici",
+          "body": "Se vedete una scia di coni viola, state sulla strada giusta per i negozi. La patata viola guida i teenager meglio di qualsiasi cartello turistico.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "鎌倉市の名産品 — 鎌倉市", "url": "https://www.city.kamakura.kanagawa.jp/rekibun-meisan.html", "kind": "ente turistico"},
+        {"title": "Kanagawa’s Local Flavours — JNTO", "url": "https://www.japan.travel/en/ca/cuisine/kanto/kanagawa/", "kind": "ente turistico"},
+        {"title": "鎌倉の農産物について — 鎌倉市", "url": "https://www.city.kamakura.kanagawa.jp/nousui/brand/brand.html", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "food-kamakura-matcha-sweets",
+      "long": "I dolci al matcha di Kamakura sono il secondo linguaggio di Komachi-dori: parfait a strati, soft cream verdissimi, mochi, roll cake, daifuku e tè gelato serviti in cafe affacciati sulla folla. Non nascono come specialità unica della città — il matcha è linguaggio nazionale da cerimonia e da snack — ma qui diventano pausa turistica fra santuari, con porzioni pensate per chi ha ancora mezza giornata di cammino. Per sceglierli senza delusione guardate intensità e amaro: un verde plastica e solo zucchero è dessert generico; un matcha più scuro, con amaro di foglia e anko o azuki a contrasto, è più vicino all'uso giapponese del tè. Le sale da tè serie bilanciano dolce e astringenza; i chioschi puntano su colore e foto. Entrambi sono leciti se sapete cosa ordinate. Dopo lo shirasu, il matcha pulisce; dopo l'Hato Sabure al burro, rischia di essere un bis di grassi: meglio un tè caldo semplice che un terzo parfait.",
+      "sections": [
+        {
+          "title": "Verde che sa di foglia",
+          "body": "Assaggiate prima il gelato o la crema senza condimenti: se l'amaro del tè c'è, il locale sta lavorando matcha vero. Se è solo latte verde, è scenografia."
+        },
+        {
+          "title": "Parfait, mochi, soft: tre tempi diversi",
+          "body": "Il parfait è pausa lunga al tavolo; il mochi è morso da asporto; il soft è cammino. Non ordinate tutti e tre «per fare Kamakura»: fate uno e fatelo bene."
+        },
+        {
+          "title": "Etiquette da cafe affollato",
+          "body": "Nei locali piccoli il tempo al tavolo conta: ordinate, mangiate, liberate. Il take-out esiste apposta per Komachi-dori. Evitate di occupare quattro posti per un tè mentre la coda guarda."
+        },
+        {
+          "title": "Il matcha che compete con il Buddha per i like",
+          "body": "Il Daibutsu è di bronzo; il parfait è di panna. Indovinate quale riempie prima Instagram. Kamakura ha accettato la sconfitta teologica con eleganza verdissima.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "Kanagawa’s Local Flavours — JNTO", "url": "https://www.japan.travel/en/ca/cuisine/kanto/kanagawa/", "kind": "ente turistico"},
+        {"title": "鎌倉市の名産品 — 鎌倉市", "url": "https://www.city.kamakura.kanagawa.jp/rekibun-meisan.html", "kind": "ente turistico"},
+        {"title": "Gastronomy — JNTO", "url": "https://www.japan.travel/en/gastronomy/", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "food-hakone-kuro-tamago",
+      "long": "A Ōwakudani la kuro-tamago si mangia come snack di valico, non come lezione di geologia: comprate il sacchetto al Kurotamago House, cercate un punto riparato dal vento, e fate i conti con guscio nero e odore di zolfo sulle dita. All'esterno l'uovo sembra carbonizzato; dentro — una volta sbucciato — è un uovo sodo normale, bianco e tuorlo cotto, a volte con un leggero retrogusto minerale. Il sito ufficiale spiega la cottura nelle acque termali e la vendita tipica a gruppi di quattro: non è un menù à la carte, è un pacchetto. In coda restare sul lato indicato, avere contanti pronti se richiesti, e non aprire il sacchetto sopra la merce altrui: lo zolfo si attacca a mani, sciarpe e fotocamere. Se la valle o il sentiero sono chiusi per allerta, non insistete per «l'uovo autentico» da un venditore improvvisato altrove: l'esperienza snack è legata a questo bancone. Mangiatene uno sul posto; gli altri reggono il viaggio in funivia meglio di quanto regga il vostro olfatto in hotel.",
+      "sections": [
+        {
+          "title": "Nero fuori, sodo dentro",
+          "body": "Il colore nero è del guscio; l'albume non è nero. Se vi aspettate un tuorlo «vulcanico», resterete delusi in modo sano: è un uovo sodo. Sbucciatelo con pazienza: il guscio può sporcare le mani più di un uovo normale."
+        },
+        {
+          "title": "Coda e pacchetto da quattro",
+          "body": "Si compra tipicamente il set, non il pezzo singolo. Tenete lo zaino chiuso mentre pagate, uscite dalla fila prima di sbucciare, e non lasciate gusci sul piazzale: ci sono cestini. In giornate di vento lo zolfo arriva comunque; non è un difetto del pezzo che avete preso."
+        },
+        {
+          "title": "Come si mangia da viaggiatori",
+          "body": "Sale se c'è, altrimenti natura. Non è un secondo: è una merenda calda fra funivia e foto. Se l'odore vi dà fastidio, mangiatene mezzo e chiudete il sacchetto: nessuno vi obbliga al kit completo in un solo fiato."
+        },
+        {
+          "title": "Lo snack che vi segue in cabina",
+          "body": "Potete non raccontare a nessuno di essere stati a Ōwakudani. Il sacchetto, invece, lo racconta all'intero scompartimento della ropeway. Marketing olfattivo involontario.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "大涌谷くろたまご館 — sito ufficiale", "url": "https://www.owakudani.com/", "kind": "sito ufficiale"},
+        {"title": "Kurotamago House — Hakone Navi", "url": "https://www.hakonenavi.jp/international/en/spot/73", "kind": "ente turistico"},
+        {"title": "箱根町観光協会 — hakone.or.jp", "url": "https://www.hakone.or.jp/", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "food-hakone-yuba-don",
+      "long": "Lo yuba-don di Hakone è comfort food di acqua di montagna: riso in ciotola, sopra sfoglie di yuba — la «pelle» che si forma sulla superficie del latte di soia caldo — affogate in dashi e spesso chiuse con uovo. A Yumoto i locali legati all'acqua di Ōhiradai lo servono in pentolino o ciotola fumante: lo yuba deve risultare setoso, non gommoso, e il brodo deve sapere di shiitake e soia più che di fritto. Hakone Navi lo segnala come piatto tipico proprio perché tofu e yuba locali sfruttano l'acqua limpida della zona. Per il viaggiatore è il pranzo giusto quando la giornata è umida, la funivia è piena e non volete un tonkatsu pesante. Non confondetelo con lo yuba crudo da sashimi di Kyoto: qui è caldo, umido, da cucchiaio. Se arriva il pentolino ancora in ebollizione, aspettate un attimo: lo yuba si assesta e l'uovo finisce di cuocere senza spezzarsi in filo.",
+      "sections": [
+        {
+          "title": "Seta di soia, non «pasta»",
+          "body": "Lo yuba buono si sfilaccia in nastri sottili e ha dolcezza di latte vegetale. Se sembra una sfoglia secca reidratata, è un'altra qualità: mangiatelo lo stesso, ma calibrate le aspettative."
+        },
+        {
+          "title": "Dashi e uovo come cornice",
+          "body": "Il brodo deve legare riso e yuba senza coprirli di soy scura. L'uovo a nuvola è tipico: mescolatelo delicatamente, non come uno scramble occidentale."
+        },
+        {
+          "title": "Dove inserirlo nell'itinerario",
+          "body": "Ideale a Hakone-Yumoto in arrivo o in uscita, quando avete ancora tempo per un tavolo. Nei weekend la coda è parte del prezzo: usate l'attesa per un ashiyu vicino se c'è, non per stressarvi."
+        },
+        {
+          "title": "Il donburi che fa finta di essere leggero",
+          "body": "«È solo tofu», dite, e poi finite riso, uovo e seconda ciotola di brodo. Hakone ha inventato il comfort food con alibi vegetale.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "湯葉丼 直吉 — Hakone Navi", "url": "https://www.hakonenavi.jp/spot/1251", "kind": "ente turistico"},
+        {"title": "あったかグルメ — Hakone Navi", "url": "https://www.hakonenavi.jp/feature/8820", "kind": "ente turistico"},
+        {"title": "Kanagawa — Our Regional Cuisines (MAFF)", "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1316/index.html", "kind": "ministero"}
+      ]
+    },
+    {
+      "id": "food-hakone-hakone-soba",
+      "long": "La soba di Hakone è soba di montagna: grano saraceno lavorato con acqua locale, spesso servita fredda su seiro o calda in brodo, e frequentemente accompagnata da tororo di yam, funghi o verdure di bosco. Non è un marchio unico obbligatorio su ogni ciotola della prefettura: è uno stile di sosta termale, dove l'acqua del massiccio e il ritmo del viaggio contano quanto la ricetta. Nei locali noti di Yumoto troverete versioni che riducono o evitano l'acqua di impasto grazie allo yam e all'uovo, ottenendo un filo più elastico; altrove è soba «normale» ma di buona macina. Per riconoscerne una degna, guardate il colore del noodle (grigio-bruno, non giallo uovo), il profumo di saraceno quando alzate i bastoncini, e se il tsuyu è a parte o già in ciotola. In estate la zaru con tororo è la scelta più chiara; col fresco, un kake caldo dopo l'onsen ha più senso di qualsiasi fritto.",
+      "sections": [
+        {
+          "title": "Saraceno che profuma, non solo «noodle lunghi»",
+          "body": "Se non sentite l'aroma di grano saraceno, state bevendo soprattutto salsa. Assaggiate un filo senza tsuyu: è il test più veloce."
+        },
+        {
+          "title": "Tororo e compagnia di bosco",
+          "body": "Lo yam grattugiato rende il boccone scivoloso e saziante; funghi e verdure selvatiche segnano la versione di montagna. Non sono obbligatori, ma se ci sono siete nel registro Hakone più tipico."
+        },
+        {
+          "title": "Prima o dopo il bagno",
+          "body": "Dopo l'onsen il corpo chiede sale e amido: la soba calda funziona. Prima di una camminata lunga, meglio una zaru e non esagerare col brodo: la funivia non ama i panciotti pesanti."
+        },
+        {
+          "title": "Il noodle che compete con la funivia",
+          "body": "Avete pagato per vedere il lago dall'alto; poi vi sedete a fissare una ciotola di filo grigio. Entrambe le code, a Hakone, sono esperienze autentiche.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "箱根町観光協会 — hakone.or.jp", "url": "https://www.hakone.or.jp/", "kind": "ente turistico"},
+        {"title": "Kanagawa — Our Regional Cuisines (MAFF)", "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1316/index.html", "kind": "ministero"},
+        {"title": "Hakone — JNTO area hub", "url": "https://www.japan.travel/en/destinations/kanto/kanagawa/hakone-and-around/", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "food-hakone-kamaboko",
+      "long": "Il kamaboko di Odawara è il salato da viaggio della porta di Hakone: surimi di pesce bianco lavorato a lungo, sistemato su una tavoletta di legno e cotto a vapore fino a diventare un panetto a ventaglio lucido, elastico, a fetta netta. Il MAFF lo descrive come specialità di Odawara legata alla baia di Sagami, all'acqua minerale del massiccio Hakone-Tanzawa e al passaggio del Tōkaidō. In bocca deve «saltare» sotto i denti — il sudachi o wasabi a parte aiutano — senza sapore di fritto né di pesce stanco. Lo trovate in negozi e centri di degustazione fra Odawara e l'ingresso di Hakone, spesso a fette per assaggio o in confezione regalo. Per il visitatore di terme è lo snack salato che bilancia manju e uova nere: proteine da stazione, non secondo da ryokan. Se la fetta si sbriciola invece di piegarsi, la qualità dell'impasto non è quella cercata.",
+      "sections": [
+        {
+          "title": "Ventaglio su tavoletta",
+          "body": "La forma a mezzaluna sul legno è il riconoscimento classico dell'ita-kamaboko. Il taglio deve mostrare una pasta omogenea, bianca o appena rosata in superficie se decorata, senza buchi grandi."
+        },
+        {
+          "title": "Assaggio vs omiyage",
+          "body": "Nei punti vendita seri potete assaggiare fette o versioni grigliate. Per la valigia scegliete confezioni sigillate e date di consumo chiare; il fresco da banco si mangia in giornata."
+        },
+        {
+          "title": "Come si usa a tavola",
+          "body": "A temperatura ambiente o appena scaldato, con wasabi e soy, oppure in zuppa. A Hakone compare anche fritto come stuzzichino: buono, ma è un altro registro rispetto al vapore Odawara."
+        },
+        {
+          "title": "Il pesce che ha imparato a fare l'elastico",
+          "body": "Lo fate rimbalzare leggermente fra le bacchette: se risponde, è kamaboko. Se non risponde, è un'altra vita del surimi, e forse anche della vostra merenda.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "Odawara Kamaboko — Our Regional Cuisines (MAFF)", "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/6165/index.html", "kind": "ministero"},
+        {"title": "小田原かまぼこ — 小田原市地場産業振興協議会", "url": "https://www.odawarajibasan.jp/kamaboko/", "kind": "consorzio"},
+        {"title": "鈴廣かまぼこの里 — sito ufficiale", "url": "https://www.kamaboko.com/sato/", "kind": "sito ufficiale"}
+      ]
+    },
+    {
+      "id": "food-hakone-onsen-manju",
+      "long": "L'onsen manju è il dolce di ingresso di quasi ogni località termale giapponese, e a Hakone-Yumoto lo incontrate subito fuori stazione: panini al vapore piccoli, pelle morbida, ripieno di anko, spesso in due colori di pasta — chiara da zucchero e scura da melassa o kuromitsu. L'associazione turistica segnala case storiche che li sfornano ogni mattina; il punto per chi cammina è mangiarli caldi, non collezionarli freddi in fondo allo zaino. La pelle deve cedere sotto i denti senza gomma; l'anko di azuki resta il ripieno standard. Non è un wagashi da cerimonia del tè: è merenda da marciapiede e omiyage da scatola. Se vi offrono la prova al banco, usatela: capite in dieci secondi se preferite la versione chiara o quella al kuromitsu. Un pezzo a testa basta prima della soba; la scatola da dieci è per il ritorno in treno.",
+      "sections": [
+        {
+          "title": "Bianco e tè: due pelli, stesso anko",
+          "body": "Molte botteghe propongono entrambe. La scura ha più retrogusto di melassa; la chiara è più neutra e lascia parlare il fagioli. Non è «al gusto onsen»: l'acqua termale è contesto, non aroma obbligatorio in bocca."
+        },
+        {
+          "title": "Caldo di mattina batte souvenir di sera",
+          "body": "I forni locali riempiono il banco al mattino. Se arrivate a Yumoto presto, comprate e mangiate subito un pezzo; chiudete il resto. Il manju raffreddato resta buono, ma perde il senso di street food termale."
+        },
+        {
+          "title": "Coda corta, pagamento semplice",
+          "body": "Spesso cash-friendly e vendita al pezzo. Non bloccate il bancone per foto infinite: la fila dietro di voi vuole lo stesso zucchero di voi, solo più in fretta."
+        },
+        {
+          "title": "Il panino che fa da biglietto di ingresso",
+          "body": "Prima ancora della funivia, Hakone vi fa firmare il check-in con un manju. È più educato di un tornello e ha l'anko.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "元祖箱根温泉まんじゅう 丸嶋本店 — hakone.or.jp", "url": "https://www.hakone.or.jp/407", "kind": "ente turistico"},
+        {"title": "箱根の温泉まんじゅう — Hakone Navi", "url": "https://www.hakonenavi.jp/feature/11355", "kind": "ente turistico"},
+        {"title": "箱根町観光協会 — hakone.or.jp", "url": "https://www.hakone.or.jp/", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "food-hakone-amazake",
+      "long": "L'amazake di Hakone si beve caldo, in tazza, come ricarica dolce dopo il freddo di passo o di corda: è una crema liquida di riso e kōji, naturalmente dolce perché l'amido si spezza in zuccheri, di solito con alcol trascurabile o assente nella versione da chaya. Non va confusa con il sake: il nome inganna, il sapore no — cereale caldo, densità da vellutata leggera, a volte un filo di granulosità del riso. Per riconoscerne una buona, cercate dolcezza rotonda senza zucchero aggiunto dichiarato e un profumo di fermentazione pulita, non di alcool da bar. Si trova nelle case da tè lungo i sentieri e in alcuni cafe termali; a Yumoto compare anche in versione da asporto. Bevetela a piccoli sorsi: è saziante. Se siete a digiuno dopo una camminata, funziona meglio di una bibita gassata; se avete appena finito un manju, dimezzate la tazza o passerete dalla dolcezza alla stanchezza in dieci minuti.",
+      "sections": [
+        {
+          "title": "Kōji, non «sake al cucchiaio»",
+          "body": "La versione da viaggio tipica è da riso e starter kōji, non da fecce di sake. Se sentite bruciore alcolico chiaro, non è il profilo che cercate per una pausa di sentiero."
+        },
+        {
+          "title": "Calda in tazza, lenta in gola",
+          "body": "Servita calda mostra il meglio: aroma di riso e corpo cremoso. Fredda può sembrare solo zuccherina. Non è uno shot: è una pausa di cinque minuti seduti."
+        },
+        {
+          "title": "Quando ordinarla nel giorno Hakone",
+          "body": "Dopo una camminata al fresco o in uscita dall'onsen, prima di un altro dolce. Accompagna wagashi leggeri; con manju e soft cream diventa un tris di zuccheri che spegne il resto della giornata."
+        },
+        {
+          "title": "La bevanda che si chiama sake per confondere i forestieri",
+          "body": "Ordinate amazake e qualcuno al tavolo accanto alza un sopracciglio moralista. Poi assaggia e scopre di aver giudicato un frullato di riso. Vittoria silenziosa del kōji.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "甘酒茶屋 — sito ufficiale", "url": "https://www.amasake-chaya.jp/", "kind": "sito ufficiale"},
+        {"title": "箱根町観光協会 — hakone.or.jp", "url": "https://www.hakone.or.jp/", "kind": "ente turistico"},
+        {"title": "Gastronomy — JNTO", "url": "https://www.japan.travel/en/gastronomy/", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "food-hakone-tofu-katsuni",
+      "long": "Il tofu katsuni di Hakone è il secondo che finge di essere un cutlet e poi si scioglie in pentola: tofu spesso — a volte farcito di carne macinata — fritto e poi stufato in dashi con uovo, servito fumante in donabe. Hakone Navi lo lega a locali di Gora come piatto firma: il contrasto è fra crosta leggera del fritto e cuore morbido che beve il brodo. Non è tonkatsu di maiale in stile Enogawa; è un piatto di soia di montagna che usa il gesto del «katsu» per arrivare a una cottura umida. In tavola lo riconoscete dal pentolino, dal tofu a fette spesse e dall'uovo che lega. Si mangia col riso, non come stuzzichino. Per il viaggiatore è il pranzo sostanzioso fra una funivia e un onsen pomeridiano: più pesante dello yuba-don, più leggero di un vero katsu di carne se scegliete la versione centrata sul tofu. Lasciate cuocere l'uovo un attimo dopo l'arrivo a tavola: il brodo finisce il lavoro.",
+      "sections": [
+        {
+          "title": "Fritto, poi nabe",
+          "body": "Il doppio passaggio è l'identità: senza stufatura resta solo atsuage; senza fritto iniziale perde il nome katsu. La superficie deve tenere un filo di crosta anche nel brodo."
+        },
+        {
+          "title": "Con o senza ripieno di carne",
+          "body": "Alcune case mettono maiale macinato nel tofu; altre restano più vegetali. Chiedete se vi interessa il registro: cambia sazietà e sapore, non solo etichetta."
+        },
+        {
+          "title": "Come affrontarlo a tavola",
+          "body": "Rompete l'uovo delicatamente, bagnate il riso col brodo, alternate tofu e cucchiaio di liquido. È un piatto da calore, non da foto infinita a coperchio chiuso mentre si raffredda."
+        },
+        {
+          "title": "Il katsu che ha tradito il maiale",
+          "body": "Ordinate «katsu» e arriva il tofu. A Tokyo protestereste; a Gora fate la fila lo stesso. Hakone ha vinto la guerra semantica con un donabe.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "田むら銀かつ亭 — Hakone Navi", "url": "https://www.hakonenavi.jp/spot/1253", "kind": "ente turistico"},
+        {"title": "箱根町観光協会 — hakone.or.jp", "url": "https://www.hakone.or.jp/", "kind": "ente turistico"},
+        {"title": "Kanagawa — Our Regional Cuisines (MAFF)", "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1316/index.html", "kind": "ministero"}
+      ]
+    },
+    {
+      "id": "food-hakone-yosegi-wagashi",
+      "long": "I wagashi di Hakone che citano lo yosegi non sono pezzi di legno da mangiare: sono dolci stagionali — nerikiri, yokan, manju decorati — la cui superficie riprende i motivi geometrici a tarsia tipici dell'artigianato locale, a strisce e scacchi di colori diversi. Li trovate nelle pasticcerie di Yumoto e nei reparti souvenir più curati, spesso in confezione piccola da tè. L'angolo cibo è questo: zucchero di fagioli, pasta di riso o anko sotto una decorazione che «sembra» yosegi, da abbinare a un tè verde amaro. Non sostituiscono una himitsu-bako e non spiegano la tecnica dell'ebanisteria: usano quel linguaggio visivo per fare omiyage commestibile. Scegliete pezzi freschi di giornata se potete; i yokan confezionati viaggiano meglio. In bocca deve vincere il wagashi — dolcezza controllata, aroma di azuki o di bianchi di stagione — non solo il disegno sulla crosta.",
+      "sections": [
+        {
+          "title": "Motivo a tarsia, cuore di anko",
+          "body": "Se il dolce ha fasce colorate o un pattern geometrico ispirato al legno composito, siete nel registro giusto. Se è solo un manju generico con sticker «Hakone», è packaging, non citazione."
+        },
+        {
+          "title": "Tè prima, foto dopo",
+          "body": "Come ogni wagashi, funziona con matcha o sencha: l'amaro alza il disegno dolce. Mangiatelo a pezzi piccoli; la decorazione si rompe, ed è normale."
+        },
+        {
+          "title": "Souvenir che scade",
+          "body": "A differenza dello yosegi vero, questo ha data. Per il treno di ritorno preferite yokan o pezzi stabili; i nerikiri delicati si mangiano in loco."
+        },
+        {
+          "title": "L'unico yosegi che potete masticare",
+          "body": "La scatola segreta di legno resta chiusa se non sapete la sequenza. Il wagashi, invece, si apre coi denti. Artigianato democratico.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "箱根町観光協会 — hakone.or.jp", "url": "https://www.hakone.or.jp/", "kind": "ente turistico"},
+        {"title": "Yosegi-zaiku — KOGEI JAPAN", "url": "https://kogeijapan.com/locale/en_US/yosegizaiku/", "kind": "catalogo artigianato"},
+        {"title": "Gastronomy — JNTO", "url": "https://www.japan.travel/en/gastronomy/", "kind": "ente turistico"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,535 @@
+{
+  "meta": {
+    "batch": "history-02-tokyo-kyoto",
+    "note": "Cultural-layer stories. Cross-checked against place-tokyo-gotokuji, place-tokyo-meiji, place-tokyo-yanaka, place-kyoto-fushimi, place-kyoto-gion, place-kyoto-kinkakuji, place-kyoto-kiyomizu, experience-kyoto-gion-corner — avoid paraphrase of site architecture, visitor logistics, and place-specific founding anecdotes."
+  },
+  "schede": [
+    {
+      "id": "history-tokyo-edo-city",
+      "long": "Edo non era «ancora Tokyo»: era già la città più grande del mondo per popolazione urbana, ma restava capitale politica dello shogunato mentre l'imperatore sedeva a Kyoto. Tokugawa Ieyasu ne fece la sede del bakufu all'inizio del Seicento; per oltre due secoli i daimyō obbligati al sankin-kōtai mantenevano residenze qui, e la domanda di cibo, legname, seta e spettacolo trasformò le rive e i canali in un organismo mercantile. Il 1868 non «fondò» una metropoli: le diede un nome nuovo. Il decreto Meiji che ribattezza Edo come Tōkyō — capitale orientale — dichiara che il sovrano governerà da oriente e che est e ovest vanno «guardati allo stesso modo». Capire questo doppio registro — città dei guerrieri e poi capitale imperiale — spiega perché la pianta, i fossati e molti toponimi di oggi continuano a parlare la lingua della città samurai anche sotto i grattacieli.",
+      "sections": [
+        {
+          "title": "Due capitali, un solo paese",
+          "body": "Fino alla Restaurazione, potere militare e autorità imperiale non coincidevano nello stesso indirizzo. Edo era il centro da cui lo shogun amministrava; Kyoto restava sede della corte. Il cambio di nome del 1868 non è cosmetica: sposta il baricentro simbolico e rende esplicito che la politica nazionale parlerà da qui."
+        },
+        {
+          "title": "Canali come scheletro, non come nostalgia",
+          "body": "La città Tokugawa cresceva su bonifiche, fossati e vie d'acqua. Molti quartieri moderni ereditano quella geometria anche quando il canale è coperto o ridotto a fosso. Camminare a Nihonbashi o lungo il Sumida significa ancora leggere una pianta pensata per barche, magazzini e controllo degli incendi."
+        },
+        {
+          "title": "Il sankin-kōtai come motore urbano",
+          "body": "L'obbligo dei signori di soggiornare a Edo a turni portava corti, servitori e denaro nella città bassa. Non era solo sorveglianza politica: era domanda permanente di artigianato, spettacolo e alloggio. La densità culturale di Edo nasce da quella burocrazia itinerante."
+        },
+        {
+          "title": "Da «Edo» a «Tokyo» senza azzerare la memoria",
+          "body": "Il museo Edo-Tokyo e le mappe d'epoca mostrano continuità: castello, assi stradali, nomi di ponti. La metropoli contemporanea non cancella la città dei samurai; la ricopre a strati. Chi cerca soltanto neon perde metà della lezione."
+        },
+        {
+          "title": "Il rebranding più riuscito della storia urbana",
+          "body": "Cambiarono quattro ideogrammi e il mondo cominciò a chiamarla capitale. I canali, intanto, sapevano già dove dovevano piegare.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "Tokyo 150 Years — Edo-Tokyo Museum", "url": "https://edo-tokyo-museum.or.jp/en/s-exhibition/tokyo150/", "kind": "museo"},
+        {"title": "江戸ヲ称シテ東京ト為スノ詔書 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E6%B1%9F%E6%88%B8%E3%83%B2%E7%A7%B0%E3%82%B7%E3%83%86%E6%9D%B1%E4%BA%AC%E3%83%88%E7%82%BA%E3%82%B9%E3%83%8E%E8%A9%94%E6%9B%B8", "kind": "enciclopedia"},
+        {"title": "Story & Guide — GO TOKYO", "url": "https://www.gotokyo.org/en/story-and-guide/index.html", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "history-tokyo-shitamachi",
+      "long": "Shitamachi non è un quartiere sul cartello: è una categoria mentale nata con Edo. Quando i Tokugawa sistemarono il castello sulle alture, le colline del Musashino andarono soprattutto a residenze di samurai — il Yamanote, «lato della montagna» — mentre le terre basse verso il Sumida e la baia, bonificate e affollate, accolsero mercanti, artigiani e spettacolo: la «città di sotto». Essere edokko, figlio di Edo, significava spesso nascere lì, dove la vita si misurava in botteghe a fronte stretto, santuari di vicinato e teatri. Il confine non fu mai una linea ufficiale e si è spostato con terremoti, guerre e metro; Asakusa, Ueno e Yanaka restano però i luoghi in cui la scala umana della città bassa si sente ancora. Capire shitamachi serve a non confondere Tokyo con i soli skyline occidentali: metà dell'identità cittadina è nata a est del palazzo, tra acqua e fumo di carbone.",
+      "sections": [
+        {
+          "title": "Alto e basso, prima che «est e ovest»",
+          "body": "La distinzione classica non segue la Yamanote Line moderna: segue la geografia sociale del Seicento. Collina = potere militare e aria più fresca; pianura alluvionale = lavoro, commercio, densità. Anche quando i ricchi mercanti comprarono ville a ovest dopo il Meiji, il vocabolario restò."
+        },
+        {
+          "title": "Edokko: orgoglio di chi stava «sotto»",
+          "body": "Nella cultura popolare, lo shitamachi produceva un tipo urbano franco, attaccato al quartiere e sospettoso delle pose aristocratiche. Non era folklore da cartolina: era l'ethos di chi teneva in piedi la città dei consumi mentre i samurai amministravano."
+        },
+        {
+          "title": "Santuari di isolato, non solo grandi templi",
+          "body": "Oltre a Sensō-ji e ai musei di Ueno, la trama tipica sono i piccoli jinja infilati fra case e negozi. Proteggono un vicinato, non una nazione: sono la religione quotidiana della città bassa, ancora leggibile se si esce dalle arterie turistiche."
+        },
+        {
+          "title": "Dopo 1923 e 1945, un'idea che sopravvive",
+          "body": "Incendi e bombardamenti cancellarono gran parte del legno. Ciò che resta — Yanaka meno devastata, Asakusa ricostruita, reti di shop street — è memoria selettiva più che fotografia intatta. Lo shitamachi contemporaneo è un sentimento di scala e di relazione, non un museo all'aperto completo."
+        },
+        {
+          "title": "La «città di sotto» che guarda i grattacieli dall'alto morale",
+          "body": "Geograficamente era più in basso; culturalmente si sentiva più vera. Un'inversione di status che funziona ancora quando si sceglie il soba del vicolo invece del lounge al cinquantesimo piano.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "Yamanote and Shitamachi — Wikipedia", "url": "https://en.wikipedia.org/wiki/Yamanote_and_Shitamachi", "kind": "enciclopedia"},
+        {"title": "下町風俗資料館 — Comune di Taitō / Shitamachi Museum", "url": "https://www.taitocity.net/zaidan/shitamachi/", "kind": "museo"},
+        {"title": "Asakusa Area — GO TOKYO", "url": "https://www.gotokyo.org/en/destinations/eastern-tokyo/asakusa/index.html", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "history-tokyo-shrine-temple",
+      "long": "A Tokyo la domanda «santuario o tempio?» non è pedanteria da guida: è la chiave per leggere due grammatiche sacre che per secoli hanno condiviso gli stessi cortili. Il jinja shinto accoglie kami — forze di luogo, antenati, fenomeni — e si segnala col torii, l'abluzione e il ritmo dei due inchini e due battiti di mani. Il tera buddhista ospita Buddha e bodhisattva, sanmon o Niō all'ingresso, incenso e, spesso, cimitero parrochiale. Fino al 1868 il sincretismo shinbutsu-shūgō rendeva normale trovare statue e torii nello stesso complesso; la separazione Meiji impose etichette più nette, ma la convivenza quotidiana rimase. A Asakusa il contrasto è didattico: pochi passi collegano il grande tempio Sensō-ji e il santuario Asakusa Jinja. Imparare a distinguerli non serve a fare i bravi: serve a capire a chi state parlando quando gettate la moneta.",
+      "sections": [
+        {
+          "title": "Torii contro sanmon: la prima ipotesi",
+          "body": "Il portale a due montanti senza porte introduce lo spazio del kami. La grande porta a tetto, spesso con guardiani muscolosi, introduce lo spazio del Buddha. Non è una regola senza eccezioni, ma è il segnale più affidabile per chi arriva senza studiare teologi."
+        },
+        {
+          "title": "Come si prega, e perché cambia",
+          "body": "Al santuario: purificazione al lavabo, offerta, due inchini, due battiti, un inchino. Al tempio: spesso giunte le mani in silenzio davanti all'incenso, senza lo stesso schema di applauso. Confondere i gesti non è reato; ignorare che esistono due protocolli è perdere metà del senso."
+        },
+        {
+          "title": "Il 1868 tagliò etichette, non memorie",
+          "body": "Lo shinbutsu bunri obbligò molti siti a scegliere un'identità pubblica. Statue spostate, padiglioni demoliti, nomi cambiati. Quello che vedete oggi come «puro» shinto o «puro» buddhismo è spesso il risultato di quella pulizia amministrativa, non di un'origine isolata."
+        },
+        {
+          "title": "Asakusa come aula a cielo aperto",
+          "body": "Il catalogo della guida lo ricorda perché è il caso più chiaro in città: tempio buddhista affollato e santuario vicino, due linguaggi a distanza di passeggio. Vale come esercizio ovunque a Tokyo: leggete le desinenze -ji/-dera contro -jinja/-jingu prima di entrare."
+        },
+        {
+          "title": "Due religioni, una sola coda per il soft serve",
+          "body": "Dopo aver distinto kami e Buddha con cura filologica, tutti finiscono nello stesso chiosco di gelato al matcha. L'ecumenismo ha i suoi sacramentali.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "神仏分離 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E7%A5%9E%E4%BB%8F%E5%88%86%E9%9B%A2", "kind": "enciclopedia"},
+        {"title": "Japan's Cultural Heritage — JNTO", "url": "https://www.japan.travel/en/guide/japans-cultural-heritage/", "kind": "ente turistico"},
+        {"title": "浅草神社 — sito ufficiale", "url": "https://www.asakusajinja.jp/", "kind": "sito ufficiale"}
+      ]
+    },
+    {
+      "id": "history-tokyo-great-kanto-earthquake",
+      "long": "Il 1º settembre 1923 un sisma di magnitudo stimata 7,9 scosse il Kantō; a Tokyo furono soprattutto gli incendi a cancellare quartieri interi. Circa il 44% della superficie cittadina bruciò; oltre il 70% delle famiglie risultò colpita. La ricostruzione, guidata da Gotō Shinpei e dall'Ufficio per la ricostruzione della capitale imperiale, introdusse per la prima volta in Giappone strumenti moderni di urbanistica: ricomposizione fondiaria, viali larghi, reti di parchi pensati come tagliafuoco e luoghi di evacuazione. Nacquero tre grandi parchi di ripresa — Sumida, Hamachō, Kinshi — e decine di giardini minori spesso accanto alle scuole. Il piano ambizioso fu tagliato nei fondi, ma ciò che restò è ancora lo scheletro di molte arterie centrali. Tokyo appare «eterna» perché ha imparato, prima della guerra successiva, a rifarsi le ossa dopo il fuoco.",
+      "sections": [
+        {
+          "title": "Il terremoto e poi il fuoco",
+          "body": "Le cronache e i piani metropolitani insistono sul doppio colpo: scossa e incendio. In una città di legno e carboni da cucina, il sisma aprì la strada alle fiamme. Capire il 1923 significa capire perché lo spazio vuoto — parco, viale, cortile scolastico — divenne infrastruttura di sopravvivenza."
+        },
+        {
+          "title": "Gotō e la città a prova di fiamma",
+          "body": "L'obiettivo dichiarato della ricostruzione non era soltanto abbellire: era separare i tessuti densi con strade e verde. Il «park system» riprendeva lezioni americane dopo grandi incendi urbani. Anche ridimensionato, lasciò a Tokyo una grammatica di corridoi e piazze verdi ancora leggibile."
+        },
+        {
+          "title": "Tre parchi grandi, cinquantadue piccoli",
+          "body": "Sumida, Hamachō e Kinshi furono acquisiti come parchi di ripresa; i minori, spesso affiancati alle scuole elementari, univano gioco quotidiano e rifugio in emergenza. Non erano ornamento: erano politica della densità."
+        },
+        {
+          "title": "Prima della guerra, già una prova generale",
+          "body": "Il 1945 avrebbe di nuovo raso al suolo pezzi enormi della città. Chi guarda solo i bombardamenti dimentica che Tokyo aveva già fatto, nel Taishō, un corso accelerato di ricominciare. La resilienza urbana qui è pratica accumulata, non slogan."
+        },
+        {
+          "title": "La metropoli che colleziona reboot",
+          "body": "Altre città raccontano secoli di pietra intatta. Tokyo racconta versioni successive dello stesso indirizzo. È l'unico posto in cui «città storica» può significare «abbiamo già rifatto tutto due volte».","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "100 years following the Great Kanto Earthquake — TOKYO Resilience Project", "url": "https://tokyo-resilience.metro.tokyo.lg.jp/en/kanto-daishinsai/", "kind": "ente pubblico"},
+        {"title": "Reconstruction following the Great Kanto Earthquake — Tokyo Metropolitan Government", "url": "https://www.toshiseibi.metro.tokyo.lg.jp/documents/d/toshiseibi/pdf_keikaku_chousa_singikai_pdf_tokyotoshizukuri_en_2_02", "kind": "ente pubblico"},
+        {"title": "関東大震災 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E9%96%A2%E6%9D%B1%E5%A4%A7%E9%9C%87%E7%81%BD", "kind": "enciclopedia"}
+      ]
+    },
+    {
+      "id": "history-tokyo-showa-alleys",
+      "long": "Gli yokocho della Tokyo Shōwa non sono «vicoli pittoreschi» inventati per Instagram: sono pezzi di economia del dopoguerra compressi in pochi metri quadri. Dopo il 1945, baracche, mercati neri e poi locali stabili si infilarono lungo i binari e nei vuoti della ricostruzione; Omoide Yokocho a Shinjuku e il Golden Gai vicino a Kabukichō ne sono i casi più citati, ma la logica è più ampia. Un bancone, poche sedie, un padrone che conosce i volti: lo spazio minimo obbliga a una socialità da contatto, non da lounge. Molti locali nacquero o si consolidarono tra anni Cinquanta e Settanta, quando la città cresceva in verticale ma la vita serale restava orizzontale e fumosa. Capire questi vicoli significa capire come Tokyo abbia salvato, dentro la metropoli dei flussi, nicchie di densità umana tipiche dell'era Shōwa — non come museo, ma come abitudine ancora aperta a chi entra senza fare teatro.",
+      "sections": [
+        {
+          "title": "Nato dal fumo, non dal marketing",
+          "body": "La geografia tipica è il margine: fianco ferrovia, retro di arteria, lotto troppo stretto per un edificio «serio». Lì il dopoguerra mise cibo alla griglia e bevande a prezzo popolare. Il fascino odierno è un effetto collaterale di quella necessità."
+        },
+        {
+          "title": "Sei metri quadri come unità di misura",
+          "body": "Quando il locale è poco più largo di un corridoio, la conversazione non è optional: è acustica. Gestori e clienti condividono lo stesso volume d'aria. È l'opposto del ristorante open space in cui si può fingere di essere soli."
+        },
+        {
+          "title": "Shōwa come atmosfera, non solo data",
+          "body": "Lampade, insegne smaltate, legno scurito dal fumo: l'estetica rimanda a un Giappone di crescita alta e locali familiari. Non tutti i posti sono «originali 1955»; molti sono eredi o ricostruzioni dello stesso contratto sociale. Conta il tipo di relazione, non il certificato di nascita dell'intonaco."
+        },
+        {
+          "title": "Come entrarci senza trasformarli in set",
+          "body": "Si guarda se c'è posto, si chiede, si beve o si mangia qualcosa, si lascia spazio a chi c'è già. Il vicolo funziona finché resta un'estensione del bancone, non una passerella. La regola non è scritta sui cartelli: è la condizione di sopravvivenza del formato."
+        },
+        {
+          "title": "La discoteca più piccola del mondo, senza DJ",
+          "body": "Dentro ci stanno otto persone e tre opinioni sul baseball. Fuori, Shinjuku continua a fare il grattacielo. Il contrasto è il punto, non un difetto di urbanistica.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "Omoide Yokocho — GO TOKYO", "url": "https://www.gotokyo.org/en/spot/63/index.html", "kind": "ente turistico"},
+        {"title": "Shinjuku Golden Gai — GO TOKYO", "url": "https://www.gotokyo.org/en/spot/62/index.html", "kind": "ente turistico"},
+        {"title": "Drink and Dine Like a Local — yokocho guide, GO TOKYO", "url": "https://www.gotokyo.org/en/story/guide/drink-and-dine-like-a-local-a-guide-to-exploring-yokocho-alleyways/index.html", "kind": "ente turistico"}
+      ]
+    },
+    {
+      "id": "history-tokyo-hachiko",
+      "long": "Hachikō è diventato simbolo nazionale non soltanto perché un Akita aspettava alla stazione: perché i giornali, la radio e poi il cinema trasformarono un cane di quartiere in parabola pubblica della lealtà. Nato a Ōdate nel 1923 e legato al professor Ueno Hidesaburō dell'università imperiale, continuò a presentarsi a Shibuya dopo la morte improvvisa del padrone nel 1925; la notizia, rilanciata dalla stampa negli anni Trenta, lo rese celebrità vivente. La prima statua di bronzo, opera di Andō Teru, fu inaugurata nel 1934 con Hachikō presente; nel 1944 il metallo fu requisto per lo sforzo bellico; nel 1948 il figlio dello scultore, Andō Takeshi, ne fece la seconda versione ancora oggi al centro degli appuntamenti. La scheda culturale non riguarda il punto d'incontro: riguarda come una città moderna costruisca un mito etico intorno a un animale, e come quel mito sopravviva a guerra, fusione e code di selfie.",
+      "sections": [
+        {
+          "title": "Dalla banchina al rotocalco",
+          "body": "L'attesa quotidiana esisteva prima della fama; la fama nasce quando la stampa la racconta come virtù collettiva. In un Giappone che parlava di fedeltà e dovere, il cane offriva un'immagine comprensibile a tutti, senza partito. Hachikō divenne pedagogia pubblica a quattro zampe."
+        },
+        {
+          "title": "Due statue, una sola leggenda",
+          "body": "La prima bronzo sparì nella raccolta dei metalli del 1944; la seconda, del 1948, riprese il posto come gesto di ripresa civile. L'uscita della stazione porta ancora il suo nome. Il monumento che fotografate è già un erede, non l'originale degli anni Trenta."
+        },
+        {
+          "title": "Ōdate e il museo della razza",
+          "body": "La città natale in Akita rivendica la filiera dell'Akita-inu e conserva memoria parallela. Il mito non è solo «di Shibuya»: è una storia nord-est che Tokyo ha reso icona globale. Separare luogo della nascita e luogo dell'attesa aiuta a non ridurlo a souvenir di stazione."
+        },
+        {
+          "title": "Lealtà come brand urbano",
+          "body": "Oggi l'incontro sotto la statua è logistics di folla. Lo strato culturale resta: una metropoli che sceglie come eroe un cane che non ha mai firmato un contratto. Vale più di molte campagne di city branding perché la trama è semplice e verificabile nei suoi fatti essenziali."
+        },
+        {
+          "title": "Il monumento alla puntualità, circondato da ritardi",
+          "body": "Hachikō aspettò per anni. Noi mandiamo «sto arrivando» dal sottopassaggio. L'ironia è involontaria e perfetta.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "ハチ公について知りたい — Biblioteca di Shibuya", "url": "https://www.lib.city.shibuya.tokyo.jp/shibuya/about-shibuya/hachiko/", "kind": "ente pubblico"},
+        {"title": "いまのハチ公は2代目ってホント？ — JACAR", "url": "https://www.jacar.go.jp/exhibition/glossary/tochikiko-henten/qa/qa26.html", "kind": "archivio di stato"},
+        {"title": "Odate, home of the faithful dog Hachi — Comune di Ōdate", "url": "https://www.city.odate.lg.jp/city/kankou/highlight/animal/p4808/en", "kind": "ente pubblico"}
+      ]
+    },
+    {
+      "id": "history-tokyo-gotokuji-cats",
+      "long": "Il maneki-neko — il gatto che invita con la zampa — è un oggetto di cultura urbana prima ancora di essere souvenir di un singolo tempio. Nella tradizione popolare del Kantō, un felino alza l'arto per richiamare persone, clienti o buona occasione; botteghe e case lo espongono come segno di accoglienza e prosperità. Più luoghi a Tokyo e dintorni avanzano racconti di origine — Gotokuji a Setagaya è il più visitato dai viaggiatori, ma non è l'unico a rivendicare la paternità — e nessuno chiude la questione con un verbale d'archivio. Quello che conta per la scheda culturale è il tipo: un animaletto domestico trasformato in messaggero di fortuna, prodotto in serie e riposto come ex voto quando il desiderio si avvera. Le file di ceramiche bianche non sono «il culto del gatto» in senso stretto: sono un linguaggio commerciale e votivo che la città ha reso leggibile a chiunque.",
+      "sections": [
+        {
+          "title": "Invitare persone, non soltanto monete",
+          "body": "In molte spiegazioni tradizionali la zampa alzata chiama l'ospite o l'occasione, non stacca banconote dal cielo. Il denaro arriva, se arriva, come conseguenza del legame. È una teologia da negozio: prima il passaggio, poi il bilancio."
+        },
+        {
+          "title": "Zampa destra, zampa sinistra, storie diverse",
+          "body": "Varianti regionali e da vetrina assegnano significati diversi alle due zampe — clienti, denaro, entrambi. Non esiste un codice unico nazionale scolpito nella pietra; esiste una famiglia di usi. Meglio leggere il pezzo che avete davanti che ripetere una regola da bar."
+        },
+        {
+          "title": "Tradizione contro cronaca",
+          "body": "I racconti del gatto che salva un signore dal temporale appartengono al folklore di tempio e quartiere. Vanno etichettati come tradizione, non come verbale meteorologico del Seicento. La forza del mito sta nella ripetizione, non nella prova forense."
+        },
+        {
+          "title": "Ex voto in ceramica",
+          "body": "Il gesto tipico è portare a casa la statuetta con un intento e, in alcuni circuiti, riportarla quando l'intento si è compiuto. L'accumulo di gatti diventa così archivio di ringraziamenti più che magazzino di richieste. È religione materiale a scala da scaffale."
+        },
+        {
+          "title": "Assemblea generale senza presidente",
+          "body": "Centinaia di ceramiche allineate sembrano in riunione permanente: niente ordine del giorno, niente verbalizzante, soltanto zampe alzate in segno di proposta. Se votassero sul bilancio della fortuna, passerebbe all'unanimità.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "招福猫児について — Gōtoku-ji (sito ufficiale)", "url": "https://gotokuji.jp/manekineko/", "kind": "sito ufficiale"},
+        {"title": "招き猫 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E6%8B%9B%E3%81%8D%E7%8C%AB", "kind": "enciclopedia"},
+        {"title": "豪徳寺 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E8%B1%AA%E5%BE%B3%E5%AF%BA", "kind": "enciclopedia"}
+      ]
+    },
+    {
+      "id": "history-tokyo-namazu",
+      "long": "Prima della sismologia moderna, Edo spiegava i terremoti con un'immagine: un enorme namazu, pesce gatto, che si dimena sotto le isole. Nella tradizione collegata al santuario di Kashima, il kami tiene a bada la creatura premendo sul kaname-ishi, la «pietra perno»; quando gli dèi si assentano per l'assemblea di Izumo nel decimo mese lunare, il controllo si allenta e la terra può tremare. Dopo il grande terremoto Ansei di Edo del 1855, le stampe namazu-e invasero la città: il pesce gatto vi appariva ora come colpevole, ora come agente di «rinnovo del mondo» che ridistribuiva ricchezza dai magazzini dei ricchi ai mestieri della ricostruzione. Non è cronaca geologica: è folklore e satira popolare sotto shock. Tenere insieme mito di Kashima e boom tipografico del 1855 significa capire come Tokyo abbia a lungo immaginato il disastro — con umorismo nero, rabbia sociale e un animale di fiume sproporzionato.",
+      "sections": [
+        {
+          "title": "Kashima e la pietra che tiene fermo il mondo",
+          "body": "Il santuario di Kashima, a nord-est dell'antica Edo, è il polo sacro di questa tradizione. Il kaname-ishi sul terreno del santuario viene letto come strumento che inchioda il namazu. Finché il dio è presente, racconta il folklore, la creatura non può scatenarsi."
+        },
+        {
+          "title": "Il mese senza dèi",
+          "body": "Nel decimo mese lunare le divinità maggiori, secondo la tradizione, si riuniscono a Izumo. Le stampe dopo il 1855 giocano su quell'assenza: qualcuno ha lasciato la guardia, il pesce ha scosso la coda. È mito di calendario, non bollettino dell'agenzia meteorologica."
+        },
+        {
+          "title": "Namazu-e: il disastro in edizione popolare",
+          "body": "Nei giorni successivi al sisma Ansei circolarono centinaia di soggetti a stampa. Il namazu poteva essere picchiato dai cittadini, festeggiato dai muratori, o mostrato mentre fa cadere monete d'oro. La tipografia trasformò la paura in commento sociale a basso costo."
+        },
+        {
+          "title": "Mito, non verbale",
+          "body": "Nessuna di queste immagini sostituisce la geologia. Spiega invece come una città di legno e di credito immaginasse causa e giustizia dopo la scossa. Per il viaggiatore, il pesce gatto è una chiave culturale: quando un giapponese scherza sul namazu, sta citando un archivio di senso, non un documentario Animal Planet."
+        },
+        {
+          "title": "Il responsabile HR dei terremoti",
+          "body": "Ogni volta che la terra trema, il namazu risulta assente ingiustificato e Kashima deve fare il colloquio di rivalutazione. Contratto a tempo indeterminato, clausola antisismica inclusa.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "鹿島神宮 — sito ufficiale", "url": "https://www.kashimajingu.jp/", "kind": "sito ufficiale"},
+        {"title": "鯰絵 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E9%AF%BA%E7%B5%B5", "kind": "enciclopedia"},
+        {"title": "安政江戸地震 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E5%AE%89%E6%94%BF%E6%B1%9F%E6%88%B8%E5%9C%B0%E9%9C%87", "kind": "enciclopedia"}
+      ]
+    },
+    {
+      "id": "history-kyoto-capital",
+      "long": "Heian-kyō, fondata nel 794 dall'imperatore Kanmu dopo il breve esperimento di Nagaoka, non fu una città cresciuta a caso: fu una dichiarazione di ordine. La griglia ispirata alle capitali Tang — Chang'an in particolare — disponeva viali, blocchi e palazzo a nord secondo una cosmologia che voleva stabilizzare il potere dopo i secoli di Nara. Per oltre mille anni la corte restò qui anche quando i governi militari spostavano l'amministrazione a Kamakura o a Edo: Kyoto era capitale simbolica e rituale mentre altrove si decideva la guerra. Il 1868-69 trasferì il baricentro a Tokyo, ma non cancellò la pianta: molte arterie centrali seguono ancora la logica del jōbō. Capire Kyoto come «ex capitale che non ha mai smesso di comportarsi da capitale» spiega perché etichetta, mestieri di corte e densità di templi non siano ornamento turistico ma eredità di stato.",
+      "sections": [
+        {
+          "title": "Una griglia per governare il cielo e la terra",
+          "body": "Suzaku-ōji divideva la città in sinistra e destra capitali; il palazzo guardava a sud lungo l'asse sacro. Non era solo urbanistica: era geomanzia e protocollo. Ancora oggi, perdervi fra Karasuma e Horikawa significa camminare dentro un diagramma del IX secolo."
+        },
+        {
+          "title": "Capitale anche senza shogun in città",
+          "body": "Dal 1185 il potere militare spesso operò altrove, ma l'imperatore e il calendario rituale restarono a Kyoto. Questa doppia geografia — corte qui, bakufu là — è la struttura profonda del Giappone medioevale e moderno antico. Tokyo eredita il governo; Kyoto ha tenuto a lungo il cerimoniale."
+        },
+        {
+          "title": "Perché il trasferimento Meiji ferì l'orgoglio locale",
+          "body": "Quando la corte si spostò a est, Kyoto rispose costruendo memorie: il Santuario Heian (fine XIX secolo) e feste come il Jidai Matsuri raccontano i secoli della capitale. Non sono folklore casuale: sono risposta politica e culturale a una perdita di status."
+        },
+        {
+          "title": "La pianta che sopravvive ai nomi",
+          "body": "Incendi, guerre Ōnin, ricostruzioni: gli edifici cambiano, la maglia stradale spesso no. Per il viaggiatore la lezione pratica è semplice: la città «si legge» meglio sulla mappa a scacchiera che inseguendo soltanto i templi uno a uno."
+        },
+        {
+          "title": "Mille anni di capitale, e ancora si discute del posto auto",
+          "body": "Hanno progettato la città guardando le Tang e le stelle; il problema del parcheggio è arrivato dopo. Priorità storiche impeccabili.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "Kyoto City Official Travel Guide", "url": "https://kyoto.travel/en/", "kind": "ente turistico"},
+        {"title": "平安京 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E5%AE%89%E4%BA%AC", "kind": "enciclopedia"},
+        {"title": "Historic Monuments of Ancient Kyoto — UNESCO", "url": "https://whc.unesco.org/en/list/688/", "kind": "patrimonio"}
+      ]
+    },
+    {
+      "id": "history-kyoto-temple-buildings",
+      "long": "Visitare un complesso templare a Kyoto senza una mappa mentale significa fotografare tetti a caso. La porta (sanmon o Niōmon) segna il passaggio dal mondo ordinario; il kondō o hondō custodisce l'immagine principale; la pagoda conserva simbolicamente reliquie e marca il cielo; la sala della predica, il refettorio, il chiostro e i giardini organizzano la vita monastica e lo sguardo del laico. Non tutti gli edifici sono aperti: spesso il percorso esterno — corridoi, ghiaia, inquadrature fra colonne — è parte essenziale della visita, non un anteprima del «pezzo forte». Scuole diverse (Tendai, Shingon, Pure Land, Zen) accentuano pezzi diversi della macchina. Imparare a leggere il complesso come organismo, non come attrazione singola, è la differenza fra fare turismo e capire perché questi luoghi hanno governato paesaggio e calendario per secoli.",
+      "sections": [
+        {
+          "title": "La porta non è biglietteria",
+          "body": "Attraversare il sanmon, nella lettura tradizionale, significa lasciare attaccamenti. I Niō ai lati non sono mascotte: sono guardiani. Fermarsi un attimo sotto il tetto aiuta a capire la scala del resto."
+        },
+        {
+          "title": "Kondō, pagoda, sala: tre funzioni",
+          "body": "L'immagine principale sta dove si concentra la devozione; la pagoda alza il simbolismo verticale; altre sale servono insegnamento, riti e logistica monastica. Se un edificio è chiuso, non è «sfortuna turistica»: può essere norma rituale."
+        },
+        {
+          "title": "Il giardino come capitolo, non come pausa",
+          "body": "In molti templi zen e non solo, ghiaia, muschio e acqua completano la dottrina in forma visiva. Si osservano da punti prescritti — veranda, cornice, percorso a senso unico — perché la composizione è pensata come quadro vivente."
+        },
+        {
+          "title": "Percorso obbligato, mente libera",
+          "body": "Le corde, i sensi unici e i divieti di foto in certi padiglioni proteggono oggetti e atmosfera. Lavorano anche come didattica: vi obbligano a vedere nell'ordine scelto dai monaci, non in quello del feed."
+        },
+        {
+          "title": "Il vero tesoro è spesso «chiuso per restauro»",
+          "body": "La sala più importante può essere off-limits mentre il chiosco dei dolcetti è perfettamente operativo. Priorità spirituali e priorità di cassa convivono con eleganza da capitale.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "See & Do — Kyoto City Official Travel Guide", "url": "https://kyoto.travel/en/see-and-do/", "kind": "ente turistico"},
+        {"title": "Cultural Properties — Agency for Cultural Affairs", "url": "https://www.bunka.go.jp/english/policy/cultural_properties/", "kind": "ente pubblico"},
+        {"title": "伽藍 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E4%BC%BD%E8%97%8D", "kind": "enciclopedia"}
+      ]
+    },
+    {
+      "id": "history-kyoto-gion-etiquette",
+      "long": "Gion non è un set fotografico a cielo aperto: è un distretto di lavoro per geiko e maiko, professioniste di danza, musica e conversazione che si spostano fra ochaya e appuntamenti su prenotazione. La curiosità dei visitatori è comprensibile; trasformarla in inseguimento, blocco del passaggio o ingresso nei vicoli privati è un'invasione. Le regole scritte e non scritte degli ultimi anni — divieti di accesso in certi vicoli, multe annunciate, cartelli del consorzio — nascono da un conflitto reale fra economia turistica e mestiere performativo. Capire l'etichetta significa capire la gerarchia dello spazio: Hanamikōji può essere pubblica, il vicolo di servizio no; una maiko in cammino sta andando a lavoro, non a posare. Il rispetto non è moralismo da opuscolo: è la condizione perché il quartiere resti vivo e non soltanto scenografia.",
+      "sections": [
+        {
+          "title": "Professioniste, non personaggi del cosplay",
+          "body": "Geiko e maiko studiano anni; l'abito e l'acconciatura segnalano gradi e scuola, non un costume da noleggio. Fermarle per una foto è come bloccare un musicista in taxi verso il teatro. Si guarda, si fa spazio, si evita il contatto non chiesto."
+        },
+        {
+          "title": "Strada pubblica e vicolo privato",
+          "body": "La distinzione conta più del sofisma «ma è tutto Kyoto». Dove il cartello vieta il passaggio o le riprese, la regola è del consorzio di chi ci abita e lavora. Restare sugli assi principali non è timidezza: è alfabetizzazione urbana."
+        },
+        {
+          "title": "Ochaya: ingresso per presentazione",
+          "body": "Le case da tè tradizionali non sono bar aperti al walk-in. L'accesso passa da relazioni e prenotazioni. I programmi pubblici e gli spettacoli dedicati ai visitatori esistono proprio per offrire un canale lecito senza forzare la porta sbagliata."
+        },
+        {
+          "title": "Perché l'etichetta è diventata più rigida",
+          "body": "L'aumento dei visitatori ha reso visibili comportamenti che un tempo restavano rari. I cartelli e le sanzioni sono sintomi di pressione, non capriccio. Chi ama Gion abbastanza da volerlo fotografare dovrebbe amarlo abbastanza da non consumarlo."
+        },
+        {
+          "title": "Il selfie che vale una multa",
+          "body": "Esistono pochi scatti al mondo il cui costo al megapixel includa anche la penale del vicolo. Meglio una foto meno «segreta» e una serata senza spiegazioni alla polizia municipale.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "Kyoto City Official Travel Guide", "url": "https://kyoto.travel/en/", "kind": "ente turistico"},
+        {"title": "祇園甲部 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E7%A5%87%E5%9C%92%E7%94%B2%E9%83%A8", "kind": "enciclopedia"},
+        {"title": "芸妓 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E8%8A%B8%E5%A6%93", "kind": "enciclopedia"}
+      ]
+    },
+    {
+      "id": "history-kyoto-fushimi-torii",
+      "long": "I corridoi vermigli di Fushimi Inari non sono un'installazione d'artista: sono un libro mastro verticale di donazioni. Ogni torii è offerto da persone o imprese come ringraziamento o richiesta legata a prosperità, affari, salute; sul montante compaiono nome del donatore e data. Il santuario pubblica tariffe per misura: non è «simbolismo astratto», è un'economia votiva trasparente che dal periodo Edo in poi ha riempito il monte di migliaia di porte. Il famoso «Senbon torii» indica in senso stretto i tunnel più densi dietro gli edifici principali, ma l'idea — moltiplicare il passaggio sacro con offerte ripetute — organizza tutta la salita. Capire chi paga i torii sposta lo sguardo dalla cartolina alla società: agricoltori, botteghe, società per azioni e famiglie lasciano traccia materiale della propria preghiera sul sentiero di tutti.",
+      "sections": [
+        {
+          "title": "Una porta per ogni voto mantenuto",
+          "body": "Donare un torii è rispondere a un beneficio ricevuto o chiedeme un altro. L'iscrizione rende pubblico il legame fra nome umano e kami del riso e del successo. Camminare sotto quelle porte significa attraversare le biografie economiche di sconosciuti."
+        },
+        {
+          "title": "Il listino come documento culturale",
+          "body": "Esistono misure diverse e prezzi pubblicati dal santuario. Non è un dettaglio da burocrati: mostra che il corridoio arancione è manutenzione collettiva, non magia spontanea. Senza rinnovi e nuove offerte, il legno non resterebbe così fitto."
+        },
+        {
+          "title": "Impresa e fede sullo stesso montante",
+          "body": "Molte iscrizioni portano nomi commerciali. Inari è da secoli kami di prosperità agraria diventata anche urbana: il torii aziendale è la versione contemporanea del ringraziamento per il raccolto. Il monte funziona come vetrina di gratitudine capitalistica e popolare insieme."
+        },
+        {
+          "title": "Oltre la foto senza persone",
+          "body": "L'ossessione per il corridoio vuoto è un desiderio fotografico; la realtà culturale è la densità di nomi. Meglio leggere un'iscrizione che aspettare il «miracolo» di una seconda senza turisti. Il senso sta nei donatori, non nell'assenza della folla."
+        },
+        {
+          "title": "Il crowdfunding più antico di Kyoto",
+          "body": "Migliaia di sponsor, nessun reward in maglietta, un benefit intangibile chiamato prosperità. Kickstarter ha inventato le ricompense; Inari aveva già inventato il corridoio.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "鳥居奉納のご案内 — 伏見稲荷大社", "url": "https://inari.jp/gotinza1300/", "kind": "sito ufficiale"},
+        {"title": "伏見稲荷大社 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E4%BC%8F%E8%A6%8B%E7%A8%B2%E8%8D%B7%E5%A4%A7%E7%A4%BE", "kind": "enciclopedia"},
+        {"title": "稲荷神 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E7%A8%B2%E8%8D%B7%E7%A5%9E", "kind": "enciclopedia"}
+      ]
+    },
+    {
+      "id": "history-kyoto-zen-gardens",
+      "long": "Un giardino zen a Kyoto — soprattutto il karesansui di ghiaia e rocce — non si «risolve» come un rebus a risposta unica. Rocce, rastrellature, muschio, muri e il punto di vista dalla veranda costruiscono relazioni: pieno e vuoto, vicino e lontano, ciò che si vede e ciò che resta nascosto. A Ryōan-ji, esempio canonicamente citato, quindici pietre su ghiaia bianca sono disposte in modo che da un solo angolo della veranda non se ne colgano tutte: l'incompletezza entra nel dispositivo. Il creatore spesso resta anonimo o discusso; conta meno della praticadi sedersi, rallentare e lasciar lavorare lo sguardo. Chi dopo cinque minuti non raggiunge l'illuminazione ha comunque visto un'opera di composizione estrema. La scheda culturale insegna a guardare: cornice architettonica inclusa, non soltanto «belle pietre».",
+      "sections": [
+        {
+          "title": "Ghiaia come mare, roccia come isola — e oltre",
+          "body": "Le letture metaforiche abbondano e nessuna è obbligatoria. Il rastrello non è decorazione da giardiniere: è manutenzione che rinnova linee e silenzio. Osservare il gesto del monaco o del giardiniere, quando capita, vale quanto cercare il significato nascosto."
+        },
+        {
+          "title": "Il punto di vista è parte dell'opera",
+          "body": "Questi giardini si guardano da seduti sulla veranda o da stazioni prescritte, non passeggiando in mezzo. La cornice del padiglione taglia il campo visivo come una montatura. Spostarsi di un metro cambia l'equilibrio: non è un difetto, è il meccanismo."
+        },
+        {
+          "title": "Vuoto che lavora",
+          "body": "Lo spazio non occupato dalle rocce non è «mancanza di budget». Nel linguaggio estetico legato allo Zen, il vuoto sostiene la tensione fra gli elementi. Riempirlo con spiegazioni frettolose è il modo più sicuro di non vederlo."
+        },
+        {
+          "title": "Anonimo, citato, imitato",
+          "body": "Il karesansui di Kyoto è diventato modello globale di «giardino giapponese», spesso semplificato in pietre da cortile aziendale. Tornare alle verande dei templi Rinzai ricorda che l'originale è monastico, lento e legato a una scuola, non a un catalogo di arredo."
+        },
+        {
+          "title": "Nessun test a fine visita",
+          "body": "Se non avete raggiunto il satori entro l'orario di chiusura, nessuno vi consegnerà una valutazione insufficiente. Potete comunque uscire avendo visto un rettangolo di ghiaia più rigoroso di molte tesi di dottorato.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "龍安寺 — sito ufficiale", "url": "https://www.ryoanji.jp/", "kind": "sito ufficiale"},
+        {"title": "Historic Monuments of Ancient Kyoto — UNESCO", "url": "https://whc.unesco.org/en/list/688/", "kind": "patrimonio"},
+        {"title": "枯山水 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E6%9E%AF%E5%B1%B1%E6%B0%B4", "kind": "enciclopedia"}
+      ]
+    },
+    {
+      "id": "history-kyoto-machiya",
+      "long": "La kyō-machiya è la cellula tipica della Kyoto mercantile: facciata stretta sulla strada, pianta lunghissima verso il cuore dell'isolato — il soprannome unagi no nedoko, «letto dell'anguilla», descrive quella proporzione. Davanti stava il negozio; dietro, in sequenza, ambienti domestici, cortili di luce (tsuboniwa), cucina a terra battuta, magazzini. Le griglie koshi filtrano sguardi e aria; il noren annuncia mestiere e soglia; tetti e dettagli di legno regolano pioggia e incendi quanto status. La forma risponde a tasse storiche sulla fronte strada, al clima umido e al bisogno di fare bottega e casa nello stesso lotto. Molte machiya sono scomparse o riconvertite; quelle che restano non sono «case di bambola»: sono macchine urbane dense. Capirle significa leggere Kyoto a livello di vicolo, non soltanto di padiglione dorato.",
+      "sections": [
+        {
+          "title": "Fronte stretto, profondità da anguilla",
+          "body": "Pagare o misurare sulla larghezza della facciata spinse a costruire sottili e profondi. Il risultato è una successione di stanze e cortili che dalla strada non si indovina. La modestia esterna può nascondere metri e metri di vita dietro il noren."
+        },
+        {
+          "title": "Koshi e noren: privacy da mestiere",
+          "body": "La griglia lascia uscire luce e odori di lavoro ma trattiene lo sguardo dei passanti. Il tipo di koshi, in alcune tradizioni, segnalava anche il commercio. Il tessuto all'ingresso non è souvenir: è porta soft, marchio e climatizzatore culturale."
+        },
+        {
+          "title": "Cortile come polmone",
+          "body": "I tsuboniwa portano luce e ventilazione nel cuore della pianta lunga. Senza quei vuoti interni, l'anguilla sarebbe un tunnel buio. Giardino in miniatura e impianto di aerazione coincidono."
+        },
+        {
+          "title": "Conservare senza mummificare",
+          "body": "Il comune e le associazioni locali hanno definito criteri per riconoscere le kyō-machiya storiche; ristrutturazioni e usi ricettivi cercano di tenerle in vita. Il rischio opposto è trasformarle tutte in hotel: la forma resta, la bottega sparisce. Il valore culturale sta nell'uso misto, non solo nel legno a vista."
+        },
+        {
+          "title": "L'affitto contemporaneo, predatore più grande dell'anguilla",
+          "body": "La pianta spiega la forma; il mercato immobiliare spiega perché tante facciate strette diventano caffè o restano chiuse. L'anguilla, biologicamente, migra; la machiya, economicamente, pure.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "京町家 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E4%BA%AC%E7%94%BA%E5%AE%B6", "kind": "enciclopedia"},
+        {"title": "Kyoto City Official Travel Guide", "url": "https://kyoto.travel/en/", "kind": "ente turistico"},
+        {"title": "町家 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E7%94%BA%E5%AE%B6", "kind": "enciclopedia"}
+      ]
+    },
+    {
+      "id": "history-kyoto-gion-matsuri",
+      "long": "Il Gion Matsuri non nasce come sfilata estiva per turisti: nasce nel 869 come goryō-e, rito per placare spiriti vendicativi e divinità della malattia ritenuti responsabili di un'epidemia. Per ordine imperiale furono erette sessantasei aste-hoko — una per provincia — nel giardino Shinsen-en, e si portarono i mikoshi del santuario di Gion, oggi Yasaka Jinja. Diventato annuale, il festival ha resistito a interruzioni di guerra civile e riprese; i grandi carri yama e hoko, oggi «musei ambulanti» di tessuti e intagli, ereditano quella funzione di purificare le strade prima del passaggio dei kami. Yasaka presenta ancora il Matsuri di luglio come festa contro le epidemie. Capire l'origine medica-rituale cambia lo sguardo sulla folla: sotto le lanterne c'è un millennio di paura dell'estate umida e di risposta collettiva.",
+      "sections": [
+        {
+          "title": "Goryō-e: negoziare con la malattia",
+          "body": "Nella lettura Heian, pestilenze e disastri potevano venire da spiriti adirati. Il rito non era «folklore colorato»: era sanità pubblica teologica. Le sessantasei aste mapavano l'intero paese dentro la capitale."
+        },
+        {
+          "title": "Da aste a carri, da emergenza a calendario",
+          "body": "Con i secoli le aste si sono complesse in yamaboko trainati da quartieri che ne sono custodi. Famiglie e associazioni di vicinato tramandano tecniche di montaggio, musiche e tessuti. Il patrimonio intangibile — riconosciuto anche in sede internazionale — è questa trasmissione, non soltanto la foto del carro alto."
+        },
+        {
+          "title": "Prima i carri, poi i mikoshi",
+          "body": "Nella logica del festival, il percorso dei carri prepara e purifica; di notte i mikoshi di Yasaka spostano le divinità verso l'otabisho in centro. Spettacolo e teologia restano intrecciati: senza il secondo, il primo diventa solo parata."
+        },
+        {
+          "title": "Interruzioni e orgoglio di quartiere",
+          "body": "Guerre e crisi hanno fermato il Matsuri; ogni ripresa ha spesso reso i carri più sontuosi. I vicoli che «possiedono» un carro non allestiscono una festa comunale generica: difendono un pezzo di identità tecnica e rituale."
+        },
+        {
+          "title": "Ruote senza sterzo, tonnellate di diplomazia",
+          "body": "Alcuni hoko pesano quanto un piccolo camion e virano con la grazia di un armadio. A Kyoto, a luglio, anche il traffico impara la teologia delle epidemie.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "Gion Festival — Yasaka Shrine (sito ufficiale)", "url": "https://www.yasaka-jinja.or.jp/en/gion_fes/", "kind": "sito ufficiale"},
+        {"title": "祇園祭 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E7%A5%87%E5%9C%92%E7%A5%AD", "kind": "enciclopedia"},
+        {"title": "The Gion Matsuri — National Diet Library Image Bank", "url": "https://www.ndl.go.jp/en/imagebank/column/gion", "kind": "biblioteca nazionale"}
+      ]
+    },
+    {
+      "id": "history-kyoto-inari-kitsune",
+      "long": "Le volpi di pietra che costeggiano i sentieri di Inari non sono la divinità: sono messaggere. Inari è kami legato al riso, ai granai e, per estensione, alla prosperità che dal campo arriva al negozio; i kitsune portano in bocca segni di quel mandato — spiga, chiave del magazzino, gioiello, rotolo — e vigilano il passaggio fra mondo umano e potere agrario sacro. A Fushimi, centro nevralgico del culto, questa iconografia è diventata paesaggio: la volpe insegna a leggere Inari come religione della fertilità e del successo materiale, non come mera scenografia arancione. Il folklore attribuisce ai kitsune intelligenza ambigua, metamorfosi e doppio gioco; nel santuario, però, il ruolo istituzionale è di servizio al kami. Distinguere mito popolare e funzione cultuale evita di ridurre tutto a «foto con la volpe».",
+      "sections": [
+        {
+          "title": "Messaggere, non dee in costume",
+          "body": "Chiamare «volpe» il dio è un errore comune da visitatore. Inari riceve; i kitsune consegnano e segnalano. Gli oggetti in bocca sono didascalie di pietra: chiave per il riso custodito, spiga per il raccolto, sfera per l'energia sacra."
+        },
+        {
+          "title": "Dal campo al registro delle imprese",
+          "body": "Il culto agrario si è esteso a botteghe e compagnie perché la prosperità moderna parla ancora il linguaggio del magazzino pieno. Per questo Inari è ovunque in Giappone, e Fushimi ne è il grande nodo. La volpe urbana guarda i bilanci con gli stessi occhi con cui guardava le risaie."
+        },
+        {
+          "title": "Folklore dell'inganno, liturgia della custodia",
+          "body": "Fuori dal recinto, le storie di kitsune raccontano trasformazioni e tranelli. Dentro il culto di Inari, la stessa creatura è addomesticata a funzione: sorveglia, annuncia, protegge il flusso dei beni. Tenere entrambe le letture evita sia la superstizione ingenua sia il cinismo da cartolina."
+        },
+        {
+          "title": "Cosa cercare oltre il corridoio",
+          "body": "Le sculture ai lati del sentiero e presso i piccoli altari ripetono il tema più delle porte stesse. Fermarsi a leggere cosa tiene in bocca una volpe vale come una mini-lezione sul kami del riso. È cultura materiale a pelo di muschio."
+        },
+        {
+          "title": "Se la volpe di pietra vi fissa, è in orario di lavoro",
+          "body": "Non è paranoia da turista: osservare i passanti è la job description. Almeno qualcuno qui non sta controllando il telefono.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "伏見稲荷大社 — sito ufficiale", "url": "https://inari.jp/", "kind": "sito ufficiale"},
+        {"title": "稲荷神 — Wikipedia giapponese", "url": "https://ja.wikipedia.org/wiki/%E7%A8%B2%E8%8D%B7%E7%A5%9E", "kind": "enciclopedia"},
+        {"title": "狐 — Wikipedia giapponese (kitsune)", "url": "https://ja.wikipedia.org/wiki/%E7%8B%90", "kind": "enciclopedia"}
+      ]
+    },
+    {
+      "id": "history-kyoto-nishijin",
+      "long": "Nishijin non è soltanto un quartiere a nord-ovest: è il nome collettivo — e marchio tutelato — dei tessuti figurati prodotti a Kyoto dalla filiera riconosciuta dalla Nishijin Textile Industry Association. Le radici della tessitura cortese affondano secoli prima di Heian; il toponimo «accampamento ovest» nasce dopo la guerra Ōnin (1467-1477), quando i tessitori tornarono a lavorare dove era stato il campo di Yamana Sōzen. Filati tinti prima della tessitura, broccati densi, obi e parati rituali: la specialità è varietà alta e tirature piccole, non la pezza anonima. Nel 1976 Nishijin-ori è stata designata artigianato tradizionale nazionale. Capire Nishijin significa capire perché kimono, carri del Gion Matsuri e arredi sacri condividono spesso la stessa geografia di telai: la domanda di corte, tempio e festa ha tenuto vivi i mestieri del filo.",
+      "sections": [
+        {
+          "title": "Un nome nato da una guerra",
+          "body": "«Nishi-jin» ricorda il campo occidentale della Ōnin. I tessitori dispersi dal conflitto rientrarono e rifecero industria sul suolo di quell'accampamento. Pochi distretti artigiani al mondo portano nel nome una cicatrice militare così esplicita."
+        },
+        {
+          "title": "Prima si tingono i fili, poi si tesse il disegno",
+          "body": "La caratteristica tecnica spesso sottolineata dall'associazione è la sakizome: colore nei fili prima che il motivo compaia sul telaio. Il risultato sono superfici dove il disegno è struttura, non stampa applicata dopo. Per questo un centimetro può costare giornate."
+        },
+        {
+          "title": "Marchio e perimetro",
+          "body": "«Nishijin» e «Nishijin-ori» sono marchi dell'associazione di industria; l'uso corretto lega laboratori membri e produzione a Kyoto. Non è snobismo da etichetta: è tutela di una filiera contro generici «stile Kyoto» prodotti altrove."
+        },
+        {
+          "title": "Corte, tempio, carro",
+          "body": "La domanda storica veniva da abiti di rango, parati religiosi e, nei secoli, dalle decorazioni dei festival. Il Gion Matsuri espone tessuti che sono anche archivio di scambi: pezze locali e importazioni antiche sui carri. Nishijin vive all'incrocio fra lusso quotidiano aristocratico e rito urbano."
+        },
+        {
+          "title": "Il traffico del quartiere contro il traffico del telaio",
+          "body": "Attraversare Nishijin in taxi richiede minuti; tessere un motivo complesso può richiedere una pazienza che farebbe disperare il tassametro. Meglio non pagare entrambi a tempo.","fun": true
+        }
+      ],
+      "sources": [
+        {"title": "Origin of Nishijin — Nishijin Textile Industry Association", "url": "https://nishijin.or.jp/eng/whats-nishijin1/origin1/", "kind": "associazione di industria"},
+        {"title": "About Nishijin Textile — Nishijin Textile Industry Association", "url": "https://nishijin.or.jp/eng/whats-nishijin1/", "kind": "associazione di industria"},
+        {"title": "Nishijin Textile Center — JNTO", "url": "https://www.japan.travel/en/spot/1164/", "kind": "ente turistico"}
+      ]
+    }
+  ]
+}

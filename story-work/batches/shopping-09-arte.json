@@ -1,0 +1,328 @@
+{
+  "meta": {
+    "batch": "shopping-09-arte",
+    "note": "Phase 3 shopping deep stories for 8 compact travel-safe art catalog ids. Distinguish original / edition / reprint / decorative reproduction. Anti-paraphrase: shop-kanazawa-gold-leaf-panel focuses on the buyable panel (support, leaf, finish), not the Kanazawa leaf-industry chronicle. No enrichShopping template titles."
+  },
+  "schede": [
+    {
+      "id": "shop-all-small-woodblock-print",
+      "long": "Una piccola hanga da viaggio non è «un poster giapponese»: è un foglio di washi inchiostrato a mano o a macchina, con prezzi e intenzioni che cambiano se l'opera è originale d'artista, edizione numerata, ristampa da matrice tradizionale o riproduzione decorativa da museo shop. A Tokyo l'Adachi Institute stampa ancora con pigmenti ad acqua e baren su carta giapponese, tanto riproduzioni ukiyo-e quanto collaborazioni contemporanee; altrove gallerie e botteghe di hanga vendono fogli piccoli pensati per cornice A4 o A5. Prima di pagare, chiedete quattro parole: autore, tecnica (mokuhanga / silkscreen / offset), tiratura se c'è, e se state comprando un'edizione o una copia decorativa. Il pezzo giusto per lo zaino è quello che sopravvive a una cartellina rigida — non il sogno da museo che non potete proteggere.",
+      "sections": [
+        {
+          "title": "Quattro etichette che cambiano il prezzo",
+          "body": "Originale: foglio firmato o bollato dall'artista, spesso unico o in tiratura corta. Edizione: numero/totale (es. 12/50) e firma. Ristampa da matrice: xilografia fatta con tecnica tradizionale ma da blocchi moderni o ripresi, onesta se dichiarata. Riproduzione decorativa: offset o digitale da poster shop — bella, ma non è hanga da collezione. Confondere le quattro categorie è il modo più rapido di pagare un originalissimo faux."
+        },
+        {
+          "title": "Carta, pigmento, bordo del foglio",
+          "body": "La washi mostra fibre e assorbenza; i pigmenti ad acqua lasciano una superficie viva, non plastificata. Guardate i margini: una stampa a mano spesso ha un'impronta leggera e segni di registro; una litografia da souvenir ha angoli tagliati a macchina e carta da rivista. Se il venditore non sa spiegare il processo, non inventate voi la romantica «matrice Edo»."
+        },
+        {
+          "title": "Showroom, museo shop, galleria di quartiere",
+          "body": "L'Adachi Institute a Mejiro espone e vende riproduzioni e opere contemporanee realizzate con metodi da xilografo. I museum shop (Sumida Hokusai e simili) sono ottimi per riproduzioni dichiarate. Le gallerie indipendenti e i mercati creativi sono dove cercate edizioni firmate piccole. Preferite sempre un foglio piccolo e protetto a un grande manifesto piegato in quattro."
+        },
+        {
+          "title": "La cornice è un secondo biglietto aereo",
+          "body": "In Giappone è tentante incorniciare subito. A casa, o in aeroporto, scoprirete che la cornice pesa più dell'arte e costa quanto un bento deluxe. Portate il foglio piatto; la cornice la sceglierete quando il jet lag avrà finito di giudicare i vostri gusti.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "The Adachi Institute of Woodcut Prints",
+          "url": "https://www.adachi-hanga.com/en/",
+          "kind": "produttore"
+        },
+        {
+          "title": "Adachi Showroom Tokyo",
+          "url": "https://store.adachi-hanga.com/en/pages/showroom",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "木版画 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E6%9C%A8%E7%89%88%E7%94%BB",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-mini-shikishi",
+      "long": "Lo shikishi è una tavoletta quadrata di cartone o carta rigida, bordo spesso dorato o colorato, pensata per ricevere calligrafia, sumi-e, haiku o una stampa firmata. In viaggio è l'oggetto arte più tascabile: non si arrotola male come un poster e non richiede telaio. La differenza di valore sta tutta nella superficie: dipinto a mano con firma dell'artista, edizione serigrafata o litografica numerata, ristampa da negozio di cancelleria, oppure semplice shikishi vergine da far firmare a un tempio o a un evento. Cartolerie artistiche, botteghe di calligrafia e alcuni museum shop li vendono già decorati; i templi a volte offrono pezzi con calligrafia rituale — non è «souvenir random», è un supporto con regole di uso e di rispetto. Controllate se l'inchiostro è stabile e se il bordo è fissato: uno shikishi che si sfalda in valigia diventa confetti culturalmente deludenti.",
+      "sections": [
+        {
+          "title": "Manoscritto, stampa, foglio vuoto",
+          "body": "Un pezzo dipinto o calligrafato a mano porta firma, sigillo (inkan) e spesso data stilizzata — non confondetela con un codice prodotto. Le edizioni stampate dichiarano tecnica e tiratura. Lo shikishi bianco o con bordo dorato da cartoleria è un supporto: utile se volete farlo firmare, non un'opera finita. Chiedete sempre quale delle tre cose state pagando."
+        },
+        {
+          "title": "Formato e bordo che viaggiano",
+          "body": "I formati tipici sono intorno ai 24×27 cm o versioni mini: misurate lo zaino prima dell'entusiasmo. Il bordo metallizzato o di seta si ammaccano; mettete lo shikishi tra due cartoncini o in una custodia per fotografie. Evitate di arrotolarlo: la rigidezza è il suo vantaggio, non un difetto da «risolvere»."
+        },
+        {
+          "title": "Templi, atelier, Loft artistico",
+          "body": "Nelle zone turistiche troverete shikishi illustrati a stampa; nelle botteghe di calligrafia e nelle gallerie piccole è più facile incontrare pezzi a mano. Se lo comprate in un contesto religioso, trattatelo come oggetto dedicato, non come sottobicchiere ispirazionale. Per regalo, un mini shikishi firmato batte dieci magneti di stazione."
+        },
+        {
+          "title": "Il quadrato che giudica la vostra mensola",
+          "body": "Appeso storto, lo shikishi sembra un'accusa silenziosa. Dritto, sembra che abbiate finalmente una vita con angoli a novanta gradi. Comprarlo è facile; appenderlo senza livella laser è l'esame finale del viaggio.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "色紙 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E8%89%B2%E7%B4%99",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Kyoto City Official Travel Guide — Arts & Culture",
+          "url": "https://kyoto.travel/en/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Japan Traditional Crafts Aoyama Square",
+          "url": "https://kougeihin.jp/en/",
+          "kind": "associazione"
+        }
+      ]
+    },
+    {
+      "id": "shop-kyoto-small-sumie",
+      "long": "Un piccolo sumi-e originale a Kyoto è pittura a inchiostro su carta o seta: pochi tratti, molto spazio vuoto, soggetti classici come bambù, rondini, paesaggi o figure zen. Non è una stampa ukiyo-e e non è un poster da souvenir: è un foglio o un kakemono corto dove conta la mano dell'artista. Distinguete originale (un pezzo unico firmato/sigillato), edizione limitata se l'artista offre riproduzioni numerate della stessa composizione, ristampa tipografica di un modello famoso, e riproduzione decorativa senza relazione con l'atelier. Gallerie lungo Higashiyama, atelier aperti e alcuni museum shop di arte giapponese sono i posti giusti; i negozi di gadget vicino ai templi vendono soprattutto riproduzioni. Chiedete il nome dell'artista in romaji su un bigliettino: a casa, «quel bel nero» non basta per assicurarlo o incorniciarlo. Una custodia rigida o un tubo corto protegge meglio di tre strati di furoshiki ottimisti.",
+      "sections": [
+        {
+          "title": "Inchiostro vivo contro nero stampato",
+          "body": "Nel sumi-e a mano vedrete variazioni di grigio, alone dell'acqua e tratti che accelerano o si fermano. Una riproduzione offset ha nero uniforme e pixel o retino sotto lente. Se il pezzo è «ispirato a Sesshū» senza nome vivo dietro, è decorazione — dichiaratelo a voi stessi prima della carta di credito."
+        },
+        {
+          "title": "Firma, sigillo, supporto",
+          "body": "Cercate firma a pennello e inkan rosso; chiedete se il supporto è washi, carta occidentale o seta, e se serve un backing. Per il viaggio preferite un foglio piccolo già montato su cartoncino piuttosto che un rotolo lungo da kakemono: il rotolo si piega, si umidifica e vi odia in stiva."
+        },
+        {
+          "title": "Gallerie di Kyoto, non solo souvenir street",
+          "body": "Kyoto.travel e le zone di gallerie intorno a Gion / Higashiyama / Okazaki aiutano a trovare spazi con artisti viventi. Evitate di comprare il primo «zen ink» sotto una noren turistica senza chiedere provenienza. Un atelier che spiega il pezzo in due minuti vale più di uno sconto misterioso."
+        },
+        {
+          "title": "Lo spazio vuoto non è un errore di stampa",
+          "body": "Se vi viene voglia di «riempire» il bianco con un adesivo del konbini, respirate. Il vuoto è il prodotto. Il sumi-e moderno più costoso al metro quadro è spesso aria — e funziona solo se la lasciate stare.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Kyoto City Official Travel Guide",
+          "url": "https://kyoto.travel/en/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "墨絵 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%A2%A8%E7%B5%B5",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Agency for Cultural Affairs — Cultural Properties",
+          "url": "https://www.bunka.go.jp/english/policy/cultural_properties/",
+          "kind": "ente pubblico"
+        }
+      ]
+    },
+    {
+      "id": "shop-kyoto-mini-byobu",
+      "long": "Il mini byōbu è un paravento pieghevole da tavolo: due o quattro ante legate da cerniere di carta o tessuto, superfici in washi, seta, foglia metallica o stampa di un'opera classica. A Kyoto lo trovate nei centri artigiani e nei museum shop come oggetto decorativo, non come divisore di stanza. Qui la distinzione arte/souvenir è concreta: pannelli dipinti a mano o con foglia applicata in atelier; edizioni tessili (nishijin, broccato) con motivo dichiarato; ristampe di capolavori (Fujin Raijin, pruni, iris) su carta; riproduzioni decorative a basso costo con cerniere di plastica. Verificate materiale delle ante, tipo di cerniera e se i motivi sono dipinti, tessuti o stampati. Gli angoli e le superfici dorate si graffiano: avvolgete ogni anta con carta velina e mettete il pezzo in posizione verticale o piatta, mai sotto il peso delle scarpe. Un byōbu da 24 cm di larghezza racconta Kyoto meglio di un poster arrotolato — se arriva intero.",
+      "sections": [
+        {
+          "title": "Pittura, tessuto, stampa sul piccolo schermo",
+          "body": "Chiedete cosa c'è sulla superficie: pittura originale, lamina, tessuto jacquard o stampa. Un mini byōbu con riproduzioni di opere museali è legittimo se presentato come tale; diventa problema solo se vi viene venduto come «originale Edo in edizione tascabile». Contate le ante e apritele: le cerniere devono piegarsi senza scricchiolii di plastica a basso costo."
+        },
+        {
+          "title": "Cerniere e angoli: i punti deboli",
+          "body": "Le cerniere di carta (kami-chōtsugai) sono tradizionali e delicate; quelle in tessuto resistono meglio al viaggio. Gli angoli in legno o metallo si ammaccano: usate angolari di cartone. Non lasciate il pezzo al sole del finestrino del bus: la foglia e i pigmenti ringraziano poco il microclima da serra."
+        },
+        {
+          "title": "Botteghe e centri artigiani di Kyoto",
+          "body": "I Kyoto Handicraft Center e le botteghe specializzate in byōbu o nishijin espongono formati da tavolo pensati per il regalo. Confrontate due pezzi simili: a volte la differenza di prezzo è solo la qualità della stampa, a volte è la differenza tra tessuto e carta. Misurate lo scaffale di casa prima di comprare un «mini» che è in realtà un mezzo paravento."
+        },
+        {
+          "title": "Il paravento che non nasconde nulla",
+          "body": "Storicamente il byōbu separava sguardi e correnti d'aria. Il vostro modello da mensola separerà al massimo il telecomando dal vaso. È comunque un progresso civile: finalmente un mobile che non giudica la vostra postura a tavola.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Kyoto Handicraft Center — Folding screens",
+          "url": "https://store.kyotohandicraftcenter.com/collections/folding-screen",
+          "kind": "produttore"
+        },
+        {
+          "title": "Kyoto City Official Travel Guide",
+          "url": "https://kyoto.travel/en/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "屏風 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%B1%8F%E9%A2%A8",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-kanazawa-gold-leaf-panel",
+      "long": "Il pannello con foglia d'oro di Kanazawa è l'oggetto da comprare quando volete portare a casa la kinpaku senza trasformarvi in rivenditori di lamine: un supporto piccolo — legno, carta, acrilico, vetro — su cui foglia d'oro o argento è applicata a mano o in atelier, con motivi astratti, stemmi, paesaggi o superfici lisce che giocano con la luce. Non è la lezione sulla storia della foglia in città: è un pezzo finito con verso e recto, spessore, protezione e istruzioni di manutenzione. Visit Kanazawa elenca atelier e negozi (Imai Kinpaku, Sakuda, Hakuichi e altri) dove si vedono pannelli pronti e, spesso, esperienze di applicazione. Distinguete pannello d'atelier con foglia vera e finitura dichiarata, edizione decorativa seriale con foglia genuina ma design ripetuto, e gadget dorati a spray che brillano come promesse elettorali. Chiedete supporto, caratura o tipo di lamina, se c'è vernice di protezione e come pulirlo: un panno umido aggressivo può fare più danni di un volo in stiva.",
+      "sections": [
+        {
+          "title": "Cosa state portando a casa, millimetro per millimetro",
+          "body": "Il valore sta nel pezzo finito: supporto stabile, applicazione uniforme, eventuali incisioni o motivi, e una finitura che non si sfoglia al primo contatto con lo zaino. Un pannello piccolo da parete o da ripiano batte le «scaglie sfuse» da foto Instagram, che in valigia diventano glitter filosofici."
+        },
+        {
+          "title": "Foglia vera, effetto oro, spray da festa",
+          "body": "Gli atelier di Kanazawa spiegano di solito se usano foglia d'oro genuina e come è fissata. Diffidate di superfici troppo spesse e plastose vendute come kinpaku senza nome di laboratorio. Se il prezzo è da portachiavi e la pretesa da museo, state comprando scintillio, non foglia."
+        },
+        {
+          "title": "Atelier e museum shop in città",
+          "body": "Higashi Chaya e i punti segnalati da Visit Kanazawa sono il circuito naturale: vedete pannelli, cornici e oggetti d'uso con foglia. Preferite chi indica manutenzione (niente abrasivi, attenzione all'umidità). Per il viaggio, scegliete un formato che entri piatto tra i vestiti o in una scatola di cartone del negozio — molti la forniscono se la chiedete."
+        },
+        {
+          "title": "L'oro che fotografa malissimo e vive benissimo",
+          "body": "In foto il pannello diventa una macchia bianca; dal vivo fa la luce della stanza. Compensazione cosmica: i vostri follower non capiranno, gli ospiti sì. È l'unico souvenir che migliora spegnendo il flash.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Imai Kinpaku Main Store — Visit Kanazawa",
+          "url": "https://visitkanazawa.jp/en/shops/detail_10015.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Gold leaf workshop — Visit Kanazawa",
+          "url": "https://visitkanazawa.jp/en/activities/detail_1263.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Hakuichi — Kanazawa gold leaf craft",
+          "url": "https://enkanazawa.hakuichi.co.jp/",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-tokyo-artist-postcard-print",
+      "long": "A Tokyo la stampa da illustratore indipendente è spesso una cartolina, un foglio A6/A5 o una risograph a pochi colori, venduta direttamente dall'artista in gallerie tipo Design Festa a Harajuku, in librerie d'arte, ai mercati creativi e durante mostre temporanee. È arte da viaggio: costa poco rispetto a una tela, si protegge in una busta rigida e porta firma, contatto o QR dell'autore. Distinguete originale unico (disegno a mano o monotipo), edizione/risograph numerata o almeno dichiarata come tiratura d'artista, reprint di un'illustrazione famosa senza rapporto con l'autore presente, e riproduzioni decorative anonime da catena. Parlate con chi espone: molti artisti sono in sala e spiegano tecnica e carta. Evitate di comprare «fan art» non ufficiale di personaggi protetti se vi interessa la legalità del pezzo — il mercato indipendente ha già abbastanza idee proprie. Una busta porta-documenti da 200 yen salva più opere di qualsiasi buona intenzione.",
+      "sections": [
+        {
+          "title": "Firma, tiratura, messaggio dell'autore",
+          "body": "Su una buona stampa indipendente trovate firma a matita o a penna, a volte numero di edizione, sempre un modo per ritrovare l'artista (biglietto, Instagram, sito). Se non c'è nulla di tutto questo e il pezzo costa quanto una cartolina da stazione, trattatelo come cartolina — bella, ma non edizione."
+        },
+        {
+          "title": "Risograph, offset, inkjet: tre texture",
+          "body": "La risograph ha colori piatti, leggeri fuori registro e un odore di inchiostro da ciclostile moderno; l'offset è più «stampa da libro»; l'inkjet d'artista su carta fine mostra goccia e carta materica. Nessuna è superiore in assoluto: conta che sia dichiarata e che vi piaccia da vicino, non solo sullo schermo del telefono in galleria."
+        },
+        {
+          "title": "Design Festa, librerie, fiere",
+          "body": "Design Festa Gallery ruota decine di booth di artisti emergenti; librerie d'arte e eventi come fiere di illustrazione concentrano print e zine. Andate con un budget piccolo e una busta rigida già in borsa. Se l'artista offre wrapping, accettatelo: sanno meglio di voi come non rovinare i bordi."
+        },
+        {
+          "title": "La cartolina che rifiuta di essere inviata",
+          "body": "Comprate una stampa da appendere e irresistibilmente vi verrà voglia di affrancarla. Resistere è maturità. Il destinatario postale non merita il vostro pezzo numerato 3/30 — e Poste Giapponesi non offre «protezione emotiva».",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Design Festa Gallery",
+          "url": "https://www.designfestagallery.com/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "GO TOKYO — Attractions",
+          "url": "https://www.gotokyo.org/en/see-and-do/attractions/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Design Festa Gallery — overview",
+          "url": "https://designfesta.com/",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "shop-nara-ittobori-relief",
+      "long": "Il piccolo rilievo ittobori di Nara è legno scolpito a tagli netti — spesso tavoletta, bassorilievo o figura bassa — dove i piani dello scalpello restano leggibili come facce di un cristallo. A differenza della scultura a tutto tondo da vetrina, il rilievo viaggia meglio: meno sporgenze, più facile da proteggere piatto. Naramachi, il Nara Craft Museum e i negozi di specialità locali (Kite Mite Nara Shop e botteghe affiliate) sono i circuiti tipici. Distinguete pezzo d'atelier con tracce di scalpello coerenti e firma o marchio del laboratorio, edizione seriale artigianale (stesso soggetto ripetuto a mano), e riproduzioni in resina o legno stampato che imitano il «taglio» senza averlo. Visit Nara e le guide artigiane locali insistono sulla filiera della città: cervi, figure legate a Kasuga, motivi stagionali. Le tracce dello strumento devono sembrare intenzionali, non casuali o levigate via da una macchina che ha avuto fretta.",
+      "sections": [
+        {
+          "title": "Piani, spigoli, colore",
+          "body": "L'ittobori classico ama facce larghe e spigoli vivi; il colore, se c'è, segue i piani senza nasconderli. Passate il pollice (con permesso) lungo un bordo: deve esserci una sequenza di tagli, non una superficie di plastica goffrata. Un rilievo troppo liscio «tipo souvenir» spesso non è scolpito, è stampato."
+        },
+        {
+          "title": "Tavoletta contro statuina",
+          "body": "Per il bagaglio preferite bassorilievi e piccole placche a figure a tutto tondo con corna o bastoni. Chiedete essenza del legno e se la vernice è solo protettiva. Evitate pezzi con parti staccabili non fissate: in stiva diventano un puzzle senza istruzioni."
+        },
+        {
+          "title": "Naramachi e punti di vendita ufficiali",
+          "body": "Il Nara Craft Museum mostra e intermedia mestieri locali incluso l'ittobori; i negozi di craft della prefettura raccolgono più laboratori sotto lo stesso tetto. Preferite chi sa nominare l'artigiano o il laboratorio rispetto a un banchetto generico «deer wood art». Un pezzo piccolo e firmato batte tre imitazioni grandi."
+        },
+        {
+          "title": "Lo scalpello come firma illegibile",
+          "body": "I tagli sembrano calligrafia scritta da qualcuno che ha deciso che le lettere sono sopravvalutate. Non serve tradurli: se il rilievo «suona» sotto la luce laterale del negozio, avete già capito il messaggio.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Nakagawa Masashichi Souvenirs — Visit Nara",
+          "url": "https://www.visitnara.jp/venues/S01064/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "畑村奈良一刀彫研究所",
+          "url": "https://naraittobori.com/",
+          "kind": "produttore"
+        },
+        {
+          "title": "Visit Nara — See and do",
+          "url": "https://www.visitnara.jp/see-and-do/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-chigirie-collage",
+      "long": "Il chigiri-e è un'immagine costruita strappando e sovrapponendo washi colorata: i bordi fibrosi sfumano come acquerello, ma sotto le dita resta carta, non pigmento. In botteghe di carta, gallerie artigiane e alcuni museum shop trovate quadretti già montati — fiori, paesaggi, astrazioni — pensati per cornice leggera. Per lo shopping conta la mano: originale (ogni strappo unico, firma dell'autore), edizione di atelier se esistono varianti ripetute dello stesso soggetto ancora fatte a mano, kit assemblato in serie dove il «collage» è quasi un puzzle prefustellato, e stampa decorativa che imita l'effetto strappo in offset. Chiedete se la washi è tinta a mano o industriale e se il pezzo è sotto vetro o solo cartoncino. Un chigiri-e autentico ha bordi irregolari e strati leggermente rilevati; una riproduzione piatta da poster shop li disegna. Leggero e fragile all'umidità: doppia protezione e niente contatto con bottiglie di tè in valigia.",
+      "sections": [
+        {
+          "title": "Strappo vero contro effetto «torn paper» stampato",
+          "body": "Avvicinatevi: le fibre della washi devono uscire dal bordo come peli di carta, non come un retino stampato. Gli strati si leggono di taglio. Se tutto è perfettamente piano e i «strappi» sono identici su pezzi diversi dello scaffale, probabilmente è una riproduzione o un kit seriale — dichiaratelo nel prezzo che siete disposti a pagare."
+        },
+        {
+          "title": "Montatura e umidità",
+          "body": "Preferite pezzi già montati su supporto rigido o in cornice sottile con vetro/acrilico. La washi teme condensa e schiacciamenti. In valigia, tenetelo al centro tra i vestiti, non contro il guscio rigido. Se comprate un kit da fare a casa, controllate che le carte siano separate e non già appiccicate dall'umidità del negozio."
+        },
+        {
+          "title": "Botteghe di washi e gallerie",
+          "body": "Le zone con cartiere e shop di carta (anche fuori dai grandi circuiti turistici) e le gallerie craft sono più affidabili dei banchetti generici. Chiedete il nome dell'artista o del circolo: il chigiri-e contemporaneo vive spesso in comunità di pratica, non solo in marchi. Un pezzo piccolo firmato è il formato ideale da viaggio."
+        },
+        {
+          "title": "L'arte di strappare senza litigare",
+          "body": "In altre culture strappare carta è un incidente. Qui è la tecnica. Portarne uno a casa vi darà finalmente un alibi culturale la prossima volta che «accidentalmente» aprirete la busta sbagliata — ma non esagerate: l'alibi non copre i documenti del volo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Chigiri-e — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chigiri-e",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "ちぎり絵 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%A1%E3%81%8E%E3%82%8A%E7%B5%B5",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Japan Traditional Crafts Aoyama Square",
+          "url": "https://kougeihin.jp/en/",
+          "kind": "associazione"
+        }
+      ]
+    }
+  ]
+}

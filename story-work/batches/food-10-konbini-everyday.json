@@ -1,0 +1,568 @@
+{
+  "meta": {
+    "batch": "food-10-konbini-everyday",
+    "note": "National konbini/vending/station staples. Avoid paraphrasing city-specific food cards; focus on everyday infrastructure eating."
+  },
+  "schede": [
+    {
+      "id": "food-all-konbini-onigiri",
+      "long": "L'onigiri da konbini non è un panino di riso improvvisato: è un formato industriale pensato perché il nori resti croccante fino all'ultimo secondo. Il triangolo arriva avvolto in plastica a tre lembi; l'alga è separata dal riso da una pellicola che si tira via in un gesto solo, e solo allora nori e chicchi si incontrano. I ripieni raccontano la geografia da scaffale — salmone, umeboshi, tonno-maionese, kombu, karashi mentaiko — e le collaborazioni stagionali cambiano più in fretta dei trenini urbani. Per chi cammina con una mano libera è la colazione più onesta del paese: calorie chiare, prezzo basso, niente fila. Capirlo è capire il konbini stesso: non «cibo di ripiego», ma infrastruttura alimentare quotidiana che i giapponesi usano senza vergogna alle sette del mattino quanto a mezzanotte.",
+      "sections": [
+        {
+          "title": "Il rituale dei tre lembi",
+          "body": "Si apre dalla linguetta centrale, si sfila la pellicola che protegge l'alga, si richiude il nori sul riso. Se lo fai al contrario l'alga si ammorbidisce subito: il packaging non è marketing, è tecnica di conservazione della croccantezza."
+        },
+        {
+          "title": "Cosa legge lo scaffale",
+          "body": "I cartellini colorati segnalano novità e edizioni limitate; le file inferiori tengono i classici. In estate compaiono ripieni più freschi, in inverno versioni più ricche. Non serve parlare: bastano foto e kanji ripetuti."
+        },
+        {
+          "title": "Trappola da turista",
+          "body": "Comprarne cinque «per assaggiare» e lasciarli nel zaino al sole è il modo più rapido di trasformare un'ottima idea in riso tiepido triste. Si mangiano entro poche ore, meglio ancora in piedi fuori dal negozio."
+        },
+        {
+          "title": "Diplomazia del triangolo",
+          "body": "In pochi paesi un pezzo di plastica a origami è considerato parte della ricetta. Qui sì: senza quella linguetta, l'onigiri sarebbe soltanto un riso vestito male.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — How to get the most out of konbini",
+          "url": "https://www.japan.travel/en/japan-magazine/2002_konbini/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Breakfast options / convenience stores",
+          "url": "https://www.japan.travel/en/japan-magazine/breakfast-options-to-fit-your-travel-plans/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-tamago-sando",
+      "long": "Il tamago sando è la dimostrazione che il Giappone ha preso il tramezzino britannico e lo ha riscritto con burro di shokupan e maionese più dolce. Due fette di pane al latte senza crosta racchiudono una crema di uova sode — a volte con tuorlo ancora morbido al centro — e un velo di maionese che tiene tutto insieme senza inzuppare. Si trova al konbini, nei bakery corner delle stazioni e nei kissaten che ancora tagliano i panini a triangolo come negli anni Settanta. Non è un piatto da prenotazione: è un premio per chi ha fame tra un treno e l'altro. La densità calorica è ingannevole: sembra soft food da merenda, sazia come un pranzo breve. Chi cerca «il vero» sandwich alle uova europeo resterà confuso; qui l'obiettivo non è pepe nero e crosta tostata, è morbidezza e dolcezza controllata.",
+      "sections": [
+        {
+          "title": "Pane come ingrediente, non supporto",
+          "body": "Lo shokupan alto e filante fa metà del lavoro: se il pane fosse rustico, la crema di uova sembrerebbe un ripieno sbagliato. Per questo i sandwich «premium» insistono sul taglio senza crosta."
+        },
+        {
+          "title": "Dove ha senso ordinarlo",
+          "body": "Al konbini è affidabile e fresco al mattino; nei bakery di stazione a volte è appena fatto. Nei ristoranti raffinati rischia di essere una citazione ironica: meglio lasciarlo al suo ecosistema da banco frigo."
+        },
+        {
+          "title": "Segnale di qualità",
+          "body": "Guarda il giallo dell'uovo e quanto è omogenea la crema. Se vedi pezzi grossolani di bianco e maionese che cola, è ancora buono ma meno «firma» del formato nazionale."
+        },
+        {
+          "title": "Il soft power della maionese",
+          "body": "Altre cucine litigano su ketchup o senape. Qui la diplomazia passa da un tubetto di maionese più dolce di quanto l'Europa sia pronta ad ammettere.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Konbini magazine",
+          "url": "https://www.japan.travel/en/japan-magazine/2002_konbini/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy overview",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-konbini-fried-chicken",
+      "long": "Il pollo fritto da konbini — karaage, «fried chicken» di marca, pezzi impanati alla cassa — è il calore che compri mentre paghi la bottiglia d'acqua. Sta in un'isola calda vicino al registratore, spesso con una pinza e un sacchetto di carta; l'odore di soia, aglio e olio ti raggiunge prima dell'etichetta. Non è street food da bancarella né karaage da izakaya: è un formato da pendolare, porzionato, ripetibile, aggiornato a campagne stagionali (spezie, formaggi, edizioni «crispy»). La crosta deve arrivare croccante e la carne succosa; se è flaccida, hai preso il pezzo che aspettava da troppo. Per il viaggio a piedi è utile perché non richiede bacchette né tavolo: si mangia in tre bocconi fuori dal negozio, senza teatro. Capirlo evita di snobbarlo come cibo «da benzinaio»: in Giappone è parte della rete alimentare urbana quanto l'onigiri.",
+      "sections": [
+        {
+          "title": "Caldo di cassa, non di cucina aperta",
+          "body": "La differenza rispetto al karaage da locale sta nella logistica: cottura centralizzata o di punto vendita, tenuta in vetrina calda, turnover alto. Il pezzo buono è quello che ruota spesso."
+        },
+        {
+          "title": "Come scegliere senza menu",
+          "body": "Foto e nome inglese aiutano; i pezzi più scuri e opachi sono di solito più croccanti di quelli lucidi di olio. Evita i vassoi mezzi vuoti a fine giornata se puoi."
+        },
+        {
+          "title": "Contesto d'uso",
+          "body": "Perfetto tra un treno e l'altro o come spuntino serale. Meno ideale da portare in un tempio o su un treno affollato: l'odore parla più forte di te."
+        },
+        {
+          "title": "La pinza della verità",
+          "body": "Se c'è la pinza e il sacchetto, sei nel rito corretto. Se usi le mani sul pezzo ancora nello scaffale, hai appena fallito un esame che nessuno ti aveva detto esistesse.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Konbini magazine",
+          "url": "https://www.japan.travel/en/japan-magazine/2002_konbini/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Food etiquette",
+          "url": "https://www.japan.travel/en/guide/japanese-food-etiquette/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-konbini-oden",
+      "long": "L'oden da konbini è una pentola bassa sempre in caldo vicino alla cassa: daikon candido, uovo sodo, konnyaku, chikuwa, hanpen e altre paste di pesce nuotano in un dashi chiaro. Si sceglie pezzo per pezzo con la pinza, si mette in una vaschetta di carta, si paga a peso o a pezzo a seconda dell'insegna. È cibo invernale per calendario e per umore: compare con forza quando l'aria si fa secca, ma alcuni punti lo tengono quasi tutto l'anno. Il brodo non vuole essere un ramen: è leggero, salato-umami, fatto per scaldare senza appesantire. Per il viaggiatore è una lezione di composizioni personali — puoi fare un oden «solo verdure» o uno «solo mare» — e di pazienza: i pezzi più buoni sono quelli che hanno assorbito brodo a lungo, non quelli appena immersi.",
+      "sections": [
+        {
+          "title": "Geografia della pentola",
+          "body": "Il daikon è il termometro: se è traslucido e dolce, il brodo lavora. L'uovo deve essere marino di dashi, non solo bianco bollito. Il konnyaku porta texture più che sapore."
+        },
+        {
+          "title": "Stagione e orario",
+          "body": "Meglio di sera o con freddo; a mezzogiorno d'agosto può sembrare fuori posto. Nei konbini di stazione il turnover è più alto: pezzi più freschi, meno «museo del brodo»."
+        },
+        {
+          "title": "Etichetta minima",
+          "body": "Usa la pinza, non le bacchette del cliente precedente. Se aggiungi karashi (senape), poca: è potente e non si toglie."
+        },
+        {
+          "title": "Il buffet che non si chiama buffet",
+          "body": "È l'unico posto dove ti lasciano costruire la cena a colpi di pinza sotto lo sguardo del cassiere, e nessuno ti chiede se sei iscritto a un club del daikon.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Konbini magazine",
+          "url": "https://www.japan.travel/en/japan-magazine/2002_konbini/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-all-nikuman",
+      "long": "Il nikuman è il panino al vapore che il konbini estrae da uno steamer di vetro quando fuori fa freddo: superficie lucida, ripieno di maiale speziato, calore che appanna. Accanto compaiono varianti — anman all'anko, kareeman al curry, pizza-man — ma il nikuman resta l'archetipo. Nasce dalla famiglia dei mantou/bao adattati al gusto giapponese: meno «street cinese da bancarella», più comfort food da scaffale caldo stagionale. Si mangia in mano, spesso camminando via dal negozio; la carta trasparente trattiene il vapore e ti avvisa se hai esagerato con il primo morso. Per chi arriva da un paese di panini tostati, la sorpresa è la morbidezza assoluta: niente crosta, solo nube di farina e brodo interno. È un segnale di stagione quanto le foglie rosse: quando lo steamer riappare in massa, l'autunno ha vinto.",
+      "sections": [
+        {
+          "title": "Come si riconosce al banco",
+          "body": "Cerca lo steamer illuminato, non il frigo. Il nikuman buono ha pieghe regolari in cima e non puzza di olio stanco; se è sgonfio e opaco, aspetta il giro successivo."
+        },
+        {
+          "title": "Varianti e contesto",
+          "body": "L'anman dolce chiude un pasto salato; il kareeman è ponte verso il curry-pan. Nelle regioni turistiche compaiono ripieni locali, ma la struttura resta panino al vapore."
+        },
+        {
+          "title": "Attenzione al primo morso",
+          "body": "Il ripieno è bollente. Aprilo un attimo o mordi di lato: la scottatura al palato è la trappola classica del turista impaziente."
+        },
+        {
+          "title": "Meteorologia commestibile",
+          "body": "Quando lo steamer torna in vetrina, puoi buttare l'app del meteo: il nikuman è più affidabile del bollettino.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Konbini magazine",
+          "url": "https://www.japan.travel/en/japan-magazine/2002_konbini/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Local street food / gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-melon-pan",
+      "long": "Il melon pan è un panino dolce dalla crosta zuccherata disegnata a griglia: il nome richiama la forma del melone reticolato, non necessariamente il sapore di melone. Dentro c'è un pane soffice; fuori una copertura tipo biscuit che si spezza sotto i denti. Si trova in panetterie artigianali, catene e konbini; le versioni «premium» possono aggiungere crema, cioccolato o — sì — aroma di melone vero, ma il classico è vaniglia-zucchero. Per il viaggiatore è uno spuntino da stazione che sopravvive meglio di una brioche cremosa: meno pasticcio, più trasporto. Capirlo evita la delusione di chi aspetta un gelato al melone in formato panino: qui vince la texture a due strati, non il fruttato tropicale.",
+      "sections": [
+        {
+          "title": "Due tessiture, un morso",
+          "body": "Se la crosta è umida e non si spezza, il panino ha perso il punto. Se il dentro è secco, è stato troppo a lungo nello scaffale. L'equilibrio è freschezza da forno o da ciclo corto."
+        },
+        {
+          "title": "Dove cercarlo",
+          "body": "Le panetterie di quartiere e i bakery di stazione battono spesso il konbini per crosta viva. Al konbini resta utile di notte o in aree senza forno visibile."
+        },
+        {
+          "title": "Varianti da leggere sull'etichetta",
+          "body": "«Melon» nell'aroma è dichiarato; altrimenti aspetta solo zucchero e burro. Le edizioni ripiene pesano di più e cambiano il ruolo: da spuntino a merenda da seduta."
+        },
+        {
+          "title": "Naming committee",
+          "body": "Hanno chiamato «melone» un pane che sa di biscotto. È il livello di fantasia marketing che in altri paesi richiederebbe tre riunioni e un avvocato.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Breakfast / bakery culture context",
+          "url": "https://www.japan.travel/en/japan-magazine/breakfast-options-to-fit-your-travel-plans/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-konbini-desserts",
+      "long": "I dolci da konbini sono un calendario edibile: purin al caramello, roll cake, mochi ripieni, cheesecake al cotone, collaborazioni con marchi di anime o pasticcerie famose. Lo scaffale freddo cambia ogni poche settimane; le etichette «shinshu» (novità) e le fasce colorate segnalano cosa sta spingendo la catena in quel momento. Non sono souvenir da portare a casa tre giorni dopo: sono picchi di freschezza pensati per la sera stessa. Per chi viaggia, il depachika resta più «regalo», il konbini più «assaggio quotidiano a basso rischio». Imparare a leggere le date e le collaborazioni evita di comprare il dessert generico quando sullo stesso ripiano c'è l'edizione limitata che i locali stanno già cercando.",
+      "sections": [
+        {
+          "title": "Come orientarsi senza dolcezza infinita",
+          "body": "Scegli una texture per sera: cremoso (purin), arioso (roll), masticabile (mochi). Non tre insieme se domani hai un kaiseki: il palato si stanca prima del portafoglio."
+        },
+        {
+          "title": "Stagione e collab",
+          "body": "Autunno = castagne e patate dolci; primavera = sakura e fragole. Le collab con personaggi durano poco: se ti interessa, compra al primo passaggio."
+        },
+        {
+          "title": "Trappola",
+          "body": "Il dessert «instagrammato» in vetrina può essere solo packaging. Controlla peso e lista ingredienti: a volte paghi la carta più del ripieno."
+        },
+        {
+          "title": "Ricerca di mercato da frigorifero",
+          "body": "Gli analisti pagano focus group. Tu puoi fare lo stesso studio di prodotto aprendo lo sportello dei dolci alle undici di sera.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Konbini magazine",
+          "url": "https://www.japan.travel/en/japan-magazine/2002_konbini/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-ekiben",
+      "long": "L'ekiben è il bento della ferrovia: un pasto chiuso pensato per essere mangiato sul treno, spesso legato a una stazione, a una linea o a un prodotto regionale. Non è un generico «pranzo al sacco»: l'idea è portare un pezzo di territorio nel vagone — pesce di un porto, wagyu di una valle, onigiri di una prefettura — con packaging che a volte è collezionabile quanto il cibo. Si compra in stazione, nei corner JR o nei gran binari shinkansen; si apre quando sei seduto, non mentre corri sul marciapiede. Per il viaggio lungo è strategia: eviti il vagone ristorante affollato e mangi qualcosa che racconta dove sei passato. La qualità varia: alcuni ekiben sono eccellenze locali, altri solo riso e frittata con adesivo turistico. Leggere la provenienza sull'etichetta è parte del gioco.",
+      "sections": [
+        {
+          "title": "Leggere il territorio sulla vaschetta",
+          "body": "Nome della stazione, ingrediente bandiera, produttore: se mancano tutti e tre, è un bento generico con biglietto da visita ferroviario. I migliori dichiarano il legame locale senza pudore."
+        },
+        {
+          "title": "Quando aprirlo",
+          "body": "A bordo, da seduti, con lo spazio del tavolino pieghevole. Mangiare in piedi sul binario è scomodo e poco rispettoso del flusso. Porta un sacchetto per i rifiuti: il treno non è una discarica."
+        },
+        {
+          "title": "Ekiben vs depachika",
+          "body": "L'ekiben ottimizza trasporto e identità di linea; il depachika ottimizza vetrina e regalo. Sullo shinkansen l'ekiben vince per praticità; in città il piano alimentare del department store offre più scelta."
+        },
+        {
+          "title": "Collezionismo con scadenza alimentare",
+          "body": "Alcuni tengono le scatole vuote. Tu tieni il ricordo del sapore e butta la plastica nel posto giusto: la nostalgia non ha bisogno di un museo di vaschette.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Food etiquette / travel dining context",
+          "url": "https://www.japan.travel/en/guide/japanese-food-etiquette/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-depachika-bento",
+      "long": "Il depachika è il piano interrato alimentare dei grandi magazzini: una città di bento, sushi, tempura, verdure cotte e dolci sotto luci da gioielleria. Il bento da depachika non nasce per il treno, nasce per lo sguardo — composizioni ordinate, ingredienti stagionali, prezzi che salgono con la cura. Si compra per cena in hotel, per picnic urbano, per portare qualcosa di «bello» senza prenotare un ristorante. La differenza con il konbini è evidenza: qui scegli con gli occhi e con il consiglio del banco, lì afferri e via. Per il viaggiatore è anche scuola di stagione: se non sai cosa mangiare a Kyoto o Tokyo quel mese, il depachika lo mette in fila davanti a te. Attenzione alle ore di punta serali: i pezzi migliori spariscono prima della chiusura.",
+      "sections": [
+        {
+          "title": "Come scegliere senza perdere mezz'ora",
+          "body": "Decidi prima la cornice: sushi, grill, vegetariano, wagashi. Poi guarda freschezza e densità del riso. I bento mezzi vuoti di salse lucide spesso deludono; quelli con pezzi chiari e separati di solito no."
+        },
+        {
+          "title": "Orari e strategia",
+          "body": "Tardo pomeriggio per scelta ampia; ultima ora per sconti possibili ma con rischi di rimanenze. Se hai un shinkansen, valuta se l'ekiben in stazione è più logico del depachika lontano dal binario."
+        },
+        {
+          "title": "Regalo vs cena",
+          "body": "Per regalare conta il packaging; per cenare conta il peso reale del cibo. Non pagare solo la borsa di carta."
+        },
+        {
+          "title": "Il supermercato che si crede museo",
+          "body": "Entri per «dare un'occhiata» e esci con tre bento e una filosofia sulla disposizione delle carote. È un rischio noto, non coperto dall'assicurazione di viaggio.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Breakfast and everyday food options",
+          "url": "https://www.japan.travel/en/japan-magazine/breakfast-options-to-fit-your-travel-plans/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-bottled-green-tea",
+      "long": "Il tè verde in bottiglia — sencha, hojicha, tè al gelsomino, blend «ryokucha» — è l'acqua ufficiale del pendolare giapponese: non zuccherato nella maggior parte delle referenze da adulti, venduto freddo nel frigo e spesso anche caldo nel distributore. Non sostituisce la cerimonia del matcha, e non vuole farlo: è idratazione quotidiana con un filo di amaro vegetale. Per il viaggiatore è la scelta più sicura quando i succhi sembrano troppi e l'acqua naturale sembra poco. Le etichette «sugar free» e le varianti tostate (hojicha) aiutano di sera; il sencha più verdissimo tiene svegli quanto un caffè leggero. Capirlo evita di cercare «tè freddo dolce da export» e restare delusi: qui il default è secco, pulito, da accompagnamento al pasto più che da dessert.",
+      "sections": [
+        {
+          "title": "Come leggere lo scaffale",
+          "body": "Verde brillante = sencha/ryokucha; ambrato = hojicha; fiori = gelsomino. Se vedi zucchero in etichetta, è un'altra bevanda: molte «tea» aromatizzate non sono il classico green tea da tavola."
+        },
+        {
+          "title": "Caldo e freddo",
+          "body": "I distributori con pulsante rosso/blu sono parte dell'esperienza: d'inverno il tè caldo in lattina o bottiglia short è comfort; d'estate il freddo lungo è standard."
+        },
+        {
+          "title": "Contesto",
+          "body": "Perfetto con ekiben e onigiri. Meno adatto a chi cerca caffeina da espresso: la carica c'è, ma è lineare, non drammatica."
+        },
+        {
+          "title": "Il soft drink che finge di essere virtù",
+          "body": "Lo bevi perché «è tè», ti senti sano, e intanto hai appena comprato la ventesima bottiglia di plastica della settimana. La virtù è nel gusto, non nel bilancio ambientale — porta una borraccia quando puoi.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Traditional / regional food culture portal",
+          "url": "https://www.maff.go.jp/e/policies/market/dento_syoku/index.html",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-all-canned-coffee",
+      "long": "Il caffè in lattina è un'istituzione da binario: nero, milk coffee, sugar coffee, latte più o meno dolce, caldo d'inverno e gelato d'estate nello stesso formato compatto. Non compete con la caffetteria di specialità: compete con il sonno sul treno delle sei. I marchi storici hanno reso il «can coffee» parte del paesaggio urbano quanto i vending colorati. Per il viaggiatore europeo può sembrare troppo dolce o troppo latteo; le versioni black e «sugar-free» esistono, basta leggere. È utile quando non hai tempo di fermarti e vuoi caffeina prevedibile. Non è un giudizio sul caffè giapponese di qualità — che esiste e prospera nei kissaten e nei third-wave café — è un canale parallelo, da distributore, nato per la velocità.",
+      "sections": [
+        {
+          "title": "Scegliere senza sorprese",
+          "body": "Black = meno dolce; milk/latte = cremoso; sugar = dessert liquido. Le lattine blu/rosse dei brand storici sono spesso più dolci di quanto l'etichetta «coffee» suggerisca."
+        },
+        {
+          "title": "Vending come stagione",
+          "body": "Il pulsante caldo in inverno è metà del piacere. In estate la stessa referenza arriva ghiacciata: stesso marchio, altro umore."
+        },
+        {
+          "title": "Quando evitarlo",
+          "body": "Se stai per entrare in un kissaten rétro o in una torrefazione, non «pre-caffeinarti» con la lattina: rovini il contrasto. Usalo come strumento di viaggio, non come verdetto sul paese."
+        },
+        {
+          "title": "Critica gastronomica da gettoniera",
+          "body": "Puoi scrivere un saggio sul terroir del caffè oppure inserire 120 yen e ascoltare il tonfo della lattina. Entrambi sono culture del caffè; solo una ti fa prendere il treno in orario.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Everyday travel food context",
+          "url": "https://www.japan.travel/en/japan-magazine/2002_konbini/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-pocari-sweat",
+      "long": "Pocari Sweat e Aquarius sono le due isotoniche che vedi ovunque quando l'umidità di Tokyo o Osaka diventa un avversario: sale, elettroliti, dolcezza leggera, nome che ai non giapponesi suona comico fino al primo pomeriggio afoso. Non sono «energy drink» carichi di caffeina: sono reintegrazione pensata per sport e caldo cittadino. Si comprano al konbini e nei vending; esistono versioni in polvere e jelly. Per il viaggio a piedi con zaino sono più utili di un quarto succo di frutta zuccherato, perché mirano alla sete da sudore, non al craving. Capire la differenza tra isotonica e tè evita di bere quattro green tea e chiedersi perché hai ancora crampi. Il nome «Sweat» non è una minaccia: è una dichiarazione di intento fisiologico che il marketing occidentale non avrebbe mai approvato.",
+      "sections": [
+        {
+          "title": "Quando ha senso",
+          "body": "Giornate torride, lunghe camminate, dopo un onsen se ti senti svuotato. Non come sostituto permanente dell'acqua: alterna."
+        },
+        {
+          "title": "Pocari vs Aquarius",
+          "body": "Entrambi sono isotoniche mainstream; le differenze di gusto sono personali. Provale piccole prima di comprare il formato famiglia."
+        },
+        {
+          "title": "Lettura etichetta",
+          "body": "Controlla zucchero e sodio se hai esigenze alimentari. Non è una medicina: è una bevanda funzionale da supermercato."
+        },
+        {
+          "title": "Branding coraggioso",
+          "body": "Chiamare una bibita «sudore» e venderla a milioni di persone è il livello di sincerità marketing che altri paesi raggiungono solo nelle campagne contro il fumo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Safety / summer travel practical context",
+          "url": "https://www.japan.travel/en/plan/emergencies/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Gastronomy / everyday drinks landscape",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-calpis-water",
+      "long": "Calpis Water (o Calpico nelle esportazioni) è la bevanda lattiginosa, dolce e acidula, nata da latte fermentato diluito: un gusto che ricorda lo yogurt bevibile più che il latte puro. In Giappone è un classico da konbini e vending, spesso scelto da chi vuole qualcosa di meno amaro del tè e meno pesante di un milkshake. Esistono concentrazioni originali da diluire in casa e versioni già pronte; i gusti fruttati orbitano intorno al nucleo acidulo. Per il viaggiatore è un assaggio di «soft drink locale» che non sa di cola: utile per capire quanto il panorama delle bevande sia diverso da quello occidentale anche quando la bottiglia sembra familiare. Non è un integratore e non è latte fresco: è una tradizione industriale di fermentazione resa sete da supermercato.",
+      "sections": [
+        {
+          "title": "Cosa aspettarsi al sorso",
+          "body": "Prima nota lattea, poi acidità pulita, dolcezza media. Se cerchi il sapore di latte intero, resterai confuso; se ti piace lo yogurt drink, ti troverai a casa."
+        },
+        {
+          "title": "Formati",
+          "body": "Bottiglia pronta in viaggio; concentrato se alloggi in appartamento. Le edizioni stagionali cambiano colore più del carattere di fondo."
+        },
+        {
+          "title": "Contesto",
+          "body": "Merenda, treno, caldo. Meno adatto a accompagnare un ramen speziato: meglio tè o acqua lì."
+        },
+        {
+          "title": "Il latte che ha fatto la gavetta",
+          "body": "È fermentato, diluito, imbottigliato e ancora riesce a sembrare un ricordo d'infanzia. Pochi distillati emotivi costano così poco al pezzo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Konbini magazine",
+          "url": "https://www.japan.travel/en/japan-magazine/2002_konbini/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-hot-corn-soup",
+      "long": "La zuppa di mais in lattina dal distributore è un piccolo rito invernale: premi il pulsante, arriva una lattina calda, apri con cautela e scopri un potage dolce con chicchi veri che a volte bloccano il beccuccio. Non è haute cuisine; è conforto da marciapiede a prezzo di moneta. Si trova nei vending «hot» delle stazioni e dei parcheggi, spesso accanto a caffè e cocoa. Per chi cammina al freddo tra un tempio e un treno è più sensato di un gelato, e più giapponese di quanto sembri: l'amore per il mais dolce nei comfort food (ramen miso con mais, zuppe in lattina, croquette) è trasversale. La trappola è sottovalutare la temperatura: la prima sorsata scotta, la seconda è perfetta, la terza è già finita.",
+      "sections": [
+        {
+          "title": "Come berla senza incidenti",
+          "body": "Apri piano, soffia, bevi a sorsi. I chicchi possono ostruire: agita prima con il tappo chiuso se il formato lo permette, o accetta di mangiare i chicchi alla fine."
+        },
+        {
+          "title": "Stagione",
+          "body": "Ha senso con il freddo. In agosto è una curiosità masochista. Cerca i distributori con indicazione hot drinks."
+        },
+        {
+          "title": "Ruolo nel viaggio",
+          "body": "Spuntino caldo tra due tratte, non cena. Se hai fame vera, affiancalo a un onigiri, non pretendere che la lattina basti."
+        },
+        {
+          "title": "Mais di trincea",
+          "body": "Altrove il mais è contorno del barbecue. Qui entra in una lattina, sale su un treno e ti salva le dita gelate. Carriera invidiabile per un cereale.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Everyday vending / konbini culture",
+          "url": "https://www.japan.travel/en/japan-magazine/2002_konbini/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-ramune",
+      "long": "Il ramune è la gassosa dolce in bottiglia di vetro sigillata da una biglia: per berla devi spingere la pallina dentro con lo strumento del tappo, sentire il «clack» e poi gestire una bevanda che gorgoglia intorno a una sfera di vetro. Il gusto classico è limone-lime dolce; le edizioni colorate moltiplicano aromi da festival. Si compra a matsuri, in negozi souvenir e nei konbini in stagione calda. Per il viaggiatore è metà bevanda e metà giocattolo: molti lo comprano per il meccanismo più che per la sete. Capirlo evita di forzare il tappo nel modo sbagliato e spargere zucchero frizzante sulla felpa. Non è un'antica bevanda di corte: è modernità da fiera diventata icona nostalgia.",
+      "sections": [
+        {
+          "title": "Il gesto della biglia",
+          "body": "Usa il plunger del tappo, premi dritto, non di lato. Quando la biglia cade, bevi inclinando per non farla chiudere il collo. I bambini locali lo sanno fare meglio di molti adulti stranieri: osserva."
+        },
+        {
+          "title": "Contesto",
+          "body": "Estate, festival, pause leggere. A gennaio in un soba shop raffinato è fuori posto; sulla Komachi-dori sotto il sole ha senso."
+        },
+        {
+          "title": "Aspettative di gusto",
+          "body": "È dolce da soft drink, non champagne al yuzu. Se cerchi sofisticazione agrumata, guarda altrove; se cerchi gioco, sei a casa."
+        },
+        {
+          "title": "Ingegneria del settimo anno",
+          "body": "Il packaging ha vinto sul sapore da decenni. Pochi prodotti ammettono con tanta onestà che il vero ingrediente sei tu che giochi con la biglia.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Gastronomy / street favorites context",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Local street food favorites",
+          "url": "https://www.japan.travel/en/gastronomy/local-cuisine-western-japan/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-royal-milk-tea",
+      "long": "Il royal milk tea in bottiglia o lattina è tè nero forte cotto con latte e zucchero: più corpo di un tè freddo americano, meno schiuma di un bubble tea. Nasce dall'immaginario del «milk tea» da salotto e diventa bevanda da vending e konbini, calda o fredda. Per chi vuole dolcezza lattosa senza passare dal caffè, è un pilastro. Non confonderlo con il matcha latte: qui non c'è tè verde, c'è Assam/blend nero e latticinio. Sul treno funziona da merenda liquida; a colazione può sostituire un cappuccino se accetti più tè e meno crema di bar. Le versioni «low sugar» esistono ma il carattere del prodotto è francamente dolce: meglio saperlo prima del secondo sorso.",
+      "sections": [
+        {
+          "title": "Profilo sensoriale",
+          "body": "Tannini del tè nero smussati dal latte, zucchero in evidenza, retrogusto da colazione. Se è aquoso, è una referenza economica o troppo fredda; se è sciropposo, è dessert."
+        },
+        {
+          "title": "Caldo vs freddo",
+          "body": "Caldo da distributore in inverno è il formato più convincente. Freddo in estate funziona come milk tea da asporto, non come tè da pasto washoku."
+        },
+        {
+          "title": "Abusi da evitare",
+          "body": "Non è un sostituto dell'acqua in camminata lunga. E non ordinare un kaiseki dopo averne bevuti due: il palato arriva già saturato di dolce."
+        },
+        {
+          "title": "Regalità da scaffale",
+          "body": "Si chiama «royal» e costa pochi yen. È il tipo di aristocrazia che il capitalismo di stazione concede a tutti senza appuntamento.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Konbini magazine",
+          "url": "https://www.japan.travel/en/japan-magazine/2002_konbini/",
+          "kind": "ente turistico"
+        }
+      ]
+    }
+  ]
+}

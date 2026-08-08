@@ -1,0 +1,1412 @@
+{
+  "meta": {
+    "batch": "history-04-alpine",
+    "note": "Cultural-layer stories for Matsumoto, Nagano, Kanazawa, Shirakawa-go, Takayama. Cross-checked against place/experience cards (castles, Zenko-ji, Kenrokuen, chaya, gold leaf, gassho villages, Takayama Jinya/festivals) — avoid paraphrase of site logistics and architecture walkthroughs."
+  },
+  "schede": [
+    {
+      "id": "history-matsumoto-original-castle",
+      "long": "In Giappone «castello originale» non è un complimento da cartolina: è una categoria. Dei centinaia di mastii che punteggiavano il paese tra Cinquecento e Seicento, soltanto una dozzina di tenshu è sopravvissuta in legno senza essere ricostruita in cemento armato nel Novecento. Matsumoto appartiene a quel gruppo ristretto, e questo cambia il modo di leggerlo. Non si osserva un modello didattico di epoca feudale, ma un edificio che ha attraversato guerre, aste Meiji e restauri strutturali restando nella stessa materia — legno, intonaco, tegole — con cui fu pensato per combattere e poi per rappresentare. L’idea di «autenticità» qui non coincide con l’aspetto pittoresco: coincide con la continuità costruttiva. Capire perché pochi tenshu sono ancora originali significa capire anche perché tanti altri castelli giapponesi, pur belli, raccontano soprattutto il gusto ricostruttivo del turismo moderno.",
+      "sections": [
+        {
+          "title": "Cosa conta come tenshu «originale»",
+          "body": "La distinzione ufficiale separa i mastii sopravvissuti dalle riproduzioni in calcestruzzo del periodo Shōwa e dalle ricostruzioni fedeli ma nuove. L’originale porta segni di riparazioni, non di invenzione scenografica: giunzioni, riprese di travi, stratificazioni di intervento. È un documento edilizio prima ancora che un panorama."
+        },
+        {
+          "title": "Perché così pochi sono rimasti",
+          "body": "Fuoco, terremoti, guerre e soprattutto la liquidazione Meiji dei feudi distrussero o vendettero moltissimi torrioni. Dove sopravvisse il legno, spesso fu perché una comunità locale lo riscattò o lo convertì a uso civile prima della demolizione. L’originalità è anche storia di salvataggi, non solo di fortuna architettonica."
+        },
+        {
+          "title": "Difesa e rappresentanza nello stesso volume",
+          "body": "I tenshu tardo-cinquecenteschi mescolano feritoie, scale ripide e ambienti di comando. Poi, in tempo di pace, alcuni corpi furono aggiunti senza logica bellica. Leggere un castello originale significa distinguere i piani che ancora «combattono» da quelli che già «ricevono»."
+        },
+        {
+          "title": "Il cemento come genere a parte",
+          "body": "Un castello ricostruito in cemento può essere accurato, utile e amato: resta però un altro genere di oggetto. Confonderlo con un tenshu ligneo sopravvissuto è come confondere uno spartito con una registrazione d’epoca."
+        },
+        {
+          "title": "L’autenticità che non si fa selfie da sola",
+          "body": "Il legno originale non grida più forte del cemento lucido. Anzi: spesso è più scuro, più stanco e meno «da brochure». Per questo va nominato: altrimenti vince sempre chi ha rifatto la facciata ieri.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "国宝 松本城 — sito ufficiale",
+          "url": "https://www.matsumoto-castle.jp/about",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "松本城 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E6%9C%AC%E5%9F%8E",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "松本城天守 — scheda beni culturali",
+          "url": "https://kunishitei.bunka.go.jp/bsys/maindetails/102/920",
+          "kind": "ente pubblico"
+        }
+      ]
+    },
+    {
+      "id": "history-matsumoto-kura",
+      "long": "Il kura non è un magazzino generico: è un tipo edilizio nato per perdere il meno possibile quando la città brucia. Pareti spesse in terra, intonaci chiari, porte massicce e spesso un volume chiuso rispetto alla casa d’abitazione: la forma dice che merce, registri e riserve valevano quanto le vite che le custodivano. Nelle città di mercanti dell’entroterra — Matsumoto inclusa — il fuoco era il rischio strutturale quotidiano, non l’incidente raro. Per questo i quartieri di grossisti accumularono kura come infrastruttura di continuità commerciale: chi salvava le scorte ripartiva; chi perdeva tutto spariva dal circuito del credito. Guardare una facciata bianca e nera oggi senza pensare all’incendio è leggere solo la metà estetica di un edificio pensato come arma passiva contro il disastro.",
+      "sections": [
+        {
+          "title": "Perché il magazzino è più «duro» della casa",
+          "body": "L’abitazione poteva essere leggera e riparabile; il kura doveva resistere abbastanza da tenere fuori fiamme e scintille. La massa termica della terra cruda e le chiusure stagionate erano tecnologie antincendio prima che stile «storico»."
+        },
+        {
+          "title": "Merce, credito, reputazione",
+          "body": "In un’economia basata su consegne e fiducia, perdere il deposito significava perdere anche la parola data ai fornitori. Il kura era capitale fisso e prova di solidità: una facciata ordinata annunciava un creditore affidabile."
+        },
+        {
+          "title": "Bianco, nero e leggibilità urbana",
+          "body": "Il contrasto delle fasce non è solo ornamento: rende riconoscibile il tipo edilizio nel tessuto della strada. Chi camminava sapeva dove finiva la casa e dove cominciava il patrimonio protetto."
+        },
+        {
+          "title": "Dopo l’incendio, chi resta in piedi detta la memoria",
+          "body": "Quando un quartiere brucia, i pochi kura superstiti diventano accidentalmente monumento. La «via storica» nasce spesso da ciò che il fuoco non è riuscito a mangiare.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "松本市 — turismo e patrimonio urbano",
+          "url": "https://www.city.matsumoto.nagano.jp/",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "蔵 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E8%94%B5",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "JNTO — Matsumoto overview",
+          "url": "https://www.japan.travel/en/destinations/chubu/nagano/matsumoto/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-matsumoto-mingei",
+      "long": "Il mingei non è «folklore carino»: è una teoria critica inventata negli anni Venti del Novecento da Yanagi Sōetsu e dai suoi compagni di strada — tra cui potters come Hamada Shōji — per rovesciare la gerarchia dell’arte. Invece di celebrare il genio firmato, valorizzava l’oggetto anonimo, utile, ripetuto e ben fatto: ciotole, tessuti, mobili, utensili nati dall’uso. Matsumoto entrò in questa geografia perché qui l’ebanisteria e l’artigianato quotidiano avevano già una rete produttiva capace di dialogare con quel programma estetico. Il mobile mingei locale non cerca il lusso ornamentale: mostra legno, proporzione e mano. Capire il mingei serve a non confondere «tradizione» con nostalgia: era un discorso moderno su cosa merita attenzione in una società industriale che stava scartando l’anonimo come inferiore.",
+      "sections": [
+        {
+          "title": "Una rivoluzione contro la firma",
+          "body": "Yanagi sosteneva che la bellezza poteva nascere dall’umiltà funzionale, non solo dal nome dell’artista. L’anonimato non era mancanza: era prova che l’oggetto serviva prima di rappresentare."
+        },
+        {
+          "title": "Perché Matsumoto diventò un nodo",
+          "body": "La città aveva falegnami, botteghe e una clientela urbana capace di sostenere mobili e utensili di qualità media alta. Il mingei trovò qui non musei vuoti, ma mani già abituate a produrre per l’uso."
+        },
+        {
+          "title": "Come si riconosce senza etichetta",
+          "body": "Materiali leggibili, forme stabili, assenza di virtuosismo inutilmente esibito. Se l’oggetto «spiega» da solo come va tenuto in mano, siete vicini allo spirito mingei più che a un souvenir decorativo."
+        },
+        {
+          "title": "L’anonimo che costa di più del firmato scarsamente fatto",
+          "body": "Il paradosso dura: oggi un pezzo «senza nome» ben costruito può costare quanto una firma mediocre. Yanagi avrebbe forse sorriso; il mercato, come sempre, ha preso appunti selettivi.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "日本民藝館 — Mingei",
+          "url": "https://mingeikan.or.jp/",
+          "kind": "museo / associazione"
+        },
+        {
+          "title": "民芸 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E6%B0%91%E8%8A%B8",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Matsumoto Crafts — Visit Nagano",
+          "url": "https://www.go-nagano.net/en/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-matsumoto-crow-castle",
+      "long": "Karasu-jō, «castello del corvo», è un soprannome culturale prima ancora che un dato d’archivio. Il nero delle pareti del mastio — tavole e intonaci scuri contro fasce bianche — ha generato un’immagine animale che la città ha accettato e rilanciato, anche quando le cronache non fissano un’origine unica e certificata del nome. Serve distinguerlo dalle designazioni ufficiali e dai titoli di tutela: il corvo appartiene al linguaggio popolare e alla memoria visuale, non necessariamente al verbale di costruzione del Seicento. In Giappone molti castelli accumulano epiteti (airone, corvo, bianco) che condensano un’impressione cromatica o una leggenda locale. Leggere Matsumoto come Karasu-jō significa quindi entrare in un mito urbano gentile: utile per ricordare l’edificio, pericoloso se lo si tratta come prova storica autonoma.",
+      "sections": [
+        {
+          "title": "Soprannome contro nome di tutela",
+          "body": "«Castello del corvo» circola nelle guide e nel parlato; «tesoro nazionale» e le designazioni dei cinque corpi del tenshu stanno sui documenti. I due piani di linguaggio non si annullano: uno identifica, l’altro tutela."
+        },
+        {
+          "title": "Perché il nero diventa animale",
+          "body": "Il contrasto scuro-chiaro invita metafore zoomorfe. Il corvo, familiare al paesaggio giapponese e alla letteratura, offre un’immagine sintetica più memorabile di «mastio a cinque tetti»."
+        },
+        {
+          "title": "Mito utile, cronaca cauta",
+          "body": "Quando l’etimologia manca di una fonte primaria chiusa, la regola è dichiararlo. Il soprannome resta vero come pratica culturale anche se la sua nascita resta sfumata."
+        },
+        {
+          "title": "Il branding involontario del corvo",
+          "body": "Nessun ufficio marketing del Seicento ha depositato il marchio «Karasu-jō». Eppure funziona meglio di molti slogan contemporanei: breve, animale, impossibile da confondere con un castello bianco qualsiasi.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "国宝 松本城 — about",
+          "url": "https://www.matsumoto-castle.jp/about",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "松本城 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E6%9D%BE%E6%9C%AC%E5%9F%8E",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "JNTO — Matsumoto Castle",
+          "url": "https://www.japan.travel/en/spot/956/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-matsumoto-kusama",
+      "long": "Yayoi Kusama non è «l’artista dei pois» in astratto: è una biografia che parte da Matsumoto e torna periodicamente a Matsumoto come luogo di formazione e di restituzione pubblica. Nata nella città nel 1929, attraversa avanguardia giapponese, New York, ossessione, ripetizione e un linguaggio visuale che ha reso riconoscibile in tutto il mondo un gesto nato anche da tensioni locali — famiglia, malattia, desiderio di uscire dalla provincia senza cancellarla. Il museo civico che oggi ospita un corpus ampio delle sue opere non «inventa» il legame: lo istituzionalizza. Capire Kusama qui significa sottrarre i pois al souvenir e rimetterli in una storia di autoderminazione artistica in cui la città natale è origine, non cornice turistica.",
+      "sections": [
+        {
+          "title": "Provincia come punto di partenza, non di chiusura",
+          "body": "La formazione a Matsumoto e le prime prove locali precedono la leggenda internazionale. Ignorarle rende i pois un logo; includerle li restituisce a una pratica di sopravvivenza creativa."
+        },
+        {
+          "title": "Ripetizione come metodo, non come mania da cartolina",
+          "body": "Il pattern ossessivo in Kusama è tecnica e terapia, non decorazione casuale. La città che espone le opere chiede di leggere quella densità, non solo il motivo ripetuto sui gadget."
+        },
+        {
+          "title": "Restituzione pubblica di una figura globale",
+          "body": "Quando una città conserva e mostra centinaia di lavori di un’artista nata lì, costruisce una memoria civica diversa dal monumento equestre: una memoria fatta di installazioni e di sguardi."
+        },
+        {
+          "title": "Quando la città natale diventa installazione permanente",
+          "body": "Poche anagrafi riescono a trasformare un’infanzia di provincia in destinazione per pellegrini dei pois. Matsumoto ha risolto il problema nel modo più diretto: espone le opere e lascia che i tulipani discutano col pubblico.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "松本市美術館 — sito ufficiale",
+          "url": "https://www.matsumoto-artmuse.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "草間彌生 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E8%8D%89%E9%96%93%E5%BD%8C%E7%94%9F",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Yayoi Kusama — Encyclopedia Britannica",
+          "url": "https://www.britannica.com/biography/Yayoi-Kusama",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "history-matsumoto-spring-water",
+      "long": "Matsumoto è una città d’acqua prima ancora di essere una città di castello. La conca raccoglie neve e pioggia delle Alpi settentrionali; l’acqua filtra nei conoidi ghiaiosi e riemerge in pozzi e sorgenti urbane che per secoli hanno organizzato quartieri, botteghe alimentari e abitudini quotidiane. Non è un’amenità termale da brochure: è un rapporto strutturale tra montagna, falda e vita civile. Le fontane pubbliche e i pozzi storici mostrano una cultura dell’acqua condivisa — da bere, da usare in cucina, da proteggere — tipica di molte città alpine giapponesi ma particolarmente leggibile qui, dove l’acqua buona è parte dell’identità urbana quanto il torrione nero. Capire le sorgenti significa capire perché la «qualità della vita» locale si misura anche a litri, non solo a panorami.",
+      "sections": [
+        {
+          "title": "La montagna come serbatoio invisibile",
+          "body": "Neve e boschi a monte non sono sfondo: sono infrastruttura idrica. L’acqua che esce in centro è il risultato lento di infiltrazione e geologia, non di un rubinetto magico."
+        },
+        {
+          "title": "Acqua pubblica, civiltà quotidiana",
+          "body": "Pozzi e fontane accessibili trasformano una risorsa naturale in bene collettivo. Chi li mantiene — residenti, regole comunali, usi condivisi — scrive una storia di cura più che di conquista."
+        },
+        {
+          "title": "Cibo e falda sullo stesso tavolo",
+          "body": "Miso, sake, tofu e cucina locale dipendono da acque stabili e pulite. La reputazione gastronomica di una valle alpina inizia spesso sottoterra."
+        },
+        {
+          "title": "L’acqua senza upselling",
+          "body": "In un mondo di bottiglie premium numerate, riempire la borraccia a una sorgente urbana sembra quasi un gesto sovversivo. Matsumoto lo considera semplicemente igiene civica di buon livello.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "松本市 — acque e ambiente urbano",
+          "url": "https://www.city.matsumoto.nagano.jp/",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "Visit Nagano — Matsumoto",
+          "url": "https://www.go-nagano.net/en/destination/matsumoto/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "日本の名水 — contesto acque celebri",
+          "url": "https://www.env.go.jp/water/meisui/",
+          "kind": "ente pubblico"
+        }
+      ]
+    },
+    {
+      "id": "history-matsumoto-merchant-streets",
+      "long": "Nakamachi e Nawate non sono «due vie carine»: sono due grammatiche urbane nate da funzioni diverse nella città castellare. Una è la strada dei grossisti e dei magazzini, asse commerciale legato storicamente ai flussi verso il Zenkō-ji e al credito delle merci; l’altra è una striscia d’argine stretta, nata come bordo idraulico del fossato e del fiume, poi trasformata in corridoio di botteghe a scala minuta. Insieme mostrano come una città di pianura alpina organizzi lavoro, acqua e passeggio senza diventare museo a tema unico. Capire la differenza tra via mercantile e via d’argine evita di leggere tutto come «quartiere storico» indifferenziato: una facciata di kura e una fila di negozi lungo il Metoba raccontano economie e topografie distinte, anche quando oggi condividono lo stesso visitatore.",
+      "sections": [
+        {
+          "title": "La via che porta merce e credito",
+          "body": "Nakamachi cresce dove servono magazzini, fronte strada continuo e reputazione da grossista. La sua bellezza deriva da necessità antincendio e da continuità commerciale, non da un piano turistico retroattivo."
+        },
+        {
+          "title": "L’argine che diventa passeggio",
+          "body": "Nawate nasce come forma del terreno tra fossato e fiume. La strettezza non è pittoresca: è geometria idraulica convertita in strada. Per questo le botteghe restano piccole e allineate su un solo fronte."
+        },
+        {
+          "title": "Due scale, una città",
+          "body": "Il contrasto tra magazzini alti e negozi minuscoli spiega la vita urbana meglio di un’etichetta unica. Matsumoto si legge camminando tra tipi edilizi, non cercando un’unica «anima»."
+        },
+        {
+          "title": "Storia senza interrogazione alla lavagna",
+          "body": "Si può imparare la differenza tra magazzino di grossista e bottega d’argine senza sentirsi in una verifica di geografia. Se serve un alleggerimento, Nawate ha già scelto la mascotte: non è un professore.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "松本市 — centro storico",
+          "url": "https://www.city.matsumoto.nagano.jp/",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "JNTO — Matsumoto",
+          "url": "https://www.japan.travel/en/destinations/chubu/nagano/matsumoto/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Visit Nagano — shopping streets",
+          "url": "https://www.go-nagano.net/en/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-nagano-zenkoji",
+      "long": "Il Zenkō-ji è un’anomalia istituzionale utile per capire il buddhismo giapponese fuori dagli schemi da manuale. Il tempio non appartiene a una sola setta dominante nel modo in cui molti grandi monasteri lo sono: la sua autorità nasce da un culto più antico delle divisioni scolastiche successive e da un’immagine del Buddha — l’Ikkō Sanzon — trattata come hibutsu, «Buddha segreto», sottratta allo sguardo ordinario. Quella invisibilità non è un trucco turistico: è teologia della presenza. Il sacro qui si afferma proprio perché non si consuma come oggetto da vedere. Pellegrini di scuole diverse hanno potuto convergere su Nagano perché il tempio offriva salvezza e pratica oltre le barriere di appartenenza. Capire il Zenkō-ji significa capire un Giappone religioso in cui l’unità rituale a volte conta più della purezza confessionali.",
+      "sections": [
+        {
+          "title": "Più antico della setta che vorrebbe possederlo",
+          "body": "Quando un culto precede le classificazioni Tendai/Jōdo e simili, l’istituzione deve gestirsi come crocevia. Il «tempio senza setta» è una formula sintetica per questa anteriorità."
+        },
+        {
+          "title": "Hibutsu: la presenza che rifiuta lo sguardo",
+          "body": "Nascondere l’immagine non la indebolisce: la intensifica. Il fedele si rapporta a una salvezza che non dipende dalla visione diretta, e questo sposta il rito dal museo alla fiducia."
+        },
+        {
+          "title": "Pellegrinaggio come rete nazionale",
+          "body": "Per secoli strade, locande e offerte hanno gravitato su Nagano perché il Zenkō-ji funzionava come polo di assoluzione e di viaggio sacro. La città moderna cresce anche su quella geografia devozionale."
+        },
+        {
+          "title": "Il Buddha che fa sold-out restando invisibile",
+          "body": "In un’epoca di contenuti da guardare, un’immagine che non si mostra resta stranamente più potente. Il marketing contemporaneo ci arriverebbe dopo secoli di ritardo teologico.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "善光寺 — sito ufficiale",
+          "url": "https://www.zenkoji.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "善光寺 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%96%84%E5%85%89%E5%AF%BA",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "JNTO — Zenkoji Temple",
+          "url": "https://www.japan.travel/en/spot/923/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-nagano-togakushi",
+      "long": "Togakushi, «porta nascosta», è prima di tutto un pezzo di mitologia nazionale piantato in una montagna. Nel Kojiki e nel Nihon shoki, Amaterasu si ritira in una grotta e il mondo cade nelle tenebre; gli dei la fanno uscire e la lastra di roccia che chiudeva l’ingresso viene scagliata via. La tradizione locale vuole che quella porta sia atterrata qui, trasformando il crinale in luogo di potenza. Su quel mito si è innestato per secoli lo shugendō: asceti di montagna, percorsi rituali, sincretismo tra kami e buddha. Solo dopo la modernizzazione Meiji il complesso appare prevalentemente come rete di santuari shinto. Capire Togakushi significa tenere insieme mito di Amaterasu, pratica ascetica e riscrittura istituzionale — senza ridurre la montagna a «sfondo ninja».",
+      "sections": [
+        {
+          "title": "Mito della grotta, senso del luogo",
+          "body": "La porta scagliata è mito di fondazione, non verbale geologico. Spiega perché la montagna comanda rispetto: ospita un frammento del dramma cosmico che restituisce la luce al mondo."
+        },
+        {
+          "title": "Asceti prima dei souvenir",
+          "body": "Lo shugendō legava corpo, sentiero e pericolo. Camminare verso l’Okusha ripeteva una pedagogia della montagna, non una passeggiata panoramica. La soba dei pellegrini nasce da quella economia rituale."
+        },
+        {
+          "title": "Quando la legge cambia il nome del sacro",
+          "body": "Con la separazione di kami e buddha molti complessi persero la metà monastica. Togakushi resta leggibile solo se si distingono strati: mito, monastero, santuario moderno."
+        },
+        {
+          "title": "La porta nascosta che tutti riescono a trovare sul navigatore",
+          "body": "Il nome promette segretezza; le mappe promettono un parcheggio. Il mito sopravvive comunque, perché Amaterasu non aggiorna le app.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "戸隠神社 — sito ufficiale",
+          "url": "https://www.togakushi-jinja.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "戸隠 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E6%88%B8%E9%9A%90",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Visit Nagano — Togakushi",
+          "url": "https://www.go-nagano.net/en/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-nagano-mountain-food",
+      "long": "La cucina di montagna dello Shinshū non nasce dal capriccio esotico: nasce dal bilancio calorico di inverni lunghi, terrazzamenti limitati e vie di trasporto incerte. Dove il riso scarseggiava o arrivava caro, crescevano soba, conserve fermentate, verdure essiccate, pesci d’acqua dolce e — in alcune valli — proteine che oggi sorprendono, come insetti raccolti e cucinati secondo usi locali. Quella tavola era tecnologia di sopravvivenza prima di diventare «curiosità». Capirla evita due errori simmetrici: celebrarla come folklore eterno, o deriderla come stranezza. Era un sistema intelligente di stoccaggio, stagione e proteine alternative. Molti piatti «tipici» di Nagano sono capitoli di economia alpina scritti in pentola.",
+      "sections": [
+        {
+          "title": "Soba come risposta al terreno",
+          "body": "Il grano saraceno tollera altitudini e suoli dove altre colture falliscono. Per questo diventa cereale-cultura: non solo noodle, ma calendario agricolo e identità di valle."
+        },
+        {
+          "title": "Conservare l’inverno in barattolo",
+          "body": "Fermentazioni, essiccazioni e salagioni trasformano l’abbondanza breve in scorta lunga. La «tradizione» alimentare è spesso un magazzino riuscito."
+        },
+        {
+          "title": "Proteine che la pianura dimentica",
+          "body": "Insetti e pesci fluviali compaiono dove la carne era rara o costosa. Oggi possono sembrare avventurosi; ieri erano razionali. Il giudizio estetico arriva dopo il bisogno."
+        },
+        {
+          "title": "Il menu che un tempo era piano di emergenza",
+          "body": "Molti cibi oggi fotografati come «esperienze» erano semplicemente strategie per arrivare a marzo. La fame, a modo suo, è una chef molto persuasiva.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/index.html",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "長野県 — turismo enogastronomico",
+          "url": "https://www.go-nagano.net/en/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "信州そば — contesto regionale",
+          "url": "https://ja.wikipedia.org/wiki/%E4%BF%A1%E5%B7%9E%E3%81%9D%E3%81%B0",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "history-nagano-zenkoji-passage",
+      "long": "Il corridoio buio sotto il Zenkō-ji — il kaidan meguri — è una teologia resa tatto. Si avanza senza vista cercando una chiave metallica legata simbolicamente alla salvezza e all’immagine nascosta del Buddha. L’oscurità non è scenografia horror: è dispositivo rituale che toglie il primato dell’occhio, dominante nella cultura contemporanea, e restituisce corpo, orientamento e fiducia. In un tempio il cui honzon è già invisibile, scendere nel nero è coerente: si sperimenta con i piedi ciò che la dottrina afferma con l’assenza. Capire il passaggio significa leggere il buio come testo sacro, non come attrazione da parco. La chiave si tocca; la salvezza, come sempre, resta una scommessa più ampia del metallo sotto le dita.",
+      "sections": [
+        {
+          "title": "Perché il rito deve togliere la vista",
+          "body": "Se il sacro centrale è hibutsu, il pellegrino non «verifica» guardando. Il corridoio allinea l’esperienza personale a quella teologia: si procede per contatto e memoria del percorso."
+        },
+        {
+          "title": "Chiave, salvezza, metonimia",
+          "body": "L’oggetto metallico non è magia da collezione: è segno. Toccarlo significa entrare in una catena simbolica che collega corpo del fedele e presenza nascosta del Buddha."
+        },
+        {
+          "title": "Dal buio liturgico al buio contemporaneo",
+          "body": "Oggi l’oscurità totale è rara e quindi impressionante. Un tempo era più vicina alla notte ordinaria. Il rito guadagna forza proprio perché la nostra vita è saturata di luci."
+        },
+        {
+          "title": "Il nero che non perdona le notifiche",
+          "body": "Il corridoio è progettato per togliere la vista, non per offrirvi una luce blu da polso. Chi cerca segnale sotto l’altare ha già fallito l’esame di presenza più elementare del tempio.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "善光寺 — sito ufficiale",
+          "url": "https://www.zenkoji.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "戒壇巡り — contesto Zenkō-ji",
+          "url": "https://ja.wikipedia.org/wiki/%E5%96%84%E5%85%89%E5%AF%BA",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "JNTO — Zenkoji",
+          "url": "https://www.japan.travel/en/spot/923/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-nagano-olympic-city",
+      "long": "Nagano 1998 non è solo una data sportiva: è un passaggio di scala urbana. I Giochi invernali collocarono una prefettura alpina già ricca di templi, terme e stazioni sciistiche dentro un’immagine globale fatta di impianti, collegamenti e narrazione mediatica. L’eredità olimpica — anelli, piste, musei, abitudini di riuso — convive da allora con strati molto più antichi, dal Zenkō-ji alle valli dei santuari. Quella convivenza è il punto culturale: poche città giapponesi tengono così vicino un pellegrinaggio millenario e un’infrastruttura da mega-evento. Capire Nagano come «città olimpica» significa leggere come un’Olimpiade riscrive accessibilità e autostima locale senza cancellare la geografia sacra che l’aveva preceduta.",
+      "sections": [
+        {
+          "title": "Un mega-evento su una geografia già sacra",
+          "body": "I Giochi non arrivarono in un vuoto: arrivarono su strade di pellegrini, stazioni termali e economie di neve. L’Olimpiade amplificò connessioni esistenti quanto ne inventò di nuove."
+        },
+        {
+          "title": "Impianti come memoria riutilizzabile",
+          "body": "La vera eredità non è il podio: è ciò che resta praticabile — ghiaccio pubblico, musei, abitudini sportive. Un’Olimpiade fallisce culturalmente quando lascia solo cemento muto."
+        },
+        {
+          "title": "Immagine internazionale, vita quotidiana",
+          "body": "Per i residenti l’evento fu anche cantiere, turismo e riorganizzazione. Per il mondo fu una cartolina alpina. Le due memorie non coincidono sempre, e va detto."
+        },
+        {
+          "title": "Due curriculum in un’unica fermata",
+          "body": "Nagano tiene in agenda un pellegrinaggio antico e un anello di pattinaggio da record come se fossero voci normali dello stesso calendario cittadino. È una doppia identità che altre città pagherebbero consulenze per inventare.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "長野市オリンピック記念館 — eredità 1998",
+          "url": "https://www.nagano-mwave.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "1998 Winter Olympics — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/1998_Winter_Olympics",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "JNTO — Nagano",
+          "url": "https://www.japan.travel/en/destinations/chubu/nagano/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-nagano-snow-monkeys",
+      "long": "I macachi di Jigokudani sono diventati un’icona globale della «natura giapponese», ma culturalmente raccontano soprattutto un fraintendimento produttivo: animali selvatici letti come personaggi da onsen. Il bagno nella neve è un comportamento stagionale e parziale del branco, non uno spettacolo garantito; la loro fama internazionale — foto, copertine, troupe — ha trasformato un adattamento ecologico in simbolo nazionale esportabile. Capire le snow monkey significa tenere insieme etologia, storia del parco come mediazione tra danni agricoli e tutela, e il potere delle immagini nel creare aspettative. Non sono attrazioni addestrate: sono primati che usano l’acqua calda quando serve, e ignorano il copione del visitatore quando non serve.",
+      "sections": [
+        {
+          "title": "Simbolo globale, animali locali",
+          "body": "L’icona della scimmia nel vapore parla al mondo di Giappone termale e inverno estetico. Sul campo, però, conta il branco, la stagione e la disponibilità di cibo naturale, non la didascalia della cartolina."
+        },
+        {
+          "title": "Selvatico non significa «sempre in posa»",
+          "body": "Un comportamento non garantito è proprio il segno che non siamo allo zoo. La delusione del visitatore è parte del patto etico: la natura non firma contratti di presenza."
+        },
+        {
+          "title": "Come le immagini creano il desiderio",
+          "body": "Una foto celebre può precedere di decenni la vostra visita e dettare cosa «dovreste» vedere. Contro quell’archivio mentale serve una frase sola: forse oggi restano sulla neve asciutta."
+        },
+        {
+          "title": "L’antistar system della valle",
+          "body": "Il macaco di Jigokudani non firma autografi e non conferma la presenza sul sito. Se manca all’appello, non è un disservizio: è un animale che ha mantenuto il diritto di avere altro da fare.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "地獄谷野猿公苑 — sito ufficiale",
+          "url": "https://www.jigokudani-yaenkoen.co.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "Japanese macaque — contesto",
+          "url": "https://ja.wikipedia.org/wiki/%E3%83%8B%E3%83%9B%E3%83%B3%E3%82%B6%E3%83%AB",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "JNTO — Jigokudani Monkey Park",
+          "url": "https://www.japan.travel/en/spot/922/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-nagano-togakushi-ninja",
+      "long": "L’associazione tra Togakushi e i ninja è uno strato culturale recente rispetto al mito di Amaterasu e allo shugendō, ma non per questo «falso» in senso banale: è una rilettura moderna che intreccia tradizioni di montagna, scuole di combattimento nominate dalla memoria popolare e un’industria della rappresentazione. La scuola Togakure compare nelle genealogie ninja diffuse nel Novecento; musei e case di trucchi traducono quell’immaginario in percorso visitabile. Capire il nodo «Togakushi-ninja» significa distinguere tre piani: ascetismo storico della montagna, leggenda guerriera, intrattenimento. Confonderli produce delusione o credulità; separarli permette di godere del gioco senza falsificare il santuario.",
+      "sections": [
+        {
+          "title": "Dagli asceti agli agenti dell’ombra",
+          "body": "L’addestramento di montagna — resistenza, orientamento, discrezione — offre materiale narrativo facilmente ritradotto in «ninjutsu». Il passaggio da pratica religiosa a mito marziale è una traslazione culturale, non un verbale di arruolamento."
+        },
+        {
+          "title": "Genealogie, fama e Novecento",
+          "body": "Molte storie di scuole ninja furono riordinate, pubblicate e romanticizzate in età moderna. Vanno lette come tradizione inventata o rielaborata, non come archivio di missioni segrete verificate giorno per giorno."
+        },
+        {
+          "title": "Museo e labirinto come pedagogia ludica",
+          "body": "Case di trucchi e vetrine di attrezzi insegnano un’idea di astuzia corporea. Servono a far provare lo scarto tra aspettativa cinematografica e gesto reale: spesso si resta chiusi in una stanza, ed è già una lezione."
+        },
+        {
+          "title": "Selezione naturale in corridoio",
+          "body": "Tra porte false e riflessi multipli si scopre in tre minuti chi nel gruppo confonde «silenzioso» con «commenta ogni passo». I ninja storici, se esistono ancora, prendono appunti e passano oltre.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "戸隠民俗館・忍者村 — contesto locale",
+          "url": "https://www.togakushi-ninja.com/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "戸隠流 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E6%88%B8%E9%9A%90%E6%B5%81",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Visit Nagano — Togakushi",
+          "url": "https://www.go-nagano.net/en/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-kanazawa-maeda",
+      "long": "I Maeda di Kaga furono tra i daimyo più ricchi del Giappone Tokugawa: centinaia di migliaia di koku di riso, un feudo vastissimo sul Mar del Giappone, e una posizione politica scomoda. Erano tozama, signori «esterni» rispetto al nucleo dei vassalli ereditari dei Tokugawa, abbastanza potenti da destare sospetto. La risposta culturale di Kanazawa — mecenatismo sulle arti, giardini, nō, artigianato raffinato — non fu solo gusto: fu anche strategia di sopravvivenza. Investire in eleganza invece che in ostentazione militare rendeva il dominio leggibile come leale e civile agli occhi di Edo. Capire i Maeda significa capire perché una città di provincia divenne capitale delle arti: la bellezza qui ebbe anche una funzione diplomatica.",
+      "sections": [
+        {
+          "title": "Ricchezza visibile, minaccia potenziale",
+          "body": "Un feudo troppo prospero attirava controlli, matrimoni politici e obblighi di presenza a Edo. I Maeda navigarono quel regime spendendo in cultura quanto altri spendevano in fortezze inutili."
+        },
+        {
+          "title": "Le arti come linguaggio di lealtà",
+          "body": "Proteggere lacca, tintura, teatro e giardini segnalava raffinatezza di corte, non preparazione alla rivolta. Era soft power ante litteram rivolto allo shogunato."
+        },
+        {
+          "title": "Kaga come marchio di qualità",
+          "body": "Il nome del feudo rimase appiccicato a mestieri — Kaga yuzen, culinarie, utensili — perché il mecenatismo creò domanda stabile e standard alti. La politica diventò filiera."
+        },
+        {
+          "title": "La raffinatezza come giubbotto antiproiettile",
+          "body": "Apparire troppo guerrieri era pericoloso; apparire impeccabili era più sicuro. Kanazawa dimostrò che un buon gusto condiviso può essere anche un piano di gestione del rischio.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "前田氏 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%89%8D%E7%94%B0%E6%B0%8F",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Visit Kanazawa — history",
+          "url": "https://visitkanazawa.jp/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "金沢市 — patrimonio culturale",
+          "url": "https://www4.city.kanazawa.lg.jp/",
+          "kind": "ente pubblico"
+        }
+      ]
+    },
+    {
+      "id": "history-kanazawa-chaya",
+      "long": "Una chaya di Kanazawa non è una sala da tè nel senso del chanoyu domestico: è un’architettura dell’intrattenimento. Musica, danza, conversazione e servizio di sake avvenivano in case progettate per filtrare sguardi e suoni — listelli, soglie, scale verso saloni alti — e per ricevere clienti introdotti, non passanti casuali. I chayagai autorizzati dal dominio nel primo Ottocento concentrarono questa economia in quartieri riconoscibili, rendendo la privacy una regola urbana oltre che un dettaglio di facciata. Capire la chaya significa capire un mestiere femminile specializzato (geigi/geiko) e un contratto sociale: l’accesso era relazione, non biglietto. Ridurla a «posto carino con reticoli» cancella proprio la grammatica che le facciate stanno ancora dichiarando.",
+      "sections": [
+        {
+          "title": "Intrattenimento, non cerimonia del tè da salotto",
+          "body": "Il tè può comparire, ma il mestiere centrale è performativo: voce, strumento, danza, conversazione. La casa è teatro a scala domestica, con gerarchie di stanze e di sguardi."
+        },
+        {
+          "title": "Listelli come tecnologia della privacy",
+          "body": "Le grate lasciano passare luce e aria ma gestiscono la visibilità. Chi sta dentro valuta; chi sta fuori indovina. È architettura sociale prima che ornamento."
+        },
+        {
+          "title": "Presentazione contro ingresso libero",
+          "body": "Storicamente si entrava perché qualcuno ti presentava. I programmi pubblici contemporanei sono un’apertura dichiarata a un mondo che era chiuso per regola, non per snobismo astratto."
+        },
+        {
+          "title": "La teahouse che non vende soltanto tè",
+          "body": "Ordinare una bevanda e aspettarsi lo spettacolo completo è come entrare in un teatro e pretendere il debutto perché avete comprato le caramelle. La grammatica del luogo è un’altra.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Visit Kanazawa — Higashi Chaya",
+          "url": "https://visitkanazawa.jp/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "茶屋 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E8%8C%B6%E5%B1%8B",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "金沢市 — distretti chaya",
+          "url": "https://www4.city.kanazawa.lg.jp/",
+          "kind": "ente pubblico"
+        }
+      ]
+    },
+    {
+      "id": "history-kanazawa-gold-leaf",
+      "long": "Kanazawa produce la quasi totalità della foglia d’oro giapponese non per magia cittadina, ma per un intreccio di licenze storiche, umidità favorevole alla battitura, acqua adatta ai processi e una rete di botteghe che ha saputo industrializzare senza perdere del tutto la mano. La lamina è metallo ridotto a spessore quasi immateriale: si lavora con pinze, tele di bamboo, respiro trattenuto. Culturalmente l’oro di Kaga ha rivestito templi, lacche, carta e oggi anche gelati: la stessa tecnica serve il sacro e il souvenir. Capire la foglia d’oro significa capire un’economia di precisione in cui il lusso non è massa ma sottilità — e in cui un soffio può vanificare ore di lavoro.",
+      "sections": [
+        {
+          "title": "Perché proprio qui",
+          "body": "Clima umido, saperi accumulati e domanda del feudo Maeda crearono le condizioni. Le licenze di lavorazione consolidarono un primato che la modernità ha poi trasformato in cluster industriale-artigiano."
+        },
+        {
+          "title": "Sottile fino a sparire",
+          "body": "La misura della foglia si conta in micron. Non si «dipinge» d’oro: si fa aderire una pelle di metallo che rifiuta correzioni grossolane. L’errore non si limano: si ricomincia."
+        },
+        {
+          "title": "Dal santuario al soft cream",
+          "body": "La stessa lamina può dorare un altare o una confezione edibile. Il salto di registro è culturale: l’oro diventa segno di festa quotidiana, non solo di liturgia."
+        },
+        {
+          "title": "Il soffio come rischio professionale",
+          "body": "Un respiro fuori posto e la foglia vola. Pochi mestieri puniscono così duramente un sospiro di soddisfazione prematuro.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "金沢箔 — contesto artigianale",
+          "url": "https://www.kanazawa-kankoukyoukai.or.jp/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "金沢箔 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E9%87%91%E6%B2%A2%E7%AE%94",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Hakuichi — gold leaf craft",
+          "url": "https://enkanazawa.hakuichi.co.jp/",
+          "kind": "produttore / bottega"
+        }
+      ]
+    },
+    {
+      "id": "history-kanazawa-samurai-walls",
+      "long": "I muri di terra di Nagamachi non sono recinzioni decorative: sono una grammatica residenziale del rango samurai ordinario sotto i Maeda. Canali, angoli d’ingresso, pini oltre il muro e frontoni triangolari organizzavano privacy, difesa passiva e distinguibilità sociale in un quartiere vicino al castello. In inverno le stuoie komokake fasciano l’intonaco perché gelo e neve spaccano la terra cruda: anche il muro ha un guardaroba stagionale. Capire questi muri significa leggere l’architettura come etichetta di casta e come tecnica climatica, non come set per foto di «samurai street». La terra battuta racconta un potere che voleva essere visto quanto basta e nascosto quanto serve.",
+      "sections": [
+        {
+          "title": "Muro, canale, ingresso angolato",
+          "body": "La sequenza non è casuale: rallenta lo sguardo e il corpo di chi arriva, protegge la vita interna della casa e segnala appartenenza. È urbanistica di rango a scala di vicolo."
+        },
+        {
+          "title": "Terra cruda contro inverno di Hokuriku",
+          "body": "Senza protezione, umidità e gelo distruggono l’intonaco. Le stuoie di paglia sono manutenzione strutturale, non folklore invernale inventato per i visitatori."
+        },
+        {
+          "title": "Ordine ordinario, non palazzo",
+          "body": "Nagamachi parla dei vassalli medi, non solo dei grandi nomi. Per questo i volumi restano contenuti: il prestigio sta nella cura del perimetro più che nell’ostentazione verticale."
+        },
+        {
+          "title": "Il cappotto del muro",
+          "body": "Da dicembre i muri indossano la paglia con più eleganza della maggior parte dei visitatori. È l’unico quartiere in cui anche l’architettura fa la stagione dell’abbigliamento.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Visit Kanazawa — Nagamachi",
+          "url": "https://visitkanazawa.jp/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "長町 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E9%95%B7%E7%94%BA_(%E9%87%91%E6%B2%A2%E5%B8%82)",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "金沢市 — paesaggio urbano",
+          "url": "https://www4.city.kanazawa.lg.jp/",
+          "kind": "ente pubblico"
+        }
+      ]
+    },
+    {
+      "id": "history-kanazawa-six-attributes",
+      "long": "Kenroku-en prende il nome da un’idea importata dalla Cina: sei attributi paesaggistici che, secondo le note di Li Gefei sui giardini di Luoyang, raramente stanno insieme. Ampiezza e isolamento, artificio e antichità, acqua e panorama: coppie che si escludono a vicenda se spinte troppo. Il nome «giardino che riunisce sei virtù» è quindi un programma estetico ambizioso, quasi un manifesto. Non descrive una checklist turistica da spuntare camminando: descrive una tensione progettuale. Capire le sei qualità significa capire perché Kenroku-en è discusso come paradigma dei giardini giapponesi di daimyo: non perché «abbia tutto», ma perché mette in scena il paradosso di voler tenere insieme ciò che la teoria dichiara incompatibile.",
+      "sections": [
+        {
+          "title": "Una teoria cinese per un giardino di Kaga",
+          "body": "Il prestito letterario elevava il parco del castello al linguaggio dei classici continentali. Dare un nome filosofico a un giardino era anche dichiarare cultura di regime."
+        },
+        {
+          "title": "Coppie che si contraddicono",
+          "body": "Se allarghi troppo perdi il raccoglimento; se invecchi troppo perdi l’artificio leggibile; se riempi d’acqua perdi le vedute lontane. Il progetto vive in quel conflitto, non lo risolve cancellandolo."
+        },
+        {
+          "title": "Nome come programma, non come etichetta",
+          "body": "«Kenroku» non è un marchio di qualità astratto: è un’istruzione di lettura. Camminare serve a sentire le tensioni — aperto/chiuso, naturale/costruito — più che a collezionare padiglioni."
+        },
+        {
+          "title": "Il manifesto che cammina",
+          "body": "Li Gefei elenca incompatibilità; Kanazawa risponde costruendoci un parco. È come vincere una scommessa filosofica a colpi di laghetti e collinette, senza dichiarare mai la vittoria a voce alta.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "兼六園 — sito ufficiale",
+          "url": "https://www.pref.ishikawa.jp/siro-niwa/kenrokuen/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "兼六園 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%85%BC%E5%85%AD%E5%9C%92",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Kenrokuen — rokushou",
+          "url": "https://kenrokuen.or.jp/rokushou/",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "history-kanazawa-ninjadera",
+      "long": "Myōryū-ji è famoso come «Ninja-dera», ma il punto culturale è proprio l’assenza di ninja. Il tempio fu ricostruito e fortificato nel Seicento in un contesto di sorveglianza politica sui Maeda: scale nascoste, porte ingannevoli, fossati rituali e punti di osservazione servivano a proteggere persone e oggetti sacri in un’epoca in cui un feudo ricco doveva sembrare leale e restare prudente. Il soprannome Novecento ha trasformato quella prudenza architettonica in immaginario shinobi. Capire Myōryū-ji significa leggere l’edificio come macchina difensiva religiosa e come caso di marketing onomastico riuscito — due storie diverse che oggi condividono la stessa coda in prenotazione.",
+      "sections": [
+        {
+          "title": "Templo sotto pressione politica",
+          "body": "I tozama ricchi vivevano osservati. Collocare un oratorio di famiglia in un quartiere di templi con percorsi ambigui era protezione, non sceneggiatura di assalto notturno."
+        },
+        {
+          "title": "Trappole come teologia della soglia",
+          "body": "Una cassetta delle offerte che diventa fossa, una porta che non porta dove sembra: sono dispositivi per controllare chi entra nello spazio sacro. Il sacro qui ha bisogno di logistica."
+        },
+        {
+          "title": "Il soprannome che riscrive l’edificio",
+          "body": "«Ninja-dera» è efficace perché parla al Novecento e al cinema. Va tenuto come strato pop, non come verbale di arruolamento shinobi nel Seicento."
+        },
+        {
+          "title": "Soprannome più forte del curriculum",
+          "body": "L’edificio ha un passato di prudenza politica; il Novecento gli ha appiccicato «ninja» e da allora la coda di curiosi parla più del soprannome che dei Maeda. Pochi rebranding involontari hanno avuto tanto successo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "妙立寺 — sito ufficiale",
+          "url": "https://www.myouryuji.or.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "妙立寺 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%A6%99%E7%AB%8B%E5%AF%BA",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Visit Kanazawa — Myoryuji",
+          "url": "https://visitkanazawa.jp/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-kanazawa-kaga-yuzen",
+      "long": "Il Kaga yuzen è una scuola di tintura a riserva che ha reso Kanazawa leggibile sui kimono: motivi naturalistici, sfumature controllate, osservazione del vegetale fino al dettaglio «imperfetto» — foglie morsicate, ombre irregolari — piuttosto che idealizzazione decorativa. La pasta di riso delimita i campi di colore; i pennelli costruiscono profondità; il lavaggio finale cancella i segni guida. Rispetto ad altri yuzen, la tradizione di Kaga privilegia spesso la pittura tintoria rispetto a ricamo e foglia d’oro: scelta stilistica, non povertà, in una città che dell’oro ha fatto emblema. Capire il Kaga yuzen significa capire un realismo botanico applicato alla seta, nato dal dialogo tra saperi locali di tintura e apporti di disegnatori arrivati da Kyoto in epoca Edo.",
+      "sections": [
+        {
+          "title": "Naturalismo contro ornamento astratto",
+          "body": "Il fiore non è solo schema: vuole sembrare osservato. Per questo una foglia «rovinata» può essere più ambiziosa di una simmetria perfetta: dimostra controllo del pennello e dell’occhio."
+        },
+        {
+          "title": "Pasta di riso, vapore, lavaggio",
+          "body": "La tecnica è una sequenza chimico-manuale. Ogni passaggio serve a impedire che i colori si invadano e a fissare ciò che deve restare dopo l’acqua."
+        },
+        {
+          "title": "Perché l’oro resta spesso fuori",
+          "body": "In una città della foglia d’oro, rinunciare all’oro sul kimono tradizionale è dichiarazione di metodo: il prestigio sta nella tintura, non nell’aggiunta metallica."
+        },
+        {
+          "title": "Il bel difetto in seta",
+          "body": "Nel Kaga yuzen il morso sulla foglia può essere prova di maestria. È una delle rare discipline in cui «troppo perfetto» rischia di sembrare meno osservato del vero.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "加賀友禅 — KOGEI / associazioni",
+          "url": "https://kogeijapan.com/locale/en_US/kagayuzen/",
+          "kind": "catalogo artigianato"
+        },
+        {
+          "title": "加賀友禅 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%8F%8B%E7%A6%85",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Visit Kanazawa — Kaga Yuzen",
+          "url": "https://visitkanazawa.jp/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-shirakawago-gassho",
+      "long": "Gasshō-zukuri significa letteralmente «fatto a mani giunte»: le due falde ripide del tetto evocano la preghiera e, insieme, risolvono un problema di neve e di spazio. Nelle grandi giunzioni tradizionali non dominano i chiodi metallici ma legature e incastri pensati per flessibilità; l’edificio deve assorbire vento e carico invernale senza spezzarsi. La forma non è folklore estetico imposto dall’UNESCO: è una risposta costruttiva a valli strette, inverni lunghi e bisogno di sottotetti abitabili per il lavoro. Capire il gasshō significa leggere un tetto come tesi di ingegneria antropologica: la stessa silhouette che oggi fotografa il mondo nasceva per far scivolare metri di neve e tenere viva un’economia domestica verticale.",
+      "sections": [
+        {
+          "title": "Mani giunte, tesi strutturale",
+          "body": "La metafora religiosa aiuta a ricordare la forma; la pendenza serve a scaricare il peso. Bellezza e fisica qui non sono rivali: coincidono."
+        },
+        {
+          "title": "Legare invece di inchiodare tutto",
+          "body": "Corde, vimini e incastri permettono micro-movimenti. In clima estremo la rigidità assoluta è spesso un difetto. La casa «cede» quel tanto che basta per restare intera."
+        },
+        {
+          "title": "Un tipo, non un monumento isolato",
+          "body": "Il gasshō ha senso in serie: colmi allineati, campi, rogge. È paesaggio produttivo, non villa pittoresca sradicata dal suo sistema."
+        },
+        {
+          "title": "La preghiera che tiene via la neve",
+          "body": "Pochi tetti riescono a essere metafora spirituale e attrezzatura da maltempo nello stesso gesto. Qui anche l’iconografia fa il turno di notte strutturale.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "白川郷観光協会 — highlights",
+          "url": "https://shirakawa-go.gr.jp/highlights/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "合掌造り — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%90%88%E6%8E%8C%E9%80%A0%E3%82%8A",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "UNESCO — Historic Villages of Shirakawa-go and Gokayama",
+          "url": "https://whc.unesco.org/en/list/734/",
+          "kind": "ente internazionale"
+        }
+      ]
+    },
+    {
+      "id": "history-shirakawago-attic",
+      "long": "Nei sottotetti delle case gasshō si lavorava: l’allevamento dei bachi da seta sfruttava piani alti ventilati, luminosi dal colmo e abbastanza ampi da ospitare graticci e ciclo del gelso. In valli dove il riso rendeva poco, la sericoltura portava moneta e legami con mercati lontani. Il fumo dell’irori al piano terra saliva e aiutava a tenere insetti e umidità lontani da paglia e travi: una chimica domestica involontariamente conservativa. Capire l’«soffitta» di Shirakawa-go significa rovesciare l’idea del tetto come vuoto pittoresco: era capannone verticale, reddito e ragione strutturale della casa alta. Senza bachi, molte di quelle dimensioni non avrebbero avuto senso economico.",
+      "sections": [
+        {
+          "title": "Sericoltura come motore della forma",
+          "body": "Serve volume e aria: il tetto ripido li offre. L’architettura segue il ciclo del baco quanto segue la neve."
+        },
+        {
+          "title": "Fumo che costruisce durata",
+          "body": "Il nero sulle travi non è solo patina fotografica: è deposito di anni di focolare che asciuga e protegge. La cucina conserva la casa mentre cuoce la cena."
+        },
+        {
+          "title": "Reddito in una valle chiusa",
+          "body": "Quando le strade erano incerte, un prodotto leggero e pregiatocome la seta poteva viaggiare meglio di molti raccolti. Il sottotetto collegava la famiglia a un’economia più ampia."
+        },
+        {
+          "title": "La soffitta che non era per le scatole di Natale",
+          "body": "Qui sopra non si nascondeva il disordine: si produceva reddito. È il raro solaio in cui il «ripostiglio» teneva in piedi l’intero bilancio familiare.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "白川村 — Ogimachi / patrimonio",
+          "url": "https://www.vill.shirakawa.lg.jp/1346.htm",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "合掌造り — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%90%88%E6%8E%8C%E9%80%A0%E3%82%8A",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "UNESCO — Shirakawa-go",
+          "url": "https://whc.unesco.org/en/list/734/",
+          "kind": "ente internazionale"
+        }
+      ]
+    },
+    {
+      "id": "history-shirakawago-yui",
+      "long": "Yui è il nome locale di un mutuo soccorso organizzato: non carità generica, ma scambio di lavoro tra famiglie, soprattutto visibile quando si rifà un tetto di paglia. Decine o centinaia di persone possono concentrarsi in pochi giorni per togliere e riporre il manto: senza quella mobilitazione collettiva, il gasshō singolo non è sostenibile. Documenti ricordano pratiche di yui già in età Edo; oggi continua in forme adattate, accanto ad altre corvée di villaggio — rogge, sentieri, vigilanza antincendio, feste. Capire yui significa capire che il paesaggio UNESCO è un bilancio sociale prima ancora che un’estetica: la foto del tetto ripido esiste perché il villaggio sa ancora convocarsi.",
+      "sections": [
+        {
+          "title": "Lavoro scambiato, non regalo unilaterale",
+          "body": "Si aiuta chi rifà il tetto perché un giorno toccherà a voi. L’equilibrio conta quanto la forza lavoro: yui è credito sociale misurato in giornate."
+        },
+        {
+          "title": "Il tetto come esame di comunità",
+          "body": "Una copertura di paglia è troppo grande per la famiglia nucleare. Il momento della riparazione rende visibile chi appartiene alla rete e chi ne resta fuori."
+        },
+        {
+          "title": "Oltre la paglia",
+          "body": "Pulizia dei canali, percorsi di montagna, turni di sorveglianza: lo stesso spirito tiene in vita infrastrutture minute che il turista non fotografa ma che rendono abitabile il villaggio."
+        },
+        {
+          "title": "Il coworking inventato dalla neve",
+          "body": "Prima delle open space city, c’era un tetto da rifare in cento. La produttività di gruppo qui si misurava in falde completate prima del prossimo nevone.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "白川村 — responsible tourism / yui",
+          "url": "https://www.vill.shirakawa.lg.jp/srt/",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "白川郷観光協会 — 結",
+          "url": "https://shirakawa-go.gr.jp/highlights/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "UNESCO — Shirakawa-go",
+          "url": "https://whc.unesco.org/en/list/734/",
+          "kind": "ente internazionale"
+        }
+      ]
+    },
+    {
+      "id": "history-shirakawago-water-cannons",
+      "long": "Un villaggio di tetti di paglia è un villaggio che teme il fuoco più della neve. Shirakawa-go mantiene un sistema antincendio con idranti e getti d’acqua periodicamente provati: non è scenografia, è protocollo di sopravvivenza patrimoniale. La densità delle case gasshō e la combustibilità del manto rendono ogni scintilla una minaccia collettiva; per questo le regole sono severe e le esercitazioni pubbliche impressionano. Capire i «cannoni d’acqua» significa capire che la bellezza UNESCO è anche gestione del rischio: senza disciplina condivisa contro l’incendio, yui e tetti non basterebbero. L’acqua qui non è solo ruscello fotografico: è infrastruttura di emergenza puntata verso il cielo di paglia.",
+      "sections": [
+        {
+          "title": "Paglia come combustibile culturale",
+          "body": "Il materiale che fa scivolare la neve è anche cibo per le fiamme. Ogni scelta costruttiva tradizionale porta con sé un nemico specifico: qui il nemico ha nome fuoco."
+        },
+        {
+          "title": "Esercitazione come rito civico",
+          "body": "Quando i getti si alzano insieme, il villaggio prova la propria capacità di reagire. È spettacolo solo in superficie; in profondità è manutenzione della fiducia reciproca."
+        },
+        {
+          "title": "Patrimonio e prevenzione",
+          "body": "Tutelare un sito abitato significa investire in tubi, pressioni, turni e divieti, non solo in targhe. La conservazione è ingegneria prima che nostalgia."
+        },
+        {
+          "title": "Prove tecniche di sopravvivenza",
+          "body": "I getti che si alzano all’unisono sembrano uno show; per chi vive sotto la paglia sono un audit. Applaudire è umano: capire che state guardando una prova antincendio è obbligatorio.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "白川村 — protezione del villaggio",
+          "url": "https://www.vill.shirakawa.lg.jp/",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "白川郷観光協会",
+          "url": "https://shirakawa-go.gr.jp/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "UNESCO — Shirakawa-go management",
+          "url": "https://whc.unesco.org/en/list/734/",
+          "kind": "ente internazionale"
+        }
+      ]
+    },
+    {
+      "id": "history-shirakawago-snow-design",
+      "long": "Progettare per metri di neve significa far decidere all’inverno la sezione dell’edificio. Pendenza del tetto, orientamento dei colmi rispetto ai venti della valle, flessibilità delle legature, distribuzione interna dei piani e necessità di ventilare i sottotetti: ogni scelta risponde al carico e alla durata della stagione bianca. La neve delle fotografie notturne è il lato estetico di una fisica strutturale e di una fatica umana — spalatura, percorsi, tetti che devono liberarsi senza crollare. Capire lo «snow design» di Shirakawa-go significa sottrarre il paesaggio alla cartolina e restituirlo all’ingegneria vernacolare: la forma bella è la forma che non si spezza a febbraio.",
+      "sections": [
+        {
+          "title": "La pendenza come equazione",
+          "body": "Troppo piatta, accumula; troppo capricciosa, spreca materiale e calore. La falda ripida è un compromesso calcolato su generazioni di osservazione, non uno sketch romantico."
+        },
+        {
+          "title": "Orientamento e vento di valle",
+          "body": "Allineare i colmi non è solo ordine visivo: riduce pressioni laterali e gestisce nevicate e correnti. Il villaggio intero funziona come sistema aerodinamico abitativo."
+        },
+        {
+          "title": "Dentro la casa, il clima detta i piani",
+          "body": "Si vive e si lavora dove aria e fumo circolano; si protegge ciò che teme l’umidità. La pianta verticale è una risposta termica oltre che produttiva."
+        },
+        {
+          "title": "Estetica firmata dal termometro",
+          "body": "La silhouette da cartolina è un diagramma di carichi vestito da poesia. Se vi innamorate solo della neve luminosa, vi siete fermati al trailer: il film è fatto di travi e fatica.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "白川郷観光協会 — clima e vita",
+          "url": "https://shirakawa-go.gr.jp/highlights/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "合掌造り — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%90%88%E6%8E%8C%E9%80%A0%E3%82%8A",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "UNESCO — Shirakawa-go",
+          "url": "https://whc.unesco.org/en/list/734/",
+          "kind": "ente internazionale"
+        }
+      ]
+    },
+    {
+      "id": "history-shirakawago-living-heritage",
+      "long": "Shirakawa-go è patrimonio mondiale e, insieme, villaggio abitato: campi, cortili, strade private, turni di lavoro, scuole di pensiero su cosa si può vendere, affittare o demolire. Le tre regole locali spesso citate — non vendere, non affittare, non distruggere alla leggera — condensano un’etica di tutela inventata dagli abitanti prima e oltre la targa UNESCO. Capire il «living heritage» significa accettare un conflitto produttivo: il visitatore cerca un’immagine ferma; il residente vive un presente con esigenze di auto, privacy, reddito. Il rispetto non è cortesia astratta: è la condizione perché il sito resti ciò che l’UNESCO ha iscritto, cioè un insediamento, non un parco a tema con comparse.",
+      "sections": [
+        {
+          "title": "Patrimonio come pratica, non come vetrina",
+          "body": "Ciò che è tutelato include l’uso: coltivare, abitare, riparare. Se sparisce la vita, resta un set. La conservazione seria difende le persone che tengono in piedi le case."
+        },
+        {
+          "title": "Regole nate dal basso",
+          "body": "Prima delle liste internazionali, i residenti hanno dovuto decidere come non vendere il paesaggio pezzo a pezzo. Quelle norme sono politica culturale locale, non solo folklore."
+        },
+        {
+          "title": "Turismo e soglia della casa",
+          "body": "Una facciata straordinaria non trasforma il cortile in belvedere pubblico. Capire il confine tra strada e soglia privata è parte dell’alfabetizzazione del visitatore."
+        },
+        {
+          "title": "Patrimonio con citofono",
+          "body": "Il villaggio non è un diorama a ingresso libero nei cortili. Se una casa è straordinaria da fuori, resta comunque casa: la meraviglia non include il diritto di aprire il cancello altrui.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "白川村 — responsible tourism",
+          "url": "https://www.vill.shirakawa.lg.jp/srt/",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "白川郷観光協会",
+          "url": "https://shirakawa-go.gr.jp/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "UNESCO — Shirakawa-go",
+          "url": "https://whc.unesco.org/en/list/734/",
+          "kind": "ente internazionale"
+        }
+      ]
+    },
+    {
+      "id": "history-shirakawago-doburoku-festival",
+      "long": "Il doburoku è un sake torbido, meno filtrato del seishu chiaro, e in alcune comunità di montagna resta legato a autorizzazioni rituali speciali: si produce per offrirlo agli dei e condividerlo nella festa, non per una filiera commerciale ordinaria. A Shirakawa-go le celebrazioni autunnali intrecciano santuario, ringraziamento del raccolto e coppa comunitaria. Agricoltura, fede e controllo statale sugli alcolici si incontrano nello stesso gesto: lo Stato moderno ha monopolizzato gran parte della produzione, ma ha lasciato eccezioni sacrali che tengono viva una grammatica antica del bere insieme. Capire il festival del doburoku significa capire che la gradazione può essere spirituale e restare, legalmente, molto terrena.",
+      "sections": [
+        {
+          "title": "Torbido come segno rituale",
+          "body": "Il non filtrare fino in fondo marca differenza dal sake quotidiano di mercato. Il colore stesso annuncia che si sta bevendo dentro un rito, non solo dentro un gusto."
+        },
+        {
+          "title": "Offrire prima di assaggiare",
+          "body": "La sequenza conta: danze, preghiere, offerta. La bevanda arriva come parte di un ordine sacro, non come open bar con torii sullo sfondo — anche quando l’effetto sociale è convivialissimo."
+        },
+        {
+          "title": "Eccezione legale, memoria agricola",
+          "body": "Dove la casa non può più fabbricare liberamente, il santuario custodisce un permesso che è anche archivio di autonomia alimentare. La festa conserva una sovranità rituale sul fermentato."
+        },
+        {
+          "title": "Sacro, torbido e regolamentato",
+          "body": "Poche bevande riescono a essere offerta divina e capitolo di diritto sugli alcolici nello stesso sorso. Il doburoku di festa dimostra che anche l’estasi collettiva sa stare dentro un perimetro legale.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "白川村 — doburoku / feste",
+          "url": "https://www.vill.shirakawa.lg.jp/1346.htm",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "どぶろく祭り — contesto",
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%A9%E3%81%B6%E3%82%8D%E3%81%8F%E7%A5%AD%E3%82%8A",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "白川郷観光協会",
+          "url": "https://shirakawa-go.gr.jp/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-takayama-shogun-land",
+      "long": "Takayama e il Hida entrarono nella geografia del bakufu come terra da tenere stretta: boschi di qualità, legname da costruzione, risorse minerarie. Quando i Kanamori furono trasferiti, il territorio passò sotto amministrazione diretta dei Tokugawa: non un feudo «ordinario» di daimyo locale, ma una tenuta strategica gestita da funzionari. Quella scelta politica spiega il peso del Jinya e la fama dei carpentieri spediti lontano. Capire lo «shogun-land» significa capire un entroterra alpino letto da Edo come magazzino di materiali e competenze, non come periferia indifferente. Il paesaggio di case e foreste nasconde una decisione centrale di controllo fiscale e produttivo.",
+      "sections": [
+        {
+          "title": "Perché Edo voleva il Hida",
+          "body": "Il legname buono e i metalli non si improvvisano. Controllare direttamente la valle significava garantire forniture e impedire che un signore locale diventasse troppo autonomo su risorse nazionali."
+        },
+        {
+          "title": "Amministrazione senza castello da romanzo",
+          "body": "Il potere si esercitava con uffici, magazzini e registri più che con torri scenografiche. La presenza dello shogunato era burocratica e per questo più capillare."
+        },
+        {
+          "title": "Competenze in esportazione",
+          "body": "I falegnami di Hida circolavano perché lo stato e i grandi cantieri ne avevano bisogno. La fama artigiana è anche effetto di una politica del lavoro specializzato."
+        },
+        {
+          "title": "La foresta come conto corrente dello shogun",
+          "body": "Mentre altrove si contavano koku di riso, qui si contavano travi. Pochi paesaggi alpini sono stati tanto «liquidità» travestita da panorama.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "高山市 — storia / Jinya",
+          "url": "https://www.city.takayama.lg.jp/",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "飛騨国 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E9%A3%9B%E9%A8%A8%E5%9B%BD",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "JNTO — Takayama",
+          "url": "https://www.japan.travel/en/destinations/chubu/gifu/takayama-and-around/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-takayama-festival-floats",
+      "long": "Gli yatai di Takayama sono teatri mobili: lacca, metallo, tessuti e marionette meccaniche karakuri collaborano su un carro che nelle feste di primavera e autunno diventa scena pubblica. Non sono semplici «carri allegorici»: sono capolavori di mestieri cittadini messi in processione, custodia di quartiere e calendario sacro legato ai santuari che dividono la città. Fuori stagione riposano in alti magazzini riconoscibili, a ricordare che la festa ha un’architettura permanente anche quando le ruote stanno ferme. Capire i float significa capire un’urbanistica rituale in cui l’artigianato non resta in bottega: esce in strada e governa il tempo collettivo.",
+      "sections": [
+        {
+          "title": "Karakuri: il teatro senza attore visibile",
+          "body": "Le marionette meccaniche trasformano il carro in macchina narrativa. L’ingegneria del gesto — inchini, offerte, movimenti a sorpresa — è parte del dono al kami quanto la lacca lucida."
+        },
+        {
+          "title": "Due stagioni, due metà di città",
+          "body": "Primavera e autunno non sono duplicati: appartengono a santuari e reti di quartiere distinti. La festa mappa la città mentre la attraversa."
+        },
+        {
+          "title": "Magazzini come pause del sacro",
+          "body": "Gli edifici alti che ospitano i carri sono infrastruttura rituale. Custodire lo yatai è già partecipazione, anche nei mesi senza processione."
+        },
+        {
+          "title": "Il carro che per undici mesi fa l’introverso",
+          "body": "Durante l’anno lo yatai coltiva una vita sociale da celebrity ritirata: tutti lo conoscono, pochi lo vedono, e quando esce pretende la strada intera.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "高山祭 — contesto ufficiale / città",
+          "url": "https://www.takayama-guide.com/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "高山祭 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%B1%B1%E7%A5%AD",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "岐阜県観光 — Takayama festival",
+          "url": "https://www.kankou-gifu.jp/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-takayama-sugidama",
+      "long": "La sugidama — sfera di aghi di cedro appesa fuori dalla sakagura — è un segnale pubblico di sake nuovo. Verde all’inizio, imbrunisce col tempo: il cambiamento di colore funzionava come calendario leggibile dalla strada, prima che etichette e marketing digitale dicessero «appena pressato». In una città come Takayama, densa di cantine storiche, la sfera è grammatica urbana quanto insegna di negozio. Capirla significa capire un’economia della fermentazione che comunica con i sensi del passante: odore di legno, colore della palla, stagione del travaso. Non è ornamento navideño; è avviso di produzione.",
+      "sections": [
+        {
+          "title": "Un’insegna che invecchia in pubblico",
+          "body": "Il viraggio dal verde al marrone racconta la maturazione più onestamente di uno slogan. Chi passava spesso imparava a leggere il tempo del sake senza entrare."
+        },
+        {
+          "title": "Cedro, purezza, mestiere",
+          "body": "Il sugi è legato a pratiche di cantina e a un’idea di freschezza rituale. Appendere la sfera dichiara: qui si è lavorato, qui c’è qualcosa di appena nato."
+        },
+        {
+          "title": "Fila di kura, fila di segnali",
+          "body": "Dove le cantine si concentrano, le sugidama diventano costellazione. La strada stessa spiega la vocazione produttiva della città."
+        },
+        {
+          "title": "Il semaforo degli amanti del sake",
+          "body": "Verde: fermarsi con speranza. Marrone: valutare con calma. È l’unico semaforo urbano che migliora l’umore anche quando resta fermo per mesi.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "酒林・杉玉 — contesto",
+          "url": "https://ja.wikipedia.org/wiki/%E9%85%92%E6%9E%97",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "高山市 — sakagura",
+          "url": "https://www.city.takayama.lg.jp/",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "JNTO — sake culture",
+          "url": "https://www.japan.travel/en/uk/inspiration/sake-breweries/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-takayama-morning-markets",
+      "long": "I mercati del mattino di Takayama — Miyagawa e Jinya-mae — nascono da scambi agricoli locali prima di diventare tappa di viaggio. Foglie di gelso per i bachi, verdure di stagione, sottaceti di valle, oggetti piccoli: la merce racconta un entroterra che scende in città all’alba e riparte quando il sole è alto. Il mercato è un contratto temporale tra produttori e abitanti, non uno shopping center a cielo aperto. Capirlo significa leggere orari, stagioni e relazioni dirette come patrimonio culturale: la «tradizione» qui è soprattutto puntualità sociale. Arrivare tardi non è solo uno sbaglio logistico: è perdere la grammatica stessa del luogo.",
+      "sections": [
+        {
+          "title": "Dal gelso alla verdura",
+          "body": "La sericoltura ha lasciato il posto, in parte, ad altri banchi; la forma del mercato resta: produttori che parlano con chi compra, senza troppe mediazioni."
+        },
+        {
+          "title": "Due sedi, una logica",
+          "body": "Lungofiume e sagrato dell’amministrazione offrono pubblici diversi ma la stessa economia dell’alba. La città distribuisce lo scambio invece di concentrarlo in un unico tempio del consumo."
+        },
+        {
+          "title": "Stagione come catalogo",
+          "body": "Ciò che si trova dipende da neve, raccolto e conserve. Il mercato educa al calendario agricolo più di molte etichette «km zero» contemporanee."
+        },
+        {
+          "title": "L’alba come biglietto non rimborsabile",
+          "body": "Il mercato non aspetta il vostro jet lag. È uno dei rari spettacoli culturali in cui il ritardo non dà un posto peggiore: dà direttamente la sala vuota.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "高山市 — mercati mattutini",
+          "url": "https://www.city.takayama.lg.jp/",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "JNTO — Takayama morning markets",
+          "url": "https://www.japan.travel/en/destinations/chubu/gifu/takayama-and-around/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "岐阜の旅ガイド — Takayama",
+          "url": "https://www.kankou-gifu.jp/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-takayama-jinya-office",
+      "long": "Il Takayama Jinya è la forma concreta della burocrazia Tokugawa in periferia: sale di udienza, cucine, granai, tribunale, percorsi differenziati per rango. Amministrava terre tenute direttamente dallo shogunato, quindi traduceva ordini di Edo in misure locali su tasse, legname, dispute. Culturalmente importa perché rende visibile ciò che le epiche samurai spesso omettono: il potere quotidiano è fatto di registri e magazzini. Capire il Jinya come ufficio — non come «castello minore» — sblocca la lettura di Takayama: città di mercanti e artigiani sotto un tetto amministrativo centrale, con regole che entravano nelle case tramite verbali e misure del riso.",
+      "sections": [
+        {
+          "title": "Organigramma costruito in legno",
+          "body": "Porte diverse, stanze diverse, servizi diversi: l’edificio costringe i corpi a rispettare la gerarchia prima ancora che un funzionario parli. L’architettura è procedura."
+        },
+        {
+          "title": "Granaio e giustizia sullo stesso lotto",
+          "body": "Contare il riso e giudicare le liti sono due facce della stessa sovranità. Il Jinya tiene insieme nutrizione fiscale e ordine pubblico."
+        },
+        {
+          "title": "Un survivor amministrativo",
+          "body": "Di uffici periferici simili ne restano pochissimi. La rarità trasforma un edificio «da lavoro» in documento nazionale sulla capillarità del bakufu."
+        },
+        {
+          "title": "Potere in formato verbale",
+          "body": "Qui il dramma storico non è un duello sul ponte: è un registro che decide chi deve quanto. Meno cinematografico, più realistico — e stranamente più familiare a chiunque abbia fatto una pratica d’ufficio.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "高山陣屋 — sito / info ufficiali",
+          "url": "https://www.city.takayama.lg.jp/",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "高山陣屋 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%B1%B1%E9%99%A3%E5%B1%8B",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "JNTO — Takayama Jinya",
+          "url": "https://www.japan.travel/en/spot/1141/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-takayama-hida-carpenters",
+      "long": "I Hida no takumi — maestri carpentieri del Hida — sono un’identità regionale costruita su giunzioni precise, lettura del legno e mobilità verso i grandi cantieri del paese. Tempio, palazzo, casa: la fama vuole che dalle valli di Takayama uscissero squadre capaci di risolvere problemi strutturali senza sprecare materiale, spesso con incastri che riducono la dipendenza da chiodi. Che la tradizione sia anche mito di autostima locale non toglie la realtà di una scuola di gesto: osservare un assemblaggio Hida significa vedere un’intelligenza materiale diversa da quella del mobile industriale. Capire questi carpentieri significa capire perché Takayama vende ancora «legno che pensa».",
+      "sections": [
+        {
+          "title": "Giuntura come firma",
+          "body": "L’incastro che tiene senza esibire ferramenta racconta controllo di umidità, venatura e carico. È conoscenza accumulata, non trucco da fiera."
+        },
+        {
+          "title": "Dal cantiere lontano alla bottega vicina",
+          "body": "La mobilità storica verso capitali e templi ha lasciato una retorica di eccellenza; oggi quella retorica sostiene scuole, musei e prodotti d’arredo. Il mito lavora ancora."
+        },
+        {
+          "title": "Leggere l’albero prima di tagliare",
+          "body": "Il mestiere inizia a monte: quale tronco, quale stagione, quale parte per quale sforzo. La sega è solo l’ultimo atto di una decisione."
+        },
+        {
+          "title": "Quando il legno vi giudica",
+          "body": "Un incastro pulito rende improvvisamente grottesca la mensola comprata in scatola. I takumi di Hida non cercano questo effetto; lo ottengono comunque.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "飛騨の匠 — contesto",
+          "url": "https://ja.wikipedia.org/wiki/%E9%A3%9B%E9%A8%A8%E3%81%AE%E5%8C%A0",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "高山市 — artigianato del legno",
+          "url": "https://www.city.takayama.lg.jp/",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "岐阜県観光 — Hida crafts",
+          "url": "https://www.kankou-gifu.jp/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "history-takayama-sarubobo",
+      "long": "Sarubobo, «piccolo di scimmia», è una bambola di tessuto senza volto legata a pratiche di augurio familiare nel Hida: fertilità, salute dei figli, buon matrimonio, protezione domestica. L’assenza di tratti facciali non è incompletezza: è dispositivo. Chi guarda può proiettare emozioni diverse, e la bambola resta aperta come amuleto invece di fissarsi in un’espressione unica. Nata da mani femminili in ambito domestico, è diventata segno urbano di Takayama senza perdere del tutto la funzione apotropaica. Capire il sarubobo significa capire un oggetto di cura affettiva che il mercato ha reso visibile, ma che nasce da una grammatica del desiderio familiare più antica della vetrina.",
+      "sections": [
+        {
+          "title": "Perché senza volto",
+          "body": "Un volto cucito fisserebbe un’emozione; un non-volto le ospita tutte. L’amuleto resta disponibile alle paure e alle speranze di chi lo tiene."
+        },
+        {
+          "title": "Mani di madri, rete di auguri",
+          "body": "Come molti oggetti di protezione domestica, circolava dentro relazioni femminili prima di diventare souvenir. Il passaggio al banco non cancella del tutto quella genealogia."
+        },
+        {
+          "title": "Scimmia come segno propizio",
+          "body": "Nel folklore locale la scimmia può allontanare il male o favorire nascite. Il nome «cucciolo» tiene insieme tenerezza e tutela."
+        },
+        {
+          "title": "Il volto che non compete",
+          "body": "Senza occhi ricamati, il sarubobo evita la trappola delle bambole troppo expressive. Resta un amuleto, non un personaggio in cerca di spin-off.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "さるぼぼ — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%95%E3%82%8B%E3%81%BC%E3%81%BC",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "高山市 — souvenir culturali",
+          "url": "https://www.city.takayama.lg.jp/",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "JNTO — Takayama",
+          "url": "https://www.japan.travel/en/destinations/chubu/gifu/takayama-and-around/",
+          "kind": "ente turistico"
+        }
+      ]
+    }
+  ]
+}

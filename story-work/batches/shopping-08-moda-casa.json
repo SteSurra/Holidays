@@ -1,0 +1,288 @@
+{
+  "meta": {
+    "batch": "shopping-08-moda-casa",
+    "note": "Phase 3 shopping deep stories: Porter, SOU SOU, tabi, sashiko/boro, Seki clippers, kitchen knives (checked baggage), Kaikado, Shoyeido. Manufacturer pages preferred."
+  },
+  "schede": [
+    {
+      "id": "shop-all-porter-yoshida",
+      "long": "PORTER di Yoshida & Co. è nylon, zip e cuciture da laboratorio tokyoita: waist bag, tote, organizer e linee (Tanker, Force, e decine di altre) con colori e collab spesso più ampi in Giappone che nei corner europei. Non è un logo da streetwear generico: l’etichetta interna, il codice linea e la qualità delle zip raccontano se hai un pezzo ufficiale. Nei flagship e nei department store confronti dimensioni reali sul corpo e capacità in litri prima di immaginare il bagaglio a mano. Una tanker mini può diventare il tuo everyday; uno zaino pieno di scomparti inutilizzati è solo peso. Conserva scontrino e cartellini: utili per autenticità e per eventuale riparazione sul canale Yoshida.",
+      "sections": [
+        {
+          "title": "Linea, codice e cuciture",
+          "body": "Guarda etichetta PORTER / Yoshida, lotto e rifiniture. Cuciture regolari, zip che scorrono, nylon senza odori strani. Le collab (con Hobonichi, Shoyeido, ecc.) hanno packaging e hangtag dedicati: confrontali con il sito yoshidakaban."
+        },
+        {
+          "title": "Misure per cabina e corpo",
+          "body": "Prova tracolla e manici caricando il peso tipico (bottiglia, power bank, taccuino). Una waist bag troppo piccola frustra; una tote troppo grande diventa sacca della spesa permanente. Misura altezza e profondità contro la tua policy bagaglio a mano."
+        },
+        {
+          "title": "Dove ha senso comprare",
+          "body": "Flagship PORTER, STAND, EXCHANGE e department store affidabili riducono il rischio di paralleli dubbi. Il prezzo pieno in Giappone può comunque convenire per colori o pezzi non importati — non per ogni modello base già disponibile a casa."
+        },
+        {
+          "title": "Il nylon che sopravvive al tuo itinerario",
+          "body": "Tanker è nato con aria militare e anima da pendolare. Se lo tratti come pezzo da museo sotto vetro, stai usando male un oggetto progettato per prendere l’ultimo treno e un caffè versato.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Yoshida & Co. / PORTER — ufficiale",
+          "url": "https://www.yoshidakaban.com/",
+          "kind": "produttore"
+        },
+        {
+          "title": "PORTER — English product pages",
+          "url": "https://www.yoshidakaban.com/en/",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-sousou",
+      "long": "SOU・SOU è un brand kyotoita che ripensa motivi stagionali giapponesi in tessuti contemporanei: tabi shoes, samue, abiti, borse e pezzi da casa. I negozi a Kyoto (e i corner selezionati) permettono di toccare cotoni, vedere le taglie reali e capire se un pattern «da kimono pop» ti sta nella vita di tutti i giorni o solo nella foto davanti a Fushimi Inari. Non è costume teatrale: è design che usa forme tradizionali in chiave moderna. Prova sempre la vestibilità — le taglie JP non mappano 1:1 sulle europee — e scegli un capo che indosserai fuori dal viaggio, non un souvenir da appendere con i vestiti «troppo belli per usarli».",
+      "sections": [
+        {
+          "title": "Motivo, tessuto e stagione",
+          "body": "I pattern raccontano stagioni e luoghi. Chiedi composizione (cotone, misto) e cura del lavaggio. Un samue leggero ha senso in estate umida; un pezzo strutturato pesa in valigia: bilancia volume e uso."
+        },
+        {
+          "title": "Tabi e abiti: prova obbligatoria",
+          "body": "Le tabi shoes hanno calzata particolare: misura e forma dell’alluce contano. Per abiti e pantaloni, muoviti in negozio; il taglio giapponese può essere più corto di quanto immagini da cartellino."
+        },
+        {
+          "title": "Negozi Kyoto e pezzo unico utile",
+          "body": "I punti SOU・SOU in città permettono di confrontare linee (tabi, yousou, tessili). Meglio un foulard o una borsa usati ogni settimana che un kimono-ish che resta nell’armadio dell’ospite."
+        },
+        {
+          "title": "Nuova cultura giapponese, vecchia scusa da valigia",
+          "body": "Il motto del brand parla di «creare nuova cultura giapponese». La tua valigia parlerà di «non entrava più nulla». Compra un pezzo forte, non un guardaroba parallelo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "SOU・SOU — netshop ufficiale",
+          "url": "https://www.sousou.co.jp/en-us",
+          "kind": "produttore"
+        },
+        {
+          "title": "SOU・SOU — about",
+          "url": "https://www.sousou.co.jp/en-de/pages/about",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-tabi-socks",
+      "long": "Le calze tabi separano l’alluce dal resto delle dita: nate per le scarpe a tocco tradizionale, oggi esistono in cotone quotidiano, versioni sportive e fantasie che vanno dal sobrio al deliberatamente stravagante. Sono tra i regali più facili del viaggio: costano poco, pesano quasi zero e comunicano subito «Giappone» senza rompersi in stiva. Controlla taglia (spesso in cm di piede), composizione e se lo spessore serve per scarpe strette o per geta/tabi shoes. Department store, Don Quijote e botteghe di templi/souvenir le espongono a muro: scegli due paia che indosserai, non dodici «per i colleghi» che finiscono nel cassetto altrui.",
+      "sections": [
+        {
+          "title": "Misura e materiale",
+          "body": "Guarda la tabella cm, non solo S/M/L. Cotone per il quotidiano, spessori diversi per sneaker o scarpe tradizionali. Cuciture piatte sul dito riducono i punti di pressione nelle tabi shoes."
+        },
+        {
+          "title": "Fantasia contro uso reale",
+          "body": "Le print deliranti sono divertenti in foto; le tinta unita o i pattern sobri si usano di più. Se regali, chiediti se il destinatario indossa sneaker o solo stivali invernali — in quel caso forse un altro souvenir."
+        },
+        {
+          "title": "Volume in valigia",
+          "body": "Arrotolate occupano meno di una maglietta. Mettilene un paio nello zaino di ogni giorno: utili se provi calzature tradizionali o se vuoi piedi più freschi nell’umidità."
+        },
+        {
+          "title": "L’alluce finalmente indipendente",
+          "body": "La prima volta che indossi tabi socks sembra di aver concesso il diritto di voto a un dito. Dopo un giorno in zoccolo o sneaker larghe, tornare alle calze «normali» sembra una regressione democratica.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "SOU・SOU — tabi culture contemporanea",
+          "url": "https://www.sousou.co.jp/en-us",
+          "kind": "produttore"
+        },
+        {
+          "title": "Kyoto.travel",
+          "url": "https://kyoto.travel/en/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-indigo-sashiko",
+      "long": "Sashiko e boro sono tecniche e estetiche legate a riparazione, rinforzo e indaco: cuciture a punto regolare, patchwork di cotoni usati, blu che invecchiano. Come oggetto da comprare — borsa, noren piccolo, giacca, undercover da tavolo — va distinto il lavoro cucito (filo che passa, rovescio leggibile) dalla stampa che imita il punto o dal «boro look» industriale. Nei mercati artigiani e nelle botteghe tessili chiedi materiali, se il pezzo è riparato/assemblato a mano e come lavarlo. Un accessorio piccolo ben fatto batte una giacca stampata che perde il fascino al primo lavaggio in lavatrice europea aggressiva.",
+      "sections": [
+        {
+          "title": "Rovescio e filo: il test onesto",
+          "body": "Gira il pezzo. Cuciture sashiko vere mostrano percorso del filo; il boro autentico o di riparazione contemporanea ha strati e irregolarità. Una stampa serigrafica blu può essere bella, ma non è la stessa categoria di prezzo né di storia."
+        },
+        {
+          "title": "Indaco, lavaggio e crocking",
+          "body": "L’indaco può tingere pelle e camicie chiare all’inizio. Chiedi se il colore scarica e lava a parte le prime volte. Evita lavaggi bollenti su patch delicati."
+        },
+        {
+          "title": "Formato da viaggio",
+          "body": "Pochette, small bag e pannelli pieghevoli viaggiano meglio di un haori voluminoso. Se compri abbigliamento, prova la taglia: molti pezzi artigianali sono unici o in taglie limitate."
+        },
+        {
+          "title": "Usura come lusso",
+          "body": "Il boro celebra la toppeatura; la moda veloce celebra il contrario. Portare un pezzo riparato con orgoglio è il flex più giapponese possibile — e confonde chi cerca solo il logo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Agency for Cultural Affairs — cultural properties",
+          "url": "https://www.bunka.go.jp/english/policy/cultural_properties/",
+          "kind": "ente"
+        },
+        {
+          "title": "JNTO — cultural heritage",
+          "url": "https://www.japan.travel/en/guide/japans-cultural-heritage/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-nail-clippers",
+      "long": "I tagliaunghie di precisione giapponesi — spesso legati alla tradizione cutler di Seki o a brand di department store — puntano su acciaio affilato, leva solida e contenitore per i ritagli. È un oggetto banale elevato a tool: si prova nella mano (gioco della molla, allineamento delle lame) più di quanto si fotografi. Nei piani casa dei grandi magazzini e nelle coltellerie trovi fasce da pochi euro a pezzi «lifetime» in confezione regalo. Non è un’arma da dichiarare come un coltello da cucina, ma resta metallo in cabina: mettilo nel vanity con gli altri toiletry, non tra i souvenir di vetro. Un buon paio pesa poco e rende ridicoli i clipper da farmacia piegati.",
+      "sections": [
+        {
+          "title": "Seki e dintorni di qualità",
+          "body": "Cerca marche con indicazione di produzione cutler, finitura delle lame e contenitore ritagli che chiude davvero. La leva deve tornare senza giochi laterali; se scricchiola nuova, peggiorerà."
+        },
+        {
+          "title": "Prova in reparto casa",
+          "body": "Department store e specialty hardware permettono di confrontare due modelli affiancati. Ignora le confezioni ultra-kawaii se il meccanismo è debole: il contenuto conta più della mascotte."
+        },
+        {
+          "title": "Metallo in viaggio",
+          "body": "In cabina di solito passa con i toiletry; regole di compagnia e paese possono variare sui lama. In dubbio, stiva nel bagaglio checked dentro una bustina. Asciuga sempre dopo uso umido per evitare macchie."
+        },
+        {
+          "title": "L’unico souvenir che usi ogni domenica",
+          "body": "Mentre il magnete del tempio resta sul frigo, il tagliaunghie di Seki lavora in silenzio per anni. È il pezzo meno Instagrammabile e più onesto del reparto casa.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "GO TOKYO — shopping",
+          "url": "https://www.gotokyo.org/en/see-and-do/shopping/index.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — culture and crafts context",
+          "url": "https://www.japan.travel/en/guide/japans-cultural-heritage/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-kitchen-knife",
+      "long": "Un coltello giapponese — santoku, gyuto, petty — è un acquisto serio: acciai diversi, geometrie di lama, manici wa o western, finiture martellate o specchio. Nelle coltellerie specializzate (e nei reparti di Kyoto, Sakai, Tokyo) puoi dichiarare budget e uso (verdure, carne, pesce, tuttofare) e farti indicare un pezzo affilato e protetto da saya o guardia. Regola non negoziabile per il volo: lama in bagaglio da stiva, mai in cabina, imballata in modo che non tagli chi apre la valigia. Chiedi manutenzione (pietra, angolo), se l’acciaio è reattivo alla ruggine e se include affilatura iniziale. Un petty piccolo spesso insegna più di un bancone da chef che non userai in cucina casalinga.",
+      "sections": [
+        {
+          "title": "Forma della lama e uso a casa",
+          "body": "Santoku versatile, gyuto più lungo, petty per dettagli: scegli in base a come cucini, non al video del cuoco su YouTube. Acciaio inox semplifica la vita in viaggio di ritorno; carbonio chiede asciugatura ossessiva."
+        },
+        {
+          "title": "Solo stiva, imballo serio",
+          "body": "In cabina è vietato. In stiva: lama in saya o guaina rigida, avvolta, lontano dai bordi della valigia, dichiarando a te stesso (e al partner) dove l’hai messa. Non affidarti al solo blister di cartone."
+        },
+        {
+          "title": "Negozio che spiega, non solo vende",
+          "body": "Coltellerie che parlano di pietra, angolo e garanzia di affilatura valgono il pezzo in più. Evita gadget da stazione senza nome di acciaio. Annota produttore e modello per ricambi o assistenza futura."
+        },
+        {
+          "title": "Il santoku che giudica i tuoi pomodori",
+          "body": "Dopo un buon coltello giapponese, il tuo vecchio lama da cassetto sembrerà un attrezzo da giardinaggio. È una maledizione delicata — e il motivo per cui tornerai a parlare di grana e honyaki a cena.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Osaka Info — craft and shopping context",
+          "url": "https://www.osaka-info.jp/en/osaka/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Kyoto.travel",
+          "url": "https://kyoto.travel/en/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-kaikado-caddy",
+      "long": "Il chazutsu Kaikado è un barattolo da tè in latta lavorata a Kyoto da oltre un secolo: aperture a scatto precise, metalli che prendono patina, misure da quotidiano a pezzo da vetrina. Non è un tin generico da supermarket: la chiusura e la lavorazione sono il prodotto. In negozio (e presso rivenditori selezionati) prova l’apertura, scegli materiale e diametro, e chiedi come si evolve la superficie con gli anni. Per il viaggio proteggi da urti — un ammaccatura resta — e considera se lo userai per sencha/hōjicha o come contenitore asciutto di pregio. Il prezzo riflette ore di mestiere, non un logo stampato.",
+      "sections": [
+        {
+          "title": "Scatto, tenuta e misura",
+          "body": "La chiusura deve essere netta e regolare. Confronta altezze: un caddy troppo grande resta mezzo vuoto e viaggia male; uno piccolo si riempie spesso ma si usa ogni giorno. Chiedi se è pensato solo per tè o anche per altri secchi."
+        },
+        {
+          "title": "Patina e materiali",
+          "body": "Rame, ottone, tin plating e finiture diverse invecchiano in modi distinti. Le impronte e l’ossidazione controllata fanno parte dell’estetica Kaikado: se vuoi lo specchio eterno, stai cercando un altro oggetto."
+        },
+        {
+          "title": "Urti in valigia",
+          "body": "Avvolgi in vestiti o custodia; non lasciarlo ballare tra scarpe. In cabina è preferibile alla stiva se hai spazio: meno rischi di schiacciamento. Svuotalo prima del volo se conteneva foglie."
+        },
+        {
+          "title": "Il barattolo che applaude quando lo apri",
+          "body": "Lo scatto Kaikado è talmente soddisfacente che finisci per aprirlo anche senza tè, solo per il click. È l’unico strumento di cucina che fa anche da antistress di lusso.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Kaikado — ufficiale",
+          "url": "https://www.kaikado.jp/",
+          "kind": "produttore"
+        },
+        {
+          "title": "Kyoto.travel",
+          "url": "https://kyoto.travel/en/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-shoyeido-incense",
+      "long": "Shoyeido (松栄堂) è una casa di incenso di Kyoto attiva da secoli: stick quotidiani, miscele per koh-dō, legni e set regalo con profili dal fiorito leggero al legnoso profondo. Nei negozi ufficiali di Kyoto e Tokyo puoi annusare con calma, partire da assortimenti piccoli e capire se ti serve solo il fascio di bastoncini o anche bruciatore e supporto. Non è «profumo a caso»: densità del fumo, durata e nota dominante cambiano tra linee. Per il viaggio scegli confezioni chiuse, evita di schiacciare i bastoncini nello zaino e verifica le regole su aerosol/fiamme una volta a casa — l’incenso si usa con attenzione in ambienti con sensori di fumo d’albergo (meglio non testarlo in camera).",
+      "sections": [
+        {
+          "title": "Annusare prima del formato grande",
+          "body": "Gli assortment e le fiale campione esistono apposta. Una nota di sandalo o di erbe che ami in bottega può risultare pesante in un bilocale europeo: scala la quantità, non solo il prestigio della linea."
+        },
+        {
+          "title": "Bastoncini, supporto e koh-dō",
+          "body": "Alcune miscele si usano con strumenti specifici; per casa basta spesso un semplice bruciatore sicuro. Chiedi in negozio se il pezzo è per uso quotidiano o cerimoniale. Conserva lontano da umidità."
+        },
+        {
+          "title": "Packaging e regole pratiche",
+          "body": "Confezioni rigide proteggono i stick. In hotel non bruciare incenso: sensori e vicini. A casa apri una finestra. Se viaggi con braci o carboncini, le restrizioni bagaglio si fanno serie — resta sugli stick semplici."
+        },
+        {
+          "title": "Kyoto in una spirale di fumo",
+          "body": "Accendere Shoyeido a casa è il modo più legale di far credere al cervello di essere ancora a Teramachi. Funziona finché qualcuno non chiede «hai bruciato il toast?» — calibra la dose.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "SHOYEIDO — English",
+          "url": "https://www.shoyeido.co.jp/english/",
+          "kind": "produttore"
+        },
+        {
+          "title": "Yoshida & Co. — Shoyeido × PORTER Travel Incense Kit",
+          "url": "https://www.yoshidakaban.com/en/product/105686.html",
+          "kind": "produttore"
+        }
+      ]
+    }
+  ]
+}

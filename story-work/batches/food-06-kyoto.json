@@ -1,0 +1,568 @@
+{
+  "meta": {
+    "batch": "food-06-kyoto",
+    "note": "Phase 2 Kyoto food deep stories (14). Dish culture angles; avoid place-temple tofu logistics and hakone yuba-don overlap. Sources: MAFF, Kyoto.travel, JNTO, producer pages."
+  },
+  "schede": [
+    {
+      "id": "food-kyoto-kaiseki",
+      "long": "Il kaiseki di Kyoto non è un buffet elegantemente spezzettato: è una grammatica di stagioni servita a ritmi precisi. Nasce vicino alla cerimonia del tè — il pasto leggero che preparava il matcha — e cresce nei ryōtei dove ogni piatto deve arrivare caldo se caldo, freddo se freddo, e mai «tutto insieme». Si mangia una sequenza: sakizuke, zuppa, sashimi o mukozuke, lesso, griglia, frittura, riso, sottaceti, dolce. Il dashi di kombu e katsuobushi fa da basso continuo, mentre ceramiche, foglie e nomi stagionali dicono cosa è il mese meglio di un calendario. A tavola conta meno riempire lo stomaco e più capire perché quella verdura, quel pesce e quel colore stanno insieme stasera. Prenotare, accettare il menu del giorno e non pretendere di «scegliere il secondo» è parte del rito urbano: qui la cucina guida, l'ospite ascolta.",
+      "sections": [
+        {
+          "title": "Stagione sul vassoio",
+          "body": "Il kaiseki di Kyoto legge l'anno in ingredienti e nomi. Un piatto di primavera non è solo più verde: usa tecniche e ceramiche che cambiano con il vento. Se il menu sembra criptico, chiedete la stagione, non la traduzione letterale di ogni foglia."
+        },
+        {
+          "title": "Dashi prima del teatro",
+          "body": "Il brodo leggero è la firma: non copre, sostiene. Quando un corso sa di «tutto e niente», spesso è proprio il dashi a lavorare in silenzio. È la differenza tra un pasto scenografico e uno che resta in bocca dopo la ceramica."
+        },
+        {
+          "title": "Etiquette da telefono spento",
+          "body": "Arrivate in orario, accettate il percorso, non chiedete di saltare tre piatti per arrivare al riso. Il kaiseki non è un degustazione europea a la carte: è un discorso a cui si risponde mangiando."
+        },
+        {
+          "title": "Il menu che vi giudica dolcemente",
+          "body": "Se cercate il «piatto forte» per fotografarlo, il kaiseki vi risponde con dodici piatti medi. È educazione: la star è la sequenza, non l'eroe solitario sul piatto.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Food & Drink — Kyoto Travel",
+          "url": "https://kyoto.travel/en/food-and-drink/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Japanese gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Kyoto, Spiritual Home of Japanese Cuisine — Web Japan",
+          "url": "https://web-japan.org/trends/07_food/jfd071003.html",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "food-kyoto-yudofu",
+      "long": "Lo yudofu è tofu caldo che si comporta da pietanza, non da contorno. A Kyoto la cucina shōjin ha insegnato a fare molto con poco: soia, acqua, kombu, e la pazienza di non far bollire tutto a morte. Il blocco si scaldà in una pentola di ceramica con alga che dà umami senza pesce; poi si pesca con la mestolina e si condisce a tavola — ponzu, zenzero, cipollotto, a volte sesamo. Non è «zuppa di tofu»: è calore lento e texture setosa, dove la qualità dell'acqua e del coagulo conta più della salsa. Si mangia d'inverno come conforto e d'estate in versioni più fresche, ma il gesto resta lo stesso: spezzare, immergere, assaggiare. Evitate di scuocere il pezzo aspettando che «faccia crosta»: qui la crosta non è il punto. Il punto è il silenzio del tofu buono.",
+      "sections": [
+        {
+          "title": "Kombu, non spettacolo",
+          "body": "Il brodo di alga resta chiaro e discreto. Se vedete un mare di spezie, non è lo yudofu classico. La pentola deve odorare di soia e mare secco, non di barbecue."
+        },
+        {
+          "title": "Condimento personale",
+          "body": "Ognuno costruisce la propria ciotola: un filo di ponzu, un pizzico di zenzero, poco cipollotto. Troppo di tutto cancella il tofu. Meglio poco e ripetuto che un bagno unico."
+        },
+        {
+          "title": "Quando ordinarlo",
+          "body": "Pranzo leggero dopo un tempio, cena invernale, o corso tofu in un menu più ampio. Non è street food: è piatto da sedersi, perché la pentola vuole tempo e attenzione."
+        },
+        {
+          "title": "Il tofu che vi obbliga a rallentare",
+          "body": "È l'unico secondo che vi rimprovera se mangiate di fretta: brucia la lingua e non offre crosta da mordere. Kyoto insegna la pazienza anche a chi aveva ordinato solo «qualcosa di vegetariano».",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Food & Drink — Kyoto Travel (yudofu)",
+          "url": "https://kyoto.travel/en/food-and-drink/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "京豆腐 — MAFF tradizionale",
+          "url": "https://www.maff.go.jp/j/keikaku/syokubunka/traditional-foods/menu/kyo_dohu.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-kyoto-nishin-soba",
+      "long": "La nishin soba è un incontro tra mare del nord e ciotola di Kyoto: soba calda in brodo e, sopra, un'aringa stufata a lungo in salsa dolce-salata. Il pesce arriva spesso dalla costa di Hokkaidō o del Mar del Giappone, lavorato fino a diventare tenero e lucido; i noodle di grano saraceno reggono il peso senza sciogliersi. Non è un piatto «di mare» nel senso del sashimi: è un piatto di stazione e di sobaya, dove il contrasto tra brodo leggero e aringa candita fa il lavoro. A Kyoto è specialità riconoscibile — soprattutto in certi locali storici — e si mangia senza fuss: ciotola, bacchette, silenzio. Se l'aringa sembra troppo dolce al primo morso, continuate: il dashi della soba riequilibra. È cibo di stagione fredda e di fame seria, non di finger food.",
+      "sections": [
+        {
+          "title": "Aringa come confettura salata",
+          "body": "La cottura lenta in shōyu, mirin e zucchero trasforma il pesce in una striscia lucida, quasi caramellata. Non cercate la croccantezza: cercate la fibra che si spezza."
+        },
+        {
+          "title": "Soba che tiene botta",
+          "body": "Il grano saraceno deve restare elastico sotto il brodo caldo. Se i noodle sono già molli, il piatto ha aspettato troppo. Meglio mangiare subito."
+        },
+        {
+          "title": "Contesto sobaya",
+          "body": "Si ordina al bancone o al tavolo di una soba house, non al chiosco di street food. È un pasto completo: soba, pesce, brodo. Acqua o tè verde bastano."
+        },
+        {
+          "title": "Il nord che finisce in ciotola",
+          "body": "Kyoto non ha un mare davanti, ma ha l'aringa in cima alla soba. È il modo più elegante di importare l'oceano senza mettere una barca in sala.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Food & Drink — Kyoto Travel",
+          "url": "https://kyoto.travel/en/food-and-drink/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-kyoto-obanzai",
+      "long": "L'obanzai è la cucina di casa di Kyoto portata in pubblico: tanti piccoli piatti di verdure di stagione, tofu, uova, alghe e avanzi nobilitati, serviti come un mosaico invece che come un unico secondo. Non è kaiseki e non è izakaya da fritti: è la logica del «quanto basta» — shōjin e risparmio mercantile — trasformata in menu quotidiano. Si riconosce dalle ciotoline, dai colori sobri e dal fatto che niente grida; i sapori sono dashi, miso, aceto leggero, sesamo. A tavola si assaggia un pezzo alla volta, si torna indietro, si accompagna col riso. È il modo più onesto di capire come mangia Kyoto quando non deve impressionare i turisti: stagione, equilibrio, poche spezie. Se cercate il pezzo «wow», forse non è il posto; se cercate il pezzo «vero», sì.",
+      "sections": [
+        {
+          "title": "Mosaico, non piatto unico",
+          "body": "Ordinate set o scegliere alcune ciotole: l'idea è varietà, non volume. Un obanzai buono ha pezzi diversi di texture — croccante, morbido, acidulo — senza ripetere lo stesso miso ovunque."
+        },
+        {
+          "title": "Verdure di Kyoto",
+          "body": "Kyo-yasai e ortaggi di mercato sono il cuore. Se vedete soltanto pollo fritto e patatine, non siete nell'obanzai: siete in un izakaya generico con nome elegante."
+        },
+        {
+          "title": "Quando e dove",
+          "body": "Pranzo di quartiere, cena leggera, bancone di osteria. Ideale dopo giornate di templi: sazia senza pesantezza e lascia spazio a un dolce o a un tè."
+        },
+        {
+          "title": "La cucina che non posa per Instagram",
+          "body": "L'obanzai vi serve dieci piatti beige e uno verde acceso. Poi vi fa scoprire che il beige era il migliore. Kyoto 1, filtri 0.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Food & Drink — Kyoto Travel",
+          "url": "https://kyoto.travel/en/food-and-drink/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-kyoto-yatsuhashi",
+      "long": "Lo yatsuhashi è il souvenir dolce di Kyoto che ha due vite. La forma cotta è una tegola sottile di riso e cannella, croccante e aromatica; la forma nama — «cruda» — è una sfoglia morbida ripiegata a triangolo e riempita di anko o di creme stagionali. Entrambe parlano della stessa pasta di riso, ma si mangiano in momenti diversi: la croccante viaggia in scatola, la morbida vuole essere mangiata in giornata. Il nome e la sagoma rimandano a leggende di ponte e di strumenti musicali; per il viaggiatore conta di più il gesto: aprire la confezione, sentire la cannella, scegliere il ripieno. Nelle botteghe vicino ai templi e in stazione troverete file di gusti — matcha, yuzu, fragola — ma il classico anko resta la misura. Non è un dessert da ristorante: è un morso da passeggio o da treno.",
+      "sections": [
+        {
+          "title": "Cotto contro nama",
+          "body": "Il hard yatsuhashi è cracker di cannella; il nama è mochi-like ripieno. Se volete mangiare subito, prendete il nama. Se volete regalare, la scatola cotta resiste meglio."
+        },
+        {
+          "title": "Cannella come firma",
+          "body": "Anche nei gusti moderni resta un filo di spezia. Se non sentite nulla oltre al dolce del fagioli, forse è solo un triangolo generico: cercate produttori storici."
+        },
+        {
+          "title": "Dove e quando",
+          "body": "Negozi specializzati, stazioni, percorsi verso Kiyomizu. Ideale a metà pomeriggio o sul treno. Non aspettatevi cucchiaio e sala: è dolce da mano."
+        },
+        {
+          "title": "Il triangolo che conquista le valigie",
+          "body": "Altri souvenir pesano e si rompono. Lo yatsuhashi pesa poco, profuma di cannella e si mangia prima ancora di arrivare a casa. Strategia di packaging vincente dal periodo Edo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Food & Drink — Kyoto Travel",
+          "url": "https://kyoto.travel/en/food-and-drink/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-kyoto-matcha-parfait",
+      "long": "Il matcha parfait di Kyoto — e soprattutto di Uji — è il tè verde che ha deciso di diventare dessert a strati. In un bicchiere alto si sovrappongono gelato o soft, crema, anko, mochi, gelatina di matcha, panna e a volte cereali croccanti; il filo conduttore è la polvere di tè, amara e profumata, che tiene a bada lo zucchero. Non è «gelato al tè»: è un paesaggio verticale dove ogni cucchiaiata cambia. Si mangia in sale da tè moderne, caffè specializzati e case storiche di Uji, spesso dopo aver visto i campi o le botteghe. Serve un cucchiaio lungo e un po' di pazienza: mescolare tutto all'inizio è un crimine contro la costruzione. Se il matcha è di qualità, l'amaro arriva chiaro; se è solo colorante, resta solo dolce. Scegliete posti che vendono anche tè sfuso: di solito sanno cosa stanno facendo.",
+      "sections": [
+        {
+          "title": "Strati, non frullato",
+          "body": "Assaggiate dall'alto verso il basso senza distruggere la torre al primo colpo. Anko e mochi danno densità; il gelato dà freddo; il matcha dà carattere."
+        },
+        {
+          "title": "Uji come bussola",
+          "body": "Intorno a Uji il parfait è quasi un dialetto: più tè, meno sciroppi generici. In città cercate locali che dichiarano la provenienza della polvere."
+        },
+        {
+          "title": "Quando ordinarlo",
+          "body": "Pomeriggio, pausa tra templi, dopo un bentō leggero. È abbondante: spesso basta condividerlo in due se avete ancora cena."
+        },
+        {
+          "title": "Il tè che si è iscritto alla palestra del gelato",
+          "body": "Il matcha ha passato secoli in ciotole austere. Ora fa bodybuilding in un bicchiere da mezzo chilo. Stessa foglia, carriera diversa.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Food & Drink — Kyoto Travel",
+          "url": "https://kyoto.travel/en/food-and-drink/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Uji tea culture — Kyoto area travel context",
+          "url": "https://www.japan.travel/en/destinations/kansai/kyoto/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-kyoto-namafu",
+      "long": "Il nama-fu è glutine di frumento lavorato come una pasta viva: elastico, colorato con verdure o yomogi, spesso modellato a foglia o a fiore. A Kyoto entra nella cucina di tempio e nei kappō come proteina vegetale elegante; la versione dengaku lo infilza, lo gratta sulla brace o sulla piastra e lo spalma di miso dolce. Il contrasto è tutto: fuori profumato e leggermente caramellato, dentro morbido come un mochi salato. Non è tofu e non è pane: è una terza via della soia-free protein culture della città. Si trova in menù shōjin, in nabe e come antipasto. Se è troppo gommoso, è stato cotto male o tenuto in caldo troppo a lungo; se si scioglie, forse era troppo fresco per la griglia. Mangiatelo caldo, con un sorso di tè o di sake leggero.",
+      "sections": [
+        {
+          "title": "Fu come materiale",
+          "body": "Il glutine viene lavorato con farina di riso e coloranti naturali. I pezzi verdi o rosa non sono «dolci»: sono segnali di erbe e radici. Guardate la sezione: deve essere uniforme, non farinosa."
+        },
+        {
+          "title": "Dengaku: miso sulla brace",
+          "body": "Il miso dolce-salato cuoce a contatto col calore e forma una crosticina. Non raschiatela: è il pezzo che conta. Il resto del nama-fu resta morbido sotto."
+        },
+        {
+          "title": "Dove incontrarlo",
+          "body": "Ristoranti di tofu/fu, menù vegetariani, qualche bancarella stagionale. Meno comune come street snack puro: meglio seduti."
+        },
+        {
+          "title": "Il glutine che fa il divo",
+          "body": "In Occidente il glutine è il cattivo del panino. A Kyoto lo vestono di miso, lo mettono sullo stecco e lo fanno applaudire. Rebranding totale.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Food & Drink — Kyoto Travel (fu / yuba)",
+          "url": "https://kyoto.travel/en/food-and-drink/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-kyoto-hamo",
+      "long": "L'hamo — grongo o «pike conger» — è il pesce estate di Kyoto: carne bianca delicata, lische minute, e una tecnica da apprendistato chiamata honekiri, il taglio delle ossa. Il cuoco incide il filetto a ritmi strettissimi senza rompere la pelle, così le lische diventano innocue al morso. Si mangia in otoshi (scottato e immerso in acqua ghiacciata), in shabu, alla griglia con salsa, in sushi. Arriva vivo da mari lontani perché resiste al trasporto: non è un pesce di fiume cittadino, è un pesce di logistica e di mestiere. In estate i kappō e i ryōtei lo mettono al centro del menu; fuori stagione è più raro o più caro. Non cercate un sapore da tonno: cercate dolcezza di bianco e la sorpresa di una texture che «scricchiola» leggermente grazie al taglio. È il piatto che separa il turista curioso dal tavolo che sa cosa sta ordinando.",
+      "sections": [
+        {
+          "title": "Honekiri come firma",
+          "body": "Senza il taglio delle ossa l'hamo è quasi immangiabile. Con il taglio diventa un nastro bianco che si spezza sotto i denti. Se il pezzo è fibroso e pieno di spine, il locale ha risparmiato sulla tecnica."
+        },
+        {
+          "title": "Estate sulla carta",
+          "body": "Gion e i mesi caldi sono la stagione naturale. Molti posti offrono percorsi solo-hamo: otoshi, griglia, zuppa. Utile se volete capire il pesce in tutte le sue facce."
+        },
+        {
+          "title": "Come mangiarlo",
+          "body": "L'otoshi si gusta con ponzu o ume; la griglia con salsa dolce. Non annegarlo in wasabi. Il punto è la carne, non il condimento."
+        },
+        {
+          "title": "Il pesce che addestra gli chef",
+          "body": "A Kyoto si dice che non sei cuoco finché non sai fare l'honekiri. Altrove ti chiedono il curriculum; qui ti chiedono quante lische hai sconfitto oggi.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Grilled Hamo — MAFF Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/2663/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "はもの焼き物 — MAFF うちの郷土料理",
+          "url": "https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/hamonoyakimono_kyoto.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Food & Drink — Kyoto Travel",
+          "url": "https://kyoto.travel/en/food-and-drink/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-kyoto-sabazushi",
+      "long": "Il saba-zushi di Kyoto è sushi pressato di sgombro: riso acidulo, pesce marinato o salato, spesso avvolto in foglia di bambù o kelp, a forma di bastone da tagliare a fette. Nasce lungo le vie del pesce — le saba kaidō — che portavano lo sgombro da Wakasa alla capitale: il sale del viaggio diventava stagionatura, e in città si trasformava in sushi da festa. Non è nigiri di bancone: è un mattone compatto, da portare, da condividere, da mangiare ai matsuri. Il sapore è più deciso del tonno maguro, con acidità e grasso blu; se è troppo «di mare vecchio», lo sgombro non era fresco o la marinatura è scappata di mano. Si trova in negozi specializzati e in menù di kappō. Si mangia a temperatura ambiente, non ghiacciato a morte. È il pezzo di storia alimentare che ancora si taglia con il coltello sul bancone.",
+      "sections": [
+        {
+          "title": "Pressa, non pugno",
+          "body": "Il riso e lo sgombro vengono compattati in uno stampo. Le fette devono tenere insieme senza sbriciolarsi. Se il riso è molle e separato, non è un buon saba-zushi."
+        },
+        {
+          "title": "Sale di strada, festa in tavola",
+          "body": "Storicamente il sale del trasporto temperava il pesce; oggi la tecnica è controllata, ma il carattere resta. Perfetto per i grandi festival di Kyoto, quando si mangia in piedi o da asporto."
+        },
+        {
+          "title": "Accompagnamenti",
+          "body": "Zenzero, tè o sake leggero. Wasabi con misura. Non serve salsa di soia abbondante: il pesce è già condito dalla marinatura."
+        },
+        {
+          "title": "Lo sgombro che ha fatto il pellegrinaggio",
+          "body": "Altri pesci arrivano in aereo. Lo sgombro di Kyoto ha una biografia di cammino: due o tre giorni di strada e una seconda vita a fette. Curriculum da romanzo di formazione.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Sabazushi — MAFF Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/7191/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "さばずし — MAFF うちの郷土料理",
+          "url": "https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/sabazushi_kyoto.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Food & Drink — Kyoto Travel",
+          "url": "https://kyoto.travel/en/food-and-drink/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-kyoto-tsukemono",
+      "long": "I kyo-tsukemono sono i sottaceti di Kyoto: verdure lavorate con sale, crusca, sake kasu o pressatura, fino a diventare contorni aromatici che chiudono il pasto o lo accompagnano. Tre nomi tornano spesso — shibazuke (melanzana e cetriolo viola-rossi con foglie di shiso), suguki (rapa fermentata tipica), senmaizuke (rapa bianca a fette sottili in aceto dolce) — ma il mondo è più ampio: ogni bottega ha la sua pressa e i suoi tempi. Non sono «verdure sotto aceto» europee: qui contano fragranza, croccantezza e il modo in cui puliscono il palato dopo il grasso o il dashi. Si comprano al mercato e nei negozi specializzati, si assaggiano in set da degustazione, si portano a casa in barattoli piccoli. Un pezzo basta; dieci pezzi sono un pranzo. Se sono solo salati e molli, sono mediocri: i buoni hanno acidità viva e profumo di orto.",
+      "sections": [
+        {
+          "title": "Tre firme da riconoscere",
+          "body": "Shibazuke scuro e aromatico di shiso; suguki pungente e lattiero-fermentato; senmaizuke traslucido e dolce-acido. Ordinate un tris se è la prima volta."
+        },
+        {
+          "title": "Ruolo a tavola",
+          "body": "Chiudono il kaiseki, accompagnano il riso, spezzano la monotonia di un bentō. Non sono il piatto principale: sono il punto e a capo del gusto."
+        },
+        {
+          "title": "Comprare senza sbagliare",
+          "body": "Botteghe con produzione propria e frigoriferi ordinati. Evitate confezioni turistiche enormi se non finirete il barattolo: i sottaceti migliori amano il fresco."
+        },
+        {
+          "title": "Il contorno che ruba la scena",
+          "body": "Venite per il sashimi e finite a discutere di una rapa a fette. I kyo-tsukemono sono così: quieti, poi invadenti, poi indispensabili.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Food & Drink — Kyoto Travel",
+          "url": "https://kyoto.travel/en/food-and-drink/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-kyoto-dashimaki",
+      "long": "Il dashimaki tamago di Kyoto è un'omelette arrotolata che ha deciso di essere succosa. A differenza della tamagoyaki di Edo più dolce e compatta, qui l'uovo si mescola con abbondante dashi: il risultato è umido, lucido, a strati teneri che sgocciolano appena tagliati. Si mangia al mercato a pezzi, nei bentō, come antipasto di kappō. Il gesto tipico è cuocere in padella rettangolare, arrotolare, aggiungere altra miscela, arrotolare di nuovo. Se è secco e zuccherato come un dessert, non è lo stile di Kyoto; se è troppo liquido da non tagliare, il dashi ha vinto sull'uovo. Si gusta tiepido o a temperatura ambiente, a volte con daikon grattugiato. È il pezzo «semplice» che rivela subito se la cucina sa fare il brodo.",
+      "sections": [
+        {
+          "title": "Dashi dentro l'uovo",
+          "body": "Il brodo non è una salsa a parte: è nell'impasto. All'assaggio deve arrivare umami prima dello zucchero. Un filo di soia fuori basta."
+        },
+        {
+          "title": "Rotolo e lucentezza",
+          "body": "Le fette mostrano spirali morbide, non strati secchi. Il coltello deve uscire umido. Se sbriciola, è stato cotto troppo."
+        },
+        {
+          "title": "Mercato e bancone",
+          "body": "Perfetto come assaggio al volo a Nishiki o come pezzo in un set. Non è street food fritto: è uovo caldo da cartoccio o piattino."
+        },
+        {
+          "title": "L'omelette che fa concorrenza al brodo",
+          "body": "Di solito l'uovo è il protagonista e il dashi sta nella zuppa. A Kyoto l'uovo ha ingoiato la zuppa e se ne vanta a fette.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Food & Drink — Kyoto Travel",
+          "url": "https://kyoto.travel/en/food-and-drink/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-kyoto-tofu-donuts",
+      "long": "Le ciambelle di tofu di Kyoto sono lo street dessert che prende la soia della città e la fritto in piccolo. Impasto con tofu o latte di soia, forma mini, crosta leggera e interno soffice: meno untuose di molte donut americane, più profumate di fagiolo. Si trovano vicino a templi e percorsi pedonali, spesso appena uscite, in coni di carta. Non pretendono di essere haute cuisine: pretendono di essere calde. Il tofu qui non è «nascosto» come sostituto triste; è la ragione della morbidezza. Se sanno solo di olio, sono mediocri; se sanno di soia dolce e si sgonfiano sotto i denti, sono nel punto giusto. Ideali a metà mattina o come premio dopo una salita. Non sostituiscono un pasto: accompagnano una passeggiata.",
+      "sections": [
+        {
+          "title": "Caldo o niente",
+          "body": "Compratele quando escono. Fredde perdono il punto. Se la fila si muove verso la friggitrice, siete nel posto giusto."
+        },
+        {
+          "title": "Soia, non solo zucchero",
+          "body": "Un buon pezzo ha dolcezza sobria e aroma di tofu. Troppa glassa le trasforma in donut generiche: preferite versioni semplici o con kinako."
+        },
+        {
+          "title": "Contesto street",
+          "body": "Chioschi e piccole botteghe sui percorsi turistici. Mangiate in piedi, senza aspettative da pasticceria francese. Tè in lattina o acqua bastano."
+        },
+        {
+          "title": "Il tofu che ha scoperto la frittura",
+          "body": "Dopo secoli di pentole austere, il tofu di Kyoto si è fatto ciambella. Non è decadenza: è marketing spirituale con zucchero a velo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "京豆腐 — MAFF",
+          "url": "https://www.maff.go.jp/j/keikaku/syokubunka/traditional-foods/menu/kyo_dohu.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Food & Drink — Kyoto Travel",
+          "url": "https://kyoto.travel/en/food-and-drink/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-kyoto-warabi-mochi",
+      "long": "Il warabi mochi è una gelatina tremante di amido di felce (o di sostituti moderni), tagliata a cubetti, rotolata nel kinako e bagnata di kuromitsu. A Kyoto e nel Kansai è dolce da sala da tè e da estate: fresco, poco dolce in sé, molto aromatico grazie alla farina di soia tostata e allo sciroppo nero. La texture deve tremare e spezzarsi senza essere gomma da masticare; se è troppo dura, l'amido o la ricetta non sono quelli giusti. Si mangia subito con forchettina o stecchino: non aspetta in borsa. Nelle versioni «vere» di warabi l'amido di felce è costoso; molte versioni commerciali usano mix più economici — buone lo stesso se fresche, diverse se cercate il gusto boschivo. Ideale dopo un pranzo leggero o come pausa tra templi, quando il caldo chiede qualcosa che non sia fritto.",
+      "sections": [
+        {
+          "title": "Tremore e kinako",
+          "body": "Il cubetto deve luccicare e cedere. Il kinako non è solo polvere decorativa: è metà del sapore. Il kuromitsu si versa a filo, non a lago."
+        },
+        {
+          "title": "Fresco di giornata",
+          "body": "Warabi mochi e frigo lungo non sono amici. Se è in vetrina da ore sotto il sole, scegliete altro. I posti che lo preparano spesso battono quelli che lo espongono."
+        },
+        {
+          "title": "Sala da tè",
+          "body": "Si ordina con matcha o tè freddo. Non è dessert da cena formale: è pausa. Condividere una porzione in due è ragionevole."
+        },
+        {
+          "title": "Il dolce che vibra quando lo guardi",
+          "body": "Altri wagashi posano immobili. Il warabi mochi trema sul piatto come se avesse paura del cucchiaio. Ha ragione: il cucchiaio arriva sempre.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Food & Drink — Kyoto Travel",
+          "url": "https://kyoto.travel/en/food-and-drink/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Our Regional Cuisines — MAFF",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-kyoto-yuba",
+      "long": "Lo yuba è la pellicola che si forma sulla superficie del latte di soia caldo, raccolta a fogli o a nastri. A Kyoto è cultura di piatto, non solo ingrediente da tempio: si mangia fresco — ancora caldo, intinto in soia e wasabi — oppure essiccato e reidratato in brodi, involtini e corsi di kaiseki. La freschezza conta: lo yuba appena levato ha una dolcezza di soia e una elasticità da non confondere con il tofu a blocco né con una ciotola di yuba-don di montagna. Qui il gesto tipico è sollevare la pellicola, piegarla, assaggiarla subito; nelle botteghe e nei ristoranti di tofu-ryōri vedrete padelle basse e mani rapide. Essiccato diventa dispensa: si conserva, si cuoce, si farcisce. Non cercate crosta né salsa pesante: cercate il sapore puro della soia concentrata. È il fratello sottile del tofu, non un «contorno generico».",
+      "sections": [
+        {
+          "title": "Fresco contro essiccato",
+          "body": "Il fresco si mangia al momento, quasi crudo di soia. L'essiccato va in nabe, in zuppe, in involtini. Sono due esperienze: non sostituibili l'una con l'altra."
+        },
+        {
+          "title": "Gesto della raccolta",
+          "body": "La pellicola si forma, si solleva, si scola. Se vi fanno assaggiare «appena fatto», accettate: è il momento in cui lo yuba di Kyoto spiega sé stesso."
+        },
+        {
+          "title": "A tavola, non sul riso di montagna",
+          "body": "Qui non è un donburi di viaggio termale: è sashimi di soia, corso di shōjin, pezzo di kaiseki. Condimenti minimi. Il confronto con altre città serve solo a ricordare che Kyoto tratta lo yuba come specialità autonoma."
+        },
+        {
+          "title": "La panna della soia che ha fatto carriera",
+          "body": "In fondo è la «pelle» del latte di soia. Kyoto l'ha messa sul menù dei posti seri e l'ha fatta pagare come se fosse foie gras vegetale. Ha ragione: è laboriosa.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Food & Drink — Kyoto Travel (yuba)",
+          "url": "https://kyoto.travel/en/food-and-drink/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "京豆腐 — MAFF",
+          "url": "https://www.maff.go.jp/j/keikaku/syokubunka/traditional-foods/menu/kyo_dohu.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Kyoto, Spiritual Home of Japanese Cuisine — Web Japan",
+          "url": "https://web-japan.org/trends/07_food/jfd071003.html",
+          "kind": "sito ufficiale"
+        }
+      ]
+    }
+  ]
+}

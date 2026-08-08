@@ -1,0 +1,323 @@
+{
+  "meta": {
+    "batch": "shopping-07-cartoleria",
+    "note": "Phase 3 shopping deep stories: planners, pens, ink, washi and notebook systems. Custom section titles only; manufacturer and brand pages preferred."
+  },
+  "schede": [
+    {
+      "id": "shop-all-hobonichi",
+      "long": "L’Hobonichi Techo è un planner annuale giapponese — Original A6, Cousin A5, Weeks e varianti — famoso per la carta sottile che regge penne stilografiche e per le copertine in collaborazione che cambiano ogni anno. Non è un «agenda generica»: scegli prima formato e lingua del booklet (giapponese / inglese / altre edizioni), poi la cover. A Tokyo il negozio Tobichi e i corner Loft/Hands espongono spesso pezzi di stagione e bonus del canale ufficiale. Per il viaggio conta lo spessore in zaino e se userai davvero una pagina al giorno, o se ti basta un Weeks più magro. Evita di collezionare tre formati «per provarli tutti» a meno che lo spazio in valigia sia infinito.",
+      "sections": [
+        {
+          "title": "Formato prima della cover",
+          "body": "A6, A5 e Weeks risolvono vite diverse. La cover collaborativa è la ciliegina: se compri la più bella su un formato sbagliato, la userai come oggetti da mensola. Decidi griglia e inizio settimana (lunedì/domenica) guardando il sample aperto."
+        },
+        {
+          "title": "Carta, penne e bleed",
+          "body": "La carta Hobonichi tollera molta inchiostro, ma non tutte le stilografiche uguali. Prova in negozio con la penna che userai; se viaggi con gel pen, controlla comunque il show-through sulle pagine sottili."
+        },
+        {
+          "title": "Canale ufficiale e pezzi di stagione",
+          "body": "Tobichi e lo store Hobonichi online chiariscono edizioni e accessori. I bonus del negozio ufficiale non sono automatici ovunque: chiedi, non presumere. Una cover Porter o artist edition è un pezzo a sé, non un obbligo."
+        },
+        {
+          "title": "L’agenda che ti guarda in silenzio",
+          "body": "Lasciare pagine bianche a marzo è un classico hobonichiano. Non è fallimento: è prova che hai vissuto abbastanza da non dover annotare ogni panino. Compra lo stesso solo se vuoi scrivere, non solo fotografare la cover.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Hobonichi Techo store",
+          "url": "https://www.1101.com/store/techo/en/",
+          "kind": "produttore"
+        },
+        {
+          "title": "Yoshida & Co. — collaborazione Hobonichi × PORTER",
+          "url": "https://www.yoshidakaban.com/en/product/113279.html",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-travelers-tokyo",
+      "long": "Il TRAVELER’S notebook TOKYO EDITION è una cover in pelle con grafica dedicata a Tokyo — icone della città in foil che cambia con l’angolo di luce — e refill coordinati della TRAVELER’S COMPANY. È un sistema modulare: regular o passport, elastico, inserti a tema, charm e case in cotone. L’edizione Tokyo non è «un taccuino qualsiasi con la Torre»: è un pezzo di design legato al brand che ha sede nella città. Prima di comprare, decidi la taglia (regular vs passport) e quanti refill userai davvero; la pelle vuota senza carta è un feticcio costoso. Traveler’s Factory e corner selezionati sono i punti in cui confrontare edizioni standard e city edition senza confonderle.",
+      "sections": [
+        {
+          "title": "Regular, passport e refill",
+          "body": "La misura determina cosa ci entra nello zaino e quanti inserti puoi sovrapporre. Compra i refill (righe, a punti, sketch) che userai nel viaggio; lascia gli accessori decorativi per un secondo giro se lo spazio cala."
+        },
+        {
+          "title": "Cosa rende «Tokyo» questa edizione",
+          "body": "Foil, icone e packaging raccontano luoghi e cibi della città. Confronta con la cover camel classica: se ti interessa solo il sistema Midori/TRAVELER’S, l’edizione città è un plus estetico, non un requisito funzionale."
+        },
+        {
+          "title": "Pelle, umidità e valigia",
+          "body": "La cover va protetta da pieghe dure e da liquidi in cabina. Non è fragile come ceramica, ma si segna: è parte del fascino. Tieni il cotton case se previsto — serve più di quanto sembri."
+        },
+        {
+          "title": "Scrivi come un locale, fotografa come un turista",
+          "body": "Il brief del brand invita chi vive a Tokyo a scrivere «come in viaggio» e chi viaggia a scrivere «come se ci vivesse». Traduzione pratica: annota una stazione al giorno, non solo selfie alla scramble.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "TRAVELER’S notebook TOKYO EDITION — TRAVELER’S COMPANY",
+          "url": "https://www.travelers-company.com/products/tokyo-edition",
+          "kind": "produttore"
+        },
+        {
+          "title": "TRAVELER’S COMPANY — prodotti",
+          "url": "https://www.travelers-company.com/",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-kuru-toga",
+      "long": "La Uni Kuru Toga è una portamine il cui meccanismo ruota leggermente la mina a ogni tratto, riducendo la punta a scalpello tipica di chi scrive inclinato. In Giappone trovi fasce da entry a metal body, diametri 0,3 / 0,5 e colori limitati che ruotano spesso nei Loft e da Itoya. Il pezzo da cacciare non è sempre il Dive o l’edizione mitologica da rivenditore gonfiato: è il diametro e l’impugnatura che ti stanno in mano. Prova a scrivere tre righe; se il click di rotazione ti disturba, non è la tua penna, per quanto Instagram dica il contrario. Porta mine di ricambio della durezza giusta — sono il vero consumabile.",
+      "sections": [
+        {
+          "title": "Meccanismo e diametro mina",
+          "body": "0,3 è preciso e fragile; 0,5 è il compromesso da viaggio. Il motore di rotazione vuole una scrittura continua: se scarabocchi saltando, il vantaggio si riduce. Controlla che il modello in mano sia davvero Kuru Toga, non una Uni generica."
+        },
+        {
+          "title": "Edizioni e prezzi da collezione",
+          "body": "Colori limitati e linee premium esistono; i markup da rivendita secondaria no. Confronta il prezzo di Loft/Hands/Itoya con l’offerta online ufficiale Uni/Mitsubishi Pencil prima di inseguire un graffio di vernice raro."
+        },
+        {
+          "title": "Mine di ricambio in valigia",
+          "body": "Senza mine HB o B compatibili la penna è uno stilo muto. Un tubetto di ricambio pesa grammi e salva il souvenir. Non mettere la portamine in fondo allo zaino con le chiavi: il meccanismo odia le cadute."
+        },
+        {
+          "title": "La mina che si gira meglio di te al jet lag",
+          "body": "Mentre tu confondi mercoledì e giovedì, la Kuru Toga continua a ruotare con disciplina militare. È l’unico membro del gruppo che mantiene la punta a posto.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "三菱鉛筆 Uni — sito ufficiale",
+          "url": "https://www.mpuni.co.jp/",
+          "kind": "produttore"
+        },
+        {
+          "title": "GO TOKYO — shopping",
+          "url": "https://www.gotokyo.org/en/see-and-do/shopping/index.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-jetstream-limited",
+      "long": "La Jetstream di Uni è una sfera a inchiostro a bassa viscosità che scorre con poco sforzo; in Giappone le edizioni limitate — corpi multicolore, collaborazioni, stagionali — riempiono i display di Loft e Hands. Il corpo bello conta solo se il ricambio (refill) resta disponibile: annota tipo e diametro della cartuccia (spesso SXN / SXR a seconda della linea) prima di innamorarti di un’edizione da vetrina. Confronta punta 0,38 / 0,5 / 0,7 e se preferisci monocolore o multi-funzione. Per il viaggio è un acquisto leggero e utile; per la collezione, metti un tetto al numero di pezzi «che tanto pesano poco».",
+      "sections": [
+        {
+          "title": "Corpo limitato, refill eterno",
+          "body": "Fotografa o annota il codice refill sulla blister. Un’edizione stagionale senza cartucce sostituibili diventa un oggetto da cassetto entro sei mesi. Meglio un corpo sobrio con scorta di ricambi che tre shell vuote."
+        },
+        {
+          "title": "Punte e inchiostri colorati",
+          "body": "Le limited spesso giocano su colori di fusto, non sempre su inchiostri introvabili. Prova il tratto sul tester: la Jetstream «facile» su carta da fotocopia può sembrare diversa sul tuo taccuino cream."
+        },
+        {
+          "title": "Dove ha senso cercarle",
+          "body": "Loft, Hands, Itoya e grandi cartolerie di stazione ruotano le collaborazioni. Non serve una lista di indirizzi segreti: serve arrivare prima che la collab finisca, o accettare la versione standard che scrive uguale."
+        },
+        {
+          "title": "Peso zero, volontà zero",
+          "body": "È scientificamente provato (nel senso di «mi è successo») che le Jetstream limitate si moltiplicano nella bustina del duty-free. Stabilisci un numero massimo prima di toccare il display.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "三菱鉛筆 Uni — sito ufficiale",
+          "url": "https://www.mpuni.co.jp/",
+          "kind": "produttore"
+        },
+        {
+          "title": "GO TOKYO — shopping",
+          "url": "https://www.gotokyo.org/en/see-and-do/shopping/index.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-frixion-colors",
+      "long": "Le Pilot FriXion cancellabili — roller, fineliner, marker — in Giappone offrono punte, set e colori spesso più ampi che nel banco italiano del supermercato. Funzionano con inchiostro termocromico: il calore della gomma in cima (o di una fonte calda) fa sparire il tratto. Per appunti di viaggio e planner è divertente; per documenti, firme, etichette da spedizione o qualsiasi cosa che non debba sparire in un’auto al sole, è la penna sbagliata. Scegli set di colori che userai davvero e tienile lontane da bagni termali bollenti e cruscotti estivi — la magia della cancellazione diventa tragedia dell’agenda vuota.",
+      "sections": [
+        {
+          "title": "Cosa può e non può cancellare la vita",
+          "body": "Utile per bozze, lezioni, elenchi. Inadatta a moduli ufficiali, post-it «importanti» e tutto ciò che deve restare leggibile tra un anno. Se ti serve permanenza, prendi una gel pen normale."
+        },
+        {
+          "title": "Colori, punte e set da viaggio",
+          "body": "I multipack giapponesi spingono la palette pastello e fluo. Controlla spessore della punta (0,38 / 0,5 ecc.) e se il corpo è slim o knock. Un set da 10 colori pesa poco ma occupa una tasca intera."
+        },
+        {
+          "title": "Calore: nemico dichiarato",
+          "body": "Non lasciare il taccuino in auto o contro un calorifero: l’inchiostro può schiarirsi da solo. In inverno, il freddo estremo può far riapparire tratti cancellati — fenomeno noto, non leggenda da forum."
+        },
+        {
+          "title": "La penna che perdona, finché non fa caldo",
+          "body": "FriXion è l’amico che ti lascia correggere gli errori ortografici e poi, a luglio sull’asfalto di Asakusa, cancella anche la lista dei templi. Porta una penna «seria» di riserva.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Pilot Corporation — Japan",
+          "url": "https://www.pilot.co.jp/",
+          "kind": "produttore"
+        },
+        {
+          "title": "GO TOKYO — shopping",
+          "url": "https://www.gotokyo.org/en/see-and-do/shopping/index.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-sailor-ink",
+      "long": "Gli inchiostri Sailor «gotouchi» / shop exclusive nascono spesso con cartolerie e città: flaconi con nome di luogo, palette legata a negozi storici, tirature che fuori dal Giappone si trovano poco o a prezzi da collezione. Per chi usa stilografica è uno dei souvenir più intelligenti: leggeri, fotografabili, legati a un posto. Annota nome completo, negozio e lotto; verifica che il flacone sia sigillato; mettilo in doppio sacchetto zip nel bagaglio a mano (liquidi: rispetta i 100 ml). Non tutti gli inchiostri Sailor da scaffale sono regionali — distingui le linee standard (Manyo, Shikiori, ecc.) dalle edizioni di bottega.",
+      "sections": [
+        {
+          "title": "Etichetta, negozio e autenticità",
+          "body": "Il valore del gotouchi è la provenienza. Conserva lo scontrino del negozio e fotografa lo scaffale se ti interessa la storia del colore. Evita flaconi aperti o «ricaricati» da bancarelle indeterminate."
+        },
+        {
+          "title": "Liquido in cabina",
+          "body": "Flaconi tipicamente da 20 ml circa: restano sotto la soglia liquidi se la confezione è corretta, ma il rischio è la perdita. Doppia zip, tessuto assorbente, lontano dal laptop. In stiva il freddo e la pressione non migliorano le cose."
+        },
+        {
+          "title": "Carta e stilografica in viaggio",
+          "body": "Abbina l’inchiostro a una carta che conosci (MD, Hobonichi, Tomoe). Un colore sfumato su carta da hotel economica ti farà odiare un flacone bellissimo. Porta un pen blotter o fogli di prova."
+        },
+        {
+          "title": "Acquerello accidentale in valigia",
+          "body": "Un flacone Sailor che si apre nello zaino trasforma il viaggio in un workshop di shibori non richiesto. Il doppio sacchetto non è paranoia: è rispetto per le camicie.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Sailor Pen — sito ufficiale",
+          "url": "https://www.sailor.co.jp/",
+          "kind": "produttore"
+        },
+        {
+          "title": "Kyoto.travel — shopping craft",
+          "url": "https://kyoto.travel/en/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-mt-washi",
+      "long": "Il nastro washi mt di Kamoi Kakoshi ha trasformato il masking tape industriale in cancelleria colorata: si strappa a mano, si riposiziona, si scrive sopra. In Giappone trovi pattern base, collaborazioni con designer e musei, edizioni per eventi e varianti locali che ruotano in fretta. È il souvenir da pochi grammi che riempie una tasca e, se non ti imponi una palette, anche il budget. mt lab e le cartolerie grandi espongono pareti intere: entra con tre colori in mente, non con l’obiettivo di «documentare tutto il muro». Per scrapbook, packing e Hobonichi è genuinamente utile; per sola collezione, definisci un limite numerico prima del primo strappo di nastro.",
+      "sections": [
+        {
+          "title": "Pattern locale contro catalogo globale",
+          "body": "Molti solidi e geometrici arrivano anche in Europa; collaborazioni museo / città / stagione spesso no. Leggi la fascetta: nome collezione e larghezza (7 / 15 / 25 mm) ti dicono se stai comprando qualcosa di specifico o un doppione di casa."
+        },
+        {
+          "title": "Usi pratici in viaggio",
+          "body": "Chiudere bustine di snack, segnare pagine, etichettare caricabatterie, riparare una strappatura leggera di carta: mt è tool, non solo decorazione. Tieni un cutter o usa le mani — il nastro è pensato per lo strappo netto."
+        },
+        {
+          "title": "Peso invisibile, volume reale",
+          "body": "Un rotolo pesa poco; venti rotoli diventano una scatola. Usa una bustina trasparente per non schiacciare i bordi. Evita di lasciarli al caldo estremo per ore: l’adesivo soffre."
+        },
+        {
+          "title": "La parete di nastro che ipnotizza",
+          "body": "mt lab è progettato per farti perdere il senso del tempo come un buffet. La strategia vincente è uscire con meno rotoli di quanti ne hai fotografati — metricamente difficile, moralmente necessario.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "mt masking tape — ufficiale",
+          "url": "https://www.masking-tape.jp/",
+          "kind": "produttore"
+        },
+        {
+          "title": "mt × Hobonichi — esempio lineup",
+          "url": "https://www.1101.com/store/techo/en/2026/pc/detail_toolstoys/tt_mt/",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-kokuyo-campus",
+      "long": "Kokuyo Campus è il quaderno da studio giapponese per eccellenza: copertine colorate, rigature pensate per prendere appunti, blocchi di fogli e sistemi a anelli con foratura specifica. In Giappone la varietà di ruling, grammature e edizioni limitate supera di gran lunga lo scaffale italiano. Per il viaggiatore conta il formato (B5 / A5 / A6) e la compatibilità dei ricambi a fogli sciolti: il numero di fori e la spaziatura non sono universali. Un Campus limited con illustrazione di stagione è un buon regalo leggero; un binder completo ha senso solo se userai i refill a casa. Controlla se la carta è «siru-sure» (anti-show-through) se scrivi con stilografica.",
+      "sections": [
+        {
+          "title": "Rigatura e uso reale",
+          "body": "Righe strette per kanji, dot grid per schemi, fogli bianchi per schizzi: scegli in base a cosa annoterai nel viaggio. La copertina kawaii è secondaria rispetto al ruling che ti fa scrivere dritto in metro."
+        },
+        {
+          "title": "Anelli, fori e ricambi",
+          "body": "Se prendi un binder Campus, verifica il passo dei fori dei loose leaf. Ricambi sbagliati sono il classico errore da jet lag. Per semplicità, un quaderno spillato evita il problema."
+        },
+        {
+          "title": "Edizioni Japan e peso",
+          "body": "Le cover collaborative pesano quanto quelle base; i pacchi da 5 quaderni no. Meglio due quaderni buoni che una torre da regalo che non entra nello zaino."
+        },
+        {
+          "title": "Nostalgia da aula, anche in hotel",
+          "body": "Scrivere su Campus in un ryokan è il modo più veloce per sentirti di nuovo a scuola — in senso buono, se ti piaceva prendere appunti; in senso trauma, se odiavi i compiti. Scegli consapevolmente.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Kokuyo Campus — ufficiale",
+          "url": "https://www.kokuyo-st.co.jp/stationery/campus/",
+          "kind": "produttore"
+        },
+        {
+          "title": "Kokuyo Stationery",
+          "url": "https://www.kokuyo-st.co.jp/",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-midori-clips",
+      "long": "Sotto il nome Midori (e linee imparentate da cartoleria giapponese di qualità) trovi clip, righelli pieghevoli, timbri rotanti, cordini e piccoli meccanismi che risolvono problemi da taccuino meglio di metà delle «organizer bag» gonfie. Non è un singolo SKU: è una famiglia di strumenti compatti da Loft, Hands e cartolerie. La regola utile è toccare il meccanismo in negozio — scatto, molla, piega — e chiedersi se elimina un fastidio reale (tenere pagine, misurare una mappa, chiudere un elastico) o se è solo adorabile. Un buon clip Midori pesa grammi e sopravvive allo zaino; tre gadget ridondanti no.",
+      "sections": [
+        {
+          "title": "Prova lo scatto, non solo il design",
+          "body": "Clip che non tengono, righelli che non restano aperti, timbri che macchiano: si scoprono in trenta secondi di test. Se il pezzo richiede istruzioni lunghe per un compito banale, lasciarlo sullo scaffale è saggezza."
+        },
+        {
+          "title": "Abbinamento a TRAVELER’S e MD",
+          "body": "Molti accessori dialogano con notebook Midori / TRAVELER’S (elastici, clip a penna, index). Compra pezzi compatibili con il sistema che già usi, non un ecosistema parallelo «perché era in offerta»."
+        },
+        {
+          "title": "Metallo, plastica e bagaglio",
+          "body": "Piccoli metalli passano i controlli; forbicine e cutter no senza regole. Resta su clip e righelli corti. Evita di spargere molle e viti nel vanity: un bustina zip unica salva la ricerca mattutina."
+        },
+        {
+          "title": "L’oggetto che risolve un problema inventato",
+          "body": "Midori eccelle anche nel creare bisogni estetici nuovi. Se dopo la prova la risposta è «carino ma no», hai appena superato il test di maturità da cartoleria giapponese.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Midori — Designphil / Midori brands",
+          "url": "https://www.midori-japan.co.jp/",
+          "kind": "produttore"
+        },
+        {
+          "title": "TRAVELER’S COMPANY",
+          "url": "https://www.travelers-company.com/",
+          "kind": "produttore"
+        }
+      ]
+    }
+  ]
+}

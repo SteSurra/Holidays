@@ -1,0 +1,648 @@
+{
+  "meta": {
+    "batch": "shopping-12-regional-kansai-west",
+    "note": "Phase 3 shopping deep stories (16) for Kyoto, Nara, Osaka, Hiroshima, Miyajima. Object-to-buy focus. Overlap watch: history-kyoto-nishijin (textile chronicle vs obi/accessory), history-nara-akahada (kiln narrative vs cup/bowl), history-hiroshima-carp-castle (city emblem vs team merch), history-miyajima-shamoji / benzaiten (myth vs scoop to pack). shop-all-kitchen-knife / shop-osaka-sakai-knives / shop-kyoto-kyoto-knives are distinct purchase contexts."
+  },
+  "schede": [
+    {
+      "id": "shop-kyoto-kiyomizu-yaki",
+      "long": "Il Kiyomizu-yaki (e più in generale il Kyo-yaki) che compri a Kyoto è ceramica da tavola o da mensola: ciotole, piattini, yunomi, piccoli vasi — dalle decorazioni classiche ai pezzi di studi contemporanei lungo Gojo e Higashiyama. Non è una visita al tempio Kiyomizu traslata in argilla: è un oggetto cotto con tecniche molto varie sotto lo stesso nome di filiera cittadina. Kyoto.travel sottolinea proprio la varietà di metodi e colori. Prima di pagare confronta più botteghe: peso, firma sul fondo, se è food-safe, se lo smalto è uniforme. I pezzi piccoli e impilabili vincono in valigia; i grandi piatti da portata chiedono imballo da spedizione. Un yunomi ben scelto batte tre magneti «Kyoto».",
+      "sections": [
+        {
+          "title": "Un nome, molte mani",
+          "body": "Kyo-yaki / Kiyomizu-yaki copre stili diversi. Cerca pezzi con carattere chiaro — smalto, pennellata, forma — invece di inseguire un unico «look tempio»."
+        },
+        {
+          "title": "Gojo, Higashiyama, forni",
+          "body": "Le strade ceramiche intorno a Kiyomizu e Gojo zaka sono densità utile: entra in due o tre shop prima di decidere. Chiedi se è produzione dell’atelier o rivendita mista."
+        },
+        {
+          "title": "Tavola o vetrina",
+          "body": "Verifica lavaggio, microonde e fragilità del piede. Per il viaggio preferisci tazze e piattini; lascia i vasi alti a chi ha già lo spazio sullo scaffale."
+        },
+        {
+          "title": "La ciotola che sopravvive al matcha meglio di te",
+          "body": "Tu torni dal viaggio stremato; lo yunomi resta lucido e pronto al secondo turno. È l’unico souvenir che ti giudica silenziosamente ogni mattina.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Kyoto Craftmanship — Various Crafts (Kyoto.travel)",
+          "url": "https://kyoto.travel/en/travel-inspiration/kyoto-craftmanship-various-crafts/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Art & Culture — Kyo-yaki / Kiyomizu-yaki (Kyoto.travel)",
+          "url": "https://kyoto.travel/en/art-and-culture/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "清水焼 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E6%B8%85%E6%B0%B4%E7%84%BC",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-kyoto-kyoto-incense",
+      "long": "L’incenso di Kyoto da mettere in valigia è una confezione di bastoncini o coils legati a case storiche e alla cultura del kōdō: legni, erbe e miscele senza (o con poca) anima di bambù, spesso più sottili e «pulite» di molti stick da supermercato. Teramachi, i negozi delle grandi case (come Shoyeido e altre firme cittadine) e i corner beauty/wellness sono i punti tipici. Compra prima un assaggio o una selezione mista: i profili legnosi profondi non perdonano un acquisto impulsivo da 100 bastoncini. Controlla se serve bruciatore dedicato, se la confezione è sigillata e le regole sui liquidi non c’entrano — l’incenso solido viaggia bene, ma odora nello zaino se la scatola si apre. L’oggetto è il fascio profumato, non la storia della corte Heian.",
+      "sections": [
+        {
+          "title": "Campione prima della scorta",
+          "body": "Le case di Kyoto vendono spesso assortimenti. Annusa, scegli una linea, poi valuta il formato grande. Il «profumo tempio» generico in bancarella è un’altra categoria."
+        },
+        {
+          "title": "Bastoncino, coil, chip",
+          "body": "Formati diversi cambiano durata e rituale. Chiedi se serve piatto di cenere, bruciatore o solo un supporto minimale; porta a casa anche quello se non ce l’hai."
+        },
+        {
+          "title": "Confezione e odore collaterale",
+          "body": "Sigilla in doppio sacchetto lontano da tè e vestiti chiari. L’incenso buono è generoso: condivide l’aroma con tutto il bagaglio se lo lasci libero."
+        },
+        {
+          "title": "Il souvenir che incendia (di proposito) l’atmosfera",
+          "body": "Pochi acquisti giustificano un piccolo fuoco domestico. L’incenso di Kyoto lo fa con eleganza, a patto di non usarlo come deodorante per scarpe da trekking.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Kyoto Craftmanship — Various Crafts (Kyoto.travel)",
+          "url": "https://kyoto.travel/en/travel-inspiration/kyoto-craftmanship-various-crafts/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Shoyeido — Kyoto incense",
+          "url": "https://www.shoyeido.co.jp/",
+          "kind": "produttore"
+        },
+        {
+          "title": "お香 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%8A%E9%A6%99",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-kyoto-nishijin",
+      "long": "Il Nishijin-ori da shopping è tessuto figurato già trasformato in oggetto portabile: astucci, cravatte, piccole borse, sottobicchieri, pezzi di obi riciclati o accessori da Nishijin Textile Center e botteghe del quartiere nord — non un trattato sulla guerra Ōnin. I fili sono tinti prima della tessitura; sul pezzo finito cerchi densità del disegno, lucentezza della seta e marchio di filiera quando il prezzo sale. Gli astucci e i portamonete offrono il miglior rapporto «tocco Nishijin / spazio in valigia». Evita magliette stampate con motivo «stile obi»: la differenza si sente al tatto. Kyoto.travel e l’associazione di industria spiegano perché il nome Nishijin non è un generico sinonimo di «seta di Kyoto».",
+      "sections": [
+        {
+          "title": "Accessorio, non rotolo da kimono",
+          "body": "Astucci, pouch, cravatte e piccoli tessili pronti sono l’acquisto tipico del viaggiatore. L’obi intero è un progetto di peso, prezzo e uso."
+        },
+        {
+          "title": "Tatto contro stampa",
+          "body": "Il vero tessuto figurato ha rilievo e profondità tra i fili. Una foto di motivo su cotone stampato non diventa Nishijin perché il cartello lo dice forte."
+        },
+        {
+          "title": "Center e botteghe a nord",
+          "body": "Il Nishijin Textile Center e i laboratori/musei del distretto mescolano mostra e vendita. Confronta finiture e cuciture degli accessori, non solo il pattern."
+        },
+        {
+          "title": "L’obi che ha deciso di diventare portamonete",
+          "body": "Dopo secoli a stringere kimono, pezzi di tessuto Nishijin accettano carriere laterali in zip e fodere. Riconversione professionale ammirevole.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "About Nishijin Textile — Nishijin Textile Industry Association",
+          "url": "https://nishijin.or.jp/eng/whats-nishijin1/",
+          "kind": "associazione"
+        },
+        {
+          "title": "Kyoto’s Historical Textile District (Kyoto.travel)",
+          "url": "https://kyoto.travel/en/travel-inspiration/kyotos-historical-textile-district/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Nishijin Textile Center — JNTO",
+          "url": "https://www.japan.travel/en/spot/1164/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-kyoto-kyoto-knives",
+      "long": "I coltelli di Kyoto (kyo-hamono) da comprare sono lame da cucina e utensili da taglio legati alla tradizione cittadina di fabbri e affilatori: petty, deba piccoli, coltelli da verdura, spesso affilati o personalizzati sul posto in botteghe intorno a Nishiki e nei quartieri craft. Kyoto.travel li elenca tra i mestieri che servono anche altre manifatture locali. Dichiarare uso e budget aiuta il negozio a non venderti una lama da sushi se ti serve un universale. Acciaio, angolo di affilatura, manico e fodero contano più del packaging. In aereo va in stiva; chiedi fodero o custodia. Non è la stessa filiera di Sakai, anche se entrambe vivono di cucina: qui conti bottega kyotoese e servizio di affilatura, non solo il marchio regionale di Osaka.",
+      "sections": [
+        {
+          "title": "Che lama ti serve davvero",
+          "body": "Petty e santoku versatili per casa; deba e yanagiba se cucini pesce spesso. Meglio una lama giusta che tre nomi impressionanti."
+        },
+        {
+          "title": "Affilatura e fodero in negozio",
+          "body": "Molte botteghe di Kyoto affilano al momento. Chiedi manutenzione, pietra consigliata e se includono una guaina: il filo non ama lo zaino nudo."
+        },
+        {
+          "title": "Bagaglio da stiva, non da cabina",
+          "body": "Coltelli in stiva, dichiarati come utensili da cucina. Proteggi il filo e non contare sul «tanto è piccolo» al controllo sicurezza."
+        },
+        {
+          "title": "L’unico souvenir che la security capisce al volo",
+          "body": "Mentre spieghi il sarubobo, il coltello non ha bisogno di sottotitoli. Mettilo in stiva e risparmia la pantomima internazionale del «è per le cipolle».",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Kyoto Craftmanship — Kyo-hamono (Kyoto.travel)",
+          "url": "https://kyoto.travel/en/travel-inspiration/kyoto-craftmanship-various-crafts/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "京刃物 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E4%BA%AC%E5%88%83%E7%89%A9",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Kyoto City Official Travel Guide",
+          "url": "https://kyoto.travel/en/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-kyoto-wagasa",
+      "long": "Il wagasa di Kyoto è ombrello o parasole in bambù e washi: oggetto scenografico, delicato e relativamente voluminoso. Case storiche come Tsujikura e i pochi fabbricanti rimasti vendono bangasa da pioggia, parasoli da sole e versioni decorative. Per un viaggio aereo il pezzo realistico è spesso il parasole compatto o un modello pensato da souvenir, non l’ombrello da maiko a piena apertura. Controlla se è per pioggia vera o solo da foto, se la carta è oliata/trattata, e come si ripiega senza spezzare le stecche. In valigia vuole tubo o custodia: schiacciarlo tra i jeans è un modo elegante di creare confetti di washi.",
+      "sections": [
+        {
+          "title": "Pioggia, sole o sola bellezza",
+          "body": "Non tutti i wagasa sono waterproof allo stesso modo. Chiedi uso previsto: un pezzo «da interno» non sopravvive a un temporale di Kyoto."
+        },
+        {
+          "title": "Apertura, stecche, custodia",
+          "body": "Prova ad aprire e chiudere con calma. Controlla legature, punta e fodero. I modelli più piccoli e i parasoli da passeggio sono i meno punitivi in aereo."
+        },
+        {
+          "title": "Botteghe specializzate, non bancarella",
+          "body": "I produttori e rivenditori storici spiegano materiali e manutenzione. Un ombrello «giapponese» da 500 yen in plastica stampata è un altro prodotto."
+        },
+        {
+          "title": "L’ombrello che ha paura della valigia più della pioggia",
+          "body": "Il wagasa affronta i temporali con dignità e soccombe a uno zaino pieno. Trattalo come uno strumento musicale: merita una custodia, non un posto sotto le scarpe.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Tsujikura — Kyoto wagasa",
+          "url": "https://www.kyoto-tsujikura.com/en",
+          "kind": "produttore"
+        },
+        {
+          "title": "Kyoto Craftmanship — Various Crafts (Kyoto.travel)",
+          "url": "https://kyoto.travel/en/travel-inspiration/kyoto-craftmanship-various-crafts/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "和傘 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%92%8C%E5%82%98",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-nara-nara-ink",
+      "long": "L’inchiostro sumi di Nara da acquistare è il bastoncino solido (e a volte pezzi decorati da collezione): fuliggine, colla e profumo compressi in barre che si sfregano sulla pietra con acqua. Nara produce gran parte del sumi nazionale; in Naramachi case come Kobaien e i negozi di calligrafia vendono barre da uso, pezzi ornamentali e set regalo. Chiedi se il bastone è pensato per scrivere, per collezione o per entrambi: i pezzi scolpiti fini non amano essere consumati fino al moncherino. Abbina una pietra adegata se non ce l’hai. In valigia il sumi è compatto ma fragile agli urti e all’umidità estrema: avvolgilo, non lasciarlo ballare tra le monete.",
+      "sections": [
+        {
+          "title": "Barra da lavoro o pezzo da vetrina",
+          "body": "Le barre lisce da uso quotidiano e i sumi scolpiti da regalo hanno prezzi e destini diversi. Dichiaralo in negozio: evita di «usare» un pezzo da collezione per sbaglio."
+        },
+        {
+          "title": "Pietra, acqua, odore",
+          "body": "Senza suzuri il bastone resta scultura. Chiedi durezza tipica e se il profumo è intenso: alcuni sumi impregnano la custodia."
+        },
+        {
+          "title": "Naramachi e case storiche",
+          "body": "Visit Nara e le guide locali puntano su produttori storici in città. Confronta peso, finitura e confezione sigillata."
+        },
+        {
+          "title": "L’unico inchiostro che si affila come un formaggio",
+          "body": "Si consuma a spirali sulla pietra, non si «apre» come una penna. È cancelleria con rituale da macina: lento, aromatico, impossibile da usare in riunione Zoom senza spiegazioni.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Tradition Craftsmanship — Nara Travelers Guide",
+          "url": "https://narashikanko.or.jp/en/feature/skill",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Visit Nara — destinations",
+          "url": "https://www.visitnara.jp/destinations/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "墨 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%A2%A8",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-nara-akahada-yaki",
+      "long": "L’akahada-yaki da portare via è una ciotola, una tazza o un piccolo vaso di ceramica dai toni caldi — impasto rosato, smalti lattei o verdognoli, spesso con motivi Nara-e. Si compra presso fornaci attive tra Nara e Yamatokōriyama e nei punti craft in città, non come brochure sulla storia del dominio. Cerca firma del forno sul fondo e confronta pezzi d’uso (tè, saké, quotidiano) con pezzi puramente ornamentali. La prefettura elenca la filiera; botteghe come Oshio Shozan documentano il forno. In valigia vincono yunomi e piattini: stesso suolo cotto, meno volume. Evita di confonderlo con generica «ceramica cervo» stampata per turisti.",
+      "sections": [
+        {
+          "title": "Pezzo firmato, non magnete cervo",
+          "body": "Marchio di fornace, peso e smalto caldo contano più del motivo superficiale. Un bicchiere anonimo con cervo stampato non è automaticamente akahada."
+        },
+        {
+          "title": "Uso da tè o da mensola",
+          "body": "Chiedi se è food-safe e come lavarlo. I pezzi da cerimonia e quelli da tavola quotidiana hanno spessori e finiture diverse."
+        },
+        {
+          "title": "Fornaci e craft shop",
+          "body": "Le pagine della prefettura e i forni aperti al pubblico sono la strada più chiara. In Naramachi trovi anche rivendite: chiedi provenienza del pezzo specifico."
+        },
+        {
+          "title": "Il suolo di Nara in formato cabin bag",
+          "body": "Invece di spiegare i cervi per la ventesima volta, mostri una tazza e dici «collina cotta». Conversazione da souvenir superiore.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "赤膚焼 — Prefettura di Nara",
+          "url": "https://www.pref.nara.lg.jp/n100/akahadayaki.html",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "About us — Akahadayaki Oshio Shozan",
+          "url": "https://www.akahadayaki.com/aboutus_en.html",
+          "kind": "produttore"
+        },
+        {
+          "title": "Visit Nara — see and do",
+          "url": "https://www.visitnara.jp/see-and-do/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-nara-nara-fude",
+      "long": "Il pennello Nara-fude da acquistare è uno strumento da calligrafia o pittura: pelo animale selezionato, punta assemblata a mano, manico spesso in bamboo o legno. Nara è storicamente legata alla fabbricazione di pennelli da scrittura; in Naramachi e nei laboratori specializzati spieghi se scriverai kana, kanji grandi o dipingerai, così non ti vendono una punta sbagliata. Controlla forma della punta a secco e bagnata (se il negozio lo consente), lunghezza del pelo e se serve un cappuccio di protezione. In valigia il fude vuole custodia rigida o tubo: piegare la punta è il modo più rapido di buttare soldi. Non confonderlo con i pennelli beauty di Kumano: stessa famiglia di gesto, destinazione diversa.",
+      "sections": [
+        {
+          "title": "Dì a cosa servirà",
+          "body": "Calligrafia fine, caratteri grandi, sumi-e: punte diverse. Il negozio serio chiede l’uso prima di spingere il pezzo più costoso."
+        },
+        {
+          "title": "Punta, manico, cappuccio",
+          "body": "Cerca assemblaggio ordinato e protezione per il viaggio. Un pennello senza cappuccio in uno scomparto pieno è un rischio evitabile."
+        },
+        {
+          "title": "Naramachi e laboratori",
+          "body": "Le guide Visit Nara / Nara Travelers Guide indicano botteghe e craft tenement dove si vedono ancora i gesti. Confronta due punte simili prima di pagare."
+        },
+        {
+          "title": "Il pennello che giudica la tua calligrafia senza dirlo",
+          "body": "Un buon fude non corregge gli errori: li rende più eleganti e quindi più evidenti. È un maestro severo che sta zitto nello astuccio.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Tradition Craftsmanship — Nara Fude (Nara Travelers Guide)",
+          "url": "https://narashikanko.or.jp/en/feature/skill",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Visit Nara — destinations",
+          "url": "https://www.visitnara.jp/destinations/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "奈良筆 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%A5%88%E8%89%AF%E7%AD%86",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-nara-ittobori",
+      "long": "Il Nara ittobori da shopping è una scultura in legno dai tagli netti — cervi, figure Noh, animali dello zodiaco, piccole statue — in cui le facce dello scalpello restano leggibili e spesso colorate in modo deciso. Si trova in Naramachi e nelle botteghe specializzate; i pezzi piccoli e i bassorilievi viaggiano meglio delle statue da altare. Controlla che i colpi siano coerenti (non casuali), che il colore non nasconda un intaglio grezzo, e se il pezzo è tradizionale o reinterpretazione contemporanea. Le tracce di utensile sono parte del valore, non difetti da limare. In valigia avvolgi angoli e corna di cervo: spezzarsi in aereo è un destino da souvenir troppo amato.",
+      "sections": [
+        {
+          "title": "Tagli netti, colore deciso",
+          "body": "L’ittobori vive di piani di scalpello e spesso di policromia. Se la superficie è levigata come un souvenir di resina, stai guardando altro."
+        },
+        {
+          "title": "Cervo tascabile vs figura da mensola",
+          "body": "Scegli la scala in base allo scaffale di casa. I pezzi da 8–12 cm sono il compromesso tipico; chiedi una scatola se ha parti sottili."
+        },
+        {
+          "title": "Botteghe di Naramachi",
+          "body": "Quartiere e craft spots raccolgono intagliatori e rivendite. Chiedi nome dell’artigiano quando il prezzo sale: due cervi non si equivalgono."
+        },
+        {
+          "title": "Lo scalpello che lascia le sue impronte digitali",
+          "body": "Invece di nascondere i gesti, l’ittobori li espone. È l’opposto del Photoshop: ogni piano di legno dice «ci sono passato io».",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Tradition Craftsmanship — Nara dolls / ittobori (Nara Travelers Guide)",
+          "url": "https://narashikanko.or.jp/en/feature/skill",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Visit Nara — see and do",
+          "url": "https://www.visitnara.jp/see-and-do/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "奈良一刀彫 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%A5%88%E8%89%AF%E4%B8%80%E5%88%80%E5%BD%AB",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-nara-kaya-cloth",
+      "long": "Il tessuto kaya di Nara da comprare è soprattutto panno da cucina o pezza leggera derivata dalla tradizione delle zanzariere in fibra: assorbente, lavabile, spesso venduto in Naramachi come strofinaccio premium o pezza multifunzione. Non stai acquistando una zanzariera a baldacchino (a meno che non la cerchi esplicitamente): stai prendendo un rettangolo di tessuto tecnico-domestico che migliora dopo i lavaggi. Controlla dimensione, composizione e orlo. In valigia pesa poco e non si rompe; è uno dei rari souvenir utili il martedì sera a casa. Distinguilo dal tenugui stampato: trama e mano sono diverse.",
+      "sections": [
+        {
+          "title": "Panno da lavare, non bandiera da muro",
+          "body": "Il kaya da cucina vuole acqua e uso. Se preferisci un pezzo solo decorativo, dillo: alcune pezze sono più fini e meno «da padella»."
+        },
+        {
+          "title": "Trama e misure",
+          "body": "Confronta spessore e assorbenza. Un set di due panni piccoli è spesso più utile di un lenzuolo che non saprai dove stendere."
+        },
+        {
+          "title": "Naramachi e botteghe tessili",
+          "body": "Nei negozi di tessuto e craft del quartiere trovi pezze e strofinacci dichiarati kaya / narazarashi. Chiedi composizione se hai allergie a fibre naturali."
+        },
+        {
+          "title": "Il souvenir che chiede di essere sporcato",
+          "body": "A differenza della porcellana, il kaya migliora se lo usi. È l’unico acquisto che ti guarda male se lo lasci «bello» nello scaffale per ospiti immaginari.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Visit Nara — destinations",
+          "url": "https://www.visitnara.jp/destinations/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Tradition Craftsmanship — Nara Travelers Guide",
+          "url": "https://narashikanko.or.jp/en/feature/skill",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "蚊帳 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E8%9A%8A%E5%B8%B3",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-osaka-naniwa-tinware",
+      "long": "Il Naniwa suzuki (Osaka naniwa pewterware) da acquistare è un oggetto in peltro lavorato: sakazuki, guinomi, churn da tè, bicchieri, piccoli vasi — metallo stabile al tatto fresco, spesso tornito o cesellato. È craft designato a livello nazionale; produttori come Osaka Suzuki e le botteghe associate vendono pezzi d’uso e linee contemporanee. Controlla percentuale di stagno dichiarata quando disponibile, peso, istruzioni di pulizia (niente abrasivi aggressivi) e se il pezzo è food-contact. In valigia il peltro è denso: un guinomi batte un vaso. Non confonderlo con alluminio anodizzato da discount: il suono e la temperatura della mano aiutano.",
+      "sections": [
+        {
+          "title": "Saké, tè, birra: scegli la forma",
+          "body": "Ciottoli da saké, chazutsu e tumbler hanno geometrie diverse. Chiedi l’uso: alcuni interni cesellati aiutano la schiuma della birra, altri sigillano il tè."
+        },
+        {
+          "title": "Peso, marchio, cura",
+          "body": "Cerca nome del produttore e indicazioni di manutenzione. Il peltro si opaca con il tempo: per molti è patina, non rottura."
+        },
+        {
+          "title": "Filiera Osaka",
+          "body": "La prefettura elenca Osaka naniwa suzuki tra i dentō kōgeihin. Shop di produttore e corner craft sono più chiari delle bancarelle senza etichetta."
+        },
+        {
+          "title": "Il metallo che raffredda il saké e le aspettative",
+          "body": "Il primo sorso dal peltro sembra più serio del bicchiere di plastica dell’hotel. Effetto placebo metallurgico: funziona comunque.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "大阪浪華錫器 — Osaka Prefecture",
+          "url": "https://www.pref.osaka.lg.jp/o110070/mono/dento/dento05.html",
+          "kind": "ente pubblico"
+        },
+{
+        "title": "Osaka Naniwa tinware — Japanese Wikipedia",
+        "url": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E9%98%AA%E6%B5%AA%E8%8F%AF%E9%8C%AB%E5%99%A8",
+        "kind": "enciclopedia"
+      },
+        {
+          "title": "Osaka Naniwa Pewterware — KOGEI JAPAN",
+          "url": "https://kogeijapan.com/locale/en_US/osakananiwasuzuki/",
+          "kind": "catalogo artigianato"
+        }
+      ]
+    },
+    {
+      "id": "shop-osaka-sakai-knives",
+      "long": "I coltelli Sakai (Sakai uchihamono) da comprare sono lame professionali e da home cook nate dalla filiera di Sakai: forgiatura, affilatura e montaggio spesso divisi tra specialisti. Li trovi a Sakai (musei/shop di filiera), a Sennichimae e nei knife shop di Osaka che dichiarano origine. Osaka Info e la prefettura li elencano tra i dentō kōgeihin; l’associazione di commercio detiene marchi di zona. Scegli forma (yanagiba, deba, usuba, gyuto), acciaio e se vuoi single-bevel. Chiedi manutenzione e affilatura futura. In aereo: stiva obbligata, fodero serio. Non è «un coltello di Kyoto con altra etichetta»: è un ecosistema produttivo diverso, anche se entrambi tagliano cipolle con autorità.",
+      "sections": [
+        {
+          "title": "Forma prima del mito",
+          "body": "Yanagiba per sashimi, deba per pesce intero, usuba per verdure, gyuto/santoku per uso misto. Dichiarare cosa cucini evita una lama meravigliosa e inutilizzata."
+        },
+        {
+          "title": "Marchio di filiera e servizio",
+          "body": "Preferisci shop che spiegano produttore, bevel e pietra. I punti legati all’associazione Sakai o ai knife specialist di Osaka sono più leggibili delle offerte generiche."
+        },
+        {
+          "title": "Stiva, fodero, dogana emotiva",
+          "body": "Imballa come utensile da cucina. Un buon saya o custodia protegge il filo e i tuoi vestiti. Non metterlo nel bagaglio a mano «tanto è regalo»."
+        },
+        {
+          "title": "La lama che rende le carote filosofiche",
+          "body": "Con un Sakai decente anche tagliare verdure sembra una pratica. Poi torni ai coltelli di casa e capisci perché i cuochi parlano di affilatura come di religione.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "堺打刃物 — Osaka Prefecture",
+          "url": "https://www.pref.osaka.lg.jp/o110070/mono/dento/dento16.html",
+          "kind": "ente pubblico"
+        },
+        {
+          "title": "Osaka Info — official city travel",
+          "url": "https://www.osaka-info.jp/en/osaka/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "堺打刃物 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%A0%BA%E6%89%93%E5%88%83%E7%89%A9",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-hiroshima-tulip-needles",
+      "long": "Gli aghi Tulip di Hiroshima sono set da cucito, ricamo, quilting e uncinetti di precisione prodotti nella prefettura: oggetti piccoli, leggeri, con finitura e varietà di punta che i ricamatori cercano di proposito. Tulip documenta la filiera Hiroshima hari; in città li trovi in mercerie, department store e corner souvenir selezionati. Scegli il set per la tecnica corretta — sashiko, beadwork, cucito generico, crochet — perché «ago» non è una categoria unica. Controlla numerazione, astuccio e se le punte sono protette. In valigia occupano quasi zero spazio; in dogana mentale, invece, possono far nascere un nuovo hobby non preventivato.",
+      "sections": [
+        {
+          "title": "Tecnica = tipo di ago",
+          "body": "Sashiko, ricamo, quilting e uncinetto chiedono geometrie diverse. Leggi la confezione: l’ago «perfetto» sbagliato è solo un ago frustrante."
+        },
+        {
+          "title": "Astuccio e numerazione",
+          "body": "Preferisci set con custodia rigida o magnetica. Annota i numeri che usi già a casa per non duplicare inutilmente."
+        },
+        {
+          "title": "Dove li trovi a Hiroshima",
+          "body": "Mercerie, grandi magazzini e shop select in stazione/torri souvenir portano spesso Tulip. Il sito del produttore spiega anche la radice Hiroshima della filiera."
+        },
+        {
+          "title": "Il souvenir che può fondare una setta del punto indietro",
+          "body": "Compri «due aghi per la zia» e torni con uncinetti, bead needles e ambizioni. Tulip non è responsabile delle tue sere insonni sul cotone.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Hiroshima Needle — Tulip Company",
+          "url": "https://en.tulip-japan.co.jp/hiroshima/",
+          "kind": "produttore"
+        },
+        {
+          "title": "Dive Hiroshima — official guide",
+          "url": "https://dive-hiroshima.com/en/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Tulip — official English site",
+          "url": "https://en.tulip-japan.co.jp/",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-hiroshima-kumano-brush",
+      "long": "Il pennello Kumano da comprare è uno strumento da trucco, pittura o calligrafia prodotto a Kumano-cho: Dive Hiroshima lo presenta come craft con enorme quota di produzione nazionale. In città lo trovi nei department store e nei corner beauty; a Kumano il Fude no Sato Kobo concentra decine di marche locali. Dichiarare l’uso (viso, occhi, sumi, acquerello) evita di portare a casa una punta sbagliata. Controlla tipo di pelo o fibra, forma della testa e se c’è cappuccio. In valigia i pennelli beauty compatti sono i più facili; i grandi fude da calligrafia vogliono tubo. Non è intercambiabile col Nara-fude solo perché entrambi si chiamano «pennello».",
+      "sections": [
+        {
+          "title": "Beauty, pittura o scrittura",
+          "body": "Tre famiglie sotto lo stesso toponimo. Chiedi la destinazione: un kabuki brush e un fude da kanji non si prestano i compiti."
+        },
+        {
+          "title": "Pelo, forma, cappuccio",
+          "body": "Confronta morbidezza e rientro della punta. Un cappuccio o un blister salva il viaggio; senza, lo zaino fa da livella."
+        },
+        {
+          "title": "Kumano town vs department store",
+          "body": "In città scegli in fretta tra linee note; a Kumano confronti centinaia di opzioni. Entrambe le strade vanno bene se sai già l’uso."
+        },
+        {
+          "title": "Il pennello che rende il blush un’arte marziale",
+          "body": "Con un Kumano decente il trucco sembra più «intenzionale». Poi scopri che serviva anche un po’ di tecnica — dettaglio che il pennello, diplomatico, non menziona.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Kumano brush — Dive Hiroshima",
+          "url": "https://dive-hiroshima.com/en/explore/386/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "熊野筆 — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E7%86%8A%E9%87%8E%E7%AD%86",
+          "kind": "enciclopedia"
+        },
+        {
+          "title": "Dive Hiroshima — official guide",
+          "url": "https://dive-hiroshima.com/en/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-hiroshima-carp-goods",
+      "long": "I Carp goods di Hiroshima sono merchandise della squadra di baseball Hiroshima Toyo Carp: cappellini rossi, maglie, mascotte, asciugamani e gadget venduti in centro, in stazione e nei punti ufficiali. L’oggetto da comprare è il pezzo rosso riconoscibile — di solito il cappellino — non il saggio sul castello «delle carpe». Controlla taglia, licenza ufficiale e se è edizione stagione o vintage da second-hand. In valigia il cappello si schiaccia: meglio riempirlo di calzini. È souvenir pop urbano, leggero da spiegare («è la squadra») e difficilissimo da confondere con artigianato tradizionale.",
+      "sections": [
+        {
+          "title": "Cappellino, maglia, piccolo gadget",
+          "body": "Il cappello è il pezzo più portabile e fotografico. Maglie chiedono taglia giusta; i keyholder risolvono regali multipli."
+        },
+        {
+          "title": "Ufficiale vs rosso generico",
+          "body": "Cerca marchio Carp / licenziatari ufficiali. Un cappello rosso qualsiasi non diventa souvenir di Hiroshima per ottimismo."
+        },
+        {
+          "title": "Stazione, centro, giorno di partita",
+          "body": "Shop in città e corner stazione bastano ai più. Vicino allo stadio l’offerta cresce: anche le code."
+        },
+        {
+          "title": "Il rosso che unisce tifosi e turisti senza richiedere regole del baseball",
+          "body": "Puoi non sapere cosa sia un strike e indossare comunque il cappellino con dignità. A Hiroshima il colore fa già metà del lavoro sociale.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Hiroshima Toyo Carp — official",
+          "url": "https://www.carp.co.jp/",
+          "kind": "sito ufficiale"
+        },
+        {
+          "title": "Dive Hiroshima — official guide",
+          "url": "https://dive-hiroshima.com/en/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "広島東洋カープ — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E5%BA%83%E5%B3%B6%E6%9D%B1%E6%B4%8B%E3%82%AB%E3%83%BC%E3%83%97",
+          "kind": "enciclopedia"
+        }
+      ]
+    },
+    {
+      "id": "shop-miyajima-rice-scoop",
+      "long": "Lo shamoji di Miyajima è un mestolo da riso in legno — spesso con possibilità di incisione di nome o data — venduto lungo Omotesando e nei punti legati all’associazione turistica dell’isola. L’acquisto è l’utensile/portafortuna fisico: legno, forma a paletta, eventuale scrittura, non il mito del biwa di Benzaiten (che resta in altre schede). Scegli dimensione da cucina reale o versione mini da souvenir; chiedi se l’incisione si fa in loco e quanto tempo serve. Controlla finitura del legno e se è pensato per uso alimentare. In valigia è piatto e leggero: avvolgilo perché i bordi sottili si scheggiano. Un mestolo inciso batte dieci magneti del torii.",
+      "sections": [
+        {
+          "title": "Misura da riso o mini da borsa",
+          "body": "Lo shamoji grande serve in cucina; le versioni piccole e i ciondoli sono regali. Decidi prima se deve toccare il riso davvero."
+        },
+        {
+          "title": "Incisione sul posto",
+          "body": "Molte botteghe di Omotesando offrono scrittura di nomi. Chiedi caratteri, tempi di coda e se il legno è già finito o va trattato dopo."
+        },
+        {
+          "title": "Uso alimentare e cura",
+          "body": "Se cucinerai, evita vernici dubbie e segui il lavaggio consigliato. Se è solo portafortuna da muro, puoi scegliere pezzi più decorativi."
+        },
+        {
+          "title": "Il mestolo che promette vittoria e porzioni uguali",
+          "body": "Pochi oggetti uniscono metafore di successo e equità a tavola. Ideale per chi vuole fortuna senza dover spiegare un amuleto astratto a cena.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Miyajima shamoji — Miyajima Tourist Association",
+          "url": "https://www.miyajima.or.jp/present/present_shamoji.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Miyajima Tourist Association — English",
+          "url": "https://www.miyajima.or.jp/english/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "しゃもじ — Wikipedia giapponese",
+          "url": "https://ja.wikipedia.org/wiki/%E3%81%97%E3%82%83%E3%82%82%E3%81%98",
+          "kind": "enciclopedia"
+        }
+      ]
+    }
+  ]
+}

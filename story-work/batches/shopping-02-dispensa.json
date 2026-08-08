@@ -1,0 +1,473 @@
+{
+  "meta": {
+    "batch": "shopping-02-dispensa",
+    "note": "Phase 3 shopping deep stories for 13 pantry (dispensa) catalog ids: nationwide green tea, dashi, furikake, Yawataya shichimi, sansho, yuzu kosho, regional KitKat, ume products, plus regional bottles/jars — Shinshu miso, Uji matcha, Osaka konamon sauce, Hiroshima Setouchi lemon goods, Takayama/Hida sake. Shopping angle = sealed pack to put in luggage. Konamon sauce is the bottle (Otafuku etc.), not Hiroshima/Osaka okonomiyaki food history. Avoid medical claims on ume/tea; prefer MAFF, JNTO, producer federations, Nestlé Japan, Dive Hiroshima, Hida.jp."
+  },
+  "schede": [
+    {
+      "id": "shop-all-green-tea",
+      "long": "Il tè verde giapponese da dispensa non è «un tè»: è una famiglia di lavorazioni — sencha da pieno sole, gyokuro e matcha da ombreggiatura, hojicha tostato, genmaicha con riso — con temperature e grammature diverse. JNTO lo lega a paesaggi produttivi (Shizuoka per volume, Uji e altre zone per reputazione di qualità) e a negozi dove ti spiegano l'infusione, non solo la latta carina. In viaggio conti origine sull'etichetta, data di confezionamento e formato (foglia, stick, polvere): il souvenir utile è quello che saprai preparare a casa senza indovinare i gradi.",
+      "sections": [
+        {
+          "title": "Sencha, gyokuro, hojicha: tre etichette",
+          "body": "Sencha domina i volumi; gyokuro e tencha/matcha nascono da piante ombreggiate e costano di più. Hojicha è più tostato e spesso più delicato di sera. Leggi cultivar e zona se indicate; «green tea» generico sullo scaffale aeroporto dice poco."
+        },
+        {
+          "title": "Negozi di tè e banconi specialty",
+          "body": "Chiedi temperatura dell'acqua e grammi per tazza: è il servizio che distingue il tea shop dal duty-free. Lattine e sacchetti richiudibili proteggono aroma meglio delle bustine già aperte in vetrina."
+        },
+        {
+          "title": "Chiusura e luce in valigia",
+          "body": "Preferisci confezioni sigillate e opache. La polvere di matcha odia umidità e luce; le foglie di sencha pure. Non comprare formati enormi «perché conviene» se non bevi tè ogni giorno."
+        },
+        {
+          "title": "L'acqua a 100 °C che rovina la diplomazia",
+          "body": "Bollire il gyokuro come se fosse un tè da cantiere inglese è il modo più rapido per ottenere amaro da vendetta. Il Giappone ti ha venduto foglie costose; il bollitore aggressivo le tratta come pasta istantanea.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "The Definitive Japanese Tea Experience — Travel Japan (JNTO)",
+          "url": "https://www.japan.travel/en/gastronomy/article-the-definitive-japanese-tea-experience/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "A Guide to Japan’s Renowned Green Tea — Travel Japan",
+          "url": "https://www.japan.travel/en/ca/inspiration/tea-totalling-a-guide-to-japans-renowned-green-tea/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-dashi",
+      "long": "Il dashi da riportare a casa è un kit di umami: kombu, scaglie di katsuobushi, buste «dashi pack» o granuli istantanei. MAFF classifica il katsuobushi tra i cibi tradizionali — bonito bollito, affumicato, essiccato, a volte inoculato con muffe fino al honkarebushi — e lo collega al brodo di base della cucina giapponese. Al mercato o al supermercato leggi ingredienti: vuoi solo alga e pesce, o anche esaltatori? Il souvenir intelligente è una busta di scaglie più un pezzo di kombu, non necessariamente la latta da ristorante.",
+      "sections": [
+        {
+          "title": "Kombu, katsuobushi, busta pronta",
+          "body": "Hanakatsuo (scaglie fini) per brodo veloce; pezzi più spessi per cotture lunghe. Kombu riporta spesso la zona (Hokkaido e altre). I pack in tessuto non tessuto sono comodi in cucina piccola; i granuli sono pratici ma diversi dal brodo da zero."
+        },
+        {
+          "title": "Mercati del pesce secco e corsie dry goods",
+          "body": "Nei mercati trovi scaglie appena tagliate e spiegazioni a vista; al supermercato confronti marche e prezzi. Controlla data e chiusura: il katsuobushi assorbe odori di valigia se il sacchetto è bucato."
+        },
+        {
+          "title": "Additivi e bagaglio",
+          "body": "Se vuoi evitare glutammato aggiunto, leggi l'elenco — non fidarti del design «tradizionale». Le scaglie pesano poco; il kombu è piatto. Tieni tutto in doppia busta lontano da saponi e incenso."
+        },
+        {
+          "title": "Il brodo che giudica la tua pentola europea",
+          "body": "Preparare dashi in una casseruola che puzza ancora di ragù è un atto di ottimismo. Il kombu ha memoria olfattiva: trattalo come ospite di riguardo, non come cubetto Maggi con deliri di grandezza.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Dried Bonito — Traditional Foods in Japan (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/dento_syoku/menu/dried_bonito.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Discover Dashi, the Basis of Japanese Cuisine — MAFF EAT! MEET! JAPAN",
+          "url": "https://www.maff.go.jp/e/policies/rural_dev/eatmeetjapan/winners-2019/14.html",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-furikake",
+      "long": "Il furikake è il condimento secco che si sparge sul riso: semi di sesamo, alghe, pesce, uova, wasabi, ume e decine di varianti in buste piccole. Marchi come Nagatanien (linee «otona no furikake» e classiche) occupano intere corsie di supermercato; esistono anche versioni artigianali più umide o a base dashi. È il souvenir economico per eccellenza: poco peso, tanti gusti, etichetta da leggere per allergeni e ingredienti animali se cucini per vegetariani. Non è una spezia unica — è un armadio di topping in bustina.",
+      "sections": [
+        {
+          "title": "Bustina, barattolo, elenco allergeni",
+          "body": "Le mini buste da singola porzione viaggiano meglio dei barattoli grandi. Confronta «saumon», «bonito», «egg» e spezie piccanti. Texture croccante vs più morbida dipende dalla ricetta: guardare non basta, leggi."
+        },
+        {
+          "title": "Corsia riso del supermercato",
+          "body": "Non serve un negozio specialty: konbini e supermarket bastano per assaggiare. I tea shop e i reparti premium offrono furikake a base kombu/katsuobushi senza troppi aromi. Evita di inventare «il miglior negozio di Tokyo» — conta l'etichetta."
+        },
+        {
+          "title": "Peso zero, tentazione infinita",
+          "body": "Tre o quattro gusti diversi bastano come regalo. Controlla scadenze lunghe: è secco, ma non immortale. In cabina le bustine passano senza problemi di liquidi."
+        },
+        {
+          "title": "La confettura del riso bianco",
+          "body": "Il furikake esiste perché il riso bianco da solo, dopo il terzo onigiri del giorno, chiede un intervento umanitario. È glitter salato: una volta aperto il pacco «assaggio», la matematica della moderazione collassa.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "ふりかけ — Nagatanien product list",
+          "url": "https://www.nagatanien.co.jp/product/lst/2/",
+          "kind": "produttore"
+        },
+        {
+          "title": "Our Story — Nagatanien Holdings",
+          "url": "https://www.nagatanien-global.com/our_story.html",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-shichimi",
+      "long": "Lo shichimi togarashi di Yawataya Isogoro è una miscela di «sette sapori» in lattine illustrate nata a Nagano, con vendita storica legata all'area di Zenkoji e laboratorio ancora in città. Il catalogo ufficiale distingue shichimi classico, varianti yuzu, sansho, fukairi e altre edizioni: l'oggetto da comprare è la latta (o il barattolo) con elenco spezie, non un peperoncino generico. In flagship puoi anche far mescolare una personalizzazione: utile se vuoi meno piccante o più agrume. Department store fuori Nagano spesso tengono la linea base.",
+      "sections": [
+        {
+          "title": "Latta, ricetta, piccantezza",
+          "body": "Guarda ingredienti (peperoncino, sansho, semi di canapa, scorza, ecc. — le ricette variano) e peso in grammi. Le edizioni «yuzu» o «sansho» cambiano aroma più del colore della latta. Chiudi bene: perde freschezza in fretta una volta aperta."
+        },
+        {
+          "title": "Negozio Nagano e scaffali nazionali",
+          "body": "Il main shop a Nagano e lo store locator ufficiale aiutano; altrove cerca corner spezie nei grandi magazzini. Non serve pellegrinare per la latta classica — serve se vuoi blending o edizioni locali."
+        },
+        {
+          "title": "Piccola, sigillata, in cabina",
+          "body": "Formati da 10–20 g pesano quasi nulla. Mettila lontano da umidità. Dichiarala spezia se ti chiedono: non è liquido."
+        },
+        {
+          "title": "Sette spezie, infinite scuse per riscoprire le uova",
+          "body": "Tornerai a casa e scoprirai che lo shichimi migliora uova, noodle istantanei e persino la pizza del giovedì. La latta illustrata sul tavolo farà finta di essere un oggetto di design — finché non starnutirai sul primo pizzico.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "YAWATAYA ISOGORO — sito ufficiale EN",
+          "url": "https://www.yawataya.co.jp/en/",
+          "kind": "produttore"
+        },
+        {
+          "title": "Corporate Profile — Yawataya Isogoro",
+          "url": "https://yawataya.co.jp/en/company/",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-sansho",
+      "long": "Il sansho è il pepe giapponese (Zanthoxylum) dal profumo agrumato e dalla leggera nota «anestesica» sulla lingua: si vende in polvere, in grani, come mi-sansho (bacche verdi) o dentro specialità come il chirimen-sansho di Kyoto. MAFF lo documenta sia come spezia da tsukudani sia nei cibi tradizionali della prefettura. Per la valigia conta la confezione piccola e recente: l'aroma volatile sparisce prima della tua voglia di cucinare unagi a Milano. Non è pepe nero con etichetta kawaii.",
+      "sections": [
+        {
+          "title": "Polvere, grani, bacche",
+          "body": "La polvere è pronta per unagi e yakitori; i grani si pestano al momento. Le bacche in salamoia o tsukudani sono un altro prodotto — leggi se è spezia secca o contorno. Evita barattoli già aperti nel tester senza data."
+        },
+        {
+          "title": "Kyoto, mercati, reparto spezie",
+          "body": "A Kyoto trovi chirimen-sansho come obanzai da asporto e souvenir; nei mercati alpini e nei department store la polvere secca. Confronta produttori locali invece di inseguire un'unica «marca magica»."
+        },
+        {
+          "title": "Piccolo e fresco",
+          "body": "Compra formati mini: meglio finire un barattolino che tenere una latta stanca. Sigilla in doppia busta; il profumo è invasivo verso tè e cioccolato vicini."
+        },
+        {
+          "title": "Il pepe che ti fa le fusa sulla lingua",
+          "body": "Quella sensazione di leggero formicolio non è un difetto di fabbrica: è il sansho che ti saluta. Se aspetti il bruciore del peperoncino messicano, stai sostenendo l'esame sbagliato.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Chirimen Sansho — Traditional Foods in Japan (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/dento_syoku/menu/tirimen_sansyo.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Sansho no Tsukudani — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/4878/index.html",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-yuzu-kosho",
+      "long": "Lo yuzu kosho (o yuzu gosho) è una pasta di scorza di yuzu, peperoncino e sale: condimento tipico del Kyushu che MAFF descrive tra le cucine regionali di Fukuoka. Non contiene pepe nero — in zona «kosho» indica il peperoncino. In supermercato lo trovi in tubetto o vasetto, verde (più fresco e spesso più piccante) o rosso (yuzu maturo, aroma più rotondo). L'oggetto da mettere in valigia è il sigillo chiuso: pochi grammi bastano per nabe, noodle e grigliate a casa.",
+      "sections": [
+        {
+          "title": "Verde, rosso, tubetto sigillato",
+          "body": "Leggi colore e ingredienti: solo yuzu, chili, sale (e forse alcol o aceto in alcune marche). I tubetti da viaggio perdono meno e dosano meglio dei vasetti grandi. Se la pasta è secca o scura in modo strano, lascia stare."
+        },
+        {
+          "title": "Corsia condimenti e corner Kyushu",
+          "body": "Supermercati nazionali lo tengono vicino a wasabi e spezie; aeroporti del Kyushu e shop regionali offrono produttori locali. Non serve la cronaca del monte Hiko: serve un barattolo integro con data."
+        },
+        {
+          "title": "Liquido? Quasi. Proteggi bene",
+          "body": "È una pasta: in cabina rispetta le regole sui gel se il volume supera i limiti. Meglio in stiva dentro doppia busta e scatola rigida. Una volta aperto, in frigo a casa."
+        },
+        {
+          "title": "Il wasabi dell'agrume con cattive intenzioni",
+          "body": "Ne basta quanto un chicco di riso. Se ne metti «un po' generoso» come il ketchup, il nabe ti ricorderà per giorni chi ha aperto il tubetto. Diplomazia in cucina: micro-dosi.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Yuzu Gosho (Yuzu Citrus Pepper) — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/5740/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Additive-free yuzu kosho — Oishii Island Kyushu",
+          "url": "https://www.welcomekyushu.jp/oishii-island-kyushu/en/additive-free-yuzu-kosho-a-spicy-hot-japanese-condiment-made-from-yuzu-chilli-and-salt-matured-from-yuzu-and-chillies-cultivated-in-yunoki-village/index.html",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-regional-kitkat",
+      "long": "I KitKat regionali (ご当地 / JAPAN KitKat) sono edizioni Nestlé Japan pensate come omiyage: wafer e ripieni ispirati a specialità locali, da Hokkaido a Okinawa, venduti soprattutto in stazioni, aeroporti e souvenir shop della zona. Il sito ufficiale gotouchi elenca gusti e collaborazioni; non tutte le confezioni «con paesaggio» sono davvero esclusive — alcune sono nazionali con grafica convincente. L'oggetto è la scatola sigillata: leggi regione, periodo e ingredienti prima di pagare il premium da vetrina.",
+      "sections": [
+        {
+          "title": "Scatola, gusto, dicitura regione",
+          "body": "Confronta il nome del sapore con la mappa Nestlé, non solo la foto del castello. Collaborazioni con marche locali (es. caramelle di Osaka) sono dichiarate in etichetta. Controlla se contiene alcol o allergeni se regali a bambini."
+        },
+        {
+          "title": "Hub di stazione e aeroporto",
+          "body": "I corner souvenir delle grandi stazioni sono il canale naturale. In città turistiche i shop «gotouchi» ripetono le stesse SKU: non serve correre. Evita rivenditori che staccano il film senza motivo."
+        },
+        {
+          "title": "Cioccolato e caldo in valigia",
+          "body": "Estate e shinkansen soleggiati sciolgono il ripieno: metti al centro del bagaglio. Formati multipack pesano; un pacco da regalo batte cinque «assaggi» aperti."
+        },
+        {
+          "title": "Il cioccolato che fa finta di essere un atlante",
+          "body": "Collezionare KitKat regionali è geografia edibile: alla fine hai più cartone illustrato che wafer. Va bene — finché non dichiari di «conoscere» Hokkaido solo perché hai mangiato l'adzuki in monaka.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "KitKat Japan Regional Flavors — Nestlé Japan",
+          "url": "https://kitkat.nestle.jp/gotouchi-en",
+          "kind": "produttore"
+        },
+        {
+          "title": "KitKat Pine Candy Flavor (Osaka souvenir) — Nestlé Japan press",
+          "url": "https://www.nestle.co.jp/media/pressreleases/20250407_kitkat",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-ume-products",
+      "long": "Umeboshi e prodotti alla ume sono prugne giapponesi (Prunus mume) lavorate sotto sale, con shiso, miele o in paste e condimenti. MAFF racconta la filiera di Wakayama — circa gran parte del raccolto nazionale — e varietà come la nanko-ume dalla polpa soffice. In department store e mercati confronti salinità (shiozuke più intensi vs versioni dolci a basso sale), confezioni sottovuoto e vasetti. Per l'aereo scegli pack sigillati poco liquidi: la salamoia ama macchiare la maglietta del vicino di posto.",
+      "sections": [
+        {
+          "title": "Sale, shiso, miele: tre personalità",
+          "body": "Leggi percentuale di sale se indicata e se c'è colorazione di shiso. Le paste di ume e i condimenti sono prodotti diversi dall'umeboshi intero. Assaggia al banco quando c'è il tester — il salato «storico» sorprende chi aspetta un'albicocca candita."
+        },
+        {
+          "title": "Depachika e corsie conserve",
+          "body": "I piano cibo dei grandi magazzini espongono marche di Wakayama e oltre; i mercati offrono produttori più piccoli. Non inventare claim salutistici: compra per gusto e uso su riso o onigiri."
+        },
+        {
+          "title": "Sigillo e zero gocce libere",
+          "body": "Preferisci vaschette individuali o sottovuoto. Metti in doppia busta rigida. Se porti umeshu (liquore), è un altro prodotto con regole alcol — non mescolarlo mentalmente all'umeboshi."
+        },
+        {
+          "title": "La prugna che ti fissa dal bento",
+          "body": "Un solo umeboshi al centro del riso bianco è un occhio rosa che giudica le tue scelte di vita. Mangiarlo intero senza riso è un atto di coraggio o di scarsa pianificazione — spesso entrambe.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Umeboshi (pickled plums) — Our Regional Cuisines (MAFF)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/2705/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "和歌山の梅干し — にっぽん伝統食図鑑 (MAFF)",
+          "url": "https://www.maff.go.jp/j/keikaku/syokubunka/traditional-foods/menu/wakayama_no_umeboshi.html",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "shop-nagano-shinshu-miso",
+      "long": "Il miso Shinshu è soprattutto kome-miso di Nagano: soia, koji di riso, sale, colore chiaro e gusto equilibrato salato-umami. La federazione dei produttori della prefettura gestisce il marchio collettivo e spiega che circa metà del miso consumato in Giappone arriva da questa area produttiva. In viaggio cerchi confezioni sottovuoto o tubetti da produttori locali e mercati — oggetti da cucina, non una lezione di fermentazione. In valigia il miso è denso: doppia busta in stiva evita sorprese sulla biancheria.",
+      "sections": [
+        {
+          "title": "Colore, riso koji, marchio Shinshu",
+          "body": "Etichette con «信州味噌» e produttore della prefettura sono il segnale utile. Confronta dolce/salato e se è pasteurizzato. I tubetti da viaggio dosano meglio dei sacchi da un chilo da chef."
+        },
+        {
+          "title": "Produttori e mercati di Nagano",
+          "body": "La federazione elenca kooperativi e cantine visitabili; in città basta il reparto refrigerato o i gift shop locali. Non serve elencare ogni kura: scegli una confezione integra con data."
+        },
+        {
+          "title": "Sottovuoto in stiva",
+          "body": "Anche chiuso può sudare odore: doppia busta e lontano dai vestiti. In cabina i tubetti piccoli aiutano con i limiti sui gel. A casa va in frigo dopo l'apertura."
+        },
+        {
+          "title": "La zuppa istantanea che ti guarda con disprezzo",
+          "body": "Dopo aver comprato Shinshu miso artigianale, il bustina di instant miso in hotel sembrerà una resa morale. Usali entrambi: uno per i giorni nobili, l'altro per quando il shinkansen ha ritardo e hai solo un bollitore.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Shinshu Miso — Nagano Prefectural Federation of Miso Manufacturers",
+          "url": "https://shinshu-miso.or.jp/en",
+          "kind": "associazione"
+        },
+        {
+          "title": "Federation Overview — Shinshu Miso",
+          "url": "https://shinshu-miso.or.jp/en/aboutus/",
+          "kind": "associazione"
+        }
+      ]
+    },
+    {
+      "id": "shop-kyoto-uji-matcha",
+      "long": "Il matcha di Uji è polvere di tè ombreggiato legata alla reputazione del tè di Kyoto: JNTO e le guide della prefettura presentano Uji come città del tè, con negozi lungo Omotesando verso Byodo-in e produttori che distinguono usucha, koicha e grade da pasticceria. L'oggetto da comprare è la latta o il sacchetto sigillato con indicazione d'uso — non il parfait al bancone. Chiedi se è cerimoniale o culinario: prezzi e finezza della macinatura cambiano, e una latta «per dolci» montata a frusta in cerimonia delude entrambi i mondi.",
+      "sections": [
+        {
+          "title": "Grado: usucha, koicha, cucina",
+          "body": "Il matcha da bere ha colore intenso e particelle fini; quello da pasticceria tollera amaro e costo minori. Leggi grammature e se è «宇治抹茶» con produttore. Evita barattoli aperti al tester come scorta da viaggio."
+        },
+        {
+          "title": "Tea shop di Uji e Kyoto",
+          "body": "Omotesando e i negozi storici vendono lattine da regalo e ricariche. La Kyoto Prefectural Tea Industry Chamber gestisce anche esperienze di preparazione — utili per capire la polvere prima di comprare. In città, i brand seri spiegano la differenza di grado a voce."
+        },
+        {
+          "title": "Luce, aria, umidità",
+          "body": "Latta opaca e chiusura ermetica; una volta aperta, frigo e consumo rapido. In aereo tieni il barattolo in cabina se temi il caldo della stiva. Non comprare mezzo chilo «perché Uji»."
+        },
+        {
+          "title": "La polvere che macchia anche le buone intenzioni",
+          "body": "Un cucchiaino di matcha libero nello zaino trasforma magliette e caricabatterie in installazione d'arte verde. La latta non è optional: è la differenza tra souvenir e incidente aereo domestico.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Uji — Travel Japan (JNTO)",
+          "url": "https://www.japan.travel/en/spot/2017/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Uji Tea Experience Hall Takumi no Yakata — Kyoto Prefectural Tea Industry Chamber",
+          "url": "https://ujicha.or.jp/en/takumi/",
+          "kind": "associazione"
+        },
+        {
+          "title": "A Day-Trip Plan in Uji — Another Kyoto",
+          "url": "https://www.kyototourism.org/en/column/45259/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "shop-osaka-konamon-sauce",
+      "long": "La salsa per konamon è la bottiglia (o il tubetto) di okonomi sauce / takoyaki sauce che trovi al supermercato e nei souvenir shop di Osaka: densa, dolce-speziata, pensata per stare sulla piastra senza scivolare via come una Worcestershire liquida. Produttori come Otafuku — nati proprio rispondendo ai locali di okonomiyaki — spiegano spessore, mix di spezie e frutta (datteri inclusi nelle narrazioni di marca). Qui non si ricostruisce la storia del piatto: si sceglie una bottiglia piccola, si legge se è okonomi o takoyaki, si mette in valigia con il tappo verso l'alto.",
+      "sections": [
+        {
+          "title": "Okonomi vs takoyaki sulla etichetta",
+          "body": "Due ricette diverse di densità e dolcezza; alcune linee «yakisoba» aggiungono una terza variante. Controlla volume (300 ml e simili) e ingredienti. Marchi nazionali e salse di singoli ristoranti convivono: conta la chiusura, non il mito del locale."
+        },
+        {
+          "title": "Supermercato e shelf souvenir",
+          "body": "La corsia salse dei supermarket di Osaka basta. I gift shop vendono confezioni regalo più pesanti. Non serve il museo del konamon per capire una bottiglia — serve leggere «お好み焼きソース»."
+        },
+        {
+          "title": "Bottiglia piccola, nastro sul tappo",
+          "body": "Il vetro/plastica pieno pesa: scegli il formato viaggio. Nastro da imballaggio sul tappo e busta zip. In cabina i liquidi oltre i 100 ml vanno in stiva."
+        },
+        {
+          "title": "Il ketchup di Osaka con diploma professionale",
+          "body": "A casa la userai su uova, hamburger e, nei momenti di debolezza, su pasta al forno. La bottiglia ti guarderà senza giudicare — a differenza dei tuoi amici di Hiroshima, che giudicheranno eccome.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Culture — Otafuku Sauce Co., Ltd.",
+          "url": "https://www.otafukusauce.com/e/culture/",
+          "kind": "produttore"
+        },
+        {
+          "title": "Learn more — OTAFUKU inbound",
+          "url": "https://www.otafuku.co.jp/sp/inbound/learn/",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-hiroshima-hiroshima-lemon",
+      "long": "I prodotti al limone Setouchi / Hiroshima Lemon sono conserve, sale, salse, caramelle e bevande che usano limoni coltivati sul Mare Interno — Hiroshima è presentata da Dive Hiroshima come prima prefettura per produzione, con frutti spesso senza antimuffa di post-raccolta, quindi anche la scorza entra in ricette industriali. L'oggetto da valigia tipico è sale al limone, confetture, Lemosco (salsa limone-peperoncino) o snack secchi, non un rete di limoni freschi. Leggi marca JA o produttore locale e scegli formati a prova di bagaglio.",
+      "sections": [
+        {
+          "title": "Sale, salsa, snack: tre formati",
+          "body": "Sale aromatizzato e polveri viaggiano meglio dei succhi. Lemosco e condimenti in vasetto piccolo sono facili da regalo. Le torte al limone di Setoda sono un altro capitolo — più fragili, più pasticceria che dispensa secca."
+        },
+        {
+          "title": "Stazione, aeroporto, mercati",
+          "body": "Dive Hiroshima elenca souvenir tipici in stazione, aeroporto e shop Miyajima. Cerca diciture «瀬戸内» / «Hiroshima Lemon» e produttore. Evita di pagare premium solo per la foto del ponte sullo scaffale."
+        },
+        {
+          "title": "Secco sì, fresco no",
+          "body": "Limoni freschi e bottiglie di succo pesano e rischiano controlli liquidi. Preferisci barattoli e pack snack. Nastro sul tappo delle salse piccanti."
+        },
+        {
+          "title": "Il limone che fa concorrenza al souvenir Carp",
+          "body": "Tra una salsa al limone e un cappellino rosso da baseball, la salsa pesa meno e dura di più in cucina. Il cappellino, però, perde meno frequentemente il tappo in stiva. Scegli in base al tipo di rimorso che preferisci.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Setouchi Hiroshima lemon — Dive Hiroshima",
+          "url": "https://dive-hiroshima.com/en/feature/ichioshi-lemon/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "A refreshing souvenir using Setouchi Hiroshima Lemon — Dive Hiroshima",
+          "url": "https://dive-hiroshima.com/en/feature/souvenir-lemon/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Lemosco — Hiroshima City Brand",
+          "url": "https://www.city.hiroshima.lg.jp/english/hiroshima-brand-en/1032092/1032095/1014852.html",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "shop-takayama-local-sake",
+      "long": "Il saké di Hida Takayama è la bottiglia (o il brick piccolo) delle kura ancora attive nel centro storico: Hida.jp spiega clima freddo, acqua di montagna e riso Hidahomare come ragioni della produzione locale, con un pugno di birrifici visitabili a piedi da stazione. L'acquisto da viaggio è una bottiglia di formato gestibile dopo un assaggio in ochoko al banco — non una cronaca di tutte le cinquanta kura del passato. Controlla se è nama (non pastorizzato, va al fresco) o pasteurizzato stabile, e imballa come se fosse vetro geloso.",
+      "sections": [
+        {
+          "title": "Bottiglia, grado, nama o no",
+          "body": "Junmai, ginjo e nomi di brand della kura stanno in etichetta. Le versioni nama-genshu vogliono freddo; per l'aereo lungo preferisci pasteurizzati stabili. Formati 300–720 ml: il mezzo litro spesso è il compromesso."
+        },
+        {
+          "title": "Kura di Sanmachi e tasting",
+          "body": "Hida.jp elenca birrifici e tasting; JNTO descrive il cluster delle sake breweries. Compra dove hai assaggiato, con scontrino e scatola. Non inventare ranking: scegli quello che ti è piaciuto nel bicchiere."
+        },
+        {
+          "title": "Vetro, bolle, dogana",
+          "body": "Avvolgi in vestiti, metti in stiva, dichiara alcol se richiesto. Il vetro in cabina è scomodo e a rischio. Evita di riempire lo zaino di magnum «perché costa poco al brewery»."
+        },
+        {
+          "title": "L'ochoko che mente sulla capacità dello zaino",
+          "body": "«Solo una bottiglia» è la frase più detta a Takayama dopo «che freddo». La seconda bottiglia appare da sola vicino alla cassa. Il tuo futuro te stesso, alla dogana, leggerà l'etichetta e sospirerà in silenzio.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Local Sake — HIDA TAKAYAMA (hida.jp)",
+          "url": "https://www.hida.jp/english/localspeciality/food/4000217.html",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Hida Takayama Sake Breweries — Travel Japan (JNTO)",
+          "url": "https://www.japan.travel/en/spot/153/",
+          "kind": "ente turistico"
+        }
+      ]
+    }
+  ]
+}

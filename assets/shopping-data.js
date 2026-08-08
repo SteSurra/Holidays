@@ -162,9 +162,24 @@ all|chigirie-collage|Chigiri-e in washi|ちぎり絵|arte|Botteghe di carta e ga
       credit: "Ishizawa Research Institute · immagine ufficiale"
     },
     "canmake-uv": {
-      url: "https://www.canmake.com/wp-content/uploads/2025/08/A06_67_col01_chip_01.jpg",
+      url: "https://www.canmake.com/wp-content/uploads/2025/08/A06_67_col01_img_00-2.jpg",
       sourceUrl: "https://www.canmake.com/item/detail/mermaid-skin-gel-uv/",
       credit: "CANMAKE · immagine ufficiale"
+    },
+    "canmake-cheek": {
+      url: "https://www.canmake.com/wp-content/uploads/2025/10/B00_69_col05_img_00.jpg",
+      sourceUrl: "https://www.canmake.com/item/detail/cream-cheek/",
+      credit: "CANMAKE · immagine ufficiale"
+    },
+    "lululun": {
+      url: "https://d2w53g1q050m78.cloudfront.net/lululuncom/ec_assets/42b875e18b030623eea1efbcc53c71cb8017a3d4-original.png?1686707832",
+      sourceUrl: "https://lululun.com/shop/products/hydras-2212",
+      credit: "LuLuLun · immagine ufficiale"
+    },
+    "anessa": {
+      url: "https://www.shiseido.co.jp/resources/sw/products/img/20231221/SHOHIN_PL_C1_H16501.jpg",
+      sourceUrl: "https://www.shiseido.co.jp/anessa/products/suncare/men-perfect-uv-sm/",
+      credit: "Shiseido Anessa · immagine ufficiale"
     },
     "heroine-mascara": {
       url: "https://www.isehan.co.jp/heroine/wp-content/uploads/2025/08/lashhype_color01-1.jpg",
@@ -199,9 +214,6 @@ all|chigirie-collage|Chigiri-e in washi|ちぎり絵|arte|Botteghe di carta e ga
     "mini-shikishi": commonsImage("Mount Utsu by Tawaraya Sotatsu, Metropolitan Museum of Art.jpg", "https://commons.wikimedia.org/wiki/File:Mount_Utsu_by_Tawaraya_Sotatsu,_Metropolitan_Museum_of_Art.jpg", "Metropolitan Museum of Art · pubblico dominio · Wikimedia Commons"),
     "small-sumie": commonsImage("Gion Nankai - Ink Bamboo - 105-1982 - Saint Louis Art Museum.jpg", "https://commons.wikimedia.org/wiki/File:Gion_Nankai_-_Ink_Bamboo_-_105-1982_-_Saint_Louis_Art_Museum.jpg", "Saint Louis Art Museum · pubblico dominio · Wikimedia Commons"),
     "mini-byobu": commonsImage("Hikone Screen.jpg", "https://commons.wikimedia.org/wiki/File:Hikone_Screen.jpg", "opera del periodo Edo · pubblico dominio · Wikimedia Commons"),
-    "gold-leaf-panel": commonsImage("Kanazawa Gold Factory.jpg", "https://commons.wikimedia.org/wiki/File:Kanazawa_Gold_Factory.jpg", "Eckhard Pecher · CC BY 2.5 · Wikimedia Commons"),
-    "artist-postcard-print": commonsImage("Carteles en riso.jpg", "https://commons.wikimedia.org/wiki/File:Carteles_en_riso.jpg", "stampe risograph · Wikimedia Commons"),
-    "ittobori-relief": commonsImage("実演一位一刀彫 (岐阜県高山市) - panoramio.jpg", "https://commons.wikimedia.org/wiki/File:実演一位一刀彫_(岐阜県高山市)_-_panoramio.jpg", "gundam2345 · CC BY 3.0 · Wikimedia Commons"),
     "chigirie-collage": commonsImage("Chigiri-e 'Tulip' by Paddy Summerfield.jpg", "https://commons.wikimedia.org/wiki/File:Chigiri-e_%27Tulip%27_by_Paddy_Summerfield.jpg", "Leyton35 · CC BY-SA 4.0 · Wikimedia Commons")
   };
   const allowedCities = new Set(window.__JAPAN_PARTIAL__.cities.map(function (city) { return city.id; }));

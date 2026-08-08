@@ -1,0 +1,288 @@
+{
+  "meta": {
+    "batch": "shopping-06-tecnologia",
+    "note": "Phase 3 shopping deep stories: domestic-market tech and office gadgets. Stress 100V / Type A plug, JIS layouts, app/region, warranty and consumables. No enrichShopping template titles."
+  },
+  "schede": [
+    {
+      "id": "shop-all-reon-pocket",
+      "long": "Il Sony REON POCKET non è una ventola da collo: è un modulo termoelettrico da indossare contro la pelle, di solito al collo sotto la camicia, che raffredda o riscalda la superficie a contatto. Sul mercato giapponese trovi modelli, neckband e cover in più combinazioni, spesso aggiornate di stagione, e l’ecosistema ruota attorno all’app REON POCKET. Prima di pagare, confronta il codice modello sullo scaffale con la scheda ufficiale: batteria, accessori inclusi e funzioni di sensing cambiano tra generazioni. È un prodotto pensato per l’estate umida e i pendolari giapponesi, non un gadget «universale» da comprare d’impulso solo perché luccica in vetrina a Ginza.",
+      "sections": [
+        {
+          "title": "Cosa fa davvero il modulo",
+          "body": "Raffredda o riscalda la zona di contatto; non soffia aria fredda come un ventilatore. Il comfort dipende da aderenza, cover e neckband: senza l’accessorio giusto il pezzo resta un parallelepipedo elegante ma poco utile."
+        },
+        {
+          "title": "App, telefono e aggiornamenti",
+          "body": "Controlla su App Store o Google Play se l’app REON POCKET è disponibile e aggiornata sul tuo telefono, e se il modello in mano richiede Bluetooth moderno. Un’offerta da catena elettronica senza app funzionante diventa un termostato muto."
+        },
+        {
+          "title": "Garanzia e canale d’acquisto",
+          "body": "Sony Store e grandi catene (Bic, Yodobashi) sono i canali più leggibili: tieni scontrino e codice modello. La garanzia domestica giapponese raramente si trasferisce all’Italia; valuta se il prezzo locale giustifica un eventuale servizio solo in Giappone."
+        },
+        {
+          "title": "Clima da pendolare, non da spa",
+          "body": "È nato per sopravvivere alla piattaforma della Yamanote a luglio, non per trasformarti in un frigorifero ambulante. Se lo usi come status symbol da selfie, avrai speso troppo per un accessorio da collo.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "REON POCKET — Sony ufficiale",
+          "url": "https://reonpocket.sony.co.jp/",
+          "kind": "produttore"
+        },
+        {
+          "title": "REON POCKET — Sony Store Japan",
+          "url": "https://pur.store.sony.jp/lifestyle/products/reonpocket/RNPK-5_product/",
+          "kind": "sito ufficiale"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-pomera",
+      "long": "La King Jim Pomera è un digital memo dedicato alla sola scrittura: tastiera pieghevole, schermo piccolo, avvio quasi istantaneo e quasi nessuna distrazione da browser. Nasce per il mercato giapponese degli uffici e dei pendolari che vogliono buttare giù testo senza aprire un laptop. I modelli in vetrina — con o senza touch, con diverse capacità di export — condividono un punto critico per chi scrive in italiano: layout tastiera e gestione dei caratteri. Prima di innamorarti del design da «macchina da scrivere del futuro», apri un file di prova e verifica come escono accenti, apostrofi e export verso PC o cloud.",
+      "sections": [
+        {
+          "title": "Tastiera JIS e scrittura latina",
+          "body": "Molte unità in negozio hanno layout giapponese (JIS): tasti modificatori e punteggiatura non stanno dove li aspetti su una QWERTY italiana. Se digiti ogni giorno accenti e scorciatoie, prova almeno una pagina intera in negozio."
+        },
+        {
+          "title": "Export e consumabili digitali",
+          "body": "Controlla come esce il testo: USB, scheda, sync proprietaria. Non esiste un «nastro» da sostituire, ma esistono formati e cavi: un file che vive solo dentro la Pomera non è un diario, è un ostaggio."
+        },
+        {
+          "title": "Alimentazione e garanzia",
+          "body": "È tipicamente alimentata a batterie o via USB a bassa potenza: meno rischi di 100V rispetto a un asciugacapelli, ma verifica comunque caricabatterie e cavo. La garanzia King Jim sul canale domestico resta legata al Giappone."
+        },
+        {
+          "title": "Il laptop che ha deciso di fare solo una cosa",
+          "body": "La Pomera è l’anti-smartphone: niente chat, niente tab aperte, solo il rumore delle tue dita. Se ti manca TikTok dopo tre minuti, non è un difetto del prodotto — è una diagnosi.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Pomera DM250 — King Jim",
+          "url": "https://www.kingjim.co.jp/pomera/dm250/",
+          "kind": "produttore"
+        },
+        {
+          "title": "Electronic Products — King Jim",
+          "url": "https://www.kingjim.co.jp/english/about/businessoverview/electronicproduct.html",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-tepra",
+      "long": "TEPRA di King Jim è l’etichettatrice che in Giappone trovi in uffici, cucine condivise e armadi di condominio: nastri colorati, caratteri nitidi e formati da pochi millimetri a larghezze da magazzino. Per un viaggiatore ha senso se usi davvero etichette — valigie, cavi, spezie — non come souvenir «tech». Il vincolo serio non è il prezzo del corpo macchina, ma i consumabili: i nastri TEPRA PRO hanno larghezze e riferimenti specifici; se a casa non trovi ricambi compatibili, l’acquisto decade in un fermacarte costoso. Confronta modello Lite contro PRO, alimentazione (batterie / adattatore) e se serve l’app o il PC per stampare.",
+      "sections": [
+        {
+          "title": "Corpo macchina e famiglia di nastri",
+          "body": "Lite e PRO non condividono tutti i cartridge. Leggi larghezza e codice nastro sulla confezione: «carino e colorato» non basta. Porta a casa almeno un ricambio della misura che userai davvero."
+        },
+        {
+          "title": "Spina, alimentatore e tensione",
+          "body": "Se il modello ha alimentatore a muro, verifica 100V e spina Type A: in Italia servirà trasformatore o alimentatore USB se previsto. Le versioni a sole batterie evitano il problema elettrico ma non quello dei nastri."
+        },
+        {
+          "title": "App, PC e caratteri",
+          "body": "Alcuni modelli dialogano con smartphone o software desktop. Controlla disponibilità dell’app nella tua regione e se i font giapponesi ti servono davvero — o se ti basta stampare nomi latini su nastro bianco."
+        },
+        {
+          "title": "L’etichetta che giudica il tuo disordine",
+          "body": "In Giappone TEPRA è cultura dell’ordine visibile. Comprarne una senza poi etichettare nulla è come comprare un metro a nastro e continuare a stimare «a occhio» — solo più rumoroso alla cassa.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "TEPRA — King Jim",
+          "url": "https://www.kingjim.co.jp/products/tepra/",
+          "kind": "produttore"
+        },
+        {
+          "title": "Label Printers — King Jim English",
+          "url": "https://www.kingjim.co.jp/english/products/tepra/",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-exword",
+      "long": "Il Casio EX-word è un dizionario elettronico autonomo, ancora comune tra studenti e professionisti in Giappone: schermo dedicato, tastiera fisica e pacchetti di dizionari caricati per lingua o materia. Non è un tablet generico: la qualità dipende dai titoli inclusi (kokugo, kanji, E-J, specializzazioni) e dalla possibilità di aggiungere contenuti via software Casio. Per chi studia giapponese può essere uno strumento serio; per chi cerca solo Google Translate è sovradimensionato. In negozio confronta serie e fascia (studio, business, medicina) e prova input: molte tastiere sono ottimizzate per kana e layout JIS, non per una QWERTY europea.",
+      "sections": [
+        {
+          "title": "Pacchetti dizionario, non solo marchio",
+          "body": "Due EX-word vicini sullo scaffale possono contenere opere diverse. Leggi l’elenco dei titoli sulla scatola o sul cartellino: è quello che stai comprando, non il logo Casio."
+        },
+        {
+          "title": "Tastiera, lingua UI e contenuti extra",
+          "body": "Interfaccia e tastiera sono pensate per il mercato domestico. Verifica se puoi aggiungere contenuti con Educational Library / store Casio e se il tuo PC Windows è supportato — molti flussi di aggiornamento non sono «cloud universale»."
+        },
+        {
+          "title": "Batteria, cavo e garanzia",
+          "body": "Alimentazione tipicamente a batterie o USB: meno critico del 100V da elettrodomestico, ma tieni il cavo corretto. Garanzia e riparazione restano sul canale giapponese; conserva scontrino e modello (XD-…)."
+        },
+        {
+          "title": "Il telefono è geloso",
+          "body": "Portare un EX-word nel 2026 è una dichiarazione d’intenti: «oggi studio, non scrollo». Gli amici fotografano il tuo dispositivo come un reperto — tu, intanto, trovi finalmente il kanji giusto.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "EX-word — supporto contenuti Casio",
+          "url": "https://support.casio.jp/exword/edulib/",
+          "kind": "produttore"
+        },
+        {
+          "title": "Manuali EX-word serie XD-Z — Casio",
+          "url": "https://support.casio.jp/exword/manual/XD-Z_series/",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-hhkb-jis",
+      "long": "La Happy Hacking Keyboard di PFU in layout giapponese (日本語配列) è una tastiera compatta a interruttori elettrocapacitivi Topre, con pochi tasti e una filosofia da digitatore che rimappa tutto. In Giappone trovi facilmente le varianti JIS con tasto yen, tasti modificatori diversi e legende kana; le versioni US/ANSI vendute all’estero non sono lo stesso oggetto sotto le dita. Prima dell’acquisto prova la battuta in negozio o al PFU Direct: Hybrid, Type-S, Classic cambiano corsa, silenziosità e connettività (USB-C, Bluetooth). Alimentazione a batterie AA su alcuni modelli wireless: consumabile banale ma da mettere in conto in viaggio.",
+      "sections": [
+        {
+          "title": "JIS contro ciò che già usi",
+          "body": "Conta i modificatori e la posizione di Esc, Control e Backspace. Se vivi in keymap personalizzata, il layout JIS può essere un vantaggio o un incubo: non comprare sull’aura da «tastiera da hacker» senza dieci minuti di prova."
+        },
+        {
+          "title": "Software, Bluetooth e regioni",
+          "body": "Le Hybrid permettono keymap via utility PFU: verifica compatibilità OS e disponibilità del software sul tuo sistema. Bluetooth multi-dispositivo è comodo in viaggio; conferma pairing stabile col tuo telefono o tablet."
+        },
+        {
+          "title": "Garanzia e ricambi",
+          "body": "Canale PFU / rivenditori PC specializzati: chiedi copertura riparazioni. Keycap e batterie sono i consumabili reali; una HHKB si porta in cabina senza problemi di tensione (è USB / batterie), non di voltaggio di rete."
+        },
+        {
+          "title": "Meno tasti, più opinioni",
+          "body": "Chi usa HHKB spiega volentieri perché ti sbagli a volere i tasti freccia. Ascolta una volta sola, poi compra solo se le tue dita — non il sermone — sono convinte.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Happy Hacking Keyboard — PFU Japan",
+          "url": "https://happyhackingkb.com/jp/",
+          "kind": "produttore"
+        },
+        {
+          "title": "HHKB Professional — prodotti PFU",
+          "url": "https://happyhackingkb.com/jp/products/",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-realforce-jis",
+      "long": "REALFORCE di Topre è la sorella più «ufficio pieno» della famiglia elettrocapacitiva: tastiere spesso a formato più ampio, con layout JIS giapponese, pesi di pressione selezionabili e finiture PBT. In Giappone la profondità di catalogo — silent, variable weight, allineamenti Mac/Windows — è maggiore di ciò che arriva in Europa. Come per HHKB, il punto non è il voltaggio di rete (USB) ma layout, forza dei tasti e software. Una REALFORCE JIS occupa zaino e attenzione: misura larghezza e altezza prima di immaginartela sul tavolo dell’hotel, e verifica se ti serve davvero il tastierino numerico o una versione TKL.",
+      "sections": [
+        {
+          "title": "Peso dei tasti e silenziosità",
+          "body": "I grammi di pressione e le varianti silent cambiano la sensazione più del colore del case. Se puoi, digita sullo stesso modello esposto: le schede tecniche non trasmettono il «click» assente delle Topre."
+        },
+        {
+          "title": "Layout JIS e keymap",
+          "body": "日本語配列 significa tasti e legende pensati per Windows/IME giapponese. Controlla se il modello offre software di rimappatura e se il tuo OS è supportato; altrimenti vivi con yen key e posizioni insolite."
+        },
+        {
+          "title": "Connessione e garanzia",
+          "body": "USB o wireless a seconda della linea: niente 100V da temere, ma sì cavi, dongle e batterie. Acquista da rivenditori con scontrino chiaro; assistenza Topre/REALFORCE sul mercato domestico non equivale a un warranty EU."
+        },
+        {
+          "title": "La tastiera che pesa quanto un giudizio",
+          "body": "Portarne una in valigia comunica «lavoro serio». Portarne due comunica che hai bisogno di un intervento di decluttering, non di un altro switch capacitive.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "REALFORCE — sito ufficiale",
+          "url": "https://www.realforce.co.jp/",
+          "kind": "produttore"
+        },
+        {
+          "title": "REALFORCE — English",
+          "url": "https://www.realforce.co.jp/en/",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-nanoe-dryer",
+      "long": "Gli asciugacapelli Panasonic Nanoe / Nanocare sono tra i pezzi beauty-tech più inseguili nelle catene elettroniche giapponesi: nanoe, ugelli e modalità «moist» riempiono le brochure. Il dettaglio che decide il viaggio, però, è elettrico: la stragrande maggioranza dei modelli domestici è 100V con spina Type A. Su 220–240V europei un trasformatore da viaggio inadeguato brucia l’apparecchio o peggio. Compra solo se la scheda tecnica indica chiaramente tensione multipla / destinazione overseas, oppure lascia il pezzo sullo scaffale e cerca la variante venduta per il tuo mercato. Confronta sempre codice EH-… e wattaggio, non solo il nome «nanoe».",
+      "sections": [
+        {
+          "title": "100V o niente romanticismo",
+          "body": "Leggi la piastrina sotto l’apparecchio: 100V, amperaggio, spina. «Funziona con adattatore di forma» è falso se manca il trasformatore di tensione adeguato alla potenza di un phon. In dubbio, non comprare."
+        },
+        {
+          "title": "Modello, ugelli e ricambi",
+          "body": "NA0K, NC80 e fratelli non sono intercambiabili per accessori. Verifica ugelli inclusi e disponibilità futura di pezzi; un phon senza ugello giusto perde metà del motivo per cui l’hai scelto."
+        },
+        {
+          "title": "Garanzia e peso in stiva",
+          "body": "Garanzia Panasonic Japan raramente ti segue a casa. Il phon è voluminoso: meglio bagaglio da stiva imbottito che cabina. Se esiste già un Nanocare 220–240V nel tuo paese, il «risparmio» da duty-free spesso non esiste."
+        },
+        {
+          "title": "Il souvenir che chiede un elettricista",
+          "body": "Pochi oggetti trasformano un ricordo di viaggio in un problema da quadro elettrico. Se il phon giapponese diventa il protagonista delle vacanze, hai scelto il plot twist sbagliato.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "ナノケアドライヤー — Panasonic",
+          "url": "https://panasonic.jp/hair/contents/nanocare-dryer.html",
+          "kind": "produttore"
+        },
+        {
+          "title": "EH-NA0K Nanocare — Panasonic",
+          "url": "https://panasonic.jp/hair/products/EH-NA0K.html",
+          "kind": "produttore"
+        }
+      ]
+    },
+    {
+      "id": "shop-all-usb-gadgets",
+      "long": "Ventoline USB, scaldatazze da scrivania, hub assurdamente specifici e gadget Thanko o da piano terra di Yodobashi: il Giappone eccelle nel pezzo da ufficio che risolve un problema che non sapevi di avere. Sono acquisti leggeri e spesso alimentati solo da USB 5V, quindi meno insidiosi di un phon 100V — ma potenza, certificazioni e connettori (USB-A vs C, alimentazione da porta dati) vanno letti lo stesso. Scegli un oggetto con una funzione chiara che userai a casa o in viaggio; evita pile di blister «carini» che restano nella custodia del laptop. Controlla se serve driver, app regionale o un adattatore di sola forma per una spina Type A su un alimentatore incluso.",
+      "sections": [
+        {
+          "title": "USB non significa «ignorare i watt»",
+          "body": "Una ventola da 5V è innocua; un dispositivo che tira troppa corrente da una porta debole no. Leggi amperaggio e se serve alimentatore dedicato. In aereo, rispetta le regole della compagnia su batterie e gadget."
+        },
+        {
+          "title": "Spina Type A e alimentatori fantasma",
+          "body": "Se nella scatola c’è un AC adapter giapponese, sei di nuovo nel mondo 100V. Preferisci pezzi solo USB alimentati dal tuo power bank o caricatore europeo già collaudato."
+        },
+        {
+          "title": "Utilità dopo l’effetto sorpresa",
+          "body": "Chiediti se lo useresti a casa tra un mese. Catene come Bic/Yodobashi e specialty tipo Thanko sono ideali per curiosare; il plafond di spesa va deciso prima di entrare nel piano gadget."
+        },
+        {
+          "title": "Il cassetto degli oggetti che «un giorno»",
+          "body": "Il vero rischio non è elettrico: è etnografico. Tornerai con tre ventoline e zero soluzione al fatto che la valigia era già piena. Il gadget USB ideale pesa poco e serve almeno due volte.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "THANKO — produttore gadget Akihabara",
+          "url": "https://www.thanko.jp/",
+          "kind": "produttore"
+        },
+        {
+          "title": "GO TOKYO — shopping e quartieri",
+          "url": "https://www.gotokyo.org/en/see-and-do/shopping/index.html",
+          "kind": "ente turistico"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+{
+  "meta": {
+    "batch": "food-14-nabe-sides-fish",
+    "note": "Phase 2 national nabe, sides, grilled fish, natto, miso soup (8). Everyday washoku / izakaya / home-table angle. Sources: JNTO, MAFF."
+  },
+  "schede": [
+    {
+      "id": "food-all-sukiyaki",
+      "long": "Il sukiyaki è pentola a tavola dove fettine di manzo, tofu, negi, shiitake, shungiku e noodle shirataki si cuociono in una salsa dolce di soia, zucchero e mirin. Si mangia pezzo per pezzo, spesso intingendo nel tuorlo crudo che addolcisce e lega. Non è uno stufato lasciato a lungo: la carne va in e esce presto, le verdure seguono a ondate. È cena da gruppo, da ryokan e da ristorante specializzato, più cerimoniosa dello shabu-shabu ma sempre condivisa. Per il viaggiatore è un modo chiaro di confrontare manzo e stagione senza dover leggere un kaiseki. Capirlo evita di mescolare tutto all'inizio come un bollito unico: il sukiyaki vive di tempi e di contraste tra dolce della salsa e tuorlo.",
+      "sections": [
+        {
+          "title": "Ondate, non minestrone",
+          "body": "Prima si fa «fondere» un poco di salsa e grasso, poi la carne a piccole dose, poi tofu e verdure. Se butti tutto insieme, ottieni un brodo stanco e manzo stopposo."
+        },
+        {
+          "title": "Tuorlo e stile regionale",
+          "body": "Intingere nel tuorlo è comune in molte tavole; se preferisci senza, mangia al naturale. Tra Kantō e Kansai cambiano dolcezza e ordine degli ingredienti — chiedi cosa fa il locale, non imporre una «ricetta internet»."
+        },
+        {
+          "title": "Quando ordinarlo",
+          "body": "Cena condivisa, freddo fuori, o occasione in cui volete sedervi a lungo. Meno adatto al pranzo lampo tra due treni: il nabe vuole tempo e attenzione al fuoco."
+        },
+        {
+          "title": "Il tuorlo come assicurazione",
+          "body": "Hai appena cotto manzo costoso e lo passi nell'uovo come se fosse panatura liquida. È lusso che si comporta da merenda dopo scuola — e funziona.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Izakaya Dining Guide",
+          "url": "https://www.japan.travel/en/guide/dinner-at-a-japanese-tavern/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-shabu-shabu",
+      "long": "Lo shabu-shabu prende il nome dal suono delle fettine che si scuotono nel brodo: carne o verdura passate pochi secondi in acqua aromatizzata da kombu, poi intinte in ponzu acidulo o in salsa al sesamo. È più leggero e più «fai da te» del sukiyaki: niente base dolce caramellata, più controllo sulla cottura di ogni pezzo. Si trova in catene, locali di manzo e cene di gruppo; il tofu, il daikon e le verdure a foglia riempiono la pentola tra una fetta e l'altra. Alla fine spesso si chiede noodle o porridge di riso nel brodo rimasto. Per chi vuole manzo senza il peso di una salsa zuccherina, è la scelta quotidiana del nabe nazionale. Capirlo evita di lasciare la carne a bollire a lungo: oltre il rosa controllato diventa scuola di nuoto fallita.",
+      "sections": [
+        {
+          "title": "Secondi, non minuti",
+          "body": "La fetta sottile cuoce in un attimo. Conta uno-due, tira su, intingi. Se aspetti che «faccia il colore del roast», l'hai già seccata."
+        },
+        {
+          "title": "Due salse, due umori",
+          "body": "Ponzu per freschezza e grasso; goma (sesamo) per cremosità. Alternale. Non mescolarle nella stessa ciotolina se vuoi ancora distinguerle al terzo pezzo."
+        },
+        {
+          "title": "Chiusura del brodo",
+          "body": "Il fondo accumula sapore. Noodle, udon o okayu finale sono il premio, non uno scarto. Se siete in molti, accordatevi prima di ordinare il shime: una sola pentola, una decisione."
+        },
+        {
+          "title": "Onomatopea come ricetta",
+          "body": "Pochi piatti ti obbligano a cucinare pronunciando il proprio nome. Shabu-shabu: anche il linguaggio fa da timer, meglio di qualsiasi smartwatch.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Izakaya Dining Guide",
+          "url": "https://www.japan.travel/en/guide/dinner-at-a-japanese-tavern/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-all-chawanmushi",
+      "long": "Il chawanmushi è budino salato di uovo e dashi cotto al vapore nella tazza: superficie liscia, dentro sorprese di pollo, gambero, funghi, ginkgo o kamaboko. Si mangia col cucchiaio, caldo, spesso all'inizio di un pasto washoku o come contorno di un set. Non è dessert: l'umami del brodo guida, l'uovo solo lega. La qualità si vede se trema senza essere liquido e se non ha bolle grosse da cottura troppo aggressiva. Per chi vuole qualcosa di morbido tra fritti e griglie, è la pausa più elegante del menu quotidiano. Capirlo evita di aspettarlo dolce come un purin da konbini: stesso gesto di cucchiaio, altro mondo.",
+      "sections": [
+        {
+          "title": "Cucchiaio, non bacchette",
+          "body": "Si scava delicatamente. Se insegui solo il gambero sul fondo, ti perdi il dashi. I pezzi nascosti sono il ritmo del piatto, non un Easter egg da Instagram."
+        },
+        {
+          "title": "Dove compare",
+          "body": "Set di pranzo, izakaya curati, kaiseki e shokudo. Nei menu turistici a volte manca: chiedilo se vuoi un contrasto morbido dopo karaage o yakitori."
+        },
+        {
+          "title": "Segnale di cottura",
+          "body": "Superficie opaca e setosa = buono. Acqua in superficie o buchi = vapore troppo forte. Tiepido è accettabile; freddo da frigo no."
+        },
+        {
+          "title": "Il budino che mente sul dessert",
+          "body": "Arriva in tazza come un dolce e poi sa di mare e pollo. È il plot twist più educato della cucina giapponese: nessuno urla, tutti restano sorpresi.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Japanese food etiquette",
+          "url": "https://www.japan.travel/en/guide/japanese-food-etiquette/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-agedashi-tofu",
+      "long": "L'agedashi tofu è tofu fritto in crosta leggera di amido, immerso in un tentsuyu caldo di dashi, soia e mirin, e finito con daikon grattugiato, zenzero e cipollotto. È il comfort da izakaya e da set washoku: caldo, morbido dentro, appena croccante fuori. Non deve nuotare in olio né arrivare stopposo: il brodo rammollisce la crosta in pochi minuti, quindi si mangia subito. Per chi vuole proteine vegetali senza salad bowl da aeroporto, è la scelta più chiara del menu. Capirlo evita di chiedere ketchup o salsa di soia extra a casaccio: il dashi è già il condimento.",
+      "sections": [
+        {
+          "title": "Crosta a tempo",
+          "body": "Il primo morso deve ancora frusciare. Se aspetti dieci minuti di foto, diventa spugna. Meglio servirlo e attaccarlo subito, anche a costo di una foto meno perfetta."
+        },
+        {
+          "title": "Condimenti sul tetto",
+          "body": "Daikon e zenzero non sono decorazione: alleggeriscono il fritto. Mescola un poco nel brodo prima di spezzare il tofu. Troppa soia aggiunta uccide il dashi."
+        },
+        {
+          "title": "Izakaya e set",
+          "body": "Come condivisione con birra funziona; in un teishoku bilancia pesce o carne. Se il tofu sa di friggitrice stanca, il problema non è la soia — è l'olio."
+        },
+        {
+          "title": "Il tofu che finge di essere cotoletta",
+          "body": "Lo friggono, lo mettono nel brodo e tutti fingono che sia ancora «leggero». Tecnicamente è vero. Emotivamente è un abbraccio fritto.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Izakaya Dining Guide",
+          "url": "https://www.japan.travel/en/guide/dinner-at-a-japanese-tavern/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Vegetarian and vegan guide",
+          "url": "https://www.japan.travel/en/guide/vegetarian-guide/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-all-yakizakana",
+      "long": "Lo yakizakana è pesce grigliato — spesso salato — servito intero o a filetto come pilastro di colazioni washoku, teishoku di pranzo e cene sobrie. La pelle deve essere croccante, la carne umida, il profumo di brace o di grill pulito. Accanto arrivano daikon oroshi, limone o semplicemente riso e zuppa di miso: il punto è l'equilibrio del set, non la salsa barocca. Specie comuni cambiano con costa e stagione — saba, sanma, shiozake, aji — ma il gesto resta nazionale e quotidiano. Per chi cammina è il «secondo onesto» quando sushi e fritti sembrano troppa scena. Capirlo evita di giudicarlo dal solo aspetto dell'occhio del pesce intero: se la carne si stacca in fiocchi, hai ordinato bene.",
+      "sections": [
+        {
+          "title": "Set che spiega il paese",
+          "body": "Riso, miso, sottaceti e pesce grigliato sono una grammatica. Se ordini solo il pesce senza riso, perdi metà del senso: il grasso vuole chicchi."
+        },
+        {
+          "title": "Stagione sul menu",
+          "body": "Sanma in autunno, saba quasi sempre, salmone più «casa». Chiedere «oggi quale è meglio?» batte scegliere dalla foto più drammatica."
+        },
+        {
+          "title": "Lische e gesto",
+          "body": "Sul pesce intero si lavora dalla coda verso la testa, togliendo la lisca centrale. Non è esame: è pratica. Se preferisci filetto, chiedilo — molti locali lo fanno."
+        },
+        {
+          "title": "Colazione con lo sguardo del pesce",
+          "body": "Poche culture ti mettono un animale intero a fare colazione e lo considerano normale. Qui sì: il pesce ti guarda, tu gli rispondi con le bacchette.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Japanese food etiquette",
+          "url": "https://www.japan.travel/en/guide/japanese-food-etiquette/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-saba-shioyaki",
+      "long": "La saba shioyaki è sgombro salato e grigliato: pelle blisterata, carne grassa, un lato di daikon grattugiato che taglia l'olio. È la versione più riconoscibile dello yakizakana quotidiano, presente nei teishoku, nelle colazioni di hotel e nei bentō di stazione. Il sale non è solo condimento: asciuga leggermente la superficie e tiene a bada il sapore forte del pesce azzurro. Si mangia con riso bianco, a volte con un filo di soia sul daikon, non con salse barbecue. Per chi vuole omega e sazietà senza fritto, è una delle scelte più lineari del menu nazionale. Capirlo evita di cercarlo «senza odore»: lo sgombro annuncia sempre il suo arrivo — ed è il punto.",
+      "sections": [
+        {
+          "title": "Grasso buono, amaro no",
+          "body": "La carne deve essere umida e perlata, non secca. Se amara o metallica, il pesce non era al meglio. Il daikon non è optional estetico: usalo."
+        },
+        {
+          "title": "Dove è più affidabile",
+          "body": "Shokudo di quartiere, set di pranzo, colazione washoku. Nei locali di mare può essere spettacolare; al konbini in vaschetta è un altro formato — utile, meno brace."
+        },
+        {
+          "title": "Abbinamento semplice",
+          "body": "Riso, zuppa di miso, tè o mugicha. Birra a pranzo funziona ma sposta il piatto verso izakaya. Evita bibite dolci che spengono il sale."
+        },
+        {
+          "title": "Lo sgombro senza filtro PR",
+          "body": "Altri pesci fanno i difficili e chiedono salsa. La saba arriva salata, grigliata, e si presenta da sola. Carattere da colleghi che dicono le cose in faccia.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Breakfast options",
+          "url": "https://www.japan.travel/en/japan-magazine/breakfast-options-to-fit-your-travel-plans/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-natto",
+      "long": "Il natto è soia fermentata da Bacillus subtilis: filante, aromatico, vischio dolce-salato che si allunga tra bacchette e ciotola. Si mescola energicamente con la bustina di salsa e karashi, poi si adagia sul riso caldo — colazione e spuntino nazionale che divide le opinioni più della politica. Si compra al konbini in vaschette da uno, si trova nei set mattutini e in alcuni don. La fermentazione è il punto, non un difetto: se non fila, non è natto. Per il viaggiatore è un test gentile di curiosità alimentare, non un obbligo turistico. Capirlo evita di annusarlo e giudicarlo da un metro di distanza: si giudica dopo tre mescolate e un boccone con riso, non prima.",
+      "sections": [
+        {
+          "title": "Protocollo delle bustine",
+          "body": "Apri, versa salsa e senape, mescola finché i fili diventano lucidi e uniformi. Meno mescoli, più «puzza» percepisci. Il riso caldo è il partner, non un optional."
+        },
+        {
+          "title": "Dove incontrarlo",
+          "body": "Colazione washoku, konbini, alcuni teishoku. Nelle regioni dell'est è più quotidiano; altrove compare comunque negli scaffali. Esistono versioni «hikiwari» più fini, più facili al primo assaggio."
+        },
+        {
+          "title": "Etichetta da odore",
+          "body": "In un treno affollato aprire natto è un atto politico. Meglio a tavola o in hotel. Se sei in gruppo, avvisa: non tutti vogliono partecipare al filamento."
+        },
+        {
+          "title": "Il formaggio blu del Giappone, ma fa colazione",
+          "body": "Stessa famiglia emotiva dei fermentati che spaventano i parenti. Differenza: qui lo mangiano alle sette del mattino e vanno a lavorare comunque.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "JNTO — Japanese superfoods",
+          "url": "https://www.japan.travel/en/guide/japanese-superfoods/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Breakfast options",
+          "url": "https://www.japan.travel/en/japan-magazine/breakfast-options-to-fit-your-travel-plans/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-all-miso-soup",
+      "long": "La zuppa di miso è dashi legato con pasta di soia fermentata, tofu, wakame, negi o ingredienti di stagione — daikon, patata, asari, funghi — e cambia da casa a casa più di qualsiasi altro contorno nazionale. Non è un minestrone: si beve dalla ciotola, solidi con le bacchette, e accompagna riso e secondo senza rubare la scena. Il miso può essere chiaro, rosso, misto; il risultato va dal delicato al tostato. Nei teishoku arriva quasi sempre; negli izakaya a volte sì, a volte no. Per chi viaggia è il termometro del pasto washoku: se la zuppa è piatta o troppo salata, spesso anche il resto del set lo sarà. Capirlo evita di trattarla come «brodo gratis»: è struttura del tavolo, non riempitivo.",
+      "sections": [
+        {
+          "title": "Bere e pescare",
+          "body": "Si porta la ciotola alle labbra; le bacchette raccolgono tofu e alga. Non è maleducazione. Lasciare la zuppa intatta e mangiare solo il riso è perdere il dialogo del pasto."
+        },
+        {
+          "title": "Lettura del miso",
+          "body": "Chiaro e dolce tipicamente più gentile; rosso più intenso. Con asari sa di marea; con daikon di inverno. Se vedi solo alghe e tofu, è il formato base — non per questo scarso."
+        },
+        {
+          "title": "Casa, stazione, ristorante",
+          "body": "In casa è firma familiare; nel teishoku è metro di cura; nella colazione di hotel varia da ottima a «acqua calda colorata». Vale la pena notarene la differenza: allena il palato per il resto del viaggio."
+        },
+        {
+          "title": "La zuppa che fa da sottofondo musicale",
+          "body": "Nessuno scrive cartoline sulla miso soup, eppure senza di lei il washoku sembra una playlist senza basso. Quando manca, te ne accorgi — come del Wi-Fi.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "MAFF — Our Regional Cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/",
+          "kind": "ministero"
+        },
+        {
+          "title": "JNTO — Gastronomy",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Japanese food etiquette",
+          "url": "https://www.japan.travel/en/guide/japanese-food-etiquette/",
+          "kind": "ente turistico"
+        }
+      ]
+    }
+  ]
+}

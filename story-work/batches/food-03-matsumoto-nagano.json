@@ -1,0 +1,623 @@
+{
+  "meta": {
+    "batch": "food-03-matsumoto-nagano",
+    "note": "Phase 2 FOOD deep stories for Matsumoto (8) + Nagano city (9). Shared dishes oyaki/gohei-mochi are written city-specific (castle-town izakaya/bakery vs Zenko-ji street circuit). Sources: MAFF regional cuisines, Go Nagano, Visit Matsumoto, JNTO."
+  },
+  "schede": [
+    {
+      "id": "food-matsumoto-sanzoku-yaki",
+      "long": "A Matsumoto il sanzoku-yaki non è «pollo fritto generico»: è una coscia intera marinata a lungo in soia e aglio grattugiato, poi impanata e fritta a temperatura alta finché la crosta resta croccante e il centro ancora succoso. Il nome gioca sul doppio senso di tori — uccello/pollo — e sul «bandito di montagna» che «si prende» (tori-ageru) ciò che trova: un’etimologia da izakaya, non da cronaca. Nella città-castello, dopo le Alpi o il tenshu, compare nei locali di quartiere come piatto da birra, porzione da condividere, aroma di aglio che arriva prima del menù. Non confonderlo con il karaage a pezzetti: qui conta la scala, la marina lunga e la crosta spessa. Visit Matsumoto lo tratta come soul food locale; Go Nagano lo elenca tra i sapori tipici della prefettura. In pratica: ordinarlo quando hai fame vera, non come antipasto leggero.",
+      "sections": [
+        {
+          "title": "Marina, non sola frittura",
+          "body": "L’aglio e la soia devono entrare nella carne prima dell’olio. Se il pezzo è solo croccante fuori e blando dentro, non è sanzoku-yaki di Matsumoto: è pollo fritto qualunque."
+        },
+        {
+          "title": "Porzione da tavolo, non da finger food",
+          "body": "Si arriva spesso un pezzo imponente, da spezzare in due o da condividere. È cibo da birra dopo il castello, non snack da stazione da mangiare in piedi."
+        },
+        {
+          "title": "Dove ha senso cercarlo",
+          "body": "Izakaya e locali di cucina shinshu intorno alla stazione e al centro storico. Fuori prefettura il nome può migrare; qui resta leggibile come piatto di città."
+        },
+        {
+          "title": "Il bandito che ha fame di coscia",
+          "body": "Il gioco di parole sul «bandito» è il miglior menu board: promette bottino calorico, non raffinatezza. Chi ordina un’insalatina di contorno sta negoziando con il posto sbagliato.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Visit Matsumoto — Local delicacies (Yamazoku-yaki)",
+          "url": "https://visitmatsumoto.com/en/article/gourmet",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Go! NAGANO — 9 of Nagano's Best Local Foods",
+          "url": "https://www.go-nagano.net/en/trip-idea/id18259",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-matsumoto-shinshu-soba",
+      "long": "La Shinshu soba a Matsumoto si mangia come pasta di altitudine: grano saraceno cresciuto dove riso e frumento faticano, clima fresco e secco, acqua di montagna. Il MAFF la classifica tra le cucine regionali di Nagano; la prefettura ha densità record di sobaya. In città-castello la trovi fredda con tsuyu e wasabi di Azumino, oppure calda in brodo leggero: l’obiettivo è l’aroma del grano saraceno, non un sugo che lo copre. Togakushi e altre zone alpine sono miti di produzione; Matsumoto è il nodo urbano dove quella cultura diventa pranzo tra museo e tenshu. Ordina porzioni piccole se vuoi confrontare botteghe: qui «pochino ma buono» è metodo, non avarizia. Evita di giudicarla come ramen di montagna: è un altro linguaggio di pasta.",
+      "sections": [
+        {
+          "title": "Perché il clima conta più del logo",
+          "body": "Il grano saraceno ama altitudine e sbalzi termici. La fama shinshu nasce da agronomia, non da branding da souvenir."
+        },
+        {
+          "title": "Fredda, calda, stessa regola",
+          "body": "Zaru o kake: il test è se senti ancora il grano saraceno dopo il primo morso. Wasabi e cipollotto servono a risvegliare, non a mascherare."
+        },
+        {
+          "title": "Matsumoto come snodo, non come unica culla",
+          "body": "Le zone di produzione storiche stanno nelle valli alpine; in città cerchi botteghe che rispettano quella materia, non un monopolio inventato."
+        },
+        {
+          "title": "Il slurping non è opzionale culturale",
+          "body": "Aspirare i noodles non è maleducazione da turista: è tecnica per sentirne l’aroma. In sobaya silenziosa da biblioteca stai facendo l’esame sbagliato.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "MAFF — Teuchi soba (Nagano)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/1848/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Go! NAGANO — local foods (soba)",
+          "url": "https://www.go-nagano.net/en/trip-idea/id18259",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Matsumoto overview",
+          "url": "https://www.japan.travel/en/destinations/chubu/nagano/matsumoto/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-matsumoto-basashi",
+      "long": "Il basashi a Matsumoto è la risposta di una prefettura senza mare all’idea di sashimi: fettine di cavallo crude, spesso magre (akami), con zenzero, aglio e salsa di soia. Go Nagano lo presenta come alternativa montana al pesce; nei locali specializzati compaiono anche tagli più grassi di pancia o collo. Non è «carne cruda a caso»: la filiera locale e la consuetudine di izakaya lo rendono piatto riconoscibile della città-castello, da ordinare fresco e da mangiare subito. Se ti aspetti texture di tonno, resterai spaesato: è più dolce, più compatto, meno «marino». Per molti viaggiatori è il momento in cui Shinshu smette di essere solo soba e castello e diventa anche tavolo di montagna. Non cercare prove storiche nei punteggi online: cerca un locale che lo tratti come specialità, non come curiosità da menu turistico.",
+      "sections": [
+        {
+          "title": "Tagli e tempismo",
+          "body": "L’akami magro è l’ingresso più comune. I tagli grassi vanno chiesti dove il basashi è mestiere, non riga unica del menù."
+        },
+        {
+          "title": "Condimenti che dicono montagna",
+          "body": "Zenzero e aglio non sono optional da sushi bar: bilanciano la dolcezza della carne. La soia serve a unire, non a annegare."
+        },
+        {
+          "title": "Etiquette da izakaya",
+          "body": "Arriva a temperatura fresca, si mangia senza aspettare che «si scaldino i sapori». È sashimi di terra: velocità e freschezza contano."
+        },
+        {
+          "title": "Il sashimi che non sa di porto",
+          "body": "Chi cerca iodio e alghe qui ha sbagliato oceano. Il premio è un sapore pulito da altipiano — e la faccia di chi al tavolo accanto scopre che «sì, è davvero cavallo».",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Go! NAGANO — Basashi",
+          "url": "https://www.go-nagano.net/en/trip-idea/id18259",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Visit Matsumoto — gourmet overview",
+          "url": "https://visitmatsumoto.com/en/article/gourmet",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-matsumoto-nozawana",
+      "long": "Le nozawana-zuke a Matsumoto sono foglie di rapa in salamoia: croccanti, leggermente piccanti, verdi scure, compagne fisse di riso e izakaya. Il MAFF ricorda che nozawana e soba figurano tra i beni culturali immateriali selezionati della prefettura già dagli anni Ottanta — un riconoscimento raro per un cibo quotidiano. Non è contorno invisibile: è la prova che Shinshu conserva il raccolto con sale e tempo, non solo con frigorifero. In città la trovi come otoshi, dentro un onigiri, o come ripieno di oyaki. Il sapore oscilla tra erbaceo e piccante leggero; se è molle e solo salata, è stata trattata male. Per il viaggiatore è anche souvenir edibile: barattoli in stazione e negozi locali, utili quanto un magnete e molto più utili a colazione.",
+      "sections": [
+        {
+          "title": "Salamoia come archivio agricolo",
+          "body": "Le foglie resistono all’inverno grazie al sale. Quello che mangi è stagione messa in pausa, non verdura «di sottofondo»."
+        },
+        {
+          "title": "Come capirla al primo morso",
+          "body": "Croccantezza e retrogusto piccante leggero. Se sembra solo cetriolo salato, stai mangiando un’altra cosa."
+        },
+        {
+          "title": "Dal piatto al ripieno",
+          "body": "A Matsumoto entra in oyaki, onigiri e piatti di accompagnamento. È ingrediente-ponte tra contorno e street food."
+        },
+        {
+          "title": "Il pickle che fa carriera culturale",
+          "body": "Poche verdure in salamoia finiscono su registri di patrimonio. La nozawana sì: prova che anche il croccante quotidiano può avere un curriculum.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "MAFF — Nagano regional cuisine story",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1360/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Go! NAGANO — local foods",
+          "url": "https://www.go-nagano.net/en/trip-idea/id18259",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-matsumoto-shinshu-miso",
+      "long": "Il Shinshu miso a Matsumoto è miso chiaro e fragrante di una regione che produce una quota enorme del miso nazionale — Go Nagano cita circa il quaranta per cento. Non è solo base per zuppe: è pasta fermentata da assaggiare in ramen, salse, marinature e piatti da tavola. Il colore tende al dorato piuttosto che al rosso scuro di altre scuole; l’aroma è netto, meno «caramellato» dei miso lunghi e scuri. In città-castello lo incontri come firma locale nei menù e come barattolo da portare via. Capirlo serve a leggere metà della cucina shinshu: oyaki, gohei, ramen e sottaceti parlano spesso la stessa lingua fermentata. Non cercare un unico «gusto ufficiale»: cerca botteghe e cucine che dichiarano produzione o uso regionale, non solo la parola «miso» sul menù.",
+      "sections": [
+        {
+          "title": "Chiaro non significa debole",
+          "body": "Il profilo shinshu è fragrante e diretto. Meno scuro non vuole dire meno presente: vuole dire un altro equilibrio di koji e tempi."
+        },
+        {
+          "title": "Dove compare senza annunciarsi",
+          "body": "Zuppe, glasature, ripieni, ramen. A Matsumoto è infrastruttura di sapore più che piatto unico da fotografare."
+        },
+        {
+          "title": "Souvenir che continua a lavorare",
+          "body": "Un barattolo buono sopravvive al viaggio meglio di molti dolci. A casa diventa prova che la «regione del miso» non era slogan."
+        },
+        {
+          "title": "La prefettura che fermenta in silenzio",
+          "body": "Mentre altri luoghi pubblicizzano un singolo piatto-icona, Shinshu ha messo il miso quasi ovunque. È marketing involontario fatto di barattoli.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Go! NAGANO — Shinshu miso context",
+          "url": "https://www.go-nagano.net/en/trip-idea/id18259",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Nagano regional cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/pref/nagano/index.html",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-matsumoto-gyunyu-pan",
+      "long": "Il gyunyu pan a Matsumoto è pane soffice al latte tagliato a rettangolo, con uno spesso strato di crema al latte in mezzo: dolce da panetteria, non da pasticceria da vetrina. Go Nagano lo descrive come snack prediletto shinshu, nato secondo alcune voci a Kiso Fukushima e poi diffusosi in tutta la prefettura — panifici, supermarket, talvolta convenience. In città-castello lo cerchi al mattino o come merenda tra un museo e l’altro: si mangia in mano, senza cerimonia. Il pane deve restare elastico, la crema densa ma non stucchevole. Non è pain de mie francese travestito: è un sandwich dolce locale con identità da latte di montagna e abitudine quotidiana. Se lo trovi solo come imitazione industriale senza sapore di latte, passa oltre: il punto è la ricchezza lattea, non la forma rettangolare.",
+      "sections": [
+        {
+          "title": "Forma da viaggio",
+          "body": "Il rettangolo non è sola estetica: si impila, si avvolge, si mangia camminando senza perdere la crema a ogni angolo di strada."
+        },
+        {
+          "title": "Latte prima dello zucchero",
+          "body": "Deve sapere di latte, non di glassa generica. Se vince solo il dolce, hai in mano un altro panino."
+        },
+        {
+          "title": "Panificio vs scaffale",
+          "body": "Il forno di quartiere spesso batte la versione da travel retail. Matsumoto premia chi lo fa per colazione locale, non solo per turisti."
+        },
+        {
+          "title": "Il panino che fa da dessert e da colazione",
+          "body": "Tecnicamente è dolce; socialmente è «cosa che si compra perché si ha fame alle undici». Categoria burocratica: vincente.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Go! NAGANO — Gyunyu Pan",
+          "url": "https://www.go-nagano.net/en/trip-idea/id18259",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Visit Matsumoto — gourmet",
+          "url": "https://visitmatsumoto.com/en/article/gourmet",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-matsumoto-gohei-mochi",
+      "long": "Il gohei-mochi a Matsumoto è lo spiedino di riso pestato a metà strada tra stallino di montagna shinshu e merenda da città-castello: riso uruchi schiacciato su stecco, glassato con miso e noci (o egoma), poi grigliato finché i bordi caramellano. Il MAFF lo lega alle valli di Kiso e Ina e alle strade del sale: a nord dell’area si incontrano più forme a dumplings, a sud profili a sandalo (waraji); le salse oscillano tra miso e soia. Qui non sei nel mercato di Takayama né sotto i tetti gassho: sei nel circuito urbano di Matsumoto e nelle uscite verso le valli alpine, dove lo spiedino arriva ancora caldo da brace. Conta la crosta tostata e la salsa che resta appiccicosa, non un ripieno nascosto. Mangialo in piedi, subito: raffreddato diventa gomma profumata.",
+      "sections": [
+        {
+          "title": "Geografia dello stecco shinshu",
+          "body": "Matsumoto sta nel bacino che comunica con Kiso e Ina. La forma e la salsa raccontano quella geografia forestale, non un «mochi dolce» generico."
+        },
+        {
+          "title": "Miso, noci, fuoco",
+          "body": "La glassa deve tostarsi, non restare pasta cruda sul riso. Noci o egoma danno grasso e aroma; il fuoco fa il resto."
+        },
+        {
+          "title": "Street food da altitudine, non da festival kit",
+          "body": "Cerca banchetti e botteghe legate alle valli o ai percorsi verso Narai e Kiso. Il pezzo buono profuma di brace prima ancora che di zucchero."
+        },
+        {
+          "title": "Offerta votiva diventata snack da zaino",
+          "body": "Un tempo cibo di legnaioli e ringraziamenti di raccolto; oggi finisce nello zaino del trekking. Stessa logica: calorie che non si discutono a mille metri.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "MAFF — Gohei-mochi (Nagano / Chubu)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/3039/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Go! NAGANO — Gohei Mochi",
+          "url": "https://www.go-nagano.net/en/trip-idea/id18259",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Nagano area story (gohei variants)",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1360/index.html",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-matsumoto-oyaki",
+      "long": "L’oyaki a Matsumoto è focaccina rustica di farina di grano o grano saraceno, ripiena di verdure, miso o anko, cotta al vapore, in padella o alla brace. Nella città-castello la incontri soprattutto in panetterie e negozi di specialità, come merenda tra Nawate e la stazione, meno come fila da tempio. Il MAFF la descrive come piatto rappresentativo shinshu nato dove il riso scarseggiava e il focolare domestico (e la cenere dell’irori) facevano da forno. A Matsumoto i ripieni parlano spesso di orto e miso locale: melanzane, zucca, verdure saltate — più «panificio di quartiere» che bancarella da pellegrinaggio. Non è un gyoza: la pasta è più spessa, il ripieno più vegetale, la cottura può lasciare macchie di brace. Prendine due gusti diversi: il confronto insegna più di qualsiasi descrizione.",
+      "sections": [
+        {
+          "title": "Pasta da montagna, non dumpling da izakaya",
+          "body": "Farine di grano e/o saraceno, disco ripieno, cottura che può essere doppia (vapore + brace). Se sembra solo panzerotto fritto, stai altrove."
+        },
+        {
+          "title": "Ripieni da città-castello",
+          "body": "A Matsumoto punta verdure e miso più che solo anko. È merenda salata da camminata urbana prima ancora che souvenir dolce."
+        },
+        {
+          "title": "Dal focolare allo scaffale",
+          "body": "La tradizione ha-yaki nella cenere è memoria; oggi vapore e griglia dominano. Il punto resta: farina locale che avvolge stagione."
+        },
+        {
+          "title": "L’unica focaccia che perdona l’esitazione",
+          "body": "Non sai se vuoi dolce o salato? Ordina zucca e nozawana. L’oyaki di Matsumoto è il compromesso diplomatico del bacino di Shinshu.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "MAFF — Oyaki",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/6480/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Go! NAGANO — Oyaki Dumplings",
+          "url": "https://www.go-nagano.net/en/trip-idea/id18259",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "Visit Matsumoto — gourmet",
+          "url": "https://visitmatsumoto.com/en/article/gourmet",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-nagano-oyaki",
+      "long": "L’oyaki a Nagano città è lo street food del circuito Zenko-ji e della stazione: panino rustico ripieno di nozawana, zucca o melanzane al miso, venduto caldo da botteghe specializzate e bancarelle. Qui il contesto non è il panificio tranquillo di Matsumoto: è la pausa tra pellegrinaggio, Omotesando e treno, con fila possibile e scelta multipla di ripieni esposti. Go Nagano lo chiama lo snack originale della prefettura; il MAFF ricorda origini nelle zone montane e varianti di cottura da villaggio a villaggio. A Nagano conta l’ordine tattica: un pezzo salato subito, uno da viaggio nello zaino. La crosta può essere grigliata o vaporosa; il ripieno di nozawana è la firma più «locale» da non saltare. Non trattarlo come souvenir fotografico: è calorico, vegetale, pensato per camminare.",
+      "sections": [
+        {
+          "title": "Fila da tempio, logica da merenda",
+          "body": "Intorno a Zenko-ji e alla stazione l’oyaki è carburante. Si compra per numero e si mangia senza tavolo: è il suo habitat naturale."
+        },
+        {
+          "title": "Nozawana come prova di territorio",
+          "body": "Tra zucca e anko, il ripieno di foglie in salamoia dice Nagano senza bisogno di cartello. Piccante leggero, erbe, sale: ecco la prefettura."
+        },
+        {
+          "title": "Vapore, brace, padella — leggi l’etichetta",
+          "body": "Stessa famiglia, texture diverse. La griglia lascia segni scuri; il vapore resta più morbido. Scegli in base a come vuoi mangiarlo camminando."
+        },
+        {
+          "title": "Il dumpling che fa da guida turistica",
+          "body": "Se sai solo dire «nozawana» alla bancarella, hai già dimostrato di aver studiato. L’oyaki premia chi ha fatto i compiti sulla verdura in salamoia.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "MAFF — Oyaki",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/6480/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Go! NAGANO — Oyaki Dumplings",
+          "url": "https://www.go-nagano.net/en/trip-idea/id18259",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Nagano area",
+          "url": "https://www.japan.travel/en/destinations/chubu/nagano/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-nagano-sobagaki",
+      "long": "Il sobagaki a Nagano è l’antenato morbido della soba: farina di grano saraceno impastata con acqua calda fino a una massa densa, da mangiare a cucchiaio o a pezzi immersi in tsuyu. Go Nagano ricorda che prima dei noodles le genti alpine mangiavano il saraceno così — semi o dumplings — perché riso e grano erano difficili in quota. In città lo trovi in sobaya tradizionali come piatto «di origine», spesso più raro del zaru. La texture è vicina a un gnocco elastico o a una polenta corta: aroma intenso, poco grasso, tanto carattere. Non giudicarlo come pasta fallita: è un’altra forma della stessa materia. Se ami la soba per il profumo più che per il slurping, il sobagaki è la versione concentrata. Si mangia caldo; raffreddato indurisce e perde grazia.",
+      "sections": [
+        {
+          "title": "Prima del taglio a fili",
+          "body": "Il grano saraceno nutriva come impasto prima di diventare noodles. Il sobagaki è quella memoria ancora in carta."
+        },
+        {
+          "title": "Come si affronta nel piatto",
+          "body": "Pezzi immersi nel brodo o nel tsuyu, a volte con wasabi e cipollotto. Non cercare long slurping: cerca densità aromatica."
+        },
+        {
+          "title": "Quando ordinarlo",
+          "body": "In sobaya che lo dichiarano, spesso come specialità stagionale o tradizionale. Se il menù è solo tourism set, probabilmente non c’è."
+        },
+        {
+          "title": "La soba che si mangia a cucchiaio senza vergogna",
+          "body": "Finalmente un piatto di grano saraceno in cui nessuno ti guarda per la tecnica di aspirazione. Il sobagaki è inclusivo: basta fame e un cucchiaio.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Go! NAGANO — soba history (sobagaki)",
+          "url": "https://www.go-nagano.net/en/trip-idea/id18259",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "MAFF — Teuchi soba / Nagano soba culture",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/1848/index.html",
+          "kind": "ministero"
+        }
+      ]
+    },
+    {
+      "id": "food-nagano-oshibori-udon",
+      "long": "L’oshibori udon a Nagano è udon da intingere: non nuota in un brodo abbondante, ma incontra un succo piccante di daikon grattugiato legato al miso (spesso tostato). È un gesto da tavola locale — spremere, intingere, assaggiare — più che una ciotola da photograph-and-go. Il nome richiama l’asciugamano caldo (oshibori) e l’idea di «strizzare» il daikon: freschezza pungente contro la pasta morbida. In città lo cerchi in locali di cucina shinshu e sobaya/udon-ya che tengono viva la tradizione delle salse di radice. Non è tanuki udon né kitsune: il protagonista è il contrasto daikon-miso. Se il succo è solo acqua piccante senza corpo, manca il miso; se è solo miso denso, manca la spremuta. L’equilibrio è il piatto.",
+      "sections": [
+        {
+          "title": "Intingere, non annegare",
+          "body": "L’udon arriva spesso poco condito; il sapore sta nella ciotolina di daikon e miso. Controlla tu quanto intingere a ogni boccone."
+        },
+        {
+          "title": "Il piccante che non è chili",
+          "body": "Il daikon dà freschezza nasale, non bruciore da spezie. È piccante «da radice», ideale dopo una camminata in città."
+        },
+        {
+          "title": "Miso tostato come ponte",
+          "body": "Il miso lega e arrotonda. Senza di esso resta solo succo di rapa: interessante, ma non è la firma nagano di questo piatto."
+        },
+        {
+          "title": "L’asciugamano che finisce nella salsa",
+          "body": "Oshibori di solito ti pulisce le mani; qui ti sporca i noodles di proposito. Nagano ha un senso dell’umorismo gastronomico sottovalutato.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "MAFF — Nagano soba / dipping traditions (context)",
+          "url": "https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/teuchi_soba_nagano.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Go! NAGANO — local foods hub",
+          "url": "https://www.go-nagano.net/en/trip-idea/id18259",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-nagano-shinshu-salmon",
+      "long": "Il Shinshu salmon a Nagano è pesce d’acqua di montagna: ibrido di trote allevato in acque alpine pure, carne fine e relativamente poco grassa, servito spesso come sashimi, donburi o alla griglia. Non è salmone oceanico importato con altro nome: è un progetto ittico di prefettura interna che ha reso possibile il «salmone» lontano dal mare. In città compare nei ristoranti e hotel che valorizzano prodotti locali; il sapore è pulito, meno oleoso di molti salmoni da supermarket. Per il viaggiatore è il momento in cui Nagano dimostra che «senza costa» non significa «senza pesce crudo di qualità». Chiedi origine e preparazione: sashimi e cucina semplice rispettano la carne meglio di salse pesanti. È specialità relativamente recente rispetto a soba e oyaki, ma ormai icona agricola shinshu.",
+      "sections": [
+        {
+          "title": "Acqua alpina come ingrediente",
+          "body": "L’allevamento in acque fresche di montagna è il punto, non solo il marchio sul menù. Aspettati texture compatta e sapore netto."
+        },
+        {
+          "title": "Crudo o cotto, stessa sobrietà",
+          "body": "Sashimi, grill leggero, donburi. Evita preparazioni che lo trasformano in salmone teriyaki generico: perderesti il motivo per cui sei a Nagano."
+        },
+        {
+          "title": "Icona nuova, tavola già pronta",
+          "body": "Rispetto a soba e pickle ha una storia più corta, ma la rete di ristoranti locali lo ha adottato in fretta. Cerca menù che lo nominano esplicitamente."
+        },
+        {
+          "title": "Il salmone di chi non ha il mare",
+          "body": "Altre regioni comprano pesce; Shinshu se lo è allevato tra le montagne. È la vendetta geografica più elegante della cucina giapponese recente.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Go! NAGANO — travel / food ideas",
+          "url": "https://www.go-nagano.net/en/trip-idea/id18259",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Nagano destinations",
+          "url": "https://www.japan.travel/en/destinations/chubu/nagano/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-nagano-kuri-kinton",
+      "long": "Il kuri kinton a Nagano è purea di castagne dolce lavorata a mano, specialità da pasticceria autunnale quando i castagneti shinshu consegnano la materia. Non confonderlo solo con il kuri kinton del osechi di Capodanno: qui conta la stagione del frutto e le botteghe che modellano pezzi individuali, spesso da viaggio. La texture è vellutata, il dolce è del frutto prima che dello zucchero; il colore oro-arancio annuncia autenticità più di qualsiasi nastro. In città lo cerchi da wagashiya e corner di stazione tra settembre e novembre (calendario da verificare sul posto). Fuori stagione diventa ricordo o versione industriale: meglio un altro dolce locale. Per chi viene da Tokyo o Kyoto, è il modo più diretto di assaggiare l’autunno di montagna senza salire su un castagneto.",
+      "sections": [
+        {
+          "title": "Stagione prima del marchio",
+          "body": "Il kuri kinton buono segue la raccolta. Se lo trovi «sempre uguale» a marzo, sospetta di una logica da scaffale, non da frutteto."
+        },
+        {
+          "title": "Mano e setaccio",
+          "body": "La purea modellata a pezzo singolo è il segnale artigianale. Blocchi anonimi in vaschetta raccontano un’altra industria."
+        },
+        {
+          "title": "Dolce da viaggio, non da cerimonia lunga",
+          "body": "A Nagano spesso si compra per mangiarlo entro il giorno. Non è scenografia da osechi: è autunno portatile."
+        },
+        {
+          "title": "L’oro che si mangia prima del foliage",
+          "body": "Mentre tutti fotografano le foglie rosse, tu puoi già avere l’autunno in una carta oleata. Priorità corrette.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Go! NAGANO — local foods",
+          "url": "https://www.go-nagano.net/en/trip-idea/id18259",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — gastronomy hub",
+          "url": "https://www.japan.travel/en/gastronomy/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-nagano-hachinoko",
+      "long": "L’hachinoko a Nagano è larve di ape (o vespa, a seconda della tradizione locale) cotte in salsa dolce di soia: proteina di montagna, non shock value da reality. Nelle zone alpine shinshu la raccolta e la cottura tsukudani fanno parte di una cucina che non spreca ciò che la foresta offre. In città lo trovi soprattutto in izakaya e negozi di specialità che trattano «cibi di montagna», spesso in barattolo o come stuzzichino con birra o sake. Il sapore è intenso, leggermente dolce, con croccantezza variabile; non sa di «insetto» da stereotipo, sa di soia caramellata e terra fertile. Affrontalo come faresti con un tsukudani di pesce: piccolo pezzo, riso o alcool a fianco. Se il locale lo nasconde come burla, scegline un altro: qui è tradizione, non gag.",
+      "sections": [
+        {
+          "title": "Tsukudani di foresta",
+          "body": "Cottura lenta in soia e zucchero, conservazione, morso concentrato. Stessa grammatica di altri tsukudani, materia diversa."
+        },
+        {
+          "title": "Come ordinarlo senza teatro",
+          "body": "Chiedilo come stuzzichino locale. Porzioni piccole, da condividere. Non serve annuncio epico al tavolo."
+        },
+        {
+          "title": "Contesto izakaya",
+          "body": "Va meglio con sake o birra che da solo come «prova di coraggio». Il punto è il sapore montano, non la performance."
+        },
+        {
+          "title": "L’antipasto che fa litigare il gruppo chat",
+          "body": "Metà tavolo lo adora, metà scrive vocali. Tu mangia e lascia che la chat si aggiorni da sola: l’hachinoko non ha bisogno di ufficio stampa.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "MAFF — Nagano regional cuisine overview",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/pref/nagano/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Go! NAGANO — mountain / local food culture",
+          "url": "https://www.go-nagano.net/en/trip-idea/id18259",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-nagano-inago",
+      "long": "L’inago no tsukudani a Nagano è cavallette caramellate con soia e zucchero: croccanti, intense, tipiche delle zone agricole e di montagna dove l’insetto era sia parassita dei campi sia risorsa. In città compare nei mercati, negozi di specialità e qualche izakaya come snack da sakè. Non è street food da coda lunga: è un morso di memoria rurale venduto in barattolo o piattino. La crosta dolce-salata ricorda altri tsukudani; la forma resta inequivocabile. Per il viaggiatore è utile affrontarlo dopo un po’ di riso o con un sorso di alcool, non a stomaco vuoto come sfida. Se ti aspetti «gusto neutro», no: è concentrato. Se ti aspetti solo disgusto da foto, spesso sorprende in positivo chi ama le noci caramellate e le salse scure.",
+      "sections": [
+        {
+          "title": "Dal campo al barattolo",
+          "body": "L’inago lega agricoltura e conservazione. Quello che era problema per il raccolto diventava scorta proteica dolce-salata."
+        },
+        {
+          "title": "Texture prima della teoria",
+          "body": "Croccante fuori, sapore di soia caramellata. Mangiane una sola per capire se vuoi continuare: è onesto così."
+        },
+        {
+          "title": "Mercato e izakaya",
+          "body": "A Nagano città è più facile come specialità da banco che come piatto quotidiano. Ideale come assaggio, non come pasto intero."
+        },
+        {
+          "title": "Lo snack che vince contro i pregiudizi a punti",
+          "body": "Molti lo temono più del wasabi. Poi scoprono che sa di tapas di soia croccante e il pregiudizio resta a digiuno.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "MAFF — Nagano regional cuisines",
+          "url": "https://www.maff.go.jp/e/policies/market/k_ryouri/areastory/1360/index.html",
+          "kind": "ministero"
+        },
+        {
+          "title": "Go! NAGANO — local foods",
+          "url": "https://www.go-nagano.net/en/trip-idea/id18259",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-nagano-apple-pie",
+      "long": "La torta di mele Shinshu a Nagano nasce da una verità agricola: la prefettura è tra i grandi produttori di mele del Giappone, e il frutto finisce in pie, dorayaki, gelati e dolci da viaggio. In città la cerchi in pasticcerie e souvenir shop vicino alla stazione: pasta, mele profumate, a volte crema o cannella leggera, pensata per essere mangiata entro poco o portata sul treno. Non è apple pie americana da diner: porzioni spesso individuali, dolcezza più contenuta, mela riconoscibile. Il punto è l’odore del frutto shinshu, non la torre di gelato. Se viaggi in autunno, il vantaggio è doppio: mele fresche e forni in stagione. Fuori stagione resta disponibile, ma il picco di aroma è quando i frutteti consegnano.",
+      "sections": [
+        {
+          "title": "Mela come materia prima, non aroma",
+          "body": "Devi sentire pezzi o strati di frutto, non solo «gusto mela» da sciroppo. Shinshu si riconosce così."
+        },
+        {
+          "title": "Formati da stazione",
+          "body": "Pie singole, sandwich dolci, varianti da confezione. Ideali per lo Shinkansen: meno fragili di una shortcake da vetrina."
+        },
+        {
+          "title": "Autunno come finestra migliore",
+          "body": "La raccolta alza la qualità percepita ovunque in città. In altre stagioni scegli forni che dichiarano mele locali."
+        },
+        {
+          "title": "Il souvenir che pesa meno dei magneti e rende di più",
+          "body": "Una pie in valigia è una scelta discutibile; una pie sul treno è politica estera personale di altissimo livello.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Go! NAGANO — Nagano produce / foods",
+          "url": "https://www.go-nagano.net/en/trip-idea/id18259",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Nagano",
+          "url": "https://www.japan.travel/en/destinations/chubu/nagano/",
+          "kind": "ente turistico"
+        }
+      ]
+    },
+    {
+      "id": "food-nagano-sauce-katsudon",
+      "long": "Il sauce katsudon a Nagano è cotoletta di maiale fritta immersa in salsa scura, servita su riso e cavolo — senza la coperta di uovo del katsudon «classico» di molte altre città. Go Nagano lo lega soprattutto a Komagane, con locali storici che hanno filiali anche a Nagano città: utile per chi non scende a sud ma vuole il piatto. La salsa è dolce-sapida, lucida, pensata per bagnare pane di cotoletta e riso insieme; il cavolo tagliato fine spezza il fritto. Non ordinarlo pensando all’oyakodon: qui l’uovo non è il protagonista. Porzione abbondante, ideale a pranzo dopo Zenko-ji. Se la cotoletta è già fredda e la salsa solo versata sopra senza immersione, stai mangiando un’imitazione stanca: il rito è friggere, tuffare, comporre.",
+      "sections": [
+        {
+          "title": "Salsa al posto dell’uovo",
+          "body": "La differenza strutturale è questa. Chi cerca uovo strapazzato sul katsu ha il menù mentale di un’altra regione."
+        },
+        {
+          "title": "Komagane in città",
+          "body": "Nagano città ospita sedi e interpretazioni del piatto sud-prefettura. Chiedi sauce katsudon esplicito, non «katsudon» generico."
+        },
+        {
+          "title": "Cavolo come tecnico di gara",
+          "body": "Il cavolo non è contorno dimenticato: taglia grasso e croccantezza. Senza di esso il piatto diventa solo fritto sul riso."
+        },
+        {
+          "title": "Il donburi che rovina i piani «mangio leggero»",
+          "body": "Si entra «per assaggiare» e si esce in pace calorica. La salsa scura ha poteri diplomatici sulla volontà.",
+          "fun": true
+        }
+      ],
+      "sources": [
+        {
+          "title": "Go! NAGANO — Sauce Katsudon",
+          "url": "https://www.go-nagano.net/en/trip-idea/id18259",
+          "kind": "ente turistico"
+        },
+        {
+          "title": "JNTO — Nagano",
+          "url": "https://www.japan.travel/en/destinations/chubu/nagano/",
+          "kind": "ente turistico"
+        }
+      ]
+    }
+  ]
+}
