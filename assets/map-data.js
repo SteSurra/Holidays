@@ -2196,8 +2196,8 @@
       "type": "hotel",
       "category": "Hotel del viaggio",
       "area": "Osaka",
-      "lat": 34.7025,
-      "lng": 135.4959,
+      "lat": 34.70985,
+      "lng": 135.49817,
       "description": "Base a Kita-Umeda, comoda per raggiungere la stazione di Osaka e i quartieri centrali a nord."
     },
     {
@@ -2207,8 +2207,8 @@
       "type": "hotel",
       "category": "Hotel del viaggio",
       "area": "Hiroshima",
-      "lat": 34.3958,
-      "lng": 132.4595,
+      "lat": 34.38902,
+      "lng": 132.46323,
       "description": "Base nel centro di Hiroshima, utile per muoversi a piedi tra quartieri commerciali, fiumi e Parco della Pace."
     },
     {
@@ -2218,8 +2218,8 @@
       "type": "hotel",
       "category": "Hotel del viaggio",
       "area": "Kyoto",
-      "lat": 35.0116,
-      "lng": 135.748,
+      "lat": 35.01072,
+      "lng": 135.74312,
       "description": "Base nell'area di Nijō, in posizione centrale tra castello, stazioni urbane e quartieri occidentali di Kyoto."
     },
     {
@@ -2229,8 +2229,8 @@
       "type": "hotel",
       "category": "Hotel del viaggio",
       "area": "Kanazawa",
-      "lat": 36.5779,
-      "lng": 136.647,
+      "lat": 36.58076,
+      "lng": 136.64497,
       "description": "Base sul lato ovest della stazione di Kanazawa, pratica per arrivi, partenze e collegamenti in bus verso il centro storico."
     },
     {
@@ -2240,8 +2240,8 @@
       "type": "hotel",
       "category": "Hotel del viaggio",
       "area": "Takayama",
-      "lat": 36.1408,
-      "lng": 137.2519,
+      "lat": 36.14489,
+      "lng": 137.25340,
       "description": "Base a Takayama per raggiungere a piedi stazione, mercati mattutini, Jinya e strade storiche di Sanmachi."
     },
     {
@@ -2251,8 +2251,8 @@
       "type": "hotel",
       "category": "Hotel del viaggio",
       "area": "Nagano",
-      "lat": 36.6485,
-      "lng": 138.1888,
+      "lat": 36.64843,
+      "lng": 138.18772,
       "description": "Base centrale a Nagano, lungo il collegamento tra la stazione e l'accesso storico verso Zenkō-ji."
     },
     {
@@ -2262,8 +2262,8 @@
       "type": "hotel",
       "category": "Hotel del viaggio",
       "area": "Tokyo",
-      "lat": 35.71,
-      "lng": 139.798,
+      "lat": 35.71495,
+      "lng": 139.79284,
       "description": "Base ad Asakusa, vicina a Sensō-ji e utile per esplorare a piedi la Tokyo shitamachi."
     },
     {

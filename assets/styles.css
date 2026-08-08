@@ -351,13 +351,11 @@ body:has(dialog[open]) { overflow: hidden; }
 .history-card > * { position: relative; z-index: 1; }.history-card h2 { max-width: 78%; margin: .2rem 0 .9rem; font: 600 clamp(1.55rem, 3vw, 2.2rem)/1.12 "Noto Serif JP", serif; }.history-card p { color: var(--muted); }.history-card .anecdote { margin: 1rem 0 0; padding: .8rem 1rem; border-left: 3px solid var(--gold); color: var(--ink); background: var(--paper); font-size: .84rem; }
 .history-card-footer { display: flex; justify-content: flex-end; padding-top: .4rem; }.history-card-footer button { min-height: var(--tap); padding-inline: .3rem; border: 0; background: none; color: var(--red); cursor: pointer; font-size: .76rem; font-weight: 800; }
 
-.profile-fields input { height: 46px; border: 1px solid var(--line); border-radius: 12px; padding: 0 .9rem; background: var(--white); }
 .file-button { display: grid; place-items: center; white-space: nowrap; cursor: pointer; border: 0; }.file-button input { position: absolute; width: 1px; height: 1px; opacity: 0; }
 
-.local-profile { display: grid; grid-template-columns: 1fr 1.25fr; gap: 1.5rem; margin: 2rem 0; padding: 1.5rem; border: 1px solid var(--line); border-radius: 20px; background: var(--white); }
+.local-profile { display: grid; gap: 1rem; margin: 2rem 0; padding: 1.5rem; border: 1px solid var(--line); border-radius: 20px; background: var(--white); }
 .local-profile h2 { margin: .2rem 0 .7rem; font: 600 1.8rem "Noto Serif JP", serif; }.local-profile p { color: var(--muted); }
-.profile-fields { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem; }.profile-fields button { grid-column: 1 / -1; height: 44px; border: 0; border-radius: 11px; color: var(--paper); background: var(--ink); cursor: pointer; font-weight: 800; }
-.sync-actions { grid-column: 1 / -1; display: flex; gap: .55rem; padding-top: 1rem; border-top: 1px solid var(--line); }.sync-actions button, .sync-actions label { display: grid; place-items: center; min-height: 42px; border: 1px solid var(--line); border-radius: 999px; padding: .5rem 1rem; background: var(--paper); cursor: pointer; font-size: .75rem; font-weight: 800; }.sync-actions input { position: absolute; width: 1px; height: 1px; opacity: 0; }.local-profile > .helper-note { grid-column: 1 / -1; margin: 0; }
+.sync-actions { display: flex; gap: .55rem; padding-top: 1rem; border-top: 1px solid var(--line); }.sync-actions button, .sync-actions label { display: grid; place-items: center; min-height: 42px; border: 1px solid var(--line); border-radius: 999px; padding: .5rem 1rem; background: var(--paper); cursor: pointer; font-size: .75rem; font-weight: 800; }.sync-actions input { position: absolute; width: 1px; height: 1px; opacity: 0; }.local-profile > .helper-note { margin: 0; }
 
 .saved-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0; }
 .saved-tile { border: 1px solid var(--line); border-radius: var(--radius); padding: 1.2rem; background: var(--white); }
@@ -490,7 +488,7 @@ body:has(dialog[open]) { overflow: hidden; }
   .map-panel { margin-top: .6rem; padding: .7rem; }.map-toolbar { align-items: stretch; flex-direction: column; gap: .6rem; padding-bottom: .7rem; }.map-actions { overflow-x: auto; padding-bottom: .2rem; }.map-actions button, .map-actions .map-select { flex: 0 0 auto; }.map-select select { max-width: 46vw; } #tripMap { min-height: 360px; height: min(64vh, 560px); }
   .history-grid { grid-template-columns: 1fr; }.history-card { min-height: 280px; }
   .phrase-toolbar { margin-inline: -14px; padding: .7rem 14px; border-bottom: 1px solid var(--line); }.phrase-grid { grid-template-columns: 1fr; }.emergency-panel { grid-template-columns: 1fr; gap: 1rem; }.emergency-grid { grid-template-columns: 1fr; }
-  .local-profile { grid-template-columns: 1fr; }.profile-fields { grid-template-columns: 1fr; }.sync-actions { grid-column: auto; flex-direction: column; }.local-profile > .helper-note { grid-column: auto; }
+  .sync-actions { flex-direction: column; }
   .dialog-body { padding: 1.4rem 1.2rem calc(1.8rem + var(--safe-bottom)); }.guide-sections { grid-template-columns: 1fr; }.guide-section, .guide-section-lead, .guide-section-fun { grid-column: auto; min-height: auto; }.history-detail-hero { min-height: 190px; }
   .saved-summary { grid-template-columns: repeat(3, 1fr); gap: .5rem; }.saved-tile { padding: .8rem; }.saved-tile strong { font-size: 1.9rem; }.saved-list { grid-template-columns: 1fr; }
   .bottom-nav { bottom: max(8px, var(--safe-bottom)); }.bottom-nav button { min-height: 48px; }.bottom-nav button span { font-size: 1.05rem; }.bottom-nav button small { font-size: .7rem; }
@@ -541,7 +539,8 @@ body:has(dialog[open]) { overflow: hidden; }
   }
   body::before { opacity: .18; }
   .image-shimmer { background: linear-gradient(110deg, #232a2c 8%, #2d3538 18%, #232a2c 33%); }
-  .tag, .detail-list div, .phrase-card dl div, .search-phrase, .translator-options a, .detail-sources a, .safety-links a, .map-actions button, .map-select select, .map-legend { background: var(--paper-deep); }
+  .tag, .detail-list div, .phrase-card dl div, .search-phrase, .translator-options a, .ocr-destination, .detail-sources a, .safety-links a, .map-actions button, .map-select select, .map-legend { background: var(--paper-deep); }
+  .ocr-destination.is-primary { background: var(--red); }
   .guide-section-fun { background: linear-gradient(120deg, #6b5a2b, #4d431f); }
   .guide-section-fun > span, .guide-section-fun h3 { color: #f5e8bd; }
   .hero-art { background: #46403a; }
@@ -610,6 +609,16 @@ body:has(dialog[open]) { overflow: hidden; }
 .translator-workspace textarea { width: 100%; resize: vertical; border: 1px solid var(--line); border-radius: 12px; padding: .8rem; color: var(--ink); background: var(--white); font: 1rem/1.5 "DM Sans", sans-serif; }
 .translator-workspace > .primary-action { width: fit-content; color: white; border-color: var(--red); background: var(--red); text-decoration: none; }
 .primary-action.is-disabled { opacity: .45; pointer-events: none; }
+/* Le tre destinazioni del testo: Traduttore per primo e marcato, perché nove
+   volte su dieci serve solo la traduzione, gli assistenti accanto per quando
+   serve capire che cos'è. Restano spente finché non c'è testo da mandare. */
+.ocr-destinations { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .45rem; }
+.ocr-destination { min-width: 0; min-height: var(--tap); display: flex; flex-direction: column; justify-content: center; gap: .15rem; padding: .6rem .8rem; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); background: var(--paper); text-decoration: none; }
+.ocr-destination strong { font-size: .82rem; font-weight: 800; }
+.ocr-destination span { color: var(--muted); font-size: .68rem; line-height: 1.35; }
+.ocr-destination.is-primary { color: white; border-color: var(--red); background: var(--red); }
+.ocr-destination.is-primary span { color: rgba(255,255,255,.82); }
+.ocr-destination.is-disabled { opacity: .4; pointer-events: none; }
 .translator-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .45rem; }.translator-options a { min-width: 0; display: flex; flex-direction: column; gap: .18rem; padding: .65rem; border-radius: 10px; color: var(--ink); background: var(--paper); text-decoration: none; }.translator-options span { color: var(--muted); font-size: .66rem; line-height: 1.35; }
 
 .bottom-nav { width: min(620px, calc(100% - 28px)); display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); }
@@ -648,13 +657,6 @@ body:has(dialog[open]) { overflow: hidden; }
 .search-convert span { color: #c9d0cc; font-size: .74rem; }
 .search-convert.is-empty { background: var(--red); cursor: pointer; }
 .search-convert.is-empty span { color: #f7ded6; }
-.rate-field { grid-column: 1 / -1; display: grid; gap: .35rem; padding-top: 1rem; border-top: 1px solid var(--line); }
-.rate-field > label { color: var(--muted); font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-.rate-field > div { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; }
-.rate-field input { flex: 0 1 190px; height: 46px; border: 1px solid var(--line); border-radius: 12px; padding: 0 .9rem; background: var(--white); }
-.rate-field > div span { color: var(--muted); font-size: .82rem; }
-.rate-field > div strong { color: var(--ink); }
-.rate-field .helper-note { margin: 0; }
 
 .packing-intro h1 { color: var(--gold); }
 .notes-intro h1 { color: var(--moss); }
@@ -725,7 +727,6 @@ a.cross-link { text-decoration: none; color: inherit; }
   .bottom-nav button small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .nav-menu-dialog { width: 100%; max-width: none; margin: auto 0 0; border-radius: 24px 24px 0 0; padding: 1.2rem 1rem calc(1.2rem + var(--safe-bottom)); }
   .search-dialog { width: 100%; max-width: none; max-height: 92dvh; margin: auto 0 0; border-radius: 22px 22px 0 0; }
-  .rate-field input { flex: 1 1 100%; }
   .nav-menu-grid { grid-template-columns: 1fr; }
   .emergency-location, .ready-panel { grid-template-columns: 1fr; gap: 1rem; }
   .cross-link-row { grid-template-columns: 1fr; }
@@ -733,6 +734,10 @@ a.cross-link { text-decoration: none; color: inherit; }
   .ready-actions button { flex: 1 1 100%; }
   .safety-links { grid-template-columns: 1fr; }
   .translator-options { grid-template-columns: 1fr; }
+  /* Su telefono tre colonne lascerebbero due parole per riga: Traduttore a tutta
+     larghezza, i due assistenti affiancati sotto. */
+  .ocr-destinations { grid-template-columns: 1fr 1fr; }
+  .ocr-destination.is-primary { grid-column: 1 / -1; }
   .detail-sources > div, .detail-booking > div { grid-template-columns: 1fr; }
 }
 

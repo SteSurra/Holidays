@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#14181a" media="(prefers-color-scheme: dark)">
   <meta name="description" content="Guida di viaggio in Giappone con itinerario, mappa, luoghi, attività, cibo, acquisti e storie.">
   <title>Giappone 2026 | Tabi</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260810b">
+  <link rel="manifest" href="manifest.webmanifest?v=20260810i">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://commons.wikimedia.org">
@@ -18,9 +18,9 @@
   <link rel="preconnect" href="https://tile.openstreetmap.org">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Noto+Serif+JP:wght@500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="assets/styles.css?v=20260810b">
-  <link rel="icon" href="assets/icons/icon.svg?v=20260810b" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260810b">
+  <link rel="stylesheet" href="assets/styles.css?v=20260810i">
+  <link rel="icon" href="assets/icons/icon.svg?v=20260810i" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260810i">
 </head>
 <body>
   <a class="skip-link" href="#main">Vai al contenuto</a>
@@ -249,9 +249,7 @@
     <section class="view" id="saved" data-view="saved">
       <div class="page-intro saved-intro"><p class="eyebrow">La vostra selezione</p><h1>Salvati</h1><p>Preferiti e attività completate in tutte le aree della guida.</p></div>
       <section class="local-profile">
-        <div><p class="eyebrow">Checklist di gruppo</p><h2>Il vostro viaggio</h2><p>Dai un nome alla checklist e condividi i progressi tra i telefoni del gruppo.</p></div>
-        <div class="profile-fields"><input id="localNickname" type="text" maxlength="40" placeholder="Il tuo nome o soprannome"><input id="localGroup" type="text" maxlength="60" placeholder="Nome del gruppo"><button id="saveProfileButton" type="button">Salva il profilo</button></div>
-        <div class="rate-field"><label for="jpyRate">Cambio yen → euro</label><div><input id="jpyRate" type="number" inputmode="decimal" min="0" step="0.0001" placeholder="automatico"><span>1 ¥ = <strong id="jpyRatePreview">—</strong> €</span></div><p class="helper-note" id="jpyRateStatus"></p></div>
+        <div><p class="eyebrow">Checklist di gruppo</p><h2>Il vostro viaggio</h2><p>Porta preferiti e cose fatte da un telefono all'altro: si uniscono, non si sovrascrivono.</p></div>
         <div class="sync-actions"><button id="exportProgressButton" type="button">Esporta checklist gruppo</button><label>Importa e unisci<input id="importProgressInput" type="file" accept="application/json"></label></div>
         <p class="helper-note">Esporta la checklist da un telefono e importala sugli altri per unire preferiti e attività completate.</p>
       </section>
@@ -281,7 +279,7 @@
     <section class="view" id="translate" data-view="translate">
       <div class="page-intro translate-intro">
         <p class="eyebrow">Il menu vi sta fissando</p><h1>Fotografa e traduci</h1>
-        <p>Scatta una foto a cartelli, etichette o menu. Il riconoscimento avviene nel browser; la foto non viene salvata né caricata. Se scegli “Traduci”, si apre Google Traduttore con il solo testo riconosciuto.</p>
+        <p>Scatta una foto a cartelli, etichette o menu. Il riconoscimento avviene nel browser e la foto non viene salvata né caricata. Poi scegli tu dove mandarla: il testo riconosciuto a Google Traduttore, ChatGPT o Copilot, oppure la foto intera all'app che preferisci.</p>
       </div>
       <section class="photo-translator" aria-labelledby="photoTranslatorTitle">
         <div class="translator-copy"><p class="eyebrow">Come funziona</p><h2 id="photoTranslatorTitle">Tre passaggi</h2><p>Scegli la foto, premi “Leggi il testo” e correggi ciò che il riconoscimento sbaglia prima di tradurre. Funziona meglio su testo dritto, a fuoco e ben illuminato.</p></div>
@@ -290,13 +288,17 @@
           <div class="translator-controls">
             <label class="primary-action file-button">Scatta o scegli foto<input id="translatePhotoInput" type="file" accept="image/*" capture="environment"></label>
             <button id="ocrReadButton" type="button" disabled>Leggi il testo</button>
-            <button id="ocrShareButton" type="button" hidden>Condividi con un'app</button>
+            <button id="ocrShareButton" type="button" hidden>Manda la foto a un'app ↗</button>
             <button id="ocrClearButton" type="button">Azzera</button>
           </div>
           <p class="ocr-status" id="ocrStatus" role="status">Nessuna foto selezionata.</p>
           <textarea id="ocrOutput" rows="6" placeholder="Il testo riconosciuto comparirà qui e potrai correggerlo." aria-label="Testo riconosciuto dalla foto"></textarea>
-          <a class="primary-action is-disabled" id="ocrTranslateLink" target="_blank" rel="noopener">Traduci in italiano ↗</a>
-          <p class="helper-note">Questo strumento estrae testo senza salvare la foto. Per la traduzione visiva dal vivo usa Google Traduttore; per frasi lunghe confronta anche DeepL; su iPhone Live Text è spesso il passaggio più rapido.</p>
+          <div class="ocr-destinations" id="ocrDestinations" aria-label="Dove mandare il testo riconosciuto">
+            <a class="ocr-destination is-primary is-disabled" id="ocrToTranslate" target="_blank" rel="noopener"><strong>Google Traduttore</strong><span>La traduzione secca, subito ↗</span></a>
+            <a class="ocr-destination is-disabled" id="ocrToChatgpt" target="_blank" rel="noopener"><strong>ChatGPT</strong><span>Traduce e spiega che cos'è ↗</span></a>
+            <a class="ocr-destination is-disabled" id="ocrToCopilot" target="_blank" rel="noopener"><strong>Copilot</strong><span>Traduce e spiega che cos'è ↗</span></a>
+          </div>
+          <p class="helper-note">Il testo parte già scritto: su ChatGPT e Copilot arriva con la richiesta di tradurlo e di dire che cos'è, utile davanti a un menu. Devi essere già connesso a quel servizio. Per mandare la <b>foto</b> invece del testo usa “Manda la foto a un'app”: si apre la condivisione del telefono e scegli lì Traduttore, ChatGPT, Copilot o qualsiasi altra app.</p>
           <div class="translator-options" aria-label="Alternative per tradurre immagini">
             <a href="https://translate.google.com/about/" target="_blank" rel="noopener"><strong>Google Traduttore</strong><span>Fotocamera dal vivo e lingue offline ↗</span></a>
             <a href="https://www.deepl.com/en/mobile-apps" target="_blank" rel="noopener"><strong>DeepL</strong><span>Secondo parere sui testi lunghi ↗</span></a>
@@ -380,8 +382,8 @@
     <button class="nav-grip" id="navGrip" type="button" aria-expanded="true" aria-controls="bottomNav" aria-label="Nascondi la barra di navigazione"></button>
     <button class="is-active" type="button" data-nav="overview"><span aria-hidden="true">⌂</span><small>Viaggio</small></button>
     <button type="button" data-nav="places"><span aria-hidden="true">⌖</span><small>Mappa</small></button>
+    <button type="button" data-nav="itineraries"><span aria-hidden="true">巡</span><small>Itinerari</small></button>
     <button type="button" data-nav-menu="discover"><span aria-hidden="true">✦</span><small>Scopri</small></button>
-    <button type="button" data-nav="phrases"><span aria-hidden="true">あ</span><small>Parole</small></button>
     <button type="button" data-nav="translate"><span aria-hidden="true">写</span><small>Traduci</small></button>
     <button type="button" data-nav-menu="tools"><span aria-hidden="true">＋</span><small>Utilità</small></button>
   </nav>
@@ -404,7 +406,7 @@
         <p class="helper-note" id="quickYenNote"></p>
         <button class="quick-rate-guide" type="button" data-go="money">Monete e banconote →</button>
       </div>
-      <div class="nav-menu-grid"><button data-go="itineraries">⌥ <span>Itinerari<small>Selezioni salvate e percorsi per tappa</small></span></button><button data-go="emergency">! <span>Emergenze<small>Numeri, frasi e posizione</small></span></button><button data-go="progress">✓ <span>Progressi<small>Cosa avete già visto e provato</small></span></button><button data-go="packing">🧳 <span>Cosa portare<small>Lista valigia da spuntare</small></span></button><button data-go="notes">✎ <span>Note<small>Appunti salvati sul telefono</small></span></button><button data-go="saved">♡ <span>Salvati<small>Preferiti e checklist di gruppo</small></span></button></div>
+      <div class="nav-menu-grid"><button data-go="phrases">あ <span>Parole<small>Frasi pronte, con la pronuncia</small></span></button><button data-go="emergency">! <span>Emergenze<small>Numeri, frasi e posizione</small></span></button><button data-go="progress">✓ <span>Progressi<small>Cosa avete già visto e provato</small></span></button><button data-go="packing">🧳 <span>Cosa portare<small>Lista valigia da spuntare</small></span></button><button data-go="notes">✎ <span>Note<small>Appunti salvati sul telefono</small></span></button><button data-go="saved">♡ <span>Salvati<small>Preferiti e checklist di gruppo</small></span></button></div>
       <button class="nav-menu-reset" type="button" data-reset-all>⟲ <span>Riporta l'app come nuova<small>Cancella itinerari, spunte, preferiti, note e valigia da questo telefono</small></span></button></div>
   </dialog>
   <dialog class="speech-dialog" id="speechDialog" aria-labelledby="speechDialogTitle">
@@ -422,24 +424,24 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script src="assets/data.js?v=20260810b" defer></script>
-  <script src="assets/food-data.js?v=20260810b" defer></script>
-  <script src="assets/shopping-data.js?v=20260810b" defer></script>
-  <script src="assets/food-extra-data.js?v=20260810b" defer></script>
-  <script src="assets/travel-data.js?v=20260810b" defer></script>
-  <script src="assets/history-data.js?v=20260810b" defer></script>
-  <script src="assets/phrases-data.js?v=20260810b" defer></script>
-  <script src="assets/glossary-data.js?v=20260810b" defer></script>
-  <script src="assets/packing-data.js?v=20260810b" defer></script>
-  <script src="assets/money-data.js?v=20260810b" defer></script>
-  <script src="assets/day-tips-data.js?v=20260810b" defer></script>
-  <script src="assets/map-data.js?v=20260810b" defer></script>
-  <script src="assets/merchants-data.js?v=20260810b" defer></script>
-  <script src="assets/transit-data.js?v=20260810b" defer></script>
-  <script src="assets/experiences-data.js?v=20260810b" defer></script>
-  <script src="assets/source-data.js?v=20260810b" defer></script>
-  <script src="assets/guide-data.js?v=20260810b" defer></script>
-  <script src="assets/map.js?v=20260810b" defer></script>
-  <script src="assets/app.js?v=20260810b" defer></script>
+  <script src="assets/data.js?v=20260810i" defer></script>
+  <script src="assets/food-data.js?v=20260810i" defer></script>
+  <script src="assets/shopping-data.js?v=20260810i" defer></script>
+  <script src="assets/food-extra-data.js?v=20260810i" defer></script>
+  <script src="assets/travel-data.js?v=20260810i" defer></script>
+  <script src="assets/history-data.js?v=20260810i" defer></script>
+  <script src="assets/phrases-data.js?v=20260810i" defer></script>
+  <script src="assets/glossary-data.js?v=20260810i" defer></script>
+  <script src="assets/packing-data.js?v=20260810i" defer></script>
+  <script src="assets/money-data.js?v=20260810i" defer></script>
+  <script src="assets/day-tips-data.js?v=20260810i" defer></script>
+  <script src="assets/map-data.js?v=20260810i" defer></script>
+  <script src="assets/merchants-data.js?v=20260810i" defer></script>
+  <script src="assets/transit-data.js?v=20260810i" defer></script>
+  <script src="assets/experiences-data.js?v=20260810i" defer></script>
+  <script src="assets/source-data.js?v=20260810i" defer></script>
+  <script src="assets/guide-data.js?v=20260810i" defer></script>
+  <script src="assets/map.js?v=20260810i" defer></script>
+  <script src="assets/app.js?v=20260810i" defer></script>
 </body>
 </html>

@@ -5,6 +5,12 @@
   const cityById = Object.fromEntries(data.cities.map(function (city) { return [city.id, city]; }));
   const itemById = Object.fromEntries([].concat(data.places, data.mapPlaces || [], data.experiences || [], data.foods, data.shopping, data.merchants || [], data.history).map(function (item) { return [item.id, item]; }));
   const mapGuideIds = new Set(((window.JAPAN_MAP_DATA && window.JAPAN_MAP_DATA.points) || []).map(function (point) { return point.guideId; }).filter(Boolean));
+  // Dal guideId al punto della mappa: è la via per dare coordinate anche alle
+  // schede, che di loro un lat/lng non ce l'hanno.
+  const pointByGuideId = {};
+  ((window.JAPAN_MAP_DATA && window.JAPAN_MAP_DATA.points) || []).forEach(function (point) {
+    if (point.guideId && !pointByGuideId[point.guideId]) pointByGuideId[point.guideId] = point;
+  });
   const fallbackByType = {
     place: "assets/fallback-place.svg",
     experience: "assets/fallback-place.svg",
@@ -433,7 +439,23 @@
       + '<p class="helper-note">Prezzi e disponibilità si leggono sulle loro pagine: qui non ne teniamo copia, perché cambiano di continuo. Confronta sempre con il sito ufficiale del luogo, che spesso costa meno.</p></section>';
   }
 
+  // Due scopi, due formati. "Portami lì" usa le coordinate nel formato api=1:
+  // un punto fisso non dipende da lingua, regione o posizione del telefono,
+  // mentre una ricerca per nome — su un telefono in Giappone con eSIM
+  // giapponese — può riordinare i risultati e cambiare bersaglio. Il nome del
+  // posto resta scritto sulla scheda, che è dove serve leggerlo.
   function mapsUrl(item) {
+    const point = (Number.isFinite(item.lat) && Number.isFinite(item.lng)) ? item : pointByGuideId[item.id];
+    if (point && Number.isFinite(point.lat) && Number.isFinite(point.lng)) {
+      return "https://www.google.com/maps/search/?api=1&query=" + point.lat + "%2C" + point.lng;
+    }
+    return mapsSearchByName(item);
+  }
+
+  // "Dimmi orari e voto" invece VUOLE la scheda del luogo su Google, e quella
+  // si apre solo cercando il nome: un pin a coordinate non la mostra. È il
+  // ripiego dei pochi elementi senza coordinate e del voto dal vivo.
+  function mapsSearchByName(item) {
     return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(item.name + " " + cityName(item.city) + " Japan");
   }
 
@@ -501,7 +523,7 @@
   }
 
   function merchantLiveUrl(item) {
-    return item.ratingUrl || mapsUrl(item);
+    return item.ratingUrl || mapsSearchByName(item);
   }
 
   function merchantCard(item) {
@@ -911,7 +933,16 @@
       // biglietteria il nome in kanji si mostra, e il link evita di cercare
       // "Tsuruga" fra dodici omonimi mentre il treno sta partendo.
       const stops = (leg.stops || []).map(function (stop) {
-        const url = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(stop.search || stop.name);
+        // Coordinate, e nel formato `api=1` che Google dichiara identico su
+        // Android, iPhone e web: è l'unico che l'app nativa è tenuta a capire,
+        // mentre l'indirizzo con /@lat,lng,17z è quello interno del sito e sul
+        // telefono può comportarsi in un altro modo.
+        //
+        // Il punto invece del nome perché una ricerca per nome dipende da dove
+        // sei e in che lingua cerchi: «宮島口フェリーのりば» qui apre un elenco
+        // di risultati a novecento metri dal molo giusto. Il nome resta scritto
+        // qui accanto, che è dove serve leggerlo.
+        const url = "https://www.google.com/maps/search/?api=1&query=" + stop.lat + "%2C" + stop.lng;
         return '<a class="transfer-stop" href="' + url + '" target="_blank" rel="noopener">'
           + escapeHTML(stop.name) + '<i lang="ja">' + escapeHTML(stop.jp) + '</i></a>';
       }).join('<span class="transfer-arrow" aria-hidden="true">→</span>');
@@ -919,7 +950,16 @@
         + (stops ? '<div class="transfer-stops">' + stops + '</div>' : '') + '</div></article>';
     }).join("");
     document.getElementById("stayGrid").innerHTML = data.lodging.map(function (stay) {
-      const hotelMaps = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(stay.name + " Japan");
+      // L'hotel ha un punto verificato sulla mappa (scripts/check-lodging.mjs
+      // lo tiene entro 300 m dall'indirizzo del voucher): il link porta lì.
+      // La ricerca per nome resta solo se il punto mancasse — a Kanazawa
+      // esiste un omonimo a due chilometri e mezzo, meglio non rischiare.
+      const pin = ((window.JAPAN_MAP_DATA && window.JAPAN_MAP_DATA.points) || []).find(function (point) {
+        return point.type === "hotel" && point.city === stay.city;
+      });
+      const hotelMaps = pin
+        ? "https://www.google.com/maps/search/?api=1&query=" + pin.lat + "%2C" + pin.lng
+        : "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(stay.name + " Japan");
       return '<article class="stay-card"><span>' + escapeHTML(cityName(stay.city)) + '</span><b>' + escapeHTML(stay.name) + '</b><small class="stay-area">' + escapeHTML(stay.area) + '</small><small>' + escapeHTML(stay.note) + '</small><a href="' + hotelMaps + '" target="_blank" rel="noopener">Apri in Google Maps ↗</a></article>';
     }).join("");
   }
@@ -1662,7 +1702,7 @@
     // "Fotografa e traduci" è salito nella barra: davanti a un menu si usa in
     // piedi, non si va a cercarlo in un menu. Al suo posto scende Progressi,
     // che è un riepilogo da fine giornata.
-    tools: ["itineraries", "emergency", "progress", "money", "packing", "notes", "saved"]
+    tools: ["phrases", "emergency", "progress", "money", "packing", "notes", "saved"]
   };
 
   function viewTitle(view) {
@@ -2528,19 +2568,14 @@
   ];
   const RATE_MAX_AGE = 12 * 60 * 60 * 1000;
 
-  function manualRate() {
-    const stored = Number(localStorage.getItem("tabi-jpy-rate"));
-    return Number.isFinite(stored) && stored > 0 ? stored : 0;
-  }
-
   function autoRate() {
     const stored = readJSON("tabi-jpy-rate-auto", null);
     return stored && Number.isFinite(stored.rate) && stored.rate > 0 ? stored : null;
   }
 
+  // Il cambio si scarica e basta: impostarlo a mano voleva dire ricordarsi di
+  // aggiornarlo, e un cambio dimenticato è peggio di nessun cambio.
   function jpyRate() {
-    const manual = manualRate();
-    if (manual) return { rate: manual, source: "impostato da te", at: 0 };
     const auto = autoRate();
     return auto ? { rate: auto.rate, source: auto.label, at: auto.at } : null;
   }
@@ -2594,35 +2629,11 @@
     sync();
   }
 
-  function setupRateField() {
-    const input = document.getElementById("jpyRate");
-    const preview = document.getElementById("jpyRatePreview");
-    const status = document.getElementById("jpyRateStatus");
-    function sync() {
-      const current = jpyRate();
-      preview.textContent = current ? formatNumber(current.rate, 4) : "—";
-      if (!current) {
-        status.textContent = navigator.onLine ? "Recupero del cambio in corso…" : "Sei offline: il cambio si aggiornerà alla prossima connessione.";
-        return;
-      }
-      const auto = autoRate();
-      status.textContent = manualRate()
-        ? "Stai usando il tuo valore. Svuota il campo per tornare al cambio automatico" + (auto ? " (" + formatNumber(auto.rate, 4) + " €, " + rateAgeLabel(auto.at) + ")" : "") + "."
-        : "Fonte " + current.source + ", " + rateAgeLabel(current.at) + ". Si aggiorna da solo quando c'è rete.";
-    }
-    input.value = manualRate() || "";
-    input.addEventListener("change", function () {
-      const value = Number(String(input.value).replace(",", "."));
-      if (Number.isFinite(value) && value > 0) {
-        localStorage.setItem("tabi-jpy-rate", String(value));
-        showToast("Cambio impostato a mano");
-      } else {
-        localStorage.removeItem("tabi-jpy-rate");
-        showToast("Torno al cambio automatico");
-      }
-      sync();
-    });
-    sync();
+  // Il cambio si scaricava insieme al campo che stava nei Salvati: tolto quello,
+  // qualcuno deve comunque chiederlo all'avvio e al ritorno della rete, se no
+  // Contanti e convertitore restano con il valore vecchio.
+  function setupRate() {
+    function sync() { if (quickRateSync) quickRateSync(); }
     refreshRate(false).then(sync);
     window.addEventListener("online", function () { refreshRate(false).then(sync); });
   }
@@ -3096,21 +3107,14 @@
     check();
   }
 
-  function setupLocalProfile() {
-    const profile = readJSON("tabi-local-profile", { nickname: "", group: "" });
-    const nickname = document.getElementById("localNickname");
-    const group = document.getElementById("localGroup");
-    nickname.value = profile.nickname || "";
-    group.value = profile.group || "";
-    document.getElementById("saveProfileButton").addEventListener("click", function () {
-      localStorage.setItem("tabi-local-profile", JSON.stringify({ nickname: nickname.value.trim(), group: group.value.trim() }));
-      showToast("Profilo del gruppo salvato");
-    });
+  // Il file scambiato fra i telefoni contiene due elenchi di id e nient'altro:
+  // niente nomi, niente gruppo. Chi lo riceve unisce i preferiti e le cose fatte
+  // ai suoi, quindi sapere da chi arriva non serviva a nulla.
+  function setupChecklistSync() {
     document.getElementById("exportProgressButton").addEventListener("click", function () {
       const payload = {
         format: "tabi-checklist-v2",
         exportedAt: new Date().toISOString(),
-        profile: readJSON("tabi-local-profile", {}),
         favorites: Array.from(state.favorites),
         done: Array.from(state.done)
       };
@@ -3274,7 +3278,28 @@
     const clearButton = document.getElementById("ocrClearButton");
     const output = document.getElementById("ocrOutput");
     const status = document.getElementById("ocrStatus");
-    const translateLink = document.getElementById("ocrTranslateLink");
+
+    // Tre destinazioni per lo stesso testo, perché servono a cose diverse:
+    // Traduttore dà la riga tradotta e basta, i due assistenti dicono anche che
+    // cos'è — davanti a un menu è la differenza fra sapere il nome di un piatto e
+    // sapere che contiene pesce crudo. La foto vera e propria non si può mandare
+    // per link: nessuno dei tre la accetta in un indirizzo, e per quella c'è la
+    // condivisione del telefono.
+    const AI_PROMPT = "Traduci in italiano questo testo giapponese. Poi dimmi in due righe che cos'è (se è un menu elenca i piatti con gli ingredienti principali, segnalando pesce crudo, carne di maiale, frutti di mare e arachidi):\n\n";
+    const DESTINATIONS = [
+      { id:"ocrToTranslate", url:function (text) { return "https://translate.google.com/?sl=ja&tl=it&op=translate&text=" + encodeURIComponent(text.slice(0, 3500)); } },
+      { id:"ocrToChatgpt", url:function (text) { return "https://chatgpt.com/?q=" + encodeURIComponent(AI_PROMPT + text.slice(0, 1400)); } },
+      { id:"ocrToCopilot", url:function (text) { return "https://copilot.microsoft.com/?q=" + encodeURIComponent(AI_PROMPT + text.slice(0, 1400)); } }
+    ].map(function (entry) { return Object.assign({ node: document.getElementById(entry.id) }, entry); })
+      .filter(function (entry) { return entry.node; });
+
+    function setDestinations(text) {
+      DESTINATIONS.forEach(function (entry) {
+        entry.node.classList.toggle("is-disabled", !text);
+        if (text) entry.node.href = entry.url(text);
+        else entry.node.removeAttribute("href");
+      });
+    }
 
     function currentFile() {
       return input.files && input.files[0];
@@ -3295,8 +3320,7 @@
       status.textContent = "Nessuna foto selezionata.";
       readButton.disabled = true;
       shareButton.hidden = true;
-      translateLink.classList.add("is-disabled");
-      translateLink.removeAttribute("href");
+      setDestinations("");
       preview.hidden = true;
       preview.removeAttribute("src");
       if (ocrPreviewUrl) URL.revokeObjectURL(ocrPreviewUrl);
@@ -3314,8 +3338,7 @@
       readButton.disabled = false;
       status.textContent = "Foto pronta. Il riconoscimento avviene sul dispositivo.";
       shareButton.hidden = !canShareFile(file);
-      translateLink.classList.add("is-disabled");
-      translateLink.removeAttribute("href");
+      setDestinations("");
     });
 
     readButton.addEventListener("click", async function () {
@@ -3338,9 +3361,8 @@
         if (!textResult) {
           status.textContent = "Non ho riconosciuto testo. Prova più vicino, dritto e con più luce.";
         } else {
-          status.textContent = "Testo riconosciuto sul dispositivo. Controllalo prima di tradurre.";
-          translateLink.href = "https://translate.google.com/?sl=ja&tl=it&text=" + encodeURIComponent(textResult.slice(0, 3500)) + "&op=translate";
-          translateLink.classList.remove("is-disabled");
+          status.textContent = "Testo riconosciuto sul dispositivo. Correggilo qui sotto, poi scegli dove mandarlo.";
+          setDestinations(textResult);
         }
       } catch (_) {
         status.textContent = "Lettore non disponibile. Puoi condividere la foto con Google Lens o l'app Traduci del telefono.";
@@ -3348,6 +3370,10 @@
         readButton.disabled = false;
       }
     });
+
+    // Il riconoscimento sbaglia spesso un carattere: se lo correggi qui, i tre
+    // collegamenti devono partire dal testo corretto, non da quello letto.
+    output.addEventListener("input", function () { setDestinations(output.value.trim()); });
 
     shareButton.addEventListener("click", async function () {
       const file = currentFile();
@@ -3742,7 +3768,7 @@
     setupInstall();
     setupOfflineReadiness();
     setupConnectionBanner();
-    setupRateField();
+    setupRate();
     setupQuickRate();
     setupGlobalSearch();
     setupNearby();
@@ -3753,7 +3779,7 @@
     // Le griglie non si disegnano più qui: ci pensa switchView alla prima
     // apertura di ogni schermata.
     updateProgress();
-    setupLocalProfile();
+    setupChecklistSync();
     switchView(location.hash.slice(1) || "overview", false);
     const requestedPoint = location.hash === "#places" && new URLSearchParams(location.search).get("point");
     if (requestedPoint) window.setTimeout(function () {

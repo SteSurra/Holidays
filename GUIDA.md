@@ -19,10 +19,10 @@ i progressi non si sincronizzano fra due telefoni, ognuno ha i suoi.
 |---|---|
 | **Viaggio** | Dove sei oggi, la rotta, i trasferimenti, gli hotel |
 | **Mappa** | La mappa e l'elenco dei 163 luoghi |
+| **Itinerari** | Le selezioni salvate della mappa e i loro percorsi |
 | **Scopri** | *menu* → Attività, Cibo, Negozianti, Acquisti, Storie |
-| **Parole** | Frasario con pronuncia |
 | **Traduci** | Fotografa un menu o un cartello |
-| **Utilità** | *menu* → Itinerari, Emergenze, Progressi, Contanti, Valigia, Note, Salvati |
+| **Utilità** | *menu* → Parole, Emergenze, Progressi, Contanti, Valigia, Note, Salvati |
 
 In alto: la **lente** cerca in tutta la guida, il **cuore** apre i salvati.
 
@@ -358,8 +358,19 @@ grande **da mostrare direttamente allo schermo**, il pulsante **♪** che la
 **pronuncia ad alta voce**, come leggerla scritta all'italiana e il romaji
 diviso in sillabe. Le frasi di salute ed emergenza sono anche in *Emergenze*.
 
-**Traduci** serve per menu senza foto, cartelli ed etichette: si fotografa e si
-manda al traduttore. Richiede rete.
+**Traduci** serve per menu senza foto, cartelli ed etichette. Si fotografa, il
+testo viene letto **sul telefono** (la foto non parte da lì), lo si corregge se
+il riconoscimento ha sbagliato un carattere, e poi si sceglie dove mandarlo:
+
+- **Google Traduttore** — la traduzione e basta, è quasi sempre ciò che serve;
+- **ChatGPT** o **Copilot** — arrivano con la richiesta già scritta di tradurre
+  *e* di dire che cos'è, elencando i piatti di un menu con gli ingredienti a
+  rischio. Serve essere già connessi a quel servizio.
+
+Per mandare la **foto** invece del testo c'è *Manda la foto a un'app*: si apre la
+condivisione del telefono e da lì scegli Traduttore, ChatGPT, Copilot o altro.
+Nessuno di questi servizi accetta un'immagine dentro un collegamento, quindi la
+condivisione del sistema è l'unica strada per l'immagine. Richiede rete.
 
 ---
 
