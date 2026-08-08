@@ -798,6 +798,10 @@ body:has(.bottom-nav.is-collapsed) main { padding-bottom: 52px; }
 .map-facility-marker.is-water { background: #2a8f9c; font-family: "Noto Serif JP", serif; }
 .map-facility-marker.is-konbini { background: #8258bd; }
 .legend-dot.konbini { background: #8258bd; }
+/* Il vermiglio dei sigilli, che in Giappone è sempre quello: distingue il
+   timbro dal rosso mattone dei negozianti anche a colpo d'occhio. */
+.legend-dot.stamp { background: #e2542c; }
+.map-stamp-marker { width: 24px; height: 24px; display: grid; place-items: center; border: 2px solid #fff; border-radius: 50%; background: #e2542c; box-shadow: 0 1px 4px rgba(0,0,0,.35); color: #fff; font-family: var(--font-jp, serif); font-size: .72rem; font-weight: 700; }
 .facility-popup .facility-source { margin: .6rem 0 0; color: var(--muted); font-size: .66rem; }
 
 /* Monete e banconote: disegni in scala, valore di fianco. */
@@ -982,6 +986,15 @@ body:has(.bottom-nav.is-collapsed) main { padding-bottom: 52px; }
 /* Documenti: biglietti, QR e conferme, solo su questo dispositivo.    */
 /* Tutto a token, così il tema scuro arriva gratis.                    */
 .documents-panel { margin: 1rem 0 3rem; }
+/* Il servizio ufficiale dell'ingresso in Giappone sta qui perché è qui che
+   finisce quello che produce: il codice 2D si mostra dal telefono, e questa è
+   la schermata dove lo si ritrova anche senza rete. */
+.official-service { padding: 1.2rem; margin: 0 0 3rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+.official-service h2 { margin: .1rem 0 .5rem; font-size: 1.15rem; }
+.official-service p { margin: 0 0 .8rem; }
+.official-service .primary-action { display: inline-block; min-height: var(--tap); padding: .55rem .95rem; border: 1px solid var(--ink); border-radius: 999px; color: var(--paper); background: var(--ink); font-size: .8rem; font-weight: 800; text-decoration: none; }
+.official-service .helper-note { margin: .8rem 0 0; }
+.nowrap { white-space: nowrap; }
 .documents-toolbar { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin-bottom: .6rem; }
 /* Inchiostro su carta invertiti, come il bottone foto del traduttore: la
    coppia di token si scambia da sola col tema scuro. Il .primary-action nudo

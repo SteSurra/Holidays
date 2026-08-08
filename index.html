@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#14181a" media="(prefers-color-scheme: dark)">
   <meta name="description" content="Guida di viaggio in Giappone con itinerario, mappa, luoghi, attività, cibo, acquisti e storie.">
   <title>Giappone 2026 | Tabi</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260805a">
+  <link rel="manifest" href="manifest.webmanifest?v=20260806g">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://commons.wikimedia.org">
@@ -33,9 +33,9 @@
       } catch (_) { /* senza storage si segue il sistema al primo apply() */ }
     })();
   </script>
-  <link rel="stylesheet" href="assets/styles.css?v=20260805a">
-  <link rel="icon" href="assets/icons/icon.svg?v=20260805a" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260805a">
+  <link rel="stylesheet" href="assets/styles.css?v=20260806g">
+  <link rel="icon" href="assets/icons/icon.svg?v=20260806g" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260806g">
 </head>
 <body>
   <a class="skip-link" href="#main">Vai al contenuto</a>
@@ -118,6 +118,7 @@
           <label><input type="checkbox" data-map-layer="tabelog"><i class="legend-dot tabelog"></i> Locali Tabelog</label>
           <label><input type="checkbox" data-map-layer="hotel" checked><i class="legend-dot hotel"></i> Hotel</label>
           <label><input type="checkbox" data-map-layer="merchant"><i class="legend-dot merchant"></i> Negozianti</label>
+          <label><input type="checkbox" data-map-layer="stamp"><i class="legend-dot stamp"></i> Timbri dei castelli</label>
           <label><input type="checkbox" data-map-layer="toilet"><i class="legend-dot toilet"></i> WC pubblici</label>
           <label><input type="checkbox" data-map-layer="water"><i class="legend-dot water"></i> Fontanelle</label>
           <label><input type="checkbox" data-map-layer="konbini"><i class="legend-dot konbini"></i> Konbini</label>
@@ -426,6 +427,13 @@
         <div class="empty-state" id="documentsEmpty" hidden><strong>Ancora nessun documento.</strong><span>Aggiungi i biglietti dei musei, i QR degli ingressi, le conferme degli hotel: restano pronti anche offline.</span></div>
         <p class="helper-note documents-privacy">Tutto resta solo su questo dispositivo: nessun file viene caricato in rete. <span id="documentsUsage"></span></p>
       </section>
+      <section class="official-service" aria-labelledby="visitJapanTitle">
+        <p class="eyebrow">Prima di partire</p>
+        <h2 id="visitJapanTitle">Visit Japan Web</h2>
+        <p>Il servizio ufficiale dell'Agenzia Digitale giapponese. Si registrano in anticipo i dati per <strong>immigrazione e dichiarazione doganale</strong>, e da qui passa anche il <strong>tax-free</strong> negli acquisti durante il soggiorno. Alla fine resta un unico codice 2D, lo stesso per controllo passaporti e dogana.</p>
+        <a class="primary-action" href="https://services.digital.go.jp/en/visit-japan-web/" target="_blank" rel="noopener">Apri il sito ufficiale ↗</a>
+        <p class="helper-note">Il codice va mostrato <strong>dal telefono</strong>: registrarsi dal computer si può, esibirlo stampato no. Salvane qui uno screenshot e lo ritrovi anche senza rete. Esistono app che imitano questo servizio: l'unico indirizzo valido è quello del bottone qui sopra, che porta al dominio governativo <span class="nowrap">digital.go.jp</span>.</p>
+      </section>
     </section>
   </main>
 
@@ -491,28 +499,30 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script src="assets/parse-lib.js?v=20260805a" defer></script>
-  <script src="assets/data.js?v=20260805a" defer></script>
-  <script src="assets/food-data.js?v=20260805a" defer></script>
-  <script src="assets/shopping-data.js?v=20260805a" defer></script>
-  <script src="assets/food-extra-data.js?v=20260805a" defer></script>
-  <script src="assets/travel-data.js?v=20260805a" defer></script>
-  <script src="assets/history-data.js?v=20260805a" defer></script>
-  <script src="assets/phrases-data.js?v=20260805a" defer></script>
-  <script src="assets/glossary-data.js?v=20260805a" defer></script>
-  <script src="assets/packing-data.js?v=20260805a" defer></script>
-  <script src="assets/money-data.js?v=20260805a" defer></script>
-  <script src="assets/day-tips-data.js?v=20260805a" defer></script>
-  <script src="assets/map-data.js?v=20260805a" defer></script>
-  <script src="assets/merchants-data.js?v=20260805a" defer></script>
-  <script src="assets/transit-data.js?v=20260805a" defer></script>
-  <script src="assets/experiences-data.js?v=20260805a" defer></script>
-  <script src="assets/source-data.js?v=20260805a" defer></script>
-  <script src="assets/guide-data.js?v=20260805a" defer></script>
-  <script src="assets/curated-images-data.js?v=20260805a" defer></script>
-  <script src="assets/map.js?v=20260805a" defer></script>
-  <script src="assets/documents.js?v=20260805a" defer></script>
-  <script src="assets/backup.js?v=20260805a" defer></script>
-  <script src="assets/app.js?v=20260805a" defer></script>
+  <script src="assets/parse-lib.js?v=20260806g" defer></script>
+  <script src="assets/data.js?v=20260806g" defer></script>
+  <script src="assets/food-data.js?v=20260806g" defer></script>
+  <script src="assets/shopping-data.js?v=20260806g" defer></script>
+  <script src="assets/food-extra-data.js?v=20260806g" defer></script>
+  <script src="assets/travel-data.js?v=20260806g" defer></script>
+  <script src="assets/history-data.js?v=20260806g" defer></script>
+  <script src="assets/phrases-data.js?v=20260806g" defer></script>
+  <script src="assets/glossary-data.js?v=20260806g" defer></script>
+  <script src="assets/packing-data.js?v=20260806g" defer></script>
+  <script src="assets/money-data.js?v=20260806g" defer></script>
+  <script src="assets/day-tips-data.js?v=20260806g" defer></script>
+  <script src="assets/map-data.js?v=20260806g" defer></script>
+  <script src="assets/merchants-data.js?v=20260806g" defer></script>
+  <script src="assets/stamps-data.js?v=20260806g" defer></script>
+  <script src="assets/transit-data.js?v=20260806g" defer></script>
+  <script src="assets/experiences-data.js?v=20260806g" defer></script>
+  <script src="assets/source-data.js?v=20260806g" defer></script>
+  <script src="assets/story-data.js?v=20260806g" defer></script>
+  <script src="assets/guide-data.js?v=20260806g" defer></script>
+  <script src="assets/curated-images-data.js?v=20260806g" defer></script>
+  <script src="assets/map.js?v=20260806g" defer></script>
+  <script src="assets/documents.js?v=20260806g" defer></script>
+  <script src="assets/backup.js?v=20260806g" defer></script>
+  <script src="assets/app.js?v=20260806g" defer></script>
 </body>
 </html>

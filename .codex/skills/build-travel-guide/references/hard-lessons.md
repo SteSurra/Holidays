@@ -190,6 +190,25 @@ lesson, append it here in the same commit — this file is the skill's memory.
   files drifted 90 m apart — two pins on two corners reads as two shops. When
   layers intentionally duplicate a point, reconcile coordinates against OSM;
   the geocoder-verified value wins.
+- **Verify coordinates against the map, and test "near me" by faking a
+  position — not by faking an IP.** A latitude does not change with where you
+  test from, so a VPN in the destination country proves nothing about the
+  pins; worse, it feels like a test and is not one, because browser
+  geolocation comes from GPS and Wi-Fi, never from the IP address. What can
+  actually be wrong is the stored value, so check it: query OSM by the venue's
+  NATIVE name (the localized display name means nothing to a Japanese
+  gazetteer) and flag anything beyond a few hundred metres — then read those
+  by hand, because a park or a mountain legitimately has a centroid far from
+  its entrance, and sometimes it is the gazetteer that matched the wrong
+  homonym. For the position-dependent features, override the geolocation in
+  devtools and drive the real coordinates.
+- **A name-joined dataset needs its join audited, not assumed.** Cards get
+  their coordinates by matching guide names to map points at boot; a miss
+  silently downgrades the link to a name search (which drifts on a foreign
+  phone) and a false hit sends the traveler to another venue entirely. Count
+  both: how many items ended up with no point, and every match that was not
+  an exact name equality — the inexact ones are short enough to read one by
+  one, and that reading is the only proof the join is sound.
 - **Init never dies of a renamed id.** `getElementById(...).innerHTML` chains
   at startup turn one HTML rename into a blank app. Write and listen through
   guards that warn and continue.

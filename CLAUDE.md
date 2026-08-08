@@ -22,7 +22,8 @@ memoria della skill: la prossima guida parte dalle lezioni già pagate qui.
 - Check locali (sempre prima di un push):
   `node scripts/check-guide-integrity.mjs && node scripts/check-public-content.mjs && node scripts/check-route-optimizer.mjs`
 - Check con rete (prima di un rilascio importante): `check-links.mjs`,
-  `check-lodging.mjs`, `check-transfer-stops.mjs`.
+  `check-lodging.mjs`, `check-transfer-stops.mjs`, `check-coordinates.mjs`
+  (pin contro OpenStreetMap), `audit-remote-images.mjs`.
 - Server locale: configurazioni in `.claude/launch.json` (`tabi-static`).
 
 ## Vincoli non negoziabili

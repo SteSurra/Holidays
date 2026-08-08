@@ -4,6 +4,10 @@
   let routeLayer;
   let userMarker;
   let watchId = null;
+  // I livelli dei punti che stanno nei dati della guida, elencati una volta
+  // sola: erano ripetuti a mano in due punti, e un tipo aggiunto al primo e
+  // dimenticato nel secondo esiste ma non compare mai sulla mappa.
+  const STATIC_LAYERS = ["visit", "tabelog", "hotel", "merchant", "stamp"];
   const pointLayers = {};
   const markerByGuideId = {};
   const pointByGuideId = {};
@@ -58,7 +62,10 @@
     const imageId = point.guideId || "map-image-" + point.id;
     const fallback = imageType === "food" ? "assets/fallback-food.svg" : imageType === "shop" ? "assets/fallback-shop.svg" : "assets/fallback-place.svg";
     const typeLabel = point.type === "tabelog" ? "Locale Tabelog" : point.type === "hotel" ? "Hotel del viaggio"
-      : point.type === "merchant" ? "Negoziante" : "Da visitare";
+      : point.type === "merchant" ? "Negoziante" : point.type === "stamp" ? "Timbro dei 100 castelli" : "Da visitare";
+    // Sul timbro la categoria ripeterebbe l'etichetta ("Timbro dei 100 castelli
+    // · timbro"): lì il tipo dice già tutto.
+    const kicker = typeLabel + (point.type === "stamp" ? "" : " · " + point.category);
     const rating = point.type === "tabelog" ? '<span class="tabelog-rating">Tabelog ' + Number(point.score).toFixed(2) + ' alla selezione</span>' : "";
     const tabelog = point.tabelog ? '<a class="map-popup-action is-tabelog" href="' + tabelogUrl(point) + '" target="_blank" rel="noopener">Voto di oggi, orari e prenotazione ↗</a>' : "";
     const guide = point.guideId ? '<button class="map-popup-detail" type="button" data-action="details" data-id="' + escapeHTML(point.guideId) + '">Apri la guida completa ↗</button>' : "";
@@ -69,7 +76,14 @@
       ? '<button class="map-popup-select" type="button" data-action="select" data-id="' + escapeHTML(point.guideId) + '">'
         + (hiddenIds.has(point.guideId) ? "Rimetti sulla mappa" : "Togli dalla mappa") + '</button>'
       : "";
-    return '<div class="map-popup point-popup"><div class="map-popup-media"><img src="' + fallback + '" data-map-image-id="' + escapeHTML(imageId) + '" data-map-image-type="' + imageType + '" alt="' + escapeHTML(point.name) + '" referrerpolicy="no-referrer"><a class="map-photo-credit" target="_blank" rel="noopener" hidden></a></div><p class="map-popup-kicker">' + escapeHTML(typeLabel) + ' · ' + escapeHTML(point.category) + '</p>'
+    // L'impronta di un timbro è un disegno, e i disegni dei 100 castelli non
+    // esistono con licenza libera: per quei punti non si apre nemmeno la
+    // cornice, invece di lasciarla vuota o di riempirla pescando una foto a
+    // caso del castello. Dove l'immagine del timbro esiste ed è verificata
+    // (i timbri di stazione su Commons), passa dalla via curata come tutti.
+    const senzaImmagine = point.type === "stamp" && !point.imageUrl;
+    const media = senzaImmagine ? "" : '<div class="map-popup-media"><img src="' + fallback + '" data-map-image-id="' + escapeHTML(imageId) + '" data-map-image-type="' + imageType + '" alt="' + escapeHTML(point.name) + '" referrerpolicy="no-referrer"><a class="map-photo-credit" target="_blank" rel="noopener" hidden></a></div>';
+    return '<div class="map-popup point-popup">' + media + '<p class="map-popup-kicker">' + escapeHTML(kicker) + '</p>'
       + '<h3>' + escapeHTML(point.name) + '</h3>'
       + '<p class="point-location">' + escapeHTML(point.group || point.area || (city && city.name)) + (point.area && point.group !== point.area ? ' · ' + escapeHTML(point.area) : '') + '</p>'
       + '<p>' + escapeHTML(point.description) + '</p>' + rating
@@ -103,6 +117,17 @@
   function popupImageItem(point) {
     const linked = point.guideId && findGuideItem(point.guideId);
     if (linked) return linked;
+    // Un timbro non si cerca per nome: "Timbro n. 21 · Castello di Edo" su un
+    // motore di ricerca non trova l'impronta, trova il castello. O l'immagine
+    // è quella verificata del timbro, o non se ne cerca nessuna.
+    if (point.type === "stamp") {
+      if (!point.imageUrl) return null;
+      return {
+        id: "map-image-" + point.id, type: "place", city: point.city, name: point.name, jp: "",
+        imageQuery: "", imageUrl: point.imageUrl, imageSourceUrl: point.imageSourceUrl,
+        imageCredit: point.imageCredit, imageProvider: "curated"
+      };
+    }
     return {
       id: "map-image-" + point.id,
       type: point.type === "tabelog" ? "food" : "place",
@@ -118,6 +143,7 @@
     const image = popup && popup.querySelector("[data-map-image-id]");
     if (!image || image.dataset.loading === "true" || image.dataset.loaded === "true" || !window.TABI_IMAGES) return;
     const item = popupImageItem(point);
+    if (!item) return;
     const credit = popup.querySelector(".map-photo-credit");
     image.dataset.loading = "true";
 
@@ -190,6 +216,12 @@
     }
     if (point.type === "hotel") {
       return L.divIcon({ className:"map-point-icon", html:'<span class="map-hotel-marker">H</span>', iconSize:[28, 28], iconAnchor:[14, 14] });
+    }
+    // Il timbro si riconosce da solo: il tondo vermiglio dell'inchiostro dei
+    // sigilli giapponesi, con dentro 印. Non ha stato "visitato" perché non è
+    // una scheda della guida ma una postazione dentro un altro luogo.
+    if (point.type === "stamp") {
+      return L.divIcon({ className:"map-point-icon", html:'<span class="map-stamp-marker">印</span>', iconSize:[24, 24], iconAnchor:[12, 12] });
     }
     const isDone = Boolean(point.guideId && doneIds.has(point.guideId));
     // Il negoziante ha il suo simbolo — la tenda di stoffa all'ingresso delle
@@ -864,7 +896,7 @@
     });
     routeLayer = L.polyline(coordinates, { color:"#b6422e", weight:3, opacity:.72, dashArray:"8 9" }).addTo(map);
 
-    ["visit", "tabelog", "hotel", "merchant"].forEach(function (type) { pointLayers[type] = L.layerGroup(); });
+    STATIC_LAYERS.forEach(function (type) { pointLayers[type] = L.layerGroup(); });
     window.JAPAN_MAP_DATA.points.forEach(function (point) {
       const marker = L.marker([point.lat, point.lng], { icon:pointIcon(point), zIndexOffset:point.type === "hotel" ? 500 : 0, title:point.name, alt:point.name })
         // Il contenuto è una funzione: si valuta all'apertura, sempre fresco.
@@ -882,7 +914,7 @@
       placedMarkers.push({ point:point, marker:marker });
       if (onMap(point)) marker.addTo(pointLayers[point.type]);
     });
-    ["visit", "tabelog", "hotel", "merchant"].forEach(syncLayer);
+    STATIC_LAYERS.forEach(syncLayer);
     openOnCurrentCity();
     facilityKinds().forEach(function (kind) { if (layerEnabled(kind)) syncFacilityLayer(kind); });
     // Spostando la mappa si scarica anche la zona nuova, una volta sola quando

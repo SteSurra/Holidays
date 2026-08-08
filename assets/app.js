@@ -69,7 +69,7 @@
   // "cache pronta". NON va nell'URL di registrazione del service worker: un
   // URL che cambia a ogni rilascio forza una reinstallazione del worker in
   // più — e il toast di aggiornamento arrivava due volte di fila.
-  const RELEASE = "20260805a";
+  const RELEASE = "20260806g";
 
   function readJSON(key, fallback) {
     try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch (_) { return fallback; }
@@ -471,11 +471,28 @@
       }).join("") + '</dl></section>';
   }
 
+  // Categorie in cui un biglietto o un tour di terzi esiste davvero. Fuori da
+  // qui i due rivenditori erano solo rumore: su un sentiero pubblico o su una
+  // corsa lungo il fiume aprivano una ricerca che trova tutto tranne quel
+  // posto, e "dove si compra il biglietto" per un quartiere non vuol dire
+  // niente. I luoghi non li mostrano mai: i loro link ufficiali stanno già
+  // nella sezione delle fonti, qui sotto.
+  const TICKETED_CATEGORIES = new Set(["museum", "theme", "show", "workshop", "food", "wellness"]);
+  const FREE_ENTRY = /gratuit|gratis|percorso libero|accesso libero|sempre aperto|senza bigliett/;
+  const TICKET_WORDS = /prenotazion|prenota|bigliett|torneo|spettacol|degustazion|laborator/;
+
+  function sellsTickets(item) {
+    if (item.type !== "experience") return false;
+    const text = normalize([item.booking, item.description, item.tip].filter(Boolean).join(" "));
+    if (FREE_ENTRY.test(text)) return false;
+    return TICKETED_CATEGORIES.has(item.category) || TICKET_WORDS.test(text);
+  }
+
   // Link alle piattaforme di prenotazione. Nessun prezzo e nessuna
   // disponibilità vengono mostrati qui: senza un accordo da partner sarebbero
   // dati inventati. Si apre la loro ricerca già filtrata e si legge da loro.
   function bookingHTML(item) {
-    if (!["experience", "place"].includes(item.type)) return "";
+    if (!sellsTickets(item)) return "";
     const query = item.name + " " + cityName(item.city);
     const channels = [
       {
@@ -1253,6 +1270,13 @@
     return date.toLocaleTimeString("it-IT", { hour: "2-digit", minute: "2-digit", timeZone: "Asia/Tokyo" });
   }
 
+  // Il giorno che conta è sempre quello giapponese, mai quello del telefono:
+  // dall'Italia sono due date diverse per sedici ore su ventiquattro, e la
+  // guida deve raccontare la giornata che si sta vivendo lì.
+  function japanDayOfMonth() {
+    return Number(new Intl.DateTimeFormat("en-GB", { day: "numeric", timeZone: "Asia/Tokyo" }).format(new Date()));
+  }
+
   function countdownLabel(target) {
     const minutes = Math.round((target.valueOf() - Date.now()) / 60000);
     if (minutes < -60) return "";
@@ -1409,7 +1433,7 @@
     if (!tips) return "";
     const sun = sunTimes(new Date(), city.lat, city.lng);
     const countdown = sun ? countdownLabel(sun.sunset) : "";
-    const rotating = (data.alwaysTips || [])[new Date().getDate() % (data.alwaysTips || [1]).length] || "";
+    const rotating = (data.alwaysTips || [])[japanDayOfMonth() % (data.alwaysTips || [1]).length] || "";
     return '<section class="day-tips" aria-labelledby="dayTipsTitle">'
       + '<div class="day-tips-head"><p class="eyebrow">Da ricordare oggi</p><h3 id="dayTipsTitle">A ' + escapeHTML(city.name) + ' conviene sapere che…</h3></div>'
       + '<ul class="day-tips-list">'
@@ -2246,6 +2270,10 @@
     const detailDialog = document.getElementById("detailDialog");
     detailDialog.dataset.itemId = id;
     detailDialog.showModal();
+    // Il dialog è lo stesso elemento per ogni scheda: senza questo, aprendo un
+    // luogo dopo averne letto un altro fino in fondo, si atterrava a metà
+    // pagina — sul secondo posto, ma con lo scorrimento del primo.
+    detailDialog.scrollTop = 0;
     const dialogHero = detailDialog.querySelector(".dialog-hero");
     if (dialogHero) dialogHero.addEventListener("error", function () {
       const credit = detailDialog.querySelector(".photo-credit");

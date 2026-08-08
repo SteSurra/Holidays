@@ -86,7 +86,9 @@ all|amazake|Amazake|甘酒|bevande|tempio|4.2|1|Bevanda dolce di riso fermentato
     "all/nikujaga": ["Nikujaga%20by%20Takeshi%20aka%20Momotaro.jpg", "https://commons.wikimedia.org/wiki/File:Nikujaga_by_Takeshi_aka_Momotaro.jpg", "Takeshi aka. Momotaro · CC BY 2.0 · Wikimedia Commons"],
     "all/motsunabe": ["Motsunabe%20002.jpg", "https://commons.wikimedia.org/wiki/File:Motsunabe_002.jpg", "徳永涼 · CC BY-SA 3.0 · Wikimedia Commons"],
     "all/gyutan": ["Sendai%20gyutan.JPG", "https://commons.wikimedia.org/wiki/File:Sendai_gyutan.JPG", "Sakurai Midori · CC BY-SA 3.0 · Wikimedia Commons"],
-    "all/tebasaki": ["Tebasaki%20karaage%20by%20kawanet%20in%20Kanayama%2C%20Nagoya.jpg", "https://commons.wikimedia.org/wiki/File:Tebasaki_karaage_by_kawanet_in_Kanayama,_Nagoya.jpg", "kawanet · CC BY 2.0 · Wikimedia Commons"],
+    // Il file precedente si chiamava "tebasaki karaage" e finiva su entrambe le
+    // schede: due voci diverse con la stessa foto si leggono come un doppione.
+    "all/tebasaki": ["Nagoya%20chicken%20wings.jpg", "https://commons.wikimedia.org/wiki/File:Nagoya_chicken_wings.jpg", "Geographer · CC BY-SA 3.0 · Wikimedia Commons"],
     "all/tsukune": ["Tsukune%20%28chicken%20meatballs%29%20%2816065642291%29.jpg", "https://commons.wikimedia.org/wiki/File:Tsukune_(chicken_meatballs)_(16065642291).jpg", "Arnold Gatilao · CC BY 2.0 · Wikimedia Commons"],
     "all/inarizushi": ["Kantofu%20Inarizushi.jpg", "https://commons.wikimedia.org/wiki/File:Kantofu_Inarizushi.jpg", "Ocdp · CC BY-SA 3.0 · Wikimedia Commons"],
     "all/katsu-sando": ["Katsu%20sando%20%2837686169334%29.jpg", "https://commons.wikimedia.org/wiki/File:Katsu_sando_(37686169334).jpg", "Kent Wang · CC BY-SA 2.0 · Wikimedia Commons"],

@@ -13,8 +13,10 @@ const dataFiles = [
   "assets/phrases-data.js",
   "assets/map-data.js",
   "assets/merchants-data.js",
+  "assets/stamps-data.js",
   "assets/experiences-data.js",
   "assets/source-data.js",
+  "assets/story-data.js",
   "assets/guide-data.js"
 ];
 
@@ -185,6 +187,97 @@ for (const city of ["tokyo", "kyoto", "osaka"]) {
   if (count < 4) failures.push(`${city}: only ${count} merchant(s) for a main stop`);
 }
 
+// Le schede scritte a mano esistono per non ripetersi: se due condividono una
+// frase intera, il problema che dovevano risolvere è tornato. Il modello
+// generato può ripetersi — è fatto di pezzi comuni — ma il testo d'autore no.
+const stories = context.window.TABI_STORIES || {};
+const storyIds = Object.keys(stories);
+const sentenceOwner = new Map();
+for (const id of storyIds) {
+  const story = stories[id];
+  if (!story.long || story.long.length < 400) {
+    failures.push(`story ${id}: long description under 400 characters — that is a caption, not a story`);
+  }
+  if (!Array.isArray(story.sections) || story.sections.length < 3) {
+    failures.push(`story ${id}: fewer than three sections`);
+  }
+  if (!(story.sections || []).some((section) => section.fun)) {
+    failures.push(`story ${id}: missing the semiserious note`);
+  }
+  if (!Array.isArray(story.sources) || story.sources.length < 2) {
+    failures.push(`story ${id}: fewer than two sources for a written card`);
+  }
+  for (const source of story.sources || []) {
+    if (!source.title || !/^https:\/\//.test(source.url || "")) failures.push(`story ${id}: invalid source`);
+  }
+  const text = [story.long].concat((story.sections || []).map((section) => section.body)).join(" ");
+  // Frasi lunghe soltanto: "Il percorso è a senso unico" può legittimamente
+  // ricorrere, un periodo di quaranta parole no.
+  for (const sentence of text.split(/(?<=[.!?])\s+/)) {
+    const clean = sentence.trim();
+    if (clean.length < 90) continue;
+    const owner = sentenceOwner.get(clean);
+    if (owner && owner !== id) failures.push(`story ${id}: shares a whole sentence with ${owner} — the written cards must not repeat each other`);
+    else sentenceOwner.set(clean, id);
+  }
+}
+
+// I timbri sono una lista scritta a mano perché OpenStreetMap non li mappa:
+// senza controllo, un refuso nelle coordinate manderebbe qualcuno a cercare un
+// banco dentro un altro isolato. Ogni timbro deve portare la sua fonte, stare
+// vicino al castello che dichiara, e quel castello deve esistere nella guida.
+const stamps = (context.window.JAPAN_STAMPS || {}).stamps || [];
+const stampPoints = mapPoints.filter((point) => point.type === "stamp");
+if (stamps.length !== stampPoints.length) {
+  failures.push(`stamps: ${stamps.length} declared but ${stampPoints.length} reached the map`);
+}
+const metersBetween = (lat1, lon1, lat2, lon2) => {
+  const R = 6371000, rad = Math.PI / 180;
+  const dLat = (lat2 - lat1) * rad, dLon = (lon2 - lon1) * rad;
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * rad) * Math.cos(lat2 * rad) * Math.sin(dLon / 2) ** 2;
+  return Math.round(2 * R * Math.asin(Math.sqrt(h)));
+};
+for (const stamp of stamps) {
+  if (!Number.isFinite(stamp.lat) || !Number.isFinite(stamp.lng)) {
+    failures.push(`stamp ${stamp.slug}: missing coordinates`);
+    continue;
+  }
+  if (!stamp.where || !stamp.site) failures.push(`stamp ${stamp.slug}: missing the exact spot or the site it belongs to`);
+  if (!stamp.sourceUrl || !/^https:\/\//.test(stamp.sourceUrl)) failures.push(`stamp ${stamp.slug}: a stamp without a source is a rumour`);
+
+  // Ogni timbro si ancora a qualcosa di diverso a seconda del programma: un
+  // timbro dei 100 castelli sta nel recinto del suo castello, uno di stazione
+  // sta in stazione, gli altri stanno almeno nella città che dichiarano. Il
+  // metro serve a intercettare una cifra sbagliata — un refuso sposta di
+  // chilometri o di continenti — non a misurare la precisione.
+  const isCastle = /名城|castell/i.test(stamp.program || "");
+  const anchorCandidates = isCastle
+    ? (data.places || []).filter((place) => place.city === stamp.city && place.category === "castello")
+      .concat(mapPoints.filter((point) => point.type === "visit" && point.city === stamp.city && /castello|皇居|palazzo imperiale/i.test(point.name + " " + (point.jp || ""))))
+    : [];
+  const city = data.cities.find((entry) => entry.id === stamp.city);
+  if (isCastle && !anchorCandidates.length) {
+    failures.push(`stamp ${stamp.slug}: castle programme but no castle in ${stamp.city}`);
+    continue;
+  }
+  if (!city) {
+    failures.push(`stamp ${stamp.slug}: unknown city ${stamp.city}`);
+    continue;
+  }
+  // Il recinto del castello di Edo è largo più di un chilometro e mezzo e le
+  // sue tre postazioni stanno agli angoli: la soglia è larga per questo.
+  // Fuori dai castelli si controlla solo che il timbro cada nella sua città.
+  const anchors = anchorCandidates
+    .map((candidate) => (Number.isFinite(candidate.lat) ? candidate : mapPoints.find((point) => point.guideId === candidate.id)))
+    .filter((anchor) => anchor && Number.isFinite(anchor.lat));
+  const limit = isCastle ? 2000 : 30000;
+  const reference = anchors.length ? anchors : [city];
+  const distance = Math.min(...reference.map((anchor) => metersBetween(stamp.lat, stamp.lng, anchor.lat, anchor.lng)));
+  if (distance > limit) {
+    failures.push(`stamp ${stamp.slug}: ${distance} m from ${anchors.length ? "its castle" : city.name} — beyond the ${limit} m the programme allows`);
+  }
+}
+
 // Il service worker precacha gli asset con il token ?v= : se diverge da quello
 // usato in index.html, la shell "in cache" contiene URL che la pagina non
 // richiede mai e offline non funziona niente.
@@ -245,6 +338,43 @@ if (scriptOrder.indexOf("guide-data.js") !== -1 && scriptOrder.indexOf("map-data
 if (scriptOrder.indexOf("guide-data.js") !== -1 && scriptOrder.indexOf("experiences-data.js") !== -1
   && scriptOrder.indexOf("guide-data.js") < scriptOrder.indexOf("experiences-data.js")) {
   failures.push("index.html: guide-data.js must load after experiences-data.js — the experience overrides come first");
+}
+
+// Due schede con nomi diversi non possono mostrare la stessa foto: chi legge
+// non vede due cose vicine, vede un doppione e smette di fidarsi. Restano
+// legittimi i casi in cui un nome contiene l'altro — la stessa cosa raccontata
+// da una scheda e dal suo punto sulla mappa, o da un luogo e dalla sua visita.
+const curatedImages = (() => {
+  const box = {};
+  try { new Function("window", readFileSync(new URL("../assets/curated-images-data.js", root), "utf8"))(box); }
+  catch (_) { return {}; }
+  return box.TABI_CURATED_IMAGES || {};
+})();
+const nameById = new Map();
+[].concat(data.places, data.mapPlaces || [], data.experiences || [], data.merchants || [], data.foods || [], data.shopping || [])
+  .forEach((item) => nameById.set(item.id, item.name));
+mapPoints.forEach((point) => { if (!nameById.has("map-image-" + point.id)) nameById.set("map-image-" + point.id, point.name); });
+[].concat(data.foods || [], data.shopping || []).forEach((item) => {
+  const match = item.imageUrl && item.imageUrl.match(/file\/([^?]+)/);
+  if (match) curatedImages[item.id] = [match[1]];
+});
+
+const flatName = (value) => String(value || "").toLowerCase().normalize("NFD").replace(/[^a-z0-9]/g, "");
+const idsByFile = new Map();
+for (const [id, entry] of Object.entries(curatedImages)) {
+  const file = decodeURIComponent(entry[0]);
+  if (!idsByFile.has(file)) idsByFile.set(file, []);
+  idsByFile.get(file).push(id);
+}
+for (const [file, ids] of idsByFile) {
+  const names = [...new Set(ids.map((id) => flatName(nameById.get(id) || id)))];
+  if (names.length < 2) continue;
+  const unrelated = names.filter((one, index) =>
+    names.every((other, position) => position === index || (!one.includes(other) && !other.includes(one))));
+  if (unrelated.length > 1) {
+    const labels = [...new Set(ids.map((id) => nameById.get(id) || id))].join(" / ");
+    failures.push(`curated-images-data.js: "${file}" is shared by different subjects (${labels})`);
+  }
 }
 
 if (failures.length) {

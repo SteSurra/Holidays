@@ -1,31 +1,265 @@
 {
   "_nota": "Correzioni manuali decise guardando le immagini una per una. Vincono sempre sulla scelta automatica di refresh-curated-images.mjs e sopravvivono a ogni rigenerazione. Il valore null forza 'nessuna curazione' quando nessun file disponibile e' rappresentativo: meglio il fallback che una foto sbagliata.",
-
-  "place-hiroshima-a-bomb-dome": { "file": "Hiroshima Peace Memorial (Genbaku Dome), 20240817 1036 4219.jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hiroshima_Peace_Memorial_(Genbaku_Dome),_20240817_1036_4219.jpg", "credit": "Jakub Hałun · CC BY 4.0 · Wikimedia Commons" },
-  "place-hiroshima-shukkeien": { "file": "Shukkei-en, Hiroshima, Japan, 20240817 1249 4271.jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shukkei-en,_Hiroshima,_Japan,_20240817_1249_4271.jpg", "credit": "Jakub Hałun · CC BY 4.0 · Wikimedia Commons" },
-  "place-kamakura-great-buddha": { "file": "Le Grand Bouddha du Kotoku-in (Kamakura, Japon) (42096289494).jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Le_Grand_Bouddha_du_Kotoku-in_(Kamakura,_Japon)_(42096289494).jpg", "credit": "Jean-Pierre Dalbéra · CC BY 2.0 · Wikimedia Commons" },
-  "place-kanazawa-nagamachi": { "file": "Nagamachi samurai district.jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagamachi_samurai_district.jpg", "credit": "sergejf · CC BY 2.0 · Wikimedia Commons" },
-  "place-kyoto-arashiyama": { "file": "Arashiyama - Bamboo Forest, Kyoto, Japan1.jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arashiyama_-_Bamboo_Forest,_Kyoto,_Japan1.jpg", "credit": "dconvertini · CC BY-SA 2.0 · Wikimedia Commons" },
-  "place-kyoto-rurikoin": { "file": "Rurikoin-autumn-reflection-2019-Luka-Peternel.jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rurikoin-autumn-reflection-2019-Luka-Peternel.jpg", "credit": "Luka Peternel · CC BY-SA 4.0 · Wikimedia Commons" },
-  "place-kyoto-uji-river": { "file": "Uji Jinja (Uji, Kyoto) Bridge hdsr S5 1.jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uji_Jinja_(Uji,_Kyoto)_Bridge_hdsr_S5_1.jpg", "credit": "Hyppolyte de Saint-Rambert · CC BY 4.0 · Wikimedia Commons" },
-  "place-miyajima-omotesando": { "file": "Miyajimacho, Hatsukaichi, Hiroshima Prefecture 739-0588, Japan - panoramio (13).jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Miyajimacho,_Hatsukaichi,_Hiroshima_Prefecture_739-0588,_Japan_-_panoramio_(13).jpg", "credit": "Nirmal Raj Joshi · CC BY-SA 3.0 · Wikimedia Commons" },
-  "place-nagano-zenkoji": { "file": "Zenkoji Temple Hondo.jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zenkoji_Temple_Hondo.jpg", "credit": "快速踊り子 · CC BY-SA 4.0 · Wikimedia Commons" },
-  "place-osaka-billiken": { "file": "Corona Distance meets Billiken Shinsekai3.jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corona_Distance_meets_Billiken_Shinsekai3.jpg", "credit": "Mr.ちゅらさん · CC BY-SA 4.0 · Wikimedia Commons" },
-  "place-osaka-minoo-falls": { "file": "Minoonotaki.jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Minoonotaki.jpg", "credit": "SAM · CC BY-SA 3.0 · Wikimedia Commons" },
-  "place-osaka-umeda-sky": { "file": "2018 Umeda Sky Building.jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:2018_Umeda_Sky_Building.jpg", "credit": "Kakidai · CC BY-SA 4.0 · Wikimedia Commons" },
-  "place-shirakawago-ogimachi": { "file": "Night in Shirakawago - Flickr - tsuda.jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Night_in_Shirakawago_-_Flickr_-_tsuda.jpg", "credit": "tsuda · CC BY-SA 2.0 · Wikimedia Commons" },
-  "place-tokyo-animate-akiba": { "file": "Don Quijote Akihabara, Animate Akihabara, and Comic Toranoana Akihabara 20051229.jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Don_Quijote_Akihabara,_Animate_Akihabara,_and_Comic_Toranoana_Akihabara_20051229.jpg", "credit": "Chris 73 · CC BY-SA 3.0 · Wikimedia Commons" },
-  "place-tokyo-animate-ikebukuro": { "file": "Animate store in Tokyo.jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Animate_store_in_Tokyo.jpg", "credit": "Danny Choo · CC BY-SA 2.0 · Wikimedia Commons" },
-  "place-tokyo-ginkgo-avenue": { "file": "Fall Foliage of Gingko (Icho) at Jingu Gaien Icho Namiki Ave. (31086887982).jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fall_Foliage_of_Gingko_(Icho)_at_Jingu_Gaien_Icho_Namiki_Ave._(31086887982).jpg", "credit": "nakashi · CC BY-SA 2.0 · Wikimedia Commons" },
-  "place-tokyo-meguro-river": { "file": "Meguro River Sakura Festival @ Meguro River (13592694743).jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Meguro_River_Sakura_Festival_@_Meguro_River_(13592694743).jpg", "credit": "Guilhem Vellut · CC BY 2.0 · Wikimedia Commons" },
-  "place-tokyo-shibuya-parco": { "file": "Shibuya Parco Hulic Building.jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shibuya_Parco_Hulic_Building.jpg", "credit": "稲妻ノ歯鯨 · CC BY-SA 4.0 · Wikimedia Commons" },
-  "map-image-map-visit-nagano-m-wave": { "file": "M-Wave from the west.jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:M-Wave_from_the_west.jpg", "credit": "Christophe95 · CC BY-SA 4.0 · Wikimedia Commons" },
-  "map-image-map-visit-tokyo-ghibli-museum": { "file": "Ghibli Museum - GhibliMuseum864.jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ghibli_Museum_-_GhibliMuseum864.jpg", "credit": "lumoplank · CC0 · Wikimedia Commons" },
-
-  "experience-tokyo-warner-bros-studio": { "file": "Warner Bros. Studio Tour Tokyo entrance (1) 2023-08-17.jpg", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Warner_Bros._Studio_Tour_Tokyo_entrance_(1)_2023-08-17.jpg", "credit": "Asanagi · CC0 · Wikimedia Commons" },
-
+  "place-hiroshima-a-bomb-dome": {
+    "file": "Hiroshima Peace Memorial (Genbaku Dome), 20240817 1036 4219.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hiroshima_Peace_Memorial_(Genbaku_Dome),_20240817_1036_4219.jpg",
+    "credit": "Jakub Hałun · CC BY 4.0 · Wikimedia Commons"
+  },
+  "place-hiroshima-shukkeien": {
+    "file": "Shukkei-en, Hiroshima, Japan, 20240817 1249 4271.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shukkei-en,_Hiroshima,_Japan,_20240817_1249_4271.jpg",
+    "credit": "Jakub Hałun · CC BY 4.0 · Wikimedia Commons"
+  },
+  "place-kamakura-great-buddha": {
+    "file": "Le Grand Bouddha du Kotoku-in (Kamakura, Japon) (42096289494).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Le_Grand_Bouddha_du_Kotoku-in_(Kamakura,_Japon)_(42096289494).jpg",
+    "credit": "Jean-Pierre Dalbéra · CC BY 2.0 · Wikimedia Commons"
+  },
+  "place-kanazawa-nagamachi": {
+    "file": "Nagamachi samurai district.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagamachi_samurai_district.jpg",
+    "credit": "sergejf · CC BY 2.0 · Wikimedia Commons"
+  },
+  "place-kyoto-arashiyama": {
+    "file": "Arashiyama - Bamboo Forest, Kyoto, Japan1.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arashiyama_-_Bamboo_Forest,_Kyoto,_Japan1.jpg",
+    "credit": "dconvertini · CC BY-SA 2.0 · Wikimedia Commons"
+  },
+  "place-kyoto-rurikoin": {
+    "file": "Rurikoin-autumn-reflection-2019-Luka-Peternel.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rurikoin-autumn-reflection-2019-Luka-Peternel.jpg",
+    "credit": "Luka Peternel · CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  "place-kyoto-uji-river": {
+    "file": "Uji Jinja (Uji, Kyoto) Bridge hdsr S5 1.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uji_Jinja_(Uji,_Kyoto)_Bridge_hdsr_S5_1.jpg",
+    "credit": "Hyppolyte de Saint-Rambert · CC BY 4.0 · Wikimedia Commons"
+  },
+  "place-miyajima-omotesando": {
+    "file": "Miyajimacho, Hatsukaichi, Hiroshima Prefecture 739-0588, Japan - panoramio (13).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Miyajimacho,_Hatsukaichi,_Hiroshima_Prefecture_739-0588,_Japan_-_panoramio_(13).jpg",
+    "credit": "Nirmal Raj Joshi · CC BY-SA 3.0 · Wikimedia Commons"
+  },
+  "place-nagano-zenkoji": {
+    "file": "Zenkoji Temple Hondo.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zenkoji_Temple_Hondo.jpg",
+    "credit": "快速踊り子 · CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  "place-osaka-billiken": {
+    "file": "Corona Distance meets Billiken Shinsekai3.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corona_Distance_meets_Billiken_Shinsekai3.jpg",
+    "credit": "Mr.ちゅらさん · CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  "place-osaka-minoo-falls": {
+    "file": "Minoonotaki.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Minoonotaki.jpg",
+    "credit": "SAM · CC BY-SA 3.0 · Wikimedia Commons"
+  },
+  "place-osaka-umeda-sky": {
+    "file": "2018 Umeda Sky Building.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2018_Umeda_Sky_Building.jpg",
+    "credit": "Kakidai · CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  "place-shirakawago-ogimachi": {
+    "file": "Night in Shirakawago - Flickr - tsuda.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Night_in_Shirakawago_-_Flickr_-_tsuda.jpg",
+    "credit": "tsuda · CC BY-SA 2.0 · Wikimedia Commons"
+  },
+  "place-tokyo-animate-akiba": {
+    "file": "Don Quijote Akihabara, Animate Akihabara, and Comic Toranoana Akihabara 20051229.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Don_Quijote_Akihabara,_Animate_Akihabara,_and_Comic_Toranoana_Akihabara_20051229.jpg",
+    "credit": "Chris 73 · CC BY-SA 3.0 · Wikimedia Commons"
+  },
+  "place-tokyo-animate-ikebukuro": {
+    "file": "Animate store in Tokyo.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Animate_store_in_Tokyo.jpg",
+    "credit": "Danny Choo · CC BY-SA 2.0 · Wikimedia Commons"
+  },
+  "place-tokyo-ginkgo-avenue": {
+    "file": "Fall Foliage of Gingko (Icho) at Jingu Gaien Icho Namiki Ave. (31086887982).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fall_Foliage_of_Gingko_(Icho)_at_Jingu_Gaien_Icho_Namiki_Ave._(31086887982).jpg",
+    "credit": "nakashi · CC BY-SA 2.0 · Wikimedia Commons"
+  },
+  "place-tokyo-meguro-river": {
+    "file": "Meguro River Sakura Festival @ Meguro River (13592694743).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Meguro_River_Sakura_Festival_@_Meguro_River_(13592694743).jpg",
+    "credit": "Guilhem Vellut · CC BY 2.0 · Wikimedia Commons"
+  },
+  "place-tokyo-shibuya-parco": {
+    "file": "Shibuya Parco Hulic Building.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shibuya_Parco_Hulic_Building.jpg",
+    "credit": "稲妻ノ歯鯨 · CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  "map-image-map-visit-nagano-m-wave": {
+    "file": "M-Wave from the west.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:M-Wave_from_the_west.jpg",
+    "credit": "Christophe95 · CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  "map-image-map-visit-tokyo-ghibli-museum": {
+    "file": "Ghibli Museum - GhibliMuseum864.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ghibli_Museum_-_GhibliMuseum864.jpg",
+    "credit": "lumoplank · CC0 · Wikimedia Commons"
+  },
+  "experience-tokyo-warner-bros-studio": {
+    "file": "Warner Bros. Studio Tour Tokyo entrance (1) 2023-08-17.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Warner_Bros._Studio_Tour_Tokyo_entrance_(1)_2023-08-17.jpg",
+    "credit": "Asanagi · CC0 · Wikimedia Commons"
+  },
+  "food-all-abura-soba": {
+    "file": "Ramen Jump 002.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ramen_Jump_002.jpg",
+    "credit": "Ocdp · CC0 · Wikimedia Commons"
+  },
+  "food-all-highball": {
+    "file": "HiBall-1.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:HiBall-1.jpg",
+    "credit": "Ttsuchitori · CC BY-SA 3.0 · Wikimedia Commons"
+  },
+  "food-all-kakigori": {
+    "file": "Maccha Kakigōri Kiwami 20220718.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Maccha_Kakig%C5%8Dri_Kiwami_20220718.jpg",
+    "credit": "先従隗始 · CC0 · Wikimedia Commons"
+  },
+  "food-all-menchi-katsu": {
+    "file": "豚料理専門店 豚都IMG 20220601 222946 06.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E8%B1%9A%E6%96%99%E7%90%86%E5%B0%82%E9%96%80%E5%BA%97_%E8%B1%9A%E9%83%BDIMG_20220601_222946_06.jpg",
+    "credit": "経済特区 · CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  "food-all-purin": {
+    "file": "Japanese Caramel Custard Pudding, Purin, Flan.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Japanese_Caramel_Custard_Pudding,_Purin,_Flan.jpg",
+    "credit": "Clairenguyen23 · CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  "food-hakone-hakone-soba": {
+    "file": "Zaru Soba.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zaru_Soba.jpg",
+    "credit": "Immanuelle · CC BY 4.0 · Wikimedia Commons"
+  },
+  "food-nagano-sobagaki": {
+    "file": "Sobagaki (8181786884).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sobagaki_(8181786884).jpg",
+    "credit": "pelican · CC BY-SA 2.0 · Wikimedia Commons"
+  },
+  "food-osaka-ikayaki": {
+    "file": "Ikayaki (7629347178).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ikayaki_(7629347178).jpg",
+    "credit": "suri · CC BY-SA 2.0 · Wikimedia Commons"
+  },
+  "shop-all-small-woodblock-print": {
+    "file": "Hodakayama, from the series Twelve Scenes in the Japan Alps, Hiroshi Yoshida.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hodakayama,_from_the_series_Twelve_Scenes_in_the_Japan_Alps,_Hiroshi_Yoshida.jpg",
+    "credit": "Hiroshi Yoshida · pubblico dominio · Wikimedia Commons"
+  },
+  "shop-all-tenugui": {
+    "file": "Toshimana dancing with a tenugui.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toshimana_dancing_with_a_tenugui.jpg",
+    "credit": "ZacharyOakes · CC BY-SA 2.0 · Wikimedia Commons"
+  },
+  "shop-matsumoto-temari": {
+    "file": "Japanese Temari ball flanked by a maneki neko (01) (50532211976).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Japanese_Temari_ball_flanked_by_a_maneki_neko_(01)_(50532211976).jpg",
+    "credit": "Paul van de Velde · CC BY 2.0 · Wikimedia Commons"
+  },
   "place-tokyo-odaiba": null,
   "experience-kyoto-butokuden-budo": null,
   "experience-osaka-castle-park-run": null,
-  "experience-hiroshima-peace-cycling": null
+  "experience-hiroshima-peace-cycling": null,
+  "map-image-map-tabelog-nara-gen": null,
+  "map-image-map-tabelog-shirakawago-tenkara": null,
+  "shop-all-hanko": null,
+  "shop-all-manga-artbook": null,
+  "shop-hiroshima-tulip-needles": null,
+  "shop-hiroshima-kumano-brush": null,
+  "shop-kyoto-kyoto-incense": null,
+  "shop-nara-nara-fude": null,
+  "shop-nara-nara-ink": null,
+  "shop-nara-ittobori": null,
+  "shop-takayama-ichii-itto": null,
+  "shop-miyajima-rice-scoop": null,
+  "shop-kanazawa-mizuhiki": null,
+  "merchant-tokyo-loft-shibuya": null,
+  "merchant-tokyo-mizuho": null,
+  "place-kyoto-kyoto-gyoen": {
+    "file": "Kyoto Gyoen National Garden (48890751547).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kyoto_Gyoen_National_Garden_(48890751547).jpg",
+    "credit": "Domenico Convertini · CC BY-SA 2.0 · Wikimedia Commons"
+  },
+  "place-kanazawa-higashi": {
+    "file": "Higashi Chaya District (50153813518).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Higashi_Chaya_District_(50153813518).jpg",
+    "credit": "Raita Futo · CC BY 2.0 · Wikimedia Commons"
+  },
+  "place-osaka-hozenji-yokocho": {
+    "file": "Osaka - Osaka194.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osaka_-_Osaka194.jpg",
+    "credit": "lumoplank · CC0 · Wikimedia Commons"
+  },
+  "place-nagano-nakamise-nagano": {
+    "file": "Zenkoji Temple “Nakamise street”.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zenkoji_Temple_%E2%80%9CNakamise_street%E2%80%9D.jpg",
+    "credit": "快速踊り子 · CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  "merchant-tokyo-tower-shibuya": {
+    "file": "Tower Records.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tower_Records.jpg",
+    "credit": "bfishadow · CC BY 2.0 · Wikimedia Commons"
+  },
+  "merchant-osaka-pokemon-osaka-dx": {
+    "file": "Osaka Pokémon Center.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osaka_Pok%C3%A9mon_Center.jpg",
+    "credit": "Aaron Lai · CC BY 2.0 · Wikimedia Commons"
+  },
+  "merchant-osaka-donki-dotonbori": {
+    "file": "Don Quijote, Nanba - panoramio (2).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Don_Quijote,_Nanba_-_panoramio_(2).jpg",
+    "credit": "DVMG · CC BY 3.0 · Wikimedia Commons"
+  },
+  "merchant-osaka-bic-namba": {
+    "file": "Bic Camera Outlet Namba 2026-05 1.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bic_Camera_Outlet_Namba_2026-05_1.jpg",
+    "credit": "Mr.ちゅらさん · CC BY-SA 3.0 · Wikimedia Commons"
+  },
+  "food-all-curry-udon": {
+    "file": "Curry Udon, Sanukiya, Paris March 2016 001.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Curry_Udon,_Sanukiya,_Paris_March_2016_001.jpg",
+    "credit": "Guilhem Vellut · CC BY 2.0 · Wikimedia Commons"
+  },
+  "food-all-tebasaki": {
+    "file": "Nagoya chicken wings.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nagoya_chicken_wings.jpg",
+    "credit": "Geographer · CC BY-SA 3.0 · Wikimedia Commons"
+  },
+  "food-hiroshima-hiroshima-okonomi": {
+    "file": "Hiroshima-Style Okonomiyaki (40283556800).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hiroshima-Style_Okonomiyaki_(40283556800).jpg",
+    "credit": "Ajay Suresh · CC BY 2.0 · Wikimedia Commons"
+  },
+  "food-kamakura-nama-shirasu": {
+    "file": "Japanese raw whitebait 2014.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Japanese_raw_whitebait_2014.jpg",
+    "credit": "Kentin · CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  "map-image-map-visit-kyoto-gyoen": {
+    "file": "Kyoto Gyoen National Garden (48890751547).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kyoto_Gyoen_National_Garden_(48890751547).jpg",
+    "credit": "Domenico Convertini · CC BY-SA 2.0 · Wikimedia Commons"
+  },
+  "map-image-map-visit-kanazawa-higashi-chaya": {
+    "file": "Higashi Chaya District (50153813518).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Higashi_Chaya_District_(50153813518).jpg",
+    "credit": "Raita Futo · CC BY 2.0 · Wikimedia Commons"
+  },
+  "map-image-map-visit-osaka-hozenji-yokocho": {
+    "file": "Osaka - Osaka194.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osaka_-_Osaka194.jpg",
+    "credit": "lumoplank · CC0 · Wikimedia Commons"
+  },
+  "map-image-map-visit-nagano-nakamise-dori": {
+    "file": "Zenkoji Temple “Nakamise street”.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zenkoji_Temple_%E2%80%9CNakamise_street%E2%80%9D.jpg",
+    "credit": "快速踊り子 · CC BY-SA 4.0 · Wikimedia Commons"
+  },
+  "merchant-kyoto-pokemon-kyoto": null,
+  "merchant-tokyo-pokemon-mega": null,
+  "merchant-tokyo-bic-shinjuku": null
 }

@@ -745,10 +745,28 @@
     });
   }
 
-  data.places.forEach(enrichPlace);
-  data.foods.forEach(enrichFood);
-  data.shopping.forEach(enrichShopping);
-  data.history.forEach(enrichHistory);
-  (data.experiences || []).forEach(enrichExperience);
+  // Il testo scritto a mano vince sempre sul testo assemblato. I modelli qui
+  // sopra sanno dire che cos'è un tempio, non perché quel tempio sia bruciato
+  // nel 1950: dove qualcuno l'ha scritto, quella è la scheda. Le fonti si
+  // sostituiscono solo se la storia ne porta di sue, così una scheda scritta
+  // senza bibliografia non resta scoperta.
+  function applyStory(item) {
+    const story = (window.TABI_STORIES || {})[item.id];
+    if (!story) return;
+    if (story.long) item.longDescription = story.long;
+    if (Array.isArray(story.sections) && story.sections.length) item.guideSections = story.sections;
+    if (Array.isArray(story.sources) && story.sources.length) item.sources = story.sources;
+    item.hasStory = true;
+  }
+
+  function enrichAll(list, enrich) {
+    (list || []).forEach(function (item) { enrich(item); applyStory(item); });
+  }
+
+  enrichAll(data.places, enrichPlace);
+  enrichAll(data.foods, enrichFood);
+  enrichAll(data.shopping, enrichShopping);
+  enrichAll(data.history, enrichHistory);
+  enrichAll(data.experiences, enrichExperience);
   enrichMapPoints();
 })();
