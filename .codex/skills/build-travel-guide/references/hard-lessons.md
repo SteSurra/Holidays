@@ -61,6 +61,16 @@ lesson, append it here in the same commit — this file is the skill's memory.
   must also remove their markers — data and presentation age together.
 - **Serialize once per burst.** Stringifying a 4000-point cache on every
   arriving chunk is main-thread work a phone can feel; debounce the save.
+- **The safety copy lives outside the blast radius of the reset it protects
+  against.** "Reset the app" clears localStorage, so the single-slot backup
+  lives in its own IndexedDB database and survives by construction — never by
+  a list of exceptions someone must remember to maintain. Replace the slot
+  with ONE atomic `put` in one transaction (a quota failure rolls back to the
+  previous copy instead of leaving none); on restore, replace the risky blob
+  store first in one transaction, then the plain keys, then reload — a fresh
+  page load is the only trustworthy re-init after bulk state change. Never
+  back up cache-readiness signatures: restored stale, they suppress the
+  reconcile that keeps the offline copy complete.
 
 ## External services
 
@@ -68,6 +78,22 @@ lesson, append it here in the same commit — this file is the skill's memory.
   pipeline had per-provider cooldowns while Overpass got instant retries on
   the mirror. Every 429 sets a per-endpoint cooldown (the header's value, or
   60 s).
+- **Against a rate limit, cut calls before you tune waits.** A curation pass
+  over ~900 items was throttled to 3 items/min — a 4-hour run. Two wrong
+  guesses first: the limit is not per host (en.wikipedia and Commons returned
+  429 together — it is per IP across the platform) and it is not about the
+  User-Agent. The fix was arithmetic: batch what the API batches. MediaWiki
+  takes up to 50 titles per `titles=` query and Wikidata 50 ids per
+  `wbgetentities`, so per-item metadata and claim lookups collapse into one
+  call per 25 items — ~3.5 calls per item became ~1.5, and the run went from
+  4 hours to 9 minutes. Only searches stay per item, because nothing batches
+  them; skip the ones a previous answer made redundant (don't ask ja.wiki
+  when en.wiki already returned a lead image and a QID).
+- **A backoff must decay as fast as it grows.** Multiplying spacing by 1.6 on
+  every 429 while shrinking it 3% per success meant one bad minute slowed the
+  queue for the rest of the run — the throttle outlived the throttling. Pair
+  every penalty factor with a comparable recovery factor (×1.6 up, ×0.82
+  down) and floor it at a base spacing.
 - **`navigator.onLine === false` is truth; `true` is a rumor.** Captive
   portals and dead-but-associated Wi-Fi report `true` — exactly the airport
   scenario a travel guide serves. Therefore shape-validate every 200 body
@@ -129,6 +155,25 @@ lesson, append it here in the same commit — this file is the skill's memory.
   refactor is only done when a byte-for-byte snapshot of the full data model
   before and after says IDENTICAL.
 
+## Touch targets and gestures
+
+- **A gesture that hides chrome starts on its own handle, never on the
+  controls it hides.** The swipe-to-hide listener sat on the whole bottom nav:
+  a thumb rolling 26 px during a tab tap collapsed the bar instead of
+  switching view. Scope the gesture to the grip; the tabs stay tap-only by
+  construction, and no threshold tuning can beat that.
+- **Invisible hit areas must not overlap the fat-finger band of neighbors.**
+  The grip's transparent 92×30 px target floated over the strip where thumbs
+  actually land when aiming at the top of the center tabs. Size hidden targets
+  so they end at the edge of the sibling control, and give them an `:active`
+  state — with `-webkit-tap-highlight-color: transparent` the pill itself is
+  the only feedback that says "you hit the handle, not the tab".
+- **Every touch sequence ends three ways.** `touchend` is not guaranteed: iOS
+  cancels gestures for notifications and palm rejection, and a missing
+  `touchcancel` handler leaves the "was swiping" flag armed for the next
+  unrelated tap. Handle start/end/cancel symmetrically, and `touch-action:
+  none` on the handle so the drag never doubles as a page scroll.
+
 ## Data integrity and checks
 
 - **A check that cannot fail is documentation.** The transfer-stop validator
@@ -164,6 +209,45 @@ lesson, append it here in the same commit — this file is the skill's memory.
   network must keep its switch on with an honest message, not untick itself;
   the area loads by itself when the network returns.
 
+## Representative photos
+
+- **Search rank is not iconicity — the encyclopedia's own choice is.** A
+  Commons full-text search for "Osaka castle" ranks a moat-and-office-towers
+  shot first and an Italian tourist's garden upload as the top "relevant"
+  hit; the article's lead image and Wikidata's P18 are curated by humans to
+  BE the representative view. Resolve images at build time through that trust
+  cascade (article lead → P18 → scored search as last resort), store the
+  chosen file per item id, and let the runtime search survive only as a
+  fallback for the uncovered tail.
+- **Never gate relevance on the localized display name.** Requiring the
+  Italian "castello" in file titles rejected every good English-titled
+  candidate and left only amateur uploads with Italian names. Key terms come
+  from the search query written in the titles' language (and the native name
+  for CJK titles), with diacritics folded ("Sensō-ji" ≈ "Sensoji") — but
+  compact substring matching needs a minimum key length, or "sky" matches
+  "Skytree".
+- **Grep the chosen filenames; the eye slides over what the text makes
+  obvious.** Reviewing ~170 images by sight caught seventeen wrong ones and
+  still missed "Entrance of Warner Bros. Studio Tour **London**" on a Tokyo
+  card — it looked exactly like what it should have been. One regex over the
+  picked filenames for wrong-medium words (plan, sketch, drawing, diagram,
+  map, detail, poster) and wrong-place words (London, Berlin, Paris, Cornwall,
+  Seoul…) found it in a second, plus a Berlin monument standing in for a
+  Hiroshima bike ride. Run both passes: eyes for "is this the iconic view",
+  text for "is this even the right subject". Then push both word lists into
+  the resolver so the next run never proposes them.
+- **A generic subject needs a second proof.** For categories rather than
+  proper nouns (a dish, a product type, a craft), one shared word between
+  query and article title is coincidence: "Japanese pottery shop" matched
+  "Leach Pottery" and put a Cornwall museum on a Japanese ceramics card.
+  Require two significant words, or the native-language name, before trusting
+  an article — and keep the single-word rule only for named places.
+- **A curated pick is a promise: verify it like one, and version the cache.**
+  The audit HEAD-checks every stored file and fails loud on a broken one
+  instead of falling back to search; and when curation replaces a live-search
+  cache, bump the cache key — 650 stale wrong choices otherwise survive on
+  every returning device.
+
 ## Photo translation
 
 - **In-app OCR pipelines age poorly; the user's AI app does not.** Tesseract
@@ -171,10 +255,19 @@ lesson, append it here in the same commit — this file is the skill's memory.
   added the only dependency the service worker could not precache. Instead:
   capture the photo, then hand it to the AI app the user already has via the
   Web Share API (`navigator.canShare({files})`) with a prefilled prompt;
-  fall back to copy-to-clipboard plus opening the app's site. The photo
+  fall back to copy-to-clipboard plus opening the assistant. The photo
   leaves the device only by the user's explicit share gesture — the app
   itself never uploads anything. Keep a plain text deep link
   (`translate.google.com/?sl=…&tl=…&text=…`) for typed translation.
+- **"Open in the app" means the app, not the website.** On Android use
+  `intent://host#Intent;scheme=https;package=…;S.browser_fallback_url=…;end`
+  — it opens the installed app and falls back to the site by itself. On iOS
+  navigate to the app's custom scheme and arm a ~1.4 s timer that goes to
+  the site only if the page never went hidden (hidden = the app opened).
+  On phones, wait up to a second for the clipboard write to land BEFORE
+  deep-linking: navigating away too early leaves the clipboard empty. There
+  is no reliable way to feature-detect an installed app from the web — the
+  fallback is the design, not an apology.
 
 ## User documents
 

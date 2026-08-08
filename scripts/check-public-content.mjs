@@ -10,6 +10,9 @@ const forbiddenExtensions = /\.(?:pdf|docx?|heic|heif|jpe?g|png|webp)$/i;
 // Solo le icone dell'app. Ogni altra immagine resta vietata, perché è da lì che
 // passerebbero foto del viaggio, biglietti e documenti.
 const allowedBinaryAssets = /^assets\/icons\/(?:icon-192|icon-512|apple-touch-icon)\.png$/;
+// Cataloghi di nomi file di terze parti: unica eccezione, e solo alla regola
+// delle date ISO (vedi il commento nel ciclo qui sotto).
+const imageCatalogs = /^(?:assets\/curated-images-data\.js|scripts\/image-overrides\.json)$/;
 const textRules = [
   ["email address", /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i],
   ["exact ISO date", /\b20\d{2}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\d|3[01])\b/],
@@ -35,6 +38,13 @@ for (const file of files) {
   let content;
   try { content = readFileSync(file, "utf8"); } catch { continue; }
   for (const [label, pattern] of textRules) {
+    // I due cataloghi di immagini contengono nomi di file di Wikimedia
+    // Commons, e molti fotografi datano lo scatto dentro il nome del file. È
+    // la data della foto, pubblica e altrui: questa regola difende le date
+    // del viaggio, che in un file generato dai metadati di Commons non
+    // possono comparire. Tutte le altre regole — indirizzi, chiavi, token —
+    // restano attive anche su questi due file.
+    if (label === "exact ISO date" && imageCatalogs.test(file)) continue;
     if (pattern.test(content)) failures.push(`${file}: detected ${label}`);
   }
 }

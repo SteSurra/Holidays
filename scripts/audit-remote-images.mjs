@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import vm from "node:vm";
 
 const root = new URL("../", import.meta.url);
@@ -6,21 +6,30 @@ const context = { window: {} };
 vm.createContext(context);
 // Anche attività e negozianti: le loro query immagine non venivano mai
 // verificate, ed erano proprio le schede con i soggetti più difficili.
-for (const file of ["assets/parse-lib.js", "assets/data.js", "assets/food-data.js", "assets/shopping-data.js", "assets/food-extra-data.js", "assets/map-data.js", "assets/merchants-data.js", "assets/experiences-data.js"]) {
+for (const file of ["assets/parse-lib.js", "assets/data.js", "assets/food-data.js", "assets/shopping-data.js", "assets/food-extra-data.js", "assets/map-data.js", "assets/merchants-data.js", "assets/experiences-data.js", "assets/curated-images-data.js"]) {
+  if (!existsSync(new URL(file, root))) continue; // il file curato nasce da refresh-curated-images.mjs
   vm.runInContext(readFileSync(new URL(file, root), "utf8"), context, { filename: file });
 }
 
 const data = context.window.JAPAN_DATA;
+const curatedMap = context.window.TABI_CURATED_IMAGES || {};
+// I punti mappa senza scheda risolvono con l'id sintetico di map.js: la
+// verifica deve guardare lo stesso posto in cui guarderà il telefono.
+const soloMapPoints = ((context.window.JAPAN_MAP_DATA && context.window.JAPAN_MAP_DATA.points) || [])
+  .filter((point) => !point.guideId && point.name)
+  .map((point) => ({ id: "map-image-" + point.id, name: point.name, jp: "", imageQuery: "", city: point.city, type: point.type === "tabelog" ? "food" : "place" }));
 const typeArg = process.argv.find((arg) => arg.startsWith("--type="))?.split("=")[1] || "all";
 const limitArg = Number(process.argv.find((arg) => arg.startsWith("--limit="))?.split("=")[1] || 0);
 const offsetArg = Number(process.argv.find((arg) => arg.startsWith("--offset="))?.split("=")[1] || 0);
 const workersArg = Number(process.argv.find((arg) => arg.startsWith("--workers="))?.split("=")[1] || 1);
 const collectionsByType = {
+  place: [data.places || []],
   food: [data.foods],
   shop: [data.shopping],
   experience: [data.experiences || []],
   merchant: [data.merchants || []],
-  all: [data.foods, data.shopping, data.experiences || [], data.merchants || []]
+  mappoint: [soloMapPoints],
+  all: [data.places || [], data.foods, data.shopping, data.experiences || [], data.merchants || [], soloMapPoints]
 };
 const collections = collectionsByType[typeArg] || collectionsByType.all;
 let items = collections.flat().slice(Math.max(offsetArg, 0));
@@ -124,15 +133,21 @@ function providersFor(item) {
 async function audit(item) {
   const queries = queriesFor(item);
   try {
-    if (item.imageUrl) {
-      const response = await fetchWithBackoff(item.imageUrl, { method: "HEAD" });
+    // Un URL curato (nel data file o nella mappa centrale) è una promessa
+    // fatta alla scheda: se è rotto deve fallire l'audit, non ripiegare in
+    // silenzio sulla ricerca live.
+    const curated = curatedMap[item.id];
+    const directUrl = item.imageUrl || (curated ? "https://commons.wikimedia.org/wiki/Special:Redirect/file/" + curated[0] + "?width=960" : "");
+    if (directUrl) {
+      const response = await fetchWithBackoff(directUrl, { method: "HEAD" });
       if (response?.ok && /^image\//i.test(response.headers.get("Content-Type") || "")) {
-        return { item, provider: "Curated URL", query: item.imageUrl };
+        return { item, provider: "Curated URL", query: directUrl };
       }
+      return { item, error: `URL curato rotto (HTTP ${response?.status})` };
     }
     for (const [provider, search] of providersFor(item)) {
       for (const query of queries.slice(0, 2)) {
-        if (await search(query)) return { item, provider, query };
+        if (await search(query)) return { item, provider, query, uncurated: true };
       }
     }
   } catch (error) {
@@ -160,6 +175,11 @@ const providers = resolved.reduce((groups, result) => {
 }, {});
 console.log(`Resolved ${resolved.length}/${results.length} (${Math.round((resolved.length / Math.max(results.length, 1)) * 100)}%).`);
 for (const [provider, matches] of Object.entries(providers)) console.log(`- ${provider}: ${matches.length}`);
+const uncurated = resolved.filter((result) => result.uncurated);
+if (uncurated.length) {
+  console.log(`Senza curazione, affidati alla ricerca live (${uncurated.length}):`);
+  for (const result of uncurated) console.log(`- ${result.item.id}: ${result.item.name}`);
+}
 if (unresolved.length) {
   console.log("Unresolved:");
   for (const result of unresolved) console.log(`- ${result.item.id}: ${result.item.name}${result.error ? ` (${result.error})` : ""}`);

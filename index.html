@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#14181a" media="(prefers-color-scheme: dark)">
   <meta name="description" content="Guida di viaggio in Giappone con itinerario, mappa, luoghi, attività, cibo, acquisti e storie.">
   <title>Giappone 2026 | Tabi</title>
-  <link rel="manifest" href="manifest.webmanifest?v=20260804i">
+  <link rel="manifest" href="manifest.webmanifest?v=20260805a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://commons.wikimedia.org">
@@ -33,9 +33,9 @@
       } catch (_) { /* senza storage si segue il sistema al primo apply() */ }
     })();
   </script>
-  <link rel="stylesheet" href="assets/styles.css?v=20260804i">
-  <link rel="icon" href="assets/icons/icon.svg?v=20260804i" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260804i">
+  <link rel="stylesheet" href="assets/styles.css?v=20260805a">
+  <link rel="icon" href="assets/icons/icon.svg?v=20260805a" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=20260805a">
 </head>
 <body>
   <a class="skip-link" href="#main">Vai al contenuto</a>
@@ -327,7 +327,7 @@
             <button class="ocr-destination is-primary" id="photoToChatgpt" type="button" disabled><strong>Apri in ChatGPT</strong><span>Copia la foto e apre la chat ↗</span></button>
             <button class="ocr-destination" id="photoToGemini" type="button" disabled><strong>Apri in Gemini</strong><span>Copia la foto e apre la chat ↗</span></button>
           </div>
-          <p class="helper-note">Sul telefono conviene <b>Condividi</b>: si apre la tendina di sistema, scegli l'app ChatGPT o Gemini e la richiesta di traduzione arriva già scritta insieme alla foto. I due bottoni qui sopra copiano la foto e aprono la chat nel browser: lì incollala — o allegala con la graffetta — e chiedi di tradurla. Serve il proprio account su quel servizio.</p>
+          <p class="helper-note">Sul telefono conviene <b>Condividi</b>: si apre la tendina di sistema, scegli l'app ChatGPT o Gemini e la richiesta di traduzione arriva già scritta insieme alla foto. I due bottoni qui sopra copiano la foto e aprono <b>l'app se è sul telefono</b> (altrimenti il sito): nella chat incollala — o allegala con la graffetta — e chiedi di tradurla. Serve il proprio account su quel servizio.</p>
         </div>
       </section>
       <section class="photo-translator" aria-labelledby="textTranslatorTitle">
@@ -458,7 +458,17 @@
         <button class="quick-rate-guide" type="button" data-go="money">Monete e banconote →</button>
       </div>
       <div class="nav-menu-grid"><button data-go="phrases">あ <span>Parole<small>Frasi pronte, con la pronuncia</small></span></button><button data-go="emergency">! <span>Emergenze<small>Numeri, frasi e posizione</small></span></button><button data-go="progress">✓ <span>Progressi<small>Cosa avete già visto e provato</small></span></button><button data-go="packing">🧳 <span>Cosa portare<small>Lista valigia da spuntare</small></span></button><button data-go="documents">🎫 <span>Documenti<small>Biglietti e QR, solo sul telefono</small></span></button><button data-go="notes">✎ <span>Note<small>Appunti salvati sul telefono</small></span></button><button data-go="saved">♡ <span>Salvati<small>Preferiti e checklist di gruppo</small></span></button></div>
-      <button class="nav-menu-reset" type="button" data-reset-all>⟲ <span>Riporta l'app come nuova<small>Cancella itinerari, spunte, preferiti, note e valigia da questo telefono</small></span></button></div>
+      <div class="nav-menu-backup" id="backupPanel">
+        <p class="eyebrow">Copia di sicurezza</p>
+        <p class="helper-note" id="backupStatus" role="status">Nessun backup salvato su questo telefono.</p>
+        <div class="backup-actions">
+          <button id="backupSaveButton" type="button">Salva backup</button>
+          <button id="backupRestoreButton" type="button" disabled>Ripristina</button>
+          <button id="backupDeleteButton" type="button" disabled>Elimina</button>
+        </div>
+        <p class="helper-note">Una sola copia, solo su questo telefono: preferiti, itinerari, spunte, note, valigia e documenti. Salvarne una nuova sostituisce la precedente; resta anche dopo «Riporta l'app come nuova».</p>
+      </div>
+      <button class="nav-menu-reset" type="button" data-reset-all>⟲ <span>Riporta l'app come nuova<small>Cancella itinerari, spunte, preferiti, note e valigia da questo telefono. Documenti e backup restano.</small></span></button></div>
   </dialog>
   <dialog class="document-viewer" id="documentViewerDialog" aria-labelledby="documentViewerTitle">
     <button class="dialog-close document-viewer-close" type="button" aria-label="Chiudi">×</button>
@@ -481,26 +491,28 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script src="assets/parse-lib.js?v=20260804i" defer></script>
-  <script src="assets/data.js?v=20260804i" defer></script>
-  <script src="assets/food-data.js?v=20260804i" defer></script>
-  <script src="assets/shopping-data.js?v=20260804i" defer></script>
-  <script src="assets/food-extra-data.js?v=20260804i" defer></script>
-  <script src="assets/travel-data.js?v=20260804i" defer></script>
-  <script src="assets/history-data.js?v=20260804i" defer></script>
-  <script src="assets/phrases-data.js?v=20260804i" defer></script>
-  <script src="assets/glossary-data.js?v=20260804i" defer></script>
-  <script src="assets/packing-data.js?v=20260804i" defer></script>
-  <script src="assets/money-data.js?v=20260804i" defer></script>
-  <script src="assets/day-tips-data.js?v=20260804i" defer></script>
-  <script src="assets/map-data.js?v=20260804i" defer></script>
-  <script src="assets/merchants-data.js?v=20260804i" defer></script>
-  <script src="assets/transit-data.js?v=20260804i" defer></script>
-  <script src="assets/experiences-data.js?v=20260804i" defer></script>
-  <script src="assets/source-data.js?v=20260804i" defer></script>
-  <script src="assets/guide-data.js?v=20260804i" defer></script>
-  <script src="assets/map.js?v=20260804i" defer></script>
-  <script src="assets/documents.js?v=20260804i" defer></script>
-  <script src="assets/app.js?v=20260804i" defer></script>
+  <script src="assets/parse-lib.js?v=20260805a" defer></script>
+  <script src="assets/data.js?v=20260805a" defer></script>
+  <script src="assets/food-data.js?v=20260805a" defer></script>
+  <script src="assets/shopping-data.js?v=20260805a" defer></script>
+  <script src="assets/food-extra-data.js?v=20260805a" defer></script>
+  <script src="assets/travel-data.js?v=20260805a" defer></script>
+  <script src="assets/history-data.js?v=20260805a" defer></script>
+  <script src="assets/phrases-data.js?v=20260805a" defer></script>
+  <script src="assets/glossary-data.js?v=20260805a" defer></script>
+  <script src="assets/packing-data.js?v=20260805a" defer></script>
+  <script src="assets/money-data.js?v=20260805a" defer></script>
+  <script src="assets/day-tips-data.js?v=20260805a" defer></script>
+  <script src="assets/map-data.js?v=20260805a" defer></script>
+  <script src="assets/merchants-data.js?v=20260805a" defer></script>
+  <script src="assets/transit-data.js?v=20260805a" defer></script>
+  <script src="assets/experiences-data.js?v=20260805a" defer></script>
+  <script src="assets/source-data.js?v=20260805a" defer></script>
+  <script src="assets/guide-data.js?v=20260805a" defer></script>
+  <script src="assets/curated-images-data.js?v=20260805a" defer></script>
+  <script src="assets/map.js?v=20260805a" defer></script>
+  <script src="assets/documents.js?v=20260805a" defer></script>
+  <script src="assets/backup.js?v=20260805a" defer></script>
+  <script src="assets/app.js?v=20260805a" defer></script>
 </body>
 </html>

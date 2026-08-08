@@ -40,7 +40,7 @@ If an existing guide is provided, inspect and preserve its itinerary, hotel name
 11. Add transit layers when the destination has them, off by default: railway stations under one symbol and colour, and metro stops resolved to their individual line. Derive the line from the station code and operator carried by the open map data rather than downloading route relations, keep a curated table of official line names and colours so the mapping works offline, and fall back to a neutral marker when the line cannot be determined instead of guessing. Show a legend of the lines currently in view, not of the whole network.
 12. Load openly licensed remote images lazily with limited concurrency, per-item caching, meaningful alt text, source attribution, at least two alternate queries, retry/backoff, provider cooldowns, deterministic provider rotation, and local SVG fallback. Rotate Wikimedia Commons, Openverse, Japanese Wikipedia, and English Wikipedia; do not keep hammering a provider after `429`.
 13. Keep the application installable and the static shell available offline. Do not claim map tiles or remote photos work fully offline.
-14. Audit image-query resolution across food and shopping datasets instead of spot-checking. Review unresolved and obviously irrelevant matches manually; do not replace a missing image with a confidently wrong one.
+14. Decide images at build time, not in the browser: a script resolves each item through article lead image → Wikidata P18 → scored Commons search, writes one generated data file keyed by item ID, and the runtime search survives only as the fallback for what that pass could not cover. Keep the manual corrections in a separate overrides file the generator never rewrites. Audit resolution across every dataset — places included — instead of spot-checking, look at the chosen images with your own eyes, and grep the chosen filenames for wrong-medium and wrong-place words: that text audit catches what the eye slides over. Do not replace a missing image with a confidently wrong one.
 15. Track completion across places, experiences, foods, shopping, and history using stable IDs in localStorage. Show overall, per-domain, and per-city progress; preserve existing keys, provide one confirmed reset for all completion state without deleting favorites, and support versioned export/import without requiring registration.
 16. For photo translation, do not build an in-page OCR pipeline: browser OCR reads vertical Japanese poorly, adds a CDN dependency the service worker cannot precache, and still hands the result to a translator that never saw the image. Instead capture the photo and hand it to the user's own AI app (ChatGPT, Gemini) via the Web Share API with a prefilled translate-and-explain prompt, with a copy-photo-and-open-chat fallback for browsers without file sharing. The photo must leave the device only through the user's explicit share or copy gesture — the guide never uploads it. Keep a separate plain-text card that deep-links typed text to Google Translate (`?sl=auto&tl=it&op=translate&text=…`). See [references/hard-lessons.md](references/hard-lessons.md).
 17. Verify JavaScript syntax, unique IDs, required fields, source coverage, distinct detail copy, mobile width at 320 and 390 px, mobile navigation grouping, filters, saved state, progress totals and reset, image rotation and fallback, attribution, popup photos and completion, marker deep links, wheel and touch map interaction, map resizing, service-worker cache version and its asset token matching the one the page requests, every published link reachable and every map link in the `api=1` form, lodging and transfer-stop coordinates verified against the trip documents, the walking order proved shortest, repository cleanliness, exact lodging-name alignment between route and map, a detail link for every visit marker, every merchant rating carrying its source and date, saved selections restoring without touching other stops, and each saved entry expanding into its full card.
@@ -48,7 +48,25 @@ If an existing guide is provided, inspect and preserve its itinerary, hotel name
 
 ## Shopping Depth
 
-Build a discovery guide, not a souvenir list. Cover at least ten relevant categories and give each item:
+Build a discovery guide, not a souvenir list — and not a catalogue either.
+**Every card must be a thing a traveler can point at in a shop**: a brand and
+product ("Canmake Cream Cheek"), a named workshop's craft ("Yojiya
+aburatorigami"), a technique tied to a place ("Kutani-yaki"). Rows that name a
+*category* — "Japanese skincare", "artisan chopsticks", "regional ceramics" —
+are guidance, not items: fold them into one line of advice inside a real card
+or into the city intro, and delete the card. Breadth is not the goal; a short
+list of findable things beats ten categories of prose.
+
+There is a cheap test for this, discovered the hard way: **an item nobody can
+photograph is usually an item nobody can buy.** When a build-time image pass
+(article lead image, Wikidata P18, scored Commons search) finds nothing for an
+entry while it finds something for its neighbours, that entry is almost always
+a concept rather than an object. Treat unresolvable images as a content
+signal, not just a media gap. Commercial products are the exception that
+proves it: they are specific but no encyclopedia photographs a lipstick, so
+they take an official press image or none at all — never a lookalike.
+
+Cover the categories that the destination genuinely rewards, and give each item:
 
 - what it is and why it is interesting in this destination;
 - how to recognize the exact product, technique, edition, or model;

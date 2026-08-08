@@ -327,8 +327,10 @@ Quattro sezioni con la stessa struttura della mappa: ricerca, filtri, schede,
   i piatti che consigliamo di più: è un giudizio nostro, non di una fonte
   esterna. Il punteggio giallo sui punti della mappa è invece di **Tabelog**,
   altra cosa e altra scala.
-- **Acquisti** — 150 fra artigianato, cibo da portare a casa, beauty, manga e
-  tecnologia, con dove si trovano e cosa guardare.
+- **Acquisti** — 124 cose che si possono indicare a un commesso: artigianato
+  con un nome e un luogo, prodotti di marca introvabili qui, cibo da portare a
+  casa, manga e tecnologia. Niente voci-categoria del tipo «cartoleria
+  giapponese»: se non si può indicare, non è una scheda.
 - **Attività** — 100 fra musei, laboratori, onsen e corsi di cucina. Molte
   hanno il collegamento per prenotare.
 - **Storie** — 83 pezzi corti di storia, architettura e aneddoti, per capire
@@ -374,8 +376,9 @@ ingresso/uscita, uomini/donne, aperto/in preparazione, al completo.
   richiesta arriva già scritta insieme alla foto — tradurre *e* dire che cos'è,
   elencando i piatti di un menu con gli ingredienti a rischio (pesce crudo,
   maiale, frutti di mare, arachidi). In alternativa i bottoni **Apri in
-  ChatGPT / Apri in Gemini** copiano la foto e aprono la chat nel browser:
-  lì la si incolla e si chiede di tradurla. Serve il proprio account.
+  ChatGPT / Apri in Gemini** copiano la foto e aprono **l'app**, se è
+  installata sul telefono (altrimenti il sito): nella chat la si incolla e si
+  chiede di tradurla. Serve il proprio account.
 - **Testo → Google Traduttore.** Per una frase scritta o ricopiata: si digita
   nel riquadro e si apre la traduzione già pronta.
 
@@ -430,6 +433,20 @@ compare **Annulla** per qualche secondo, come per le note.
 Tutto resta **solo su questo dispositivo**: nessun file viene caricato in
 rete, e la riga in fondo alla schermata mostra quanto spazio sta usando l'app.
 
+### La copia di sicurezza
+
+In fondo al pannello Utilità, sopra il tasto rosso, c'è la **copia di
+sicurezza**: un backup unico, salvato solo su questo telefono, che fotografa
+tutto quello che hai costruito — preferiti, spunte, itinerari e percorsi, note,
+valigia, tema e **documenti**. **Salva backup** crea la copia (e sostituisce la
+precedente: ne esiste sempre una sola), **Ripristina** riporta l'app esatta a
+quel momento, **Elimina** la toglie, con **Annulla** per qualche secondo.
+
+Serve per le cancellazioni per sbaglio — un itinerario tolto, una lista
+pasticciata — e sopravvive anche a «Riporta l'app come nuova»: dopo un reset,
+se un backup c'è, si può sempre tornare indietro. La riga sotto il titolo dice
+sempre di quando è l'ultima copia e cosa contiene.
+
 ### Le altre voci
 
 - **Progressi** — quanto hai visto, mangiato, comprato e letto, in totale e città
@@ -449,9 +466,11 @@ rete, e la riga in fondo alla schermata mostra quanto spazio sta usando l'app.
 
 In fondo al menu, in rosso, c'è **Riporta l'app come nuova**: cancella da questo
 telefono itinerari e percorsi, spunte, preferiti, note, valigia e selezione della
-mappa, e riporta tutto a com'era appena installata. Chiede conferma perché non
-si può annullare — serve a chi ha pasticciato e non sa più quale delle liste
-sistemare, non a fare pulizia di una cosa sola.
+mappa, e riporta tutto a com'era appena installata. **I documenti e la copia di
+sicurezza restano**: se prima del reset hai salvato un backup, da lì si torna
+indietro. Chiede conferma perché di per sé non si può annullare — serve a chi ha
+pasticciato e non sa più quale delle liste sistemare, non a fare pulizia di una
+cosa sola.
 
 ---
 

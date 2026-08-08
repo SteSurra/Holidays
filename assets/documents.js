@@ -38,6 +38,17 @@
     });
   }
 
+  // Il backup legge i documenti anche se questa schermata non è mai stata
+  // aperta: l'apertura del database non può più dipendere da init().
+  function ensureDb() {
+    if (db) return Promise.resolve(db);
+    if (!window.indexedDB) return Promise.reject(new Error("IndexedDB non disponibile"));
+    return openDb().then(function (database) {
+      db = database;
+      return db;
+    });
+  }
+
   function tx(mode, run) {
     return new Promise(function (resolve, reject) {
       const transaction = db.transaction(STORE, mode);
@@ -269,8 +280,7 @@
       byId("documentsStatus").textContent = "Questo browser non ha l'archivio locale: i documenti non si possono salvare qui.";
       return;
     }
-    openDb().then(function (database) {
-      db = database;
+    ensureDb().then(function () {
       return loadAll();
     }).then(function () {
       bindEvents();
@@ -283,4 +293,37 @@
   window.addEventListener("tabi:viewchange", function (event) {
     if (event.detail && event.detail.view === "documents") init();
   });
+
+  // API minima per il backup (assets/backup.js), sullo schema di TABI_UI e
+  // TABI_MAP: lo schema di tabi-documents resta di proprietà di questo file.
+  window.TABI_DOCS = {
+    exportAll: function () {
+      return ensureDb().then(function () {
+        return tx("readonly", function (store) { return store.getAll(); });
+      }).then(function (rows) { return rows || []; });
+    },
+    // Sostituzione integrale in UNA transazione: se una put fallisce (quota),
+    // il rollback lascia i documenti attuali intatti invece di un archivio
+    // svuotato a metà.
+    replaceAll: function (rows) {
+      return ensureDb().then(function () {
+        return new Promise(function (resolve, reject) {
+          const transaction = db.transaction(STORE, "readwrite");
+          const store = transaction.objectStore(STORE);
+          store.clear();
+          (rows || []).forEach(function (row) { store.put(row); });
+          transaction.oncomplete = function () { resolve(); };
+          transaction.onerror = function () { reject(transaction.error); };
+          transaction.onabort = function () { reject(transaction.error); };
+        });
+      }).then(function () {
+        // Se la schermata era già stata aperta, l'elenco in memoria si
+        // riallinea subito; se no, records resta null e il primo init rilegge.
+        if (records) {
+          records = (rows || []).slice().sort(function (a, b) { return b.addedAt - a.addedAt; });
+          render();
+        }
+      });
+    }
+  };
 })();

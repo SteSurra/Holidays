@@ -18,6 +18,9 @@
     shop: "assets/fallback-shop.svg",
     merchant: "assets/fallback-shop.svg"
   };
+  // La cache v4 conteneva le scelte della vecchia ricerca live (gate sul nome
+  // italiano): 650 voci potenzialmente sbagliate da non lasciare in giro.
+  try { localStorage.removeItem("tabi-image-cache-v4"); } catch (_) {}
   const state = {
     favorites: new Set(readJSON("tabi-favorites", [])),
     done: new Set(readJSON("tabi-done", [])),
@@ -26,7 +29,7 @@
     // sparire in silenzio. La guida mostra tutte le possibilità; è l'utente a
     // decidere cosa nascondere.
     hidden: new Set(readJSON("tabi-hidden-v1", [])),
-    imageCache: readJSON("tabi-image-cache-v4", {}),
+    imageCache: readJSON("tabi-image-cache-v5", {}),
     position: null,
     currentView: "",
     previousView: "",
@@ -66,7 +69,7 @@
   // "cache pronta". NON va nell'URL di registrazione del service worker: un
   // URL che cambia a ogni rilascio forza una reinstallazione del worker in
   // più — e il toast di aggiornamento arrivava due volte di fila.
-  const RELEASE = "20260804i";
+  const RELEASE = "20260805a";
 
   function readJSON(key, fallback) {
     try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch (_) { return fallback; }
@@ -80,11 +83,11 @@
     try { localStorage.setItem(key, value); return true; }
     catch (_) {
       try {
-        localStorage.removeItem("tabi-image-cache-v4");
+        localStorage.removeItem("tabi-image-cache-v5");
         state.imageCache = {};
         // Se a sfondare la quota era proprio la cache immagini, riscriverla
         // intera rifarebbe il danno: riparte vuota.
-        localStorage.setItem(key, key === "tabi-image-cache-v4" ? "{}" : value);
+        localStorage.setItem(key, key === "tabi-image-cache-v5" ? "{}" : value);
         return true;
       } catch (_) { return false; }
     }
@@ -1632,17 +1635,22 @@
   }
 
   function hasKeyTerm(item, text) {
-    const key = keyTerm(item, significantWords((item && item.name) || ""));
+    const key = keyTerm(item, significantWords((item && item.imageQuery) || (item && item.name) || ""));
     if (!key) return true;
     return new Set(significantWords(text)).has(key)
       || Boolean(item && item.jp && item.jp.length > 1 && String(text).indexOf(item.jp) !== -1);
   }
 
-  // La parola più caratteristica del nome deve comparire: senza questo vincolo
+  // La parola più caratteristica deve comparire: senza questo vincolo
   // "Okonomiyaki Hiroshima" accettava qualunque veduta di Hiroshima, che è
   // esattamente il modo in cui finivano stazioni e cartelli sulle schede.
+  // La parola arriva dalla imageQuery (inglese, come i titoli dei file), MAI
+  // dal nome italiano: "Castello di Osaka" pretendeva "castello" nel titolo,
+  // scartava ogni candidato buono in inglese e teneva solo gli upload
+  // amatoriali italiani — le mura col ciliegio al posto del mastio.
   function keyTerm(item, queryWords) {
-    const own = significantWords((item && item.name) || "").filter(function (word) { return !CITY_WORDS.has(word); });
+    const source = (item && item.imageQuery) || "";
+    const own = significantWords(source).filter(function (word) { return !CITY_WORDS.has(word); });
     const pool = own.length ? own : queryWords;
     return pool.slice().sort(function (left, right) { return right.length - left.length; })[0] || "";
   }
@@ -1894,6 +1902,16 @@
       sourceUrl: item.imageSourceUrl || "",
       provider: directProvider
     };
+    // La curazione decisa al build time (lead image di Wikipedia, Wikidata
+    // P18, revisione a occhio) batte cache e ricerca live: la ricerca resta
+    // solo per ciò che nessuna fonte editoriale copre.
+    const curated = window.TABI_CURATED_IMAGES && window.TABI_CURATED_IMAGES[item.id];
+    if (!options.skipDirect && !excluded.has("curated") && curated) return {
+      url: "https://commons.wikimedia.org/wiki/Special:Redirect/file/" + curated[0] + "?width=960",
+      credit: curated[2] || "Wikimedia Commons",
+      sourceUrl: curated[1] || "",
+      provider: "curated"
+    };
     if (!options.force && state.imageCache[item.id] && !excluded.has(state.imageCache[item.id].provider)) return state.imageCache[item.id];
     if (!navigator.onLine) return "";
     const requestKey = item.id + "|" + Array.from(excluded).sort().join(",");
@@ -1925,7 +1943,7 @@
       state.imageCache[item.id] = result;
       const keys = Object.keys(state.imageCache);
       if (keys.length > 650) delete state.imageCache[keys[0]];
-      safeSetItem("tabi-image-cache-v4", JSON.stringify(state.imageCache));
+      safeSetItem("tabi-image-cache-v5", JSON.stringify(state.imageCache));
       return result;
     } catch (_) {
       return "";
@@ -1982,6 +2000,9 @@
       quickRateSync();
       refreshRate(false).then(quickRateSync);
     }
+    // La riga "Ultimo backup: …" si aggiorna a ogni apertura del pannello:
+    // salvataggi e ripristini possono essere avvenuti in tutt'altro momento.
+    if (menu === "tools" && window.TABI_BACKUP) window.TABI_BACKUP.refresh();
   }
 
   function rememberMenuOrigin(view, menu) {
@@ -3591,10 +3612,43 @@
     const shareButton = document.getElementById("photoShareButton");
     const clearButton = document.getElementById("photoClearButton");
     const status = document.getElementById("photoStatus");
+    // Per ogni assistente: il sito, e le tre strade per arrivare all'APP quando
+    // è sul telefono — su Android l'intent:// (apre l'app se c'è, altrimenti il
+    // fallback dichiarato), su iOS lo schema dell'app con ripiego temporizzato
+    // al sito. Sul desktop resta il sito.
     const appButtons = [
-      { node: document.getElementById("photoToChatgpt"), name: "ChatGPT", url: "https://chatgpt.com/" },
-      { node: document.getElementById("photoToGemini"), name: "Gemini", url: "https://gemini.google.com/app" }
+      { node: document.getElementById("photoToChatgpt"), name: "ChatGPT", web: "https://chatgpt.com/", iosScheme: "chatgpt://", androidPackage: "com.openai.chatgpt", androidHost: "chatgpt.com" },
+      { node: document.getElementById("photoToGemini"), name: "Gemini", web: "https://gemini.google.com/app", iosScheme: "googlegemini://", androidPackage: "com.google.android.apps.bard", androidHost: "gemini.google.com/app" }
     ].filter(function (entry) { return entry.node; });
+
+    const IS_ANDROID = /Android/i.test(navigator.userAgent);
+    const IS_IOS = /iPhone|iPad|iPod/i.test(navigator.userAgent)
+      || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+    function openAssistant(entry) {
+      if (IS_ANDROID) {
+        // Chrome apre l'app del pacchetto indicato; se manca, va da solo al
+        // browser_fallback_url. Tutto in un colpo, senza indovinare.
+        window.location.href = "intent://" + entry.androidHost + "#Intent;scheme=https;package=" + entry.androidPackage
+          + ";S.browser_fallback_url=" + encodeURIComponent(entry.web) + ";end";
+        return;
+      }
+      if (IS_IOS) {
+        // Lo schema apre l'app se è installata (la pagina va in background e
+        // il timer si annulla). Se dopo un attimo siamo ancora qui, l'app non
+        // c'è: si apre il sito nella stessa scheda.
+        const fallback = window.setTimeout(function () {
+          if (!document.hidden) window.location.href = entry.web;
+        }, 1400);
+        window.addEventListener("pagehide", function () { clearTimeout(fallback); }, { once: true });
+        document.addEventListener("visibilitychange", function onHide() {
+          if (document.hidden) { clearTimeout(fallback); document.removeEventListener("visibilitychange", onHide); }
+        });
+        window.location.href = entry.iosScheme;
+        return;
+      }
+      window.open(entry.web, "_blank", "noopener");
+    }
 
     const AI_PROMPT = "Traduci in italiano il testo in questa foto. Poi dimmi in due righe che cos'è: se è un menu elenca i piatti con gli ingredienti principali, segnalando pesce crudo, carne di maiale, frutti di mare e arachidi.";
     let previewUrl = "";
@@ -3677,23 +3731,31 @@
     }
 
     appButtons.forEach(function (entry) {
-      entry.node.addEventListener("click", function () {
+      entry.node.addEventListener("click", async function () {
         const file = currentFile();
         if (!file) return;
         // La copia si registra nello stesso gesto del clic (ClipboardItem
-        // accetta una Promise) e la chat si apre subito dopo: aspettare la
-        // conversione prima di aprire farebbe scattare il blocco popup.
+        // accetta una Promise). Sul desktop la chat si apre subito — aspettare
+        // farebbe scattare il blocco popup. Sul telefono invece si lascia alla
+        // copia fino a un secondo per atterrare prima di passare all'app:
+        // navigando via troppo presto gli appunti restavano vuoti.
+        let copyDone = null;
         if (navigator.clipboard && window.ClipboardItem) {
-          navigator.clipboard.write([new ClipboardItem({ "image/png": fileAsPngBlob(file) })]).then(function () {
+          copyDone = navigator.clipboard.write([new ClipboardItem({ "image/png": fileAsPngBlob(file) })]).then(function () {
             status.textContent = "Foto copiata. In " + entry.name + " tocca il campo del messaggio, incolla e chiedi di tradurla.";
+            return true;
           }).catch(function () {
-            status.textContent = "Non sono riuscito a copiarla: in " + entry.name + " allegala con la graffetta (la trovi nel rullino), poi chiedi di tradurla.";
+            status.textContent = "Non sono riuscito a copiarla: in " + entry.name + " allegala con la graffetta o il +, poi chiedi di tradurla.";
+            return false;
           });
           status.textContent = "Copio la foto e apro " + entry.name + "…";
         } else {
-          status.textContent = "Questo browser non copia le foto: in " + entry.name + " allegala con la graffetta, poi chiedi di tradurla.";
+          status.textContent = "Questo browser non copia le foto: in " + entry.name + " allegala con la graffetta o il +, poi chiedi di tradurla.";
         }
-        window.open(entry.url, "_blank", "noopener");
+        if ((IS_ANDROID || IS_IOS) && copyDone) {
+          await Promise.race([copyDone, new Promise(function (resolve) { setTimeout(resolve, 1000); })]);
+        }
+        openAssistant(entry);
       });
     });
 
@@ -3714,10 +3776,10 @@
     }
   }
 
-  // La barra in basso si abbassa con uno scorrimento verso il basso, per
-  // liberare lo schermo, e torna con uno verso l'alto. La maniglia sporge
-  // sempre dal bordo, quindi resta anche il tocco per chi non usa i gesti, e la
-  // scelta resta su questo telefono.
+  // La barra si nasconde e riappare solo dalla maniglia, con un tocco o un
+  // trascinamento. Il gesto era sull'intera barra, ma bastava una deriva
+  // verticale del pollice durante un tap perché la barra si chiudesse al posto
+  // di cambiare schermata. La scelta resta su questo telefono.
   function setupNavGestures() {
     const nav = document.getElementById("bottomNav");
     const grip = document.getElementById("navGrip");
@@ -3737,25 +3799,31 @@
 
     setCollapsed(localStorage.getItem("tabi-nav-hidden") === "1", false);
 
-    nav.addEventListener("touchstart", function (event) {
+    grip.addEventListener("touchstart", function (event) {
       startY = event.touches[0].clientY;
       swiped = false;
     }, { passive: true });
 
-    nav.addEventListener("touchmove", function (event) {
+    grip.addEventListener("touchmove", function (event) {
       const delta = event.touches[0].clientY - startY;
-      if (Math.abs(delta) < 26) return;
+      if (Math.abs(delta) < 18) return;
       swiped = true;
       setCollapsed(delta > 0);
     }, { passive: true });
 
-    // Il dito si stacca sopra un pulsante anche quando si voleva solo abbassare
-    // la barra: senza questo, nascondendola si cambierebbe pure schermata.
-    nav.addEventListener("touchend", function (event) {
+    // Il rilascio dopo un trascinamento genera anche un click sintetico: senza
+    // questo la maniglia farebbe subito il toggle inverso.
+    grip.addEventListener("touchend", function (event) {
       if (!swiped) return;
       event.preventDefault();
       swiped = false;
     }, { passive: false });
+
+    // iOS può annullare il gesto a metà (notifica, palmo sul bordo): lo stato
+    // del drag non deve restare sporco fino al tocco successivo.
+    grip.addEventListener("touchcancel", function () {
+      swiped = false;
+    }, { passive: true });
 
     grip.addEventListener("click", function () { setCollapsed(!collapsed); });
   }
@@ -3787,7 +3855,7 @@
   const STORAGE_KEYS = [
     "tabi-favorites", "tabi-done", "tabi-hidden-v1", "tabi-itineraries-v1", "tabi-itinerary-active-v1",
     "tabi-current-city", "tabi-notes-v1", "tabi-packing", "tabi-packing-qty-v1", "tabi-local-profile",
-    "tabi-nav-hidden", "tabi-weather", "tabi-jpy-rate", "tabi-jpy-rate-auto", "tabi-image-cache-v4",
+    "tabi-nav-hidden", "tabi-weather", "tabi-jpy-rate", "tabi-jpy-rate-auto", "tabi-image-cache-v5",
     "tabi-facilities-v4", "tabi-cache-ready", "tabi-merchants-start-hidden"
   ];
 
@@ -3796,7 +3864,7 @@
   // conferma perché non c'è modo di tornare indietro — l'Annulla dei toast qui
   // non basterebbe.
   function resetEverything() {
-    if (!window.confirm("Sei sicuro?\n\nCancelli da questo telefono itinerari e percorsi, spunte di visita, preferiti, note, valigia, selezione della mappa e dati salvati. L'app torna come appena installata e non si può annullare.")) return;
+    if (!window.confirm("Sei sicuro?\n\nCancelli da questo telefono itinerari e percorsi, spunte di visita, preferiti, note, valigia, selezione della mappa e dati salvati. I documenti e la copia di sicurezza restano: da un backup salvato puoi ripristinare tutto. L'app torna come appena installata e non si può annullare.")) return;
     STORAGE_KEYS.forEach(function (key) { localStorage.removeItem(key); });
     // Si ricarica invece di rimettere a mano venti pezzi di stato: dopo un
     // azzeramento la pagina appena aperta è la definizione stessa di "come nuova".

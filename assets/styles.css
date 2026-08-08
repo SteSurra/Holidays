@@ -777,13 +777,16 @@ a.cross-link { text-decoration: none; color: inherit; }
 /* WC e fontanelle: livelli spenti di default, elenco sotto la mappa. */
 .legend-dot.toilet { background: #4a6f97; }
 .legend-dot.water { background: #2a8f9c; }
-/* La barra si abbassa con uno scorrimento verso il basso e torna scorrendo in
-   su sulla maniglia, che resta sempre visibile sul bordo: nascosta per sbaglio
-   non è mai persa. */
+/* La barra si abbassa e torna solo dalla maniglia, sempre visibile sul bordo:
+   nascosta per sbaglio non è mai persa. La zona tattile della maniglia finisce
+   al bordo della barra e non entra mai nella fascia "dito grosso" sopra i tab
+   centrali: era così che un tap su Itinerari o Scopri chiudeva la barra. */
 .bottom-nav { transition: transform .28s cubic-bezier(.22,.8,.28,1); }
 .bottom-nav.is-collapsed { transform: translate(-50%, calc(100% + max(16px, var(--safe-bottom)))); }
-.nav-grip { position: absolute; z-index: 1; left: 50%; top: -26px; width: 92px; height: 30px; display: grid; place-items: center; transform: translateX(-50%); border: 0; padding: 0; background: transparent; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.bottom-nav .nav-grip { position: absolute; z-index: 1; left: 50%; top: -26px; width: 72px; height: 26px; min-height: 0; display: grid; place-items: center; transform: translateX(-50%); border: 0; padding: 0; background: transparent; cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: none; }
 .nav-grip::before { content: ""; width: 46px; height: 5px; border-radius: 99px; background: rgba(255,255,255,.4); transition: background .2s ease, width .2s ease; }
+/* Il tap highlight è spento, quindi il feedback lo dà la pillola stessa. */
+.nav-grip:active::before { width: 56px; background: rgba(255,255,255,.85); }
 .bottom-nav.is-collapsed .nav-grip { top: -34px; height: 34px; border: 1px solid rgba(255,255,255,.14); border-bottom: 0; border-radius: 15px 15px 0 0; background: var(--nav-bg); box-shadow: 0 -10px 34px rgba(0,0,0,.26); backdrop-filter: blur(16px); }
 .bottom-nav.is-collapsed .nav-grip::before { width: 40px; background: rgba(255,255,255,.75); }
 body:has(.bottom-nav.is-collapsed) main { padding-bottom: 52px; }
@@ -858,6 +861,13 @@ body:has(.bottom-nav.is-collapsed) main { padding-bottom: 52px; }
 .nav-menu-reset { width: 100%; min-height: var(--tap); display: flex; gap: .7rem; align-items: center; margin-top: .8rem; padding: .9rem 1rem; border: 1px solid color-mix(in srgb, var(--red) 50%, transparent); border-radius: 14px; color: var(--red); background: transparent; text-align: left; cursor: pointer; font: 800 1.05rem "DM Sans", sans-serif; }
 .nav-menu-reset span { display: grid; font-size: .88rem; }
 .nav-menu-reset small { color: var(--muted); font-size: .74rem; font-weight: 500; }
+/* La copia di sicurezza sta accanto al pericolo da cui protegge: sopra il
+   tasto rosso, nello stesso pannello che esiste anche ad app appena nata. */
+.nav-menu-backup { display: grid; gap: .55rem; margin-top: .8rem; padding: .9rem 1rem; border: 1px solid var(--line); border-radius: 14px; }
+.nav-menu-backup .eyebrow, .nav-menu-backup .helper-note { margin: 0; }
+.backup-actions { display: flex; flex-wrap: wrap; gap: .55rem; }
+.backup-actions button { min-height: 42px; border: 1px solid var(--line); border-radius: 999px; padding: .5rem 1rem; background: var(--paper); cursor: pointer; font-size: .75rem; font-weight: 800; }
+.backup-actions button[disabled] { opacity: .45; cursor: default; }
 
 .itinerary-intro h1 { color: var(--moss); }
 .itinerary-new { display: grid; grid-template-columns: 1fr 1.25fr; gap: 1.5rem; margin: 1.5rem 0 2.2rem; padding: 1.5rem; border: 1px solid var(--line); border-radius: 20px; background: var(--white); }
